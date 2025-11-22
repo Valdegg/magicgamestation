@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Test</title>
+    <style>
+        body { font-family: monospace; background: #1a0f0f; color: #d4b36b; padding: 20px; }
+        .test { margin: 20px 0; padding: 15px; border: 1px solid #d4b36b; }
+        img { max-width: 200px; margin: 10px 0; border: 2px solid #d4b36b; }
+        .success { color: #4ade80; }
+        .error { color: #f87171; }
+    </style>
+</head>
+<body>
+    <h1>Image Loading Test</h1>
+    <div id="results"></div>
+    <script>
+        const tests = [
+            '/card_images/Roar_of_the_Wurm.jpg',
+            '/card_images/Basking_Rootwalla.jpg',
+            '/card_images/Lightning_Bolt.jpg',
+        ];
+        
+        tests.forEach(path => {
+            const div = document.createElement('div');
+            div.className = 'test';
+            div.innerHTML = `<h3>Testing: ${path}</h3>`;
+            const img = document.createElement('img');
+            img.src = path;
+            img.onload = () => {
+                div.innerHTML += `<p class="success">✅ Loaded: ${path}</p>`;
+                div.appendChild(img);
+            };
+            img.onerror = () => {
+                div.innerHTML += `<p class="error">❌ Failed: ${path}</p>`;
+                div.innerHTML += `<p>Full URL would be: ${window.location.origin}${path}</p>`;
+            };
+            document.getElementById('results').appendChild(div);
+        });
+    </script>
+</body>
+</html>
+

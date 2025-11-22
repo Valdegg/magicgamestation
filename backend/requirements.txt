@@ -1,0 +1,14 @@
+# Magic Workstation Backend Dependencies
+
+# FastAPI Framework
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0  # ASGI server with auto-reload
+websockets>=12.0  # WebSocket support
+
+# Redis for state persistence
+redis>=5.0.0
+
+# Card Fetching
+requests>=2.31.0
+
+# Python version: 3.7+

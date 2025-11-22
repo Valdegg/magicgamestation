@@ -1,0 +1,14 @@
+{
+  "name": "testing deck",
+  "format": "custom",
+  "description": "Custom deck: testing deck",
+  "main": [
+    "lightning_bolt_UNK",
+    "lightning_bolt_UNK",
+    "lightning_bolt_UNK",
+    "lightning_bolt_UNK",
+    "maze_of_ith_UNK",
+    "maze_of_ith_UNK",
+    "maze_of_ith_UNK"
+  ]
+}

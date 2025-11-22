@@ -1,0 +1,21 @@
+# Card Images Directory
+
+Place your card images here following the naming convention:
+
+`Card_Name_SET.jpg`
+
+Examples:
+- `Lightning_Bolt_A25.jpg`
+- `Serra_Angel_M15.jpg`
+- `Black_Lotus_LEA.jpg`
+
+You already have 410 images in `frontend/card_images/`.
+Run the link script to make them available:
+
+```bash
+cd frontend
+./link_cards.sh
+```
+
+Or move/copy them here directly.
+

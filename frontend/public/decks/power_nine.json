@@ -1,0 +1,32 @@
+{
+  "name": "Power Nine",
+  "format": "vintage",
+  "description": "Vintage power cards and classic spells",
+  "main": [
+    "mountain_UNK",
+    "chrome_mox_UNK",
+    "grim_monolith_UNK",
+    "knowledge_vault_UNK",
+    "lotus_petal_UNK",
+    "lotus_vale_UNK",
+    "mana_vault_UNK",
+    "mox_diamond_UNK",
+    "sol_ring_UNK",
+    "cruel_tutor_UNK",
+    "demonic_tutor_UNK",
+    "enlightened_tutor_UNK",
+    "vampiric_tutor_UNK",
+    "worldly_tutor_UNK",
+    "time_spiral_UNK",
+    "time_warp_UNK",
+    "wheel_of_fortune_UNK",
+    "channel_UNK",
+    "fastbond_UNK",
+    "library_of_leng_UNK",
+    "scroll_rack_UNK",
+    "senseis_divining_top_UNK",
+    "mana_drain_UNK",
+    "force_of_will_UNK",
+    "counterspell_UNK"
+  ]
+}

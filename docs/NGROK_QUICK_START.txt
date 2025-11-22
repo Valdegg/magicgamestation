@@ -1,0 +1,27 @@
+╔══════════════════════════════════════════════════════════════╗
+║           Magic Workstation - Remote Play Quick Start        ║
+╚══════════════════════════════════════════════════════════════╝
+
+🚀 HOW TO PLAY WITH FRIENDS:
+
+  1. Ensure you have `ngrok` installed and authenticated.
+  
+  2. Run the all-in-one script:
+     
+     ./start_remote_play.sh
+
+  3. Wait for the "🎉 EVERYTHING IS READY!" message.
+  
+  4. Copy the Frontend URL shown in green.
+  
+  5. Send it to your friend!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❓ TROUBLESHOOTING:
+
+  • "ngrok not found": Install it (brew install ngrok)
+  • "jq not found": Install it (brew install jq) for better reliability
+  • "Auth required": Run `ngrok authtoken <your-token>`
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

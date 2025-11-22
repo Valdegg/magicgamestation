@@ -1,0 +1,15 @@
+{
+  "name": "test",
+  "format": "custom",
+  "description": "Custom deck: test",
+  "main": [
+    "lightning_bolt_UNK",
+    "lightning_bolt_UNK",
+    "lightning_bolt_UNK",
+    "lightning_bolt_UNK",
+    "counterspell_UNK",
+    "counterspell_UNK",
+    "counterspell_UNK",
+    "counterspell_UNK"
+  ]
+}

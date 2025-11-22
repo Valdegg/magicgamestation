@@ -1,0 +1,260 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  body {
+    @apply m-0 p-0 overflow-hidden;
+    font-family: 'Cinzel', 'Georgia', serif;
+    background: 
+      radial-gradient(circle at 20% 30%, rgba(212, 179, 107, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(60, 15, 15, 0.4) 0%, transparent 50%),
+      linear-gradient(135deg, #0f0505 0%, #1a0a0a 40%, #3c0f0f 100%);
+    background-attachment: fixed;
+    color: #e7d8b1;
+  }
+  
+  /* Global animations */
+  @keyframes titleShine {
+    0%, 100% {
+      background-position: 0% center;
+    }
+    50% {
+      background-position: 200% center;
+    }
+  }
+  
+  @keyframes sparkle {
+    0%, 100% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #1a0a0a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #d4b36b;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #e5c57c;
+  }
+}
+
+@layer components {
+  /* Fantasy border ornament - inspired by MTG card borders */
+  .fantasy-border {
+    border: 3px solid transparent;
+    background: 
+      linear-gradient(#1a0a0a, #1a0a0a) padding-box,
+      linear-gradient(135deg, 
+        #8b7355 0%,
+        #d4b36b 15%, 
+        #f4d589 25%,
+        #d4b36b 40%,
+        #8b7355 50%,
+        #d4b36b 60%,
+        #f4d589 75%,
+        #d4b36b 85%,
+        #8b7355 100%
+      ) border-box;
+    box-shadow: 
+      inset 0 0 20px rgba(212, 179, 107, 0.25),
+      inset 0 1px 4px rgba(255, 233, 163, 0.2),
+      0 0 15px rgba(212, 179, 107, 0.3),
+      0 2px 12px rgba(0, 0, 0, 0.7);
+    position: relative;
+  }
+
+  .fantasy-border::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border: 1px solid rgba(255, 233, 163, 0.15);
+    pointer-events: none;
+    border-radius: inherit;
+  }
+
+  /* Button styles - Refined and subtle */
+  .fantasy-button {
+    @apply px-4 py-2 text-fantasy-dark font-bold rounded;
+    background: linear-gradient(135deg, #f4d589 0%, #d4b36b 50%, #8b7355 100%);
+    border: 2px solid #8b7355;
+    box-shadow: 
+      0 2px 8px rgba(0, 0, 0, 0.5),
+      inset 0 1px 3px rgba(255, 255, 255, 0.3),
+      inset 0 -1px 3px rgba(0, 0, 0, 0.2);
+    @apply transition-all duration-200;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  .fantasy-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 
+      0 4px 12px rgba(212, 179, 107, 0.4),
+      inset 0 1px 4px rgba(255, 255, 255, 0.4),
+      inset 0 -1px 4px rgba(0, 0, 0, 0.2);
+    border-color: #d4b36b;
+  }
+  
+  .fantasy-button:active {
+    transform: translateY(0);
+    box-shadow: 
+      0 1px 4px rgba(0, 0, 0, 0.5),
+      inset 0 2px 4px rgba(0, 0, 0, 0.3),
+      inset 0 -1px 2px rgba(255, 255, 255, 0.2);
+  }
+
+  /* Panel styles - More subdued and professional */
+  .fantasy-panel {
+    @apply fantasy-border bg-gradient-to-br from-fantasy-burgundy to-fantasy-dark;
+    @apply p-4 rounded-lg;
+    background: 
+      linear-gradient(135deg, rgba(60, 15, 15, 0.85) 0%, rgba(26, 10, 10, 0.95) 100%),
+      url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" /%3E%3C/filter%3E%3Crect width="100" height="100" filter="url(%23noise)" opacity="0.03"/%3E%3C/svg%3E');
+  }
+  
+  /* Mana symbols - Clean professional design */
+  .mana-symbol {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #d4b36b;
+    position: relative;
+    font-size: 20px;
+    font-weight: 900;
+    transition: all 0.2s ease;
+    box-shadow: 
+      0 3px 8px rgba(0, 0, 0, 0.6),
+      inset 0 1px 3px rgba(255, 255, 255, 0.25),
+      inset 0 -2px 3px rgba(0, 0, 0, 0.4);
+    font-family: 'Arial Black', sans-serif;
+  }
+  
+  .mana-symbol::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.3) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  
+  .mana-symbol:hover {
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 
+      0 5px 15px rgba(212, 179, 107, 0.4),
+      inset 0 1px 4px rgba(255, 255, 255, 0.3),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.4);
+    border-color: #f4d589;
+  }
+  
+  .mana-white { 
+    background: radial-gradient(circle at 35% 25%, #fffef5, #f0e6c3);
+    color: #2a2416; 
+  }
+  .mana-blue { 
+    background: radial-gradient(circle at 35% 25%, #b3e5fc, #1976d2);
+    color: #0d47a1; 
+  }
+  .mana-black { 
+    background: radial-gradient(circle at 35% 25%, #bfbfbf, #757575);
+    color: #212121; 
+  }
+  .mana-red { 
+    background: radial-gradient(circle at 35% 25%, #ffab91, #d32f2f);
+    color: #7f0000; 
+  }
+  .mana-green { 
+    background: radial-gradient(circle at 35% 25%, #a5d6a7, #388e3c);
+    color: #1b5e20; 
+  }
+
+  /* Card styles - Subtle and refined */
+  .card-frame {
+    @apply fantasy-border;
+    position: relative;
+    background: linear-gradient(135deg, #2a1810 0%, #1a100a 100%);
+    transition: all 0.2s ease-out;
+    overflow: visible;
+    border-radius: 0.5rem;
+  }
+  
+  .card-frame > div {
+    border-radius: 0.5rem;
+    overflow: visible;
+  }
+  
+  .card-frame:hover {
+    box-shadow: 
+      inset 0 0 15px rgba(212, 179, 107, 0.3),
+      0 0 20px rgba(212, 179, 107, 0.4),
+      0 4px 15px rgba(0, 0, 0, 0.8);
+  }
+
+  .card-tapped {
+    transform: rotate(90deg);
+  }
+
+  /* Context menu */
+  .context-menu {
+    @apply fantasy-panel fixed min-w-[200px];
+    @apply shadow-2xl;
+    z-index: 10000; /* Above all hover effects (which use z-index: 1000) */
+  }
+
+  .context-menu-item {
+    @apply px-4 py-2 cursor-pointer transition-all duration-150;
+    @apply hover:bg-fantasy-gold hover:text-fantasy-dark;
+    @apply border-b border-fantasy-gold/20;
+  }
+
+  .context-menu-item:last-child {
+    @apply border-b-0;
+  }
+
+  /* Life counter */
+  .life-display {
+    @apply text-4xl font-bold text-fantasy-gold;
+    text-shadow: 0 0 10px rgba(212, 179, 107, 0.5);
+  }
+
+  /* Zone labels */
+  .zone-label {
+    @apply text-sm uppercase tracking-widest font-bold;
+    color: #d4b36b;
+    font-family: 'Cinzel', serif;
+    text-shadow: 
+      0 0 10px rgba(212, 179, 107, 0.3),
+      0 2px 4px rgba(0, 0, 0, 0.8);
+    letter-spacing: 0.2em;
+  }
+}
+

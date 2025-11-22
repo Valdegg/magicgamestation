@@ -1,0 +1,14 @@
+{
+  "name": "superdeck",
+  "format": "custom",
+  "description": "Custom deck: superdeck",
+  "main": [
+    "lightning_bolt_UNK",
+    "lightning_bolt_UNK",
+    "lightning_bolt_UNK",
+    "lightning_bolt_UNK",
+    "counterspell_UNK",
+    "counterspell_UNK",
+    "counterspell_UNK"
+  ]
+}

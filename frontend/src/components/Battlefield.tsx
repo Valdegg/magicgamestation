@@ -1,0 +1,546 @@
+import React, { useState, useRef } from 'react';
+import Card from './Card';
+import ContextMenu from './ContextMenu';
+import { CardData } from '../types';
+import { useGameState } from '../context/GameStateWebSocket';
+import { API_BASE } from '../api/gameApi';
+
+interface BattlefieldProps {
+  cards: CardData[];
+}
+
+const Battlefield: React.FC<BattlefieldProps> = ({ cards }) => {
+  const { tapCard, moveCard, updateCardPosition, toggleFaceDown, gameId, playerId, attachCard, unattachCard, addCounter } = useGameState();
+  const [contextMenu, setContextMenu] = useState<{
+    x: number;
+    y: number;
+    cardId: string;
+  } | null>(null);
+  const [draggedCard, setDraggedCard] = useState<string | null>(null);
+  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+  const battlefieldRef = useRef<HTMLDivElement>(null);
+  
+  // Multi-select state
+  const [selectedCards, setSelectedCards] = useState<Set<string>>(new Set());
+  const [selectionBox, setSelectionBox] = useState<{
+    startX: number;
+    startY: number;
+    currentX: number;
+    currentY: number;
+  } | null>(null);
+  const [isSelecting, setIsSelecting] = useState(false);
+  const [attachingCardId, setAttachingCardId] = useState<string | null>(null);
+
+  // Filter cards into hosts and attachments
+  const hostCards = cards.filter(c => !c.attachedToId);
+  const getAttachedCards = (hostId: string) => cards.filter(c => c.attachedToId === hostId);
+
+  const handleCardClick = (e: React.MouseEvent, cardId: string) => {
+    // Handle Attachment Mode
+    if (attachingCardId) {
+      if (attachingCardId === cardId) {
+        setAttachingCardId(null); // Cancel if clicked self
+        return;
+      }
+      
+      console.log(`🔗 Attaching card ${attachingCardId} to ${cardId}`);
+      attachCard(attachingCardId, cardId);
+      
+      setAttachingCardId(null);
+      return;
+    }
+
+    if (e.ctrlKey || e.metaKey) {
+      // Toggle selection with Ctrl/Cmd
+      e.preventDefault();
+      e.stopPropagation();
+      setSelectedCards(prev => {
+        const newSet = new Set(prev);
+        if (newSet.has(cardId)) {
+          newSet.delete(cardId);
+        } else {
+          newSet.add(cardId);
+        }
+        console.log('🎯 Selected cards:', Array.from(newSet));
+        return newSet;
+      });
+    }
+  };
+
+  const handleCardContextMenu = (e: React.MouseEvent, cardId: string) => {
+    e.preventDefault();
+    // If card is not in selection, select only this card
+    if (!selectedCards.has(cardId)) {
+      setSelectedCards(new Set([cardId]));
+    }
+    setContextMenu({ x: e.clientX, y: e.clientY, cardId });
+  };
+
+  const handleDragStart = (e: React.DragEvent, card: CardData) => {
+    console.log('🎴 Drag started from battlefield:', card.id);
+    setDraggedCard(card.id);
+    
+    // Set data for other zones to read
+    e.dataTransfer.setData('cardId', card.id);
+    e.dataTransfer.setData('text/plain', card.id); // For player targeting
+    e.dataTransfer.setData('sourceZone', 'battlefield');
+    
+    const rect = (e.target as HTMLElement).getBoundingClientRect();
+    setDragOffset({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
+  const handleDragEnd = () => {
+    // Always clear dragged card when drag ends, regardless of where it was dropped
+    setDraggedCard(null);
+  };
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    
+    console.log('🎯 Battlefield handleDrop called');
+    
+    if (!battlefieldRef.current) {
+      console.log('⚠️ Battlefield handleDrop: No battlefield ref');
+      return;
+    }
+
+    // Check if this is an external drag (from hand, library, etc.)
+    const externalCardId = e.dataTransfer.getData('cardId');
+    const sourceZone = e.dataTransfer.getData('sourceZone');
+    const cardId = draggedCard || externalCardId;
+    
+    if (!cardId) {
+      console.log('⚠️ Battlefield handleDrop: No card ID');
+      return;
+    }
+
+    const dropX = e.clientX;
+    const dropY = e.clientY;
+    
+    console.log('🎴 Drop event on battlefield:', {
+      cardId: cardId,
+      sourceZone: sourceZone,
+      dropX,
+      dropY
+    });
+
+    // Get the element at the drop point
+    const elementAtPoint = document.elementFromPoint(dropX, dropY);
+    console.log('🎯 Element at drop point:', elementAtPoint?.id, elementAtPoint?.className);
+
+    // Check if dropped on hand
+    const handElement = document.getElementById('hand-zone');
+    if (handElement) {
+      const handRect = handElement.getBoundingClientRect();
+      console.log('✋ Hand zone:', {
+        left: handRect.left,
+        right: handRect.right,
+        top: handRect.top,
+        bottom: handRect.bottom,
+        isInside: dropX >= handRect.left && dropX <= handRect.right && dropY >= handRect.top && dropY <= handRect.bottom
+      });
+      
+      // Check if dropped on hand or if the element at drop point is inside hand
+      const isOnHand = (dropX >= handRect.left && dropX <= handRect.right && dropY >= handRect.top && dropY <= handRect.bottom) ||
+                       handElement.contains(elementAtPoint);
+      
+      if (isOnHand) {
+        console.log('✅ Dropped on hand!');
+        moveCard(cardId, 'hand');
+        setDraggedCard(null);
+        return;
+      }
+    }
+
+    // Check if dropped on graveyard
+    const graveyardElement = document.getElementById('graveyard-zone');
+    if (graveyardElement) {
+      const graveyardRect = graveyardElement.getBoundingClientRect();
+      console.log('📦 Graveyard zone:', {
+        left: graveyardRect.left,
+        right: graveyardRect.right,
+        top: graveyardRect.top,
+        bottom: graveyardRect.bottom,
+        isInside: dropX >= graveyardRect.left && dropX <= graveyardRect.right && dropY >= graveyardRect.top && dropY <= graveyardRect.bottom
+      });
+      
+      // Check if dropped on graveyard or if the element at drop point is inside graveyard
+      const isOnGraveyard = (dropX >= graveyardRect.left && dropX <= graveyardRect.right && dropY >= graveyardRect.top && dropY <= graveyardRect.bottom) ||
+                            graveyardElement.contains(elementAtPoint);
+      
+      if (isOnGraveyard) {
+        console.log('✅ Dropped on graveyard!');
+        moveCard(cardId, 'graveyard');
+        setDraggedCard(null);
+        return;
+      }
+    }
+
+    // Check if dropped on library
+    const libraryElement = document.getElementById('library-zone');
+    if (libraryElement) {
+      const libraryRect = libraryElement.getBoundingClientRect();
+      console.log('📚 Library zone:', {
+        left: libraryRect.left,
+        right: libraryRect.right,
+        top: libraryRect.top,
+        bottom: libraryRect.bottom,
+        isInside: dropX >= libraryRect.left && dropX <= libraryRect.right && dropY >= libraryRect.top && dropY <= libraryRect.bottom
+      });
+      
+      // Check if dropped on library or if the element at drop point is inside library
+      const isOnLibrary = (dropX >= libraryRect.left && dropX <= libraryRect.right && dropY >= libraryRect.top && dropY <= libraryRect.bottom) ||
+                          libraryElement.contains(elementAtPoint);
+      
+      if (isOnLibrary) {
+        console.log('✅ Dropped on library!');
+        moveCard(cardId, 'library');
+        setDraggedCard(null);
+        return;
+      }
+    }
+
+    // Check if dropped on exile
+    const exileElement = document.getElementById('exile-zone');
+    if (exileElement) {
+      const exileRect = exileElement.getBoundingClientRect();
+      console.log('🚫 Exile zone:', {
+        left: exileRect.left,
+        right: exileRect.right,
+        top: exileRect.top,
+        bottom: exileRect.bottom,
+        isInside: dropX >= exileRect.left && dropX <= exileRect.right && dropY >= exileRect.top && dropY <= exileRect.bottom
+      });
+      
+      // Check if dropped on exile or if the element at drop point is inside exile
+      const isOnExile = (dropX >= exileRect.left && dropX <= exileRect.right && dropY >= exileRect.top && dropY <= exileRect.bottom) ||
+                        exileElement.contains(elementAtPoint);
+      
+      if (isOnExile) {
+        console.log('✅ Dropped on exile!');
+        moveCard(cardId, 'exile');
+        setDraggedCard(null);
+        return;
+      }
+    }
+
+    // Otherwise, place on battlefield
+    const rect = battlefieldRef.current.getBoundingClientRect();
+    // For external drops, use the drop position directly
+    // For internal moves, use the drag offset
+    const x = draggedCard ? e.clientX - rect.left - dragOffset.x : e.clientX - rect.left - 75;
+    const y = draggedCard ? e.clientY - rect.top - dragOffset.y : e.clientY - rect.top - 105;
+
+    console.log('✅ Placed on battlefield:', {x, y, isExternal: !draggedCard});
+    moveCard(cardId, 'battlefield', x, y);
+    setDraggedCard(null);
+  };
+
+  // Box selection handlers
+  const handleMouseDown = (e: React.MouseEvent) => {
+    // Only start selection on empty battlefield area (not on cards)
+    if (e.button !== 0 || e.target !== e.currentTarget) return;
+    
+    const rect = battlefieldRef.current?.getBoundingClientRect();
+    if (!rect) return;
+
+    setIsSelecting(true);
+    setSelectionBox({
+      startX: e.clientX - rect.left,
+      startY: e.clientY - rect.top,
+      currentX: e.clientX - rect.left,
+      currentY: e.clientY - rect.top,
+    });
+    
+    // Clear selection if not holding Ctrl/Cmd
+    if (!e.ctrlKey && !e.metaKey) {
+      setSelectedCards(new Set());
+    }
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isSelecting || !selectionBox) return;
+    
+    const rect = battlefieldRef.current?.getBoundingClientRect();
+    if (!rect) return;
+
+    setSelectionBox({
+      ...selectionBox,
+      currentX: e.clientX - rect.left,
+      currentY: e.clientY - rect.top,
+    });
+
+    // Calculate selection box bounds
+    const minX = Math.min(selectionBox.startX, e.clientX - rect.left);
+    const maxX = Math.max(selectionBox.startX, e.clientX - rect.left);
+    const minY = Math.min(selectionBox.startY, e.clientY - rect.top);
+    const maxY = Math.max(selectionBox.startY, e.clientY - rect.top);
+
+    // Check which cards are in the selection box
+    const newSelection = new Set<string>();
+    cards.forEach(card => {
+      const cardX = card.x ?? 0;
+      const cardY = card.y ?? 0;
+      const cardWidth = 110;
+      const cardHeight = 154;
+
+      // Check if card overlaps with selection box
+      if (
+        cardX < maxX &&
+        cardX + cardWidth > minX &&
+        cardY < maxY &&
+        cardY + cardHeight > minY
+      ) {
+        newSelection.add(card.id);
+      }
+    });
+
+    setSelectedCards(newSelection);
+  };
+
+  const handleMouseUp = () => {
+    setIsSelecting(false);
+    setSelectionBox(null);
+  };
+
+  // addCounter is now from useGameState
+
+  const getContextMenuOptions = (cardId: string) => {
+    const targetCards = selectedCards.has(cardId) ? Array.from(selectedCards) : [cardId];
+    const isMultiple = targetCards.length > 1;
+    const card = cards.find(c => c.id === cardId);
+    
+    const options = [
+      {
+        label: isMultiple ? `⚡ Tap/Untap (${targetCards.length} cards)` : '⚡ Tap/Untap',
+        onClick: () => {
+          console.log('⚡ Tapping cards via context menu:', targetCards);
+          targetCards.forEach(id => tapCard(id));
+          setSelectedCards(new Set());
+        },
+      },
+      {
+        label: isMultiple ? `🎭 Flip Face Down/Up (${targetCards.length} cards)` : '🎭 Flip Face Down/Up',
+        onClick: () => {
+          targetCards.forEach(id => toggleFaceDown(id));
+          setSelectedCards(new Set());
+        },
+      },
+    ];
+
+    // Only show Attach option for single card selection
+    if (!isMultiple) {
+      options.push({
+        label: '🔗 Attach to...',
+        onClick: () => {
+          setAttachingCardId(cardId);
+          setSelectedCards(new Set());
+          // Show a toast or some indicator?
+        },
+      });
+
+      // If card is already attached, show Unattach
+      if (card?.attachedToId) {
+        options.push({
+          label: '💔 Unattach',
+          onClick: () => {
+            unattachCard(cardId);
+          },
+        });
+      }
+    }
+
+    options.push(
+      {
+        label: '➕ Add +1/+1 Counter',
+        onClick: () => {
+          targetCards.forEach(id => addCounter(id, '+1/+1', 1));
+          setSelectedCards(new Set());
+        },
+      },
+      {
+        label: '➖ Remove +1/+1 Counter',
+        onClick: () => {
+          targetCards.forEach(id => addCounter(id, '+1/+1', -1));
+          setSelectedCards(new Set());
+        },
+      },
+      {
+        label: isMultiple ? `☠️ Move to Graveyard (${targetCards.length} cards)` : '☠️ Move to Graveyard',
+        onClick: () => {
+          console.log('☠️ Moving to graveyard via context menu:', targetCards);
+          targetCards.forEach(id => moveCard(id, 'graveyard'));
+          setSelectedCards(new Set());
+        },
+      },
+      {
+        label: isMultiple ? `🚫 Move to Exile (${targetCards.length} cards)` : '🚫 Move to Exile',
+        onClick: () => {
+          targetCards.forEach(id => moveCard(id, 'exile'));
+          setSelectedCards(new Set());
+        },
+      },
+      {
+        label: isMultiple ? `✋ Return to Hand (${targetCards.length} cards)` : '✋ Return to Hand',
+        onClick: () => {
+          targetCards.forEach(id => moveCard(id, 'hand'));
+          setSelectedCards(new Set());
+        },
+      },
+    );
+    
+    return options;
+  };
+
+  return (
+    <div
+      id="battlefield"
+      ref={battlefieldRef}
+      className="relative w-full h-full bg-gradient-to-br from-fantasy-dark/80 to-fantasy-burgundy/40 overflow-visible"
+      onDragOver={handleDragOver}
+      onDrop={handleDrop}
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseUp}
+      style={{
+        backgroundImage: `
+          radial-gradient(circle at 20% 30%, rgba(212, 179, 107, 0.03) 0%, transparent 50%),
+          radial-gradient(circle at 80% 70%, rgba(107, 26, 26, 0.05) 0%, transparent 50%)
+        `,
+        cursor: isSelecting ? 'crosshair' : 'default',
+      }}
+    >
+      {/* Zone label */}
+      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 zone-label">
+        Battlefield
+      </div>
+
+      {/* Attaching Indicator */}
+      {attachingCardId && (
+        <div className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg z-50 animate-pulse border-2 border-white font-bold">
+          Select target card to attach...
+          <button 
+            onClick={(e) => { e.stopPropagation(); setAttachingCardId(null); }}
+            className="ml-3 text-blue-200 hover:text-white"
+          >
+            ✕
+          </button>
+        </div>
+      )}
+
+      {/* Cards */}
+      {hostCards.map((card) => (
+        <div
+          key={card.id}
+          data-card-id={card.id}
+          className="absolute"
+          style={{
+            left: card.x ?? 0,
+            top: card.y ?? 0,
+            zIndex: card.tapped ? 1 : 10, // Tapped cards lower z-index? No, maybe higher? Default is fine.
+          }}
+          onClick={(e) => handleCardClick(e, card.id)}
+        >
+          {/* Render Host Card */}
+          <Card
+            card={card}
+            onTap={() => tapCard(card.id)}
+            onContextMenu={(e) => handleCardContextMenu(e, card.id)}
+            onDragStart={(e) => handleDragStart(e, card)}
+            onDragEnd={handleDragEnd}
+            disableHover={draggedCard === card.id}
+          />
+
+          {/* Render Attached Cards */}
+          {getAttachedCards(card.id).map((attachedCard, index) => (
+            <div
+              key={attachedCard.id}
+              className="absolute"
+              style={{
+                // Offset attached cards slightly
+                top: 20 + (index * 10),
+                left: 20 + (index * 10),
+                zIndex: -1 - index, // Behind host card
+                pointerEvents: 'auto', // Allow interactions
+              }}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleCardClick(e, attachedCard.id);
+              }}
+            >
+              <Card
+                card={attachedCard}
+                onTap={() => tapCard(attachedCard.id)}
+                onContextMenu={(e) => handleCardContextMenu(e, attachedCard.id)}
+                onDragStart={(e) => handleDragStart(e, attachedCard)}
+                onDragEnd={handleDragEnd}
+                disableHover={draggedCard === attachedCard.id}
+                // Make attached cards slightly smaller?
+                cardWidth={90}
+                cardHeight={126}
+              />
+               {/* Selection indicator for attached card */}
+              {selectedCards.has(attachedCard.id) && (
+                <div
+                  className="absolute inset-0 pointer-events-none rounded-lg"
+                  style={{
+                    border: '3px solid rgba(59, 130, 246, 0.8)',
+                    boxShadow: '0 0 12px rgba(59, 130, 246, 0.6), inset 0 0 12px rgba(59, 130, 246, 0.3)',
+                  }}
+                />
+              )}
+            </div>
+          ))}
+
+          {/* Selection indicator for host card */}
+          {selectedCards.has(card.id) && (
+            <div
+              className="absolute inset-0 pointer-events-none rounded-lg"
+              style={{
+                border: '3px solid rgba(59, 130, 246, 0.8)',
+                boxShadow: '0 0 12px rgba(59, 130, 246, 0.6), inset 0 0 12px rgba(59, 130, 246, 0.3)',
+              }}
+            />
+          )}
+        </div>
+      ))}
+
+      {/* Selection box */}
+      {isSelecting && selectionBox && (
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            left: Math.min(selectionBox.startX, selectionBox.currentX),
+            top: Math.min(selectionBox.startY, selectionBox.currentY),
+            width: Math.abs(selectionBox.currentX - selectionBox.startX),
+            height: Math.abs(selectionBox.currentY - selectionBox.startY),
+            border: '2px dashed rgba(59, 130, 246, 0.8)',
+            background: 'rgba(59, 130, 246, 0.1)',
+            zIndex: 1000,
+          }}
+        />
+      )}
+
+      {/* Context Menu */}
+      {contextMenu && (
+        <ContextMenu
+          x={contextMenu.x}
+          y={contextMenu.y}
+          options={getContextMenuOptions(contextMenu.cardId)}
+          onClose={() => setContextMenu(null)}
+        />
+      )}
+    </div>
+  );
+};
+
+export default Battlefield;
+

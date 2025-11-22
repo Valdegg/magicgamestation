@@ -1,0 +1,5838 @@
+{
+  "academy_rector_UNK": {
+    "id": "academy_rector_UNK",
+    "name": "Academy Rector",
+    "set": "UNK",
+    "image": "/card_images/Academy_Rector.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "acid_rain_UNK": {
+    "id": "acid_rain_UNK",
+    "name": "Acid Rain",
+    "set": "UNK",
+    "image": "/card_images/Acid_Rain.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "adarkar_wastes_UNK": {
+    "id": "adarkar_wastes_UNK",
+    "name": "Adarkar Wastes",
+    "set": "UNK",
+    "image": "/card_images/Adarkar_Wastes.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "adun_oakenshield_UNK": {
+    "id": "adun_oakenshield_UNK",
+    "name": "Adun Oakenshield",
+    "set": "UNK",
+    "image": "/card_images/Adun_Oakenshield.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "air_elemental_UNK": {
+    "id": "air_elemental_UNK",
+    "name": "Air Elemental",
+    "set": "UNK",
+    "image": "/card_images/Air_Elemental.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "al_abaras_carpet_UNK": {
+    "id": "al_abaras_carpet_UNK",
+    "name": "Al-abaras Carpet",
+    "set": "UNK",
+    "image": "/card_images/Al-abaras_Carpet.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "aladdin_UNK": {
+    "id": "aladdin_UNK",
+    "name": "Aladdin",
+    "set": "UNK",
+    "image": "/card_images/Aladdin.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "aladdins_lamp_UNK": {
+    "id": "aladdins_lamp_UNK",
+    "name": "Aladdins Lamp",
+    "set": "UNK",
+    "image": "/card_images/Aladdins_Lamp.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "aladdins_ring_UNK": {
+    "id": "aladdins_ring_UNK",
+    "name": "Aladdins Ring",
+    "set": "UNK",
+    "image": "/card_images/Aladdins_Ring.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "alchors_tomb_UNK": {
+    "id": "alchors_tomb_UNK",
+    "name": "Alchors Tomb",
+    "set": "UNK",
+    "image": "/card_images/Alchors_Tomb.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "ali_from_cairo_UNK": {
+    "id": "ali_from_cairo_UNK",
+    "name": "Ali from Cairo",
+    "set": "UNK",
+    "image": "/card_images/Ali_from_Cairo.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "all_hallows_eve_UNK": {
+    "id": "all_hallows_eve_UNK",
+    "name": "All Hallows Eve",
+    "set": "UNK",
+    "image": "/card_images/All_Hallows_Eve.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "allosaurus_shepherd_UNK": {
+    "id": "allosaurus_shepherd_UNK",
+    "name": "Allosaurus Shepherd",
+    "set": "UNK",
+    "image": "/card_images/Allosaurus_Shepherd.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "aluren_UNK": {
+    "id": "aluren_UNK",
+    "name": "Aluren",
+    "set": "UNK",
+    "image": "/card_images/Aluren.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "ancient_tomb_UNK": {
+    "id": "ancient_tomb_UNK",
+    "name": "Ancient Tomb",
+    "set": "UNK",
+    "image": "/card_images/Ancient_Tomb.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "angus_mackenzie_UNK": {
+    "id": "angus_mackenzie_UNK",
+    "name": "Angus Mackenzie",
+    "set": "UNK",
+    "image": "/card_images/Angus_Mackenzie.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "animate_artifact_UNK": {
+    "id": "animate_artifact_UNK",
+    "name": "Animate Artifact",
+    "set": "UNK",
+    "image": "/card_images/Animate_Artifact.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "animate_dead_UNK": {
+    "id": "animate_dead_UNK",
+    "name": "Animate Dead",
+    "set": "UNK",
+    "image": "/card_images/Animate_Dead.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "ankh_of_mishra_UNK": {
+    "id": "ankh_of_mishra_UNK",
+    "name": "Ankh of Mishra",
+    "set": "UNK",
+    "image": "/card_images/Ankh_of_Mishra.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "anvil_of_bogardan_UNK": {
+    "id": "anvil_of_bogardan_UNK",
+    "name": "Anvil of Bogardan",
+    "set": "UNK",
+    "image": "/card_images/Anvil_of_Bogardan.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "arcades_sabboth_UNK": {
+    "id": "arcades_sabboth_UNK",
+    "name": "Arcades Sabboth",
+    "set": "UNK",
+    "image": "/card_images/Arcades_Sabboth.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "archangel_of_thune_UNK": {
+    "id": "archangel_of_thune_UNK",
+    "name": "Archangel of Thune",
+    "set": "UNK",
+    "image": "/card_images/Archangel_of_Thune.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "arena_of_the_ancients_UNK": {
+    "id": "arena_of_the_ancients_UNK",
+    "name": "Arena of the Ancients",
+    "set": "UNK",
+    "image": "/card_images/Arena_of_the_Ancients.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "argivian_archaeologist_UNK": {
+    "id": "argivian_archaeologist_UNK",
+    "name": "Argivian Archaeologist",
+    "set": "UNK",
+    "image": "/card_images/Argivian_Archaeologist.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "argothian_enchantress_UNK": {
+    "id": "argothian_enchantress_UNK",
+    "name": "Argothian Enchantress",
+    "set": "UNK",
+    "image": "/card_images/Argothian_Enchantress.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "arid_mesa_UNK": {
+    "id": "arid_mesa_UNK",
+    "name": "Arid Mesa",
+    "set": "UNK",
+    "image": "/card_images/Arid_Mesa.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "armageddon_UNK": {
+    "id": "armageddon_UNK",
+    "name": "Armageddon",
+    "set": "UNK",
+    "image": "/card_images/Armageddon.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "army_of_allah_v_1_UNK": {
+    "id": "army_of_allah_v_1_UNK",
+    "name": "Army of Allah (V.1)",
+    "set": "UNK",
+    "image": "/card_images/Army_of_Allah_(V.1).jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "aspect_of_wolf_UNK": {
+    "id": "aspect_of_wolf_UNK",
+    "name": "Aspect of Wolf",
+    "set": "UNK",
+    "image": "/card_images/Aspect_of_Wolf.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "avacyn_angel_of_hope_UNK": {
+    "id": "avacyn_angel_of_hope_UNK",
+    "name": "Avacyn Angel of Hope",
+    "set": "UNK",
+    "image": "/card_images/Avacyn_Angel_of_Hope.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "ball_lightning_UNK": {
+    "id": "ball_lightning_UNK",
+    "name": "Ball Lightning",
+    "set": "UNK",
+    "image": "/card_images/Ball_Lightning.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "bartel_runeaxe_UNK": {
+    "id": "bartel_runeaxe_UNK",
+    "name": "Bartel Runeaxe",
+    "set": "UNK",
+    "image": "/card_images/Bartel_Runeaxe.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "basalt_monolith_UNK": {
+    "id": "basalt_monolith_UNK",
+    "name": "Basalt Monolith",
+    "set": "UNK",
+    "image": "/card_images/Basalt_Monolith.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "bayou_UNK": {
+    "id": "bayou_UNK",
+    "name": "Bayou",
+    "set": "UNK",
+    "image": "/card_images/Bayou.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "benalish_hero_UNK": {
+    "id": "benalish_hero_UNK",
+    "name": "Benalish Hero",
+    "set": "UNK",
+    "image": "/card_images/Benalish_Hero.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "berserk_UNK": {
+    "id": "berserk_UNK",
+    "name": "Berserk",
+    "set": "UNK",
+    "image": "/card_images/Berserk.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "birds_of_paradise_UNK": {
+    "id": "birds_of_paradise_UNK",
+    "name": "Birds of Paradise",
+    "set": "UNK",
+    "image": "/card_images/Birds_of_Paradise.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "black_vise_UNK": {
+    "id": "black_vise_UNK",
+    "name": "Black Vise",
+    "set": "UNK",
+    "image": "/card_images/Black_Vise.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "blaze_of_glory_UNK": {
+    "id": "blaze_of_glory_UNK",
+    "name": "Blaze of Glory",
+    "set": "UNK",
+    "image": "/card_images/Blaze_of_Glory.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "blood_moon_UNK": {
+    "id": "blood_moon_UNK",
+    "name": "Blood Moon",
+    "set": "UNK",
+    "image": "/card_images/Blood_Moon.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "bloodstained_mire_UNK": {
+    "id": "bloodstained_mire_UNK",
+    "name": "Bloodstained Mire",
+    "set": "UNK",
+    "image": "/card_images/Bloodstained_Mire.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "blue_elemental_blast_UNK": {
+    "id": "blue_elemental_blast_UNK",
+    "name": "Blue Elemental Blast",
+    "set": "UNK",
+    "image": "/card_images/Blue_Elemental_Blast.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "boris_devilboon_UNK": {
+    "id": "boris_devilboon_UNK",
+    "name": "Boris Devilboon",
+    "set": "UNK",
+    "image": "/card_images/Boris_Devilboon.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "bottle_of_suleiman_UNK": {
+    "id": "bottle_of_suleiman_UNK",
+    "name": "Bottle of Suleiman",
+    "set": "UNK",
+    "image": "/card_images/Bottle_of_Suleiman.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "braingeyser_UNK": {
+    "id": "braingeyser_UNK",
+    "name": "Braingeyser",
+    "set": "UNK",
+    "image": "/card_images/Braingeyser.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "brass_man_UNK": {
+    "id": "brass_man_UNK",
+    "name": "Brass Man",
+    "set": "UNK",
+    "image": "/card_images/Brass_Man.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "brushland_UNK": {
+    "id": "brushland_UNK",
+    "name": "Brushland",
+    "set": "UNK",
+    "image": "/card_images/Brushland.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "burgeoning_UNK": {
+    "id": "burgeoning_UNK",
+    "name": "Burgeoning",
+    "set": "UNK",
+    "image": "/card_images/Burgeoning.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "burrowing_UNK": {
+    "id": "burrowing_UNK",
+    "name": "Burrowing",
+    "set": "UNK",
+    "image": "/card_images/Burrowing.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "cabal_coffers_UNK": {
+    "id": "cabal_coffers_UNK",
+    "name": "Cabal Coffers",
+    "set": "UNK",
+    "image": "/card_images/Cabal_Coffers.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "caverns_of_despair_UNK": {
+    "id": "caverns_of_despair_UNK",
+    "name": "Caverns of Despair",
+    "set": "UNK",
+    "image": "/card_images/Caverns_of_Despair.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "chalice_of_the_void_UNK": {
+    "id": "chalice_of_the_void_UNK",
+    "name": "Chalice of the Void",
+    "set": "UNK",
+    "image": "/card_images/Chalice_of_the_Void.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "channel_UNK": {
+    "id": "channel_UNK",
+    "name": "Channel",
+    "set": "UNK",
+    "image": "/card_images/Channel.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "chaoslace_UNK": {
+    "id": "chaoslace_UNK",
+    "name": "Chaoslace",
+    "set": "UNK",
+    "image": "/card_images/Chaoslace.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "chrome_mox_UNK": {
+    "id": "chrome_mox_UNK",
+    "name": "Chrome Mox",
+    "set": "UNK",
+    "image": "/card_images/Chrome_Mox.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "chromium_UNK": {
+    "id": "chromium_UNK",
+    "name": "Chromium",
+    "set": "UNK",
+    "image": "/card_images/Chromium.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "city_in_a_bottle_UNK": {
+    "id": "city_in_a_bottle_UNK",
+    "name": "City in a Bottle",
+    "set": "UNK",
+    "image": "/card_images/City_in_a_Bottle.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "city_of_brass_UNK": {
+    "id": "city_of_brass_UNK",
+    "name": "City of Brass",
+    "set": "UNK",
+    "image": "/card_images/City_of_Brass.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "city_of_shadows_UNK": {
+    "id": "city_of_shadows_UNK",
+    "name": "City of Shadows",
+    "set": "UNK",
+    "image": "/card_images/City_of_Shadows.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "city_of_solitude_UNK": {
+    "id": "city_of_solitude_UNK",
+    "name": "City of Solitude",
+    "set": "UNK",
+    "image": "/card_images/City_of_Solitude.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "city_of_traitors_UNK": {
+    "id": "city_of_traitors_UNK",
+    "name": "City of Traitors",
+    "set": "UNK",
+    "image": "/card_images/City_of_Traitors.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "cleanse_UNK": {
+    "id": "cleanse_UNK",
+    "name": "Cleanse",
+    "set": "UNK",
+    "image": "/card_images/Cleanse.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "clockwork_beast_UNK": {
+    "id": "clockwork_beast_UNK",
+    "name": "Clockwork Beast",
+    "set": "UNK",
+    "image": "/card_images/Clockwork_Beast.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "clone_UNK": {
+    "id": "clone_UNK",
+    "name": "Clone",
+    "set": "UNK",
+    "image": "/card_images/Clone.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "coat_of_arms_UNK": {
+    "id": "coat_of_arms_UNK",
+    "name": "Coat of Arms",
+    "set": "UNK",
+    "image": "/card_images/Coat_of_Arms.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "cockatrice_UNK": {
+    "id": "cockatrice_UNK",
+    "name": "Cockatrice",
+    "set": "UNK",
+    "image": "/card_images/Cockatrice.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "concordant_crossroads_UNK": {
+    "id": "concordant_crossroads_UNK",
+    "name": "Concordant Crossroads",
+    "set": "UNK",
+    "image": "/card_images/Concordant_Crossroads.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "contract_from_below_UNK": {
+    "id": "contract_from_below_UNK",
+    "name": "Contract from Below",
+    "set": "UNK",
+    "image": "/card_images/Contract_from_Below.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "conversion_UNK": {
+    "id": "conversion_UNK",
+    "name": "Conversion",
+    "set": "UNK",
+    "image": "/card_images/Conversion.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "copper_tablet_UNK": {
+    "id": "copper_tablet_UNK",
+    "name": "Copper Tablet",
+    "set": "UNK",
+    "image": "/card_images/Copper_Tablet.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "copy_artifact_UNK": {
+    "id": "copy_artifact_UNK",
+    "name": "Copy Artifact",
+    "set": "UNK",
+    "image": "/card_images/Copy_Artifact.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "corpse_dance_UNK": {
+    "id": "corpse_dance_UNK",
+    "name": "Corpse Dance",
+    "set": "UNK",
+    "image": "/card_images/Corpse_Dance.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "counterspell_UNK": {
+    "id": "counterspell_UNK",
+    "name": "Counterspell",
+    "set": "UNK",
+    "image": "/card_images/Counterspell.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "cruel_tutor_UNK": {
+    "id": "cruel_tutor_UNK",
+    "name": "Cruel Tutor",
+    "set": "UNK",
+    "image": "/card_images/Cruel_Tutor.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "crusade_UNK": {
+    "id": "crusade_UNK",
+    "name": "Crusade",
+    "set": "UNK",
+    "image": "/card_images/Crusade.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "cursed_scroll_UNK": {
+    "id": "cursed_scroll_UNK",
+    "name": "Cursed Scroll",
+    "set": "UNK",
+    "image": "/card_images/Cursed_Scroll.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "cyclopean_tomb_UNK": {
+    "id": "cyclopean_tomb_UNK",
+    "name": "Cyclopean Tomb",
+    "set": "UNK",
+    "image": "/card_images/Cyclopean_Tomb.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "dance_of_the_dead_UNK": {
+    "id": "dance_of_the_dead_UNK",
+    "name": "Dance of the Dead",
+    "set": "UNK",
+    "image": "/card_images/Dance_of_the_Dead.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "dark_ritual_UNK": {
+    "id": "dark_ritual_UNK",
+    "name": "Dark Ritual",
+    "set": "UNK",
+    "image": "/card_images/Dark_Ritual.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "darkpact_UNK": {
+    "id": "darkpact_UNK",
+    "name": "Darkpact",
+    "set": "UNK",
+    "image": "/card_images/Darkpact.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "darksteel_forge_UNK": {
+    "id": "darksteel_forge_UNK",
+    "name": "Darksteel Forge",
+    "set": "UNK",
+    "image": "/card_images/Darksteel_Forge.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "debt_of_loyalty_UNK": {
+    "id": "debt_of_loyalty_UNK",
+    "name": "Debt of Loyalty",
+    "set": "UNK",
+    "image": "/card_images/Debt_of_Loyalty.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "demonic_attorney_UNK": {
+    "id": "demonic_attorney_UNK",
+    "name": "Demonic Attorney",
+    "set": "UNK",
+    "image": "/card_images/Demonic_Attorney.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "demonic_hordes_UNK": {
+    "id": "demonic_hordes_UNK",
+    "name": "Demonic Hordes",
+    "set": "UNK",
+    "image": "/card_images/Demonic_Hordes.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "demonic_tutor_UNK": {
+    "id": "demonic_tutor_UNK",
+    "name": "Demonic Tutor",
+    "set": "UNK",
+    "image": "/card_images/Demonic_Tutor.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "deranged_hermit_UNK": {
+    "id": "deranged_hermit_UNK",
+    "name": "Deranged Hermit",
+    "set": "UNK",
+    "image": "/card_images/Deranged_Hermit.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "desert_twister_UNK": {
+    "id": "desert_twister_UNK",
+    "name": "Desert Twister",
+    "set": "UNK",
+    "image": "/card_images/Desert_Twister.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "diamond_valley_UNK": {
+    "id": "diamond_valley_UNK",
+    "name": "Diamond Valley",
+    "set": "UNK",
+    "image": "/card_images/Diamond_Valley.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "dingus_egg_UNK": {
+    "id": "dingus_egg_UNK",
+    "name": "Dingus Egg",
+    "set": "UNK",
+    "image": "/card_images/Dingus_Egg.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "disenchant_UNK": {
+    "id": "disenchant_UNK",
+    "name": "Disenchant",
+    "set": "UNK",
+    "image": "/card_images/Disenchant.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "disharmony_UNK": {
+    "id": "disharmony_UNK",
+    "name": "Disharmony",
+    "set": "UNK",
+    "image": "/card_images/Disharmony.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "disintegrate_UNK": {
+    "id": "disintegrate_UNK",
+    "name": "Disintegrate",
+    "set": "UNK",
+    "image": "/card_images/Disintegrate.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "disrupting_scepter_UNK": {
+    "id": "disrupting_scepter_UNK",
+    "name": "Disrupting Scepter",
+    "set": "UNK",
+    "image": "/card_images/Disrupting_Scepter.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "divine_intervention_UNK": {
+    "id": "divine_intervention_UNK",
+    "name": "Divine Intervention",
+    "set": "UNK",
+    "image": "/card_images/Divine_Intervention.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "dong_zhou_the_tyrant_UNK": {
+    "id": "dong_zhou_the_tyrant_UNK",
+    "name": "Dong Zhou the Tyrant",
+    "set": "UNK",
+    "image": "/card_images/Dong_Zhou_the_Tyrant.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "doubling_season_UNK": {
+    "id": "doubling_season_UNK",
+    "name": "Doubling Season",
+    "set": "UNK",
+    "image": "/card_images/Doubling_Season.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "drain_life_UNK": {
+    "id": "drain_life_UNK",
+    "name": "Drain Life",
+    "set": "UNK",
+    "image": "/card_images/Drain_Life.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "drain_power_UNK": {
+    "id": "drain_power_UNK",
+    "name": "Drain Power",
+    "set": "UNK",
+    "image": "/card_images/Drain_Power.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "dream_halls_UNK": {
+    "id": "dream_halls_UNK",
+    "name": "Dream Halls",
+    "set": "UNK",
+    "image": "/card_images/Dream_Halls.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "drop_of_honey_UNK": {
+    "id": "drop_of_honey_UNK",
+    "name": "Drop of Honey",
+    "set": "UNK",
+    "image": "/card_images/Drop_of_Honey.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "dust_bowl_UNK": {
+    "id": "dust_bowl_UNK",
+    "name": "Dust Bowl",
+    "set": "UNK",
+    "image": "/card_images/Dust_Bowl.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "dystopia_UNK": {
+    "id": "dystopia_UNK",
+    "name": "Dystopia",
+    "set": "UNK",
+    "image": "/card_images/Dystopia.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "earthcraft_UNK": {
+    "id": "earthcraft_UNK",
+    "name": "Earthcraft",
+    "set": "UNK",
+    "image": "/card_images/Earthcraft.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "earthquake_UNK": {
+    "id": "earthquake_UNK",
+    "name": "Earthquake",
+    "set": "UNK",
+    "image": "/card_images/Earthquake.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "eladamri_lord_of_leaves_UNK": {
+    "id": "eladamri_lord_of_leaves_UNK",
+    "name": "Eladamri Lord of Leaves",
+    "set": "UNK",
+    "image": "/card_images/Eladamri_Lord_of_Leaves.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "elder_spawn_UNK": {
+    "id": "elder_spawn_UNK",
+    "name": "Elder Spawn",
+    "set": "UNK",
+    "image": "/card_images/Elder_Spawn.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "elephant_graveyard_UNK": {
+    "id": "elephant_graveyard_UNK",
+    "name": "Elephant Graveyard",
+    "set": "UNK",
+    "image": "/card_images/Elephant_Graveyard.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "enlightened_tutor_UNK": {
+    "id": "enlightened_tutor_UNK",
+    "name": "Enlightened Tutor",
+    "set": "UNK",
+    "image": "/card_images/Enlightened_Tutor.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "ensnaring_bridge_UNK": {
+    "id": "ensnaring_bridge_UNK",
+    "name": "Ensnaring Bridge",
+    "set": "UNK",
+    "image": "/card_images/Ensnaring_Bridge.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "entomb_UNK": {
+    "id": "entomb_UNK",
+    "name": "Entomb",
+    "set": "UNK",
+    "image": "/card_images/Entomb.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "erhnam_djinn_UNK": {
+    "id": "erhnam_djinn_UNK",
+    "name": "Erhnam Djinn",
+    "set": "UNK",
+    "image": "/card_images/Erhnam_Djinn.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "eureka_UNK": {
+    "id": "eureka_UNK",
+    "name": "Eureka",
+    "set": "UNK",
+    "image": "/card_images/Eureka.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "evil_presence_UNK": {
+    "id": "evil_presence_UNK",
+    "name": "Evil Presence",
+    "set": "UNK",
+    "image": "/card_images/Evil_Presence.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "exorcist_UNK": {
+    "id": "exorcist_UNK",
+    "name": "Exorcist",
+    "set": "UNK",
+    "image": "/card_images/Exorcist.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "exploration_UNK": {
+    "id": "exploration_UNK",
+    "name": "Exploration",
+    "set": "UNK",
+    "image": "/card_images/Exploration.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "falling_star_UNK": {
+    "id": "falling_star_UNK",
+    "name": "Falling Star",
+    "set": "UNK",
+    "image": "/card_images/Falling_Star.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "farmstead_UNK": {
+    "id": "farmstead_UNK",
+    "name": "Farmstead",
+    "set": "UNK",
+    "image": "/card_images/Farmstead.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "fastbond_UNK": {
+    "id": "fastbond_UNK",
+    "name": "Fastbond",
+    "set": "UNK",
+    "image": "/card_images/Fastbond.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "field_of_dreams_UNK": {
+    "id": "field_of_dreams_UNK",
+    "name": "Field of Dreams",
+    "set": "UNK",
+    "image": "/card_images/Field_of_Dreams.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "fire_elemental_UNK": {
+    "id": "fire_elemental_UNK",
+    "name": "Fire Elemental",
+    "set": "UNK",
+    "image": "/card_images/Fire_Elemental.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "fireball_UNK": {
+    "id": "fireball_UNK",
+    "name": "Fireball",
+    "set": "UNK",
+    "image": "/card_images/Fireball.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "firestorm_UNK": {
+    "id": "firestorm_UNK",
+    "name": "Firestorm",
+    "set": "UNK",
+    "image": "/card_images/Firestorm.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "firestorm_phoenix_UNK": {
+    "id": "firestorm_phoenix_UNK",
+    "name": "Firestorm Phoenix",
+    "set": "UNK",
+    "image": "/card_images/Firestorm_Phoenix.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "flooded_strand_UNK": {
+    "id": "flooded_strand_UNK",
+    "name": "Flooded Strand",
+    "set": "UNK",
+    "image": "/card_images/Flooded_Strand.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "force_of_will_UNK": {
+    "id": "force_of_will_UNK",
+    "name": "Force of Will",
+    "set": "UNK",
+    "image": "/card_images/Force_of_Will.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "forcefield_UNK": {
+    "id": "forcefield_UNK",
+    "name": "Forcefield",
+    "set": "UNK",
+    "image": "/card_images/Forcefield.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "forethought_amulet_UNK": {
+    "id": "forethought_amulet_UNK",
+    "name": "Forethought Amulet",
+    "set": "UNK",
+    "image": "/card_images/Forethought_Amulet.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "fork_UNK": {
+    "id": "fork_UNK",
+    "name": "Fork",
+    "set": "UNK",
+    "image": "/card_images/Fork.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "forsaken_wastes_UNK": {
+    "id": "forsaken_wastes_UNK",
+    "name": "Forsaken Wastes",
+    "set": "UNK",
+    "image": "/card_images/Forsaken_Wastes.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "frozen_shade_UNK": {
+    "id": "frozen_shade_UNK",
+    "name": "Frozen Shade",
+    "set": "UNK",
+    "image": "/card_images/Frozen_Shade.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "gaeas_avenger_UNK": {
+    "id": "gaeas_avenger_UNK",
+    "name": "Gaeas Avenger",
+    "set": "UNK",
+    "image": "/card_images/Gaeas_Avenger.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "gaeas_liege_UNK": {
+    "id": "gaeas_liege_UNK",
+    "name": "Gaeas Liege",
+    "set": "UNK",
+    "image": "/card_images/Gaeas_Liege.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "gate_to_phyrexia_UNK": {
+    "id": "gate_to_phyrexia_UNK",
+    "name": "Gate to Phyrexia",
+    "set": "UNK",
+    "image": "/card_images/Gate_to_Phyrexia.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "gauntlet_of_might_UNK": {
+    "id": "gauntlet_of_might_UNK",
+    "name": "Gauntlet of Might",
+    "set": "UNK",
+    "image": "/card_images/Gauntlet_of_Might.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "giant_growth_UNK": {
+    "id": "giant_growth_UNK",
+    "name": "Giant Growth",
+    "set": "UNK",
+    "image": "/card_images/Giant_Growth.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "gilded_drake_UNK": {
+    "id": "gilded_drake_UNK",
+    "name": "Gilded Drake",
+    "set": "UNK",
+    "image": "/card_images/Gilded_Drake.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "goblin_balloon_brigade_UNK": {
+    "id": "goblin_balloon_brigade_UNK",
+    "name": "Goblin Balloon Brigade",
+    "set": "UNK",
+    "image": "/card_images/Goblin_Balloon_Brigade.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "goblin_king_UNK": {
+    "id": "goblin_king_UNK",
+    "name": "Goblin King",
+    "set": "UNK",
+    "image": "/card_images/Goblin_King.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "goblin_sharpshooter_UNK": {
+    "id": "goblin_sharpshooter_UNK",
+    "name": "Goblin Sharpshooter",
+    "set": "UNK",
+    "image": "/card_images/Goblin_Sharpshooter.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "goblin_welder_UNK": {
+    "id": "goblin_welder_UNK",
+    "name": "Goblin Welder",
+    "set": "UNK",
+    "image": "/card_images/Goblin_Welder.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "goblin_wizard_UNK": {
+    "id": "goblin_wizard_UNK",
+    "name": "Goblin Wizard",
+    "set": "UNK",
+    "image": "/card_images/Goblin_Wizard.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "golgothian_sylex_UNK": {
+    "id": "golgothian_sylex_UNK",
+    "name": "Golgothian Sylex",
+    "set": "UNK",
+    "image": "/card_images/Golgothian_Sylex.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "gosta_dirk_UNK": {
+    "id": "gosta_dirk_UNK",
+    "name": "Gosta Dirk",
+    "set": "UNK",
+    "image": "/card_images/Gosta_Dirk.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "granite_gargoyle_UNK": {
+    "id": "granite_gargoyle_UNK",
+    "name": "Granite Gargoyle",
+    "set": "UNK",
+    "image": "/card_images/Granite_Gargoyle.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "gravity_sphere_UNK": {
+    "id": "gravity_sphere_UNK",
+    "name": "Gravity Sphere",
+    "set": "UNK",
+    "image": "/card_images/Gravity_Sphere.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "great_whale_UNK": {
+    "id": "great_whale_UNK",
+    "name": "Great Whale",
+    "set": "UNK",
+    "image": "/card_images/Great_Whale.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "grim_monolith_UNK": {
+    "id": "grim_monolith_UNK",
+    "name": "Grim Monolith",
+    "set": "UNK",
+    "image": "/card_images/Grim_Monolith.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "guardian_beast_UNK": {
+    "id": "guardian_beast_UNK",
+    "name": "Guardian Beast",
+    "set": "UNK",
+    "image": "/card_images/Guardian_Beast.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "gwendlyn_di_corci_UNK": {
+    "id": "gwendlyn_di_corci_UNK",
+    "name": "Gwendlyn Di Corci",
+    "set": "UNK",
+    "image": "/card_images/Gwendlyn_Di_Corci.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "halfdane_UNK": {
+    "id": "halfdane_UNK",
+    "name": "Halfdane",
+    "set": "UNK",
+    "image": "/card_images/Halfdane.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "hatred_UNK": {
+    "id": "hatred_UNK",
+    "name": "Hatred",
+    "set": "UNK",
+    "image": "/card_images/Hatred.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "haunting_wind_UNK": {
+    "id": "haunting_wind_UNK",
+    "name": "Haunting Wind",
+    "set": "UNK",
+    "image": "/card_images/Haunting_Wind.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "hazezon_tamar_UNK": {
+    "id": "hazezon_tamar_UNK",
+    "name": "Hazezon Tamar",
+    "set": "UNK",
+    "image": "/card_images/Hazezon_Tamar.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "healing_salve_UNK": {
+    "id": "healing_salve_UNK",
+    "name": "Healing Salve",
+    "set": "UNK",
+    "image": "/card_images/Healing_Salve.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "hellfire_UNK": {
+    "id": "hellfire_UNK",
+    "name": "Hellfire",
+    "set": "UNK",
+    "image": "/card_images/Hellfire.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "helm_of_chatzuk_UNK": {
+    "id": "helm_of_chatzuk_UNK",
+    "name": "Helm of Chatzuk",
+    "set": "UNK",
+    "image": "/card_images/Helm_of_Chatzuk.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "helm_of_obedience_UNK": {
+    "id": "helm_of_obedience_UNK",
+    "name": "Helm of Obedience",
+    "set": "UNK",
+    "image": "/card_images/Helm_of_Obedience.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "horn_of_greed_UNK": {
+    "id": "horn_of_greed_UNK",
+    "name": "Horn of Greed",
+    "set": "UNK",
+    "image": "/card_images/Horn_of_Greed.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "howl_from_beyond_UNK": {
+    "id": "howl_from_beyond_UNK",
+    "name": "Howl from Beyond",
+    "set": "UNK",
+    "image": "/card_images/Howl_from_Beyond.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "howling_mine_UNK": {
+    "id": "howling_mine_UNK",
+    "name": "Howling Mine",
+    "set": "UNK",
+    "image": "/card_images/Howling_Mine.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "humility_UNK": {
+    "id": "humility_UNK",
+    "name": "Humility",
+    "set": "UNK",
+    "image": "/card_images/Humility.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "hurkyls_recall_UNK": {
+    "id": "hurkyls_recall_UNK",
+    "name": "Hurkyls Recall",
+    "set": "UNK",
+    "image": "/card_images/Hurkyls_Recall.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "hurricane_UNK": {
+    "id": "hurricane_UNK",
+    "name": "Hurricane",
+    "set": "UNK",
+    "image": "/card_images/Hurricane.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "hypnotic_specter_UNK": {
+    "id": "hypnotic_specter_UNK",
+    "name": "Hypnotic Specter",
+    "set": "UNK",
+    "image": "/card_images/Hypnotic_Specter.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "icy_manipulator_UNK": {
+    "id": "icy_manipulator_UNK",
+    "name": "Icy Manipulator",
+    "set": "UNK",
+    "image": "/card_images/Icy_Manipulator.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "ifh_b_ff_efreet_UNK": {
+    "id": "ifh_b_ff_efreet_UNK",
+    "name": "Ifh-B\u00edff Efreet",
+    "set": "UNK",
+    "image": "/card_images/Ifh-B\u00edff_Efreet.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "illusionary_mask_UNK": {
+    "id": "illusionary_mask_UNK",
+    "name": "Illusionary Mask",
+    "set": "UNK",
+    "image": "/card_images/Illusionary_Mask.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "imprison_UNK": {
+    "id": "imprison_UNK",
+    "name": "Imprison",
+    "set": "UNK",
+    "image": "/card_images/Imprison.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "in_the_eye_of_chaos_UNK": {
+    "id": "in_the_eye_of_chaos_UNK",
+    "name": "In the Eye of Chaos",
+    "set": "UNK",
+    "image": "/card_images/In_the_Eye_of_Chaos.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "infinite_authority_UNK": {
+    "id": "infinite_authority_UNK",
+    "name": "Infinite Authority",
+    "set": "UNK",
+    "image": "/card_images/Infinite_Authority.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "intuition_UNK": {
+    "id": "intuition_UNK",
+    "name": "Intuition",
+    "set": "UNK",
+    "image": "/card_images/Intuition.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "invisibility_UNK": {
+    "id": "invisibility_UNK",
+    "name": "Invisibility",
+    "set": "UNK",
+    "image": "/card_images/Invisibility.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "invoke_prejudice_UNK": {
+    "id": "invoke_prejudice_UNK",
+    "name": "Invoke Prejudice",
+    "set": "UNK",
+    "image": "/card_images/Invoke_Prejudice.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "ironroot_treefolk_UNK": {
+    "id": "ironroot_treefolk_UNK",
+    "name": "Ironroot Treefolk",
+    "set": "UNK",
+    "image": "/card_images/Ironroot_Treefolk.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "island_of_wak_wak_UNK": {
+    "id": "island_of_wak_wak_UNK",
+    "name": "Island of Wak-Wak",
+    "set": "UNK",
+    "image": "/card_images/Island_of_Wak-Wak.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "island_sanctuary_UNK": {
+    "id": "island_sanctuary_UNK",
+    "name": "Island Sanctuary",
+    "set": "UNK",
+    "image": "/card_images/Island_Sanctuary.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "island_v_1_UNK": {
+    "id": "island_v_1_UNK",
+    "name": "Island (V.1)",
+    "set": "UNK",
+    "image": "/card_images/Island_(V.1).jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "jacques_le_vert_UNK": {
+    "id": "jacques_le_vert_UNK",
+    "name": "Jacques le Vert",
+    "set": "UNK",
+    "image": "/card_images/Jacques_le_Vert.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "jihad_UNK": {
+    "id": "jihad_UNK",
+    "name": "Jihad",
+    "set": "UNK",
+    "image": "/card_images/Jihad.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "jovial_evil_UNK": {
+    "id": "jovial_evil_UNK",
+    "name": "Jovial Evil",
+    "set": "UNK",
+    "image": "/card_images/Jovial_Evil.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "juggernaut_UNK": {
+    "id": "juggernaut_UNK",
+    "name": "Juggernaut",
+    "set": "UNK",
+    "image": "/card_images/Juggernaut.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "jun_n_efreet_UNK": {
+    "id": "jun_n_efreet_UNK",
+    "name": "Jun\u00fan Efreet",
+    "set": "UNK",
+    "image": "/card_images/Jun\u00fan_Efreet.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "karakas_UNK": {
+    "id": "karakas_UNK",
+    "name": "Karakas",
+    "set": "UNK",
+    "image": "/card_images/Karakas.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "karma_UNK": {
+    "id": "karma_UNK",
+    "name": "Karma",
+    "set": "UNK",
+    "image": "/card_images/Karma.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "karn_silver_golem_UNK": {
+    "id": "karn_silver_golem_UNK",
+    "name": "Karn Silver Golem",
+    "set": "UNK",
+    "image": "/card_images/Karn_Silver_Golem.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "karplusan_forest_UNK": {
+    "id": "karplusan_forest_UNK",
+    "name": "Karplusan Forest",
+    "set": "UNK",
+    "image": "/card_images/Karplusan_Forest.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "khab_l_ghoul_UNK": {
+    "id": "khab_l_ghoul_UNK",
+    "name": "Khab\u00e1l Ghoul",
+    "set": "UNK",
+    "image": "/card_images/Khab\u00e1l_Ghoul.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "king_suleiman_UNK": {
+    "id": "king_suleiman_UNK",
+    "name": "King Suleiman",
+    "set": "UNK",
+    "image": "/card_images/King_Suleiman.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "knowledge_vault_UNK": {
+    "id": "knowledge_vault_UNK",
+    "name": "Knowledge Vault",
+    "set": "UNK",
+    "image": "/card_images/Knowledge_Vault.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "kobold_overlord_UNK": {
+    "id": "kobold_overlord_UNK",
+    "name": "Kobold Overlord",
+    "set": "UNK",
+    "image": "/card_images/Kobold_Overlord.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "kokusho_the_evening_star_UNK": {
+    "id": "kokusho_the_evening_star_UNK",
+    "name": "Kokusho the Evening Star",
+    "set": "UNK",
+    "image": "/card_images/Kokusho_the_Evening_Star.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "kormus_bell_UNK": {
+    "id": "kormus_bell_UNK",
+    "name": "Kormus Bell",
+    "set": "UNK",
+    "image": "/card_images/Kormus_Bell.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "kudzu_UNK": {
+    "id": "kudzu_UNK",
+    "name": "Kudzu",
+    "set": "UNK",
+    "image": "/card_images/Kudzu.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "lady_caleria_UNK": {
+    "id": "lady_caleria_UNK",
+    "name": "Lady Caleria",
+    "set": "UNK",
+    "image": "/card_images/Lady_Caleria.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "lady_evangela_UNK": {
+    "id": "lady_evangela_UNK",
+    "name": "Lady Evangela",
+    "set": "UNK",
+    "image": "/card_images/Lady_Evangela.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "lake_of_the_dead_UNK": {
+    "id": "lake_of_the_dead_UNK",
+    "name": "Lake of the Dead",
+    "set": "UNK",
+    "image": "/card_images/Lake_of_the_Dead.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "land_equilibrium_UNK": {
+    "id": "land_equilibrium_UNK",
+    "name": "Land Equilibrium",
+    "set": "UNK",
+    "image": "/card_images/Land_Equilibrium.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "land_tax_UNK": {
+    "id": "land_tax_UNK",
+    "name": "Land Tax",
+    "set": "UNK",
+    "image": "/card_images/Land_Tax.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "library_of_leng_UNK": {
+    "id": "library_of_leng_UNK",
+    "name": "Library of Leng",
+    "set": "UNK",
+    "image": "/card_images/Library_of_Leng.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "lich_UNK": {
+    "id": "lich_UNK",
+    "name": "Lich",
+    "set": "UNK",
+    "image": "/card_images/Lich.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "life_matrix_UNK": {
+    "id": "life_matrix_UNK",
+    "name": "Life Matrix",
+    "set": "UNK",
+    "image": "/card_images/Life_Matrix.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "lifeblood_UNK": {
+    "id": "lifeblood_UNK",
+    "name": "Lifeblood",
+    "set": "UNK",
+    "image": "/card_images/Lifeblood.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "lifeforce_UNK": {
+    "id": "lifeforce_UNK",
+    "name": "Lifeforce",
+    "set": "UNK",
+    "image": "/card_images/Lifeforce.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "lifeline_UNK": {
+    "id": "lifeline_UNK",
+    "name": "Lifeline",
+    "set": "UNK",
+    "image": "/card_images/Lifeline.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "lightning_bolt_UNK": {
+    "id": "lightning_bolt_UNK",
+    "name": "Lightning Bolt",
+    "set": "UNK",
+    "image": "/card_images/Lightning_Bolt.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "lions_eye_diamond_UNK": {
+    "id": "lions_eye_diamond_UNK",
+    "name": "Lions Eye Diamond",
+    "set": "UNK",
+    "image": "/card_images/Lions_Eye_Diamond.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "living_artifact_UNK": {
+    "id": "living_artifact_UNK",
+    "name": "Living Artifact",
+    "set": "UNK",
+    "image": "/card_images/Living_Artifact.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "living_plane_UNK": {
+    "id": "living_plane_UNK",
+    "name": "Living Plane",
+    "set": "UNK",
+    "image": "/card_images/Living_Plane.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "livonya_silone_UNK": {
+    "id": "livonya_silone_UNK",
+    "name": "Livonya Silone",
+    "set": "UNK",
+    "image": "/card_images/Livonya_Silone.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "lotus_petal_UNK": {
+    "id": "lotus_petal_UNK",
+    "name": "Lotus Petal",
+    "set": "UNK",
+    "image": "/card_images/Lotus_Petal.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "lotus_vale_UNK": {
+    "id": "lotus_vale_UNK",
+    "name": "Lotus Vale",
+    "set": "UNK",
+    "image": "/card_images/Lotus_Vale.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "lure_UNK": {
+    "id": "lure_UNK",
+    "name": "Lure",
+    "set": "UNK",
+    "image": "/card_images/Lure.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "mana_drain_UNK": {
+    "id": "mana_drain_UNK",
+    "name": "Mana Drain",
+    "set": "UNK",
+    "image": "/card_images/Mana_Drain.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "mana_echoes_UNK": {
+    "id": "mana_echoes_UNK",
+    "name": "Mana Echoes",
+    "set": "UNK",
+    "image": "/card_images/Mana_Echoes.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "mana_flare_UNK": {
+    "id": "mana_flare_UNK",
+    "name": "Mana Flare",
+    "set": "UNK",
+    "image": "/card_images/Mana_Flare.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "mana_matrix_UNK": {
+    "id": "mana_matrix_UNK",
+    "name": "Mana Matrix",
+    "set": "UNK",
+    "image": "/card_images/Mana_Matrix.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "mana_short_UNK": {
+    "id": "mana_short_UNK",
+    "name": "Mana Short",
+    "set": "UNK",
+    "image": "/card_images/Mana_Short.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "mana_vault_UNK": {
+    "id": "mana_vault_UNK",
+    "name": "Mana Vault",
+    "set": "UNK",
+    "image": "/card_images/Mana_Vault.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "mana_vortex_UNK": {
+    "id": "mana_vortex_UNK",
+    "name": "Mana Vortex",
+    "set": "UNK",
+    "image": "/card_images/Mana_Vortex.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "manabarbs_UNK": {
+    "id": "manabarbs_UNK",
+    "name": "Manabarbs",
+    "set": "UNK",
+    "image": "/card_images/Manabarbs.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "master_of_the_hunt_UNK": {
+    "id": "master_of_the_hunt_UNK",
+    "name": "Master of the Hunt",
+    "set": "UNK",
+    "image": "/card_images/Master_of_the_Hunt.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "masticore_UNK": {
+    "id": "masticore_UNK",
+    "name": "Masticore",
+    "set": "UNK",
+    "image": "/card_images/Masticore.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "maze_of_ith_UNK": {
+    "id": "maze_of_ith_UNK",
+    "name": "Maze of Ith",
+    "set": "UNK",
+    "image": "/card_images/Maze_of_Ith.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "memory_jar_UNK": {
+    "id": "memory_jar_UNK",
+    "name": "Memory Jar",
+    "set": "UNK",
+    "image": "/card_images/Memory_Jar.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "merchant_ship_UNK": {
+    "id": "merchant_ship_UNK",
+    "name": "Merchant Ship",
+    "set": "UNK",
+    "image": "/card_images/Merchant_Ship.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "metalworker_UNK": {
+    "id": "metalworker_UNK",
+    "name": "Metalworker",
+    "set": "UNK",
+    "image": "/card_images/Metalworker.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "mind_over_matter_UNK": {
+    "id": "mind_over_matter_UNK",
+    "name": "Mind Over Matter",
+    "set": "UNK",
+    "image": "/card_images/Mind_Over_Matter.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "mind_twist_UNK": {
+    "id": "mind_twist_UNK",
+    "name": "Mind Twist",
+    "set": "UNK",
+    "image": "/card_images/Mind_Twist.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "mirror_universe_UNK": {
+    "id": "mirror_universe_UNK",
+    "name": "Mirror Universe",
+    "set": "UNK",
+    "image": "/card_images/Mirror_Universe.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "mishras_factory_v_1_UNK": {
+    "id": "mishras_factory_v_1_UNK",
+    "name": "Mishras Factory (V.1)",
+    "set": "UNK",
+    "image": "/card_images/Mishras_Factory_(V.1).jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "mold_demon_UNK": {
+    "id": "mold_demon_UNK",
+    "name": "Mold Demon",
+    "set": "UNK",
+    "image": "/card_images/Mold_Demon.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "mountain_UNK": {
+    "id": "mountain_UNK",
+    "name": "Mountain",
+    "set": "UNK",
+    "image": "/card_images/Mountain.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "mountain_v_1_UNK": {
+    "id": "mountain_v_1_UNK",
+    "name": "Mountain (V.1)",
+    "set": "UNK",
+    "image": "/card_images/Mountain_(V.1).jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "mox_diamond_UNK": {
+    "id": "mox_diamond_UNK",
+    "name": "Mox Diamond",
+    "set": "UNK",
+    "image": "/card_images/Mox_Diamond.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "natural_selection_UNK": {
+    "id": "natural_selection_UNK",
+    "name": "Natural Selection",
+    "set": "UNK",
+    "image": "/card_images/Natural_Selection.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "necropotence_UNK": {
+    "id": "necropotence_UNK",
+    "name": "Necropotence",
+    "set": "UNK",
+    "image": "/card_images/Necropotence.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "nether_shadow_UNK": {
+    "id": "nether_shadow_UNK",
+    "name": "Nether Shadow",
+    "set": "UNK",
+    "image": "/card_images/Nether_Shadow.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "nether_void_UNK": {
+    "id": "nether_void_UNK",
+    "name": "Nether Void",
+    "set": "UNK",
+    "image": "/card_images/Nether_Void.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "nettling_imp_UNK": {
+    "id": "nettling_imp_UNK",
+    "name": "Nettling Imp",
+    "set": "UNK",
+    "image": "/card_images/Nettling_Imp.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "nicol_bolas_UNK": {
+    "id": "nicol_bolas_UNK",
+    "name": "Nicol Bolas",
+    "set": "UNK",
+    "image": "/card_images/Nicol_Bolas.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "north_star_UNK": {
+    "id": "north_star_UNK",
+    "name": "North Star",
+    "set": "UNK",
+    "image": "/card_images/North_Star.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "nova_pentacle_UNK": {
+    "id": "nova_pentacle_UNK",
+    "name": "Nova Pentacle",
+    "set": "UNK",
+    "image": "/card_images/Nova_Pentacle.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "null_rod_UNK": {
+    "id": "null_rod_UNK",
+    "name": "Null Rod",
+    "set": "UNK",
+    "image": "/card_images/Null_Rod.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "oath_of_druids_UNK": {
+    "id": "oath_of_druids_UNK",
+    "name": "Oath of Druids",
+    "set": "UNK",
+    "image": "/card_images/Oath_of_Druids.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "old_man_of_the_sea_UNK": {
+    "id": "old_man_of_the_sea_UNK",
+    "name": "Old Man of the Sea",
+    "set": "UNK",
+    "image": "/card_images/Old_Man_of_the_Sea.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "opalescence_UNK": {
+    "id": "opalescence_UNK",
+    "name": "Opalescence",
+    "set": "UNK",
+    "image": "/card_images/Opalescence.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "orcish_oriflamme_UNK": {
+    "id": "orcish_oriflamme_UNK",
+    "name": "Orcish Oriflamme",
+    "set": "UNK",
+    "image": "/card_images/Orcish_Oriflamme.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "palinchron_UNK": {
+    "id": "palinchron_UNK",
+    "name": "Palinchron",
+    "set": "UNK",
+    "image": "/card_images/Palinchron.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "palladia_mors_UNK": {
+    "id": "palladia_mors_UNK",
+    "name": "Palladia-Mors",
+    "set": "UNK",
+    "image": "/card_images/Palladia-Mors.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "parallax_tide_UNK": {
+    "id": "parallax_tide_UNK",
+    "name": "Parallax Tide",
+    "set": "UNK",
+    "image": "/card_images/Parallax_Tide.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "pendelhaven_UNK": {
+    "id": "pendelhaven_UNK",
+    "name": "Pendelhaven",
+    "set": "UNK",
+    "image": "/card_images/Pendelhaven.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "personal_incarnation_UNK": {
+    "id": "personal_incarnation_UNK",
+    "name": "Personal Incarnation",
+    "set": "UNK",
+    "image": "/card_images/Personal_Incarnation.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "pestilence_UNK": {
+    "id": "pestilence_UNK",
+    "name": "Pestilence",
+    "set": "UNK",
+    "image": "/card_images/Pestilence.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "phyrexian_altar_UNK": {
+    "id": "phyrexian_altar_UNK",
+    "name": "Phyrexian Altar",
+    "set": "UNK",
+    "image": "/card_images/Phyrexian_Altar.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "phyrexian_devourer_UNK": {
+    "id": "phyrexian_devourer_UNK",
+    "name": "Phyrexian Devourer",
+    "set": "UNK",
+    "image": "/card_images/Phyrexian_Devourer.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "phyrexian_dreadnought_UNK": {
+    "id": "phyrexian_dreadnought_UNK",
+    "name": "Phyrexian Dreadnought",
+    "set": "UNK",
+    "image": "/card_images/Phyrexian_Dreadnought.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "phyrexian_tower_UNK": {
+    "id": "phyrexian_tower_UNK",
+    "name": "Phyrexian Tower",
+    "set": "UNK",
+    "image": "/card_images/Phyrexian_Tower.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "pirate_ship_UNK": {
+    "id": "pirate_ship_UNK",
+    "name": "Pirate Ship",
+    "set": "UNK",
+    "image": "/card_images/Pirate_Ship.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "pixie_queen_UNK": {
+    "id": "pixie_queen_UNK",
+    "name": "Pixie Queen",
+    "set": "UNK",
+    "image": "/card_images/Pixie_Queen.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "plains_v_1_UNK": {
+    "id": "plains_v_1_UNK",
+    "name": "Plains (V.1)",
+    "set": "UNK",
+    "image": "/card_images/Plains_(V.1).jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "planar_gate_UNK": {
+    "id": "planar_gate_UNK",
+    "name": "Planar Gate",
+    "set": "UNK",
+    "image": "/card_images/Planar_Gate.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "powder_keg_UNK": {
+    "id": "powder_keg_UNK",
+    "name": "Powder Keg",
+    "set": "UNK",
+    "image": "/card_images/Powder_Keg.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "power_artifact_UNK": {
+    "id": "power_artifact_UNK",
+    "name": "Power Artifact",
+    "set": "UNK",
+    "image": "/card_images/Power_Artifact.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "power_sink_UNK": {
+    "id": "power_sink_UNK",
+    "name": "Power Sink",
+    "set": "UNK",
+    "image": "/card_images/Power_Sink.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "power_surge_UNK": {
+    "id": "power_surge_UNK",
+    "name": "Power Surge",
+    "set": "UNK",
+    "image": "/card_images/Power_Surge.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "powerleech_UNK": {
+    "id": "powerleech_UNK",
+    "name": "Powerleech",
+    "set": "UNK",
+    "image": "/card_images/Powerleech.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "preacher_UNK": {
+    "id": "preacher_UNK",
+    "name": "Preacher",
+    "set": "UNK",
+    "image": "/card_images/Preacher.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "psionic_blast_UNK": {
+    "id": "psionic_blast_UNK",
+    "name": "Psionic Blast",
+    "set": "UNK",
+    "image": "/card_images/Psionic_Blast.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "pyramids_UNK": {
+    "id": "pyramids_UNK",
+    "name": "Pyramids",
+    "set": "UNK",
+    "image": "/card_images/Pyramids.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "quarum_trench_gnomes_UNK": {
+    "id": "quarum_trench_gnomes_UNK",
+    "name": "Quarum Trench Gnomes",
+    "set": "UNK",
+    "image": "/card_images/Quarum_Trench_Gnomes.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "raging_river_UNK": {
+    "id": "raging_river_UNK",
+    "name": "Raging River",
+    "set": "UNK",
+    "image": "/card_images/Raging_River.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "ragnar_UNK": {
+    "id": "ragnar_UNK",
+    "name": "Ragnar",
+    "set": "UNK",
+    "image": "/card_images/Ragnar.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "raise_dead_UNK": {
+    "id": "raise_dead_UNK",
+    "name": "Raise Dead",
+    "set": "UNK",
+    "image": "/card_images/Raise_Dead.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "ramses_overdark_UNK": {
+    "id": "ramses_overdark_UNK",
+    "name": "Ramses Overdark",
+    "set": "UNK",
+    "image": "/card_images/Ramses_Overdark.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "rapid_fire_UNK": {
+    "id": "rapid_fire_UNK",
+    "name": "Rapid Fire",
+    "set": "UNK",
+    "image": "/card_images/Rapid_Fire.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "rasputin_dreamweaver_UNK": {
+    "id": "rasputin_dreamweaver_UNK",
+    "name": "Rasputin Dreamweaver",
+    "set": "UNK",
+    "image": "/card_images/Rasputin_Dreamweaver.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "ravages_of_war_UNK": {
+    "id": "ravages_of_war_UNK",
+    "name": "Ravages of War",
+    "set": "UNK",
+    "image": "/card_images/Ravages_of_War.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "reanimate_UNK": {
+    "id": "reanimate_UNK",
+    "name": "Reanimate",
+    "set": "UNK",
+    "image": "/card_images/Reanimate.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "recall_UNK": {
+    "id": "recall_UNK",
+    "name": "Recall",
+    "set": "UNK",
+    "image": "/card_images/Recall.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "recurring_nightmare_UNK": {
+    "id": "recurring_nightmare_UNK",
+    "name": "Recurring Nightmare",
+    "set": "UNK",
+    "image": "/card_images/Recurring_Nightmare.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "red_elemental_blast_UNK": {
+    "id": "red_elemental_blast_UNK",
+    "name": "Red Elemental Blast",
+    "set": "UNK",
+    "image": "/card_images/Red_Elemental_Blast.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "replenish_UNK": {
+    "id": "replenish_UNK",
+    "name": "Replenish",
+    "set": "UNK",
+    "image": "/card_images/Replenish.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "reverberation_UNK": {
+    "id": "reverberation_UNK",
+    "name": "Reverberation",
+    "set": "UNK",
+    "image": "/card_images/Reverberation.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "reverse_damage_UNK": {
+    "id": "reverse_damage_UNK",
+    "name": "Reverse Damage",
+    "set": "UNK",
+    "image": "/card_images/Reverse_Damage.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "rhystic_study_UNK": {
+    "id": "rhystic_study_UNK",
+    "name": "Rhystic Study",
+    "set": "UNK",
+    "image": "/card_images/Rhystic_Study.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "ring_of_immortals_UNK": {
+    "id": "ring_of_immortals_UNK",
+    "name": "Ring of Immortals",
+    "set": "UNK",
+    "image": "/card_images/Ring_of_Immortals.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "ring_of_mar_f_UNK": {
+    "id": "ring_of_mar_f_UNK",
+    "name": "Ring of Mar\u00fbf",
+    "set": "UNK",
+    "image": "/card_images/Ring_of_Mar\u00fbf.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "rishadan_port_UNK": {
+    "id": "rishadan_port_UNK",
+    "name": "Rishadan Port",
+    "set": "UNK",
+    "image": "/card_images/Rishadan_Port.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "roc_of_kher_ridges_UNK": {
+    "id": "roc_of_kher_ridges_UNK",
+    "name": "Roc of Kher Ridges",
+    "set": "UNK",
+    "image": "/card_images/Roc_of_Kher_Ridges.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "rock_hydra_UNK": {
+    "id": "rock_hydra_UNK",
+    "name": "Rock Hydra",
+    "set": "UNK",
+    "image": "/card_images/Rock_Hydra.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "rofellos_llanowar_emissary_UNK": {
+    "id": "rofellos_llanowar_emissary_UNK",
+    "name": "Rofellos Llanowar Emissary",
+    "set": "UNK",
+    "image": "/card_images/Rofellos_Llanowar_Emissary.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "rohgahh_of_kher_keep_UNK": {
+    "id": "rohgahh_of_kher_keep_UNK",
+    "name": "Rohgahh of Kher Keep",
+    "set": "UNK",
+    "image": "/card_images/Rohgahh_of_Kher_Keep.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "royal_assassin_UNK": {
+    "id": "royal_assassin_UNK",
+    "name": "Royal Assassin",
+    "set": "UNK",
+    "image": "/card_images/Royal_Assassin.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "sandals_of_abdallah_UNK": {
+    "id": "sandals_of_abdallah_UNK",
+    "name": "Sandals of Abdallah",
+    "set": "UNK",
+    "image": "/card_images/Sandals_of_Abdallah.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "sarcomancy_UNK": {
+    "id": "sarcomancy_UNK",
+    "name": "Sarcomancy",
+    "set": "UNK",
+    "image": "/card_images/Sarcomancy.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "savannah_UNK": {
+    "id": "savannah_UNK",
+    "name": "Savannah",
+    "set": "UNK",
+    "image": "/card_images/Savannah.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "savannah_lions_UNK": {
+    "id": "savannah_lions_UNK",
+    "name": "Savannah Lions",
+    "set": "UNK",
+    "image": "/card_images/Savannah_Lions.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "scavenging_ghoul_UNK": {
+    "id": "scavenging_ghoul_UNK",
+    "name": "Scavenging Ghoul",
+    "set": "UNK",
+    "image": "/card_images/Scavenging_Ghoul.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "scorched_ruins_UNK": {
+    "id": "scorched_ruins_UNK",
+    "name": "Scorched Ruins",
+    "set": "UNK",
+    "image": "/card_images/Scorched_Ruins.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "scroll_rack_UNK": {
+    "id": "scroll_rack_UNK",
+    "name": "Scroll Rack",
+    "set": "UNK",
+    "image": "/card_images/Scroll_Rack.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "scrubland_UNK": {
+    "id": "scrubland_UNK",
+    "name": "Scrubland",
+    "set": "UNK",
+    "image": "/card_images/Scrubland.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "season_of_the_witch_UNK": {
+    "id": "season_of_the_witch_UNK",
+    "name": "Season of the Witch",
+    "set": "UNK",
+    "image": "/card_images/Season_of_the_Witch.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "sedge_troll_UNK": {
+    "id": "sedge_troll_UNK",
+    "name": "Sedge Troll",
+    "set": "UNK",
+    "image": "/card_images/Sedge_Troll.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "sengir_vampire_UNK": {
+    "id": "sengir_vampire_UNK",
+    "name": "Sengir Vampire",
+    "set": "UNK",
+    "image": "/card_images/Sengir_Vampire.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "senseis_divining_top_UNK": {
+    "id": "senseis_divining_top_UNK",
+    "name": "Senseis Divining Top",
+    "set": "UNK",
+    "image": "/card_images/Senseis_Divining_Top.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "serendib_djinn_UNK": {
+    "id": "serendib_djinn_UNK",
+    "name": "Serendib Djinn",
+    "set": "UNK",
+    "image": "/card_images/Serendib_Djinn.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "serendib_efreet_UNK": {
+    "id": "serendib_efreet_UNK",
+    "name": "Serendib Efreet",
+    "set": "UNK",
+    "image": "/card_images/Serendib_Efreet.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "serra_angel_UNK": {
+    "id": "serra_angel_UNK",
+    "name": "Serra Angel",
+    "set": "UNK",
+    "image": "/card_images/Serra_Angel.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "serra_ascendant_UNK": {
+    "id": "serra_ascendant_UNK",
+    "name": "Serra Ascendant",
+    "set": "UNK",
+    "image": "/card_images/Serra_Ascendant.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "serras_sanctum_UNK": {
+    "id": "serras_sanctum_UNK",
+    "name": "Serras Sanctum",
+    "set": "UNK",
+    "image": "/card_images/Serras_Sanctum.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "shahrazad_UNK": {
+    "id": "shahrazad_UNK",
+    "name": "Shahrazad",
+    "set": "UNK",
+    "image": "/card_images/Shahrazad.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "shallow_grave_UNK": {
+    "id": "shallow_grave_UNK",
+    "name": "Shallow Grave",
+    "set": "UNK",
+    "image": "/card_images/Shallow_Grave.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "shivan_dragon_UNK": {
+    "id": "shivan_dragon_UNK",
+    "name": "Shivan Dragon",
+    "set": "UNK",
+    "image": "/card_images/Shivan_Dragon.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "show_and_tell_UNK": {
+    "id": "show_and_tell_UNK",
+    "name": "Show and Tell",
+    "set": "UNK",
+    "image": "/card_images/Show_and_Tell.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "simulacrum_UNK": {
+    "id": "simulacrum_UNK",
+    "name": "Simulacrum",
+    "set": "UNK",
+    "image": "/card_images/Simulacrum.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "sindbad_UNK": {
+    "id": "sindbad_UNK",
+    "name": "Sindbad",
+    "set": "UNK",
+    "image": "/card_images/Sindbad.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "singing_tree_UNK": {
+    "id": "singing_tree_UNK",
+    "name": "Singing Tree",
+    "set": "UNK",
+    "image": "/card_images/Singing_Tree.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "sinkhole_UNK": {
+    "id": "sinkhole_UNK",
+    "name": "Sinkhole",
+    "set": "UNK",
+    "image": "/card_images/Sinkhole.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "sleight_of_mind_UNK": {
+    "id": "sleight_of_mind_UNK",
+    "name": "Sleight of Mind",
+    "set": "UNK",
+    "image": "/card_images/Sleight_of_Mind.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "sliver_legion_UNK": {
+    "id": "sliver_legion_UNK",
+    "name": "Sliver Legion",
+    "set": "UNK",
+    "image": "/card_images/Sliver_Legion.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "sliver_queen_UNK": {
+    "id": "sliver_queen_UNK",
+    "name": "Sliver Queen",
+    "set": "UNK",
+    "image": "/card_images/Sliver_Queen.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "sol_ring_UNK": {
+    "id": "sol_ring_UNK",
+    "name": "Sol Ring",
+    "set": "UNK",
+    "image": "/card_images/Sol_Ring.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "sorceress_queen_UNK": {
+    "id": "sorceress_queen_UNK",
+    "name": "Sorceress Queen",
+    "set": "UNK",
+    "image": "/card_images/Sorceress_Queen.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "sphere_of_resistance_UNK": {
+    "id": "sphere_of_resistance_UNK",
+    "name": "Sphere of Resistance",
+    "set": "UNK",
+    "image": "/card_images/Sphere_of_Resistance.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "spinal_villain_UNK": {
+    "id": "spinal_villain_UNK",
+    "name": "Spinal Villain",
+    "set": "UNK",
+    "image": "/card_images/Spinal_Villain.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "spiritual_sanctuary_UNK": {
+    "id": "spiritual_sanctuary_UNK",
+    "name": "Spiritual Sanctuary",
+    "set": "UNK",
+    "image": "/card_images/Spiritual_Sanctuary.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "squandered_resources_UNK": {
+    "id": "squandered_resources_UNK",
+    "name": "Squandered Resources",
+    "set": "UNK",
+    "image": "/card_images/Squandered_Resources.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "stone_calendar_UNK": {
+    "id": "stone_calendar_UNK",
+    "name": "Stone Calendar",
+    "set": "UNK",
+    "image": "/card_images/Stone_Calendar.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "stone_throwing_devils_v_1_UNK": {
+    "id": "stone_throwing_devils_v_1_UNK",
+    "name": "Stone-Throwing Devils (V.1)",
+    "set": "UNK",
+    "image": "/card_images/Stone-Throwing_Devils_(V.1).jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "storm_world_UNK": {
+    "id": "storm_world_UNK",
+    "name": "Storm World",
+    "set": "UNK",
+    "image": "/card_images/Storm_World.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "strip_mine_v_1_UNK": {
+    "id": "strip_mine_v_1_UNK",
+    "name": "Strip Mine (V.1)",
+    "set": "UNK",
+    "image": "/card_images/Strip_Mine_(V.1).jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "su_chi_UNK": {
+    "id": "su_chi_UNK",
+    "name": "Su-Chi",
+    "set": "UNK",
+    "image": "/card_images/Su-Chi.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "sulfurous_springs_UNK": {
+    "id": "sulfurous_springs_UNK",
+    "name": "Sulfurous Springs",
+    "set": "UNK",
+    "image": "/card_images/Sulfurous_Springs.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "survival_of_the_fittest_UNK": {
+    "id": "survival_of_the_fittest_UNK",
+    "name": "Survival of the Fittest",
+    "set": "UNK",
+    "image": "/card_images/Survival_of_the_Fittest.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "swamp_v_1_UNK": {
+    "id": "swamp_v_1_UNK",
+    "name": "Swamp (V.1)",
+    "set": "UNK",
+    "image": "/card_images/Swamp_(V.1).jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "sword_of_fire_and_ice_UNK": {
+    "id": "sword_of_fire_and_ice_UNK",
+    "name": "Sword of Fire and Ice",
+    "set": "UNK",
+    "image": "/card_images/Sword_of_Fire_and_Ice.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "sword_of_the_ages_UNK": {
+    "id": "sword_of_the_ages_UNK",
+    "name": "Sword of the Ages",
+    "set": "UNK",
+    "image": "/card_images/Sword_of_the_Ages.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "swords_to_plowshares_UNK": {
+    "id": "swords_to_plowshares_UNK",
+    "name": "Swords to Plowshares",
+    "set": "UNK",
+    "image": "/card_images/Swords_to_Plowshares.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "sylvan_library_UNK": {
+    "id": "sylvan_library_UNK",
+    "name": "Sylvan Library",
+    "set": "UNK",
+    "image": "/card_images/Sylvan_Library.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "tawnoss_coffin_UNK": {
+    "id": "tawnoss_coffin_UNK",
+    "name": "Tawnoss Coffin",
+    "set": "UNK",
+    "image": "/card_images/Tawnoss_Coffin.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "telekinesis_UNK": {
+    "id": "telekinesis_UNK",
+    "name": "Telekinesis",
+    "set": "UNK",
+    "image": "/card_images/Telekinesis.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "terror_UNK": {
+    "id": "terror_UNK",
+    "name": "Terror",
+    "set": "UNK",
+    "image": "/card_images/Terror.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "tetsuo_umezawa_UNK": {
+    "id": "tetsuo_umezawa_UNK",
+    "name": "Tetsuo Umezawa",
+    "set": "UNK",
+    "image": "/card_images/Tetsuo_Umezawa.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "thawing_glaciers_UNK": {
+    "id": "thawing_glaciers_UNK",
+    "name": "Thawing Glaciers",
+    "set": "UNK",
+    "image": "/card_images/Thawing_Glaciers.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "thicket_basilisk_UNK": {
+    "id": "thicket_basilisk_UNK",
+    "name": "Thicket Basilisk",
+    "set": "UNK",
+    "image": "/card_images/Thicket_Basilisk.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "thought_lash_UNK": {
+    "id": "thought_lash_UNK",
+    "name": "Thought Lash",
+    "set": "UNK",
+    "image": "/card_images/Thought_Lash.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "thunder_spirit_UNK": {
+    "id": "thunder_spirit_UNK",
+    "name": "Thunder Spirit",
+    "set": "UNK",
+    "image": "/card_images/Thunder_Spirit.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "time_spiral_UNK": {
+    "id": "time_spiral_UNK",
+    "name": "Time Spiral",
+    "set": "UNK",
+    "image": "/card_images/Time_Spiral.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "time_warp_UNK": {
+    "id": "time_warp_UNK",
+    "name": "Time Warp",
+    "set": "UNK",
+    "image": "/card_images/Time_Warp.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "tinybones_trinket_thief_UNK": {
+    "id": "tinybones_trinket_thief_UNK",
+    "name": "Tinybones Trinket Thief",
+    "set": "UNK",
+    "image": "/card_images/Tinybones_Trinket_Thief.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "tithe_UNK": {
+    "id": "tithe_UNK",
+    "name": "Tithe",
+    "set": "UNK",
+    "image": "/card_images/Tithe.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "tolarian_academy_UNK": {
+    "id": "tolarian_academy_UNK",
+    "name": "Tolarian Academy",
+    "set": "UNK",
+    "image": "/card_images/Tolarian_Academy.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "tombstone_stairwell_UNK": {
+    "id": "tombstone_stairwell_UNK",
+    "name": "Tombstone Stairwell",
+    "set": "UNK",
+    "image": "/card_images/Tombstone_Stairwell.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "tranquility_UNK": {
+    "id": "tranquility_UNK",
+    "name": "Tranquility",
+    "set": "UNK",
+    "image": "/card_images/Tranquility.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "transmute_artifact_UNK": {
+    "id": "transmute_artifact_UNK",
+    "name": "Transmute Artifact",
+    "set": "UNK",
+    "image": "/card_images/Transmute_Artifact.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "treachery_UNK": {
+    "id": "treachery_UNK",
+    "name": "Treachery",
+    "set": "UNK",
+    "image": "/card_images/Treachery.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "trinisphere_UNK": {
+    "id": "trinisphere_UNK",
+    "name": "Trinisphere",
+    "set": "UNK",
+    "image": "/card_images/Trinisphere.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "triskelion_UNK": {
+    "id": "triskelion_UNK",
+    "name": "Triskelion",
+    "set": "UNK",
+    "image": "/card_images/Triskelion.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "tuknir_deathlock_UNK": {
+    "id": "tuknir_deathlock_UNK",
+    "name": "Tuknir Deathlock",
+    "set": "UNK",
+    "image": "/card_images/Tuknir_Deathlock.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "tunnel_UNK": {
+    "id": "tunnel_UNK",
+    "name": "Tunnel",
+    "set": "UNK",
+    "image": "/card_images/Tunnel.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "twiddle_UNK": {
+    "id": "twiddle_UNK",
+    "name": "Twiddle",
+    "set": "UNK",
+    "image": "/card_images/Twiddle.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "two_headed_giant_of_foriys_UNK": {
+    "id": "two_headed_giant_of_foriys_UNK",
+    "name": "Two-Headed Giant of Foriys",
+    "set": "UNK",
+    "image": "/card_images/Two-Headed_Giant_of_Foriys.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "typhoon_UNK": {
+    "id": "typhoon_UNK",
+    "name": "Typhoon",
+    "set": "UNK",
+    "image": "/card_images/Typhoon.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "ulamog_the_infinite_gyre_UNK": {
+    "id": "ulamog_the_infinite_gyre_UNK",
+    "name": "Ulamog the Infinite Gyre",
+    "set": "UNK",
+    "image": "/card_images/Ulamog_the_Infinite_Gyre.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "underground_river_UNK": {
+    "id": "underground_river_UNK",
+    "name": "Underground River",
+    "set": "UNK",
+    "image": "/card_images/Underground_River.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "underworld_dreams_UNK": {
+    "id": "underworld_dreams_UNK",
+    "name": "Underworld Dreams",
+    "set": "UNK",
+    "image": "/card_images/Underworld_Dreams.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "undiscovered_paradise_UNK": {
+    "id": "undiscovered_paradise_UNK",
+    "name": "Undiscovered Paradise",
+    "set": "UNK",
+    "image": "/card_images/Undiscovered_Paradise.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "unfulfilled_desires_UNK": {
+    "id": "unfulfilled_desires_UNK",
+    "name": "Unfulfilled Desires",
+    "set": "UNK",
+    "image": "/card_images/Unfulfilled_Desires.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "ur_drago_UNK": {
+    "id": "ur_drago_UNK",
+    "name": "Ur-Drago",
+    "set": "UNK",
+    "image": "/card_images/Ur-Drago.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "urzas_miter_UNK": {
+    "id": "urzas_miter_UNK",
+    "name": "Urzas Miter",
+    "set": "UNK",
+    "image": "/card_images/Urzas_Miter.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "uthden_troll_UNK": {
+    "id": "uthden_troll_UNK",
+    "name": "Uthden Troll",
+    "set": "UNK",
+    "image": "/card_images/Uthden_Troll.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "vaevictis_asmadi_UNK": {
+    "id": "vaevictis_asmadi_UNK",
+    "name": "Vaevictis Asmadi",
+    "set": "UNK",
+    "image": "/card_images/Vaevictis_Asmadi.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "vampiric_tutor_UNK": {
+    "id": "vampiric_tutor_UNK",
+    "name": "Vampiric Tutor",
+    "set": "UNK",
+    "image": "/card_images/Vampiric_Tutor.jpg",
+    "type": "Instant",
+    "mana_cost": "{B}",
+    "cmc": 1.0,
+    "oracle_text": "Search your library for a card, then shuffle and put that card on top. You lose 2 life.",
+    "colors": [
+      "B"
+    ]
+  },
+  "verduran_enchantress_UNK": {
+    "id": "verduran_enchantress_UNK",
+    "name": "Verduran Enchantress",
+    "set": "UNK",
+    "image": "/card_images/Verduran_Enchantress.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "vesuvan_doppelganger_UNK": {
+    "id": "vesuvan_doppelganger_UNK",
+    "name": "Vesuvan Doppelganger",
+    "set": "UNK",
+    "image": "/card_images/Vesuvan_Doppelganger.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "veteran_bodyguard_UNK": {
+    "id": "veteran_bodyguard_UNK",
+    "name": "Veteran Bodyguard",
+    "set": "UNK",
+    "image": "/card_images/Veteran_Bodyguard.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "volraths_stronghold_UNK": {
+    "id": "volraths_stronghold_UNK",
+    "name": "Volraths Stronghold",
+    "set": "UNK",
+    "image": "/card_images/Volraths_Stronghold.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "wall_of_bone_UNK": {
+    "id": "wall_of_bone_UNK",
+    "name": "Wall of Bone",
+    "set": "UNK",
+    "image": "/card_images/Wall_of_Bone.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "wasteland_UNK": {
+    "id": "wasteland_UNK",
+    "name": "Wasteland",
+    "set": "UNK",
+    "image": "/card_images/Wasteland.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "wheel_of_fortune_UNK": {
+    "id": "wheel_of_fortune_UNK",
+    "name": "Wheel of Fortune",
+    "set": "UNK",
+    "image": "/card_images/Wheel_of_Fortune.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "willow_satyr_UNK": {
+    "id": "willow_satyr_UNK",
+    "name": "Willow Satyr",
+    "set": "UNK",
+    "image": "/card_images/Willow_Satyr.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "winding_canyons_UNK": {
+    "id": "winding_canyons_UNK",
+    "name": "Winding Canyons",
+    "set": "UNK",
+    "image": "/card_images/Winding_Canyons.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "windswept_heath_UNK": {
+    "id": "windswept_heath_UNK",
+    "name": "Windswept Heath",
+    "set": "UNK",
+    "image": "/card_images/Windswept_Heath.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "winter_orb_UNK": {
+    "id": "winter_orb_UNK",
+    "name": "Winter Orb",
+    "set": "UNK",
+    "image": "/card_images/Winter_Orb.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "wood_elemental_UNK": {
+    "id": "wood_elemental_UNK",
+    "name": "Wood Elemental",
+    "set": "UNK",
+    "image": "/card_images/Wood_Elemental.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "word_of_command_UNK": {
+    "id": "word_of_command_UNK",
+    "name": "Word of Command",
+    "set": "UNK",
+    "image": "/card_images/Word_of_Command.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "worldly_tutor_UNK": {
+    "id": "worldly_tutor_UNK",
+    "name": "Worldly Tutor",
+    "set": "UNK",
+    "image": "/card_images/Worldly_Tutor.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "wrath_of_god_UNK": {
+    "id": "wrath_of_god_UNK",
+    "name": "Wrath of God",
+    "set": "UNK",
+    "image": "/card_images/Wrath_of_God.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "yavimaya_hollow_UNK": {
+    "id": "yavimaya_hollow_UNK",
+    "name": "Yavimaya Hollow",
+    "set": "UNK",
+    "image": "/card_images/Yavimaya_Hollow.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "yawgmoths_will_UNK": {
+    "id": "yawgmoths_will_UNK",
+    "name": "Yawgmoths Will",
+    "set": "UNK",
+    "image": "/card_images/Yawgmoths_Will.jpg",
+    "type": "Unknown",
+    "mana_cost": "",
+    "cmc": 0,
+    "oracle_text": "",
+    "colors": []
+  },
+  "chaos_orb_UNK": {
+    "id": "chaos_orb_UNK",
+    "name": "Chaos Orb",
+    "set": "UNK",
+    "image": "/card_images/Chaos_Orb.jpg",
+    "type": "Artifact",
+    "mana_cost": "{2}",
+    "cmc": 2.0,
+    "oracle_text": "{1}, {T}: If this artifact is on the battlefield, flip it onto the battlefield from a height of at least one foot. If this artifact turns over completely at least once during the flip, destroy all nontoken permanents it touches. Then destroy this artifact.",
+    "colors": []
+  },
+  "chaos_confetti_UNK": {
+    "id": "chaos_confetti_UNK",
+    "name": "Chaos Confetti",
+    "set": "UNK",
+    "image": "/card_images/Chaos_Confetti.jpg",
+    "type": "Artifact",
+    "mana_cost": "{4}",
+    "cmc": 4.0,
+    "oracle_text": "{4}, {T}: Tear this artifact into pieces. Throw the pieces onto the battlefield from a distance of at least five feet. Destroy each permanent that a piece touches. Remove the pieces from the game.",
+    "colors": []
+  },
+  "black_lotus_UNK": {
+    "id": "black_lotus_UNK",
+    "name": "Black Lotus",
+    "set": "UNK",
+    "image": "/card_images/Black_Lotus.jpg",
+    "type": "Artifact",
+    "mana_cost": "{0}",
+    "cmc": 0.0,
+    "oracle_text": "{T}, Sacrifice this artifact: Add three mana of any one color.",
+    "colors": []
+  },
+  "mox_sapphire_UNK": {
+    "id": "mox_sapphire_UNK",
+    "name": "Mox Sapphire",
+    "set": "UNK",
+    "image": "/card_images/Mox_Sapphire.jpg",
+    "type": "Artifact",
+    "mana_cost": "{0}",
+    "cmc": 0.0,
+    "oracle_text": "{T}: Add {U}.",
+    "colors": []
+  },
+  "mystic_snake_UNK": {
+    "id": "mystic_snake_UNK",
+    "name": "Mystic Snake",
+    "set": "UNK",
+    "image": "/card_images/Mystic_Snake.jpg",
+    "type": "Creature \u2014 Snake",
+    "mana_cost": "{1}{G}{U}{U}",
+    "cmc": 4.0,
+    "oracle_text": "Flash\nWhen this creature enters, counter target spell.",
+    "colors": [
+      "G",
+      "U"
+    ]
+  },
+  "solkanar_the_swamp_king_UNK": {
+    "id": "solkanar_the_swamp_king_UNK",
+    "name": "Sol'kanar the Swamp King",
+    "set": "UNK",
+    "image": "/card_images/Solkanar_the_Swamp_King.jpg",
+    "type": "Legendary Creature \u2014 Demon",
+    "mana_cost": "{2}{U}{B}{R}",
+    "cmc": 5.0,
+    "oracle_text": "Swampwalk (This creature can't be blocked as long as defending player controls a Swamp.)\nWhenever a player casts a black spell, you gain 1 life.",
+    "colors": [
+      "B",
+      "R",
+      "U"
+    ]
+  },
+  "mystical_tutor_UNK": {
+    "id": "mystical_tutor_UNK",
+    "name": "Mystical Tutor",
+    "set": "UNK",
+    "image": "/card_images/Mystical_Tutor.jpg",
+    "type": "Instant",
+    "mana_cost": "{U}",
+    "cmc": 1.0,
+    "oracle_text": "Search your library for an instant or sorcery card, reveal it, then shuffle and put that card on top.",
+    "colors": [
+      "U"
+    ]
+  },
+  "baron_sengir_HML": {
+    "id": "baron_sengir_HML",
+    "name": "Baron Sengir",
+    "set": "HML",
+    "set_name": "Homelands",
+    "image": "/card_images/Baron_Sengir.jpg",
+    "type": "Legendary Creature \u2014 Vampire Noble",
+    "mana_cost": "{5}{B}{B}{B}",
+    "cmc": 8.0,
+    "oracle_text": "Flying\nWhenever a creature dealt damage by Baron Sengir this turn dies, put a +2/+2 counter on Baron Sengir.\n{T}: Regenerate another target Vampire.",
+    "colors": [
+      "B"
+    ]
+  },
+  "akromas_devoted_LGN": {
+    "id": "akromas_devoted_LGN",
+    "name": "Akroma's Devoted",
+    "set": "LGN",
+    "set_name": "Legions",
+    "image": "/card_images/Akromas_Devoted.jpg",
+    "type": "Creature \u2014 Human Cleric",
+    "mana_cost": "{3}{W}",
+    "cmc": 4.0,
+    "oracle_text": "Cleric creatures have vigilance.",
+    "colors": [
+      "W"
+    ]
+  },
+  "wild_mongrel_ODY": {
+    "id": "wild_mongrel_ODY",
+    "name": "Wild Mongrel",
+    "set": "ODY",
+    "set_name": "Odyssey",
+    "image": "/card_images/Wild_Mongrel.jpg",
+    "type": "Creature \u2014 Dog",
+    "mana_cost": "{1}{G}",
+    "cmc": 2.0,
+    "oracle_text": "Discard a card: This creature gets +1/+1 and becomes the color of your choice until end of turn.",
+    "colors": [
+      "G"
+    ]
+  },
+  "basking_rootwalla_TOR": {
+    "id": "basking_rootwalla_TOR",
+    "name": "Basking Rootwalla",
+    "set": "TOR",
+    "set_name": "Torment",
+    "image": "/card_images/Basking_Rootwalla.jpg",
+    "type": "Creature \u2014 Lizard",
+    "mana_cost": "{G}",
+    "cmc": 1.0,
+    "oracle_text": "{1}{G}: This creature gets +2/+2 until end of turn. Activate only once each turn.\nMadness {0} (If you discard this card, discard it into exile. When you do, cast it for its madness cost or put it into your graveyard.)",
+    "colors": [
+      "G"
+    ]
+  },
+  "aquamoeba_TOR": {
+    "id": "aquamoeba_TOR",
+    "name": "Aquamoeba",
+    "set": "TOR",
+    "set_name": "Torment",
+    "image": "/card_images/Aquamoeba.jpg",
+    "type": "Creature \u2014 Elemental Beast",
+    "mana_cost": "{1}{U}",
+    "cmc": 2.0,
+    "oracle_text": "Discard a card: Switch this creature's power and toughness until end of turn.",
+    "colors": [
+      "U"
+    ]
+  },
+  "arrogant_wurm_TOR": {
+    "id": "arrogant_wurm_TOR",
+    "name": "Arrogant Wurm",
+    "set": "TOR",
+    "set_name": "Torment",
+    "image": "/card_images/Arrogant_Wurm.jpg",
+    "type": "Creature \u2014 Wurm",
+    "mana_cost": "{3}{G}{G}",
+    "cmc": 5.0,
+    "oracle_text": "Trample\nMadness {2}{G} (If you discard this card, discard it into exile. When you do, cast it for its madness cost or put it into your graveyard.)",
+    "colors": [
+      "G"
+    ]
+  },
+  "nimble_mongoose_ODY": {
+    "id": "nimble_mongoose_ODY",
+    "name": "Nimble Mongoose",
+    "set": "ODY",
+    "set_name": "Odyssey",
+    "image": "/card_images/Nimble_Mongoose.jpg",
+    "type": "Creature \u2014 Mongoose",
+    "mana_cost": "{G}",
+    "cmc": 1.0,
+    "oracle_text": "Shroud (This creature can't be the target of spells or abilities.)\nThreshold \u2014 This creature gets +2/+2 as long as seven or more cards are in your graveyard.",
+    "colors": [
+      "G"
+    ]
+  },
+  "psychatog_ODY": {
+    "id": "psychatog_ODY",
+    "name": "Psychatog",
+    "set": "ODY",
+    "set_name": "Odyssey",
+    "image": "/card_images/Psychatog.jpg",
+    "type": "Creature \u2014 Atog",
+    "mana_cost": "{1}{U}{B}",
+    "cmc": 3.0,
+    "oracle_text": "Discard a card: This creature gets +1/+1 until end of turn.\nExile two cards from your graveyard: This creature gets +1/+1 until end of turn.",
+    "colors": [
+      "B",
+      "U"
+    ]
+  },
+  "wonder_JUD": {
+    "id": "wonder_JUD",
+    "name": "Wonder",
+    "set": "JUD",
+    "set_name": "Judgment",
+    "image": "/card_images/Wonder.jpg",
+    "type": "Creature \u2014 Incarnation",
+    "mana_cost": "{3}{U}",
+    "cmc": 4.0,
+    "oracle_text": "Flying\nAs long as this card is in your graveyard and you control an Island, creatures you control have flying.",
+    "colors": [
+      "U"
+    ]
+  },
+  "carnophage_EXO": {
+    "id": "carnophage_EXO",
+    "name": "Carnophage",
+    "set": "EXO",
+    "set_name": "Exodus",
+    "image": "/card_images/Carnophage.jpg",
+    "type": "Creature \u2014 Zombie",
+    "mana_cost": "{B}",
+    "cmc": 1.0,
+    "oracle_text": "At the beginning of your upkeep, tap this creature unless you pay 1 life.",
+    "colors": [
+      "B"
+    ]
+  },
+  "careful_study_ODY": {
+    "id": "careful_study_ODY",
+    "name": "Careful Study",
+    "set": "ODY",
+    "set_name": "Odyssey",
+    "image": "/card_images/Careful_Study.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{U}",
+    "cmc": 1.0,
+    "oracle_text": "Draw two cards, then discard two cards.",
+    "colors": [
+      "U"
+    ]
+  },
+  "circular_logic_TOR": {
+    "id": "circular_logic_TOR",
+    "name": "Circular Logic",
+    "set": "TOR",
+    "set_name": "Torment",
+    "image": "/card_images/Circular_Logic.jpg",
+    "type": "Instant",
+    "mana_cost": "{2}{U}",
+    "cmc": 3.0,
+    "oracle_text": "Counter target spell unless its controller pays {1} for each card in your graveyard.\nMadness {U} (If you discard this card, discard it into exile. When you do, cast it for its madness cost or put it into your graveyard.)",
+    "colors": [
+      "U"
+    ]
+  },
+  "deep_analysis_TOR": {
+    "id": "deep_analysis_TOR",
+    "name": "Deep Analysis",
+    "set": "TOR",
+    "set_name": "Torment",
+    "image": "/card_images/Deep_Analysis.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{3}{U}",
+    "cmc": 4.0,
+    "oracle_text": "Target player draws two cards.\nFlashback\u2014{1}{U}, Pay 3 life. (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+    "colors": [
+      "U"
+    ]
+  },
+  "jackal_pup_TMP": {
+    "id": "jackal_pup_TMP",
+    "name": "Jackal Pup",
+    "set": "TMP",
+    "set_name": "Tempest",
+    "image": "/card_images/Jackal_Pup.jpg",
+    "type": "Creature \u2014 Jackal",
+    "mana_cost": "{R}",
+    "cmc": 1.0,
+    "oracle_text": "Whenever this creature is dealt damage, it deals that much damage to you.",
+    "colors": [
+      "R"
+    ]
+  },
+  "memory_lapse_HML": {
+    "id": "memory_lapse_HML",
+    "name": "Memory Lapse",
+    "set": "HML",
+    "set_name": "Homelands",
+    "image": "/card_images/Memory_Lapse.jpg",
+    "type": "Instant",
+    "mana_cost": "{1}{U}",
+    "cmc": 2.0,
+    "oracle_text": "Counter target spell. If that spell is countered this way, put it on top of its owner's library instead of into that player's graveyard.",
+    "colors": [
+      "U"
+    ]
+  },
+  "goblin_patrol_USG": {
+    "id": "goblin_patrol_USG",
+    "name": "Goblin Patrol",
+    "set": "USG",
+    "set_name": "Urza's Saga",
+    "image": "/card_images/Goblin_Patrol.jpg",
+    "type": "Creature \u2014 Goblin",
+    "mana_cost": "{R}",
+    "cmc": 1.0,
+    "oracle_text": "Echo {R} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)",
+    "colors": [
+      "R"
+    ]
+  },
+  "smother_ONS": {
+    "id": "smother_ONS",
+    "name": "Smother",
+    "set": "ONS",
+    "set_name": "Onslaught",
+    "image": "/card_images/Smother.jpg",
+    "type": "Instant",
+    "mana_cost": "{1}{B}",
+    "cmc": 2.0,
+    "oracle_text": "Destroy target creature with mana value 3 or less. It can't be regenerated.",
+    "colors": [
+      "B"
+    ]
+  },
+  "mogg_fanatic_TMP": {
+    "id": "mogg_fanatic_TMP",
+    "name": "Mogg Fanatic",
+    "set": "TMP",
+    "set_name": "Tempest",
+    "image": "/card_images/Mogg_Fanatic.jpg",
+    "type": "Creature \u2014 Goblin",
+    "mana_cost": "{R}",
+    "cmc": 1.0,
+    "oracle_text": "Sacrifice this creature: It deals 1 damage to any target.",
+    "colors": [
+      "R"
+    ]
+  },
+  "putrefy_RAV": {
+    "id": "putrefy_RAV",
+    "name": "Putrefy",
+    "set": "RAV",
+    "set_name": "Ravnica: City of Guilds",
+    "image": "/card_images/Putrefy.jpg",
+    "type": "Instant",
+    "mana_cost": "{1}{B}{G}",
+    "cmc": 3.0,
+    "oracle_text": "Destroy target artifact or creature. It can't be regenerated.",
+    "colors": [
+      "B",
+      "G"
+    ]
+  },
+  "dauthi_slayer_TMP": {
+    "id": "dauthi_slayer_TMP",
+    "name": "Dauthi Slayer",
+    "set": "TMP",
+    "set_name": "Tempest",
+    "image": "/card_images/Dauthi_Slayer.jpg",
+    "type": "Creature \u2014 Dauthi Soldier",
+    "mana_cost": "{B}{B}",
+    "cmc": 2.0,
+    "oracle_text": "Shadow (This creature can block or be blocked by only creatures with shadow.)\nThis creature attacks each combat if able.",
+    "colors": [
+      "B"
+    ]
+  },
+  "darkblast_RAV": {
+    "id": "darkblast_RAV",
+    "name": "Darkblast",
+    "set": "RAV",
+    "set_name": "Ravnica: City of Guilds",
+    "image": "/card_images/Darkblast.jpg",
+    "type": "Instant",
+    "mana_cost": "{B}",
+    "cmc": 1.0,
+    "oracle_text": "Target creature gets -1/-1 until end of turn.\nDredge 3 (If you would draw a card, you may mill three cards instead. If you do, return this card from your graveyard to your hand.)",
+    "colors": [
+      "B"
+    ]
+  },
+  "recoil_INV": {
+    "id": "recoil_INV",
+    "name": "Recoil",
+    "set": "INV",
+    "set_name": "Invasion",
+    "image": "/card_images/Recoil.jpg",
+    "type": "Instant",
+    "mana_cost": "{1}{U}{B}",
+    "cmc": 3.0,
+    "oracle_text": "Return target permanent to its owner's hand. Then that player discards a card.",
+    "colors": [
+      "B",
+      "U"
+    ]
+  },
+  "dauthi_horror_TMP": {
+    "id": "dauthi_horror_TMP",
+    "name": "Dauthi Horror",
+    "set": "TMP",
+    "set_name": "Tempest",
+    "image": "/card_images/Dauthi_Horror.jpg",
+    "type": "Creature \u2014 Dauthi Horror",
+    "mana_cost": "{1}{B}",
+    "cmc": 2.0,
+    "oracle_text": "Shadow (This creature can block or be blocked by only creatures with shadow.)\nThis creature can't be blocked by white creatures.",
+    "colors": [
+      "B"
+    ]
+  },
+  "mental_note_JUD": {
+    "id": "mental_note_JUD",
+    "name": "Mental Note",
+    "set": "JUD",
+    "set_name": "Judgment",
+    "image": "/card_images/Mental_Note.jpg",
+    "type": "Instant",
+    "mana_cost": "{U}",
+    "cmc": 1.0,
+    "oracle_text": "Mill two cards.\nDraw a card.",
+    "colors": [
+      "U"
+    ]
+  },
+  "roar_of_the_wurm_ODY": {
+    "id": "roar_of_the_wurm_ODY",
+    "name": "Roar of the Wurm",
+    "set": "ODY",
+    "set_name": "Odyssey",
+    "image": "/card_images/Roar_of_the_Wurm.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{6}{G}",
+    "cmc": 7.0,
+    "oracle_text": "Create a 6/6 green Wurm creature token.\nFlashback {3}{G} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+    "colors": [
+      "G"
+    ]
+  },
+  "black_knight_LEA": {
+    "id": "black_knight_LEA",
+    "name": "Black Knight",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Black_Knight.jpg",
+    "type": "Creature \u2014 Human Knight",
+    "mana_cost": "{B}{B}",
+    "cmc": 2.0,
+    "oracle_text": "First strike (This creature deals combat damage before creatures without first strike.)\nProtection from white (This creature can't be blocked, targeted, dealt damage, or enchanted by anything white.)",
+    "colors": [
+      "B"
+    ]
+  },
+  "genesis_JUD": {
+    "id": "genesis_JUD",
+    "name": "Genesis",
+    "set": "JUD",
+    "set_name": "Judgment",
+    "image": "/card_images/Genesis.jpg",
+    "type": "Creature \u2014 Incarnation",
+    "mana_cost": "{4}{G}",
+    "cmc": 5.0,
+    "oracle_text": "At the beginning of your upkeep, if this creature is in your graveyard, you may pay {2}{G}. If you do, return target creature card from your graveyard to your hand.",
+    "colors": [
+      "G"
+    ]
+  },
+  "frenetic_efreet_MIR": {
+    "id": "frenetic_efreet_MIR",
+    "name": "Frenetic Efreet",
+    "set": "MIR",
+    "set_name": "Mirage",
+    "image": "/card_images/Frenetic_Efreet.jpg",
+    "type": "Creature \u2014 Efreet",
+    "mana_cost": "{1}{U}{R}",
+    "cmc": 3.0,
+    "oracle_text": "Flying\n{0}: Flip a coin. If you win the flip, this creature phases out. If you lose the flip, sacrifice this creature. (While it's phased out, it's treated as though it doesn't exist. It phases in before you untap during your next untap step.)",
+    "colors": [
+      "R",
+      "U"
+    ]
+  },
+  "upheaval_ODY": {
+    "id": "upheaval_ODY",
+    "name": "Upheaval",
+    "set": "ODY",
+    "set_name": "Odyssey",
+    "image": "/card_images/Upheaval.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{4}{U}{U}",
+    "cmc": 6.0,
+    "oracle_text": "Return all permanents to their owners' hands.",
+    "colors": [
+      "U"
+    ]
+  },
+  "life_from_the_loam_RAV": {
+    "id": "life_from_the_loam_RAV",
+    "name": "Life from the Loam",
+    "set": "RAV",
+    "set_name": "Ravnica: City of Guilds",
+    "image": "/card_images/Life_from_the_Loam.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{1}{G}",
+    "cmc": 2.0,
+    "oracle_text": "Return up to three target land cards from your graveyard to your hand.\nDredge 3 (If you would draw a card, you may mill three cards instead. If you do, return this card from your graveyard to your hand.)",
+    "colors": [
+      "G"
+    ]
+  },
+  "blazing_specter_INV": {
+    "id": "blazing_specter_INV",
+    "name": "Blazing Specter",
+    "set": "INV",
+    "set_name": "Invasion",
+    "image": "/card_images/Blazing_Specter.jpg",
+    "type": "Creature \u2014 Specter",
+    "mana_cost": "{2}{B}{R}",
+    "cmc": 4.0,
+    "oracle_text": "Flying, haste\nWhenever this creature deals combat damage to a player, that player discards a card.",
+    "colors": [
+      "B",
+      "R"
+    ]
+  },
+  "order_of_the_ebon_hand_FEM": {
+    "id": "order_of_the_ebon_hand_FEM",
+    "name": "Order of the Ebon Hand",
+    "set": "FEM",
+    "set_name": "Fallen Empires",
+    "image": "/card_images/Order_of_the_Ebon_Hand.jpg",
+    "type": "Creature \u2014 Cleric Knight",
+    "mana_cost": "{B}{B}",
+    "cmc": 2.0,
+    "oracle_text": "Protection from white\n{B}: This creature gains first strike until end of turn.\n{B}{B}: This creature gets +1/+0 until end of turn.",
+    "colors": [
+      "B"
+    ]
+  },
+  "fact_or_fiction_INV": {
+    "id": "fact_or_fiction_INV",
+    "name": "Fact or Fiction",
+    "set": "INV",
+    "set_name": "Invasion",
+    "image": "/card_images/Fact_or_Fiction.jpg",
+    "type": "Instant",
+    "mana_cost": "{3}{U}",
+    "cmc": 4.0,
+    "oracle_text": "Reveal the top five cards of your library. An opponent separates those cards into two piles. Put one pile into your hand and the other into your graveyard.",
+    "colors": [
+      "U"
+    ]
+  },
+  "yavimaya_coast_APC": {
+    "id": "yavimaya_coast_APC",
+    "name": "Yavimaya Coast",
+    "set": "APC",
+    "set_name": "Apocalypse",
+    "image": "/card_images/Yavimaya_Coast.jpg",
+    "type": "Land",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "{T}: Add {C}.\n{T}: Add {G} or {U}. This land deals 1 damage to you.",
+    "colors": []
+  },
+  "skulking_ghost_MIR": {
+    "id": "skulking_ghost_MIR",
+    "name": "Skulking Ghost",
+    "set": "MIR",
+    "set_name": "Mirage",
+    "image": "/card_images/Skulking_Ghost.jpg",
+    "type": "Creature \u2014 Spirit",
+    "mana_cost": "{1}{B}",
+    "cmc": 2.0,
+    "oracle_text": "Flying\nWhen this creature becomes the target of a spell or ability, sacrifice it.",
+    "colors": [
+      "B"
+    ]
+  },
+  "llanowar_wastes_APC": {
+    "id": "llanowar_wastes_APC",
+    "name": "Llanowar Wastes",
+    "set": "APC",
+    "set_name": "Apocalypse",
+    "image": "/card_images/Llanowar_Wastes.jpg",
+    "type": "Land",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "{T}: Add {C}.\n{T}: Add {B} or {G}. This land deals 1 damage to you.",
+    "colors": []
+  },
+  "ihsans_shade_HML": {
+    "id": "ihsans_shade_HML",
+    "name": "Ihsan's Shade",
+    "set": "HML",
+    "set_name": "Homelands",
+    "image": "/card_images/Ihsans_Shade.jpg",
+    "type": "Legendary Creature \u2014 Shade Knight",
+    "mana_cost": "{3}{B}{B}{B}",
+    "cmc": 6.0,
+    "oracle_text": "Protection from white",
+    "colors": [
+      "B"
+    ]
+  },
+  "island_LEA": {
+    "id": "island_LEA",
+    "name": "Island",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Island.jpg",
+    "type": "Basic Land \u2014 Island",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "({T}: Add {U}.)",
+    "colors": []
+  },
+  "forest_LEA": {
+    "id": "forest_LEA",
+    "name": "Forest",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Forest.jpg",
+    "type": "Basic Land \u2014 Forest",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "({T}: Add {G}.)",
+    "colors": []
+  },
+  "swamp_LEA": {
+    "id": "swamp_LEA",
+    "name": "Swamp",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Swamp.jpg",
+    "type": "Basic Land \u2014 Swamp",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "({T}: Add {B}.)",
+    "colors": []
+  },
+  "chain_lightning_LEG": {
+    "id": "chain_lightning_LEG",
+    "name": "Chain Lightning",
+    "set": "LEG",
+    "set_name": "Legends",
+    "image": "/card_images/Chain_Lightning.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{R}",
+    "cmc": 1.0,
+    "oracle_text": "Chain Lightning deals 3 damage to any target. Then that player or that permanent's controller may pay {R}{R}. If the player does, they may copy this spell and may choose a new target for that copy.",
+    "colors": [
+      "R"
+    ]
+  },
+  "incinerate_ICE": {
+    "id": "incinerate_ICE",
+    "name": "Incinerate",
+    "set": "ICE",
+    "set_name": "Ice Age",
+    "image": "/card_images/Incinerate.jpg",
+    "type": "Instant",
+    "mana_cost": "{1}{R}",
+    "cmc": 2.0,
+    "oracle_text": "Incinerate deals 3 damage to any target. A creature dealt damage this way can't be regenerated this turn.",
+    "colors": [
+      "R"
+    ]
+  },
+  "firebolt_ODY": {
+    "id": "firebolt_ODY",
+    "name": "Firebolt",
+    "set": "ODY",
+    "set_name": "Odyssey",
+    "image": "/card_images/Firebolt.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{R}",
+    "cmc": 1.0,
+    "oracle_text": "Firebolt deals 2 damage to any target.\nFlashback {4}{R} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+    "colors": [
+      "R"
+    ]
+  },
+  "diabolic_edict_TMP": {
+    "id": "diabolic_edict_TMP",
+    "name": "Diabolic Edict",
+    "set": "TMP",
+    "set_name": "Tempest",
+    "image": "/card_images/Diabolic_Edict.jpg",
+    "type": "Instant",
+    "mana_cost": "{1}{B}",
+    "cmc": 2.0,
+    "oracle_text": "Target player sacrifices a creature of their choice.",
+    "colors": [
+      "B"
+    ]
+  },
+  "exterminate_WHO": {
+    "id": "exterminate_WHO",
+    "name": "Exterminate!",
+    "set": "WHO",
+    "set_name": "Doctor Who",
+    "image": "/card_images/Exterminate.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{2}{B}",
+    "cmc": 3.0,
+    "oracle_text": "Replicate\u2014Tap an untapped Dalek you control. (When you cast this spell, copy it for each time you paid its replicate cost. You may choose new targets for the copies.)\nDestroy target creature. Its controller loses 3 life.",
+    "colors": [
+      "B"
+    ]
+  },
+  "terminate_PLS": {
+    "id": "terminate_PLS",
+    "name": "Terminate",
+    "set": "PLS",
+    "set_name": "Planeshift",
+    "image": "/card_images/Terminate.jpg",
+    "type": "Instant",
+    "mana_cost": "{B}{R}",
+    "cmc": 2.0,
+    "oracle_text": "Destroy target creature. It can't be regenerated.",
+    "colors": [
+      "B",
+      "R"
+    ]
+  },
+  "polluted_delta_ONS": {
+    "id": "polluted_delta_ONS",
+    "name": "Polluted Delta",
+    "set": "ONS",
+    "set_name": "Onslaught",
+    "image": "/card_images/Polluted_Delta.jpg",
+    "type": "Land",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "{T}, Pay 1 life, Sacrifice this land: Search your library for an Island or Swamp card, put it onto the battlefield, then shuffle.",
+    "colors": []
+  },
+  "pyroclasm_ICE": {
+    "id": "pyroclasm_ICE",
+    "name": "Pyroclasm",
+    "set": "ICE",
+    "set_name": "Ice Age",
+    "image": "/card_images/Pyroclasm.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{1}{R}",
+    "cmc": 2.0,
+    "oracle_text": "Pyroclasm deals 2 damage to each creature.",
+    "colors": [
+      "R"
+    ]
+  },
+  "hymn_to_tourach_FEM": {
+    "id": "hymn_to_tourach_FEM",
+    "name": "Hymn to Tourach",
+    "set": "FEM",
+    "set_name": "Fallen Empires",
+    "image": "/card_images/Hymn_to_Tourach.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{B}{B}",
+    "cmc": 2.0,
+    "oracle_text": "Target player discards two cards at random.",
+    "colors": [
+      "B"
+    ]
+  },
+  "duress_USG": {
+    "id": "duress_USG",
+    "name": "Duress",
+    "set": "USG",
+    "set_name": "Urza's Saga",
+    "image": "/card_images/Duress.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{B}",
+    "cmc": 1.0,
+    "oracle_text": "Target opponent reveals their hand. You choose a noncreature, nonland card from it. That player discards that card.",
+    "colors": [
+      "B"
+    ]
+  },
+  "urborg_volcano_INV": {
+    "id": "urborg_volcano_INV",
+    "name": "Urborg Volcano",
+    "set": "INV",
+    "set_name": "Invasion",
+    "image": "/card_images/Urborg_Volcano.jpg",
+    "type": "Land",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "This land enters tapped.\n{T}: Add {B} or {R}.",
+    "colors": []
+  },
+  "tropical_island_LEA": {
+    "id": "tropical_island_LEA",
+    "name": "Tropical Island",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Tropical_Island.jpg",
+    "type": "Land \u2014 Forest Island",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "({T}: Add {G} or {U}.)",
+    "colors": []
+  },
+  "buried_alive_WTH": {
+    "id": "buried_alive_WTH",
+    "name": "Buried Alive",
+    "set": "WTH",
+    "set_name": "Weatherlight",
+    "image": "/card_images/Buried_Alive.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{2}{B}",
+    "cmc": 3.0,
+    "oracle_text": "Search your library for up to three creature cards, put them into your graveyard, then shuffle.",
+    "colors": [
+      "B"
+    ]
+  },
+  "exhume_USG": {
+    "id": "exhume_USG",
+    "name": "Exhume",
+    "set": "USG",
+    "set_name": "Urza's Saga",
+    "image": "/card_images/Exhume.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{1}{B}",
+    "cmc": 2.0,
+    "oracle_text": "Each player puts a creature card from their graveyard onto the battlefield.",
+    "colors": [
+      "B"
+    ]
+  },
+  "cabal_therapy_JUD": {
+    "id": "cabal_therapy_JUD",
+    "name": "Cabal Therapy",
+    "set": "JUD",
+    "set_name": "Judgment",
+    "image": "/card_images/Cabal_Therapy.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{B}",
+    "cmc": 1.0,
+    "oracle_text": "Choose a nonland card name. Target player reveals their hand and discards all cards with that name.\nFlashback\u2014Sacrifice a creature. (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+    "colors": [
+      "B"
+    ]
+  },
+  "putrid_imp_TOR": {
+    "id": "putrid_imp_TOR",
+    "name": "Putrid Imp",
+    "set": "TOR",
+    "set_name": "Torment",
+    "image": "/card_images/Putrid_Imp.jpg",
+    "type": "Creature \u2014 Zombie Imp",
+    "mana_cost": "{B}",
+    "cmc": 1.0,
+    "oracle_text": "Discard a card: This creature gains flying until end of turn.\nThreshold \u2014 As long as seven or more cards are in your graveyard, this creature gets +1/+1 and can't block.",
+    "colors": [
+      "B"
+    ]
+  },
+  "mesmeric_fiend_TOR": {
+    "id": "mesmeric_fiend_TOR",
+    "name": "Mesmeric Fiend",
+    "set": "TOR",
+    "set_name": "Torment",
+    "image": "/card_images/Mesmeric_Fiend.jpg",
+    "type": "Creature \u2014 Nightmare Horror",
+    "mana_cost": "{1}{B}",
+    "cmc": 2.0,
+    "oracle_text": "When this creature enters, target opponent reveals their hand and you choose a nonland card from it. Exile that card.\nWhen this creature leaves the battlefield, return the exiled card to its owner's hand.",
+    "colors": [
+      "B"
+    ]
+  },
+  "sickening_dreams_TOR": {
+    "id": "sickening_dreams_TOR",
+    "name": "Sickening Dreams",
+    "set": "TOR",
+    "set_name": "Torment",
+    "image": "/card_images/Sickening_Dreams.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{1}{B}",
+    "cmc": 2.0,
+    "oracle_text": "As an additional cost to cast this spell, discard X cards.\nSickening Dreams deals X damage to each creature and each player.",
+    "colors": [
+      "B"
+    ]
+  },
+  "zombify_ODY": {
+    "id": "zombify_ODY",
+    "name": "Zombify",
+    "set": "ODY",
+    "set_name": "Odyssey",
+    "image": "/card_images/Zombify.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{3}{B}",
+    "cmc": 4.0,
+    "oracle_text": "Return target creature card from your graveyard to the battlefield.",
+    "colors": [
+      "B"
+    ]
+  },
+  "skittering_skirge_USG": {
+    "id": "skittering_skirge_USG",
+    "name": "Skittering Skirge",
+    "set": "USG",
+    "set_name": "Urza's Saga",
+    "image": "/card_images/Skittering_Skirge.jpg",
+    "type": "Creature \u2014 Phyrexian Imp",
+    "mana_cost": "{B}{B}",
+    "cmc": 2.0,
+    "oracle_text": "Flying\nWhen you cast a creature spell, sacrifice this creature.",
+    "colors": [
+      "B"
+    ]
+  },
+  "prodigal_sorcerer_LEA": {
+    "id": "prodigal_sorcerer_LEA",
+    "name": "Prodigal Sorcerer",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Prodigal_Sorcerer.jpg",
+    "type": "Creature \u2014 Human Wizard",
+    "mana_cost": "{2}{U}",
+    "cmc": 3.0,
+    "oracle_text": "{T}: This creature deals 1 damage to any target.",
+    "colors": [
+      "U"
+    ]
+  },
+  "mahamoti_djinn_LEA": {
+    "id": "mahamoti_djinn_LEA",
+    "name": "Mahamoti Djinn",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Mahamoti_Djinn.jpg",
+    "type": "Creature \u2014 Djinn",
+    "mana_cost": "{4}{U}{U}",
+    "cmc": 6.0,
+    "oracle_text": "Flying (This creature can't be blocked except by creatures with flying or reach.)",
+    "colors": [
+      "U"
+    ]
+  },
+  "ashes_to_ashes_DRK": {
+    "id": "ashes_to_ashes_DRK",
+    "name": "Ashes to Ashes",
+    "set": "DRK",
+    "set_name": "The Dark",
+    "image": "/card_images/Ashes_to_Ashes.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{1}{B}{B}",
+    "cmc": 3.0,
+    "oracle_text": "Exile two target nonartifact creatures. Ashes to Ashes deals 5 damage to you.",
+    "colors": [
+      "B"
+    ]
+  },
+  "oubliette_ARN": {
+    "id": "oubliette_ARN",
+    "name": "Oubliette",
+    "set": "ARN",
+    "set_name": "Arabian Nights",
+    "image": "/card_images/Oubliette.jpg",
+    "type": "Enchantment",
+    "mana_cost": "{1}{B}{B}",
+    "cmc": 3.0,
+    "oracle_text": "When this enchantment enters, target creature phases out until this enchantment leaves the battlefield. Tap that creature as it phases in this way. (Auras and Equipment phase out with it. While permanents are phased out, they're treated as though they don't exist.)",
+    "colors": [
+      "B"
+    ]
+  },
+  "control_magic_LEA": {
+    "id": "control_magic_LEA",
+    "name": "Control Magic",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Control_Magic.jpg",
+    "type": "Enchantment \u2014 Aura",
+    "mana_cost": "{2}{U}{U}",
+    "cmc": 4.0,
+    "oracle_text": "Enchant creature\nYou control enchanted creature.",
+    "colors": [
+      "U"
+    ]
+  },
+  "jalum_tome_ATQ": {
+    "id": "jalum_tome_ATQ",
+    "name": "Jalum Tome",
+    "set": "ATQ",
+    "set_name": "Antiquities",
+    "image": "/card_images/Jalum_Tome.jpg",
+    "type": "Artifact",
+    "mana_cost": "{3}",
+    "cmc": 3.0,
+    "oracle_text": "{2}, {T}: Draw a card, then discard a card.",
+    "colors": []
+  },
+  "balance_LEA": {
+    "id": "balance_LEA",
+    "name": "Balance",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Balance.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{1}{W}",
+    "cmc": 2.0,
+    "oracle_text": "Each player chooses a number of lands they control equal to the number of lands controlled by the player who controls the fewest, then sacrifices the rest. Players discard cards and sacrifice creatures the same way.",
+    "colors": [
+      "W"
+    ]
+  },
+  "underground_sea_LEA": {
+    "id": "underground_sea_LEA",
+    "name": "Underground Sea",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Underground_Sea.jpg",
+    "type": "Land \u2014 Island Swamp",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "({T}: Add {U} or {B}.)",
+    "colors": []
+  },
+  "tundra_LEA": {
+    "id": "tundra_LEA",
+    "name": "Tundra",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Tundra.jpg",
+    "type": "Land \u2014 Plains Island",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "({T}: Add {W} or {U}.)",
+    "colors": []
+  },
+  "mishras_factory_ATQ": {
+    "id": "mishras_factory_ATQ",
+    "name": "Mishra's Factory",
+    "set": "ATQ",
+    "set_name": "Antiquities",
+    "image": "/card_images/Mishras_Factory.jpg",
+    "type": "Land",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "{T}: Add {C}.\n{1}: This land becomes a 2/2 Assembly-Worker artifact creature until end of turn. It's still a land.\n{T}: Target Assembly-Worker creature gets +1/+1 until end of turn.",
+    "colors": []
+  },
+  "volcanic_spray_ODY": {
+    "id": "volcanic_spray_ODY",
+    "name": "Volcanic Spray",
+    "set": "ODY",
+    "set_name": "Odyssey",
+    "image": "/card_images/Volcanic_Spray.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{1}{R}",
+    "cmc": 2.0,
+    "oracle_text": "Volcanic Spray deals 1 damage to each creature without flying and each player.\nFlashback {1}{R} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+    "colors": [
+      "R"
+    ]
+  },
+  "trevas_ruins_PLS": {
+    "id": "trevas_ruins_PLS",
+    "name": "Treva's Ruins",
+    "set": "PLS",
+    "set_name": "Planeshift",
+    "image": "/card_images/Trevas_Ruins.jpg",
+    "type": "Land \u2014 Lair",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "When this land enters, sacrifice it unless you return a non-Lair land you control to its owner's hand.\n{T}: Add {G}, {W}, or {U}.",
+    "colors": []
+  },
+  "mishras_factory": {
+    "id": "mishras_factory",
+    "name": "Mishra's Factory",
+    "set": "ATQ",
+    "set_name": "Antiquities",
+    "image": "/card_images/Mishras_Factory.jpg",
+    "type": "Land",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "{T}: Add {C}.\n{1}: This land becomes a 2/2 Assembly-Worker artifact creature until end of turn. It's still a land.\n{T}: Target Assembly-Worker creature gets +1/+1 until end of turn.",
+    "colors": []
+  },
+  "atog": {
+    "id": "atog",
+    "name": "Atog",
+    "set": "ATQ",
+    "set_name": "Antiquities",
+    "image": "/card_images/Atog.jpg",
+    "type": "Creature \u2014 Atog",
+    "mana_cost": "{1}{R}",
+    "cmc": 2.0,
+    "oracle_text": "Sacrifice an artifact: This creature gets +2/+2 until end of turn.",
+    "colors": [
+      "R"
+    ]
+  },
+  "ancestral_recall": {
+    "id": "ancestral_recall",
+    "name": "Ancestral Recall",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Ancestral_Recall.jpg",
+    "type": "Instant",
+    "mana_cost": "{U}",
+    "cmc": 1.0,
+    "oracle_text": "Target player draws three cards.",
+    "colors": [
+      "U"
+    ]
+  },
+  "mox_ruby": {
+    "id": "mox_ruby",
+    "name": "Mox Ruby",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Mox_Ruby.jpg",
+    "type": "Artifact",
+    "mana_cost": "{0}",
+    "cmc": 0.0,
+    "oracle_text": "{T}: Add {R}.",
+    "colors": []
+  },
+  "library_of_alexandria": {
+    "id": "library_of_alexandria",
+    "name": "Library of Alexandria",
+    "set": "ARN",
+    "set_name": "Arabian Nights",
+    "image": "/card_images/Library_of_Alexandria.jpg",
+    "type": "Land",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "{T}: Add {C}.\n{T}: Draw a card. Activate only if you have exactly seven cards in hand.",
+    "colors": []
+  },
+  "plateau": {
+    "id": "plateau",
+    "name": "Plateau",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Plateau.jpg",
+    "type": "Land \u2014 Mountain Plains",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "({T}: Add {R} or {W}.)",
+    "colors": []
+  },
+  "timetwister": {
+    "id": "timetwister",
+    "name": "Timetwister",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Timetwister.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{2}{U}",
+    "cmc": 3.0,
+    "oracle_text": "Each player shuffles their hand and graveyard into their library, then draws seven cards. (Then put Timetwister into its owner's graveyard.)",
+    "colors": [
+      "U"
+    ]
+  },
+  "strip_mine": {
+    "id": "strip_mine",
+    "name": "Strip Mine",
+    "set": "ATQ",
+    "set_name": "Antiquities",
+    "image": "/card_images/Strip_Mine.jpg",
+    "type": "Land",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "{T}: Add {C}.\n{T}, Sacrifice this land: Destroy target land.",
+    "colors": []
+  },
+  "regrowth": {
+    "id": "regrowth",
+    "name": "Regrowth",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Regrowth.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{1}{G}",
+    "cmc": 2.0,
+    "oracle_text": "Return target card from your graveyard to your hand.",
+    "colors": [
+      "G"
+    ]
+  },
+  "mox_emerald": {
+    "id": "mox_emerald",
+    "name": "Mox Emerald",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Mox_Emerald.jpg",
+    "type": "Artifact",
+    "mana_cost": "{0}",
+    "cmc": 0.0,
+    "oracle_text": "{T}: Add {G}.",
+    "colors": []
+  },
+  "mox_jet": {
+    "id": "mox_jet",
+    "name": "Mox Jet",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Mox_Jet.jpg",
+    "type": "Artifact",
+    "mana_cost": "{0}",
+    "cmc": 0.0,
+    "oracle_text": "{T}: Add {B}.",
+    "colors": []
+  },
+  "time_walk": {
+    "id": "time_walk",
+    "name": "Time Walk",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Time_Walk.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{1}{U}",
+    "cmc": 2.0,
+    "oracle_text": "Take an extra turn after this one.",
+    "colors": [
+      "U"
+    ]
+  },
+  "volcanic_island": {
+    "id": "volcanic_island",
+    "name": "Volcanic Island",
+    "set": "LEB",
+    "set_name": "Limited Edition Beta",
+    "image": "/card_images/Volcanic_Island.jpg",
+    "type": "Land \u2014 Island Mountain",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "({T}: Add {U} or {R}.)",
+    "colors": []
+  },
+  "mox_pearl": {
+    "id": "mox_pearl",
+    "name": "Mox Pearl",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Mox_Pearl.jpg",
+    "type": "Artifact",
+    "mana_cost": "{0}",
+    "cmc": 0.0,
+    "oracle_text": "{T}: Add {W}.",
+    "colors": []
+  },
+  "city_of_brass": {
+    "id": "city_of_brass",
+    "name": "City of Brass",
+    "set": "ARN",
+    "set_name": "Arabian Nights",
+    "image": "/card_images/City_of_Brass.jpg",
+    "type": "Land",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "Whenever this land becomes tapped, it deals 1 damage to you.\n{T}: Add one mana of any color.",
+    "colors": []
+  },
+  "balance": {
+    "id": "balance",
+    "name": "Balance",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Balance.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{1}{W}",
+    "cmc": 2.0,
+    "oracle_text": "Each player chooses a number of lands they control equal to the number of lands controlled by the player who controls the fewest, then sacrifices the rest. Players discard cards and sacrifice creatures the same way.",
+    "colors": [
+      "W"
+    ]
+  },
+  "chain_lightning": {
+    "id": "chain_lightning",
+    "name": "Chain Lightning",
+    "set": "LEG",
+    "set_name": "Legends",
+    "image": "/card_images/Chain_Lightning.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{R}",
+    "cmc": 1.0,
+    "oracle_text": "Chain Lightning deals 3 damage to any target. Then that player or that permanent's controller may pay {R}{R}. If the player does, they may copy this spell and may choose a new target for that copy.",
+    "colors": [
+      "R"
+    ]
+  },
+  "black_vise": {
+    "id": "black_vise",
+    "name": "Black Vise",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Black_Vise.jpg",
+    "type": "Artifact",
+    "mana_cost": "{1}",
+    "cmc": 1.0,
+    "oracle_text": "As this artifact enters, choose an opponent.\nAt the beginning of the chosen player's upkeep, this artifact deals X damage to that player, where X is the number of cards in their hand minus 4.",
+    "colors": []
+  },
+  "savannah_lions": {
+    "id": "savannah_lions",
+    "name": "Savannah Lions",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Savannah_Lions.jpg",
+    "type": "Creature \u2014 Cat",
+    "mana_cost": "{W}",
+    "cmc": 1.0,
+    "oracle_text": "",
+    "colors": [
+      "W"
+    ]
+  },
+  "wheel_of_fortune": {
+    "id": "wheel_of_fortune",
+    "name": "Wheel of Fortune",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Wheel_of_Fortune.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{2}{R}",
+    "cmc": 3.0,
+    "oracle_text": "Each player discards their hand, then draws seven cards.",
+    "colors": [
+      "R"
+    ]
+  },
+  "mox_sapphire": {
+    "id": "mox_sapphire",
+    "name": "Mox Sapphire",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Mox_Sapphire.jpg",
+    "type": "Artifact",
+    "mana_cost": "{0}",
+    "cmc": 0.0,
+    "oracle_text": "{T}: Add {U}.",
+    "colors": []
+  },
+  "ankh_of_mishra": {
+    "id": "ankh_of_mishra",
+    "name": "Ankh of Mishra",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Ankh_of_Mishra.jpg",
+    "type": "Artifact",
+    "mana_cost": "{2}",
+    "cmc": 2.0,
+    "oracle_text": "Whenever a land enters, this artifact deals 2 damage to that land's controller.",
+    "colors": []
+  },
+  "black_lotus": {
+    "id": "black_lotus",
+    "name": "Black Lotus",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Black_Lotus.jpg",
+    "type": "Artifact",
+    "mana_cost": "{0}",
+    "cmc": 0.0,
+    "oracle_text": "{T}, Sacrifice this artifact: Add three mana of any one color.",
+    "colors": []
+  },
+  "serendib_efreet": {
+    "id": "serendib_efreet",
+    "name": "Serendib Efreet",
+    "set": "ARN",
+    "set_name": "Arabian Nights",
+    "image": "/card_images/Serendib_Efreet.jpg",
+    "type": "Creature \u2014 Efreet",
+    "mana_cost": "{2}{U}",
+    "cmc": 3.0,
+    "oracle_text": "Flying\nAt the beginning of your upkeep, this creature deals 1 damage to you.",
+    "colors": [
+      "U"
+    ]
+  },
+  "chaos_orb": {
+    "id": "chaos_orb",
+    "name": "Chaos Orb",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Chaos_Orb.jpg",
+    "type": "Artifact",
+    "mana_cost": "{2}",
+    "cmc": 2.0,
+    "oracle_text": "{1}, {T}: If this artifact is on the battlefield, flip it onto the battlefield from a height of at least one foot. If this artifact turns over completely at least once during the flip, destroy all nontoken permanents it touches. Then destroy this artifact.",
+    "colors": []
+  },
+  "disenchant": {
+    "id": "disenchant",
+    "name": "Disenchant",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Disenchant.jpg",
+    "type": "Instant",
+    "mana_cost": "{1}{W}",
+    "cmc": 2.0,
+    "oracle_text": "Destroy target artifact or enchantment.",
+    "colors": [
+      "W"
+    ]
+  },
+  "sol_ring": {
+    "id": "sol_ring",
+    "name": "Sol Ring",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Sol_Ring.jpg",
+    "type": "Artifact",
+    "mana_cost": "{1}",
+    "cmc": 1.0,
+    "oracle_text": "{T}: Add {C}{C}.",
+    "colors": []
+  },
+  "psionic_blast": {
+    "id": "psionic_blast",
+    "name": "Psionic Blast",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Psionic_Blast.jpg",
+    "type": "Instant",
+    "mana_cost": "{2}{U}",
+    "cmc": 3.0,
+    "oracle_text": "Psionic Blast deals 4 damage to any target and 2 damage to you.",
+    "colors": [
+      "U"
+    ]
+  },
+  "tundra": {
+    "id": "tundra",
+    "name": "Tundra",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Tundra.jpg",
+    "type": "Land \u2014 Plains Island",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "({T}: Add {W} or {U}.)",
+    "colors": []
+  },
+  "lightning_bolt": {
+    "id": "lightning_bolt",
+    "name": "Lightning Bolt",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Lightning_Bolt.jpg",
+    "type": "Instant",
+    "mana_cost": "{R}",
+    "cmc": 1.0,
+    "oracle_text": "Lightning Bolt deals 3 damage to any target.",
+    "colors": [
+      "R"
+    ]
+  },
+  "serra_angel": {
+    "id": "serra_angel",
+    "name": "Serra Angel",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Serra_Angel.jpg",
+    "type": "Creature \u2014 Angel",
+    "mana_cost": "{3}{W}{W}",
+    "cmc": 5.0,
+    "oracle_text": "Flying\nVigilance (Attacking doesn't cause this creature to tap.)",
+    "colors": [
+      "W"
+    ]
+  },
+  "counterspell": {
+    "id": "counterspell",
+    "name": "Counterspell",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Counterspell.jpg",
+    "type": "Instant",
+    "mana_cost": "{U}{U}",
+    "cmc": 2.0,
+    "oracle_text": "Counter target spell.",
+    "colors": [
+      "U"
+    ]
+  },
+  "demonic_tutor": {
+    "id": "demonic_tutor",
+    "name": "Demonic Tutor",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Demonic_Tutor.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{1}{B}",
+    "cmc": 2.0,
+    "oracle_text": "Search your library for a card, put that card into your hand, then shuffle.",
+    "colors": [
+      "B"
+    ]
+  },
+  "mana_drain": {
+    "id": "mana_drain",
+    "name": "Mana Drain",
+    "set": "LEG",
+    "set_name": "Legends",
+    "image": "/card_images/Mana_Drain.jpg",
+    "type": "Instant",
+    "mana_cost": "{U}{U}",
+    "cmc": 2.0,
+    "oracle_text": "Counter target spell. At the beginning of your next main phase, add an amount of {C} equal to that spell's mana value.",
+    "colors": [
+      "U"
+    ]
+  },
+  "mind_twist": {
+    "id": "mind_twist",
+    "name": "Mind Twist",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/Mind_Twist.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{X}{B}",
+    "cmc": 1.0,
+    "oracle_text": "Target player discards X cards at random.",
+    "colors": [
+      "B"
+    ]
+  },
+  "sylvan_library": {
+    "id": "sylvan_library",
+    "name": "Sylvan Library",
+    "set": "LEG",
+    "set_name": "Legends",
+    "image": "/card_images/Sylvan_Library.jpg",
+    "type": "Enchantment",
+    "mana_cost": "{1}{G}",
+    "cmc": 2.0,
+    "oracle_text": "At the beginning of your draw step, you may draw two additional cards. If you do, choose two cards in your hand drawn this turn. For each of those cards, pay 4 life or put the card on top of your library.",
+    "colors": [
+      "G"
+    ]
+  }
+}

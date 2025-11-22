@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.venv/
+backend/.venv/
+
+# Node
+node_modules/
+dist/
+.env
+
+# Logs
+logs/
+*.log
+
+# Redis
+dump.rdb
+
+# OS
+.DS_Store
+
+# Editor
+.vscode/
+.cursor/
+.idea/
