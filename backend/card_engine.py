@@ -7,7 +7,7 @@ All game actions are manual and must be explicitly called.
 """
 
 from enum import Enum
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 from uuid import uuid4
 import random
 
@@ -129,6 +129,8 @@ class Zone:
     def shuffle(self): random.shuffle(self.cards)
     def top(self) -> Optional[Card]: return self.cards[-1] if self.cards else None
     def bottom(self) -> Optional[Card]: return self.cards[0] if self.cards else None
+    def add_to_bottom(self, card: Card): self.cards.insert(0, card)
+    def add_to_top(self, card: Card): self.cards.append(card)
     def size(self) -> int: return len(self.cards)
     def is_empty(self) -> bool: return len(self.cards) == 0
     
@@ -221,6 +223,9 @@ class Game:
         self.turn_number = 1
         self.current_phase = Phase.UNTAP
         self.phase_order = list(Phase)
+        self.dice_tokens: List[Dict[str, Any]] = []  # List of {id, x, y, value, ownerPlayerId, lastRolledAt}
+        self.targeting_arrows: List[Dict[str, Any]] = []  # List of {cardId, targetCardId?, targetPlayerId?, ownerPlayerId}
+        self.chat_messages: List[Dict[str, Any]] = []  # List of {playerId, playerName, message, timestamp}
     
     def add_player(self, player: Player):
         self.players[player.id] = player
@@ -242,6 +247,23 @@ class Game:
             self.next_turn()
             return
         self.current_phase = self.phase_order[next_idx]
+    
+    def set_phase(self, phase_name: str) -> bool:
+        """Set the current phase by name. Returns True if successful, False if invalid phase."""
+        try:
+            # Try to find the phase by name (case-insensitive)
+            phase_enum = None
+            for phase in Phase:
+                if phase.value.lower() == phase_name.lower():
+                    phase_enum = phase
+                    break
+            
+            if phase_enum and phase_enum in self.phase_order:
+                self.current_phase = phase_enum
+                return True
+            return False
+        except (ValueError, AttributeError):
+            return False
     
     def next_turn(self):
         if not self.players: return
@@ -330,12 +352,89 @@ class Game:
                         count += 1
         return count
     
+    def create_die(self, x: float, y: float, owner_player_id: str, die_type: str = "d20") -> Optional[str]:
+        """Create a new die token on the battlefield. Returns die ID or None."""
+        if die_type != "d20":
+            return None  # Only d20 supported for now
+        
+        die_id = str(uuid4())
+        die_token = {
+            "id": die_id,
+            "x": x,
+            "y": y,
+            "value": None,  # Will be set on roll
+            "ownerPlayerId": owner_player_id,
+            "dieType": die_type,
+            "lastRolledAt": None
+        }
+        self.dice_tokens.append(die_token)
+        return die_id
+    
+    def roll_die(self, die_id: str) -> Optional[int]:
+        """Roll a die (1-20 for d20). Returns the rolled value or None if die not found."""
+        for die in self.dice_tokens:
+            if die["id"] == die_id:
+                import time
+                value = random.randint(1, 20)
+                die["value"] = value
+                die["lastRolledAt"] = int(time.time() * 1000)
+                return value
+        return None
+    
+    def move_die(self, die_id: str, x: float, y: float) -> bool:
+        """Move a die to a new position. Returns True if successful."""
+        for die in self.dice_tokens:
+            if die["id"] == die_id:
+                die["x"] = x
+                die["y"] = y
+                return True
+        return False
+    
+    def remove_die(self, die_id: str) -> bool:
+        """Remove a die token. Returns True if successful."""
+        for i, die in enumerate(self.dice_tokens):
+            if die["id"] == die_id:
+                self.dice_tokens.pop(i)
+                return True
+        return False
+    
+    def set_targeting_arrow(self, card_id: str, owner_player_id: str, target_card_id: Optional[str] = None, target_player_id: Optional[str] = None):
+        """Set a targeting arrow from a card to a target (card or player)."""
+        # Remove existing arrow from this card
+        self.targeting_arrows = [a for a in self.targeting_arrows if a.get("cardId") != card_id]
+        # Add new arrow
+        arrow = {"cardId": card_id, "ownerPlayerId": owner_player_id}
+        if target_card_id:
+            arrow["targetCardId"] = target_card_id
+        if target_player_id:
+            arrow["targetPlayerId"] = target_player_id
+        self.targeting_arrows.append(arrow)
+    
+    def clear_targeting_arrows(self, owner_player_id: Optional[str] = None):
+        """Clear targeting arrows. If owner_player_id is provided, only clear that player's arrows."""
+        if owner_player_id:
+            self.targeting_arrows = [a for a in self.targeting_arrows if a.get("ownerPlayerId") != owner_player_id]
+        else:
+            self.targeting_arrows = []
+    
     def to_dict(self) -> Dict:
+        # Ensure chat_messages exists (for games loaded before this feature was added)
+        try:
+            _ = self.chat_messages  # Try to access it
+        except AttributeError:
+            self.chat_messages = []
+        
+        # Always include chat_messages, even if empty
+        chat_msgs = getattr(self, 'chat_messages', [])
+        
         return {
             "players": {pid: p.to_dict() for pid, p in self.players.items()},
             "active_player_id": self.active_player_id,
             "turn_number": self.turn_number,
-            "current_phase": self.current_phase.value
+            "current_phase": self.current_phase.value,
+            "dice_tokens": self.dice_tokens,
+            "targeting_arrows": self.targeting_arrows,
+            "chat_messages": chat_msgs
         }
     
     @classmethod
@@ -345,6 +444,9 @@ class Game:
         game.active_player_id = data.get("active_player_id")
         game.turn_number = data.get("turn_number", 0)
         game.current_phase = Phase(data.get("current_phase", "untap"))
+        game.dice_tokens = data.get("dice_tokens", [])
+        game.targeting_arrows = data.get("targeting_arrows", [])
+        game.chat_messages = data.get("chat_messages", [])
         return game
 
     def __repr__(self):

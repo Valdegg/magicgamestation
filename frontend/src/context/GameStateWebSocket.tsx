@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode, useRef } from 'react';
 import { CardData, GameState, ZoneType } from '../types';
-import { BackendGameState, BackendPlayer, BackendCard } from '../types/backend';
+import { BackendGameState, BackendPlayer, BackendCard, BackendChatMessage } from '../types/backend';
 import { gameApi } from '../api/gameApi';
 
 interface OpponentData {
@@ -28,11 +28,13 @@ interface GameStateContextType extends GameState {
   untapAll: () => void;
   changeLife: (delta: number) => void;
   shuffleLibrary: () => void;
+  mulligan: () => void;
   updateCardPosition: (cardId: string, x: number, y: number) => void;
   toggleFaceDown: (cardId: string) => void;
   loadDeckByName: (deckName: string) => void;
   initializeGame: () => Promise<void>;
   nextPhase: () => void;
+  setPhase: (phase: string) => void;
   nextTurn: () => void;
   copyShareUrl: () => void;
   reorderHand: (cardId: string, newIndex: number) => void;
@@ -40,6 +42,28 @@ interface GameStateContextType extends GameState {
   unattachCard: (cardId: string) => void;
   addCounter: (cardId: string, counterType: string, delta: number) => void;
   createToken: (name: string, power: string, toughness: string) => void;
+  sendChatMessage: (message: string) => void;
+  createDie: (x: number, y: number, dieType?: string) => void;
+  moveDie: (dieId: string, x: number, y: number) => void;
+  removeDie: (dieId: string) => void;
+  diceTokens: Array<{
+    id: string;
+    x: number;
+    y: number;
+    value: number | null;
+    ownerPlayerId: string;
+    dieType: string;
+    lastRolledAt?: number | null;
+  }>;
+  targetingArrows: Array<{
+    cardId: string;
+    targetCardId?: string;
+    targetPlayerId?: string;
+    ownerPlayerId: string;
+  }>;
+  setTargetingArrow: (cardId: string, targetCardId?: string, targetPlayerId?: string) => void;
+  clearTargetingArrows: () => void;
+  chatMessages: BackendChatMessage[];
 }
 
 const GameStateContext = createContext<GameStateContextType | undefined>(undefined);
@@ -59,9 +83,26 @@ export const GameStateProvider: React.FC<{ children: ReactNode }> = ({ children 
   const [isConnected, setIsConnected] = useState(false);
   const [activePlayerId, setActivePlayerId] = useState<string | null>(null);
   const [opponent, setOpponent] = useState<OpponentData | null>(null);
+  const [targetingArrows, setTargetingArrows] = useState<Array<{
+    cardId: string;
+    targetCardId?: string;
+    targetPlayerId?: string;
+    ownerPlayerId: string;
+  }>>([]);
+  const [diceTokens, setDiceTokens] = useState<Array<{
+    id: string;
+    x: number;
+    y: number;
+    value: number | null;
+    ownerPlayerId: string;
+    dieType: string;
+    lastRolledAt?: number | null;
+  }>>([]);
+  const [chatMessages, setChatMessages] = useState<BackendChatMessage[]>([]);
   
   const wsRef = useRef<WebSocket | null>(null);
   const reconnectTimeoutRef = useRef<number | null>(null);
+  const pendingActionsRef = useRef<Array<{ action: string; data: any }>>([]);
 
   // Initialize game on mount
   useEffect(() => {
@@ -90,6 +131,7 @@ export const GameStateProvider: React.FC<{ children: ReactNode }> = ({ children 
       wsRef.current.close();
     }
 
+    // @ts-ignore - Vite provides import.meta.env
     const baseUrl = import.meta.env.VITE_WS_URL || 'ws://localhost:9000';
     const wsUrl = `${baseUrl}/ws/${gId}/${pId}`;
     console.log('🔌 Connecting to WebSocket:', wsUrl);
@@ -99,6 +141,16 @@ export const GameStateProvider: React.FC<{ children: ReactNode }> = ({ children 
     ws.onopen = () => {
       console.log('✅ WebSocket connected');
       setIsConnected(true);
+      
+      // Send any pending actions that were queued before connection
+      const pending = pendingActionsRef.current;
+      if (pending.length > 0) {
+        console.log(`📤 WebSocket connected! Sending ${pending.length} queued action(s):`, pending.map(p => p.action));
+        pending.forEach(({ action, data }) => {
+          ws.send(JSON.stringify({ action, data }));
+        });
+        pendingActionsRef.current = [];
+      }
     };
     
     ws.onmessage = (event) => {
@@ -108,6 +160,10 @@ export const GameStateProvider: React.FC<{ children: ReactNode }> = ({ children 
         if (message.type === 'game_state_update') {
           console.log('📨 Received game state update');
           syncStateFromBackend(message.state);
+        } else if (message.type === 'chat_message') {
+          console.log('💬 Received chat message:', message);
+          // Dispatch custom event for chat component
+          window.dispatchEvent(new CustomEvent('chatMessage', { detail: message }));
         } else if (message.type === 'error') {
           console.error('❌ WebSocket error:', message.message);
         }
@@ -135,13 +191,27 @@ export const GameStateProvider: React.FC<{ children: ReactNode }> = ({ children 
   };
 
   const sendAction = (action: string, data: any = {}) => {
-    if (!wsRef.current || wsRef.current.readyState !== WebSocket.OPEN) {
-      console.warn('⚠️ WebSocket not connected, cannot send action:', action);
+    // Check if we're in a game
+    if (!gameId || !playerId) {
+      console.warn('⚠️ Not in a game yet. Please join or create a game first.');
       return;
     }
     
-    console.log(`📤 Sending action: ${action}`, data);
-    wsRef.current.send(JSON.stringify({ action, data }));
+    // If WebSocket is open, send immediately
+    if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
+      console.log(`📤 Sending action: ${action}`, data);
+      wsRef.current.send(JSON.stringify({ action, data }));
+      return;
+    }
+    
+    // If WebSocket is connecting or closed, queue the action
+    // It will be sent automatically when the connection opens
+    if (!wsRef.current || wsRef.current.readyState !== WebSocket.OPEN) {
+      const state = wsRef.current?.readyState;
+      const stateName = state === WebSocket.CONNECTING ? 'connecting' : 'not connected';
+      console.log(`⏳ WebSocket ${stateName}, queueing action: ${action}`);
+      pendingActionsRef.current.push({ action, data });
+    }
   };
 
   const initializeGame = async () => {
@@ -197,10 +267,10 @@ export const GameStateProvider: React.FC<{ children: ReactNode }> = ({ children 
           console.warn('⚠️ Failed to restore game:', error);
           // Clear URL and storage on 404
           if ((error as any)?.response?.status === 404 || (error as any)?.message?.includes('404')) {
-             const newUrl = new URL(window.location.href);
+        const newUrl = new URL(window.location.href);
              newUrl.searchParams.delete('game');
              newUrl.searchParams.delete('player');
-             window.history.replaceState({}, '', newUrl.toString());
+        window.history.replaceState({}, '', newUrl.toString());
              localStorage.removeItem('mtg_game_id');
              localStorage.removeItem('mtg_player_id');
           }
@@ -279,7 +349,7 @@ export const GameStateProvider: React.FC<{ children: ReactNode }> = ({ children 
             data: c.data,
           }));
         };
-
+        
         setOpponent({
           id: opponentId,
           name: opponentData.name,
@@ -293,6 +363,17 @@ export const GameStateProvider: React.FC<{ children: ReactNode }> = ({ children 
       }
     }
 
+    // Update dice tokens
+    if (backendState.dice_tokens) {
+      setDiceTokens(backendState.dice_tokens);
+    }
+
+    // Update targeting arrows
+    if (backendState.targeting_arrows) {
+      console.log('🎯 Received targeting arrows:', backendState.targeting_arrows);
+      setTargetingArrows(backendState.targeting_arrows);
+    }
+
     // Extract phase and turn
     if (backendState.current_phase) {
       setCurrentPhase(backendState.current_phase);
@@ -301,11 +382,62 @@ export const GameStateProvider: React.FC<{ children: ReactNode }> = ({ children 
     if (backendState.turn_number !== undefined) {
       setTurnNumber(backendState.turn_number);
     }
+
+    // Update chat messages (persisted history)
+    if (backendState.chat_messages) {
+      console.log('💬 Received chat messages from backend:', backendState.chat_messages.length, 'messages');
+      setChatMessages(backendState.chat_messages);
+    } else {
+      console.log('💬 No chat messages in backend state');
+    }
   };
 
   // Action functions using WebSocket
-  const loadDeckByName = (deckName: string) => {
-    sendAction('load_deck', { deckName });
+  const loadDeckByName = async (deckName: string) => {
+    console.log(`📂 loadDeckByName called with deckName: ${deckName}`);
+    
+    // Get gameId and playerId from state, URL, or localStorage (in that order of preference)
+    // This handles cases where state hasn't updated yet
+    let currentGameId = gameId;
+    let currentPlayerId = playerId;
+    
+    if (!currentGameId || !currentPlayerId) {
+      const urlParams = new URLSearchParams(window.location.search);
+      currentGameId = currentGameId || urlParams.get('game') || localStorage.getItem('mtg_game_id');
+      currentPlayerId = currentPlayerId || urlParams.get('player') || localStorage.getItem('mtg_player_id');
+    }
+    
+    console.log(`📂 Current gameId: ${currentGameId}, playerId: ${currentPlayerId}`);
+    
+    if (!currentGameId) {
+      console.error('⚠️ Cannot load deck: not in a game');
+      throw new Error('Not in a game. Please join or create a game first.');
+    }
+    
+    if (!currentPlayerId) {
+      console.error('⚠️ Cannot load deck: player ID not found');
+      throw new Error('Player ID not found. Please join or create a game first.');
+    }
+    
+    // Use REST API instead of WebSocket - simpler and doesn't need connection
+    console.log(`📂 Calling gameApi.loadDeck(${currentGameId}, ${deckName}, ${currentPlayerId})`);
+    try {
+      const response = await gameApi.loadDeck(currentGameId, deckName, currentPlayerId);
+      console.log(`📂 API response received:`, response);
+      if (response.success) {
+        console.log(`✅ Deck loaded: ${deckName}`);
+        // The WebSocket will receive a game state update automatically
+      } else {
+        console.error('❌ Failed to load deck:', response.error);
+        throw new Error(response.error || 'Failed to load deck');
+      }
+    } catch (error) {
+      console.error('❌ Error loading deck:', error);
+      if (error instanceof Error) {
+        console.error('❌ Error details:', error.message, error.stack);
+      }
+      throw error;
+    }
   };
 
   const drawCard = (count: number = 1) => {
@@ -339,8 +471,16 @@ export const GameStateProvider: React.FC<{ children: ReactNode }> = ({ children 
     sendAction('shuffle');
   };
 
+  const mulligan = () => {
+    sendAction('mulligan');
+  };
+
   const nextPhase = () => {
     sendAction('next_phase');
+  };
+
+  const setPhase = (phase: string) => {
+    sendAction('set_phase', { phase });
   };
 
   const nextTurn = () => {
@@ -394,6 +534,30 @@ export const GameStateProvider: React.FC<{ children: ReactNode }> = ({ children 
     sendAction('create_token', { name, power, toughness });
   };
 
+  const sendChatMessage = (message: string) => {
+    sendAction('chat', { message });
+  };
+
+  const createDie = (x: number, y: number, dieType: string = 'd20') => {
+    sendAction('create_die', { x, y, dieType });
+  };
+
+  const moveDie = (dieId: string, x: number, y: number) => {
+    sendAction('move_die', { dieId, x, y });
+  };
+
+  const removeDie = (dieId: string) => {
+    sendAction('remove_die', { dieId });
+  };
+
+  const setTargetingArrow = (cardId: string, targetCardId?: string, targetPlayerId?: string) => {
+    sendAction('set_targeting_arrow', { cardId, targetCardId, targetPlayerId });
+  };
+
+  const clearTargetingArrows = () => {
+    sendAction('clear_targeting_arrows', {});
+  };
+
   const value: GameStateContextType = {
     player,
     cards,
@@ -411,11 +575,13 @@ export const GameStateProvider: React.FC<{ children: ReactNode }> = ({ children 
     untapAll,
     changeLife,
     shuffleLibrary,
+    mulligan,
     updateCardPosition,
     toggleFaceDown,
     loadDeckByName,
     initializeGame,
     nextPhase,
+    setPhase,
     nextTurn,
     copyShareUrl,
     reorderHand,
@@ -423,6 +589,15 @@ export const GameStateProvider: React.FC<{ children: ReactNode }> = ({ children 
     unattachCard,
     addCounter,
     createToken,
+    sendChatMessage,
+    createDie,
+    moveDie,
+    removeDie,
+    diceTokens,
+    targetingArrows,
+    setTargetingArrow,
+    clearTargetingArrows,
+    chatMessages,
   };
 
   return (

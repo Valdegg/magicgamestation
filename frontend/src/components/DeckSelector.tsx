@@ -31,10 +31,16 @@ const DeckSelector: React.FC<DeckSelectorProps> = ({ onClose }) => {
 
   const loadAvailableDecks = async () => {
     try {
+      console.log('📂 Loading available decks...');
       const availableDecks = await getAvailableDecks();
+      console.log('📂 Loaded decks:', availableDecks);
       setDecks(availableDecks);
+      if (availableDecks.length === 0) {
+        console.warn('⚠️ No decks found in index.json');
+      }
     } catch (err) {
-      setError('Failed to load deck list');
+      console.error('❌ Error loading deck list:', err);
+      setError(`Failed to load deck list: ${err instanceof Error ? err.message : 'Unknown error'}`);
     } finally {
       setLoading(false);
     }
@@ -42,11 +48,18 @@ const DeckSelector: React.FC<DeckSelectorProps> = ({ onClose }) => {
 
   const handleSelectDeck = async (deckName: string) => {
     try {
+      console.log(`📂 DeckSelector: Loading deck "${deckName}"`);
       setLoading(true);
+      setError(null);
+      const startTime = performance.now();
       await loadDeckByName(deckName);
+      const duration = ((performance.now() - startTime) / 1000).toFixed(2);
+      console.log(`✅ DeckSelector: Deck "${deckName}" loaded successfully in ${duration}s`);
       onClose();
     } catch (err) {
-      setError(`Failed to load deck: ${deckName}`);
+      const errorMessage = err instanceof Error ? err.message : `Failed to load deck: ${deckName}`;
+      console.error(`❌ DeckSelector: Error loading deck "${deckName}":`, err);
+      setError(errorMessage);
       setLoading(false);
     }
   };
@@ -72,7 +85,7 @@ const DeckSelector: React.FC<DeckSelectorProps> = ({ onClose }) => {
 
           {loading && (
             <div className="text-center text-fantasy-gold/70 py-8">
-              Loading decks...
+              <div className="animate-pulse">Loading deck...</div>
             </div>
           )}
 

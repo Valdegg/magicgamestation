@@ -74,21 +74,31 @@ export function normalizeCardName(name: string): string {
  * @param setCode - Set code (optional)
  * @returns Array of possible image paths to try
  */
-export function getCardImagePaths(cardName: string): string[] {
-  // Create filename format: Card_Name (Cap words, underscores)
-  const filename = cardName
+export function getCardImagePaths(cardName: string, _setCode?: string): string[] {
+  // Strip _UNK or other set code suffixes from the card name if present
+  // This handles cases where card IDs like "wild_mongrel_UNK" are passed
+  let cleanName = cardName;
+  const setCodeMatch = cardName.match(/^(.+)_([A-Z0-9]{2,4})$/i);
+  if (setCodeMatch) {
+    const suffix = setCodeMatch[2].toUpperCase();
+    // If it's a set code suffix (UNK or 2-4 letter code), strip it
+    if (suffix === 'UNK' || /^[A-Z0-9]{2,4}$/.test(suffix)) {
+      cleanName = setCodeMatch[1];
+    }
+  }
+  
+  // Create lowercase filename: card_name.jpg
+  const filename = cleanName
+    .toLowerCase()
     .replace(/[',]/g, '')
-    .replace(/[^a-zA-Z0-9]/g, '_')
+    .replace(/[^a-z0-9]/g, '_')
     .replace(/_+/g, '_')
     .replace(/^_|_$/g, '');
     
   const paths: string[] = [];
   
-  // 1. Try filename format (Card_Name.jpg)
+  // All images are lowercase
   paths.push(`/card_images/${filename}.jpg`);
-  
-  // 2. Try ID format (card_name.jpg) - legacy support
-  paths.push(`/card_images/${filename.toLowerCase()}.jpg`);
   
   // Fallback
   paths.push('/cards/card-back.jpg');
@@ -118,16 +128,43 @@ export async function loadCardDatabase(): Promise<CardDatabase> {
 
 /**
  * Get card metadata by ID.
+ * Tries multiple lookup strategies:
+ * 1. Exact match
+ * 2. Strip _UNK suffix and try base name
+ * 3. Strip any set code suffix (_XXX) and try base name
  * 
  * @param database - Card database
- * @param cardId - Card ID (e.g., "lightning_bolt_A25")
+ * @param cardId - Card ID (e.g., "lightning_bolt_A25" or "lightning_bolt_UNK")
  * @returns Card metadata or null if not found
  */
 export function getCardMetadata(
   database: CardDatabase,
   cardId: string
 ): CardMetadata | null {
-  return database[cardId] || null;
+  // 1. Try exact match first
+  if (database[cardId]) {
+    return database[cardId];
+  }
+  
+  // 2. If ID ends with _UNK, strip it and try base name
+  if (cardId.endsWith('_UNK')) {
+    const baseName = cardId.slice(0, -4); // Remove '_UNK'
+    if (database[baseName]) {
+      return database[baseName];
+    }
+  }
+  
+  // 3. Strip any set code suffix (e.g., _A25, _UNK, _ODY) and try base name
+  // Set codes are typically 2-4 uppercase letters/numbers at the end
+  const setCodeMatch = cardId.match(/^(.+)_([A-Z0-9]{2,4})$/i);
+  if (setCodeMatch) {
+    const baseName = setCodeMatch[1];
+    if (database[baseName]) {
+      return database[baseName];
+    }
+  }
+  
+  return null;
 }
 
 /**

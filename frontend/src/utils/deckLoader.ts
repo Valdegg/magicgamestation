@@ -39,16 +39,20 @@ export async function loadDeck(deckName: string): Promise<DeckList> {
  */
 export async function getAvailableDecks(): Promise<string[]> {
   try {
+    console.log('📂 Fetching /decks/index.json...');
     const response = await fetch('/decks/index.json');
+    console.log('📂 Response status:', response.status, response.statusText);
     if (!response.ok) {
+      console.warn('⚠️ Index.json not found or error:', response.status, response.statusText);
       // If index doesn't exist, return empty array
       return [];
     }
     const data = await response.json();
+    console.log('📂 Parsed index.json:', data);
     return data.decks || [];
   } catch (error) {
-    console.error('Error loading deck index:', error);
-    return [];
+    console.error('❌ Error loading deck index:', error);
+    throw error; // Re-throw so the component can handle it
   }
 }
 

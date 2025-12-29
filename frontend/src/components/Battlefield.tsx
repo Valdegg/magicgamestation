@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import Card from './Card';
 import ContextMenu from './ContextMenu';
+import DiceToken from './DiceToken';
 import { CardData } from '../types';
 import { useGameState } from '../context/GameStateWebSocket';
 import { API_BASE } from '../api/gameApi';
@@ -10,7 +11,7 @@ interface BattlefieldProps {
 }
 
 const Battlefield: React.FC<BattlefieldProps> = ({ cards }) => {
-  const { tapCard, moveCard, updateCardPosition, toggleFaceDown, gameId, playerId, attachCard, unattachCard, addCounter } = useGameState();
+  const { tapCard, moveCard, updateCardPosition, toggleFaceDown, gameId, playerId, attachCard, unattachCard, addCounter, createDie, diceTokens } = useGameState();
   const [contextMenu, setContextMenu] = useState<{
     x: number;
     y: number;
@@ -104,10 +105,25 @@ const Battlefield: React.FC<BattlefieldProps> = ({ cards }) => {
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault();
     
-    console.log('🎯 Battlefield handleDrop called');
+
+    const dropX = e.clientX;
+    const dropY = e.clientY;
     
     if (!battlefieldRef.current) {
       console.log('⚠️ Battlefield handleDrop: No battlefield ref');
+      return;
+    }
+
+    // Check if this is a die drop
+    const dragType = e.dataTransfer.getData('dragType');
+    console.log('🎯 dragType:', dragType);
+    if (dragType === 'lifeDie') {
+      const rect = battlefieldRef.current.getBoundingClientRect();
+      const x = dropX - rect.left;
+      const y = dropY - rect.top;
+      const dieType = e.dataTransfer.getData('dieType') || 'd20';
+      console.log('🎲 Dropped die on battlefield at', x, y);
+      createDie(x, y, dieType);
       return;
     }
 
@@ -120,9 +136,6 @@ const Battlefield: React.FC<BattlefieldProps> = ({ cards }) => {
       console.log('⚠️ Battlefield handleDrop: No card ID');
       return;
     }
-
-    const dropX = e.clientX;
-    const dropY = e.clientY;
     
     console.log('🎴 Drop event on battlefield:', {
       cardId: cardId,
@@ -135,41 +148,11 @@ const Battlefield: React.FC<BattlefieldProps> = ({ cards }) => {
     const elementAtPoint = document.elementFromPoint(dropX, dropY);
     console.log('🎯 Element at drop point:', elementAtPoint?.id, elementAtPoint?.className);
 
-    // Check if dropped on hand
-    const handElement = document.getElementById('hand-zone');
-    if (handElement) {
-      const handRect = handElement.getBoundingClientRect();
-      console.log('✋ Hand zone:', {
-        left: handRect.left,
-        right: handRect.right,
-        top: handRect.top,
-        bottom: handRect.bottom,
-        isInside: dropX >= handRect.left && dropX <= handRect.right && dropY >= handRect.top && dropY <= handRect.bottom
-      });
-      
-      // Check if dropped on hand or if the element at drop point is inside hand
-      const isOnHand = (dropX >= handRect.left && dropX <= handRect.right && dropY >= handRect.top && dropY <= handRect.bottom) ||
-                       handElement.contains(elementAtPoint);
-      
-      if (isOnHand) {
-        console.log('✅ Dropped on hand!');
-        moveCard(cardId, 'hand');
-        setDraggedCard(null);
-        return;
-      }
-    }
-
     // Check if dropped on graveyard
     const graveyardElement = document.getElementById('graveyard-zone');
     if (graveyardElement) {
       const graveyardRect = graveyardElement.getBoundingClientRect();
-      console.log('📦 Graveyard zone:', {
-        left: graveyardRect.left,
-        right: graveyardRect.right,
-        top: graveyardRect.top,
-        bottom: graveyardRect.bottom,
-        isInside: dropX >= graveyardRect.left && dropX <= graveyardRect.right && dropY >= graveyardRect.top && dropY <= graveyardRect.bottom
-      });
+
       
       // Check if dropped on graveyard or if the element at drop point is inside graveyard
       const isOnGraveyard = (dropX >= graveyardRect.left && dropX <= graveyardRect.right && dropY >= graveyardRect.top && dropY <= graveyardRect.bottom) ||
@@ -187,13 +170,13 @@ const Battlefield: React.FC<BattlefieldProps> = ({ cards }) => {
     const libraryElement = document.getElementById('library-zone');
     if (libraryElement) {
       const libraryRect = libraryElement.getBoundingClientRect();
-      console.log('📚 Library zone:', {
-        left: libraryRect.left,
-        right: libraryRect.right,
-        top: libraryRect.top,
-        bottom: libraryRect.bottom,
-        isInside: dropX >= libraryRect.left && dropX <= libraryRect.right && dropY >= libraryRect.top && dropY <= libraryRect.bottom
-      });
+      // console.log('📚 Library zone:', {
+      //   left: libraryRect.left,
+      //   right: libraryRect.right,
+      //   top: libraryRect.top,
+      //   bottom: libraryRect.bottom,
+      //   isInside: dropX >= libraryRect.left && dropX <= libraryRect.right && dropY >= libraryRect.top && dropY <= libraryRect.bottom
+      // });
       
       // Check if dropped on library or if the element at drop point is inside library
       const isOnLibrary = (dropX >= libraryRect.left && dropX <= libraryRect.right && dropY >= libraryRect.top && dropY <= libraryRect.bottom) ||
@@ -235,11 +218,11 @@ const Battlefield: React.FC<BattlefieldProps> = ({ cards }) => {
     const rect = battlefieldRef.current.getBoundingClientRect();
     // For external drops, use the drop position directly
     // For internal moves, use the drag offset
+    // Adjusted centering for 150x210 cards (75, 105)
     const x = draggedCard ? e.clientX - rect.left - dragOffset.x : e.clientX - rect.left - 75;
     const y = draggedCard ? e.clientY - rect.top - dragOffset.y : e.clientY - rect.top - 105;
 
-    console.log('✅ Placed on battlefield:', {x, y, isExternal: !draggedCard});
-    moveCard(cardId, 'battlefield', x, y);
+    moveCard(cardId, 'battlefield', Math.round(x), Math.round(y));
     setDraggedCard(null);
   };
 
@@ -288,8 +271,8 @@ const Battlefield: React.FC<BattlefieldProps> = ({ cards }) => {
     cards.forEach(card => {
       const cardX = card.x ?? 0;
       const cardY = card.y ?? 0;
-      const cardWidth = 110;
-      const cardHeight = 154;
+      const cardWidth = 119; // Updated to match new Card size (10% larger)
+      const cardHeight = 166; // Updated to match new Card size
 
       // Check if card overlaps with selection box
       if (
@@ -418,10 +401,6 @@ const Battlefield: React.FC<BattlefieldProps> = ({ cards }) => {
         cursor: isSelecting ? 'crosshair' : 'default',
       }}
     >
-      {/* Zone label */}
-      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 zone-label">
-        Battlefield
-      </div>
 
       {/* Attaching Indicator */}
       {attachingCardId && (
@@ -443,32 +422,22 @@ const Battlefield: React.FC<BattlefieldProps> = ({ cards }) => {
           data-card-id={card.id}
           className="absolute"
           style={{
-            left: card.x ?? 0,
-            top: card.y ?? 0,
+            left: Math.round(card.x ?? 0),
+            top: Math.round(card.y ?? 0),
             zIndex: card.tapped ? 1 : 10, // Tapped cards lower z-index? No, maybe higher? Default is fine.
           }}
           onClick={(e) => handleCardClick(e, card.id)}
         >
-          {/* Render Host Card */}
-          <Card
-            card={card}
-            onTap={() => tapCard(card.id)}
-            onContextMenu={(e) => handleCardContextMenu(e, card.id)}
-            onDragStart={(e) => handleDragStart(e, card)}
-            onDragEnd={handleDragEnd}
-            disableHover={draggedCard === card.id}
-          />
-
-          {/* Render Attached Cards */}
+          {/* Render Attached Cards - Rendered first so they appear behind */}
           {getAttachedCards(card.id).map((attachedCard, index) => (
             <div
               key={attachedCard.id}
               className="absolute"
               style={{
-                // Offset attached cards slightly
-                top: 20 + (index * 10),
-                left: 20 + (index * 10),
-                zIndex: -1 - index, // Behind host card
+                // Offset attached cards slightly more to be visible
+                top: 30 + (index * 15),
+                left: 30 + (index * 15),
+                zIndex: index, // Explicit positive stack order among attachments
                 pointerEvents: 'auto', // Allow interactions
               }}
               onClick={(e) => {
@@ -483,9 +452,9 @@ const Battlefield: React.FC<BattlefieldProps> = ({ cards }) => {
                 onDragStart={(e) => handleDragStart(e, attachedCard)}
                 onDragEnd={handleDragEnd}
                 disableHover={draggedCard === attachedCard.id}
-                // Make attached cards slightly smaller?
-                cardWidth={90}
-                cardHeight={126}
+                // Make attached cards same size or slightly smaller?
+                cardWidth={119}
+                cardHeight={166}
               />
                {/* Selection indicator for attached card */}
               {selectedCards.has(attachedCard.id) && (
@@ -500,7 +469,17 @@ const Battlefield: React.FC<BattlefieldProps> = ({ cards }) => {
             </div>
           ))}
 
-          {/* Selection indicator for host card */}
+          {/* Render Host Card - Rendered last so it appears on top */}
+          <div style={{ position: 'relative', zIndex: 100 }}>
+          <Card
+            card={card}
+            onTap={() => tapCard(card.id)}
+            onContextMenu={(e) => handleCardContextMenu(e, card.id)}
+            onDragStart={(e) => handleDragStart(e, card)}
+            onDragEnd={handleDragEnd}
+            disableHover={draggedCard === card.id}
+          />
+            {/* Selection indicator for host card */}
           {selectedCards.has(card.id) && (
             <div
               className="absolute inset-0 pointer-events-none rounded-lg"
@@ -511,7 +490,24 @@ const Battlefield: React.FC<BattlefieldProps> = ({ cards }) => {
             />
           )}
         </div>
+        </div>
       ))}
+
+      {/* Dice Tokens - Only show dice owned by this player */}
+      {diceTokens
+        .filter(die => die.ownerPlayerId === playerId)
+        .map((die) => (
+          <DiceToken
+            key={die.id}
+            id={die.id}
+            x={die.x}
+            y={die.y}
+            value={die.value}
+            ownerPlayerId={die.ownerPlayerId}
+            dieType={die.dieType}
+            isRolling={die.value === null}
+          />
+        ))}
 
       {/* Selection box */}
       {isSelecting && selectionBox && (

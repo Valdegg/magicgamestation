@@ -3,42 +3,55 @@ import { motion } from 'framer-motion';
 
 interface PhaseTrackerProps {
   currentPhase: string;
-  onPhaseClick: (phase: string) => void;
+  onPhaseClick: (phase: string, isDoubleClick?: boolean) => void;
   onEndTurn: () => void;
   isMyTurn: boolean;
+  vertical?: boolean;
 }
 
-const PhaseTracker: React.FC<PhaseTrackerProps> = ({ currentPhase, onPhaseClick, onEndTurn, isMyTurn }) => {
+const PhaseTracker: React.FC<PhaseTrackerProps> = ({ currentPhase, onPhaseClick, onEndTurn, isMyTurn, vertical = false }) => {
   const startPhases = [
-    { id: 'untap', label: 'Untap', icon: '⟲' },
-    { id: 'upkeep', label: 'Upkeep', icon: '⏱' },
-    { id: 'draw', label: 'Draw', icon: '🎴' },
+    { id: 'untap', label: 'Untap', fullLabel: 'Untap Step', icon: '⟲' },
+    { id: 'upkeep', label: 'Upkeep', fullLabel: 'Upkeep Step', icon: '⏱' },
+    { id: 'draw', label: 'Draw', fullLabel: 'Draw Step', icon: '🎴' },
   ];
 
   const combatPhases = [
-    { id: 'begin_combat', label: 'Begin', icon: '⚔' },
-    { id: 'declare_attackers', label: 'Attack', icon: '⚔' },
-    { id: 'declare_blockers', label: 'Block', icon: '◈' },
-    { id: 'damage', label: 'Damage', icon: '✦' },
-    { id: 'end_combat', label: 'End', icon: '✓' },
+    { id: 'begin_combat', label: 'Begin', fullLabel: 'Beginning of Combat', icon: '⚔' },
+    { id: 'declare_attackers', label: 'Attack', fullLabel: 'Declare Attackers', icon: '⚔' },
+    { id: 'declare_blockers', label: 'Block', fullLabel: 'Declare Blockers', icon: '◈' },
+    { id: 'damage', label: 'Damage', fullLabel: 'Combat Damage', icon: '✦' },
+    { id: 'end_combat', label: 'End', fullLabel: 'End of Combat', icon: '✓' },
   ];
 
   const endPhases = [
-    { id: 'end_step', label: 'End', icon: '◆' },
-    { id: 'cleanup', label: 'Cleanup', icon: '∅' },
+    { id: 'end_step', label: 'End', fullLabel: 'End Step', icon: '◆' },
+    { id: 'cleanup', label: 'Cleanup', fullLabel: 'Cleanup Step', icon: '∅' },
   ];
 
-  const allPhases = [...startPhases, { id: 'main_1', label: 'Main 1', icon: '★' }, ...combatPhases, { id: 'main_2', label: 'Main 2', icon: '★' }, ...endPhases];
+  const main1Phase = { id: 'main_1', label: 'Main 1', fullLabel: 'Pre-Combat Main Phase', icon: '★' };
+  const main2Phase = { id: 'main_2', label: 'Main 2', fullLabel: 'Post-Combat Main Phase', icon: '★' };
+  
+  const allPhases = [...startPhases, main1Phase, ...combatPhases, main2Phase, ...endPhases];
   
   const renderPhaseButton = (phase: typeof allPhases[0], isInCombat = false) => {
     const isActive = currentPhase === phase.id;
     const isPast = allPhases.findIndex(p => p.id === currentPhase) > allPhases.findIndex(p => p.id === phase.id);
     const isMain = phase.id === 'main_1' || phase.id === 'main_2';
     
+    // Vertical mode settings - larger icons
+    const vPadding = isMain ? '6px 4px' : (isInCombat ? '4px 3px' : '5px 4px');
+    const vIconSize = isMain ? '1.1rem' : (isInCombat ? '0.85rem' : '0.95rem');
+    const vMinWidth = '100%';
+    
+    // Get the full label for tooltip
+    const tooltipText = phase.fullLabel || phase.label;
+    
     return (
       <motion.button
         key={phase.id}
         disabled={!isMyTurn}
+        title={tooltipText}
         className="relative rounded-lg font-bold transition-all uppercase tracking-wide"
         style={{
           background: isActive
@@ -58,22 +71,137 @@ const PhaseTracker: React.FC<PhaseTrackerProps> = ({ currentPhase, onPhaseClick,
           transform: isActive ? 'scale(1.04)' : 'scale(1)',
           opacity: !isMyTurn ? 0.4 : 1,
           cursor: !isMyTurn ? 'not-allowed' : 'pointer',
-          padding: isMain ? '4px 12px' : (isInCombat ? '3px 6px' : '4px 8px'),
-          fontSize: isMain ? '0.65rem' : (isInCombat ? '0.55rem' : '0.6rem'),
-          minWidth: isMain ? '70px' : (isInCombat ? '45px' : '55px')
+          padding: vertical ? vPadding : (isMain ? '4px 12px' : (isInCombat ? '3px 6px' : '4px 8px')),
+          fontSize: vertical ? '0.5rem' : (isMain ? '0.65rem' : (isInCombat ? '0.55rem' : '0.6rem')),
+          minWidth: vertical ? vMinWidth : (isMain ? '70px' : (isInCombat ? '45px' : '55px')),
+          width: vertical ? '100%' : undefined,
         }}
         whileHover={isMyTurn ? { scale: isActive ? 1.06 : 1.02 } : {}}
         whileTap={isMyTurn ? { scale: 0.98 } : {}}
-        onClick={() => isMyTurn && onPhaseClick(phase.id)}
+        onClick={() => isMyTurn && onPhaseClick(phase.id, false)}
+        onDoubleClick={() => isMyTurn && onPhaseClick(phase.id, true)}
       >
-        <div className="flex flex-col items-center gap-0">
-          <div className="opacity-70" style={{ fontSize: isMain ? '0.9rem' : '0.75rem' }}>{phase.icon}</div>
-          <div className="whitespace-nowrap">{phase.label}</div>
+        <div className={`flex ${vertical ? 'flex-row justify-center' : 'flex-col'} items-center gap-0`}>
+          <div style={{ fontSize: vertical ? vIconSize : (isMain ? '0.9rem' : '0.75rem') }}>{phase.icon}</div>
+          {!vertical && <div className="whitespace-nowrap">{phase.label}</div>}
         </div>
       </motion.button>
     );
   };
 
+  // Vertical layout for right sidebar
+  if (vertical) {
+    return (
+      <div 
+        className="h-full py-1 px-1 overflow-y-auto relative flex flex-col"
+        style={{
+          background: 'linear-gradient(to bottom, rgba(26, 10, 10, 0.85) 0%, rgba(60, 15, 15, 0.9) 20%, rgba(60, 15, 15, 0.9) 80%, rgba(26, 10, 10, 0.85) 100%)',
+          borderLeft: '2px solid rgba(212, 179, 107, 0.3)',
+          borderRight: '2px solid rgba(212, 179, 107, 0.3)',
+          boxShadow: '0 2px 8px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(212, 179, 107, 0.15)',
+          width: '55px',
+        }}
+      >
+        <div className="flex flex-col gap-0.5 items-center flex-1">
+          {/* Start Phases */}
+          {startPhases.map(phase => renderPhaseButton(phase))}
+          
+          <div className="text-[0.5rem] font-bold" style={{ color: 'rgba(212, 179, 107, 0.3)' }}>▼</div>
+          
+          {/* Main Phase 1 */}
+          {renderPhaseButton(main1Phase)}
+          
+          <div className="text-[0.5rem] font-bold" style={{ color: 'rgba(212, 179, 107, 0.3)' }}>▼</div>
+          
+          {/* Combat Box */}
+          <div 
+            className="flex flex-col gap-0.5 p-0.5 rounded-lg w-full"
+            style={{
+              background: 'linear-gradient(135deg, rgba(139, 0, 0, 0.15) 0%, rgba(80, 0, 0, 0.2) 100%)',
+              border: '1px solid rgba(220, 38, 38, 0.3)',
+            }}
+          >
+            <div 
+              className="font-bold text-center opacity-60"
+              style={{ color: 'rgba(220, 38, 38, 0.8)', fontSize: '0.4rem', letterSpacing: '0.05em' }}
+            >
+              CBT
+            </div>
+            {combatPhases.map(phase => renderPhaseButton(phase, true))}
+          </div>
+          
+          <div className="text-[0.5rem] font-bold" style={{ color: 'rgba(212, 179, 107, 0.3)' }}>▼</div>
+          
+          {/* Main Phase 2 */}
+          {renderPhaseButton(main2Phase)}
+          
+          <div className="text-[0.5rem] font-bold" style={{ color: 'rgba(212, 179, 107, 0.3)' }}>▼</div>
+          
+          {/* End Phases */}
+          {endPhases.map(phase => renderPhaseButton(phase))}
+          
+          {/* Next Phase Button - big obvious button */}
+          <motion.button
+            disabled={!isMyTurn}
+            title="Next Phase"
+            className="relative w-full py-2 mt-2 rounded-lg font-bold transition-all"
+            style={{
+              background: isMyTurn 
+                ? 'linear-gradient(135deg, #4ade80 0%, #22c55e 50%, #16a34a 100%)'
+                : 'linear-gradient(135deg, rgba(40, 40, 40, 0.6) 0%, rgba(30, 30, 30, 0.7) 100%)',
+              border: isMyTurn ? '2px solid #86efac' : '2px solid rgba(100, 100, 100, 0.3)',
+              color: isMyTurn ? '#052e16' : 'rgba(150, 150, 150, 0.5)',
+              boxShadow: isMyTurn 
+                ? '0 0 15px rgba(74, 222, 128, 0.4), 0 3px 8px rgba(0, 0, 0, 0.5)'
+                : 'none',
+              opacity: !isMyTurn ? 0.4 : 1,
+              cursor: !isMyTurn ? 'not-allowed' : 'pointer'
+            }}
+            whileHover={isMyTurn ? { scale: 1.05, boxShadow: '0 0 20px rgba(74, 222, 128, 0.6), 0 4px 12px rgba(0, 0, 0, 0.5)' } : {}}
+            whileTap={isMyTurn ? { scale: 0.95 } : {}}
+            onClick={() => isMyTurn && onPhaseClick('next')}
+          >
+            <div className="flex flex-col items-center gap-0">
+              <div className="text-xl">▶</div>
+              <div className="text-[0.5rem] font-bold tracking-wider">NEXT</div>
+            </div>
+          </motion.button>
+          
+          {/* End Turn Button - right below Next */}
+          <motion.button
+            disabled={!isMyTurn}
+            title="End Turn"
+            className="relative w-full py-2 mt-1 rounded-lg font-bold transition-all"
+            style={{
+              background: isMyTurn 
+                ? 'linear-gradient(135deg, #f87171 0%, #ef4444 50%, #dc2626 100%)'
+                : 'linear-gradient(135deg, rgba(40, 40, 40, 0.6) 0%, rgba(30, 30, 30, 0.7) 100%)',
+              border: isMyTurn ? '2px solid #fca5a5' : '2px solid rgba(100, 100, 100, 0.3)',
+              color: isMyTurn ? '#450a0a' : 'rgba(150, 150, 150, 0.5)',
+              boxShadow: isMyTurn 
+                ? '0 0 15px rgba(248, 113, 113, 0.4), 0 3px 8px rgba(0, 0, 0, 0.5)'
+                : 'none',
+              opacity: !isMyTurn ? 0.4 : 1,
+              cursor: !isMyTurn ? 'not-allowed' : 'pointer'
+            }}
+            whileHover={isMyTurn ? { scale: 1.05, boxShadow: '0 0 20px rgba(248, 113, 113, 0.6), 0 4px 12px rgba(0, 0, 0, 0.5)' } : {}}
+            whileTap={isMyTurn ? { scale: 0.95 } : {}}
+            onClick={() => isMyTurn && onEndTurn()}
+          >
+            <div className="flex flex-col items-center gap-0">
+              <div className="text-xl">⏭</div>
+              <div className="text-[0.5rem] font-bold tracking-wider">END</div>
+            </div>
+          </motion.button>
+          
+          {/* Spacer at bottom */}
+          <div className="flex-1" />
+        </div>
+      </div>
+    );
+  }
+
+  // Horizontal layout (original)
   return (
     <div 
       className="w-full py-0.5 px-2 overflow-x-auto relative"
@@ -96,7 +224,7 @@ const PhaseTracker: React.FC<PhaseTrackerProps> = ({ currentPhase, onPhaseClick,
         <div className="text-xs font-bold" style={{ color: 'rgba(212, 179, 107, 0.3)' }}>▶</div>
         
         {/* Main Phase 1 - Larger */}
-        {renderPhaseButton({ id: 'main_1', label: 'Main 1', icon: '★' })}
+        {renderPhaseButton(main1Phase)}
         
         <div className="text-xs font-bold" style={{ color: 'rgba(212, 179, 107, 0.3)' }}>▶</div>
         
@@ -134,7 +262,7 @@ const PhaseTracker: React.FC<PhaseTrackerProps> = ({ currentPhase, onPhaseClick,
         <div className="text-xs font-bold" style={{ color: 'rgba(212, 179, 107, 0.3)' }}>▶</div>
         
         {/* Main Phase 2 - Larger */}
-        {renderPhaseButton({ id: 'main_2', label: 'Main 2', icon: '★' })}
+        {renderPhaseButton(main2Phase)}
         
         <div className="text-xs font-bold" style={{ color: 'rgba(212, 179, 107, 0.3)' }}>▶</div>
         

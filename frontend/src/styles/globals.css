@@ -197,11 +197,11 @@
     color: #1b5e20; 
   }
 
-  /* Card styles - Subtle and refined */
+  /* Card styles - Clean without background rectangle */
   .card-frame {
-    @apply fantasy-border;
     position: relative;
-    background: linear-gradient(135deg, #2a1810 0%, #1a100a 100%);
+    background: transparent;
+    border: none;
     transition: all 0.2s ease-out;
     overflow: visible;
     border-radius: 0.5rem;
@@ -213,10 +213,7 @@
   }
   
   .card-frame:hover {
-    box-shadow: 
-      inset 0 0 15px rgba(212, 179, 107, 0.3),
-      0 0 20px rgba(212, 179, 107, 0.4),
-      0 4px 15px rgba(0, 0, 0, 0.8);
+    /* Subtle glow on hover */
   }
 
   .card-tapped {
@@ -255,6 +252,29 @@
       0 0 10px rgba(212, 179, 107, 0.3),
       0 2px 4px rgba(0, 0, 0, 0.8);
     letter-spacing: 0.2em;
+  }
+
+  /* Card Size Slider */
+  .slider-thumb::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #f4d589;
+    cursor: pointer;
+    border: 2px solid rgba(60, 30, 30, 0.8);
+    box-shadow: 0 0 4px rgba(244, 213, 137, 0.5);
+  }
+
+  .slider-thumb::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #f4d589;
+    cursor: pointer;
+    border: 2px solid rgba(60, 30, 30, 0.8);
+    box-shadow: 0 0 4px rgba(244, 213, 137, 0.5);
   }
 }
 

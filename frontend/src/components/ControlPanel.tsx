@@ -6,7 +6,7 @@ import DeckSelector from './DeckSelector';
 import SearchLibraryModal from './SearchLibraryModal';
 
 const ControlPanel: React.FC = () => {
-  const { player, cards, changeLife, drawCard, shuffleLibrary, libraryCount, playerId, activePlayerId, gameId, moveCard, createToken } = useGameState();
+  const { player, cards, changeLife, drawCard, shuffleLibrary, mulligan, libraryCount, playerId, activePlayerId, gameId, moveCard, createToken } = useGameState();
   const isMyTurn = playerId === activePlayerId;
   const [editingLife, setEditingLife] = useState(false);
   const [lifeInput, setLifeInput] = useState(player.life.toString());
@@ -114,12 +114,14 @@ const ControlPanel: React.FC = () => {
     setShowLibraryMenu(true);
   };
 
-  const handleMenuAction = (action: 'draw' | 'shuffle' | 'load' | 'search') => {
+  const handleMenuAction = (action: 'draw' | 'shuffle' | 'load' | 'search' | 'mulligan') => {
     setShowLibraryMenu(false);
     if (action === 'draw' && libraryCount > 0) {
       drawCard();
     } else if (action === 'shuffle' && libraryCount > 0) {
       shuffleLibrary();
+    } else if (action === 'mulligan') {
+      mulligan();
     } else if (action === 'load') {
       setShowDeckSelector(true);
     } else if (action === 'search' && libraryCount > 0) {
@@ -150,14 +152,36 @@ const ControlPanel: React.FC = () => {
               autoFocus
             />
           ) : (
-            <div className="relative">
+            <div 
+              className="relative"
+              onMouseDown={(e) => {
+                // Only allow dragging if not clicking on buttons
+                const target = e.target as HTMLElement;
+                if (target.closest('.life-button')) {
+                  return; // Don't start drag if clicking button
+                }
+              }}
+            >
               <motion.div
-                className="relative w-16 h-16 mx-auto"
+                className="relative w-16 h-16 mx-auto cursor-grab active:cursor-grabbing"
+                draggable
+                onDragStart={(e: React.DragEvent) => {
+                  // Prevent drag if clicking on buttons
+                  const target = e.target as HTMLElement;
+                  if (target.closest('.life-button')) {
+                    e.preventDefault();
+                    return;
+                  }
+                  console.log('🎲 Life die drag started');
+                  e.dataTransfer.setData('dragType', 'lifeDie');
+                  e.dataTransfer.setData('dieType', 'd20');
+                  e.dataTransfer.effectAllowed = 'move';
+                }}
                 whileHover={{ scale: 1.05, rotate: 3 }}
                 whileTap={{ scale: 0.95 }}
                 style={{ 
                   perspective: '1000px',
-                  filter: 'drop-shadow(0 3px 8px rgba(185, 28, 28, 0.3))'
+                  filter: 'drop-shadow(0 3px 8px rgba(185, 28, 28, 0.3))',
                 }}
               >
                 {/* 3D D20 Dice - Subtle translucent */}
@@ -189,13 +213,20 @@ const ControlPanel: React.FC = () => {
 
                   {/* Plus button on top */}
                   <div
-                    className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 flex items-center justify-center cursor-pointer hover:scale-110 transition-transform z-20"
-                    onClick={(e) => { e.stopPropagation(); changeLife(1); }}
+                    className="life-button absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 flex items-center justify-center cursor-pointer hover:scale-110 transition-transform z-20"
+                    onClick={(e) => { 
+                      e.stopPropagation(); 
+                      e.preventDefault();
+                      console.log('➕ Increasing life');
+                      changeLife(1); 
+                    }}
+                    onMouseDown={(e) => e.stopPropagation()}
                     style={{
                       color: 'rgba(144, 238, 144, 0.9)',
                       fontSize: '1rem',
                       fontWeight: 'bold',
                       textShadow: '0 0 6px rgba(144, 238, 144, 0.8), 0 2px 4px rgba(0, 0, 0, 0.9)',
+                      pointerEvents: 'auto',
                     }}
                   >
                     +
@@ -203,24 +234,34 @@ const ControlPanel: React.FC = () => {
 
                   {/* Minus button on bottom */}
                   <div
-                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 flex items-center justify-center cursor-pointer hover:scale-110 transition-transform z-20"
-                    onClick={(e) => { e.stopPropagation(); changeLife(-1); }}
+                    className="life-button absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 flex items-center justify-center cursor-pointer hover:scale-110 transition-transform z-20"
+                    onClick={(e) => { 
+                      e.stopPropagation(); 
+                      e.preventDefault();
+                      console.log('➖ Decreasing life');
+                      changeLife(-1); 
+                    }}
+                    onMouseDown={(e) => e.stopPropagation()}
                     style={{
                       color: 'rgba(255, 127, 127, 0.9)',
                       fontSize: '0.9rem',
                       fontWeight: 'bold',
                       textShadow: '0 0 6px rgba(255, 127, 127, 0.8), 0 2px 4px rgba(0, 0, 0, 0.9)',
+                      pointerEvents: 'auto',
                     }}
                   >
                     −
                   </div>
                   
-                  {/* Number - White crisp */}
+                  {/* Number - White crisp - draggable area */}
                   <div 
-                    className="relative z-10 text-2xl font-bold cursor-pointer" 
-                    onClick={() => {
-                      setEditingLife(true);
-                      setLifeInput(player.life.toString());
+                    className="relative z-10 text-2xl font-bold cursor-grab active:cursor-grabbing" 
+                    onClick={(e) => {
+                      // Only edit if not dragging
+                      if (!e.defaultPrevented) {
+                        setEditingLife(true);
+                        setLifeInput(player.life.toString());
+                      }
                     }}
                     style={{
                       color: '#ffffff',
@@ -231,6 +272,7 @@ const ControlPanel: React.FC = () => {
                       `,
                       fontFamily: "'Arial Black', sans-serif",
                       letterSpacing: '-0.02em',
+                      pointerEvents: 'auto',
                     }}>
                     {player.life}
                   </div>
@@ -387,6 +429,13 @@ const ControlPanel: React.FC = () => {
               disabled={libraryCount === 0}
             >
               Draw Card
+            </button>
+            <button
+              className="w-full text-left px-3 py-2 text-fantasy-gold hover:bg-fantasy-gold/20 rounded transition-colors text-sm"
+              onClick={() => handleMenuAction('mulligan')}
+              title="Put hand into library, shuffle, draw 7"
+            >
+              🔄 Draw New 7
             </button>
             <button
               className="w-full text-left px-3 py-2 text-fantasy-gold hover:bg-fantasy-gold/20 rounded transition-colors text-sm"

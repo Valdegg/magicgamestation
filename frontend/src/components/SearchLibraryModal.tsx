@@ -4,6 +4,7 @@ import { CardData } from '../types';
 import { useCardDatabase } from '../context/CardDatabaseContext';
 import { getCardImagePaths } from '../utils/cardDatabase';
 import { useGameState } from '../context/GameStateWebSocket';
+import { useCardScale } from '../context/CardScaleContext';
 
 interface SearchLibraryModalProps {
   cards: CardData[];
@@ -13,6 +14,8 @@ interface SearchLibraryModalProps {
 const SearchLibraryModal: React.FC<SearchLibraryModalProps> = ({ cards, onClose }) => {
   const { getCard } = useCardDatabase();
   const { moveCard } = useGameState();
+  const { hoverZoomValue } = useCardScale();
+  const hoverZoomEnabled = hoverZoomValue > 1.0;
   const [searchTerm, setSearchTerm] = useState('');
   const [draggingCard, setDraggingCard] = useState<string | null>(null);
 
@@ -115,18 +118,23 @@ const SearchLibraryModal: React.FC<SearchLibraryModalProps> = ({ cards, onClose 
                     draggable
                     onDragStart={(e) => handleDragStart(e, card.id)}
                     onDragEnd={handleDragEnd}
-                    className="rounded overflow-hidden shadow-lg cursor-grab active:cursor-grabbing hover:scale-105 transition-transform relative"
+                    className="rounded overflow-hidden shadow-lg cursor-grab active:cursor-grabbing relative"
                     style={{ 
                       aspectRatio: '2.5/3.5',
-                      opacity: draggingCard === card.id ? 0.5 : 1
+                      opacity: draggingCard === card.id ? 0.5 : 1,
+                      // Prevent GPU compositing blur
+                      willChange: 'auto',
                     }}
-                    whileHover={{ scale: 1.1, zIndex: 10 }}
+                    whileHover={hoverZoomEnabled ? { scale: hoverZoomValue, zIndex: 100, transition: { duration: 0.2, delay: 0.3 } } : undefined}
                   >
                     <img
                       src={imagePaths[0]}
                       alt={displayName}
                       className="w-full h-full object-cover"
-                      style={{ imageRendering: 'crisp-edges' }}
+                      style={{ 
+                        // Removed crisp-edges - let browser use high-quality scaling
+                        borderRadius: '0.5rem'
+                      }}
                     />
                     
                     {/* Quick Action Buttons */}

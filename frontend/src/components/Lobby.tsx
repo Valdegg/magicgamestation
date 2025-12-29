@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useCardDatabase } from '../context/CardDatabaseContext';
 import { getUniqueCardNames, getCardImagePaths } from '../utils/cardDatabase';
 import { API_BASE } from '../api/gameApi';
+import { LobbyChat } from './LobbyChat';
 
 interface GameMetadata {
   game_id: string;
@@ -158,27 +159,35 @@ const Lobby: React.FC<LobbyProps> = ({ onJoinGame }) => {
         setFetchingCards(prev => new Set(prev).add(cardNameLower));
         
         try {
-          console.log(`🔄 Auto-fetching missing card: ${cardName}`);
+          const trimmedName = cardName.trim();
+          console.log(`🔄 Auto-fetching missing card: "${trimmedName}"`);
           const response = await fetch(`${API_BASE}/cards/fetch`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ cardName: cardName.trim() })
+            body: JSON.stringify({ cardName: trimmedName })
           });
+          console.log(`🔄 Auto-fetch response status: ${response.status} ${response.statusText}`);
           
           const data = await response.json();
+          console.log(`🔄 Auto-fetch response data:`, data);
+          
           if (data.success) {
-            console.log(`✅ Auto-fetched: ${cardName}`);
+            console.log(`✅ Auto-fetched: ${data.card?.name || trimmedName}`);
             // Reload database to get the new card
             await reload();
             // Mark as fetched
             setFetchedCards(prev => new Set(prev).add(cardNameLower));
           } else {
-            console.warn(`⚠️ Failed to auto-fetch ${cardName}:`, data.detail);
+            const errorMsg = data.detail || data.error || 'Unknown error';
+            console.warn(`⚠️ Failed to auto-fetch "${trimmedName}":`, errorMsg);
             // Mark as fetched (failed) to prevent endless retries
             setFetchedCards(prev => new Set(prev).add(cardNameLower));
           }
         } catch (err) {
-          console.error(`❌ Error auto-fetching ${cardName}:`, err);
+          console.error(`❌ Error auto-fetching "${cardName}":`, err);
+          if (err instanceof Error) {
+            console.error(`❌ Error details:`, err.message, err.stack);
+          }
           // Mark as fetched (failed) to prevent endless retries
           setFetchedCards(prev => new Set(prev).add(cardNameLower));
         } finally {
@@ -249,24 +258,40 @@ const Lobby: React.FC<LobbyProps> = ({ onJoinGame }) => {
     if (!searchCardName.trim()) return;
     
     setIsFetching(true);
+    const cardName = searchCardName.trim();
+    console.log(`🔍 Manual fetch requested for: "${cardName}"`);
     try {
       const response = await fetch(`${API_BASE}/cards/fetch`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ cardName: searchCardName.trim() })
+        body: JSON.stringify({ cardName })
       });
+      console.log(`🔍 Manual fetch response status: ${response.status} ${response.statusText}`);
       
       const data = await response.json();
+      console.log(`🔍 Manual fetch response data:`, data);
+      
       if (data.success) {
+        console.log(`✅ Successfully fetched: "${data.card?.name || cardName}"`);
+        // Mark as fetched BEFORE reloading to trigger cache busting
+        const fetchedCardName = (data.card?.name || cardName).toLowerCase();
+        setFetchedCards(prev => new Set(prev).add(fetchedCardName));
         // Reload database to get the new card
         await reload();
         // Add to deck list with specified count
         handleAddCard(data.card.name, searchCount);
+        // Force a small delay to ensure file is written and available
+        await new Promise(resolve => setTimeout(resolve, 200));
       } else {
-        alert(`Failed to fetch card: ${data.detail || 'Unknown error'}`);
+        const errorMsg = data.detail || data.error || 'Unknown error';
+        console.error(`❌ Failed to fetch "${cardName}":`, errorMsg);
+        alert(`Failed to fetch card: ${errorMsg}`);
       }
     } catch (err) {
-      console.error('Error fetching card:', err);
+      console.error(`❌ Error fetching "${cardName}":`, err);
+      if (err instanceof Error) {
+        console.error(`❌ Error details:`, err.message, err.stack);
+      }
       alert('Error connecting to server');
     } finally {
       setIsFetching(false);
@@ -952,28 +977,94 @@ const Lobby: React.FC<LobbyProps> = ({ onJoinGame }) => {
                         const isFetching = fetchingCards.has(cardNameLower);
                         const isFetched = fetchedCards.has(cardNameLower);
                         
+                        // Try to find card in database by name
+                        const cardMetadata = Object.values(database).find(card => 
+                          card.name.toLowerCase() === cardNameLower
+                        );
+                        
+                        // Use metadata image path if available, otherwise generate paths
+                        const imagePaths = getCardImagePaths(
+                          cardName,
+                          cardMetadata?.set && cardMetadata.set !== 'UNK' ? cardMetadata.set : undefined
+                        );
+                        const primaryImagePath = cardMetadata?.image || imagePaths[0];
+                        
+                        // Add cache busting for recently fetched cards
+                        const imageSrc = isFetched 
+                          ? `${primaryImagePath}?t=${Date.now()}` 
+                          : primaryImagePath;
+                        
                         return (
                           <div 
-                            key={`${cardName}-${i}-${isFetched ? 'fetched' : 'pending'}`}
+                            key={`${cardName}-${i}-${isFetched ? 'fetched' : 'pending'}-${cardMetadata ? 'hasMeta' : 'noMeta'}`}
                             className="relative aspect-[2.5/3.5] rounded overflow-hidden group cursor-pointer"
                             title={cardName}
                           >
                             <img 
-                              src={getCardImagePaths(cardName)[0]} 
+                              src={imageSrc}
                               alt={cardName}
                               className="w-full h-full object-cover transition-transform group-hover:scale-110"
+                              loading="lazy"
+                              onLoad={() => {
+                                console.log(`✅ Image loaded successfully for "${cardName}": ${imageSrc}`);
+                              }}
                               onError={(e) => {
                                 const target = e.target as HTMLImageElement;
-                                // If card was just fetched, try reloading the image
-                                if (isFetched && !target.dataset.retried) {
-                                  target.dataset.retried = 'true';
-                                  // Force reload by changing src
-                                  const paths = getCardImagePaths(cardName);
-                                  if (paths.length > 0) {
-                                    target.src = paths[0] + '?t=' + Date.now();
-                                  }
+                                console.log(`🖼️ Visual preview image error for "${cardName}":`, {
+                                  imageSrc,
+                                  hasMetadata: !!cardMetadata,
+                                  metadataImage: cardMetadata?.image,
+                                  imagePaths,
+                                  isFetched
+                                });
+                                
+                                // Try next image path if available
+                                const currentIndex = imagePaths.indexOf(primaryImagePath);
+                                if (currentIndex < imagePaths.length - 1 && !target.dataset.triedNext) {
+                                  target.dataset.triedNext = 'true';
+                                  const nextPath = imagePaths[currentIndex + 1];
+                                  console.log(`🖼️ Trying next path: ${nextPath}`);
+                                  target.src = nextPath + '?t=' + Date.now();
                                   return;
                                 }
+                                
+                                // If card has metadata OR was just fetched, reload database and retry
+                                if ((cardMetadata || isFetched) && !target.dataset.reloaded) {
+                                  target.dataset.reloaded = 'true';
+                                  console.log(`🖼️ Card ${isFetched ? 'was just fetched' : 'has metadata'}, reloading database and retrying...`);
+                                  
+                                  // Reload database first, then retry
+                                  reload().then(() => {
+                                    // Wait a bit for file system/Vite to sync
+                                    setTimeout(() => {
+                                      // Re-query the database (it will be updated after reload)
+                                      // Use the metadata we already have, or try paths
+                                      if (cardMetadata?.image) {
+                                        const retryPath = cardMetadata.image + '?t=' + Date.now() + '&retry=1';
+                                        console.log(`🖼️ Retrying with metadata image path: ${retryPath}`);
+                                        target.src = retryPath;
+                                      } else {
+                                        // Try all image paths with cache busting
+                                        const allPaths = getCardImagePaths(
+                                          cardName,
+                                          cardMetadata?.set && cardMetadata.set !== 'UNK' ? cardMetadata.set : undefined
+                                        );
+                                        const nextPathIndex = imagePaths.indexOf(primaryImagePath) + 1;
+                                        if (nextPathIndex < allPaths.length) {
+                                          const retryPath = allPaths[nextPathIndex] + '?t=' + Date.now() + '&retry=1';
+                                          console.log(`🖼️ Retrying with next path: ${retryPath}`);
+                                          target.src = retryPath;
+                                        } else {
+                                          console.log(`🖼️ All paths exhausted, using fallback`);
+                                          target.src = '/cards/card-back.jpg';
+                                        }
+                                      }
+                                    }, 500); // Longer delay for file system sync
+                                  });
+                                  return;
+                                }
+                                
+                                // Final fallback
                                 if (!target.dataset.triedFallback) {
                                   target.dataset.triedFallback = 'true';
                                   target.src = '/cards/card-back.jpg';
@@ -1171,8 +1262,49 @@ const Lobby: React.FC<LobbyProps> = ({ onJoinGame }) => {
             </div>
           )}
         </div>
+
+        {/* Copyright Disclaimer */}
+        <div 
+          className="mt-8 pt-6 border-t"
+          style={{
+            borderColor: 'rgba(212, 179, 107, 0.2)',
+            textAlign: 'center'
+          }}
+        >
+          <p 
+            className="text-sm mb-2"
+            style={{ 
+              color: '#d4b36b',
+              opacity: 0.8
+            }}
+          >
+            A fan-made playmat for trading card games
+          </p>
+          <p 
+            className="text-xs mb-2"
+            style={{ 
+              color: '#d4b36b',
+              opacity: 0.7
+            }}
+          >
+            Supports Magic: The Gathering™ cards
+          </p>
+          <p 
+            className="text-xs"
+            style={{ 
+              color: '#d4b36b',
+              opacity: 0.6,
+              fontStyle: 'italic'
+            }}
+          >
+            Magic: The Gathering is a trademark of Wizards of the Coast. This project is unaffiliated.
+          </p>
+        </div>
         </div>
       </div>
+      
+      {/* Lobby Chat */}
+      <LobbyChat userName={userName} />
     </div>
   );
 };

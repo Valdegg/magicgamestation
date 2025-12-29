@@ -5,7 +5,8 @@
 
 # --- Configuration ---
 MODE="remote"
-STATIC_DOMAIN="magic.ngrok.dev"
+#STATIC_DOMAIN="magic.ngrok.dev"
+STATIC_DOMAIN="app.playmagic.now"
 LOG_DIR="logs"
 
 # --- Colors ---
@@ -168,7 +169,9 @@ else
     success "LOCAL SERVER RUNNING!"
     echo -e "🏠 Access: ${GREEN}http://localhost:5173${NC}"
 fi
-echo "📝 Logs: logs/{backend,frontend,ngrok}.log"
+echo "📝 Logs: logs/backend.log"
+echo "📝 Logs: logs/frontend.log"
+echo "📝 Logs: logs/ngrok.log"
 echo -e "${RED}Press Ctrl+C to stop.${NC}"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 

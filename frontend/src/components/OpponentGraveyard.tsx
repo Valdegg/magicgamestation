@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { CardData } from '../types';
 import { useCardDatabase } from '../context/CardDatabaseContext';
 import { getCardImagePaths } from '../utils/cardDatabase';
+import { useCardScale } from '../context/CardScaleContext';
 
 interface OpponentGraveyardProps {
   cards: CardData[];
@@ -11,6 +12,8 @@ interface OpponentGraveyardProps {
 
 const OpponentGraveyard: React.FC<OpponentGraveyardProps> = ({ cards, opponentName }) => {
   const { getCard } = useCardDatabase();
+  const { cardScale, hoverZoomValue } = useCardScale();
+  const hoverZoomEnabled = hoverZoomValue > 1.0;
   const [showExpanded, setShowExpanded] = useState(false);
   const [draggingCardId, setDraggingCardId] = useState<string | null>(null);
 
@@ -28,8 +31,10 @@ const OpponentGraveyard: React.FC<OpponentGraveyardProps> = ({ cards, opponentNa
   
   // Show up to 5 cards with stacking - most recent on top (half size)
   const visibleCards = cards.slice(-5);
-  const cardHeight = 105; // Half of player graveyard
-  const stackOffset = 16; // Half of player graveyard
+  const baseCardHeight = 105;
+  const cardHeight = Math.round(baseCardHeight * cardScale);
+  const cardWidth = Math.round((cardHeight * 5) / 7);
+  const stackOffset = Math.round(16 * cardScale);
 
   return (
     <>
@@ -51,16 +56,13 @@ const OpponentGraveyard: React.FC<OpponentGraveyardProps> = ({ cards, opponentNa
                 className="relative" 
                 style={{ 
                   height: `${cardHeight + (visibleCards.length - 1) * stackOffset}px`,
-                  width: '75px'
+                  width: `${cardWidth}px`
                 }}
               >
                 {visibleCards.map((card, index) => {
                   const metadata = card.cardId ? getCard(card.cardId) : null;
                   const displayName = metadata?.name || card.name;
-                  const imagePaths = getCardImagePaths(
-                    displayName,
-                    metadata?.set && metadata.set !== 'UNK' ? metadata.set : undefined
-                  );
+                  const imagePaths = getCardImagePaths(displayName);
 
                   // Bottom card is index 0, top card is index visibleCards.length - 1
                   const stackPosition = index;
@@ -75,8 +77,8 @@ const OpponentGraveyard: React.FC<OpponentGraveyardProps> = ({ cards, opponentNa
                         y: stackPosition * stackOffset,
                         zIndex: zIndex,
                       }}
-                      whileHover={draggingCardId !== card.id ? { 
-                        scale: 1.7,
+                      whileHover={draggingCardId !== card.id && hoverZoomEnabled ? { 
+                        scale: hoverZoomValue,
                         y: -80,
                         zIndex: 1000,
                         transition: { duration: 0.2, delay: 0.8 }
@@ -129,19 +131,25 @@ const OpponentGraveyard: React.FC<OpponentGraveyardProps> = ({ cards, opponentNa
               </div>
               
               <div className="grid grid-cols-4 gap-2">
-                {cards.map((card) => (
-                  <div
-                    key={card.id}
-                    className="rounded overflow-hidden shadow-lg"
-                    style={{ aspectRatio: '2.5/3.5' }}
-                  >
-                    <img
-                      src={`/card_images/${card.name?.replace(/\s+/g, '_')}.jpg`}
-                      alt={card.name || 'Card'}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                ))}
+                {cards.map((card) => {
+                  const metadata = card.cardId ? getCard(card.cardId) : getCard(card.name);
+                  const displayName = metadata?.name || card.name;
+                  const imagePaths = getCardImagePaths(displayName);
+                  
+                  return (
+                    <div
+                      key={card.id}
+                      className="rounded overflow-hidden shadow-lg"
+                      style={{ aspectRatio: '2.5/3.5' }}
+                    >
+                      <img
+                        src={imagePaths[0]}
+                        alt={displayName || 'Card'}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  );
+                })}
               </div>
               
               <button

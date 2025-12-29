@@ -5,6 +5,7 @@
  * All game state is managed by the backend (card_engine.py).
  */
 
+// @ts-ignore - Vite provides import.meta.env
 export const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:9000/api';
 
 export interface ApiResponse {
@@ -44,13 +45,35 @@ export const gameApi = {
   /**
    * Load a deck for the player.
    */
-  async loadDeck(gameId: string, deckName: string): Promise<ApiResponse> {
-    const response = await fetch(`${API_BASE}/game/${gameId}/load-deck`, {
+  async loadDeck(gameId: string, deckName: string, playerId?: string): Promise<ApiResponse> {
+    const body: any = { deckName };
+    if (playerId) {
+      body.playerId = playerId;
+    }
+    const url = `${API_BASE}/game/${gameId}/load-deck`;
+    console.log(`📂 Making POST request to: ${url}`);
+    console.log(`📂 Request body:`, body);
+    
+    try {
+      const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ deckName })
+      body: JSON.stringify(body)
     });
-    return response.json();
+      console.log(`📂 Response status: ${response.status} ${response.statusText}`);
+      
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({ detail: `HTTP ${response.status}` }));
+        console.error(`❌ Load deck failed:`, errorData);
+      return { success: false, error: errorData.detail || `Failed to load deck: ${response.statusText}` };
+    }
+      const result = await response.json();
+      console.log(`📂 Load deck success:`, result);
+      return result;
+    } catch (error) {
+      console.error(`❌ Fetch error loading deck:`, error);
+      throw error;
+    }
   },
 
   /**
@@ -162,6 +185,26 @@ export const gameApi = {
       headers: { 'Content-Type': 'application/json' }
     });
     return response.json();
+    },
+
+  /**
+   * Fetch a card image from Scryfall and download it.
+   */
+  async fetchCardImage(cardName: string): Promise<{ success: boolean; card?: any; error?: string }> {
+    try {
+      const response = await fetch(`${API_BASE}/cards/fetch`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ cardName })
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        return { success: false, error: data.detail || 'Failed to fetch card' };
+      }
+      return { success: true, card: data.card };
+    } catch (error) {
+      return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
+    }
   }
 };
 

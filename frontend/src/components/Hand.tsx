@@ -4,6 +4,7 @@ import Card from './Card';
 import ContextMenu from './ContextMenu';
 import { CardData } from '../types';
 import { useGameState } from '../context/GameStateWebSocket';
+import { useCardScale } from '../context/CardScaleContext';
 
 interface HandProps {
   cards: CardData[];
@@ -12,6 +13,8 @@ interface HandProps {
 
 const Hand: React.FC<HandProps> = ({ cards, height = 240 }) => {
   const { moveCard, reorderHand } = useGameState();
+  const { hoverZoomValue } = useCardScale();
+  const hoverZoomEnabled = hoverZoomValue > 1.0;
   const [draggingCardId, setDraggingCardId] = useState<string | null>(null);
   const [dragOverIndex, setDragOverIndex] = useState<number | null>(null);
   const [contextMenu, setContextMenu] = useState<{ x: number; y: number; cardId: string } | null>(null);
@@ -80,14 +83,7 @@ const Hand: React.FC<HandProps> = ({ cards, height = 240 }) => {
     const graveyardElement = document.getElementById('graveyard-zone');
     if (graveyardElement) {
       const rect = graveyardElement.getBoundingClientRect();
-      console.log('📦 Graveyard zone:', {
-        left: rect.left,
-        right: rect.right,
-        top: rect.top,
-        bottom: rect.bottom,
-        mouseX: e.clientX,
-        mouseY: e.clientY
-      });
+
       
       if (
         e.clientX >= rect.left &&
@@ -228,14 +224,28 @@ const Hand: React.FC<HandProps> = ({ cards, height = 240 }) => {
     const cardId = e.dataTransfer.getData('cardId');
     const sourceZone = e.dataTransfer.getData('sourceZone');
     
-    console.log('✋ Drop data:', { cardId, sourceZone });
+    console.log('✋ Drop data:', { cardId, sourceZone, draggingCardId });
     
-    // Only handle drops from other zones here
-    // Reordering within hand is handled by handleDragEnd
+    // Handle drops from other zones (battlefield, library, etc.)
     if (cardId && sourceZone !== 'hand') {
-      console.log('✅ Moving card to hand:', cardId);
-      moveCard(cardId, 'hand', 0, 0);
+      console.log('✅ Moving card to hand from', sourceZone, ':', cardId);
+      moveCard(cardId, 'hand');
+      setDraggingCardId(null);
+      setDragOverIndex(null);
+      return;
     }
+    
+    // Handle reordering within hand
+    if (draggingCardId && dragOverIndex !== null) {
+      const currentIndex = cards.findIndex(c => c.id === draggingCardId);
+      if (currentIndex !== -1 && currentIndex !== dragOverIndex) {
+        console.log(`🔄 Reordering hand: moving card from index ${currentIndex} to ${dragOverIndex}`);
+        reorderHand(draggingCardId, dragOverIndex);
+      }
+    }
+    
+    setDraggingCardId(null);
+    setDragOverIndex(null);
   };
 
   const handleContextMenu = (e: React.MouseEvent, cardId: string) => {
@@ -306,20 +316,20 @@ const Hand: React.FC<HandProps> = ({ cards, height = 240 }) => {
                   scale: (showInsertBefore || showInsertAfter) ? 1.05 : 1,
                 }}
                 transition={{ delay: index * 0.05, duration: 0.2 }}
+                // Round transform values to prevent subpixel blur on high-DPI displays
+                style={{
+                  transform: 'translateZ(0)',
+                }}
               style={{ 
                 marginLeft: index > 0 ? `${overlapAmount}px` : '0',
                   overflow: 'visible',
                   position: 'relative',
-                  zIndex: (showInsertBefore || showInsertAfter) ? 100 : isDraggingThis ? 50 : 1
-                }}
+                  zIndex: (showInsertBefore || showInsertAfter) ? 100 : isDraggingThis ? 50 : 1,
+              }}
                 onDragOver={(e) => handleCardDragOver(e, index)}
                 onDragLeave={handleCardDragLeave}
-                onDrop={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-              }}
-                whileHover={!isDraggingThis && draggingCardId === null ? { 
-                scale: 1.7,
+                whileHover={!isDraggingThis && draggingCardId === null && hoverZoomEnabled ? { 
+                scale: hoverZoomValue,
                 y: -80,
                 zIndex: 1000,
                 transition: { duration: 0.2, delay: 0.8 }

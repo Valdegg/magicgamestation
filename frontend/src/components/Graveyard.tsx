@@ -5,6 +5,7 @@ import { CardData } from '../types';
 import { useCardDatabase } from '../context/CardDatabaseContext';
 import { getCardImagePaths } from '../utils/cardDatabase';
 import { useGameState } from '../context/GameStateWebSocket';
+import { useCardScale } from '../context/CardScaleContext';
 
 interface GraveyardProps {
   cards: CardData[];
@@ -13,13 +14,17 @@ interface GraveyardProps {
 const Graveyard: React.FC<GraveyardProps> = ({ cards }) => {
   const { getCard } = useCardDatabase();
   const { moveCard } = useGameState();
+  const { cardScale, hoverZoomValue } = useCardScale();
+  const hoverZoomEnabled = hoverZoomValue > 1.0;
   const [draggingCardId, setDraggingCardId] = useState<string | null>(null);
   const [contextMenu, setContextMenu] = useState<{ x: number; y: number; cardId: string } | null>(null);
   
   // Show up to 5 cards with stacking - most recent on top
   const visibleCards = cards.slice(-5);
-  const cardHeight = 158;
-  const stackOffset = 24; // Fixed 24px visible per card
+  const baseCardHeight = 158;
+  const cardHeight = Math.round(baseCardHeight * cardScale);
+  const cardWidth = Math.round((cardHeight * 5) / 7); // Maintain aspect ratio
+  const stackOffset = Math.round(24 * cardScale); // Scale stack offset too
   
   const handleDragStart = (e: React.DragEvent, cardId: string) => {
     console.log('🎴 Drag started from graveyard:', cardId);
@@ -77,7 +82,6 @@ const Graveyard: React.FC<GraveyardProps> = ({ cards }) => {
     e.stopPropagation();
     setIsDragOver(false);
     
-    console.log('📦 Graveyard zone received drop event');
     
     // Get the dragged card ID from the data transfer
     const cardId = e.dataTransfer.getData('cardId');
@@ -149,16 +153,13 @@ const Graveyard: React.FC<GraveyardProps> = ({ cards }) => {
               className="relative" 
               style={{ 
                 height: `${cardHeight + (visibleCards.length - 1) * stackOffset}px`,
-                width: '113px'
+                width: `${cardWidth}px`
               }}
             >
               {visibleCards.map((card, index) => {
                 const metadata = card.cardId ? getCard(card.cardId) : null;
                 const displayName = metadata?.name || card.name;
-                const imagePaths = getCardImagePaths(
-                  displayName,
-                  metadata?.set && metadata.set !== 'UNK' ? metadata.set : undefined
-                );
+                const imagePaths = getCardImagePaths(displayName);
 
                 // Bottom card is index 0, top card is index visibleCards.length - 1
                 const stackPosition = index;
@@ -173,8 +174,8 @@ const Graveyard: React.FC<GraveyardProps> = ({ cards }) => {
                       y: stackPosition * stackOffset,
                       zIndex: zIndex,
                     }}
-                    whileHover={draggingCardId !== card.id ? { 
-                      scale: 1.7,
+                    whileHover={draggingCardId !== card.id && hoverZoomEnabled ? { 
+                      scale: hoverZoomValue,
                       y: -80,
                       zIndex: 1000,
                       transition: { duration: 0.2, delay: 0.8 }
