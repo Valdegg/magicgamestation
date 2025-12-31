@@ -78,13 +78,48 @@ const Battlefield: React.FC<BattlefieldProps> = ({ cards }) => {
   };
 
   const handleDragStart = (e: React.DragEvent, card: CardData) => {
-    console.log('🎴 Drag started from battlefield:', card.id);
+    // Check if this card is part of a selection
+    const isSelected = selectedCards.has(card.id);
+    const cardsToDrag = isSelected && selectedCards.size > 1 
+      ? Array.from(selectedCards) 
+      : [card.id];
+    
+    console.log('🎴 Drag started from battlefield:', card.id, isSelected ? `(with ${cardsToDrag.length} selected cards)` : '');
     setDraggedCard(card.id);
     
     // Set data for other zones to read
-    e.dataTransfer.setData('cardId', card.id);
+    e.dataTransfer.setData('cardId', card.id); // Primary card for compatibility
     e.dataTransfer.setData('text/plain', card.id); // For player targeting
     e.dataTransfer.setData('sourceZone', 'battlefield');
+    
+    // Store multiple card IDs if dragging selection
+    if (cardsToDrag.length > 1) {
+      e.dataTransfer.setData('multipleCardIds', JSON.stringify(cardsToDrag));
+      
+      // Calculate and store relative positions of all selected cards
+      // Use the dragged card as the reference point
+      const cardPositions: Record<string, { x: number; y: number }> = {};
+      const referenceCard = cards.find(c => c.id === card.id);
+      
+      if (referenceCard && referenceCard.x !== undefined && referenceCard.y !== undefined) {
+        const refX = referenceCard.x;
+        const refY = referenceCard.y;
+        
+        cardsToDrag.forEach(cardId => {
+          const cardData = cards.find(c => c.id === cardId);
+          if (cardData && cardData.x !== undefined && cardData.y !== undefined) {
+            // Store relative offset from the reference card
+            cardPositions[cardId] = {
+              x: cardData.x - refX,
+              y: cardData.y - refY
+            };
+          }
+        });
+        
+        e.dataTransfer.setData('cardRelativePositions', JSON.stringify(cardPositions));
+        console.log('📍 Stored relative positions:', cardPositions);
+      }
+    }
     
     const rect = (e.target as HTMLElement).getBoundingClientRect();
     setDragOffset({
@@ -130,15 +165,32 @@ const Battlefield: React.FC<BattlefieldProps> = ({ cards }) => {
     // Check if this is an external drag (from hand, library, etc.)
     const externalCardId = e.dataTransfer.getData('cardId');
     const sourceZone = e.dataTransfer.getData('sourceZone');
-    const cardId = draggedCard || externalCardId;
+    const multipleCardIdsData = e.dataTransfer.getData('multipleCardIds');
     
-    if (!cardId) {
-      console.log('⚠️ Battlefield handleDrop: No card ID');
-      return;
+    // Check if we're dragging multiple cards (from selection)
+    let cardIdsToMove: string[] = [];
+    if (multipleCardIdsData) {
+      try {
+        cardIdsToMove = JSON.parse(multipleCardIdsData);
+        console.log('🎴 Dragging multiple cards:', cardIdsToMove.length);
+      } catch (e) {
+        console.error('Failed to parse multipleCardIds:', e);
+        cardIdsToMove = [];
+      }
+    }
+    
+    // If no multiple cards, use single card
+    if (cardIdsToMove.length === 0) {
+      const cardId = draggedCard || externalCardId;
+      if (!cardId) {
+        console.log('⚠️ Battlefield handleDrop: No card ID');
+        return;
+      }
+      cardIdsToMove = [cardId];
     }
     
     console.log('🎴 Drop event on battlefield:', {
-      cardId: cardId,
+      cardIds: cardIdsToMove,
       sourceZone: sourceZone,
       dropX,
       dropY
@@ -159,9 +211,10 @@ const Battlefield: React.FC<BattlefieldProps> = ({ cards }) => {
                             graveyardElement.contains(elementAtPoint);
       
       if (isOnGraveyard) {
-        console.log('✅ Dropped on graveyard!');
-        moveCard(cardId, 'graveyard');
+        console.log('✅ Dropped', cardIdsToMove.length, 'card(s) on graveyard!');
+        cardIdsToMove.forEach(cardId => moveCard(cardId, 'graveyard'));
         setDraggedCard(null);
+        setSelectedCards(new Set()); // Clear selection after moving
         return;
       }
     }
@@ -170,22 +223,16 @@ const Battlefield: React.FC<BattlefieldProps> = ({ cards }) => {
     const libraryElement = document.getElementById('library-zone');
     if (libraryElement) {
       const libraryRect = libraryElement.getBoundingClientRect();
-      // console.log('📚 Library zone:', {
-      //   left: libraryRect.left,
-      //   right: libraryRect.right,
-      //   top: libraryRect.top,
-      //   bottom: libraryRect.bottom,
-      //   isInside: dropX >= libraryRect.left && dropX <= libraryRect.right && dropY >= libraryRect.top && dropY <= libraryRect.bottom
-      // });
       
       // Check if dropped on library or if the element at drop point is inside library
       const isOnLibrary = (dropX >= libraryRect.left && dropX <= libraryRect.right && dropY >= libraryRect.top && dropY <= libraryRect.bottom) ||
                           libraryElement.contains(elementAtPoint);
       
       if (isOnLibrary) {
-        console.log('✅ Dropped on library!');
-        moveCard(cardId, 'library');
+        console.log('✅ Dropped', cardIdsToMove.length, 'card(s) on library!');
+        cardIdsToMove.forEach(cardId => moveCard(cardId, 'library'));
         setDraggedCard(null);
+        setSelectedCards(new Set()); // Clear selection after moving
         return;
       }
     }
@@ -194,23 +241,29 @@ const Battlefield: React.FC<BattlefieldProps> = ({ cards }) => {
     const exileElement = document.getElementById('exile-zone');
     if (exileElement) {
       const exileRect = exileElement.getBoundingClientRect();
-      console.log('🚫 Exile zone:', {
-        left: exileRect.left,
-        right: exileRect.right,
-        top: exileRect.top,
-        bottom: exileRect.bottom,
-        isInside: dropX >= exileRect.left && dropX <= exileRect.right && dropY >= exileRect.top && dropY <= exileRect.bottom
-      });
       
       // Check if dropped on exile or if the element at drop point is inside exile
       const isOnExile = (dropX >= exileRect.left && dropX <= exileRect.right && dropY >= exileRect.top && dropY <= exileRect.bottom) ||
                         exileElement.contains(elementAtPoint);
       
-      if (isOnExile) {
-        console.log('✅ Dropped on exile!');
-        moveCard(cardId, 'exile');
-        setDraggedCard(null);
-        return;
+      // Exile zone removed - cards are now shown in graveyard face down
+      // This check is kept for backwards compatibility but won't trigger
+      const exileElement = document.getElementById('exile-zone');
+      if (exileElement) {
+        const exileRect = exileElement.getBoundingClientRect();
+        const isOnExile = (dropX >= exileRect.left && dropX <= exileRect.right && dropY >= exileRect.top && dropY <= exileRect.bottom) ||
+                          exileElement.contains(elementAtPoint);
+        
+        if (isOnExile) {
+          console.log('✅ Dropped', cardIdsToMove.length, 'card(s) to exile (graveyard + face down)!');
+          cardIdsToMove.forEach(cardId => {
+            moveCard(cardId, 'graveyard');
+            toggleFaceDown(cardId);
+          });
+          setDraggedCard(null);
+          setSelectedCards(new Set());
+          return;
+        }
       }
     }
 
@@ -219,11 +272,40 @@ const Battlefield: React.FC<BattlefieldProps> = ({ cards }) => {
     // For external drops, use the drop position directly
     // For internal moves, use the drag offset
     // Adjusted centering for 150x210 cards (75, 105)
-    const x = draggedCard ? e.clientX - rect.left - dragOffset.x : e.clientX - rect.left - 75;
-    const y = draggedCard ? e.clientY - rect.top - dragOffset.y : e.clientY - rect.top - 105;
+    const baseX = draggedCard ? e.clientX - rect.left - dragOffset.x : e.clientX - rect.left - 75;
+    const baseY = draggedCard ? e.clientY - rect.top - dragOffset.y : e.clientY - rect.top - 105;
 
-    moveCard(cardId, 'battlefield', Math.round(x), Math.round(y));
+    // Check if we have relative positions stored (for multiple card drag)
+    const relativePositionsData = e.dataTransfer.getData('cardRelativePositions');
+    let relativePositions: Record<string, { x: number; y: number }> = {};
+    
+    if (relativePositionsData && cardIdsToMove.length > 1) {
+      try {
+        relativePositions = JSON.parse(relativePositionsData);
+        console.log('📍 Using stored relative positions:', relativePositions);
+      } catch (e) {
+        console.error('Failed to parse cardRelativePositions:', e);
+      }
+    }
+
+    // Move all cards, preserving relative positions if available
+    cardIdsToMove.forEach((cardId) => {
+      if (relativePositions[cardId] && Object.keys(relativePositions).length > 0) {
+        // Use stored relative position
+        const newX = Math.round(baseX + relativePositions[cardId].x);
+        const newY = Math.round(baseY + relativePositions[cardId].y);
+        console.log(`📍 Moving card ${cardId} to (${newX}, ${newY}) with offset (${relativePositions[cardId].x}, ${relativePositions[cardId].y})`);
+        moveCard(cardId, 'battlefield', newX, newY);
+      } else {
+        // Single card or no relative positions - use base position
+        moveCard(cardId, 'battlefield', Math.round(baseX), Math.round(baseY));
+      }
+    });
+    
     setDraggedCard(null);
+    if (cardIdsToMove.length > 1) {
+      setSelectedCards(new Set()); // Clear selection after moving multiple cards
+    }
   };
 
   // Box selection handlers
@@ -366,7 +448,10 @@ const Battlefield: React.FC<BattlefieldProps> = ({ cards }) => {
       {
         label: isMultiple ? `🚫 Move to Exile (${targetCards.length} cards)` : '🚫 Move to Exile',
         onClick: () => {
-          targetCards.forEach(id => moveCard(id, 'exile'));
+          targetCards.forEach(id => {
+            moveCard(id, 'graveyard');
+            toggleFaceDown(id);
+          });
           setSelectedCards(new Set());
         },
       },

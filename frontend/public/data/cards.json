@@ -5874,5 +5874,512 @@
     "colors": [
       "G"
     ]
+  },
+  "krosan_tusker": {
+    "id": "krosan_tusker",
+    "name": "Krosan Tusker",
+    "set": "ONS",
+    "set_name": "Onslaught",
+    "image": "/card_images/krosan_tusker.jpg",
+    "type": "Creature \u2014 Boar Beast",
+    "mana_cost": "{5}{G}{G}",
+    "cmc": 7.0,
+    "oracle_text": "Cycling {2}{G} ({2}{G}, Discard this card: Draw a card.)\nWhen you cycle this card, you may search your library for a basic land card, reveal that card, put it into your hand, then shuffle. (Do this before you draw.)",
+    "colors": [
+      "G"
+    ]
+  },
+  "ravenous_baloth": {
+    "id": "ravenous_baloth",
+    "name": "Ravenous Baloth",
+    "set": "ONS",
+    "set_name": "Onslaught",
+    "image": "/card_images/ravenous_baloth.jpg",
+    "type": "Creature \u2014 Beast",
+    "mana_cost": "{2}{G}{G}",
+    "cmc": 4.0,
+    "oracle_text": "Sacrifice a Beast: You gain 4 life.",
+    "colors": [
+      "G"
+    ]
+  },
+  "pernicious_deed": {
+    "id": "pernicious_deed",
+    "name": "Pernicious Deed",
+    "set": "APC",
+    "set_name": "Apocalypse",
+    "image": "/card_images/pernicious_deed.jpg",
+    "type": "Enchantment",
+    "mana_cost": "{1}{B}{G}",
+    "cmc": 3.0,
+    "oracle_text": "{X}, Sacrifice this enchantment: Destroy each artifact, creature, and enchantment with mana value X or less.",
+    "colors": [
+      "B",
+      "G"
+    ]
+  },
+  "engineered_plague": {
+    "id": "engineered_plague",
+    "name": "Engineered Plague",
+    "set": "ULG",
+    "set_name": "Urza's Legacy",
+    "image": "/card_images/engineered_plague.jpg",
+    "type": "Enchantment",
+    "mana_cost": "{2}{B}",
+    "cmc": 3.0,
+    "oracle_text": "As this enchantment enters, choose a creature type.\nAll creatures of the chosen type get -1/-1.",
+    "colors": [
+      "B"
+    ]
+  },
+  "naturalize": {
+    "id": "naturalize",
+    "name": "Naturalize",
+    "set": "ONS",
+    "set_name": "Onslaught",
+    "image": "/card_images/naturalize.jpg",
+    "type": "Instant",
+    "mana_cost": "{1}{G}",
+    "cmc": 2.0,
+    "oracle_text": "Destroy target artifact or enchantment.",
+    "colors": [
+      "G"
+    ]
+  },
+  "blastoderm": {
+    "id": "blastoderm",
+    "name": "Blastoderm",
+    "set": "NEM",
+    "set_name": "Nemesis",
+    "image": "/card_images/blastoderm.jpg",
+    "type": "Creature \u2014 Beast",
+    "mana_cost": "{2}{G}{G}",
+    "cmc": 4.0,
+    "oracle_text": "Shroud (This creature can't be the target of spells or abilities.)\nFading 3 (This creature enters with three fade counters on it. At the beginning of your upkeep, remove a fade counter from it. If you can't, sacrifice it.)",
+    "colors": [
+      "G"
+    ]
+  },
+  "yavimaya_elder": {
+    "id": "yavimaya_elder",
+    "name": "Yavimaya Elder",
+    "set": "UDS",
+    "set_name": "Urza's Destiny",
+    "image": "/card_images/yavimaya_elder.jpg",
+    "type": "Creature \u2014 Human Druid",
+    "mana_cost": "{1}{G}{G}",
+    "cmc": 3.0,
+    "oracle_text": "When this creature dies, you may search your library for up to two basic land cards, reveal them, put them into your hand, then shuffle.\n{2}, Sacrifice this creature: Draw a card.",
+    "colors": [
+      "G"
+    ]
+  },
+  "wall_of_blossoms": {
+    "id": "wall_of_blossoms",
+    "name": "Wall of Blossoms",
+    "set": "STH",
+    "set_name": "Stronghold",
+    "image": "/card_images/wall_of_blossoms.jpg",
+    "type": "Creature \u2014 Plant Wall",
+    "mana_cost": "{1}{G}",
+    "cmc": 2.0,
+    "oracle_text": "Defender\nWhen this creature enters, draw a card.",
+    "colors": [
+      "G"
+    ]
+  },
+  "spike_feeder": {
+    "id": "spike_feeder",
+    "name": "Spike Feeder",
+    "set": "STH",
+    "set_name": "Stronghold",
+    "image": "/card_images/spike_feeder.jpg",
+    "type": "Creature \u2014 Spike",
+    "mana_cost": "{1}{G}{G}",
+    "cmc": 3.0,
+    "oracle_text": "This creature enters with two +1/+1 counters on it.\n{2}, Remove a +1/+1 counter from this creature: Put a +1/+1 counter on target creature.\nRemove a +1/+1 counter from this creature: You gain 2 life.",
+    "colors": [
+      "G"
+    ]
+  },
+  "vhati_il_dal": {
+    "id": "vhati_il_dal",
+    "name": "Vhati il-Dal",
+    "set": "TMP",
+    "set_name": "Tempest",
+    "image": "/card_images/vhati_il_dal.jpg",
+    "type": "Legendary Creature \u2014 Human Warrior",
+    "mana_cost": "{2}{B}{G}",
+    "cmc": 4.0,
+    "oracle_text": "{T}: Until end of turn, target creature has base power 1 or base toughness 1.",
+    "colors": [
+      "B",
+      "G"
+    ]
+  },
+  "tormods_crypt": {
+    "id": "tormods_crypt",
+    "name": "Tormod's Crypt",
+    "set": "DRK",
+    "set_name": "The Dark",
+    "image": "/card_images/tormods_crypt.jpg",
+    "type": "Artifact",
+    "mana_cost": "{0}",
+    "cmc": 0.0,
+    "oracle_text": "{T}, Sacrifice this artifact: Exile target player's graveyard.",
+    "colors": []
+  },
+  "braids_cabal_minion": {
+    "id": "braids_cabal_minion",
+    "name": "Braids, Cabal Minion",
+    "set": "ODY",
+    "set_name": "Odyssey",
+    "image": "/card_images/braids_cabal_minion.jpg",
+    "type": "Legendary Creature \u2014 Human Minion",
+    "mana_cost": "{2}{B}{B}",
+    "cmc": 4.0,
+    "oracle_text": "At the beginning of each player's upkeep, that player sacrifices an artifact, creature, or land of their choice.",
+    "colors": [
+      "B"
+    ]
+  },
+  "plague_spitter": {
+    "id": "plague_spitter",
+    "name": "Plague Spitter",
+    "set": "INV",
+    "set_name": "Invasion",
+    "image": "/card_images/plague_spitter.jpg",
+    "type": "Creature \u2014 Phyrexian Horror",
+    "mana_cost": "{2}{B}",
+    "cmc": 3.0,
+    "oracle_text": "At the beginning of your upkeep, this creature deals 1 damage to each creature and each player.\nWhen this creature dies, it deals 1 damage to each creature and each player.",
+    "colors": [
+      "B"
+    ]
+  },
+  "spiritmonger": {
+    "id": "spiritmonger",
+    "name": "Spiritmonger",
+    "set": "APC",
+    "set_name": "Apocalypse",
+    "image": "/card_images/spiritmonger.jpg",
+    "type": "Creature \u2014 Beast",
+    "mana_cost": "{3}{B}{G}",
+    "cmc": 5.0,
+    "oracle_text": "Whenever this creature deals damage to a creature, put a +1/+1 counter on this creature.\n{B}: Regenerate this creature.\n{G}: This creature becomes the color of your choice until end of turn.",
+    "colors": [
+      "B",
+      "G"
+    ]
+  },
+  "treetop_village": {
+    "id": "treetop_village",
+    "name": "Treetop Village",
+    "set": "ULG",
+    "set_name": "Urza's Legacy",
+    "image": "/card_images/treetop_village.jpg",
+    "type": "Land",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "This land enters tapped.\n{T}: Add {G}.\n{1}{G}: This land becomes a 3/3 green Ape creature with trample until end of turn. It's still a land. (It can deal excess combat damage to the player or planeswalker it's attacking.)",
+    "colors": []
+  },
+  "spirit_link": {
+    "id": "spirit_link",
+    "name": "Spirit Link",
+    "set": "LEG",
+    "set_name": "Legends",
+    "image": "/card_images/spirit_link.jpg",
+    "type": "Enchantment \u2014 Aura",
+    "mana_cost": "{W}",
+    "cmc": 1.0,
+    "oracle_text": "Enchant creature (Target a creature as you cast this. This card enters attached to that creature.)\nWhenever enchanted creature deals damage, you gain that much life.",
+    "colors": [
+      "W"
+    ]
+  },
+  "birds_of_paradise": {
+    "id": "birds_of_paradise",
+    "name": "Birds of Paradise",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/birds_of_paradise.jpg",
+    "type": "Creature \u2014 Bird",
+    "mana_cost": "{G}",
+    "cmc": 1.0,
+    "oracle_text": "Flying\n{T}: Add one mana of any color.",
+    "colors": [
+      "G"
+    ]
+  },
+  "cabal_therapy": {
+    "id": "cabal_therapy",
+    "name": "Cabal Therapy",
+    "set": "JUD",
+    "set_name": "Judgment",
+    "image": "/card_images/cabal_therapy.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{B}",
+    "cmc": 1.0,
+    "oracle_text": "Choose a nonland card name. Target player reveals their hand and discards all cards with that name.\nFlashback\u2014Sacrifice a creature. (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+    "colors": [
+      "B"
+    ]
+  },
+  "deranged_hermit": {
+    "id": "deranged_hermit",
+    "name": "Deranged Hermit",
+    "set": "ULG",
+    "set_name": "Urza's Legacy",
+    "image": "/card_images/deranged_hermit.jpg",
+    "type": "Creature \u2014 Elf",
+    "mana_cost": "{3}{G}{G}",
+    "cmc": 5.0,
+    "oracle_text": "Echo {3}{G}{G} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\nWhen this creature enters, create four 1/1 green Squirrel creature tokens.\nSquirrel creatures get +1/+1.",
+    "colors": [
+      "G"
+    ]
+  },
+  "diabolic_edict": {
+    "id": "diabolic_edict",
+    "name": "Diabolic Edict",
+    "set": "TMP",
+    "set_name": "Tempest",
+    "image": "/card_images/diabolic_edict.jpg",
+    "type": "Instant",
+    "mana_cost": "{1}{B}",
+    "cmc": 2.0,
+    "oracle_text": "Target player sacrifices a creature of their choice.",
+    "colors": [
+      "B"
+    ]
+  },
+  "duress": {
+    "id": "duress",
+    "name": "Duress",
+    "set": "USG",
+    "set_name": "Urza's Saga",
+    "image": "/card_images/duress.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{B}",
+    "cmc": 1.0,
+    "oracle_text": "Target opponent reveals their hand. You choose a noncreature, nonland card from it. That player discards that card.",
+    "colors": [
+      "B"
+    ]
+  },
+  "dust_bowl": {
+    "id": "dust_bowl",
+    "name": "Dust Bowl",
+    "set": "MMQ",
+    "set_name": "Mercadian Masques",
+    "image": "/card_images/dust_bowl.jpg",
+    "type": "Land",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "{T}: Add {C}.\n{3}, {T}, Sacrifice a land: Destroy target nonbasic land.",
+    "colors": []
+  },
+  "forest": {
+    "id": "forest",
+    "name": "Forest",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/forest.jpg",
+    "type": "Basic Land \u2014 Forest",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "({T}: Add {G}.)",
+    "colors": []
+  },
+  "llanowar_wastes": {
+    "id": "llanowar_wastes",
+    "name": "Llanowar Wastes",
+    "set": "APC",
+    "set_name": "Apocalypse",
+    "image": "/card_images/llanowar_wastes.jpg",
+    "type": "Land",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "{T}: Add {C}.\n{T}: Add {B} or {G}. This land deals 1 damage to you.",
+    "colors": []
+  },
+  "masticore": {
+    "id": "masticore",
+    "name": "Masticore",
+    "set": "UDS",
+    "set_name": "Urza's Destiny",
+    "image": "/card_images/masticore.jpg",
+    "type": "Artifact Creature \u2014 Masticore",
+    "mana_cost": "{4}",
+    "cmc": 4.0,
+    "oracle_text": "At the beginning of your upkeep, sacrifice this creature unless you discard a card.\n{2}: This creature deals 1 damage to target creature.\n{2}: Regenerate this creature.",
+    "colors": []
+  },
+  "recurring_nightmare": {
+    "id": "recurring_nightmare",
+    "name": "Recurring Nightmare",
+    "set": "EXO",
+    "set_name": "Exodus",
+    "image": "/card_images/recurring_nightmare.jpg",
+    "type": "Enchantment",
+    "mana_cost": "{2}{B}",
+    "cmc": 3.0,
+    "oracle_text": "Sacrifice a creature, Return this enchantment to its owner's hand: Return target creature card from your graveyard to the battlefield. Activate only as a sorcery.",
+    "colors": [
+      "B"
+    ]
+  },
+  "smother": {
+    "id": "smother",
+    "name": "Smother",
+    "set": "ONS",
+    "set_name": "Onslaught",
+    "image": "/card_images/smother.jpg",
+    "type": "Instant",
+    "mana_cost": "{1}{B}",
+    "cmc": 2.0,
+    "oracle_text": "Destroy target creature with mana value 3 or less. It can't be regenerated.",
+    "colors": [
+      "B"
+    ]
+  },
+  "swamp": {
+    "id": "swamp",
+    "name": "Swamp",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/swamp.jpg",
+    "type": "Basic Land \u2014 Swamp",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "({T}: Add {B}.)",
+    "colors": []
+  },
+  "zombify": {
+    "id": "zombify",
+    "name": "Zombify",
+    "set": "ODY",
+    "set_name": "Odyssey",
+    "image": "/card_images/zombify.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{3}{B}",
+    "cmc": 4.0,
+    "oracle_text": "Return target creature card from your graveyard to the battlefield.",
+    "colors": [
+      "B"
+    ]
+  },
+  "reanimate": {
+    "id": "reanimate",
+    "name": "Reanimate",
+    "set": "TMP",
+    "set_name": "Tempest",
+    "image": "/card_images/reanimate.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{B}",
+    "cmc": 1.0,
+    "oracle_text": "Put target creature card from a graveyard onto the battlefield under your control. You lose life equal to that card's mana value.",
+    "colors": [
+      "B"
+    ]
+  },
+  "deep_analysis": {
+    "id": "deep_analysis",
+    "name": "Deep Analysis",
+    "set": "TOR",
+    "set_name": "Torment",
+    "image": "/card_images/deep_analysis.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{3}{U}",
+    "cmc": 4.0,
+    "oracle_text": "Target player draws two cards.\nFlashback\u2014{1}{U}, Pay 3 life. (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+    "colors": [
+      "U"
+    ]
+  },
+  "buried_alive": {
+    "id": "buried_alive",
+    "name": "Buried Alive",
+    "set": "WTH",
+    "set_name": "Weatherlight",
+    "image": "/card_images/buried_alive.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{2}{B}",
+    "cmc": 3.0,
+    "oracle_text": "Search your library for up to three creature cards, put them into your graveyard, then shuffle.",
+    "colors": [
+      "B"
+    ]
+  },
+  "exhume": {
+    "id": "exhume",
+    "name": "Exhume",
+    "set": "USG",
+    "set_name": "Urza's Saga",
+    "image": "/card_images/exhume.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{1}{B}",
+    "cmc": 2.0,
+    "oracle_text": "Each player puts a creature card from their graveyard onto the battlefield.",
+    "colors": [
+      "B"
+    ]
+  },
+  "dance_of_the_dead": {
+    "id": "dance_of_the_dead",
+    "name": "Dance of the Dead",
+    "set": "ICE",
+    "set_name": "Ice Age",
+    "image": "/card_images/dance_of_the_dead.jpg",
+    "type": "Enchantment \u2014 Aura",
+    "mana_cost": "{1}{B}",
+    "cmc": 2.0,
+    "oracle_text": "Enchant creature card in a graveyard\nWhen this Aura enters, if it's on the battlefield, it loses \"enchant creature card in a graveyard\" and gains \"enchant creature put onto the battlefield with this Aura.\" Put enchanted creature card onto the battlefield tapped under your control and attach this Aura to it. When this Aura leaves the battlefield, that creature's controller sacrifices it.\nEnchanted creature gets +1/+1 and doesn't untap during its controller's untap step.\nAt the beginning of the upkeep of enchanted creature's controller, that player may pay {1}{B}. If the player does, untap that creature.",
+    "colors": [
+      "B"
+    ]
+  },
+  "careful_study": {
+    "id": "careful_study",
+    "name": "Careful Study",
+    "set": "ODY",
+    "set_name": "Odyssey",
+    "image": "/card_images/careful_study.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{U}",
+    "cmc": 1.0,
+    "oracle_text": "Draw two cards, then discard two cards.",
+    "colors": [
+      "U"
+    ]
+  },
+  "entomb": {
+    "id": "entomb",
+    "name": "Entomb",
+    "set": "ODY",
+    "set_name": "Odyssey",
+    "image": "/card_images/entomb.jpg",
+    "type": "Instant",
+    "mana_cost": "{B}",
+    "cmc": 1.0,
+    "oracle_text": "Search your library for a card, put that card into your graveyard, then shuffle.",
+    "colors": [
+      "B"
+    ]
+  },
+  "dark_ritual": {
+    "id": "dark_ritual",
+    "name": "Dark Ritual",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/dark_ritual.jpg",
+    "type": "Instant",
+    "mana_cost": "{B}",
+    "cmc": 1.0,
+    "oracle_text": "Add {B}{B}{B}.",
+    "colors": [
+      "B"
+    ]
   }
 }

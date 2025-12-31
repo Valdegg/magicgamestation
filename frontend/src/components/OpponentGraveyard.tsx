@@ -29,8 +29,8 @@ const OpponentGraveyard: React.FC<OpponentGraveyardProps> = ({ cards, opponentNa
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [showExpanded]);
   
-  // Show up to 5 cards with stacking - most recent on top (half size)
-  const visibleCards = cards.slice(-5);
+  // Show up to 3 cards with stacking - most recent on top (half size)
+  const visibleCards = cards.slice(-3);
   const baseCardHeight = 105;
   const cardHeight = Math.round(baseCardHeight * cardScale);
   const cardWidth = Math.round((cardHeight * 5) / 7);
@@ -116,14 +116,14 @@ const OpponentGraveyard: React.FC<OpponentGraveyardProps> = ({ cards, opponentNa
         {showExpanded && (
           <>
             <div
-              className="fixed inset-0 bg-black/60 z-40"
+              className="fixed inset-0 bg-black/60 z-[200]"
               onClick={() => setShowExpanded(false)}
             />
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 fantasy-panel p-4 max-w-2xl max-h-[80vh] overflow-y-auto"
+              initial={{ opacity: 0, scale: 0.9, y: -20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: -20 }}
+              className="fixed top-4 left-1/2 -translate-x-1/2 z-[201] fantasy-panel p-4 max-w-2xl max-h-[80vh] overflow-y-auto"
             >
               <div className="text-center mb-4">
                 <h3 className="text-fantasy-gold text-lg font-bold">{opponentName}'s Graveyard</h3>

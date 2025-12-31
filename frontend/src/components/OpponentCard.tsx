@@ -12,74 +12,116 @@ interface OpponentCardProps {
   scale?: number;
 }
 
+// Throttled error logger to prevent log flooding
+const errorLogCache = new Map<string, number>();
+const ERROR_LOG_THROTTLE_MS = 5000; // Only log same error once per 5 seconds
+
+const logErrorOnce = (key: string, message: string, error?: any) => {
+  const now = Date.now();
+  const lastLogged = errorLogCache.get(key);
+  if (!lastLogged || now - lastLogged > ERROR_LOG_THROTTLE_MS) {
+    errorLogCache.set(key, now);
+    console.error(`[OpponentCard] ${message}`, error || '');
+  }
+};
+
 const OpponentCard: React.FC<OpponentCardProps> = ({ card, onCardTargeted, scale = 1 }) => {
   const [isDragOver, setIsDragOver] = useState(false);
   const [currentImagePath, setCurrentImagePath] = useState<string | null>(null);
   const [imageLoadFailed, setImageLoadFailed] = useState(false);
+  const [renderError, setRenderError] = useState<string | null>(null);
   const pathIndexRef = useRef(0);
   const { cardScale: globalCardScale, hoverZoomValue } = useCardScale();
   const { getCard } = useCardDatabase();
 
   // Get display name - prefer metadata name, fall back to cleaned card name
   const getDisplayName = () => {
-    const metadata = getCard(card.name);
-    if (metadata?.name) return metadata.name;
-    
-    // Clean up card ID: strip _UNK suffix and convert to readable name
-    let cleanId = card.name;
-    const setCodeMatch = cleanId.match(/^(.+)_([A-Z0-9]{2,4})$/i);
-    if (setCodeMatch) {
-      cleanId = setCodeMatch[1];
+    try {
+      if (!card?.name) {
+        logErrorOnce(`missing-name-${card?.id}`, `Card missing name: ${card?.id}`);
+        return 'Unknown Card';
+      }
+      const metadata = getCard(card.name);
+      if (metadata?.name) return metadata.name;
+      
+      // Clean up card ID: strip _UNK suffix and convert to readable name
+      let cleanId = card.name;
+      const setCodeMatch = cleanId.match(/^(.+)_([A-Z0-9]{2,4})$/i);
+      if (setCodeMatch) {
+        cleanId = setCodeMatch[1];
+      }
+      return cleanId
+        .replace(/_/g, ' ')
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(' ');
+    } catch (error) {
+      logErrorOnce(`display-name-error-${card?.id}`, `Error getting display name for card ${card?.id}`, error);
+      return card?.name || 'Unknown Card';
     }
-    return cleanId
-      .replace(/_/g, ' ')
-      .split(' ')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-      .join(' ');
   };
 
   const displayName = getDisplayName();
 
   // Load image with fallback paths
   useEffect(() => {
-    if (card.faceDown) return;
-    
-    const metadata = getCard(card.name);
-    const imagePaths = metadata?.image 
-      ? [metadata.image, ...getCardImagePaths(displayName)]
-      : getCardImagePaths(displayName);
-    
-    // Remove duplicates and card-back from paths
-    const uniquePaths = [...new Set(imagePaths)].filter(p => !p.includes('card-back'));
-    
-    pathIndexRef.current = 0;
-    setImageLoadFailed(false);
-    
-    const tryNextPath = () => {
+    try {
+      if (card.faceDown) return;
+      
+      if (!card?.name) {
+        logErrorOnce(`missing-card-name-${card?.id}`, `Card missing name: ${card?.id}`);
+        setImageLoadFailed(true);
+        return;
+      }
+      
+      const metadata = getCard(card.name);
+      const imagePaths = metadata?.image 
+        ? [metadata.image, ...getCardImagePaths(displayName)]
+        : getCardImagePaths(displayName);
+      
+      // Remove duplicates and card-back from paths
+      const uniquePaths = [...new Set(imagePaths)].filter(p => !p.includes('card-back'));
+      
+      pathIndexRef.current = 0;
+      setImageLoadFailed(false);
+      setRenderError(null);
+      
+      const tryNextPath = () => {
+        if (pathIndexRef.current < uniquePaths.length) {
+          setCurrentImagePath(uniquePaths[pathIndexRef.current]);
+        } else {
+          setImageLoadFailed(true);
+          setCurrentImagePath('/cards/card-back.jpg');
+        }
+      };
+      
+      tryNextPath();
+    } catch (error) {
+      logErrorOnce(`image-load-error-${card?.id}`, `Error loading image for card ${card?.id}`, error);
+      setImageLoadFailed(true);
+      setRenderError('Failed to load card');
+    }
+  }, [card.name, card.faceDown, displayName, card?.id]);
+
+  const handleImageError = () => {
+    try {
+      const metadata = getCard(card.name);
+      const imagePaths = metadata?.image 
+        ? [metadata.image, ...getCardImagePaths(displayName)]
+        : getCardImagePaths(displayName);
+      const uniquePaths = [...new Set(imagePaths)].filter(p => !p.includes('card-back'));
+      
+      pathIndexRef.current++;
       if (pathIndexRef.current < uniquePaths.length) {
         setCurrentImagePath(uniquePaths[pathIndexRef.current]);
       } else {
         setImageLoadFailed(true);
         setCurrentImagePath('/cards/card-back.jpg');
+        logErrorOnce(`image-all-failed-${card?.id}`, `All image paths failed for card: ${displayName} (${card?.id})`);
       }
-    };
-    
-    tryNextPath();
-  }, [card.name, card.faceDown, displayName]);
-
-  const handleImageError = () => {
-    const metadata = getCard(card.name);
-    const imagePaths = metadata?.image 
-      ? [metadata.image, ...getCardImagePaths(displayName)]
-      : getCardImagePaths(displayName);
-    const uniquePaths = [...new Set(imagePaths)].filter(p => !p.includes('card-back'));
-    
-    pathIndexRef.current++;
-    if (pathIndexRef.current < uniquePaths.length) {
-      setCurrentImagePath(uniquePaths[pathIndexRef.current]);
-    } else {
+    } catch (error) {
+      logErrorOnce(`image-error-handler-${card?.id}`, `Error in image error handler for card ${card?.id}`, error);
       setImageLoadFailed(true);
-      setCurrentImagePath('/cards/card-back.jpg');
     }
   };
   
@@ -99,24 +141,55 @@ const OpponentCard: React.FC<OpponentCardProps> = ({ card, onCardTargeted, scale
   const scaledWidth = baseWidth * scale * globalCardScale;
   const scaledHeight = baseHeight * scale * globalCardScale;
 
+  // Validate card data before rendering
+  if (!card || !card.id) {
+    logErrorOnce(`invalid-card-${card?.id || 'unknown'}`, `Invalid card data:`, card);
+    return null;
+  }
+
+  // Render with error boundary
+  if (renderError) {
+    return (
+      <div
+        data-card-id={card.id}
+        className="absolute rounded"
+        style={{
+          width: `${scaledWidth}px`,
+          height: `${scaledHeight}px`,
+          left: `${card.x || 50}px`,
+          top: `${card.y || 50}px`,
+          background: 'linear-gradient(135deg, #4a3728 0%, #3a2718 100%)',
+          border: '1px solid rgba(212, 179, 107, 0.4)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <span style={{ color: '#d4b36b', fontSize: '0.7rem', textAlign: 'center', padding: '4px' }}>
+          {displayName}
+        </span>
+      </div>
+    );
+  }
+
   return (
     <motion.div
-      data-card-id={card.id}
-      className="absolute rounded"
-      style={{
-        width: `${scaledWidth}px`,
-        height: `${scaledHeight}px`,
-        left: `${card.x || 50}px`,
-        top: `${card.y || 50}px`,
-        transform: card.tapped ? 'rotate(90deg)' : 'rotate(0deg)',
-        transformOrigin: 'center center',
-        transition: 'transform 0.3s ease, box-shadow 0.2s ease',
-        cursor: 'pointer',
-        overflow: 'visible',
-        boxShadow: isDragOver 
-          ? '0 0 20px rgba(239, 68, 68, 0.8), inset 0 0 10px rgba(239, 68, 68, 0.5)'
-          : undefined
-      }}
+        data-card-id={card.id}
+        className="absolute rounded"
+        style={{
+          width: `${scaledWidth}px`,
+          height: `${scaledHeight}px`,
+          left: `${card.x || 50}px`,
+          top: `${card.y || 50}px`,
+          transform: card.tapped ? 'rotate(90deg)' : 'rotate(0deg)',
+          transformOrigin: 'center center',
+          transition: 'transform 0.3s ease, box-shadow 0.2s ease',
+          cursor: 'pointer',
+          overflow: 'visible',
+          boxShadow: isDragOver 
+            ? '0 0 20px rgba(239, 68, 68, 0.8), inset 0 0 10px rgba(239, 68, 68, 0.5)'
+            : undefined
+        }}
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ 
         opacity: 1, 

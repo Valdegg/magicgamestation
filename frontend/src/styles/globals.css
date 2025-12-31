@@ -19,6 +19,16 @@
   }
   
   /* Global animations */
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+      box-shadow: 0 0 10px rgba(244, 213, 137, 0.8), 0 0 20px rgba(244, 213, 137, 0.4);
+    }
+    50% {
+      opacity: 0.7;
+      box-shadow: 0 0 15px rgba(244, 213, 137, 1), 0 0 30px rgba(244, 213, 137, 0.6);
+    }
+  }
   @keyframes titleShine {
     0%, 100% {
       background-position: 0% center;

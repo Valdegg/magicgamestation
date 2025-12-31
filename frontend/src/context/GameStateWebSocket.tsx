@@ -360,6 +360,9 @@ export const GameStateProvider: React.FC<{ children: ReactNode }> = ({ children 
           graveyardCards: convertOpponentCards(opponentData.zones.graveyard?.cards || [], 'graveyard'),
           exileCards: convertOpponentCards(opponentData.zones.exile?.cards || [], 'exile'),
         });
+      } else {
+        // No opponent found - clear opponent state (e.g., if opponent left)
+        setOpponent(null);
       }
     }
 

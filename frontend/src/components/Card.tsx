@@ -218,10 +218,39 @@ const Card: React.FC<CardProps> = ({
         }
       }
 
-      // If all card image paths failed, try downloading the image
+      // If all card image paths failed, check if card exists in database before downloading
       console.log(`🔍 Download check: downloadAttempted=${downloadAttemptedRef.current}, cardImagePaths.length=${cardImagePaths.length}, displayName=${displayName}`);
       if (!downloadAttemptedRef.current && cardImagePaths.length > 0) {
-        console.log(`📥 All card image paths failed, attempting to download image for: ${displayName}`);
+        // Check if card already exists in database (might have image but path was wrong)
+        const existingCard = getCard(displayName);
+        if (existingCard?.image) {
+          // Card exists in database with image path - try loading it one more time
+          console.log(`🔄 Card exists in database with image path: ${existingCard.image}, retrying load...`);
+          const retryImg = new Image();
+          const retryLoaded = await new Promise<boolean>((resolve) => {
+            const timeout = setTimeout(() => resolve(false), 5000);
+            retryImg.onload = () => {
+              clearTimeout(timeout);
+              resolve(true);
+            };
+            retryImg.onerror = () => {
+              clearTimeout(timeout);
+              resolve(false);
+            };
+            retryImg.src = existingCard.image + '?t=' + Date.now(); // Cache bust
+          });
+          
+          if (retryLoaded) {
+            console.log(`✅ Successfully loaded existing card image: ${existingCard.image}`);
+            setCurrentImagePath(existingCard.image);
+            cachedImagePathRef.current = existingCard.image;
+            lastLoadedCardRef.current = cardIdentity;
+            return;
+          }
+        }
+        
+        // Only download if card doesn't exist in database or has no image
+        console.log(`📥 Card not in database or missing image, attempting to download: ${displayName}`);
         downloadAttemptedRef.current = true;
         
         try {

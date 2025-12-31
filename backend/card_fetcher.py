@@ -120,11 +120,18 @@ def fetch_card_data(card_name: str) -> Tuple[bool, Optional[Dict], Optional[str]
         return False, None, error_msg
 
 def download_image(url: str, filename: str) -> bool:
-    """Download image to local directory."""
+    """Download image to local directory. Skips if file already exists."""
     print(f"   📥 download_image called: url='{url}', filename='{filename}'", flush=True)
     try:
         os.makedirs(IMAGE_DIR, exist_ok=True)
         filepath = os.path.join(IMAGE_DIR, filename)
+        
+        # Check if file already exists
+        if os.path.exists(filepath) and os.path.getsize(filepath) > 0:
+            file_size = os.path.getsize(filepath)
+            print(f"   ⏭️  Image already exists: {filepath} ({file_size} bytes), skipping download", flush=True)
+            return True
+        
         print(f"   📥 Downloading to: {filepath}", flush=True)
         
         resp = requests.get(url, headers={'User-Agent': 'MWS/1.0'}, timeout=30)

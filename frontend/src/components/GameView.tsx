@@ -8,7 +8,6 @@ import ControlPanel from './ControlPanel';
 import OpponentPanel from './OpponentPanel';
 import OpponentGraveyard from './OpponentGraveyard';
 import Graveyard from './Graveyard';
-import ZonePiles from './ZonePiles';
 import PhaseTracker from './PhaseTracker';
 import OpponentCard from './OpponentCard';
 import { Chat } from './Chat';
@@ -45,8 +44,8 @@ export default function GameView({ onBackToLobby }: GameViewProps) {
 
   const handCards = cards.filter(card => card.zone === 'hand');
   const battlefieldCards = cards.filter(card => card.zone === 'battlefield');
-  const graveyardCards = cards.filter(card => card.zone === 'graveyard');
-  const exileCards = cards.filter(card => card.zone === 'exile');
+  // Combine graveyard and exile cards - exile cards will be shown face down in graveyard
+  const graveyardCards = cards.filter(card => card.zone === 'graveyard' || card.zone === 'exile');
 
   const leftPanelWidth = 220;
   const [handHeight, setHandHeight] = useState(180);
@@ -73,8 +72,21 @@ export default function GameView({ onBackToLobby }: GameViewProps) {
   }, [opponent]); // Re-run when opponent changes (container becomes available)
 
   const mappedOpponentCards = React.useMemo(() => {
-    if (!opponent || !opponent.battlefieldCards || opponent.battlefieldCards.length === 0) return [];
-    if (measuredOpponentWidth === 0 || measuredOpponentHeight === 0) return opponent.battlefieldCards;
+    if (!opponent || !opponent.battlefieldCards || opponent.battlefieldCards.length === 0) {
+      if (opponent && opponent.battlefieldCards && opponent.battlefieldCards.length === 0) {
+        // Only log once when cards array is empty (not on every render)
+        const logKey = 'opponent-empty-battlefield';
+        if (!(window as any)[logKey]) {
+          console.log('[GameView] Opponent has no battlefield cards');
+          (window as any)[logKey] = true;
+        }
+      }
+      return [];
+    }
+    if (measuredOpponentWidth === 0 || measuredOpponentHeight === 0) {
+      // Return cards without mapping if container not measured yet
+      return opponent.battlefieldCards;
+    }
 
     const cards = opponent.battlefieldCards;
     // Use current opponent card base dimensions (matches OpponentCard.tsx)
@@ -372,9 +384,26 @@ export default function GameView({ onBackToLobby }: GameViewProps) {
           {opponent && (
             <div className="flex-shrink-0 relative z-[100]" style={{ height: `${opponentBattlefieldHeight}px` }}>
               <div ref={opponentBattlefieldContainerRef} className="fantasy-border rounded-lg relative h-full" style={{ background: 'linear-gradient(135deg, rgba(40, 20, 20, 0.4) 0%, rgba(60, 15, 15, 0.5) 100%)', overflow: 'visible' }}>
-                {mappedOpponentCards.length > 0 ? mappedOpponentCards.map(card => (
-                  <OpponentCard key={card.id} card={card} onCardTargeted={handleCardTargetCard} scale={card.scale || 1} />
-                )) : <div className="absolute inset-0 flex items-center justify-center text-[#8b7355] text-sm italic">No cards in play</div>}
+                {mappedOpponentCards.length > 0 ? mappedOpponentCards.map(card => {
+                  // Wrap each card in error boundary to prevent one bad card from breaking all cards
+                  try {
+                    if (!card || !card.id) {
+                      console.warn(`[GameView] Skipping invalid opponent card:`, card);
+                      return null;
+                    }
+                    return <OpponentCard key={card.id} card={card} onCardTargeted={handleCardTargetCard} scale={card.scale || 1} />;
+                  } catch (error) {
+                    // Only log once per card to prevent flooding
+                    const errorKey = `opponent-card-error-${card?.id || 'unknown'}`;
+                    const lastLogged = (window as any)[errorKey];
+                    const now = Date.now();
+                    if (!lastLogged || now - lastLogged > 5000) {
+                      console.error(`[GameView] Error rendering opponent card ${card?.id}:`, error);
+                      (window as any)[errorKey] = now;
+                    }
+                    return null;
+                  }
+                }) : <div className="absolute inset-0 flex items-center justify-center text-[#8b7355] text-sm italic">No cards in play</div>}
                 
                 {/* Opponent's Dice Tokens */}
                 {diceTokens
@@ -418,9 +447,28 @@ export default function GameView({ onBackToLobby }: GameViewProps) {
 
                   const cardId = e.dataTransfer.getData('cardId');
                   const sourceZone = e.dataTransfer.getData('sourceZone');
+                  const multipleCardIdsData = e.dataTransfer.getData('multipleCardIds');
+                  
+                  // Check if we're dragging multiple cards
+                  let cardIdsToMove: string[] = [];
+                  if (multipleCardIdsData) {
+                    try {
+                      cardIdsToMove = JSON.parse(multipleCardIdsData);
+                      console.log('📦 Dropping multiple cards to hand:', cardIdsToMove.length);
+                    } catch (e) {
+                      console.error('Failed to parse multipleCardIds:', e);
+                      cardIdsToMove = [];
+                    }
+                  }
+                  
+                  // If no multiple cards, use single card
+                  if (cardIdsToMove.length === 0 && cardId) {
+                    cardIdsToMove = [cardId];
+                  }
 
-                  if (cardId && sourceZone && sourceZone !== 'hand') {
-                    moveCard(cardId, 'hand');
+                  if (cardIdsToMove.length > 0 && sourceZone && sourceZone !== 'hand') {
+                    console.log('✅ Moving', cardIdsToMove.length, 'card(s) to hand');
+                    cardIdsToMove.forEach(cardId => moveCard(cardId, 'hand'));
                   }
                 }}
               >
@@ -455,15 +503,14 @@ export default function GameView({ onBackToLobby }: GameViewProps) {
               <span className="text-xl font-bold">{isRightPanelOpen ? '›' : '‹'}</span>
             </button>
             
-            <div className="flex flex-col h-full pb-2" style={{ width: `${rightPanelWidth}px` }}>
+            <div className="flex flex-col h-full" style={{ width: `${rightPanelWidth}px`, paddingBottom: '420px' }}>
               {opponent && opponent.graveyardCards && opponent.graveyardCards.length > 0 && (
                 <div className="flex-shrink-0" style={{ height: '120px' }}>
                   <OpponentGraveyard cards={opponent.graveyardCards} opponentName={opponent.name} />
                 </div>
               )}
-              <div className="flex-1" style={{ minHeight: '20px' }} />
-              <div className="flex-shrink-0 mb-2 flex justify-center"><ZonePiles exile={exileCards} /></div>
-              <div className="flex-shrink-0" style={{ height: '180px' }}><Graveyard cards={graveyardCards} /></div>
+              <div className="flex-1" style={{ minHeight: '100px' }} />
+              <div className="flex-shrink-0 mt-20" style={{ height: '320px' }}><Graveyard cards={graveyardCards} /></div>
             </div>
           </div>
         </div>
@@ -513,41 +560,46 @@ export default function GameView({ onBackToLobby }: GameViewProps) {
         })}
       </svg>
 
-      {/* Card Settings - Bottom Left */}
+      {/* Card Settings - Bottom Left (in reserved space) */}
       <div 
-        className="fixed bottom-4 left-4 z-[100] fantasy-border rounded-lg p-2 opacity-60 hover:opacity-100 transition-opacity"
+        className="fixed bottom-4 z-[100] fantasy-border rounded-lg p-2 opacity-60 hover:opacity-100 transition-all duration-300 ease-in-out"
         style={{ 
           background: 'linear-gradient(135deg, rgba(40, 20, 20, 0.9) 0%, rgba(60, 15, 15, 0.95) 100%)',
-          width: '150px'
+          width: '200px',
+          left: isLeftPanelOpen ? '10px' : '-210px',
+          opacity: isLeftPanelOpen ? 0.6 : 0,
+          pointerEvents: isLeftPanelOpen ? 'auto' : 'none'
         }}
       >
         {/* Card Size */}
-        <div className="flex items-center justify-between mb-1">
-          <span className="text-[10px] text-fantasy-gold/80 font-bold">Card Size</span>
-          <div className="flex items-center gap-1">
-            <span className="text-[10px] text-fantasy-gold font-bold">{Math.round(cardScale * 100)}%</span>
-            {cardScale !== DEFAULT_SCALE && (
-              <button
-                onClick={resetScale}
-                className="text-[9px] text-fantasy-gold/60 hover:text-fantasy-gold px-1 rounded hover:bg-fantasy-gold/10"
-                title="Reset to 100%"
-              >
-                ↺
-              </button>
-            )}
+        <div className="mb-1 w-full">
+          <div className="flex items-center justify-between mb-1 w-full">
+            <span className="text-[10px] text-fantasy-gold/80 font-bold flex-shrink-0">Card Size</span>
+            <div className="flex items-center gap-1 flex-shrink-0">
+              <span className="text-[10px] text-fantasy-gold font-bold whitespace-nowrap">{Math.round(cardScale * 100)}%</span>
+              {cardScale !== DEFAULT_SCALE && (
+                <button
+                  onClick={resetScale}
+                  className="text-[9px] text-fantasy-gold/60 hover:text-fantasy-gold px-1 rounded hover:bg-fantasy-gold/10 flex-shrink-0"
+                  title="Reset to 100%"
+                >
+                  ↺
+                </button>
+              )}
+            </div>
           </div>
+          <input
+            type="range"
+            min={MIN_SCALE * 100}
+            max={MAX_SCALE * 100}
+            value={cardScale * 100}
+            onChange={(e) => setCardScale(parseInt(e.target.value) / 100)}
+            className="w-full h-1 bg-fantasy-burgundy/50 rounded-lg appearance-none cursor-pointer slider-thumb"
+            style={{
+              background: `linear-gradient(to right, rgba(244, 213, 137, 0.6) 0%, rgba(244, 213, 137, 0.6) ${((cardScale - MIN_SCALE) / (MAX_SCALE - MIN_SCALE)) * 100}%, rgba(60, 30, 30, 0.6) ${((cardScale - MIN_SCALE) / (MAX_SCALE - MIN_SCALE)) * 100}%, rgba(60, 30, 30, 0.6) 100%)`,
+            }}
+          />
         </div>
-        <input
-          type="range"
-          min={MIN_SCALE * 100}
-          max={MAX_SCALE * 100}
-          value={cardScale * 100}
-          onChange={(e) => setCardScale(parseInt(e.target.value) / 100)}
-          className="w-full h-1 bg-fantasy-burgundy/50 rounded-lg appearance-none cursor-pointer slider-thumb mb-2"
-          style={{
-            background: `linear-gradient(to right, rgba(244, 213, 137, 0.6) 0%, rgba(244, 213, 137, 0.6) ${((cardScale - MIN_SCALE) / (MAX_SCALE - MIN_SCALE)) * 100}%, rgba(60, 30, 30, 0.6) ${((cardScale - MIN_SCALE) / (MAX_SCALE - MIN_SCALE)) * 100}%, rgba(60, 30, 30, 0.6) 100%)`,
-          }}
-        />
         
         {/* Hover Zoom */}
         <div className="flex items-center justify-between mb-1">

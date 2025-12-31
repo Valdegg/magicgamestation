@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CardData } from '../types';
+import { useGameState } from '../context/GameStateWebSocket';
 
 interface ZonePilesProps {
   exile: CardData[];
@@ -8,6 +9,51 @@ interface ZonePilesProps {
 
 const ZonePiles: React.FC<ZonePilesProps> = ({ exile }) => {
   const [showExile, setShowExile] = useState(false);
+  const { moveCard } = useGameState();
+  const [isDragOver, setIsDragOver] = useState(false);
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragOver(true);
+  };
+
+  const handleDragLeave = () => {
+    setIsDragOver(false);
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragOver(false);
+    
+    const cardId = e.dataTransfer.getData('cardId');
+    const sourceZone = e.dataTransfer.getData('sourceZone');
+    const multipleCardIdsData = e.dataTransfer.getData('multipleCardIds');
+    
+    // Check if we're dragging multiple cards
+    let cardIdsToMove: string[] = [];
+    if (multipleCardIdsData) {
+      try {
+        cardIdsToMove = JSON.parse(multipleCardIdsData);
+        console.log('📦 Dropping multiple cards to exile:', cardIdsToMove.length);
+      } catch (e) {
+        console.error('Failed to parse multipleCardIds:', e);
+        cardIdsToMove = [];
+      }
+    }
+    
+    // If no multiple cards, use single card
+    if (cardIdsToMove.length === 0 && cardId) {
+      cardIdsToMove = [cardId];
+    }
+    
+    console.log('📦 Drop data on exile:', { cardIds: cardIdsToMove, sourceZone });
+    
+    if (cardIdsToMove.length > 0 && sourceZone !== 'exile') {
+      console.log('✅ Moving', cardIdsToMove.length, 'card(s) to exile');
+      cardIdsToMove.forEach(cardId => moveCard(cardId, 'exile', 0, 0));
+    }
+  };
 
   return (
     <div className="flex items-stretch">
@@ -87,7 +133,12 @@ const ZonePiles: React.FC<ZonePilesProps> = ({ exile }) => {
                   background: exile.length > 0
                     ? 'linear-gradient(135deg, #2a1028 0%, #1a101a 100%)'
                     : 'linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)',
+                  boxShadow: isDragOver ? '0 0 30px rgba(147, 51, 234, 0.6), inset 0 0 30px rgba(147, 51, 234, 0.3)' : undefined,
+                  border: isDragOver ? '3px solid rgba(147, 51, 234, 0.8)' : undefined
                 }}
+                onDragOver={handleDragOver}
+                onDragLeave={handleDragLeave}
+                onDrop={handleDrop}
               >
                 {exile.length > 0 ? (
                   <div className="text-center">

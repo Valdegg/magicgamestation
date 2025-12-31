@@ -109,8 +109,9 @@ const Hand: React.FC<HandProps> = ({ cards, height = 240 }) => {
         e.clientY >= rect.top &&
         e.clientY <= rect.bottom
       ) {
-        console.log('✅ Dropped on exile!');
-        moveCard(cardId, 'exile');
+        console.log('✅ Dropped on exile (graveyard + face down)!');
+        moveCard(cardId, 'graveyard');
+        toggleFaceDown(cardId);
           setDraggingCardId(null);
           setDragOverIndex(null);
         return;
@@ -258,7 +259,8 @@ const Hand: React.FC<HandProps> = ({ cards, height = 240 }) => {
       {
         label: '🚫 Move to Exile',
         onClick: () => {
-          moveCard(cardId, 'exile');
+          moveCard(cardId, 'graveyard');
+          toggleFaceDown(cardId);
         },
       },
       {

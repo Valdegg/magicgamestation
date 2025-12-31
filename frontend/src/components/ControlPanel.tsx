@@ -6,7 +6,7 @@ import DeckSelector from './DeckSelector';
 import SearchLibraryModal from './SearchLibraryModal';
 
 const ControlPanel: React.FC = () => {
-  const { player, cards, changeLife, drawCard, shuffleLibrary, mulligan, libraryCount, playerId, activePlayerId, gameId, moveCard, createToken } = useGameState();
+  const { player, cards, changeLife, drawCard, shuffleLibrary, mulligan, libraryCount, playerId, activePlayerId, gameId, moveCard, createToken, toggleFaceDown } = useGameState();
   const isMyTurn = playerId === activePlayerId;
   const [editingLife, setEditingLife] = useState(false);
   const [lifeInput, setLifeInput] = useState(player.life.toString());
@@ -21,6 +21,7 @@ const ControlPanel: React.FC = () => {
   const [tokenToughness, setTokenToughness] = useState('1');
   const [showSearchLibrary, setShowSearchLibrary] = useState(false);
   const [isLibraryDragOver, setIsLibraryDragOver] = useState(false);
+  const [draggingLibraryCard, setDraggingLibraryCard] = useState<string | null>(null);
 
   // Get library cards
   const libraryCards = useMemo(() => cards.filter(card => card.zone === 'library'), [cards]);
@@ -50,12 +51,30 @@ const ControlPanel: React.FC = () => {
     
     const cardId = e.dataTransfer.getData('cardId');
     const sourceZone = e.dataTransfer.getData('sourceZone');
+    const multipleCardIdsData = e.dataTransfer.getData('multipleCardIds');
     
-    console.log('📚 Library received drop:', { cardId, sourceZone });
+    // Check if we're dragging multiple cards
+    let cardIdsToMove: string[] = [];
+    if (multipleCardIdsData) {
+      try {
+        cardIdsToMove = JSON.parse(multipleCardIdsData);
+        console.log('📚 Library received multiple cards:', cardIdsToMove.length);
+      } catch (e) {
+        console.error('Failed to parse multipleCardIds:', e);
+        cardIdsToMove = [];
+      }
+    }
     
-    if (cardId && sourceZone !== 'library') {
-      console.log('✅ Moving card to library:', cardId);
-      moveCard(cardId, 'library');
+    // If no multiple cards, use single card
+    if (cardIdsToMove.length === 0 && cardId) {
+      cardIdsToMove = [cardId];
+    }
+    
+    console.log('📚 Library received drop:', { cardIds: cardIdsToMove, sourceZone });
+    
+    if (cardIdsToMove.length > 0 && sourceZone !== 'library') {
+      console.log('✅ Moving', cardIdsToMove.length, 'card(s) to library');
+      cardIdsToMove.forEach(cardId => moveCard(cardId, 'library'));
     }
   };
 
@@ -132,9 +151,10 @@ const ControlPanel: React.FC = () => {
   return (
     <>
       <div 
-        className="fantasy-panel p-2 relative h-full flex flex-col justify-center gap-2"
+        className="fantasy-panel p-2 relative h-full flex flex-col justify-start gap-2 pt-4"
         style={{
-          opacity: !isMyTurn ? 0.8 : 1
+          opacity: !isMyTurn ? 0.8 : 1,
+          paddingBottom: '180px' // Reserve space at bottom for card size settings
         }}
       >
         {/* Life Total - D20 Dice Style - Compact */}
@@ -309,7 +329,7 @@ const ControlPanel: React.FC = () => {
         </div>
 
         {/* Library - Card Deck - Larger */}
-        <div className="text-center">
+        <div className="text-center mt-8">
           <motion.div
             id="library-zone"
             className="relative w-40 h-56 mx-auto cursor-pointer select-none"
@@ -318,10 +338,106 @@ const ControlPanel: React.FC = () => {
             onDragOver={handleLibraryDragOver}
             onDragLeave={handleLibraryDragLeave}
             onDrop={handleLibraryDrop}
+            draggable={libraryCount > 0}
+            onDragStart={(e) => {
+              if (libraryCards.length > 0) {
+                // Get the top card (last in array, as library is typically LIFO)
+                const topCard = libraryCards[libraryCards.length - 1];
+                console.log('📚 Drag started from library:', topCard.id);
+                setDraggingLibraryCard(topCard.id);
+                e.dataTransfer.setData('cardId', topCard.id);
+                e.dataTransfer.setData('sourceZone', 'library');
+                e.dataTransfer.effectAllowed = 'move';
+              } else {
+                e.preventDefault();
+              }
+            }}
+            onDragEnd={(e) => {
+              if (!draggingLibraryCard) return;
+              
+              const dropX = e.clientX;
+              const dropY = e.clientY;
+              
+              // Check if dropped on hand
+              const handElement = document.getElementById('hand-zone') || document.getElementById('hand-drop-area');
+              if (handElement) {
+                const handRect = handElement.getBoundingClientRect();
+                if (
+                  dropX >= handRect.left &&
+                  dropX <= handRect.right &&
+                  dropY >= handRect.top &&
+                  dropY <= handRect.bottom
+                ) {
+                  console.log('✅ Dropped library card on hand!');
+                  moveCard(draggingLibraryCard, 'hand');
+                  setDraggingLibraryCard(null);
+                  return;
+                }
+              }
+              
+              // Check if dropped on battlefield
+              const battlefieldElement = document.getElementById('battlefield');
+              if (battlefieldElement) {
+                const battlefieldRect = battlefieldElement.getBoundingClientRect();
+                if (
+                  dropX >= battlefieldRect.left &&
+                  dropX <= battlefieldRect.right &&
+                  dropY >= battlefieldRect.top &&
+                  dropY <= battlefieldRect.bottom
+                ) {
+                  const x = dropX - battlefieldRect.left - 75;
+                  const y = dropY - battlefieldRect.top - 105;
+                  console.log('✅ Dropped library card on battlefield at', x, y);
+                  moveCard(draggingLibraryCard, 'battlefield', Math.round(x), Math.round(y));
+                  setDraggingLibraryCard(null);
+                  return;
+                }
+              }
+              
+              // Check if dropped on graveyard
+              const graveyardElement = document.getElementById('graveyard-zone');
+              if (graveyardElement) {
+                const graveyardRect = graveyardElement.getBoundingClientRect();
+                if (
+                  dropX >= graveyardRect.left &&
+                  dropX <= graveyardRect.right &&
+                  dropY >= graveyardRect.top &&
+                  dropY <= graveyardRect.bottom
+                ) {
+                  console.log('✅ Dropped library card on graveyard!');
+                  moveCard(draggingLibraryCard, 'graveyard');
+                  setDraggingLibraryCard(null);
+                  return;
+                }
+              }
+              
+              // Check if dropped on exile
+              const exileElement = document.getElementById('exile-zone');
+              if (exileElement) {
+                const exileRect = exileElement.getBoundingClientRect();
+                if (
+                  dropX >= exileRect.left &&
+                  dropX <= exileRect.right &&
+                  dropY >= exileRect.top &&
+                  dropY <= exileRect.bottom
+                ) {
+                  console.log('✅ Dropped library card on exile (graveyard + face down)!');
+                  moveCard(draggingLibraryCard, 'graveyard');
+                  toggleFaceDown(draggingLibraryCard);
+                  setDraggingLibraryCard(null);
+                  return;
+                }
+              }
+              
+              // If dropped nowhere valid, cancel the drag
+              console.log('❌ Library card drag cancelled - not dropped on valid zone');
+              setDraggingLibraryCard(null);
+            }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             style={{
               opacity: libraryCount === 0 ? 0.3 : 1,
+              cursor: libraryCount > 0 ? 'grab' : 'pointer',
             }}
           >
             {/* Card back image */}
