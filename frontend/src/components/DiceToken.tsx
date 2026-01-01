@@ -57,14 +57,12 @@ const DiceToken: React.FC<DiceTokenProps> = ({ id, x, y, value, ownerPlayerId, i
   };
 
   const handleDragStart = (e: React.DragEvent) => {
-    setIsDragging(true);
     e.dataTransfer.setData('dragType', 'dieToken');
     e.dataTransfer.setData('dieId', id);
     e.dataTransfer.effectAllowed = 'move';
   };
 
   const handleDragEnd = (e: React.DragEvent) => {
-    setIsDragging(false);
     
     // Check if dropped on battlefield
     const battlefieldElement = document.getElementById('battlefield');

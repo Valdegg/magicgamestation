@@ -12,7 +12,7 @@ const ControlPanel: React.FC = () => {
   const [lifeInput, setLifeInput] = useState(player.life.toString());
   const [showDeckSelector, setShowDeckSelector] = useState(false);
   const [clickCount, setClickCount] = useState(0);
-  const [clickTimer, setClickTimer] = useState<number | null>(null);
+  const [clickTimer, setClickTimer] = useState<ReturnType<typeof setTimeout> | null>(null);
   const [showLibraryMenu, setShowLibraryMenu] = useState(false);
   const [menuPosition, setMenuPosition] = useState({ x: 0, y: 0 });
   const [showTokenCreator, setShowTokenCreator] = useState(false);

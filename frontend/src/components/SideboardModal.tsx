@@ -14,7 +14,6 @@ interface SideboardModalProps {
 const SideboardModal: React.FC<SideboardModalProps> = ({ libraryCards, sideboardCards, onClose }) => {
   const { getCard } = useCardDatabase();
   const { moveCard } = useGameState();
-  const hoverZoomEnabled = false; // Disable hover zoom in sideboard modal
   const [searchTerm, setSearchTerm] = useState('');
   const [draggingCard, setDraggingCard] = useState<string | null>(null);
 

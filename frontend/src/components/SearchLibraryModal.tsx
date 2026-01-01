@@ -13,7 +13,6 @@ interface SearchLibraryModalProps {
 const SearchLibraryModal: React.FC<SearchLibraryModalProps> = ({ cards, onClose }) => {
   const { getCard } = useCardDatabase();
   const { moveCard } = useGameState();
-  const hoverZoomEnabled = false; // Disable hover zoom in search library modal
   const [searchTerm, setSearchTerm] = useState('');
   const [draggingCard, setDraggingCard] = useState<string | null>(null);
 
