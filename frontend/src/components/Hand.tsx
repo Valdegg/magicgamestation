@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Card from './Card';
 import ContextMenu from './ContextMenu';
@@ -12,12 +12,13 @@ interface HandProps {
 }
 
 const Hand: React.FC<HandProps> = ({ cards, height = 240 }) => {
-  const { moveCard, reorderHand } = useGameState();
+  const { moveCard, reorderHand, toggleFaceDown } = useGameState();
   const { hoverZoomValue } = useCardScale();
   const hoverZoomEnabled = hoverZoomValue > 1.0;
   const [draggingCardId, setDraggingCardId] = useState<string | null>(null);
   const [dragOverIndex, setDragOverIndex] = useState<number | null>(null);
   const [contextMenu, setContextMenu] = useState<{ x: number; y: number; cardId: string } | null>(null);
+  const dropHandledRef = useRef<boolean>(false);
   
   // Calculate card size based on hand height (maintain aspect ratio)
   // Magic cards are ~2.5" x 3.5" = 5:7 ratio
@@ -39,6 +40,7 @@ const Hand: React.FC<HandProps> = ({ cards, height = 240 }) => {
   const handleDragStart = (e: React.DragEvent, cardId: string) => {
     console.log('🎴 Drag started from hand:', cardId);
     setDraggingCardId(cardId);
+    dropHandledRef.current = false; // Reset drop handled flag
     e.dataTransfer.setData('cardId', cardId);
     e.dataTransfer.setData('text/plain', cardId); // For player targeting
     e.dataTransfer.setData('sourceZone', 'hand');
@@ -50,8 +52,17 @@ const Hand: React.FC<HandProps> = ({ cards, height = 240 }) => {
       cardId,
       clientX: e.clientX,
       clientY: e.clientY,
-      dragOverIndex
+      dragOverIndex,
+      dropHandled: dropHandledRef.current
     });
+    
+    // If drop was already handled by handleDrop, skip the rest
+    if (dropHandledRef.current) {
+      setDraggingCardId(null);
+      setDragOverIndex(null);
+      dropHandledRef.current = false;
+      return;
+    }
     
     // Check if we're reordering within the hand
     if (dragOverIndex !== null && draggingCardId === cardId) {
@@ -59,6 +70,9 @@ const Hand: React.FC<HandProps> = ({ cards, height = 240 }) => {
       if (currentIndex !== -1 && currentIndex !== dragOverIndex) {
         console.log(`🔄 Reordering hand: moving card from index ${currentIndex} to ${dragOverIndex}`);
         reorderHand(cardId, dragOverIndex);
+        setDraggingCardId(null);
+        setDragOverIndex(null);
+        return;
       }
     } else {
       // Check library first (before other zones)
@@ -233,6 +247,7 @@ const Hand: React.FC<HandProps> = ({ cards, height = 240 }) => {
       moveCard(cardId, 'hand');
       setDraggingCardId(null);
       setDragOverIndex(null);
+      dropHandledRef.current = true;
       return;
     }
     
@@ -242,6 +257,7 @@ const Hand: React.FC<HandProps> = ({ cards, height = 240 }) => {
       if (currentIndex !== -1 && currentIndex !== dragOverIndex) {
         console.log(`🔄 Reordering hand: moving card from index ${currentIndex} to ${dragOverIndex}`);
         reorderHand(draggingCardId, dragOverIndex);
+        dropHandledRef.current = true; // Mark as handled
       }
     }
     
@@ -319,15 +335,13 @@ const Hand: React.FC<HandProps> = ({ cards, height = 240 }) => {
                 }}
                 transition={{ delay: index * 0.05, duration: 0.2 }}
                 // Round transform values to prevent subpixel blur on high-DPI displays
-                style={{
+                style={{ 
                   transform: 'translateZ(0)',
-                }}
-              style={{ 
-                marginLeft: index > 0 ? `${overlapAmount}px` : '0',
+                  marginLeft: index > 0 ? `${overlapAmount}px` : '0',
                   overflow: 'visible',
                   position: 'relative',
                   zIndex: (showInsertBefore || showInsertAfter) ? 100 : isDraggingThis ? 50 : 1,
-              }}
+                }}
                 onDragOver={(e) => handleCardDragOver(e, index)}
                 onDragLeave={handleCardDragLeave}
                 whileHover={!isDraggingThis && draggingCardId === null && hoverZoomEnabled ? { 

@@ -17,6 +17,23 @@ export const HOVER_ZOOM_LABELS: Record<HoverZoomOption, string> = {
   big: 'Big',
 };
 
+// Opponent card size options
+export type OpponentCardSizeOption = 'small' | 'medium' | 'large' | 'xlarge';
+
+export const OPPONENT_CARD_SIZE_VALUES: Record<OpponentCardSizeOption, number> = {
+  small: 0.96,    // 0.8 * 1.2 = 96%
+  medium: 1.2,    // 1.0 * 1.2 = 120%
+  large: 1.44,    // 1.2 * 1.2 = 144%
+  xlarge: 1.68,   // 1.4 * 1.2 = 168%
+};
+
+export const OPPONENT_CARD_SIZE_LABELS: Record<OpponentCardSizeOption, string> = {
+  small: 'Small',
+  medium: 'Medium',
+  large: 'Large',
+  xlarge: 'X-Large',
+};
+
 interface CardScaleContextType {
   cardScale: number; // 0.8 to 1.4
   setCardScale: (scale: number) => void;
@@ -24,16 +41,21 @@ interface CardScaleContextType {
   hoverZoom: HoverZoomOption;
   setHoverZoom: (option: HoverZoomOption) => void;
   hoverZoomValue: number; // The actual scale value
+  opponentCardSize: OpponentCardSizeOption;
+  setOpponentCardSize: (option: OpponentCardSizeOption) => void;
+  opponentCardSizeValue: number; // The actual scale value
 }
 
 const CardScaleContext = createContext<CardScaleContextType | undefined>(undefined);
 
 const STORAGE_KEY = 'mtg_card_scale';
 const HOVER_ZOOM_STORAGE_KEY = 'mtg_hover_zoom';
+const OPPONENT_CARD_SIZE_STORAGE_KEY = 'mtg_opponent_card_size';
 const DEFAULT_SCALE = 1.0;
 const MIN_SCALE = 0.8;
 const MAX_SCALE = 1.4;
 const DEFAULT_HOVER_ZOOM: HoverZoomOption = 'normal';
+const DEFAULT_OPPONENT_CARD_SIZE: OpponentCardSizeOption = 'medium';
 
 export const CardScaleProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [cardScale, setCardScaleState] = useState<number>(() => {
@@ -55,6 +77,14 @@ export const CardScaleProvider: React.FC<{ children: ReactNode }> = ({ children 
     return DEFAULT_HOVER_ZOOM;
   });
 
+  const [opponentCardSize, setOpponentCardSizeState] = useState<OpponentCardSizeOption>(() => {
+    const stored = localStorage.getItem(OPPONENT_CARD_SIZE_STORAGE_KEY);
+    if (stored && stored in OPPONENT_CARD_SIZE_VALUES) {
+      return stored as OpponentCardSizeOption;
+    }
+    return DEFAULT_OPPONENT_CARD_SIZE;
+  });
+
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, cardScale.toString());
   }, [cardScale]);
@@ -62,6 +92,10 @@ export const CardScaleProvider: React.FC<{ children: ReactNode }> = ({ children 
   useEffect(() => {
     localStorage.setItem(HOVER_ZOOM_STORAGE_KEY, hoverZoom);
   }, [hoverZoom]);
+
+  useEffect(() => {
+    localStorage.setItem(OPPONENT_CARD_SIZE_STORAGE_KEY, opponentCardSize);
+  }, [opponentCardSize]);
 
   const setCardScale = (scale: number) => {
     const clamped = Math.max(MIN_SCALE, Math.min(MAX_SCALE, scale));
@@ -76,7 +110,12 @@ export const CardScaleProvider: React.FC<{ children: ReactNode }> = ({ children 
     setHoverZoomState(option);
   };
 
+  const setOpponentCardSize = (option: OpponentCardSizeOption) => {
+    setOpponentCardSizeState(option);
+  };
+
   const hoverZoomValue = HOVER_ZOOM_VALUES[hoverZoom];
+  const opponentCardSizeValue = OPPONENT_CARD_SIZE_VALUES[opponentCardSize];
 
   return (
     <CardScaleContext.Provider value={{ 
@@ -85,7 +124,10 @@ export const CardScaleProvider: React.FC<{ children: ReactNode }> = ({ children 
       resetScale, 
       hoverZoom, 
       setHoverZoom, 
-      hoverZoomValue 
+      hoverZoomValue,
+      opponentCardSize,
+      setOpponentCardSize,
+      opponentCardSizeValue
     }}>
       {children}
     </CardScaleContext.Provider>

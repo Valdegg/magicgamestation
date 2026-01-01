@@ -6474,5 +6474,307 @@
     "cmc": 0.0,
     "oracle_text": "({T}: Add {B}.)",
     "colors": []
+  },
+  "fellwar_stone": {
+    "id": "fellwar_stone",
+    "name": "Fellwar Stone",
+    "set": "DRK",
+    "set_name": "The Dark",
+    "image": "/card_images/fellwar_stone.jpg",
+    "type": "Artifact",
+    "mana_cost": "{2}",
+    "cmc": 2.0,
+    "oracle_text": "{T}: Add one mana of any color that a land an opponent controls could produce.",
+    "colors": []
+  },
+  "jayemdae_tome": {
+    "id": "jayemdae_tome",
+    "name": "Jayemdae Tome",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/jayemdae_tome.jpg",
+    "type": "Artifact",
+    "mana_cost": "{4}",
+    "cmc": 4.0,
+    "oracle_text": "{4}, {T}: Draw a card.",
+    "colors": []
+  },
+  "meekstone": {
+    "id": "meekstone",
+    "name": "Meekstone",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/meekstone.jpg",
+    "type": "Artifact",
+    "mana_cost": "{1}",
+    "cmc": 1.0,
+    "oracle_text": "Creatures with power 3 or greater don't untap during their controllers' untap steps.",
+    "colors": []
+  },
+  "circle_of_protection_red": {
+    "id": "circle_of_protection_red",
+    "name": "Circle of Protection: Red",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/circle_of_protection_red.jpg",
+    "type": "Enchantment",
+    "mana_cost": "{1}{W}",
+    "cmc": 2.0,
+    "oracle_text": "{1}: The next time a red source of your choice would deal damage to you this turn, prevent that damage.",
+    "colors": [
+      "W"
+    ]
+  },
+  "the_hive": {
+    "id": "the_hive",
+    "name": "The Hive",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/the_hive.jpg",
+    "type": "Artifact",
+    "mana_cost": "{5}",
+    "cmc": 5.0,
+    "oracle_text": "{5}, {T}: Create a 1/1 colorless Insect artifact creature token with flying named Wasp. (It can't be blocked except by creatures with flying or reach.)",
+    "colors": []
+  },
+  "millstone": {
+    "id": "millstone",
+    "name": "Millstone",
+    "set": "ATQ",
+    "set_name": "Antiquities",
+    "image": "/card_images/millstone.jpg",
+    "type": "Artifact",
+    "mana_cost": "{2}",
+    "cmc": 2.0,
+    "oracle_text": "{2}, {T}: Target player mills two cards.",
+    "colors": []
+  },
+  "shatter": {
+    "id": "shatter",
+    "name": "Shatter",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/shatter.jpg",
+    "type": "Instant",
+    "mana_cost": "{1}{R}",
+    "cmc": 2.0,
+    "oracle_text": "Destroy target artifact.",
+    "colors": [
+      "R"
+    ]
+  },
+  "the_abyss": {
+    "id": "the_abyss",
+    "name": "The Abyss",
+    "set": "LEG",
+    "set_name": "Legends",
+    "image": "/card_images/the_abyss.jpg",
+    "type": "World Enchantment",
+    "mana_cost": "{3}{B}",
+    "cmc": 4.0,
+    "oracle_text": "At the beginning of each player's upkeep, destroy target nonartifact creature that player controls of their choice. It can't be regenerated.",
+    "colors": [
+      "B"
+    ]
+  },
+  "braingeyser": {
+    "id": "braingeyser",
+    "name": "Braingeyser",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/braingeyser.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{X}{U}{U}",
+    "cmc": 2.0,
+    "oracle_text": "Target player draws X cards.",
+    "colors": [
+      "U"
+    ]
+  },
+  "disrupting_scepter": {
+    "id": "disrupting_scepter",
+    "name": "Disrupting Scepter",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/disrupting_scepter.jpg",
+    "type": "Artifact",
+    "mana_cost": "{3}",
+    "cmc": 3.0,
+    "oracle_text": "{3}, {T}: Target player discards a card. Activate only during your turn.",
+    "colors": []
+  },
+  "earthquake": {
+    "id": "earthquake",
+    "name": "Earthquake",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/earthquake.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{X}{R}",
+    "cmc": 1.0,
+    "oracle_text": "Earthquake deals X damage to each creature without flying and each player.",
+    "colors": [
+      "R"
+    ]
+  },
+  "fireball": {
+    "id": "fireball",
+    "name": "Fireball",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/fireball.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{X}{R}",
+    "cmc": 1.0,
+    "oracle_text": "This spell costs {1} more to cast for each target beyond the first.\nFireball deals X damage divided evenly, rounded down, among any number of targets.",
+    "colors": [
+      "R"
+    ]
+  },
+  "icy_manipulator": {
+    "id": "icy_manipulator",
+    "name": "Icy Manipulator",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/icy_manipulator.jpg",
+    "type": "Artifact",
+    "mana_cost": "{4}",
+    "cmc": 4.0,
+    "oracle_text": "{1}, {T}: Tap target artifact, creature, or land.",
+    "colors": []
+  },
+  "recall": {
+    "id": "recall",
+    "name": "Recall",
+    "set": "LEG",
+    "set_name": "Legends",
+    "image": "/card_images/recall.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{X}{X}{U}",
+    "cmc": 1.0,
+    "oracle_text": "Discard X cards, then return a card from your graveyard to your hand for each card discarded this way. Exile Recall.",
+    "colors": [
+      "U"
+    ]
+  },
+  "shivan_dragon": {
+    "id": "shivan_dragon",
+    "name": "Shivan Dragon",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/shivan_dragon.jpg",
+    "type": "Creature \u2014 Dragon",
+    "mana_cost": "{4}{R}{R}",
+    "cmc": 6.0,
+    "oracle_text": "Flying\n{R}: This creature gets +1/+0 until end of turn.",
+    "colors": [
+      "R"
+    ]
+  },
+  "swords_to_plowshares": {
+    "id": "swords_to_plowshares",
+    "name": "Swords to Plowshares",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/swords_to_plowshares.jpg",
+    "type": "Instant",
+    "mana_cost": "{W}",
+    "cmc": 1.0,
+    "oracle_text": "Exile target creature. Its controller gains life equal to its power.",
+    "colors": [
+      "W"
+    ]
+  },
+  "underground_sea": {
+    "id": "underground_sea",
+    "name": "Underground Sea",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/underground_sea.jpg",
+    "type": "Land \u2014 Island Swamp",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "({T}: Add {U} or {B}.)",
+    "colors": []
+  },
+  "wrath_of_god": {
+    "id": "wrath_of_god",
+    "name": "Wrath of God",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/wrath_of_god.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{2}{W}{W}",
+    "cmc": 4.0,
+    "oracle_text": "Destroy all creatures. They can't be regenerated.",
+    "colors": [
+      "W"
+    ]
+  },
+  "ashes_to_ashes": {
+    "id": "ashes_to_ashes",
+    "name": "Ashes to Ashes",
+    "set": "DRK",
+    "set_name": "The Dark",
+    "image": "/card_images/ashes_to_ashes.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{1}{B}{B}",
+    "cmc": 3.0,
+    "oracle_text": "Exile two target nonartifact creatures. Ashes to Ashes deals 5 damage to you.",
+    "colors": [
+      "B"
+    ]
+  },
+  "blue_elemental_blast": {
+    "id": "blue_elemental_blast",
+    "name": "Blue Elemental Blast",
+    "set": "LEA",
+    "set_name": "Limited Edition Alpha",
+    "image": "/card_images/blue_elemental_blast.jpg",
+    "type": "Instant",
+    "mana_cost": "{U}",
+    "cmc": 1.0,
+    "oracle_text": "Choose one \u2014\n\u2022 Counter target red spell.\n\u2022 Destroy target red permanent.",
+    "colors": [
+      "U"
+    ]
+  },
+  "golgothian_sylex": {
+    "id": "golgothian_sylex",
+    "name": "Golgothian Sylex",
+    "set": "ATQ",
+    "set_name": "Antiquities",
+    "image": "/card_images/golgothian_sylex.jpg",
+    "type": "Artifact",
+    "mana_cost": "{4}",
+    "cmc": 4.0,
+    "oracle_text": "{1}, {T}: Each nontoken permanent with a name originally printed in the Antiquities expansion is sacrificed by its controller.",
+    "colors": []
+  },
+  "tawnoss_coffin": {
+    "id": "tawnoss_coffin",
+    "name": "Tawnos's Coffin",
+    "set": "ATQ",
+    "set_name": "Antiquities",
+    "image": "/card_images/tawnoss_coffin.jpg",
+    "type": "Artifact",
+    "mana_cost": "{4}",
+    "cmc": 4.0,
+    "oracle_text": "You may choose not to untap this artifact during your untap step.\n{3}, {T}: Exile target creature and all Auras attached to it. Note the number and kind of counters that were on that creature. When this artifact leaves the battlefield or becomes untapped, return that exiled card to the battlefield under its owner's control tapped with the noted number and kind of counters on it. If you do, return the other exiled cards to the battlefield under their owner's control attached to that permanent.",
+    "colors": []
+  },
+  "brainstorm": {
+    "id": "brainstorm",
+    "name": "Brainstorm",
+    "set": "ICE",
+    "set_name": "Ice Age",
+    "image": "/card_images/brainstorm.jpg",
+    "type": "Instant",
+    "mana_cost": "{U}",
+    "cmc": 1.0,
+    "oracle_text": "Draw three cards, then put two cards from your hand on top of your library in any order.",
+    "colors": [
+      "U"
+    ]
   }
 }

@@ -21,6 +21,7 @@ class ZoneType(Enum):
     EXILE = "exile"
     STACK = "stack"
     COMMAND = "command"
+    SIDEBOARD = "sideboard"
 
 
 class Phase(Enum):

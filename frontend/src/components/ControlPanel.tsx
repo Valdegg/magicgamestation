@@ -4,6 +4,7 @@ import { useGameState } from '../context/GameStateWebSocket';
 import { API_BASE } from '../api/gameApi';
 import DeckSelector from './DeckSelector';
 import SearchLibraryModal from './SearchLibraryModal';
+import SideboardModal from './SideboardModal';
 
 const ControlPanel: React.FC = () => {
   const { player, cards, changeLife, drawCard, shuffleLibrary, mulligan, libraryCount, playerId, activePlayerId, gameId, moveCard, createToken, toggleFaceDown } = useGameState();
@@ -20,11 +21,14 @@ const ControlPanel: React.FC = () => {
   const [tokenPower, setTokenPower] = useState('1');
   const [tokenToughness, setTokenToughness] = useState('1');
   const [showSearchLibrary, setShowSearchLibrary] = useState(false);
+  const [showSideboard, setShowSideboard] = useState(false);
   const [isLibraryDragOver, setIsLibraryDragOver] = useState(false);
   const [draggingLibraryCard, setDraggingLibraryCard] = useState<string | null>(null);
 
   // Get library cards
   const libraryCards = useMemo(() => cards.filter(card => card.zone === 'library'), [cards]);
+  // Get sideboard cards
+  const sideboardCards = useMemo(() => cards.filter(card => card.zone === 'sideboard'), [cards]);
 
   const handleLibraryDragOver = (e: React.DragEvent) => {
     e.preventDefault();
@@ -133,7 +137,7 @@ const ControlPanel: React.FC = () => {
     setShowLibraryMenu(true);
   };
 
-  const handleMenuAction = (action: 'draw' | 'shuffle' | 'load' | 'search' | 'mulligan') => {
+  const handleMenuAction = (action: 'draw' | 'shuffle' | 'load' | 'search' | 'mulligan' | 'sideboard') => {
     setShowLibraryMenu(false);
     if (action === 'draw' && libraryCount > 0) {
       drawCard();
@@ -145,6 +149,8 @@ const ControlPanel: React.FC = () => {
       setShowDeckSelector(true);
     } else if (action === 'search' && libraryCount > 0) {
       setShowSearchLibrary(true);
+    } else if (action === 'sideboard') {
+      setShowSideboard(true);
     }
   };
 
@@ -568,6 +574,12 @@ const ControlPanel: React.FC = () => {
               🔍 Search Library
             </button>
             <button
+              className="w-full text-left px-3 py-2 text-fantasy-gold hover:bg-fantasy-gold/20 rounded transition-colors text-sm"
+              onClick={() => handleMenuAction('sideboard')}
+            >
+              📦 Sideboard
+            </button>
+            <button
               className="w-full text-left px-3 py-2 text-fantasy-gold hover:bg-fantasy-gold/20 rounded transition-colors text-sm border-t border-fantasy-gold/20 mt-1 pt-2"
               onClick={() => handleMenuAction('load')}
             >
@@ -662,6 +674,15 @@ const ControlPanel: React.FC = () => {
         <SearchLibraryModal
           cards={libraryCards}
           onClose={() => setShowSearchLibrary(false)}
+        />
+      )}
+
+      {/* Sideboard Modal */}
+      {showSideboard && (
+        <SideboardModal
+          libraryCards={libraryCards}
+          sideboardCards={sideboardCards}
+          onClose={() => setShowSideboard(false)}
         />
       )}
     </>

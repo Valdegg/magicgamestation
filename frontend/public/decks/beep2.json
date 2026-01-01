@@ -1,0 +1,10 @@
+{
+  "name": "beep2",
+  "main": [
+    "lightning_bolt",
+    "lightning_bolt",
+    "lightning_bolt",
+    "counterspell",
+    "counterspell"
+  ]
+}

@@ -155,6 +155,7 @@ class JoinGameRequest(BaseModel):
 class SaveDeckRequest(BaseModel):
     name: str
     cards: List[str]
+    sideboard: Optional[List[str]] = None
 
 class FetchCardRequest(BaseModel):
     cardName: str
@@ -250,6 +251,7 @@ async def load_deck_endpoint(game_id: str, req: LoadDeckRequest):
     
     print(f"📂 Loading deck '{req.deckName}' for player {player_id} ({player.name})", flush=True)
     player.zones[ZoneType.LIBRARY].cards.clear()
+    player.zones[ZoneType.SIDEBOARD].cards.clear()
     # Use cached card database instead of reloading it
     count = create_deck_for_player(req.deckName, player, database=card_database)
     print(f"✅ Loaded {count} cards into library for player {player_id}", flush=True)
@@ -290,9 +292,17 @@ async def save_deck(req: SaveDeckRequest):
     
     # Normalize card names to simple IDs
     card_ids = [re.sub(r'[^a-z0-9]', '_', c.lower().replace("'", "")) for c in req.cards]
+    sideboard_ids = []
+    if req.sideboard:
+        sideboard_ids = [re.sub(r'[^a-z0-9]', '_', c.lower().replace("'", "")) for c in req.sideboard]
+    
+    # Build deck data with optional sideboard (only include if there are cards)
+    deck_data = {"name": req.name, "main": card_ids}
+    if sideboard_ids:
+        deck_data["sideboard"] = sideboard_ids
     
     with open(deck_path, 'w') as f:
-        json.dump({"name": req.name, "main": card_ids}, f, indent=2)
+        json.dump(deck_data, f, indent=2)
     
     # Clear deck cache for this deck so it reloads with new data
     clear_deck_cache(req.name)
@@ -308,11 +318,14 @@ async def save_deck(req: SaveDeckRequest):
                 json.dump(data, f, indent=2)
     except: pass
     
-    asyncio.create_task(asyncio.to_thread(fetch_missing_cards, req.cards))
+    # Fetch missing cards from both main and sideboard
+    all_cards = req.cards + (req.sideboard or [])
+    asyncio.create_task(asyncio.to_thread(fetch_missing_cards, all_cards))
     return {
         "success": True,
         "deck_name": req.name,
         "card_count": len(card_ids),
+        "sideboard_count": len(sideboard_ids) if sideboard_ids else 0,
         "filename": filename
     }
 
@@ -456,6 +469,7 @@ async def websocket_endpoint(ws: WebSocket, gid: str, pid: str):
             elif action == "load_deck":
                  print(f"📂 Loading deck '{d['deckName']}' for player {pid}")
                  player.zones[ZoneType.LIBRARY].cards.clear()
+                 player.zones[ZoneType.SIDEBOARD].cards.clear()
                  # Use cached card database instead of reloading it
                  count = create_deck_for_player(d["deckName"], player, database=card_database)
                  print(f"✅ Loaded {count} cards into library")
@@ -625,6 +639,33 @@ async def websocket_endpoint(ws: WebSocket, gid: str, pid: str):
                 print(f"🧹 clear_targeting_arrows for player {pid}")
                 game.clear_targeting_arrows(pid)
                 success = True
+            elif action == "reorder_hand":
+                card_id = d.get("cardId")
+                new_index = d.get("newIndex")
+                if card_id is not None and new_index is not None and player:
+                    hand_zone = player.zones[ZoneType.HAND]
+                    card = hand_zone.find_by_id(card_id)
+                    if card:
+                        # Find current index
+                        current_index = None
+                        for i, c in enumerate(hand_zone.cards):
+                            if c.id == card_id:
+                                current_index = i
+                                break
+                        
+                        if current_index is not None and current_index != new_index:
+                            # Remove the card
+                            hand_zone.remove(card)
+                            # After removal, if moving forward, the target index stays the same
+                            # because list.insert inserts before the index, and we can insert at len(list) to append
+                            # If moving backward, the index is still correct
+                            insert_index = new_index
+                            # Clamp to valid range (allow inserting at len for appending)
+                            insert_index = max(0, min(insert_index, len(hand_zone.cards)))
+                            # Insert at new position
+                            hand_zone.add(card, insert_index)
+                            print(f"🔄 Reordered hand: moved card {card_id} from index {current_index} to {insert_index} (requested {new_index})")
+                            success = True
             
             if success:
                 save_game(gid, game)

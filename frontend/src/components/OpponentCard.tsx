@@ -31,7 +31,7 @@ const OpponentCard: React.FC<OpponentCardProps> = ({ card, onCardTargeted, scale
   const [imageLoadFailed, setImageLoadFailed] = useState(false);
   const [renderError, setRenderError] = useState<string | null>(null);
   const pathIndexRef = useRef(0);
-  const { cardScale: globalCardScale, hoverZoomValue } = useCardScale();
+  const { cardScale: globalCardScale, hoverZoomValue, opponentCardSizeValue } = useCardScale();
   const { getCard } = useCardDatabase();
 
   // Get display name - prefer metadata name, fall back to cleaned card name
@@ -75,12 +75,42 @@ const OpponentCard: React.FC<OpponentCardProps> = ({ card, onCardTargeted, scale
       }
       
       const metadata = getCard(card.name);
-      const imagePaths = metadata?.image 
-        ? [metadata.image, ...getCardImagePaths(displayName)]
-        : getCardImagePaths(displayName);
+      
+      // Try multiple name variations: metadata name, display name, and raw card name
+      const nameVariations = new Set<string>();
+      if (metadata?.name) nameVariations.add(metadata.name);
+      if (displayName && displayName !== metadata?.name) nameVariations.add(displayName);
+      if (card.name && card.name !== displayName && card.name !== metadata?.name) nameVariations.add(card.name);
+      
+      // Generate paths for all name variations
+      const imagePaths: string[] = [];
+      if (metadata?.image) {
+        imagePaths.push(metadata.image);
+      }
+      
+      // Add paths for each name variation
+      nameVariations.forEach(name => {
+        const paths = getCardImagePaths(name);
+        imagePaths.push(...paths);
+      });
       
       // Remove duplicates and card-back from paths
       const uniquePaths = [...new Set(imagePaths)].filter(p => !p.includes('card-back'));
+      
+      // Debug logging for image path generation
+      if (card.name?.toLowerCase().includes('mishra') || displayName?.toLowerCase().includes('mishra')) {
+        console.log(`[OpponentCard] Image paths for ${displayName}:`, {
+          cardId: card.id,
+          cardName: card.name,
+          displayName: displayName,
+          metadataName: metadata?.name,
+          metadataImage: metadata?.image,
+          nameVariations: Array.from(nameVariations),
+          allPaths: imagePaths,
+          uniquePaths: uniquePaths,
+          uniquePathsCount: uniquePaths.length
+        });
+      }
       
       pathIndexRef.current = 0;
       setImageLoadFailed(false);
@@ -88,7 +118,11 @@ const OpponentCard: React.FC<OpponentCardProps> = ({ card, onCardTargeted, scale
       
       const tryNextPath = () => {
         if (pathIndexRef.current < uniquePaths.length) {
-          setCurrentImagePath(uniquePaths[pathIndexRef.current]);
+          const pathToTry = uniquePaths[pathIndexRef.current];
+          if (card.name?.toLowerCase().includes('mishra') || displayName?.toLowerCase().includes('mishra')) {
+            console.log(`[OpponentCard] Trying image path ${pathIndexRef.current + 1}/${uniquePaths.length}: ${pathToTry}`);
+          }
+          setCurrentImagePath(pathToTry);
         } else {
           setImageLoadFailed(true);
           setCurrentImagePath('/cards/card-back.jpg');
@@ -106,9 +140,24 @@ const OpponentCard: React.FC<OpponentCardProps> = ({ card, onCardTargeted, scale
   const handleImageError = () => {
     try {
       const metadata = getCard(card.name);
-      const imagePaths = metadata?.image 
-        ? [metadata.image, ...getCardImagePaths(displayName)]
-        : getCardImagePaths(displayName);
+      
+      // Try multiple name variations: metadata name, display name, and raw card name
+      const nameVariations = new Set<string>();
+      if (metadata?.name) nameVariations.add(metadata.name);
+      if (displayName && displayName !== metadata?.name) nameVariations.add(displayName);
+      if (card.name && card.name !== displayName && card.name !== metadata?.name) nameVariations.add(card.name);
+      
+      // Generate paths for all name variations
+      const imagePaths: string[] = [];
+      if (metadata?.image) {
+        imagePaths.push(metadata.image);
+      }
+      
+      // Add paths for each name variation
+      nameVariations.forEach(name => {
+        imagePaths.push(...getCardImagePaths(name));
+      });
+      
       const uniquePaths = [...new Set(imagePaths)].filter(p => !p.includes('card-back'));
       
       pathIndexRef.current++;
@@ -117,6 +166,19 @@ const OpponentCard: React.FC<OpponentCardProps> = ({ card, onCardTargeted, scale
       } else {
         setImageLoadFailed(true);
         setCurrentImagePath('/cards/card-back.jpg');
+        // Log all attempted paths for debugging
+        console.error(`[OpponentCard] All image paths failed for card: ${displayName} (${card?.id})`, {
+          cardId: card.id,
+          cardName: card.name,
+          displayName: displayName,
+          metadataName: metadata?.name,
+          metadataImage: metadata?.image,
+          attemptedPaths: uniquePaths,
+          attemptedPathsCount: uniquePaths.length,
+          nameVariations: Array.from(nameVariations),
+          pathIndex: pathIndexRef.current,
+          allImagePaths: imagePaths
+        });
         logErrorOnce(`image-all-failed-${card?.id}`, `All image paths failed for card: ${displayName} (${card?.id})`);
       }
     } catch (error) {
@@ -128,18 +190,19 @@ const OpponentCard: React.FC<OpponentCardProps> = ({ card, onCardTargeted, scale
   // Check if hover zoom is enabled
   const hoverZoomEnabled = hoverZoomValue > 1.0;
   
-  // Calculate effective hover scale for opponent cards
-  // Since opponent cards are already scaled down, we need a stronger hover
-  // to bring them up to readable size (target: ~1.5x of original card size)
-  const effectiveScale = scale * globalCardScale;
-  const targetHoverSize = hoverZoomValue * 1.2; // Slightly larger than normal hover
-  const opponentHoverScale = Math.max(hoverZoomValue, targetHoverSize / effectiveScale);
+  // Calculate hover scale for opponent cards
+  // Since opponent cards are smaller, we add a modest boost to make them more readable when hovered
+  // The effective base scale is: scale * globalCardScale * opponentCardSizeValue
+  const effectiveBaseScale = scale * globalCardScale * opponentCardSizeValue;
+  // Add a small boost (20-40%) for smaller cards, but cap the total hover scale
+  const boost = effectiveBaseScale < 0.7 ? 1.3 : effectiveBaseScale < 0.9 ? 1.2 : 1.1;
+  const opponentHoverScale = Math.min(hoverZoomValue * boost, 2.0); // Cap at 2.0x max
 
   const baseWidth = 156;
   const baseHeight = 217;
-  // Apply both the layout scale and global card scale
-  const scaledWidth = baseWidth * scale * globalCardScale;
-  const scaledHeight = baseHeight * scale * globalCardScale;
+  // Apply layout scale, global card scale, and opponent card size multiplier
+  const scaledWidth = baseWidth * scale * globalCardScale * opponentCardSizeValue;
+  const scaledHeight = baseHeight * scale * globalCardScale * opponentCardSizeValue;
 
   // Validate card data before rendering
   if (!card || !card.id) {
@@ -172,6 +235,10 @@ const OpponentCard: React.FC<OpponentCardProps> = ({ card, onCardTargeted, scale
     );
   }
 
+  // Calculate z-index: cards with lower y coordinate should appear on top
+  // Use card.zIndex if provided, otherwise calculate from y position
+  const cardZIndex = (card as any).zIndex || Math.round(1000 - (card.y || 0));
+
   return (
     <motion.div
         data-card-id={card.id}
@@ -181,6 +248,7 @@ const OpponentCard: React.FC<OpponentCardProps> = ({ card, onCardTargeted, scale
           height: `${scaledHeight}px`,
           left: `${card.x || 50}px`,
           top: `${card.y || 50}px`,
+          zIndex: cardZIndex,
           transform: card.tapped ? 'rotate(90deg)' : 'rotate(0deg)',
           transformOrigin: 'center center',
           transition: 'transform 0.3s ease, box-shadow 0.2s ease',

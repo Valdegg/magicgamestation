@@ -140,19 +140,45 @@ const Card: React.FC<CardProps> = ({
           // e.g., "wild_mongrel_UNK" -> "Wild Mongrel"
           let cleanId = card.name;
           // Strip _UNK or other set code suffixes
+          // Be conservative: only strip if it's clearly a set code (UNK, or 2-3 chars, or contains numbers)
+          // Don't strip 4-letter words that might be part of the card name (like "kavu")
           const setCodeMatch = cleanId.match(/^(.+)_([A-Z0-9]{2,4})$/i);
           if (setCodeMatch) {
             const suffix = setCodeMatch[2].toUpperCase();
-            if (suffix === 'UNK' || /^[A-Z0-9]{2,4}$/.test(suffix)) {
+            // Only strip if it's clearly a set code
+            const isLikelySetCode = suffix === 'UNK' || 
+                                    suffix.length <= 3 || 
+                                    /\d/.test(suffix);
+            if (isLikelySetCode) {
               cleanId = setCodeMatch[1];
             }
           }
           // Convert underscores to spaces and title case
-          displayName = cleanId
-            .replace(/_/g, ' ')
-            .split(' ')
+          const withSpaces = cleanId.replace(/_/g, ' ');
+          const words = withSpaces.split(' ').filter(w => w.length > 0);
+          displayName = words
             .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
             .join(' ');
+          
+          // Debug logging for display name generation
+          if (card.name?.includes('territorial') || card.name?.includes('kavu')) {
+            console.log('🔍 Display name generation debug:', {
+              originalCardName: card.name,
+              originalCardNameExact: JSON.stringify(card.name),
+              cleanId: cleanId,
+              cleanIdExact: JSON.stringify(cleanId),
+              withSpaces: withSpaces,
+              withSpacesExact: JSON.stringify(withSpaces),
+              words: words,
+              wordsExact: JSON.stringify(words),
+              finalDisplayName: displayName,
+              finalDisplayNameExact: JSON.stringify(displayName)
+            });
+            console.log(`🔍 ORIGINAL CARD.NAME: "${card.name}"`);
+            console.log(`🔍 CLEAN ID: "${cleanId}"`);
+            console.log(`🔍 WORDS ARRAY:`, words);
+            console.log(`🔍 FINAL DISPLAY NAME: "${displayName}"`);
+          }
         }
       }
       
@@ -160,14 +186,42 @@ const Card: React.FC<CardProps> = ({
         hasMetadata: !!metadata,
         metadataName: metadata?.name,
         cardName: card.name,
+        cardNameLength: card.name?.length,
+        cardNameChars: card.name?.split(''),
         normalizedCardId: normalizeCardName(card.name),
-        usingDisplayName: displayName
+        usingDisplayName: displayName,
+        displayNameLength: displayName?.length
       });
       
       // Get all possible image paths using normalization (set codes ignored)
-      // The normalization function will strip any _XXX set code suffixes
+      // Try both display name and original card name (card.name might be in filename format)
       const normalizedPaths = getCardImagePaths(displayName);
       possiblePaths.push(...normalizedPaths);
+      
+      // ALWAYS try the original card.name directly (it might already be in filename format like "territorial_kavu")
+      // This is important because displayName might be truncated or formatted differently
+      if (card.name) {
+        const cardNamePaths = getCardImagePaths(card.name);
+        possiblePaths.push(...cardNamePaths);
+        
+        // Debug logging for territorial kavu issue
+        if (card.name.toLowerCase().includes('territorial') || card.name.toLowerCase().includes('kavu')) {
+          console.log('🔍 Card.name paths debug:', {
+            cardName: card.name,
+            cardNameExact: JSON.stringify(card.name),
+            cardNameLength: card.name?.length,
+            displayName: displayName,
+            displayNameExact: JSON.stringify(displayName),
+            cardNamePaths: cardNamePaths,
+            cardNamePathsCount: cardNamePaths.length,
+            allPaths: possiblePaths,
+            allPathsCount: possiblePaths.length
+          });
+          console.log(`🔍 CARD.NAME EXACT VALUE: "${card.name}" (length: ${card.name?.length})`);
+          console.log(`🔍 DISPLAY NAME EXACT VALUE: "${displayName}" (length: ${displayName?.length})`);
+          console.log(`🔍 PATHS FROM CARD.NAME:`, cardNamePaths);
+        }
+      }
       
       // Remove duplicates while preserving order
       const uniquePaths = Array.from(new Set(possiblePaths));

@@ -14,8 +14,7 @@ interface SearchLibraryModalProps {
 const SearchLibraryModal: React.FC<SearchLibraryModalProps> = ({ cards, onClose }) => {
   const { getCard } = useCardDatabase();
   const { moveCard } = useGameState();
-  const { hoverZoomValue } = useCardScale();
-  const hoverZoomEnabled = hoverZoomValue > 1.0;
+  const hoverZoomEnabled = false; // Disable hover zoom in search library modal
   const [searchTerm, setSearchTerm] = useState('');
   const [draggingCard, setDraggingCard] = useState<string | null>(null);
 
@@ -64,7 +63,7 @@ const SearchLibraryModal: React.FC<SearchLibraryModalProps> = ({ cards, onClose 
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center" onClick={onClose}>
+      <div className="fixed inset-0 bg-black/70 z-[200] flex items-center justify-center" onClick={onClose}>
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}

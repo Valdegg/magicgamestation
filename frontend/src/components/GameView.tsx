@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useGameState } from '../context/GameStateWebSocket';
-import { useCardScale, MIN_SCALE, MAX_SCALE, DEFAULT_SCALE, HOVER_ZOOM_VALUES, HOVER_ZOOM_LABELS, HoverZoomOption } from '../context/CardScaleContext';
+import { useCardScale, MIN_SCALE, MAX_SCALE, DEFAULT_SCALE, HOVER_ZOOM_VALUES, HOVER_ZOOM_LABELS, HoverZoomOption, OPPONENT_CARD_SIZE_VALUES, OPPONENT_CARD_SIZE_LABELS, OpponentCardSizeOption } from '../context/CardScaleContext';
 import Battlefield from './Battlefield';
 import Hand from './Hand';
 import ControlPanel from './ControlPanel';
@@ -37,7 +37,7 @@ export default function GameView({ onBackToLobby }: GameViewProps) {
     clearTargetingArrows,
     diceTokens
   } = useGameState();
-  const { cardScale, setCardScale, resetScale, hoverZoom, setHoverZoom } = useCardScale();
+  const { cardScale, setCardScale, resetScale, hoverZoom, setHoverZoom, opponentCardSize, setOpponentCardSize, opponentCardSizeValue } = useCardScale();
 
   // Keep prop for backwards-compat; component currently navigates via URL/localStorage.
   void onBackToLobby;
@@ -94,6 +94,11 @@ export default function GameView({ onBackToLobby }: GameViewProps) {
     const cardHeight = 217;
     const padding = 16; // Extra padding to keep cards away from borders
     
+    // Account for global card scale and opponent card size multiplier
+    // These are applied in OpponentCard.tsx, so we need to account for them here
+    const finalCardWidth = cardWidth * cardScale * opponentCardSizeValue;
+    const finalCardHeight = cardHeight * cardScale * opponentCardSizeValue;
+    
     // Reference battlefield size - assume player's battlefield is approximately this size
     const REFERENCE_WIDTH = 1200;
     const REFERENCE_HEIGHT = 600;
@@ -109,18 +114,41 @@ export default function GameView({ onBackToLobby }: GameViewProps) {
                y1 + h - overlapMargin < y2 || y2 + h - overlapMargin < y1);
     };
     
+    // Check which cards overlap in their original positions (intentional overlaps)
+    // Use base card dimensions to check original overlaps
+    const originalCardWidth = 156; // Base card width
+    const originalCardHeight = 217; // Base card height
+    const intentionalOverlaps = new Set<string>();
+    for (let i = 0; i < cards.length; i++) {
+      for (let j = i + 1; j < cards.length; j++) {
+        const card1 = cards[i];
+        const card2 = cards[j];
+        const x1 = card1.x || 0;
+        const y1 = card1.y || 0;
+        const x2 = card2.x || 0;
+        const y2 = card2.y || 0;
+        if (checkOverlap(x1, y1, x2, y2, originalCardWidth, originalCardHeight)) {
+          // Store as a pair key (smaller index first for consistency)
+          const pairKey = `${Math.min(i, j)}-${Math.max(i, j)}`;
+          intentionalOverlaps.add(pairKey);
+        }
+      }
+    }
+    
     // Find actual Y range to utilize full vertical space
     const ys = cards.map(c => c.y || 0);
     const minY = Math.min(...ys);
     const maxY = Math.max(...ys);
     const rangeY = maxY - minY || 1;
     
-    // Helper to calculate positions at a given scale
-    const calculatePositions = (scale: number) => {
-      const scaledCardWidth = cardWidth * scale;
-      const scaledCardHeight = cardHeight * scale;
+    // Helper to calculate positions at a given layout scale
+    // The layout scale is applied on top of the final card dimensions
+    const calculatePositions = (layoutScale: number) => {
+      const scaledCardWidth = finalCardWidth * layoutScale;
+      const scaledCardHeight = finalCardHeight * layoutScale;
       
-      return cards.map(card => {
+      // First, calculate initial positions
+      const initialPositions = cards.map(card => {
         const cardX = card.x || 0;
         const cardY = card.y || 0;
         
@@ -136,26 +164,62 @@ export default function GameView({ onBackToLobby }: GameViewProps) {
         // Flip Y: cards with highest Y (near player's hand) appear at top (low mappedY)
         const mappedY = padding + (1 - percentY) * (availableHeight - scaledCardHeight);
 
-        // Clamp positions to keep cards fully within the opponent battlefield area
-        // This prevents cards from crossing the border between battlefield sides
-        const clampedX = Math.max(padding, Math.min(mappedX, availableWidth - scaledCardWidth + padding));
-        const clampedY = Math.max(padding, Math.min(mappedY, availableHeight - scaledCardHeight + padding));
-
         return { 
           ...card, 
+          x: mappedX, 
+          y: mappedY,
+          scale: layoutScale 
+        };
+      });
+      
+      // Compute bounding box of all cards
+      const xs = initialPositions.map(p => p.x || 0);
+      const ys = initialPositions.map(p => p.y || 0);
+      const minX = Math.min(...xs);
+      const maxX = Math.max(...xs.map(x => x + scaledCardWidth));
+      const minYPos = Math.min(...ys);
+      const maxYPos = Math.max(...ys.map(y => y + scaledCardHeight));
+      
+      const boundingBoxWidth = maxX - minX;
+      const boundingBoxHeight = maxYPos - minYPos;
+      
+      // Calculate offset to center the bounding box
+      const centerX = (availableWidth + padding * 2) / 2;
+      const centerY = (availableHeight + padding * 2) / 2;
+      const boundingBoxCenterX = minX + boundingBoxWidth / 2;
+      const boundingBoxCenterY = minYPos + boundingBoxHeight / 2;
+      const offsetX = centerX - boundingBoxCenterX;
+      const offsetY = centerY - boundingBoxCenterY;
+      
+      // Apply offset and clamp positions to keep cards within bounds
+      return initialPositions.map(pos => {
+        const newX = pos.x + offsetX;
+        const newY = pos.y + offsetY;
+        
+        // Clamp positions to keep cards fully within the opponent battlefield area
+        const clampedX = Math.max(padding, Math.min(newX, availableWidth - scaledCardWidth + padding));
+        const clampedY = Math.max(padding, Math.min(newY, availableHeight - scaledCardHeight + padding));
+
+        return { 
+          ...pos, 
           x: clampedX, 
-          y: clampedY,
-          scale 
+          y: clampedY
         };
       });
     };
     
-    // Helper to check if any cards overlap
-    const hasOverlaps = (positions: typeof cards, scale: number) => {
-      const w = cardWidth * scale;
-      const h = cardHeight * scale;
+    // Helper to check if any cards overlap (excluding intentional overlaps)
+    const hasOverlaps = (positions: typeof cards, layoutScale: number) => {
+      const w = finalCardWidth * layoutScale;
+      const h = finalCardHeight * layoutScale;
       for (let i = 0; i < positions.length; i++) {
         for (let j = i + 1; j < positions.length; j++) {
+          // Skip if this overlap was intentional (present in original positions)
+          const pairKey = `${Math.min(i, j)}-${Math.max(i, j)}`;
+          if (intentionalOverlaps.has(pairKey)) {
+            continue; // Allow intentional overlaps
+          }
+          // Only flag new overlaps that weren't in the original layout
           if (checkOverlap(positions[i].x || 0, positions[i].y || 0, 
                           positions[j].x || 0, positions[j].y || 0, w, h)) {
             return true;
@@ -165,23 +229,25 @@ export default function GameView({ onBackToLobby }: GameViewProps) {
       return false;
     };
     
-    // Start with ideal scale and reduce if overlaps detected
+    // Start with ideal layout scale and reduce if overlaps detected
+    // Layout scale is applied on top of the final card dimensions
     const widthScale = availableWidth / REFERENCE_WIDTH;
     const heightScale = availableHeight / REFERENCE_HEIGHT;
-    let scale = Math.max(0.25, Math.min(0.8, Math.min(widthScale, heightScale)));
+    // Base layout scale calculation - this is applied on top of finalCardWidth/Height
+    let layoutScale = Math.max(0.25, Math.min(0.8, Math.min(widthScale, heightScale)));
     
-    let positions = calculatePositions(scale);
+    let positions = calculatePositions(layoutScale);
     
-    // Reduce scale until no overlaps or minimum reached
+    // Reduce layout scale until no overlaps or minimum reached
     const MIN_SCALE = 0.15;
     const SCALE_STEP = 0.05;
-    while (hasOverlaps(positions, scale) && scale > MIN_SCALE) {
-      scale -= SCALE_STEP;
-      positions = calculatePositions(scale);
+    while (hasOverlaps(positions, layoutScale) && layoutScale > MIN_SCALE) {
+      layoutScale -= SCALE_STEP;
+      positions = calculatePositions(layoutScale);
     }
     
     return positions;
-  }, [opponent, measuredOpponentWidth, measuredOpponentHeight]);
+  }, [opponent, measuredOpponentWidth, measuredOpponentHeight, cardScale, opponentCardSizeValue]);
 
   const opponentPanelRef = useRef<HTMLDivElement>(null);
   const playerPanelRef = useRef<HTMLDivElement>(null);
@@ -272,9 +338,6 @@ export default function GameView({ onBackToLobby }: GameViewProps) {
         setTimeout(() => {
           nextPhase();
         }, 100);
-      } else if (currentPhase === 'upkeep') {
-        drawCard();
-        setTimeout(nextPhase, 100);
       } else {
         nextPhase();
       }
@@ -384,14 +447,22 @@ export default function GameView({ onBackToLobby }: GameViewProps) {
           {opponent && (
             <div className="flex-shrink-0 relative z-[100]" style={{ height: `${opponentBattlefieldHeight}px` }}>
               <div ref={opponentBattlefieldContainerRef} className="fantasy-border rounded-lg relative h-full" style={{ background: 'linear-gradient(135deg, rgba(40, 20, 20, 0.4) 0%, rgba(60, 15, 15, 0.5) 100%)', overflow: 'visible' }}>
-                {mappedOpponentCards.length > 0 ? mappedOpponentCards.map(card => {
-                  // Wrap each card in error boundary to prevent one bad card from breaking all cards
-                  try {
-                    if (!card || !card.id) {
-                      console.warn(`[GameView] Skipping invalid opponent card:`, card);
-                      return null;
-                    }
-                    return <OpponentCard key={card.id} card={card} onCardTargeted={handleCardTargetCard} scale={card.scale || 1} />;
+                {mappedOpponentCards.length > 0 ? (() => {
+                  // Calculate z-index range based on y coordinates: lower y = higher z-index
+                  const maxY = Math.max(...mappedOpponentCards.map(c => c.y || 0));
+                  const minY = Math.min(...mappedOpponentCards.map(c => c.y || 0));
+                  const yRange = maxY - minY || 1;
+                  
+                  return mappedOpponentCards.map((card) => {
+                    // Wrap each card in error boundary to prevent one bad card from breaking all cards
+                    try {
+                      if (!card || !card.id) {
+                        console.warn(`[GameView] Skipping invalid opponent card:`, card);
+                        return null;
+                      }
+                      // Cards with higher y get higher z-index (cards displayed lower appear on top)
+                      const zIndex = 10 + Math.round((((card.y || 0) - minY) / yRange) * 100);
+                      return <OpponentCard key={card.id} card={{...card, zIndex} as any} onCardTargeted={handleCardTargetCard} scale={card.scale || 1} />;
                   } catch (error) {
                     // Only log once per card to prevent flooding
                     const errorKey = `opponent-card-error-${card?.id || 'unknown'}`;
@@ -403,7 +474,8 @@ export default function GameView({ onBackToLobby }: GameViewProps) {
                     }
                     return null;
                   }
-                }) : <div className="absolute inset-0 flex items-center justify-center text-[#8b7355] text-sm italic">No cards in play</div>}
+                  });
+                })() : <div className="absolute inset-0 flex items-center justify-center text-[#8b7355] text-sm italic">No cards in play</div>}
                 
                 {/* Opponent's Dice Tokens */}
                 {diceTokens
@@ -618,6 +690,27 @@ export default function GameView({ onBackToLobby }: GameViewProps) {
               title={`${HOVER_ZOOM_VALUES[option]}x`}
             >
               {HOVER_ZOOM_LABELS[option]}
+            </button>
+          ))}
+        </div>
+
+        {/* Opponent Card Size */}
+        <div className="flex items-center justify-between mb-1 mt-2">
+          <span className="text-[10px] text-fantasy-gold/80 font-bold">Opponent Size</span>
+        </div>
+        <div className="flex gap-1">
+          {(Object.keys(OPPONENT_CARD_SIZE_VALUES) as OpponentCardSizeOption[]).map((option) => (
+            <button
+              key={option}
+              onClick={() => setOpponentCardSize(option)}
+              className={`flex-1 px-1 py-0.5 text-[9px] font-bold rounded transition-colors ${
+                opponentCardSize === option
+                  ? 'bg-fantasy-gold/40 text-fantasy-gold'
+                  : 'bg-fantasy-burgundy/30 text-fantasy-gold/60 hover:bg-fantasy-burgundy/50 hover:text-fantasy-gold/80'
+              }`}
+              title={`${Math.round(OPPONENT_CARD_SIZE_VALUES[option] * 100)}%`}
+            >
+              {OPPONENT_CARD_SIZE_LABELS[option]}
             </button>
           ))}
         </div>

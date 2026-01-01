@@ -7,7 +7,7 @@ import json
 import re
 from pathlib import Path
 from typing import Dict, Optional
-from card_engine import Card, Player, ZoneType
+from card_engine import Card, Player, Zone, ZoneType
 
 # Cache for deck files to avoid repeated disk reads
 _deck_cache: Dict[str, Dict] = {}
@@ -97,12 +97,11 @@ def create_deck_for_player(deck_name: str, player: Player, database: Optional[Di
     
     deck = load_deck(deck_name, use_cache=True)
     library = player.zones[ZoneType.LIBRARY]
+    sideboard = player.zones[ZoneType.SIDEBOARD]
     cards_loaded = 0
     
-    # Pre-build card data dictionaries to avoid repeated lookups
-    cards_to_create = []
-    
-    for card_id in deck['main']:
+    def create_card_from_id(card_id: str, target_zone: Zone):
+        """Helper function to create a card from card_id and add to target zone."""
         metadata = database.get(card_id, {})
         
         # If metadata missing, try to recover by re-normalizing or searching
@@ -114,26 +113,38 @@ def create_deck_for_player(deck_name: str, player: Player, database: Optional[Di
                 if found_id:
                     card_id = found_id
                     metadata = database.get(found_id, {})
-
+        
         # Prepare card data
         card_data = {
-                'card_id': card_id,
-                'set': metadata.get('set', ''),
-                'type': metadata.get('type', ''),
-                'image': metadata.get('image', ''),
-                'mana_cost': metadata.get('mana_cost', ''),
-                'cmc': metadata.get('cmc', 0),
-                'oracle_text': metadata.get('oracle_text', ''),
-                **metadata
-            }
-        cards_to_create.append((metadata.get('name', card_id), card_data))
+            'card_id': card_id,
+            'set': metadata.get('set', ''),
+            'type': metadata.get('type', ''),
+            'image': metadata.get('image', ''),
+            'mana_cost': metadata.get('mana_cost', ''),
+            'cmc': metadata.get('cmc', 0),
+            'oracle_text': metadata.get('oracle_text', ''),
+            **metadata
+        }
+        card_name = metadata.get('name', card_id)
+        
+        # Debug logging for territorial kavu
+        if 'territorial' in card_id.lower() or 'kavu' in card_id.lower():
+            print(f"🔍 [create_deck_for_player] Card ID: '{card_id}', Using name: '{card_name}', Has metadata: {bool(metadata)}")
+        
+        card = Card(name=card_name, owner_id=player.id, data=card_data)
+        target_zone.add(card)
+        return 1
     
-    # Create all cards and add to library
-    for name, card_data in cards_to_create:
-        card = Card(name=name, owner_id=player.id, data=card_data)
-        library.add(card)
-        cards_loaded += 1
+    # Load main deck cards
+    for card_id in deck.get('main', []):
+        cards_loaded += create_card_from_id(card_id, library)
+    
+    # Load sideboard cards if present
+    for card_id in deck.get('sideboard', []):
+        cards_loaded += create_card_from_id(card_id, sideboard)
     
     player.shuffle_library()
-    print(f"✅ Loaded {cards_loaded} cards from deck: {deck['name']}")
+    main_count = len(deck.get('main', []))
+    sideboard_count = len(deck.get('sideboard', []))
+    print(f"✅ Loaded {main_count} main deck + {sideboard_count} sideboard = {cards_loaded} total cards from deck: {deck['name']}")
     return cards_loaded

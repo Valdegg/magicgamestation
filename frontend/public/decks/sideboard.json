@@ -1,0 +1,21 @@
+{
+  "name": "Sideboard",
+  "main": [
+    "brainstorm",
+    "brainstorm",
+    "brainstorm",
+    "brainstorm",
+    "braingeyser",
+    "braingeyser",
+    "braingeyser",
+    "braingeyser",
+    "braingeyser",
+    "braingeyser",
+    "braingeyser"
+  ],
+  "sideboard": [
+    "mox_lotus",
+    "mox_lotus",
+    "mox_lotus"
+  ]
+}

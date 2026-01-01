@@ -1,0 +1,47 @@
+# User-specified exclusions
+frontend/public/card_images
+frontend/public/cards
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Node.js dependencies
+node_modules/
+
+
+
+# Database files
+dump.rdb
+*.db
+*.sqlite
+*.sqlite3
+
+# Build artifacts
+dist/
+build/
+.vite/
+*.egg-info/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Large data files (if auto-generated)
+frontend/public/data/cards.json
+

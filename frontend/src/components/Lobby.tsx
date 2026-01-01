@@ -48,7 +48,7 @@ const Lobby: React.FC<LobbyProps> = ({ onJoinGame }) => {
     if (match) {
       return { count: parseInt(match[1]), cardName: match[2] };
     }
-    return { count: 4, cardName: trimmed }; // Default to 4 if no number specified
+    return { count: 1, cardName: trimmed }; // Default to 1 if no number specified
   }, [cardSearchTerm]);
   
   // Local database filtered cards
@@ -110,30 +110,54 @@ const Lobby: React.FC<LobbyProps> = ({ onJoinGame }) => {
   }, [localFilteredCards, scryfallSuggestions]);
 
   // Parse deck text to extract card names for visual preview
-  const deckCards = useMemo(() => {
-    const cards: string[] = [];
+  // Split main deck and sideboard when encountering "SIDEBOARD:"
+  const { deckCards, sideboardCards } = useMemo(() => {
+    const mainCards: string[] = [];
+    const sideboardCards: string[] = [];
+    let isSideboard = false;
+    
     const lines = deckText.trim().split('\n');
     for (const line of lines) {
       const trimmed = line.trim();
       if (!trimmed) continue;
+      
+      // Check if this line marks the start of sideboard
+      if (trimmed.toUpperCase().startsWith('SIDEBOARD:')) {
+        isSideboard = true;
+        // Extract card name if it's on the same line (e.g., "SIDEBOARD: 1 Wrath of God")
+        const afterSideboard = trimmed.substring(trimmed.indexOf(':') + 1).trim();
+        if (afterSideboard) {
+          const match = afterSideboard.match(/^(\d+)?\s*(.+)$/);
+          if (match) {
+            const count = match[1] ? parseInt(match[1]) : 1;
+            const cardName = match[2].trim();
+            for (let i = 0; i < count; i++) {
+              sideboardCards.push(cardName);
+            }
+          }
+        }
+        continue;
+      }
+      
       const match = trimmed.match(/^(\d+)?\s*(.+)$/);
       if (match) {
         const count = match[1] ? parseInt(match[1]) : 1;
         const cardName = match[2].trim();
+        const targetArray = isSideboard ? sideboardCards : mainCards;
         for (let i = 0; i < count; i++) {
-          cards.push(cardName);
+          targetArray.push(cardName);
         }
       }
     }
-    return cards;
+    return { deckCards: mainCards, sideboardCards };
   }, [deckText]);
 
   // Auto-fetch missing cards when they're added to the deck
   useEffect(() => {
-    if (!showDeckModal || deckCards.length === 0) return;
+    if (!showDeckModal || (deckCards.length === 0 && sideboardCards.length === 0)) return;
     
-    // Get unique card names from deck
-    const uniqueCardNames = Array.from(new Set(deckCards));
+    // Get unique card names from deck and sideboard
+    const uniqueCardNames = Array.from(new Set([...deckCards, ...sideboardCards]));
     
     // Find cards that are missing from database
     const missingCards = uniqueCardNames.filter(cardName => {
@@ -207,7 +231,7 @@ const Lobby: React.FC<LobbyProps> = ({ onJoinGame }) => {
     fetchMissingCards();
   }, [deckCards, database, showDeckModal, allCardNames, fetchedCards, fetchingCards, reload]);
 
-  const handleAddCard = async (cardName: string, count: number = 4, needsFetch: boolean = false) => {
+  const handleAddCard = async (cardName: string, count: number = 1, needsFetch: boolean = false) => {
     // If card is from Scryfall and not in local database, fetch it first
     if (needsFetch) {
       setIsFetching(true);
@@ -479,27 +503,48 @@ const Lobby: React.FC<LobbyProps> = ({ onJoinGame }) => {
       return;
     }
 
-    // Parse deck text into format
+    // Parse deck text into format, splitting main deck and sideboard
     const lines = deckText.trim().split('\n');
-    const cards: string[] = [];
+    const mainCards: string[] = [];
+    const sideboardCards: string[] = [];
+    let isSideboard = false;
 
     for (const line of lines) {
       const trimmed = line.trim();
       if (!trimmed) continue;
+
+      // Check if this line marks the start of sideboard
+      if (trimmed.toUpperCase().startsWith('SIDEBOARD:')) {
+        isSideboard = true;
+        // Extract card name if it's on the same line (e.g., "SIDEBOARD: 1 Wrath of God")
+        const afterSideboard = trimmed.substring(trimmed.indexOf(':') + 1).trim();
+        if (afterSideboard) {
+          const match = afterSideboard.match(/^(\d+)?\s*(.+)$/);
+          if (match) {
+            const count = match[1] ? parseInt(match[1]) : 1;
+            const cardName = match[2].trim();
+            for (let i = 0; i < count; i++) {
+              sideboardCards.push(cardName);
+            }
+          }
+        }
+        continue;
+      }
 
       // Support formats: "4 Lightning Bolt" or "Lightning Bolt"
       const match = trimmed.match(/^(\d+)?\s*(.+)$/);
       if (match) {
         const count = match[1] ? parseInt(match[1]) : 1;
         const cardName = match[2].trim();
+        const targetArray = isSideboard ? sideboardCards : mainCards;
         
         for (let i = 0; i < count; i++) {
-          cards.push(cardName);
+          targetArray.push(cardName);
         }
       }
     }
 
-    if (cards.length === 0) {
+    if (mainCards.length === 0 && sideboardCards.length === 0) {
       setError('Please enter at least one card');
       return;
     }
@@ -511,14 +556,16 @@ const Lobby: React.FC<LobbyProps> = ({ onJoinGame }) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: deckName.trim(),
-          cards: cards
+          cards: mainCards,
+          sideboard: sideboardCards
         }),
       });
 
       const data = await response.json();
       if (data.success) {
         console.log('✅ Deck saved:', data);
-        alert(`Deck "${data.deck_name}" saved successfully!\n${data.card_count} cards saved to ${data.filename}`);
+        const sideboardMsg = data.sideboard_count > 0 ? `\n${data.sideboard_count} sideboard cards` : '';
+        alert(`Deck "${data.deck_name}" saved successfully!\n${data.card_count} main deck cards${sideboardMsg} saved to ${data.filename}`);
         setShowDeckModal(false);
         setDeckName('');
         setDeckText('');
@@ -798,6 +845,10 @@ const Lobby: React.FC<LobbyProps> = ({ onJoinGame }) => {
                   Deck List (one card per line)
                 </label>
                 
+                <div className="text-xs mb-2" style={{ color: '#d4b36b', opacity: 0.7 }}>
+                  Format: "4 Lightning Bolt" or just "Mountain" • Same format as plain text deck list on Moxfield.com
+                </div>
+                
                 {/* Card Search Input */}
                 <div className="relative mb-2">
                   <input
@@ -947,14 +998,11 @@ const Lobby: React.FC<LobbyProps> = ({ onJoinGame }) => {
                   </AnimatePresence>
                 </div>
 
-                <div className="text-xs mb-2" style={{ color: '#d4b36b', opacity: 0.7 }}>
-                  Format: "4 Lightning Bolt" or just "Mountain" • Tip: Start search with number to specify copies (e.g., "1 Sol Ring")
-                </div>
                 <textarea
                   value={deckText}
                   onChange={(e) => setDeckText(e.target.value)}
                   className="w-full px-4 py-2 rounded bg-fantasy-dark/50 border-2 border-fantasy-gold/30 text-fantasy-gold focus:border-fantasy-gold/60 focus:outline-none font-mono"
-                  placeholder="4 Lightning Bolt&#10;4 Counterspell&#10;20 Mountain"
+                  placeholder="4 Lightning Bolt&#10;4 Counterspell&#10;20 Mountain&#10;&#10;SIDEBOARD:&#10;2 Wrath of God&#10;1 Disenchant"
                   rows={12}
                   style={{
                     resize: 'vertical',
@@ -963,16 +1011,19 @@ const Lobby: React.FC<LobbyProps> = ({ onJoinGame }) => {
                 />
                 
                 {/* Card Visual Preview Grid */}
-                {deckCards.length > 0 && (
+                {(deckCards.length > 0 || sideboardCards.length > 0) && (
                   <div className="mt-4">
                     <label className="block text-sm font-bold mb-2" style={{ color: '#d4b36b' }}>
-                      Visual Preview ({deckCards.length} cards)
+                      Visual Preview ({deckCards.length} cards{sideboardCards.length > 0 ? `, ${sideboardCards.length} sideboard` : ''})
                     </label>
-                    <div 
-                      className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 gap-1 p-2 rounded bg-fantasy-dark/30 border border-fantasy-gold/20 overflow-y-auto"
-                      style={{ maxHeight: '200px' }}
-                    >
-                      {deckCards.map((cardName, i) => {
+                    
+                    {/* Main Deck */}
+                    {deckCards.length > 0 && (
+                      <div 
+                        className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 gap-1 p-2 rounded bg-fantasy-dark/30 border border-fantasy-gold/20 overflow-y-auto mb-4"
+                        style={{ maxHeight: '200px' }}
+                      >
+                        {deckCards.map((cardName, i) => {
                         const cardNameLower = cardName.toLowerCase();
                         const isFetching = fetchingCards.has(cardNameLower);
                         const isFetched = fetchedCards.has(cardNameLower);
@@ -1086,7 +1137,137 @@ const Lobby: React.FC<LobbyProps> = ({ onJoinGame }) => {
                           </div>
                         );
                       })}
-                    </div>
+                      </div>
+                    )}
+                    
+                    {/* Sideboard - Separated with vertical space */}
+                    {sideboardCards.length > 0 && (
+                      <>
+                        <div className="h-4"></div>
+                        <label className="block text-sm font-bold mb-2" style={{ color: '#d4b36b' }}>
+                          Sideboard ({sideboardCards.length} cards)
+                        </label>
+                        <div 
+                          className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 gap-1 p-2 rounded bg-fantasy-dark/30 border border-fantasy-gold/20 overflow-y-auto"
+                          style={{ maxHeight: '200px' }}
+                        >
+                          {sideboardCards.map((cardName, i) => {
+                            const cardNameLower = cardName.toLowerCase();
+                            const isFetching = fetchingCards.has(cardNameLower);
+                            const isFetched = fetchedCards.has(cardNameLower);
+                            
+                            // Try to find card in database by name
+                            const cardMetadata = Object.values(database).find(card => 
+                              card.name.toLowerCase() === cardNameLower
+                            );
+                            
+                            // Use metadata image path if available, otherwise generate paths
+                            const imagePaths = getCardImagePaths(
+                              cardName,
+                              cardMetadata?.set && cardMetadata.set !== 'UNK' ? cardMetadata.set : undefined
+                            );
+                            const primaryImagePath = cardMetadata?.image || imagePaths[0];
+                            
+                            // Add cache busting for recently fetched cards
+                            const imageSrc = isFetched 
+                              ? `${primaryImagePath}?t=${Date.now()}` 
+                              : primaryImagePath;
+                            
+                            return (
+                              <div 
+                                key={`sideboard-${cardName}-${i}-${isFetched ? 'fetched' : 'pending'}-${cardMetadata ? 'hasMeta' : 'noMeta'}`}
+                                className="relative aspect-[2.5/3.5] rounded overflow-hidden group cursor-pointer"
+                                title={cardName}
+                              >
+                                <img 
+                                  src={imageSrc}
+                                  alt={cardName}
+                                  className="w-full h-full object-cover transition-transform group-hover:scale-110"
+                                  loading="lazy"
+                                  onLoad={() => {
+                                    console.log(`✅ Image loaded successfully for "${cardName}": ${imageSrc}`);
+                                  }}
+                                  onError={(e) => {
+                                    const target = e.target as HTMLImageElement;
+                                    console.log(`🖼️ Visual preview image error for "${cardName}":`, {
+                                      imageSrc,
+                                      hasMetadata: !!cardMetadata,
+                                      metadataImage: cardMetadata?.image,
+                                      imagePaths,
+                                      isFetched
+                                    });
+                                    
+                                    // Try next image path if available
+                                    const currentIndex = imagePaths.indexOf(primaryImagePath);
+                                    if (currentIndex < imagePaths.length - 1 && !target.dataset.triedNext) {
+                                      target.dataset.triedNext = 'true';
+                                      const nextPath = imagePaths[currentIndex + 1];
+                                      console.log(`🖼️ Trying next path: ${nextPath}`);
+                                      target.src = nextPath + '?t=' + Date.now();
+                                      return;
+                                    }
+                                    
+                                    // If card has metadata OR was just fetched, reload database and retry
+                                    if ((cardMetadata || isFetched) && !target.dataset.reloaded) {
+                                      target.dataset.reloaded = 'true';
+                                      console.log(`🖼️ Card ${isFetched ? 'was just fetched' : 'has metadata'}, reloading database and retrying...`);
+                                      
+                                      // Reload database first, then retry
+                                      reload().then(() => {
+                                        // Wait a bit for file system/Vite to sync
+                                        setTimeout(() => {
+                                          // Re-query the database (it will be updated after reload)
+                                          // Use the metadata we already have, or try paths
+                                          if (cardMetadata?.image) {
+                                            const retryPath = cardMetadata.image + '?t=' + Date.now() + '&retry=1';
+                                            console.log(`🖼️ Retrying with metadata image path: ${retryPath}`);
+                                            target.src = retryPath;
+                                          } else {
+                                            // Try all image paths with cache busting
+                                            const allPaths = getCardImagePaths(
+                                              cardName,
+                                              cardMetadata?.set && cardMetadata.set !== 'UNK' ? cardMetadata.set : undefined
+                                            );
+                                            const nextPathIndex = imagePaths.indexOf(primaryImagePath) + 1;
+                                            if (nextPathIndex < allPaths.length) {
+                                              const retryPath = allPaths[nextPathIndex] + '?t=' + Date.now() + '&retry=1';
+                                              console.log(`🖼️ Retrying with next path: ${retryPath}`);
+                                              target.src = retryPath;
+                                            } else {
+                                              console.log(`🖼️ All paths exhausted, using fallback`);
+                                              target.src = '/cards/card-back.jpg';
+                                            }
+                                          }
+                                        }, 500); // Longer delay for file system sync
+                                      });
+                                      return;
+                                    }
+                                    
+                                    // Final fallback
+                                    if (!target.dataset.triedFallback) {
+                                      target.dataset.triedFallback = 'true';
+                                      target.src = '/cards/card-back.jpg';
+                                    }
+                                  }}
+                                />
+                                {/* Loading indicator */}
+                                {isFetching && (
+                                  <div className="absolute top-0 left-0 bg-black/60 text-fantasy-gold text-xs px-1 rounded-br animate-spin">
+                                    ↻
+                                  </div>
+                                )}
+                                {/* Success indicator - show briefly after fetch */}
+                                {isFetched && (
+                                  <div className="absolute top-0 right-0 bg-green-500 text-white text-xs px-1 rounded-bl animate-pulse">
+                                    ✓
+                                  </div>
+                                )}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </>
+                    )}
                   </div>
                 )}
               </div>
@@ -1272,13 +1453,13 @@ const Lobby: React.FC<LobbyProps> = ({ onJoinGame }) => {
           }}
         >
           <p 
-            className="text-sm mb-2"
+            className="text-xs mb-2"
             style={{ 
               color: '#d4b36b',
-              opacity: 0.8
+              opacity: 0.7
             }}
           >
-            A fan-made playmat for trading card games
+            Wizards of the Coast, Magic: The Gathering, and their logos are trademarks of Wizards of the Coast LLC in the United States and other countries. © 1993-2026 Wizards. All Rights Reserved.
           </p>
           <p 
             className="text-xs mb-2"
@@ -1287,7 +1468,7 @@ const Lobby: React.FC<LobbyProps> = ({ onJoinGame }) => {
               opacity: 0.7
             }}
           >
-            Supports Magic: The Gathering™ cards
+            Magic Workstation is not affiliated with, endorsed, sponsored, or specifically approved by Wizards of the Coast LLC. Magic Workstation may use the trademarks and other intellectual property of Wizards of the Coast LLC, which is permitted under Wizards' Fan Site Policy.
           </p>
           <p 
             className="text-xs"
@@ -1297,7 +1478,7 @@ const Lobby: React.FC<LobbyProps> = ({ onJoinGame }) => {
               fontStyle: 'italic'
             }}
           >
-            Magic: The Gathering is a trademark of Wizards of the Coast. This project is unaffiliated.
+            This is a non-commercial, educational project. No profit is made from this project.
           </p>
         </div>
         </div>
