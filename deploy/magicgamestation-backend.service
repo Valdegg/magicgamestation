@@ -1,0 +1,18 @@
+[Unit]
+Description=Magic Game Station Backend (FastAPI)
+After=network.target redis-server.service
+Requires=redis-server.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/magicgamestation/backend
+Environment="PATH=/opt/magicgamestation/backend/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ExecStart=/opt/magicgamestation/backend/.venv/bin/python /opt/magicgamestation/backend/backend_server.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

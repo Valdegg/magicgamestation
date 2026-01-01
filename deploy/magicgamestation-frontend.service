@@ -1,0 +1,18 @@
+[Unit]
+Description=Magic Game Station Frontend (Vite)
+After=network.target magicgamestation-backend.service
+Requires=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/magicgamestation/frontend
+Environment="PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ExecStart=/usr/bin/npm run dev -- --host 0.0.0.0
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

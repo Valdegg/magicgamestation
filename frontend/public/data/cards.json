@@ -6381,5 +6381,98 @@
     "colors": [
       "B"
     ]
+  },
+  "ravenous_rats": {
+    "id": "ravenous_rats",
+    "name": "Ravenous Rats",
+    "set": "P02",
+    "set_name": "Portal Second Age",
+    "image": "/card_images/ravenous_rats.jpg",
+    "type": "Creature \u2014 Rat",
+    "mana_cost": "{1}{B}",
+    "cmc": 2.0,
+    "oracle_text": "When this creature enters, target opponent discards a card.",
+    "colors": [
+      "B"
+    ]
+  },
+  "meddling_mage": {
+    "id": "meddling_mage",
+    "name": "Meddling Mage",
+    "set": "PLS",
+    "set_name": "Planeshift",
+    "image": "/card_images/meddling_mage.jpg",
+    "type": "Creature \u2014 Human Wizard",
+    "mana_cost": "{W}{U}",
+    "cmc": 2.0,
+    "oracle_text": "As this creature enters, choose a nonland card name.\nSpells with the chosen name can't be cast.",
+    "colors": [
+      "U",
+      "W"
+    ]
+  },
+  "arcbound_ravager": {
+    "id": "arcbound_ravager",
+    "name": "Arcbound Ravager",
+    "set": "DST",
+    "set_name": "Darksteel",
+    "image": "/card_images/arcbound_ravager.jpg",
+    "type": "Artifact Creature \u2014 Beast",
+    "mana_cost": "{2}",
+    "cmc": 2.0,
+    "oracle_text": "Sacrifice an artifact: Put a +1/+1 counter on this creature.\nModular 1 (This creature enters with a +1/+1 counter on it. When it dies, you may put its +1/+1 counters on target artifact creature.)",
+    "colors": []
+  },
+  "mana_leak": {
+    "id": "mana_leak",
+    "name": "Mana Leak",
+    "set": "STH",
+    "set_name": "Stronghold",
+    "image": "/card_images/mana_leak.jpg",
+    "type": "Instant",
+    "mana_cost": "{1}{U}",
+    "cmc": 2.0,
+    "oracle_text": "Counter target spell unless its controller pays {3}.",
+    "colors": [
+      "U"
+    ]
+  },
+  "yawgmoths_edict": {
+    "id": "yawgmoths_edict",
+    "name": "Yawgmoth's Edict",
+    "set": "USG",
+    "set_name": "Urza's Saga",
+    "image": "/card_images/yawgmoths_edict.jpg",
+    "type": "Enchantment",
+    "mana_cost": "{1}{B}",
+    "cmc": 2.0,
+    "oracle_text": "Whenever an opponent casts a white spell, that player loses 1 life and you gain 1 life.",
+    "colors": [
+      "B"
+    ]
+  },
+  "myr_enforcer": {
+    "id": "myr_enforcer",
+    "name": "Myr Enforcer",
+    "set": "MRD",
+    "set_name": "Mirrodin",
+    "image": "/card_images/myr_enforcer.jpg",
+    "type": "Artifact Creature \u2014 Myr",
+    "mana_cost": "{7}",
+    "cmc": 7.0,
+    "oracle_text": "Affinity for artifacts (This spell costs {1} less to cast for each artifact you control.)",
+    "colors": []
+  },
+  "snow_covered_swamp": {
+    "id": "snow_covered_swamp",
+    "name": "Snow-Covered Swamp",
+    "set": "ICE",
+    "set_name": "Ice Age",
+    "image": "/card_images/snow_covered_swamp.jpg",
+    "type": "Basic Snow Land \u2014 Swamp",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "({T}: Add {B}.)",
+    "colors": []
   }
 }
