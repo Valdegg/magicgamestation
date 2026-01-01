@@ -1,0 +1,27 @@
+# Magic Game Station Caddy Configuration
+# Replace YOUR_DOMAIN with your actual domain
+
+# Frontend (main app)
+YOUR_DOMAIN {
+    root * /opt/magicgamestation/frontend/dist
+    file_server
+    try_files {path} /index.html
+    
+    # Proxy API requests to backend
+    handle /api/* {
+        reverse_proxy localhost:9000
+    }
+    
+    # Proxy WebSocket connections to backend
+    handle /ws/* {
+        reverse_proxy localhost:9000 {
+            header_up X-Real-IP {remote_host}
+        }
+    }
+}
+
+# Backend API (optional separate subdomain)
+# api.YOUR_DOMAIN {
+#     reverse_proxy localhost:9000
+# }
+
