@@ -113,24 +113,24 @@ def create_deck_for_player(deck_name: str, player: Player, database: Optional[Di
                 if found_id:
                     card_id = found_id
                     metadata = database.get(found_id, {})
-        
+
         # Prepare card data
         card_data = {
-            'card_id': card_id,
-            'set': metadata.get('set', ''),
-            'type': metadata.get('type', ''),
-            'image': metadata.get('image', ''),
-            'mana_cost': metadata.get('mana_cost', ''),
-            'cmc': metadata.get('cmc', 0),
-            'oracle_text': metadata.get('oracle_text', ''),
-            **metadata
-        }
+                'card_id': card_id,
+                'set': metadata.get('set', ''),
+                'type': metadata.get('type', ''),
+                'image': metadata.get('image', ''),
+                'mana_cost': metadata.get('mana_cost', ''),
+                'cmc': metadata.get('cmc', 0),
+                'oracle_text': metadata.get('oracle_text', ''),
+                **metadata
+            }
         card_name = metadata.get('name', card_id)
         
         # Debug logging for territorial kavu
         if 'territorial' in card_id.lower() or 'kavu' in card_id.lower():
             print(f"🔍 [create_deck_for_player] Card ID: '{card_id}', Using name: '{card_name}', Has metadata: {bool(metadata)}")
-        
+    
         card = Card(name=card_name, owner_id=player.id, data=card_data)
         target_zone.add(card)
         return 1

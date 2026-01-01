@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Magic Workstation - Server Launcher
+# Magic Gamestation - Server Launcher
 # Usage: ./start_server.sh [-local]
 
 # --- Configuration ---

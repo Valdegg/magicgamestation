@@ -1,7 +1,7 @@
-# Magic Workstation Codebase Review
+# Magic Gamestation Codebase Review
 
 ## Overview
-This document provides a comprehensive review of the Magic Workstation codebase, highlighting architectural strengths, current structure, and areas for improvement. The project is a multiplayer web-based Magic: The Gathering client using a Python/FastAPI backend and React/TypeScript frontend.
+This document provides a comprehensive review of the Magic Gamestation codebase, highlighting architectural strengths, current structure, and areas for improvement. The project is a multiplayer web-based Magic: The Gathering client using a Python/FastAPI backend and React/TypeScript frontend.
 
 ## 🏗 Architecture
 

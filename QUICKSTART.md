@@ -1,6 +1,6 @@
 # Quick Start Guide
 
-Get up and running with Magic Workstation in minutes.
+Get up and running with Magic Gamestation in minutes.
 
 ## ⚡ The Fastest Way to Play
 

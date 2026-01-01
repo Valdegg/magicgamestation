@@ -1,5 +1,5 @@
 """
-Backend Server for Magic Workstation (FastAPI)
+Backend Server for Magic Gamestation (FastAPI)
 Handles game state via WebSocket and persistence via Redis.
 """
 
@@ -15,7 +15,7 @@ from card_database import load_card_database, create_deck_for_player, clear_deck
 import card_fetcher
 
 # --- Configuration ---
-app = FastAPI(title="Magic Workstation API")
+app = FastAPI(title="Magic Gamestation API")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],

@@ -611,7 +611,7 @@ const Lobby: React.FC<LobbyProps> = ({ onJoinGame }) => {
               letterSpacing: '0.1em',
             }}
           >
-            MAGIC WORKSTATION
+            MAGIC GAMESTATION
           </h1>
           <div className="flex justify-center gap-2 mb-4">
             {/* White Mana */}
@@ -1019,11 +1019,11 @@ const Lobby: React.FC<LobbyProps> = ({ onJoinGame }) => {
                     
                     {/* Main Deck */}
                     {deckCards.length > 0 && (
-                      <div 
+                    <div 
                         className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 gap-1 p-2 rounded bg-fantasy-dark/30 border border-fantasy-gold/20 overflow-y-auto mb-4"
-                        style={{ maxHeight: '200px' }}
-                      >
-                        {deckCards.map((cardName, i) => {
+                      style={{ maxHeight: '200px' }}
+                    >
+                      {deckCards.map((cardName, i) => {
                         const cardNameLower = cardName.toLowerCase();
                         const isFetching = fetchingCards.has(cardNameLower);
                         const isFetched = fetchedCards.has(cardNameLower);
@@ -1137,7 +1137,7 @@ const Lobby: React.FC<LobbyProps> = ({ onJoinGame }) => {
                           </div>
                         );
                       })}
-                      </div>
+                    </div>
                     )}
                     
                     {/* Sideboard - Separated with vertical space */}
@@ -1254,13 +1254,13 @@ const Lobby: React.FC<LobbyProps> = ({ onJoinGame }) => {
                                 {isFetching && (
                                   <div className="absolute top-0 left-0 bg-black/60 text-fantasy-gold text-xs px-1 rounded-br animate-spin">
                                     ↻
-                                  </div>
-                                )}
+                  </div>
+                )}
                                 {/* Success indicator - show briefly after fetch */}
                                 {isFetched && (
                                   <div className="absolute top-0 right-0 bg-green-500 text-white text-xs px-1 rounded-bl animate-pulse">
                                     ✓
-                                  </div>
+              </div>
                                 )}
                               </div>
                             );
@@ -1468,7 +1468,7 @@ const Lobby: React.FC<LobbyProps> = ({ onJoinGame }) => {
               opacity: 0.7
             }}
           >
-            Magic Workstation is not affiliated with, endorsed, sponsored, or specifically approved by Wizards of the Coast LLC. Magic Workstation may use the trademarks and other intellectual property of Wizards of the Coast LLC, which is permitted under Wizards' Fan Site Policy.
+            Magic Gamestation is not affiliated with, endorsed, sponsored, or specifically approved by Wizards of the Coast LLC. Magic Gamestation may use the trademarks and other intellectual property of Wizards of the Coast LLC, which is permitted under Wizards' Fan Site Policy.
           </p>
           <p 
             className="text-xs"

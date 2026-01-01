@@ -1,7 +1,7 @@
 /**
  * Deck Loader Utilities
  * 
- * Load and parse deck files for the Magic Workstation.
+ * Load and parse deck files for the Magic Gamestation.
  */
 
 export interface DeckList {

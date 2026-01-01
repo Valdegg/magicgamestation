@@ -1,6 +1,6 @@
 # Feature List
 
-Complete documentation of all features in Magic Workstation Clone.
+Complete documentation of all features in Magic Gamestation Clone.
 
 ## Table of Contents
 
@@ -29,6 +29,8 @@ Complete documentation of all features in Magic Workstation Clone.
 - **Delete games** with confirmation dialog
 - **Player name persistence** via localStorage
 - **Game list auto-refresh** every 3 seconds
+- **Lobby chat** - real-time chat in lobby (separate from game chat)
+- **Chat connection status** - shows connection state
 
 ### Game Session Management
 - **URL-based game restoration** - share game links
@@ -54,7 +56,8 @@ Complete documentation of all features in Magic Workstation Clone.
 - **Real-time filtering** - results update as you type
 - **Top 10 suggestions** displayed
 - **Card count specification** - prefix search with numbers (e.g., "4 Lightning Bolt")
-- **Default 4 copies** when no number specified
+- **Default 1 copy** when no number specified
+- **Scryfall autocomplete** - fetches suggestions from Scryfall API for cards not in local database
 
 #### Visual Card Preview
 - **Card image thumbnails** in autocomplete dropdown
@@ -116,7 +119,18 @@ Complete documentation of all features in Magic Workstation Clone.
 4 Lightning Bolt
 4 Counterspell
 20 Mountain
+
+SIDEBOARD:
+2 Wrath of God
+1 Disenchant
 ```
+
+#### Sideboard Support
+- **Sideboard section** - add "SIDEBOARD:" separator in deck list
+- **Visual separation** - sideboard cards shown separately in preview with vertical spacing
+- **JSON format** - saved decks include optional `sideboard` field
+- **Backwards compatible** - decks without sideboard work as before
+- **In-game sideboarding** - modal to move cards between library and sideboard during games
 
 ---
 
@@ -255,10 +269,11 @@ Complete documentation of all features in Magic Workstation Clone.
 - **JSON serialization**: to_dict() / from_dict()
 
 #### Zone Management
-- **Standard zones**: Library, Hand, Battlefield, Graveyard, Exile, Command, Stack
+- **Standard zones**: Library, Hand, Battlefield, Graveyard, Exile, Command, Stack, Sideboard
 - **Zone operations**: add, remove, find, shuffle, top, bottom
 - **Ordered lists**: maintains card order
 - **Zone-specific behavior**: e.g., Library.shuffle()
+- **Sideboard zone** - separate zone for sideboard cards during gameplay
 
 #### Player Management
 - **Player properties**: id, name, life_total, zones
@@ -276,12 +291,16 @@ Complete documentation of all features in Magic Workstation Clone.
 ### Game Actions (Manual)
 
 #### Card Actions
-- Move card between zones
+- Move card between zones (including sideboard)
 - Tap/untap cards
 - Flip face-up/face-down
 - Change controller
 - Shuffle library
 - Draw cards
+- Attach cards (Auras, Equipment)
+- Add/remove counters
+- Create tokens
+- Position cards on battlefield (x, y coordinates)
 
 #### Player Actions
 - Change life total
@@ -293,10 +312,73 @@ Complete documentation of all features in Magic Workstation Clone.
 
 #### Game Actions
 - Start game
-- Next turn
+- Next turn / Set phase manually
+- Phase tracking (Untap, Upkeep, Draw, Main, Combat, End, Cleanup)
 - Reset game
 - Export/import state
 - Multiplayer sync
+- Create dice tokens (d6, d20)
+- Set targeting arrows between cards/players
+- Lobby chat messaging
+
+### In-Game Features
+
+#### Library Management
+- **Search Library Modal** - search and filter library cards
+- **Drag cards** to hand, graveyard, or battlefield
+- **Click actions** - quick buttons to move cards
+- **Visual card grid** - see all library cards at once
+
+#### Sideboard Management
+- **Sideboard Modal** - dedicated interface for sideboarding
+- **Sideboard row** - horizontal scrollable row at top
+- **Library grid** - searchable grid below
+- **Move cards** - click buttons or drag to move between library and sideboard
+- **No hover zoom** - optimized for quick card selection
+
+#### Dice Tokens
+- **Create dice** - d6 and d20 dice tokens
+- **Roll dice** - click to roll and show value
+- **Position on battlefield** - place dice anywhere
+- **Remove dice** - right-click to remove
+- **Per-player dice** - each player has their own dice
+
+#### Targeting System
+- **Targeting arrows** - visual arrows between cards
+- **Card-to-card targeting** - show spell targeting
+- **Player targeting** - target players directly
+- **Clear targeting** - remove all arrows
+
+#### Card Attachments
+- **Attach cards** - attach Auras/Equipment to creatures
+- **Visual stacking** - attached cards appear offset
+- **Unattach** - remove attachments
+- **Multiple attachments** - stack multiple attachments
+
+#### Counters System
+- **Add counters** - any counter type (e.g., +1/+1, -1/-1, loyalty)
+- **Custom counter names** - specify counter type
+- **Increment/decrement** - adjust counter values
+- **Visual display** - counters shown on cards
+
+#### Token Creation
+- **Create tokens** - custom name, power, toughness
+- **Token properties** - stored in card data
+- **Visual distinction** - tokens marked as such
+- **Full functionality** - tokens work like regular cards
+
+#### Phase Tracking
+- **Phase buttons** - click to advance phases
+- **Phase display** - shows current phase
+- **Manual control** - set any phase directly
+- **Turn progression** - automatic turn advancement
+
+#### Chat System
+- **Lobby chat** - chat in the game lobby
+- **Game chat** - in-game chat during matches
+- **Real-time messaging** - WebSocket-based
+- **Connection status** - shows chat connection state
+- **Message history** - persists during session
 
 ---
 
@@ -310,15 +392,17 @@ GET    /api/games           # List all games
 POST   /api/games           # Create game
 POST   /api/games/{id}/join # Join game
 DELETE /api/games/{id}      # Delete game
-POST   /api/decks           # Save deck
+POST   /api/decks           # Save deck (with optional sideboard)
 POST   /api/cards/fetch     # Fetch card from Scryfall
+POST   /api/game/{id}/load-deck # Load deck into game
 ```
 
 #### Request/Response Models (Pydantic)
 - `CreateGameRequest` - game name, player name
 - `JoinGameRequest` - player name
-- `SaveDeckRequest` - deck name, cards list
+- `SaveDeckRequest` - deck name, cards list, optional sideboard list
 - `FetchCardRequest` - card name
+- `LoadDeckRequest` - deck name, optional player ID
 - `ApiResponse` - success, data, error
 
 ### WebSocket Server
@@ -475,14 +559,26 @@ User Action → Frontend Component
 - [x] Game lobby
 - [x] Persistent sessions
 - [x] Redis game state
+- [x] Sideboard support (deck building & in-game)
+- [x] Lobby chat
+- [x] Game chat
+- [x] Dice tokens (d6, d20)
+- [x] Targeting arrows
+- [x] Card attachments
+- [x] Counters system
+- [x] Token creation
+- [x] Phase tracking
+- [x] Library search modal
+- [x] Sideboard modal
 
 ### Potential Enhancements 🚀
 - [ ] Tap/untap animations
-- [ ] Chat system
 - [ ] Deck import from file
 - [ ] Multiple deck slots per player
 - [ ] Game history/replay
 - [ ] Undo/redo actions
+- [ ] Card search/filter in hand/library
+- [ ] Deck statistics (mana curve, color distribution)
 
 ### Known Limitations ⚠️
 - No rules enforcement (by design)
@@ -491,7 +587,6 @@ User Action → Frontend Component
 - Limited to 2 players currently
 - No card legality checking
 - No deck size validation
-- No sideboard support yet
 
 ---
 

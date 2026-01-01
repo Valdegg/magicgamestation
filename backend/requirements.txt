@@ -1,4 +1,4 @@
-# Magic Workstation Backend Dependencies
+# Magic Gamestation Backend Dependencies
 
 # FastAPI Framework
 fastapi>=0.104.0

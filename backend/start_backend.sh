@@ -1,5 +1,5 @@
 #!/bin/bash
-# Start the Magic Workstation backend server (FastAPI)
+# Start the Magic Gamestation backend server (FastAPI)
 
 cd "$(dirname "$0")"
 

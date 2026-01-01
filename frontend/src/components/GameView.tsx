@@ -406,7 +406,7 @@ export default function GameView({ onBackToLobby }: GameViewProps) {
           <div className="absolute inset-0" style={{ borderBottom: '1px solid rgba(212, 179, 107, 0.8)', background: 'linear-gradient(to bottom, rgba(40, 30, 30, 1) 0%, rgba(20, 10, 10, 1) 100%)' }} />
           <div className="relative z-10 flex items-center justify-center gap-4 pb-1">
             <div className="text-xs font-bold tracking-[0.2em] whitespace-nowrap" style={{ color: '#f4d589', fontFamily: "'Cinzel', serif", textShadow: '0 0 10px rgba(212, 179, 107, 0.5), 0 2px 4px rgba(0,0,0,0.8)' }}>
-              MAGIC WORKSTATION
+              MAGIC GAMESTATION
             </div>
           </div>
         </div>

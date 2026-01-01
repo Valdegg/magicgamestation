@@ -1,5 +1,5 @@
 #!/bin/bash
-# Start the Magic Workstation frontend
+# Start the Magic Gamestation frontend
 
 cd "$(dirname "$0")"
 

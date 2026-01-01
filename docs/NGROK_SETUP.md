@@ -1,4 +1,4 @@
-# ngrok Setup Guide for Magic Workstation
+# ngrok Setup Guide for Magic Gamestation
 
 This guide explains how remote play works using ngrok and how to use the automated setup script.
 
