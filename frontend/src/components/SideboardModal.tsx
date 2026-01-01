@@ -4,7 +4,6 @@ import { CardData } from '../types';
 import { useCardDatabase } from '../context/CardDatabaseContext';
 import { getCardImagePaths } from '../utils/cardDatabase';
 import { useGameState } from '../context/GameStateWebSocket';
-import { useCardScale } from '../context/CardScaleContext';
 
 interface SideboardModalProps {
   libraryCards: CardData[];
@@ -106,9 +105,6 @@ const SideboardModal: React.FC<SideboardModalProps> = ({ libraryCards, sideboard
                   return (
                     <motion.div
                       key={card.id}
-                      draggable
-                      onDragStart={(e) => handleDragStart(e, card.id, 'sideboard')}
-                      onDragEnd={handleDragEnd}
                       className="flex-shrink-0 rounded overflow-hidden shadow-lg cursor-grab active:cursor-grabbing relative group"
                       style={{ 
                         width: '120px',
@@ -116,8 +112,13 @@ const SideboardModal: React.FC<SideboardModalProps> = ({ libraryCards, sideboard
                         opacity: draggingCard === card.id ? 0.5 : 1,
                         willChange: 'auto',
                       }}
-                      whileHover={hoverZoomEnabled ? { scale: hoverZoomValue, zIndex: 100, transition: { duration: 0.2, delay: 0.3 } } : undefined}
                     >
+                      <div
+                        draggable
+                        onDragStart={(e: React.DragEvent) => handleDragStart(e, card.id, 'sideboard')}
+                        onDragEnd={handleDragEnd}
+                        className="absolute inset-0"
+                      >
                       <img
                         src={imagePaths[0]}
                         alt={displayName}
@@ -133,6 +134,7 @@ const SideboardModal: React.FC<SideboardModalProps> = ({ libraryCards, sideboard
                         >
                           → Library
                         </button>
+                      </div>
                       </div>
                     </motion.div>
                   );
@@ -183,17 +185,19 @@ const SideboardModal: React.FC<SideboardModalProps> = ({ libraryCards, sideboard
                     return (
                       <motion.div
                         key={card.id}
-                        draggable
-                        onDragStart={(e) => handleDragStart(e, card.id, 'library')}
-                        onDragEnd={handleDragEnd}
                         className="rounded overflow-hidden shadow-lg cursor-grab active:cursor-grabbing relative group"
                         style={{ 
                           aspectRatio: '2.5/3.5',
                           opacity: draggingCard === card.id ? 0.5 : 1,
                           willChange: 'auto',
                         }}
-                        whileHover={hoverZoomEnabled ? { scale: hoverZoomValue, zIndex: 100, transition: { duration: 0.2, delay: 0.3 } } : undefined}
                       >
+                        <div
+                          draggable
+                          onDragStart={(e: React.DragEvent) => handleDragStart(e, card.id, 'library')}
+                          onDragEnd={handleDragEnd}
+                          className="absolute inset-0"
+                        >
                         <img
                           src={imagePaths[0]}
                           alt={displayName}
@@ -209,6 +213,7 @@ const SideboardModal: React.FC<SideboardModalProps> = ({ libraryCards, sideboard
                           >
                             → Sideboard
                           </button>
+                        </div>
                         </div>
                       </motion.div>
                     );

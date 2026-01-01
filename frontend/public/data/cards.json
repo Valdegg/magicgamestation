@@ -6776,5 +6776,32 @@
     "colors": [
       "U"
     ]
+  },
+  "prodigys_prototype": {
+    "id": "prodigys_prototype",
+    "name": "Prodigy's Prototype",
+    "set": "NEO",
+    "set_name": "Kamigawa: Neon Dynasty",
+    "image": "/card_images/prodigys_prototype.jpg",
+    "type": "Artifact \u2014 Vehicle",
+    "mana_cost": "{1}{W}{U}",
+    "cmc": 3.0,
+    "oracle_text": "Whenever one or more Vehicles you control attack, create a 1/1 colorless Pilot creature token with \"This token crews Vehicles as though its power were 2 greater.\"\nCrew 2 (Tap any number of creatures you control with total power 2 or more: This Vehicle becomes an artifact creature until end of turn.)",
+    "colors": [
+      "U",
+      "W"
+    ]
+  },
+  "lotus_bloom": {
+    "id": "lotus_bloom",
+    "name": "Lotus Bloom",
+    "set": "PTSP",
+    "set_name": "Time Spiral Promos",
+    "image": "/card_images/lotus_bloom.jpg",
+    "type": "Artifact",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "Suspend 3\u2014{0} (Rather than cast this card from your hand, pay {0} and exile it with three time counters on it. At the beginning of your upkeep, remove a time counter. When the last is removed, you may cast it without paying its mana cost.)\n{T}, Sacrifice this artifact: Add three mana of any one color.",
+    "colors": []
   }
 }

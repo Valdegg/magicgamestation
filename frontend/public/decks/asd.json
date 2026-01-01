@@ -1,13 +1,9 @@
 {
-  "name": "Asd",
+  "name": "asd",
   "main": [
-    "mana_leak",
-    "mana_leak",
-    "mana_leak",
-    "mana_leak",
-    "yawgmoths_edict",
-    "yawgmoths_edict",
-    "yawgmoths_edict",
-    "yawgmoths_edict"
+    "prodigys_prototype",
+    "lotus_bloom",
+    "lotus_bloom",
+    "lotus_bloom"
   ]
 }

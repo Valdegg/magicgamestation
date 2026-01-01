@@ -4,7 +4,6 @@ import { CardData } from '../types';
 import { useCardDatabase } from '../context/CardDatabaseContext';
 import { getCardImagePaths } from '../utils/cardDatabase';
 import { useGameState } from '../context/GameStateWebSocket';
-import { useCardScale } from '../context/CardScaleContext';
 
 interface SearchLibraryModalProps {
   cards: CardData[];
@@ -114,9 +113,6 @@ const SearchLibraryModal: React.FC<SearchLibraryModalProps> = ({ cards, onClose 
                 return (
                   <motion.div
                     key={card.id}
-                    draggable
-                    onDragStart={(e) => handleDragStart(e, card.id)}
-                    onDragEnd={handleDragEnd}
                     className="rounded overflow-hidden shadow-lg cursor-grab active:cursor-grabbing relative"
                     style={{ 
                       aspectRatio: '2.5/3.5',
@@ -124,8 +120,13 @@ const SearchLibraryModal: React.FC<SearchLibraryModalProps> = ({ cards, onClose 
                       // Prevent GPU compositing blur
                       willChange: 'auto',
                     }}
-                    whileHover={hoverZoomEnabled ? { scale: hoverZoomValue, zIndex: 100, transition: { duration: 0.2, delay: 0.3 } } : undefined}
                   >
+                    <div
+                      draggable
+                      onDragStart={(e: React.DragEvent) => handleDragStart(e, card.id)}
+                      onDragEnd={handleDragEnd}
+                      className="absolute inset-0"
+                    >
                     <img
                       src={imagePaths[0]}
                       alt={displayName}
@@ -156,6 +157,7 @@ const SearchLibraryModal: React.FC<SearchLibraryModalProps> = ({ cards, onClose 
                       >
                         → Battlefield
                       </button>
+                    </div>
                     </div>
                   </motion.div>
                 );

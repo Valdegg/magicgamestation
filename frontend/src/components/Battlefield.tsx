@@ -4,14 +4,13 @@ import ContextMenu from './ContextMenu';
 import DiceToken from './DiceToken';
 import { CardData } from '../types';
 import { useGameState } from '../context/GameStateWebSocket';
-import { API_BASE } from '../api/gameApi';
 
 interface BattlefieldProps {
   cards: CardData[];
 }
 
 const Battlefield: React.FC<BattlefieldProps> = ({ cards }) => {
-  const { tapCard, moveCard, updateCardPosition, toggleFaceDown, gameId, playerId, attachCard, unattachCard, addCounter, createDie, diceTokens } = useGameState();
+  const { tapCard, moveCard, toggleFaceDown, playerId, attachCard, unattachCard, addCounter, createDie, diceTokens } = useGameState();
   const [contextMenu, setContextMenu] = useState<{
     x: number;
     y: number;
@@ -238,32 +237,23 @@ const Battlefield: React.FC<BattlefieldProps> = ({ cards }) => {
     }
 
     // Check if dropped on exile
+    // Exile zone removed - cards are now shown in graveyard face down
+    // This check is kept for backwards compatibility but won't trigger
     const exileElement = document.getElementById('exile-zone');
     if (exileElement) {
       const exileRect = exileElement.getBoundingClientRect();
-      
-      // Check if dropped on exile or if the element at drop point is inside exile
       const isOnExile = (dropX >= exileRect.left && dropX <= exileRect.right && dropY >= exileRect.top && dropY <= exileRect.bottom) ||
                         exileElement.contains(elementAtPoint);
       
-      // Exile zone removed - cards are now shown in graveyard face down
-      // This check is kept for backwards compatibility but won't trigger
-      const exileElement = document.getElementById('exile-zone');
-      if (exileElement) {
-        const exileRect = exileElement.getBoundingClientRect();
-        const isOnExile = (dropX >= exileRect.left && dropX <= exileRect.right && dropY >= exileRect.top && dropY <= exileRect.bottom) ||
-                          exileElement.contains(elementAtPoint);
-        
-        if (isOnExile) {
-          console.log('✅ Dropped', cardIdsToMove.length, 'card(s) to exile (graveyard + face down)!');
-          cardIdsToMove.forEach(cardId => {
-            moveCard(cardId, 'graveyard');
-            toggleFaceDown(cardId);
-          });
-          setDraggedCard(null);
-          setSelectedCards(new Set());
-          return;
-        }
+      if (isOnExile) {
+        console.log('✅ Dropped', cardIdsToMove.length, 'card(s) to exile (graveyard + face down)!');
+        cardIdsToMove.forEach(cardId => {
+          moveCard(cardId, 'graveyard');
+          toggleFaceDown(cardId);
+        });
+        setDraggedCard(null);
+        setSelectedCards(new Set());
+        return;
       }
     }
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useGameState } from '../context/GameStateWebSocket';
 
 interface DiceTokenProps {
@@ -12,11 +12,10 @@ interface DiceTokenProps {
   isRolling?: boolean;
 }
 
-const DiceToken: React.FC<DiceTokenProps> = ({ id, x, y, value, ownerPlayerId, dieType, isRolling: initialRolling }) => {
+const DiceToken: React.FC<DiceTokenProps> = ({ id, x, y, value, ownerPlayerId, isRolling: initialRolling }) => {
   const { playerId, removeDie, moveDie } = useGameState();
   const [isRolling, setIsRolling] = useState(initialRolling || false);
   const [displayValue, setDisplayValue] = useState<number | null>(value);
-  const [isDragging, setIsDragging] = useState(false);
   const [showRemoveButton, setShowRemoveButton] = useState(false);
   const [contextMenu, setContextMenu] = useState<{ x: number; y: number } | null>(null);
 
@@ -83,9 +82,6 @@ const DiceToken: React.FC<DiceTokenProps> = ({ id, x, y, value, ownerPlayerId, d
   return (
     <>
       <motion.div
-        draggable={isOwned}
-        onDragStart={handleDragStart}
-        onDragEnd={handleDragEnd}
         onContextMenu={handleContextMenu}
         onMouseEnter={() => setShowRemoveButton(true)}
         onMouseLeave={() => setShowRemoveButton(false)}
@@ -109,6 +105,9 @@ const DiceToken: React.FC<DiceTokenProps> = ({ id, x, y, value, ownerPlayerId, d
         whileHover={{ scale: 1.1 }}
       >
         <div
+          draggable={isOwned}
+          onDragStart={handleDragStart}
+          onDragEnd={handleDragEnd}
           className="relative w-16 h-16"
           style={{
             perspective: '1000px',

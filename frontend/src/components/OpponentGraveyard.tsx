@@ -15,7 +15,7 @@ const OpponentGraveyard: React.FC<OpponentGraveyardProps> = ({ cards, opponentNa
   const { cardScale, hoverZoomValue } = useCardScale();
   const hoverZoomEnabled = hoverZoomValue > 1.0;
   const [showExpanded, setShowExpanded] = useState(false);
-  const [draggingCardId, setDraggingCardId] = useState<string | null>(null);
+  const [draggingCardId] = useState<string | null>(null);
 
   // Handle ESC key to close expanded modal
   useEffect(() => {

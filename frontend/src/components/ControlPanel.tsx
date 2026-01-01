@@ -1,13 +1,12 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useGameState } from '../context/GameStateWebSocket';
-import { API_BASE } from '../api/gameApi';
 import DeckSelector from './DeckSelector';
 import SearchLibraryModal from './SearchLibraryModal';
 import SideboardModal from './SideboardModal';
 
 const ControlPanel: React.FC = () => {
-  const { player, cards, changeLife, drawCard, shuffleLibrary, mulligan, libraryCount, playerId, activePlayerId, gameId, moveCard, createToken, toggleFaceDown } = useGameState();
+  const { player, cards, changeLife, drawCard, shuffleLibrary, mulligan, libraryCount, playerId, activePlayerId, moveCard, createToken, toggleFaceDown } = useGameState();
   const isMyTurn = playerId === activePlayerId;
   const [editingLife, setEditingLife] = useState(false);
   const [lifeInput, setLifeInput] = useState(player.life.toString());
@@ -190,19 +189,6 @@ const ControlPanel: React.FC = () => {
             >
               <motion.div
                 className="relative w-16 h-16 mx-auto cursor-grab active:cursor-grabbing"
-                draggable
-                onDragStart={(e: React.DragEvent) => {
-                  // Prevent drag if clicking on buttons
-                  const target = e.target as HTMLElement;
-                  if (target.closest('.life-button')) {
-                    e.preventDefault();
-                    return;
-                  }
-                  console.log('🎲 Life die drag started');
-                  e.dataTransfer.setData('dragType', 'lifeDie');
-                  e.dataTransfer.setData('dieType', 'd20');
-                  e.dataTransfer.effectAllowed = 'move';
-                }}
                 whileHover={{ scale: 1.05, rotate: 3 }}
                 whileTap={{ scale: 0.95 }}
                 style={{ 
@@ -210,6 +196,22 @@ const ControlPanel: React.FC = () => {
                   filter: 'drop-shadow(0 3px 8px rgba(185, 28, 28, 0.3))',
                 }}
               >
+                <div
+                  draggable
+                  onDragStart={(e: React.DragEvent) => {
+                    // Prevent drag if clicking on buttons
+                    const target = e.target as HTMLElement;
+                    if (target.closest('.life-button')) {
+                      e.preventDefault();
+                      return;
+                    }
+                    console.log('🎲 Life die drag started');
+                    e.dataTransfer.setData('dragType', 'lifeDie');
+                    e.dataTransfer.setData('dieType', 'd20');
+                    e.dataTransfer.effectAllowed = 'move';
+                  }}
+                  className="absolute inset-0"
+                >
                 {/* 3D D20 Dice - Subtle translucent */}
                 <div 
                   className="w-full h-full flex items-center justify-center relative"
@@ -317,6 +319,7 @@ const ControlPanel: React.FC = () => {
                     }}
                   />
                 </div>
+                </div>
               </motion.div>
             </div>
           )}
@@ -344,25 +347,33 @@ const ControlPanel: React.FC = () => {
             onDragOver={handleLibraryDragOver}
             onDragLeave={handleLibraryDragLeave}
             onDrop={handleLibraryDrop}
-            draggable={libraryCount > 0}
-            onDragStart={(e) => {
-              if (libraryCards.length > 0) {
-                // Get the top card (last in array, as library is typically LIFO)
-                const topCard = libraryCards[libraryCards.length - 1];
-                console.log('📚 Drag started from library:', topCard.id);
-                setDraggingLibraryCard(topCard.id);
-                e.dataTransfer.setData('cardId', topCard.id);
-                e.dataTransfer.setData('sourceZone', 'library');
-                e.dataTransfer.effectAllowed = 'move';
-              } else {
-                e.preventDefault();
-              }
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            style={{
+              opacity: libraryCount === 0 ? 0.3 : 1,
+              cursor: libraryCount > 0 ? 'grab' : 'pointer',
             }}
-            onDragEnd={(e) => {
-              if (!draggingLibraryCard) return;
-              
-              const dropX = e.clientX;
-              const dropY = e.clientY;
+          >
+            <div
+              draggable={libraryCount > 0}
+              onDragStart={(e: React.DragEvent) => {
+                if (libraryCards.length > 0) {
+                  // Get the top card (last in array, as library is typically LIFO)
+                  const topCard = libraryCards[libraryCards.length - 1];
+                  console.log('📚 Drag started from library:', topCard.id);
+                  setDraggingLibraryCard(topCard.id);
+                  e.dataTransfer.setData('cardId', topCard.id);
+                  e.dataTransfer.setData('sourceZone', 'library');
+                  e.dataTransfer.effectAllowed = 'move';
+                } else {
+                  e.preventDefault();
+                }
+              }}
+              onDragEnd={(e: React.DragEvent) => {
+                if (!draggingLibraryCard) return;
+                
+                const dropX = e.clientX;
+                const dropY = e.clientY;
               
               // Check if dropped on hand
               const handElement = document.getElementById('hand-zone') || document.getElementById('hand-drop-area');
@@ -438,14 +449,9 @@ const ControlPanel: React.FC = () => {
               // If dropped nowhere valid, cancel the drag
               console.log('❌ Library card drag cancelled - not dropped on valid zone');
               setDraggingLibraryCard(null);
-            }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            style={{
-              opacity: libraryCount === 0 ? 0.3 : 1,
-              cursor: libraryCount > 0 ? 'grab' : 'pointer',
-            }}
-          >
+              }}
+              className="absolute inset-0"
+            >
             {/* Card back image */}
             <div 
               className="absolute inset-0 fantasy-border rounded-lg overflow-hidden shadow-xl transition-all"
@@ -524,6 +530,7 @@ const ControlPanel: React.FC = () => {
                 </span>
               </div>
             )}
+            </div>
           </motion.div>
         </div>
 

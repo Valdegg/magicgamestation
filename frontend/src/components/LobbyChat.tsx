@@ -29,7 +29,7 @@ export const LobbyChat: React.FC<LobbyChatProps> = ({ userName }) => {
 
   // WebSocket connection for lobby chat
   useEffect(() => {
-    let reconnectTimeout: NodeJS.Timeout | null = null;
+    let reconnectTimeout: ReturnType<typeof setTimeout> | null = null;
     let isMounted = true;
     
     const connect = () => {
