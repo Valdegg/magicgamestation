@@ -1,0 +1,261 @@
+{
+  "timestamp": "20250930_203506",
+  "summary": {
+    "total_analyzed": 5,
+    "excellent_deals": 2,
+    "good_deals": 0,
+    "expensive_deals": 2,
+    "no_data": 1
+  },
+  "excellent_deals": [
+    {
+      "rank": 1,
+      "card_name": "Mana Vault",
+      "expansion": "Alpha",
+      "card_id": 5493,
+      "historical_data": {
+        "avg7": 1685.43,
+        "avg30": 788.4,
+        "trend": 1908.35,
+        "real_discount": 0.5868682369586291
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 1099.99,
+        "average_current": 1912.8939999999998,
+        "cheapest_good_condition": 1589.0,
+        "cheapest_good_condition_details": {
+          "price": 1589.0,
+          "condition": "EX",
+          "seller": "Leschelmis",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -5.721388607061703,
+        "good_condition_vs_trend_pct": -16.734351665050955,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Mana-Vault"
+      }
+    },
+    {
+      "rank": 5,
+      "card_name": "Erratic Portal",
+      "expansion": "Exodus",
+      "card_id": 9360,
+      "historical_data": {
+        "avg7": 1.79,
+        "avg30": 1.53,
+        "trend": 2.06,
+        "real_discount": 0.25728155339805825
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 0.2,
+        "average_current": 0.41999999999999993,
+        "cheapest_good_condition": 0.55,
+        "cheapest_good_condition_details": {
+          "price": 0.55,
+          "condition": "EX",
+          "seller": "Myrmyrmyr",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -69.27374301675977,
+        "good_condition_vs_trend_pct": -73.30097087378641,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Erratic-Portal"
+      }
+    }
+  ],
+  "good_deals": [],
+  "expensive_deals": [
+    {
+      "rank": 2,
+      "card_name": "Wrath of God",
+      "expansion": "Alpha",
+      "card_id": 5462,
+      "historical_data": {
+        "avg7": 1632.4,
+        "avg30": 770.63,
+        "trend": 1796.02,
+        "real_discount": 0.57092348637543
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 1150.0,
+        "average_current": 2101.597,
+        "cheapest_good_condition": 3899.99,
+        "cheapest_good_condition_details": {
+          "price": 3899.99,
+          "condition": "EX",
+          "seller": "Zlopotom",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 138.91141876990932,
+        "good_condition_vs_trend_pct": 117.1462455874656,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Wrath-Of-God"
+      }
+    },
+    {
+      "rank": 3,
+      "card_name": "Winter Orb",
+      "expansion": "Alpha",
+      "card_id": 5508,
+      "historical_data": {
+        "avg7": 1231.13,
+        "avg30": 598.36,
+        "trend": 1227.0,
+        "real_discount": 0.5123390383048084
+      },
+      "live_data": {
+        "total_listings": 9,
+        "cheapest_current": 900.0,
+        "average_current": 1728.8877777777777,
+        "cheapest_good_condition": 2000.0,
+        "cheapest_good_condition_details": {
+          "price": 2000.0,
+          "condition": "NM",
+          "seller": "kappe17",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 62.45238114577663,
+        "good_condition_vs_trend_pct": 62.999185004074974,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Winter-Orb"
+      }
+    }
+  ],
+  "no_data": [
+    {
+      "rank": 4,
+      "card_name": "Jester's Cap",
+      "expansion": "Ice Age",
+      "card_id": 6511,
+      "historical_data": {
+        "avg7": 3.9,
+        "avg30": 2.9,
+        "trend": 3.93,
+        "real_discount": 0.262086513994911
+      },
+      "live_data": null
+    }
+  ],
+  "all_results": [
+    {
+      "rank": 1,
+      "card_name": "Mana Vault",
+      "expansion": "Alpha",
+      "card_id": 5493,
+      "historical_data": {
+        "avg7": 1685.43,
+        "avg30": 788.4,
+        "trend": 1908.35,
+        "real_discount": 0.5868682369586291
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 1099.99,
+        "average_current": 1912.8939999999998,
+        "cheapest_good_condition": 1589.0,
+        "cheapest_good_condition_details": {
+          "price": 1589.0,
+          "condition": "EX",
+          "seller": "Leschelmis",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -5.721388607061703,
+        "good_condition_vs_trend_pct": -16.734351665050955,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Mana-Vault"
+      }
+    },
+    {
+      "rank": 2,
+      "card_name": "Wrath of God",
+      "expansion": "Alpha",
+      "card_id": 5462,
+      "historical_data": {
+        "avg7": 1632.4,
+        "avg30": 770.63,
+        "trend": 1796.02,
+        "real_discount": 0.57092348637543
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 1150.0,
+        "average_current": 2101.597,
+        "cheapest_good_condition": 3899.99,
+        "cheapest_good_condition_details": {
+          "price": 3899.99,
+          "condition": "EX",
+          "seller": "Zlopotom",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 138.91141876990932,
+        "good_condition_vs_trend_pct": 117.1462455874656,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Wrath-Of-God"
+      }
+    },
+    {
+      "rank": 3,
+      "card_name": "Winter Orb",
+      "expansion": "Alpha",
+      "card_id": 5508,
+      "historical_data": {
+        "avg7": 1231.13,
+        "avg30": 598.36,
+        "trend": 1227.0,
+        "real_discount": 0.5123390383048084
+      },
+      "live_data": {
+        "total_listings": 9,
+        "cheapest_current": 900.0,
+        "average_current": 1728.8877777777777,
+        "cheapest_good_condition": 2000.0,
+        "cheapest_good_condition_details": {
+          "price": 2000.0,
+          "condition": "NM",
+          "seller": "kappe17",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 62.45238114577663,
+        "good_condition_vs_trend_pct": 62.999185004074974,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Winter-Orb"
+      }
+    },
+    {
+      "rank": 4,
+      "card_name": "Jester's Cap",
+      "expansion": "Ice Age",
+      "card_id": 6511,
+      "historical_data": {
+        "avg7": 3.9,
+        "avg30": 2.9,
+        "trend": 3.93,
+        "real_discount": 0.262086513994911
+      },
+      "live_data": null
+    },
+    {
+      "rank": 5,
+      "card_name": "Erratic Portal",
+      "expansion": "Exodus",
+      "card_id": 9360,
+      "historical_data": {
+        "avg7": 1.79,
+        "avg30": 1.53,
+        "trend": 2.06,
+        "real_discount": 0.25728155339805825
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 0.2,
+        "average_current": 0.41999999999999993,
+        "cheapest_good_condition": 0.55,
+        "cheapest_good_condition_details": {
+          "price": 0.55,
+          "condition": "EX",
+          "seller": "Myrmyrmyr",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -69.27374301675977,
+        "good_condition_vs_trend_pct": -73.30097087378641,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Erratic-Portal"
+      }
+    }
+  ]
+}

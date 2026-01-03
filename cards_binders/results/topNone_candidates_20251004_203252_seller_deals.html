@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTG Arbitrage - Seller Deals</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh; padding: 20px; color: #333;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header {
+            background: white; border-radius: 16px; padding: 30px; margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        h1 { font-size: 2.5em; color: #2d3748; margin-bottom: 10px; }
+        .stats { display: flex; gap: 30px; margin-top: 20px; flex-wrap: wrap; }
+        .stat {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; padding: 15px 25px; border-radius: 12px; font-size: 0.9em;
+        }
+        .stat-number { font-size: 2em; font-weight: bold; display: block; }
+        .seller-card {
+            background: white; border-radius: 16px; padding: 25px; margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .seller-card:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.12); }
+        .seller-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e2e8f0;
+        }
+        .seller-name { font-size: 1.5em; font-weight: bold; color: #2d3748; }
+        .seller-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; padding: 8px 16px; border-radius: 20px;
+            font-size: 0.9em; font-weight: 600;
+        }
+        .seller-link {
+            display: inline-block; margin-top: 10px; color: #667eea;
+            text-decoration: none; font-size: 0.9em;
+        }
+        .seller-link:hover { text-decoration: underline; }
+        .deals { display: grid; gap: 15px; }
+        .deal { background: #f7fafc; border-radius: 12px; padding: 20px; border-left: 4px solid #667eea; }
+        .deal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .card-name { font-size: 1.2em; font-weight: 600; color: #2d3748; }
+        .discount-badge {
+            background: #48bb78; color: white; padding: 6px 12px;
+            border-radius: 8px; font-weight: 600; font-size: 0.9em;
+        }
+        .deal-info { display: flex; gap: 20px; margin-bottom: 12px; font-size: 0.95em; color: #4a5568; }
+        .deal-links { display: flex; gap: 10px; flex-wrap: wrap; }
+        .btn {
+            display: inline-block; padding: 8px 16px; border-radius: 8px;
+            text-decoration: none; font-size: 0.85em; font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn-cardmarket { background: #3182ce; color: white; }
+        .btn-cardmarket:hover { background: #2c5282; }
+        .btn-mtgstocks { background: #ed8936; color: white; }
+        .btn-mtgstocks:hover { background: #c05621; }
+        .condition {
+            background: #edf2f7; padding: 4px 10px; border-radius: 6px;
+            font-size: 0.85em; font-weight: 600; color: #4a5568;
+        }
+        .category-badge {
+            padding: 4px 10px; border-radius: 6px;
+            font-size: 0.75em; font-weight: 700; text-transform: uppercase;
+            margin-left: 10px; display: inline-block;
+        }
+        .category-excellent { background: #48bb78; color: white; }
+        .category-good { background: #4299e1; color: white; }
+        .category-expensive { background: #fc8181; color: white; }
+        .category-no_data { background: #a0aec0; color: white; }
+        footer { text-align: center; color: white; margin-top: 40px; padding: 20px; font-size: 0.9em; }
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8em; }
+            .stats { gap: 15px; }
+            .deal-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 MTG Arbitrage - Seller Deals</h1>
+            <p style="color: #718096; margin-top: 10px;">
+                Showing deals ≥5.0% below median of top 3 prices
+            </p>
+            <div class="stats">
+                <div class="stat"><span class="stat-number">20</span>Sellers</div>
+                <div class="stat"><span class="stat-number">25</span>Total Deals</div>
+                <div class="stat"><span class="stat-number">4</span>Multi-Deal Sellers</div>
+            </div>
+        </header>
+        <div class="sellers">
+
+            <div class="seller-card">
+                <div class="seller-header">
+                    <div>
+                        <div class="seller-name">ThreeForOne-AT</div>
+                        <a href="https://www.cardmarket.com/en/Magic/Users/ThreeForOne-AT" target="_blank" class="seller-link">👤 View Profile on CardMarket →</a>
+                    </div>
+                    <div class="seller-badge">
+                        3 deals • €315.00 total • 14.4% avg discount
+                    </div>
+                </div>
+                <div class="deals">
+
+                    <div class="deal">
+                        <div class="deal-header">
+                            <div>
+                                <span class="card-name">Conversion</span>
+                                <span class="category-badge category-excellent-deals">🔥 Excellent Deal</span>
+                            </div>
+                            <div class="discount-badge">-21.1%</div>
+                        </div>
+                        <div class="deal-info">
+                            <div><strong>Price:</strong> €30.00</div>
+                            <div><strong>Median:</strong> €38.00</div>
+                            <div class="condition">EX</div>
+                        </div>
+                        <div class="deal-links">
+                            <a href="https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Conversion?language=1&minCondition=3" target="_blank" class="btn btn-cardmarket">📊 View on CardMarket</a>
+                            <a href="https://www.google.com/search?btnI=1&q=Conversion%20Alpha%20site%3Amtgstocks.com" target="_blank" class="btn btn-mtgstocks">📈 Price History (MTGStocks)</a>
+                        </div>
+                    </div>
+
+                    <div class="deal">
+                        <div class="deal-header">
+                            <div>
+                                <span class="card-name">Island Sanctuary</span>
+                                <span class="category-badge category-excellent-deals">🔥 Excellent Deal</span>
+                            </div>
+                            <div class="discount-badge">-12.0%</div>
+                        </div>
+                        <div class="deal-info">
+                            <div><strong>Price:</strong> €110.00</div>
+                            <div><strong>Median:</strong> €125.00</div>
+                            <div class="condition">EX</div>
+                        </div>
+                        <div class="deal-links">
+                            <a href="https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Island-Sanctuary?language=1&minCondition=3" target="_blank" class="btn btn-cardmarket">📊 View on CardMarket</a>
+                            <a href="https://www.google.com/search?btnI=1&q=Island%20Sanctuary%20Beta%20site%3Amtgstocks.com" target="_blank" class="btn btn-mtgstocks">📈 Price History (MTGStocks)</a>
+                        </div>
+                    </div>
+
+                    <div class="deal">
+                        <div class="deal-header">
+                            <div>
+                                <span class="card-name">Orcish Oriflamme</span>
+                                <span class="category-badge category-excellent-deals">🔥 Excellent Deal</span>
+                            </div>
+                            <div class="discount-badge">-10.3%</div>
+                        </div>
+                        <div class="deal-info">
+                            <div><strong>Price:</strong> €175.00</div>
+                            <div><strong>Median:</strong> €195.00</div>
+                            <div class="condition">EX</div>
+                        </div>
+                        <div class="deal-links">
+                            <a href="https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Orcish-Oriflamme?language=1&minCondition=3" target="_blank" class="btn btn-cardmarket">📊 View on CardMarket</a>
+                            <a href="https://www.google.com/search?btnI=1&q=Orcish%20Oriflamme%20Alpha%20site%3Amtgstocks.com" target="_blank" class="btn btn-mtgstocks">📈 Price History (MTGStocks)</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="seller-card">
+                <div class="seller-header">
+                    <div>
+                        <div class="seller-name">Tuardian</div>
+                        <a href="https://www.cardmarket.com/en/Magic/Users/Tuardian" target="_blank" class="seller-link">👤 View Profile on CardMarket →</a>
+                    </div>
+                    <div class="seller-badge">
+                        2 deals • €572.00 total • 6.7% avg discount
+                    </div>
+                </div>
+                <div class="deals">
+
+                    <div class="deal">
+                        <div class="deal-header">
+                            <div>
+                                <span class="card-name">Manabarbs</span>
+                                <span class="category-badge category-good-deals">✓ Good Deal</span>
+                            </div>
+                            <div class="discount-badge">-7.7%</div>
+                        </div>
+                        <div class="deal-info">
+                            <div><strong>Price:</strong> €360.00</div>
+                            <div><strong>Median:</strong> €390.00</div>
+                            <div class="condition">EX</div>
+                        </div>
+                        <div class="deal-links">
+                            <a href="https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Manabarbs?language=1&minCondition=3" target="_blank" class="btn btn-cardmarket">📊 View on CardMarket</a>
+                            <a href="https://www.google.com/search?btnI=1&q=Manabarbs%20Alpha%20site%3Amtgstocks.com" target="_blank" class="btn btn-mtgstocks">📈 Price History (MTGStocks)</a>
+                        </div>
+                    </div>
+
+                    <div class="deal">
+                        <div class="deal-header">
+                            <div>
+                                <span class="card-name">Goblin Balloon Brigade</span>
+                                <span class="category-badge category-expensive-deals">⚠️ Expensive</span>
+                            </div>
+                            <div class="discount-badge">-5.6%</div>
+                        </div>
+                        <div class="deal-info">
+                            <div><strong>Price:</strong> €212.00</div>
+                            <div><strong>Median:</strong> €224.65</div>
+                            <div class="condition">EX</div>
+                        </div>
+                        <div class="deal-links">
+                            <a href="https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Goblin-Balloon-Brigade?language=1&minCondition=3" target="_blank" class="btn btn-cardmarket">📊 View on CardMarket</a>
+                            <a href="https://www.google.com/search?btnI=1&q=Goblin%20Balloon%20Brigade%20Alpha%20site%3Amtgstocks.com" target="_blank" class="btn btn-mtgstocks">📈 Price History (MTGStocks)</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="seller-card">
+                <div class="seller-header">
+                    <div>
+                        <div class="seller-name">Magic-Dreams</div>
+                        <a href="https://www.cardmarket.com/en/Magic/Users/Magic-Dreams" target="_blank" class="seller-link">👤 View Profile on CardMarket →</a>
+                    </div>
+                    <div class="seller-badge">
+                        2 deals • €445.00 total • 26.2% avg discount
+                    </div>
+                </div>
+                <div class="deals">
+
+                    <div class="deal">
+                        <div class="deal-header">
+                            <div>
+                                <span class="card-name">Reverse Damage</span>
+                                <span class="category-badge category-excellent-deals">🔥 Excellent Deal</span>
+                            </div>
+                            <div class="discount-badge">-41.7%</div>
+                        </div>
+                        <div class="deal-info">
+                            <div><strong>Price:</strong> €350.00</div>
+                            <div><strong>Median:</strong> €600.00</div>
+                            <div class="condition">EX</div>
+                        </div>
+                        <div class="deal-links">
+                            <a href="https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Reverse-Damage?language=1&minCondition=3" target="_blank" class="btn btn-cardmarket">📊 View on CardMarket</a>
+                            <a href="https://www.google.com/search?btnI=1&q=Reverse%20Damage%20Alpha%20site%3Amtgstocks.com" target="_blank" class="btn btn-mtgstocks">📈 Price History (MTGStocks)</a>
+                        </div>
+                    </div>
+
+                    <div class="deal">
+                        <div class="deal-header">
+                            <div>
+                                <span class="card-name">Sinkhole</span>
+                                <span class="category-badge category-good-deals">✓ Good Deal</span>
+                            </div>
+                            <div class="discount-badge">-10.7%</div>
+                        </div>
+                        <div class="deal-info">
+                            <div><strong>Price:</strong> €95.00</div>
+                            <div><strong>Median:</strong> €106.42</div>
+                            <div class="condition">EX</div>
+                        </div>
+                        <div class="deal-links">
+                            <a href="https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Sinkhole?language=1&minCondition=3" target="_blank" class="btn btn-cardmarket">📊 View on CardMarket</a>
+                            <a href="https://www.google.com/search?btnI=1&q=Sinkhole%20Alpha%20site%3Amtgstocks.com" target="_blank" class="btn btn-mtgstocks">📈 Price History (MTGStocks)</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="seller-card">
+                <div class="seller-header">
+                    <div>
+                        <div class="seller-name">GrimSky</div>
+                        <a href="https://www.cardmarket.com/en/Magic/Users/GrimSky" target="_blank" class="seller-link">👤 View Profile on CardMarket →</a>
+                    </div>
+                    <div class="seller-badge">
+                        2 deals • €438.00 total • 36.3% avg discount
+                    </div>
+                </div>
+                <div class="deals">
+
+                    <div class="deal">
+                        <div class="deal-header">
+                            <div>
+                                <span class="card-name">Kormus Bell</span>
+                                <span class="category-badge category-expensive-deals">⚠️ Expensive</span>
+                            </div>
+                            <div class="discount-badge">-37.7%</div>
+                        </div>
+                        <div class="deal-info">
+                            <div><strong>Price:</strong> €399.00</div>
+                            <div><strong>Median:</strong> €640.00</div>
+                            <div class="condition">NM</div>
+                        </div>
+                        <div class="deal-links">
+                            <a href="https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Kormus-Bell?language=1&minCondition=3" target="_blank" class="btn btn-cardmarket">📊 View on CardMarket</a>
+                            <a href="https://www.google.com/search?btnI=1&q=Kormus%20Bell%20Alpha%20site%3Amtgstocks.com" target="_blank" class="btn btn-mtgstocks">📈 Price History (MTGStocks)</a>
+                        </div>
+                    </div>
+
+                    <div class="deal">
+                        <div class="deal-header">
+                            <div>
+                                <span class="card-name">Scavenging Ghoul</span>
+                                <span class="category-badge category-excellent-deals">🔥 Excellent Deal</span>
+                            </div>
+                            <div class="discount-badge">-35.0%</div>
+                        </div>
+                        <div class="deal-info">
+                            <div><strong>Price:</strong> €39.00</div>
+                            <div><strong>Median:</strong> €60.00</div>
+                            <div class="condition">EX</div>
+                        </div>
+                        <div class="deal-links">
+                            <a href="https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Scavenging-Ghoul?language=1&minCondition=3" target="_blank" class="btn btn-cardmarket">📊 View on CardMarket</a>
+                            <a href="https://www.google.com/search?btnI=1&q=Scavenging%20Ghoul%20Alpha%20site%3Amtgstocks.com" target="_blank" class="btn btn-mtgstocks">📈 Price History (MTGStocks)</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="seller-card">
+                <div class="seller-header">
+                    <div>
+                        <div class="seller-name">phigue0</div>
+                        <a href="https://www.cardmarket.com/en/Magic/Users/phigue0" target="_blank" class="seller-link">👤 View Profile on CardMarket →</a>
+                    </div>
+                    <div class="seller-badge">
+                        1 deal • €439.99 total • 11.8% avg discount
+                    </div>
+                </div>
+                <div class="deals">
+
+                    <div class="deal">
+                        <div class="deal-header">
+                            <div>
+                                <span class="card-name">Dingus Egg</span>
+                                <span class="category-badge category-good-deals">✓ Good Deal</span>
+                            </div>
+                            <div class="discount-badge">-11.8%</div>
+                        </div>
+                        <div class="deal-info">
+                            <div><strong>Price:</strong> €439.99</div>
+                            <div><strong>Median:</strong> €499.00</div>
+                            <div class="condition">EX</div>
+                        </div>
+                        <div class="deal-links">
+                            <a href="https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Dingus-Egg?language=1&minCondition=3" target="_blank" class="btn btn-cardmarket">📊 View on CardMarket</a>
+                            <a href="https://www.google.com/search?btnI=1&q=Dingus%20Egg%20Alpha%20site%3Amtgstocks.com" target="_blank" class="btn btn-mtgstocks">📈 Price History (MTGStocks)</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="seller-card">
+                <div class="seller-header">
+                    <div>
+                        <div class="seller-name">webuyanycard</div>
+                        <a href="https://www.cardmarket.com/en/Magic/Users/webuyanycard" target="_blank" class="seller-link">👤 View Profile on CardMarket →</a>
+                    </div>
+                    <div class="seller-badge">
+                        1 deal • €70.95 total • 18.9% avg discount
+                    </div>
+                </div>
+                <div class="deals">
+
+                    <div class="deal">
+                        <div class="deal-header">
+                            <div>
+                                <span class="card-name">Drain Power</span>
+                                <span class="category-badge category-excellent-deals">🔥 Excellent Deal</span>
+                            </div>
+                            <div class="discount-badge">-18.9%</div>
+                        </div>
+                        <div class="deal-info">
+                            <div><strong>Price:</strong> €70.95</div>
+                            <div><strong>Median:</strong> €87.50</div>
+                            <div class="condition">EX</div>
+                        </div>
+                        <div class="deal-links">
+                            <a href="https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Drain-Power?language=1&minCondition=3" target="_blank" class="btn btn-cardmarket">📊 View on CardMarket</a>
+                            <a href="https://www.google.com/search?btnI=1&q=Drain%20Power%20Beta%20site%3Amtgstocks.com" target="_blank" class="btn btn-mtgstocks">📈 Price History (MTGStocks)</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="seller-card">
+                <div class="seller-header">
+                    <div>
+                        <div class="seller-name">ABU-Best-Offer</div>
+                        <a href="https://www.cardmarket.com/en/Magic/Users/ABU-Best-Offer" target="_blank" class="seller-link">👤 View Profile on CardMarket →</a>
+                    </div>
+                    <div class="seller-badge">
+                        1 deal • €76.00 total • 15.5% avg discount
+                    </div>
+                </div>
+                <div class="deals">
+
+                    <div class="deal">
+                        <div class="deal-header">
+                            <div>
+                                <span class="card-name">Power Surge</span>
+                                <span class="category-badge category-excellent-deals">🔥 Excellent Deal</span>
+                            </div>
+                            <div class="discount-badge">-15.5%</div>
+                        </div>
+                        <div class="deal-info">
+                            <div><strong>Price:</strong> €76.00</div>
+                            <div><strong>Median:</strong> €89.99</div>
+                            <div class="condition">EX</div>
+                        </div>
+                        <div class="deal-links">
+                            <a href="https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Power-Surge?language=1&minCondition=3" target="_blank" class="btn btn-cardmarket">📊 View on CardMarket</a>
+                            <a href="https://www.google.com/search?btnI=1&q=Power%20Surge%20Beta%20site%3Amtgstocks.com" target="_blank" class="btn btn-mtgstocks">📈 Price History (MTGStocks)</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="seller-card">
+                <div class="seller-header">
+                    <div>
+                        <div class="seller-name">Dragonegg</div>
+                        <a href="https://www.cardmarket.com/en/Magic/Users/Dragonegg" target="_blank" class="seller-link">👤 View Profile on CardMarket →</a>
+                    </div>
+                    <div class="seller-badge">
+                        1 deal • €54.99 total • 21.4% avg discount
+                    </div>
+                </div>
+                <div class="deals">
+
+                    <div class="deal">
+                        <div class="deal-header">
+                            <div>
+                                <span class="card-name">Simulacrum</span>
+                                <span class="category-badge category-excellent-deals">🔥 Excellent Deal</span>
+                            </div>
+                            <div class="discount-badge">-21.4%</div>
+                        </div>
+                        <div class="deal-info">
+                            <div><strong>Price:</strong> €54.99</div>
+                            <div><strong>Median:</strong> €69.98</div>
+                            <div class="condition">EX</div>
+                        </div>
+                        <div class="deal-links">
+                            <a href="https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Simulacrum?language=1&minCondition=3" target="_blank" class="btn btn-cardmarket">📊 View on CardMarket</a>
+                            <a href="https://www.google.com/search?btnI=1&q=Simulacrum%20Alpha%20site%3Amtgstocks.com" target="_blank" class="btn btn-mtgstocks">📈 Price History (MTGStocks)</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="seller-card">
+                <div class="seller-header">
+                    <div>
+                        <div class="seller-name">Niconet91</div>
+                        <a href="https://www.cardmarket.com/en/Magic/Users/Niconet91" target="_blank" class="seller-link">👤 View Profile on CardMarket →</a>
+                    </div>
+                    <div class="seller-badge">
+                        1 deal • €80.00 total • 41.7% avg discount
+                    </div>
+                </div>
+                <div class="deals">
+
+                    <div class="deal">
+                        <div class="deal-header">
+                            <div>
+                                <span class="card-name">Howling Mine</span>
+                                <span class="category-badge category-excellent-deals">🔥 Excellent Deal</span>
+                            </div>
+                            <div class="discount-badge">-41.7%</div>
+                        </div>
+                        <div class="deal-info">
+                            <div><strong>Price:</strong> €80.00</div>
+                            <div><strong>Median:</strong> €137.19</div>
+                            <div class="condition">EX</div>
+                        </div>
+                        <div class="deal-links">
+                            <a href="https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Howling-Mine?language=1&minCondition=3" target="_blank" class="btn btn-cardmarket">📊 View on CardMarket</a>
+                            <a href="https://www.google.com/search?btnI=1&q=Howling%20Mine%20Unlimited%20site%3Amtgstocks.com" target="_blank" class="btn btn-mtgstocks">📈 Price History (MTGStocks)</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="seller-card">
+                <div class="seller-header">
+                    <div>
+                        <div class="seller-name">milirem</div>
+                        <a href="https://www.cardmarket.com/en/Magic/Users/milirem" target="_blank" class="seller-link">👤 View Profile on CardMarket →</a>
+                    </div>
+                    <div class="seller-badge">
+                        1 deal • €85.00 total • 9.6% avg discount
+                    </div>
+                </div>
+                <div class="deals">
+
+                    <div class="deal">
+                        <div class="deal-header">
+                            <div>
+                                <span class="card-name">Reverse Damage</span>
+                                <span class="category-badge category-excellent-deals">🔥 Excellent Deal</span>
+                            </div>
+                            <div class="discount-badge">-9.6%</div>
+                        </div>
+                        <div class="deal-info">
+                            <div><strong>Price:</strong> €85.00</div>
+                            <div><strong>Median:</strong> €94.00</div>
+                            <div class="condition">EX</div>
+                        </div>
+                        <div class="deal-links">
+                            <a href="https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Reverse-Damage?language=1&minCondition=3" target="_blank" class="btn btn-cardmarket">📊 View on CardMarket</a>
+                            <a href="https://www.google.com/search?btnI=1&q=Reverse%20Damage%20Beta%20site%3Amtgstocks.com" target="_blank" class="btn btn-mtgstocks">📈 Price History (MTGStocks)</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="seller-card">
+                <div class="seller-header">
+                    <div>
+                        <div class="seller-name">xxniinjaxx1</div>
+                        <a href="https://www.cardmarket.com/en/Magic/Users/xxniinjaxx1" target="_blank" class="seller-link">👤 View Profile on CardMarket →</a>
+                    </div>
+                    <div class="seller-badge">
+                        1 deal • €185.00 total • 22.9% avg discount
+                    </div>
+                </div>
+                <div class="deals">
+
+                    <div class="deal">
+                        <div class="deal-header">
+                            <div>
+                                <span class="card-name">Mana Vault</span>
+                                <span class="category-badge category-excellent-deals">🔥 Excellent Deal</span>
+                            </div>
+                            <div class="discount-badge">-22.9%</div>
+                        </div>
+                        <div class="deal-info">
+                            <div><strong>Price:</strong> €185.00</div>
+                            <div><strong>Median:</strong> €240.00</div>
+                            <div class="condition">EX</div>
+                        </div>
+                        <div class="deal-links">
+                            <a href="https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Mana-Vault?language=1&minCondition=3" target="_blank" class="btn btn-cardmarket">📊 View on CardMarket</a>
+                            <a href="https://www.google.com/search?btnI=1&q=Mana%20Vault%20Unlimited%20site%3Amtgstocks.com" target="_blank" class="btn btn-mtgstocks">📈 Price History (MTGStocks)</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="seller-card">
+                <div class="seller-header">
+                    <div>
+                        <div class="seller-name">DoubleDown</div>
+                        <a href="https://www.cardmarket.com/en/Magic/Users/DoubleDown" target="_blank" class="seller-link">👤 View Profile on CardMarket →</a>
+                    </div>
+                    <div class="seller-badge">
+                        1 deal • €90.00 total • 10.4% avg discount
+                    </div>
+                </div>
+                <div class="deals">
+
+                    <div class="deal">
+                        <div class="deal-header">
+                            <div>
+                                <span class="card-name">Winter Orb</span>
+                                <span class="category-badge category-excellent-deals">🔥 Excellent Deal</span>
+                            </div>
+                            <div class="discount-badge">-10.4%</div>
+                        </div>
+                        <div class="deal-info">
+                            <div><strong>Price:</strong> €90.00</div>
+                            <div><strong>Median:</strong> €100.50</div>
+                            <div class="condition">EX</div>
+                        </div>
+                        <div class="deal-links">
+                            <a href="https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Winter-Orb?language=1&minCondition=3" target="_blank" class="btn btn-cardmarket">📊 View on CardMarket</a>
+                            <a href="https://www.google.com/search?btnI=1&q=Winter%20Orb%20Unlimited%20site%3Amtgstocks.com" target="_blank" class="btn btn-mtgstocks">📈 Price History (MTGStocks)</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="seller-card">
+                <div class="seller-header">
+                    <div>
+                        <div class="seller-name">Zauberschmiede</div>
+                        <a href="https://www.cardmarket.com/en/Magic/Users/Zauberschmiede" target="_blank" class="seller-link">👤 View Profile on CardMarket →</a>
+                    </div>
+                    <div class="seller-badge">
+                        1 deal • €159.99 total • 5.9% avg discount
+                    </div>
+                </div>
+                <div class="deals">
+
+                    <div class="deal">
+                        <div class="deal-header">
+                            <div>
+                                <span class="card-name">Black Vise</span>
+                                <span class="category-badge category-expensive-deals">⚠️ Expensive</span>
+                            </div>
+                            <div class="discount-badge">-5.9%</div>
+                        </div>
+                        <div class="deal-info">
+                            <div><strong>Price:</strong> €159.99</div>
+                            <div><strong>Median:</strong> €170.00</div>
+                            <div class="condition">EX</div>
+                        </div>
+                        <div class="deal-links">
+                            <a href="https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Black-Vise?language=1&minCondition=3" target="_blank" class="btn btn-cardmarket">📊 View on CardMarket</a>
+                            <a href="https://www.google.com/search?btnI=1&q=Black%20Vise%20Beta%20site%3Amtgstocks.com" target="_blank" class="btn btn-mtgstocks">📈 Price History (MTGStocks)</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="seller-card">
+                <div class="seller-header">
+                    <div>
+                        <div class="seller-name">sorcierfou</div>
+                        <a href="https://www.cardmarket.com/en/Magic/Users/sorcierfou" target="_blank" class="seller-link">👤 View Profile on CardMarket →</a>
+                    </div>
+                    <div class="seller-badge">
+                        1 deal • €97.50 total • 15.2% avg discount
+                    </div>
+                </div>
+                <div class="deals">
+
+                    <div class="deal">
+                        <div class="deal-header">
+                            <div>
+                                <span class="card-name">Crusade</span>
+                                <span class="category-badge category-good-deals">✓ Good Deal</span>
+                            </div>
+                            <div class="discount-badge">-15.2%</div>
+                        </div>
+                        <div class="deal-info">
+                            <div><strong>Price:</strong> €97.50</div>
+                            <div><strong>Median:</strong> €114.99</div>
+                            <div class="condition">EX</div>
+                        </div>
+                        <div class="deal-links">
+                            <a href="https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Crusade?language=1&minCondition=3" target="_blank" class="btn btn-cardmarket">📊 View on CardMarket</a>
+                            <a href="https://www.google.com/search?btnI=1&q=Crusade%20Unlimited%20site%3Amtgstocks.com" target="_blank" class="btn btn-mtgstocks">📈 Price History (MTGStocks)</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="seller-card">
+                <div class="seller-header">
+                    <div>
+                        <div class="seller-name">teresis</div>
+                        <a href="https://www.cardmarket.com/en/Magic/Users/teresis" target="_blank" class="seller-link">👤 View Profile on CardMarket →</a>
+                    </div>
+                    <div class="seller-badge">
+                        1 deal • €94.99 total • 5.0% avg discount
+                    </div>
+                </div>
+                <div class="deals">
+
+                    <div class="deal">
+                        <div class="deal-header">
+                            <div>
+                                <span class="card-name">Field of Dreams</span>
+                                <span class="category-badge category-excellent-deals">🔥 Excellent Deal</span>
+                            </div>
+                            <div class="discount-badge">-5.0%</div>
+                        </div>
+                        <div class="deal-info">
+                            <div><strong>Price:</strong> €94.99</div>
+                            <div><strong>Median:</strong> €100.00</div>
+                            <div class="condition">EX</div>
+                        </div>
+                        <div class="deal-links">
+                            <a href="https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Field-Of-Dreams?language=1&minCondition=3" target="_blank" class="btn btn-cardmarket">📊 View on CardMarket</a>
+                            <a href="https://www.google.com/search?btnI=1&q=Field%20of%20Dreams%20Legends%20site%3Amtgstocks.com" target="_blank" class="btn btn-mtgstocks">📈 Price History (MTGStocks)</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="seller-card">
+                <div class="seller-header">
+                    <div>
+                        <div class="seller-name">Magictraders</div>
+                        <a href="https://www.cardmarket.com/en/Magic/Users/Magictraders" target="_blank" class="seller-link">👤 View Profile on CardMarket →</a>
+                    </div>
+                    <div class="seller-badge">
+                        1 deal • €100.00 total • 15.4% avg discount
+                    </div>
+                </div>
+                <div class="deals">
+
+                    <div class="deal">
+                        <div class="deal-header">
+                            <div>
+                                <span class="card-name">Aspect of Wolf</span>
+                                <span class="category-badge category-expensive-deals">⚠️ Expensive</span>
+                            </div>
+                            <div class="discount-badge">-15.4%</div>
+                        </div>
+                        <div class="deal-info">
+                            <div><strong>Price:</strong> €100.00</div>
+                            <div><strong>Median:</strong> €118.24</div>
+                            <div class="condition">EX</div>
+                        </div>
+                        <div class="deal-links">
+                            <a href="https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Aspect-Of-Wolf?language=1&minCondition=3" target="_blank" class="btn btn-cardmarket">📊 View on CardMarket</a>
+                            <a href="https://www.google.com/search?btnI=1&q=Aspect%20of%20Wolf%20Beta%20site%3Amtgstocks.com" target="_blank" class="btn btn-mtgstocks">📈 Price History (MTGStocks)</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="seller-card">
+                <div class="seller-header">
+                    <div>
+                        <div class="seller-name">MagicFabulous</div>
+                        <a href="https://www.cardmarket.com/en/Magic/Users/MagicFabulous" target="_blank" class="seller-link">👤 View Profile on CardMarket →</a>
+                    </div>
+                    <div class="seller-badge">
+                        1 deal • €75.00 total • 9.6% avg discount
+                    </div>
+                </div>
+                <div class="deals">
+
+                    <div class="deal">
+                        <div class="deal-header">
+                            <div>
+                                <span class="card-name">Copper Tablet</span>
+                                <span class="category-badge category-excellent-deals">🔥 Excellent Deal</span>
+                            </div>
+                            <div class="discount-badge">-9.6%</div>
+                        </div>
+                        <div class="deal-info">
+                            <div><strong>Price:</strong> €75.00</div>
+                            <div><strong>Median:</strong> €82.98</div>
+                            <div class="condition">EX</div>
+                        </div>
+                        <div class="deal-links">
+                            <a href="https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Copper-Tablet?language=1&minCondition=3" target="_blank" class="btn btn-cardmarket">📊 View on CardMarket</a>
+                            <a href="https://www.google.com/search?btnI=1&q=Copper%20Tablet%20Beta%20site%3Amtgstocks.com" target="_blank" class="btn btn-mtgstocks">📈 Price History (MTGStocks)</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="seller-card">
+                <div class="seller-header">
+                    <div>
+                        <div class="seller-name">TheMagicCardTraderUK</div>
+                        <a href="https://www.cardmarket.com/en/Magic/Users/TheMagicCardTraderUK" target="_blank" class="seller-link">👤 View Profile on CardMarket →</a>
+                    </div>
+                    <div class="seller-badge">
+                        1 deal • €94.59 total • 10.4% avg discount
+                    </div>
+                </div>
+                <div class="deals">
+
+                    <div class="deal">
+                        <div class="deal-header">
+                            <div>
+                                <span class="card-name">Divine Intervention</span>
+                                <span class="category-badge category-excellent-deals">🔥 Excellent Deal</span>
+                            </div>
+                            <div class="discount-badge">-10.4%</div>
+                        </div>
+                        <div class="deal-info">
+                            <div><strong>Price:</strong> €94.59</div>
+                            <div><strong>Median:</strong> €105.62</div>
+                            <div class="condition">EX</div>
+                        </div>
+                        <div class="deal-links">
+                            <a href="https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Divine-Intervention?language=1&minCondition=3" target="_blank" class="btn btn-cardmarket">📊 View on CardMarket</a>
+                            <a href="https://www.google.com/search?btnI=1&q=Divine%20Intervention%20Legends%20site%3Amtgstocks.com" target="_blank" class="btn btn-mtgstocks">📈 Price History (MTGStocks)</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="seller-card">
+                <div class="seller-header">
+                    <div>
+                        <div class="seller-name">Cyberpunk-2084</div>
+                        <a href="https://www.cardmarket.com/en/Magic/Users/Cyberpunk-2084" target="_blank" class="seller-link">👤 View Profile on CardMarket →</a>
+                    </div>
+                    <div class="seller-badge">
+                        1 deal • €82.77 total • 21.2% avg discount
+                    </div>
+                </div>
+                <div class="deals">
+
+                    <div class="deal">
+                        <div class="deal-header">
+                            <div>
+                                <span class="card-name">Recall</span>
+                                <span class="category-badge category-expensive-deals">⚠️ Expensive</span>
+                            </div>
+                            <div class="discount-badge">-21.2%</div>
+                        </div>
+                        <div class="deal-info">
+                            <div><strong>Price:</strong> €82.77</div>
+                            <div><strong>Median:</strong> €105.00</div>
+                            <div class="condition">EX</div>
+                        </div>
+                        <div class="deal-links">
+                            <a href="https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Recall?language=1&minCondition=3" target="_blank" class="btn btn-cardmarket">📊 View on CardMarket</a>
+                            <a href="https://www.google.com/search?btnI=1&q=Recall%20Legends%20site%3Amtgstocks.com" target="_blank" class="btn btn-mtgstocks">📈 Price History (MTGStocks)</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="seller-card">
+                <div class="seller-header">
+                    <div>
+                        <div class="seller-name">Zinzillino</div>
+                        <a href="https://www.cardmarket.com/en/Magic/Users/Zinzillino" target="_blank" class="seller-link">👤 View Profile on CardMarket →</a>
+                    </div>
+                    <div class="seller-badge">
+                        1 deal • €148.00 total • 7.5% avg discount
+                    </div>
+                </div>
+                <div class="deals">
+
+                    <div class="deal">
+                        <div class="deal-header">
+                            <div>
+                                <span class="card-name">Royal Assassin</span>
+                                <span class="category-badge category-expensive-deals">⚠️ Expensive</span>
+                            </div>
+                            <div class="discount-badge">-7.5%</div>
+                        </div>
+                        <div class="deal-info">
+                            <div><strong>Price:</strong> €148.00</div>
+                            <div><strong>Median:</strong> €160.00</div>
+                            <div class="condition">EX</div>
+                        </div>
+                        <div class="deal-links">
+                            <a href="https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Royal-Assassin?language=1&minCondition=3" target="_blank" class="btn btn-cardmarket">📊 View on CardMarket</a>
+                            <a href="https://www.google.com/search?btnI=1&q=Royal%20Assassin%20Unlimited%20site%3Amtgstocks.com" target="_blank" class="btn btn-mtgstocks">📈 Price History (MTGStocks)</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <footer>Generated on 2025-10-04 at 20:32:52</footer>
+    </div>
+</body>
+</html>

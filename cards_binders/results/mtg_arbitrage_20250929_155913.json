@@ -1,0 +1,152 @@
+{
+  "timestamp": "20250929_155913",
+  "summary": {
+    "total_analyzed": 3,
+    "excellent_deals": 2,
+    "good_deals": 0,
+    "expensive_deals": 0,
+    "no_data": 1
+  },
+  "excellent_deals": [
+    {
+      "rank": 1,
+      "card_name": "Personal Incarnation",
+      "expansion": "Beta",
+      "card_id": 5058,
+      "historical_data": {
+        "avg7": 122.72,
+        "avg30": 161.55,
+        "trend": 217.61,
+        "real_discount": 0.4360553283396903
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 140.0,
+        "average_current": 213.981,
+        "cheapest_good_condition": 140.0,
+        "cheapest_good_condition_details": {
+          "price": 140.0,
+          "condition": "EX",
+          "seller": "ThreeForOne-AT",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 14.080834419817473,
+        "good_condition_vs_trend_pct": -35.66472129038188,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Personal-Incarnation?minCondition=3"
+      }
+    },
+    {
+      "rank": 2,
+      "card_name": "Wall of Bone",
+      "expansion": "Alpha",
+      "card_id": 5274,
+      "historical_data": {
+        "avg7": 65.72,
+        "avg30": 76.89,
+        "trend": 101.89,
+        "real_discount": 0.35499067621945235
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 50.0,
+        "average_current": 73.063,
+        "cheapest_good_condition": 50.0,
+        "cheapest_good_condition_details": {
+          "price": 50.0,
+          "condition": "EX",
+          "seller": "ThreeForOne-AT",
+          "quantity": 2
+        },
+        "good_condition_vs_avg7_pct": -23.91965916007304,
+        "good_condition_vs_trend_pct": -50.92747080184513,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Wall-Of-Bone?minCondition=3"
+      }
+    }
+  ],
+  "good_deals": [],
+  "expensive_deals": [],
+  "no_data": [
+    {
+      "rank": 3,
+      "card_name": "Mishra's Factory",
+      "expansion": "Antiquities",
+      "card_id": 6937,
+      "historical_data": {
+        "avg7": 75.16,
+        "avg30": 88.6,
+        "trend": 116.38,
+        "real_discount": 0.35418456779515384
+      },
+      "live_data": null
+    }
+  ],
+  "all_results": [
+    {
+      "rank": 1,
+      "card_name": "Personal Incarnation",
+      "expansion": "Beta",
+      "card_id": 5058,
+      "historical_data": {
+        "avg7": 122.72,
+        "avg30": 161.55,
+        "trend": 217.61,
+        "real_discount": 0.4360553283396903
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 140.0,
+        "average_current": 213.981,
+        "cheapest_good_condition": 140.0,
+        "cheapest_good_condition_details": {
+          "price": 140.0,
+          "condition": "EX",
+          "seller": "ThreeForOne-AT",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 14.080834419817473,
+        "good_condition_vs_trend_pct": -35.66472129038188,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Personal-Incarnation?minCondition=3"
+      }
+    },
+    {
+      "rank": 2,
+      "card_name": "Wall of Bone",
+      "expansion": "Alpha",
+      "card_id": 5274,
+      "historical_data": {
+        "avg7": 65.72,
+        "avg30": 76.89,
+        "trend": 101.89,
+        "real_discount": 0.35499067621945235
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 50.0,
+        "average_current": 73.063,
+        "cheapest_good_condition": 50.0,
+        "cheapest_good_condition_details": {
+          "price": 50.0,
+          "condition": "EX",
+          "seller": "ThreeForOne-AT",
+          "quantity": 2
+        },
+        "good_condition_vs_avg7_pct": -23.91965916007304,
+        "good_condition_vs_trend_pct": -50.92747080184513,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Wall-Of-Bone?minCondition=3"
+      }
+    },
+    {
+      "rank": 3,
+      "card_name": "Mishra's Factory",
+      "expansion": "Antiquities",
+      "card_id": 6937,
+      "historical_data": {
+        "avg7": 75.16,
+        "avg30": 88.6,
+        "trend": 116.38,
+        "real_discount": 0.35418456779515384
+      },
+      "live_data": null
+    }
+  ]
+}

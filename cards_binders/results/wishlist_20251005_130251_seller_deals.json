@@ -1,0 +1,525 @@
+{
+  "seller_deals": {
+    "JulienJ": {
+      "deals": [
+        {
+          "card": "Worldly Tutor",
+          "price": 9.0,
+          "median": 11.58,
+          "discount": 22.27979274611399,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Worldly-Tutor?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Worldly%20Tutor%20Mirage%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        },
+        {
+          "card": "Aluren",
+          "price": 25.0,
+          "median": 26.7,
+          "discount": 6.3670411985018704,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Aluren?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Aluren%20Tempest%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/JulienJ"
+    },
+    "xxniinjaxx1": {
+      "deals": [
+        {
+          "card": "Mana Vault",
+          "price": 185.0,
+          "median": 240.0,
+          "discount": 22.916666666666664,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Mana-Vault?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Mana%20Vault%20Unlimited%20site%3Amtgstocks.com",
+          "category": "expensive_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/xxniinjaxx1"
+    },
+    "DoubleDown": {
+      "deals": [
+        {
+          "card": "Winter Orb",
+          "price": 90.0,
+          "median": 100.5,
+          "discount": 10.44776119402985,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Winter-Orb?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Winter%20Orb%20Unlimited%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/DoubleDown"
+    },
+    "Buzzle1-": {
+      "deals": [
+        {
+          "card": "Strip Mine",
+          "price": 50.0,
+          "median": 53.4,
+          "discount": 6.3670411985018704,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Antiquities/Strip-Mine?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Strip%20Mine%20Antiquities%20site%3Amtgstocks.com",
+          "category": "expensive_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Buzzle1-"
+    },
+    "Bronhy": {
+      "deals": [
+        {
+          "card": "Mana Drain",
+          "price": 138.84,
+          "median": 150.0,
+          "discount": 7.439999999999998,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Mana-Drain?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Mana%20Drain%20Legends%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Bronhy"
+    },
+    "Carddude1520": {
+      "deals": [
+        {
+          "card": "Dark Ritual",
+          "price": 12.0,
+          "median": 13.0,
+          "discount": 7.6923076923076925,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Dark-Ritual?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Dark%20Ritual%20Unlimited%20site%3Amtgstocks.com",
+          "category": "expensive_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Carddude1520"
+    },
+    "Ampyre": {
+      "deals": [
+        {
+          "card": "Chrome Mox",
+          "price": 55.0,
+          "median": 59.0,
+          "discount": 6.779661016949152,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Mirrodin/Chrome-Mox?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Chrome%20Mox%20Mirrodin%20site%3Amtgstocks.com",
+          "category": "good_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Ampyre"
+    },
+    "RetroMagic": {
+      "deals": [
+        {
+          "card": "Dark Ritual",
+          "price": 198.99,
+          "median": 209.9,
+          "discount": 5.19771319676036,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Dark-Ritual?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Dark%20Ritual%20Alpha%20site%3Amtgstocks.com",
+          "category": "expensive_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/RetroMagic"
+    },
+    "Vitosellmagic": {
+      "deals": [
+        {
+          "card": "Corpse Dance",
+          "price": 14.5,
+          "median": 16.29,
+          "discount": 10.988336402701039,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Corpse-Dance?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Corpse%20Dance%20Tempest%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Vitosellmagic"
+    },
+    "Favorit60": {
+      "deals": [
+        {
+          "card": "Chalice of the Void",
+          "price": 13.0,
+          "median": 14.0,
+          "discount": 7.142857142857142,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Mirrodin/Chalice-Of-The-Void?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Chalice%20of%20the%20Void%20Mirrodin%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Favorit60"
+    },
+    "Iliaster": {
+      "deals": [
+        {
+          "card": "Tawnos's Coffin",
+          "price": 94.99,
+          "median": 100.0,
+          "discount": 5.010000000000005,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Antiquities/Tawnos-s-Coffin?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Tawnos%27s%20Coffin%20Antiquities%20site%3Amtgstocks.com",
+          "category": "expensive_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Iliaster"
+    },
+    "Demonikos666": {
+      "deals": [
+        {
+          "card": "Volrath's Stronghold",
+          "price": 55.0,
+          "median": 59.12,
+          "discount": 6.9688768606224585,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Stronghold/Volrath-s-Stronghold?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Volrath%27s%20Stronghold%20Stronghold%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Demonikos666"
+    },
+    "TheGoose": {
+      "deals": [
+        {
+          "card": "Maze of Ith",
+          "price": 21.02,
+          "median": 24.99,
+          "discount": 15.886354541816722,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/The-Dark/Maze-Of-Ith?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Maze%20of%20Ith%20The%20Dark%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/TheGoose"
+    },
+    "EpiphanyG": {
+      "deals": [
+        {
+          "card": "Recurring Nightmare",
+          "price": 46.0,
+          "median": 49.98,
+          "discount": 7.963185274109638,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Recurring-Nightmare?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Recurring%20Nightmare%20Exodus%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/EpiphanyG"
+    },
+    "SwigginPanda": {
+      "deals": [
+        {
+          "card": "Reanimate",
+          "price": 10.63,
+          "median": 11.5,
+          "discount": 7.565217391304341,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Reanimate?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Reanimate%20Tempest%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/SwigginPanda"
+    },
+    "alvaro1990": {
+      "deals": [
+        {
+          "card": "Trinisphere",
+          "price": 15.0,
+          "median": 16.0,
+          "discount": 6.25,
+          "condition": "NM",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Darksteel/Trinisphere?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Trinisphere%20Darksteel%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/alvaro1990"
+    },
+    "NilsMueller": {
+      "deals": [
+        {
+          "card": "Cabal Coffers",
+          "price": 15.0,
+          "median": 15.9,
+          "discount": 5.660377358490568,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Torment/Cabal-Coffers?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Cabal%20Coffers%20Torment%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/NilsMueller"
+    },
+    "PieterC": {
+      "deals": [
+        {
+          "card": "Sliver Queen",
+          "price": 150.0,
+          "median": 170.0,
+          "discount": 11.76470588235294,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Stronghold/Sliver-Queen?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Sliver%20Queen%20Stronghold%20site%3Amtgstocks.com",
+          "category": "good_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/PieterC"
+    },
+    "meeples-et-cartes": {
+      "deals": [
+        {
+          "card": "Lion's Eye Diamond",
+          "price": 299.99,
+          "median": 328.0,
+          "discount": 8.539634146341461,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Lion-s-Eye-Diamond?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Lion%27s%20Eye%20Diamond%20Mirage%20site%3Amtgstocks.com",
+          "category": "good_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/meeples-et-cartes"
+    },
+    "Ponchim-MTG": {
+      "deals": [
+        {
+          "card": "Adarkar Wastes",
+          "price": 20.0,
+          "median": 21.49,
+          "discount": 6.933457422056764,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Adarkar-Wastes?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Adarkar%20Wastes%20Ice%20Age%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Ponchim-MTG"
+    },
+    "maxtlion": {
+      "deals": [
+        {
+          "card": "Brushland",
+          "price": 7.1,
+          "median": 7.99,
+          "discount": 11.138923654568217,
+          "condition": "NM",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Brushland?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Brushland%20Ice%20Age%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/maxtlion"
+    },
+    "ZZZzzzleeper": {
+      "deals": [
+        {
+          "card": "Necropotence",
+          "price": 16.5,
+          "median": 18.8,
+          "discount": 12.234042553191493,
+          "condition": "NM",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Necropotence?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Necropotence%20Ice%20Age%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/ZZZzzzleeper"
+    },
+    "alcunaidea": {
+      "deals": [
+        {
+          "card": "Sol Ring",
+          "price": 599.0,
+          "median": 650.0,
+          "discount": 7.846153846153846,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Sol-Ring?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Sol%20Ring%20Beta%20site%3Amtgstocks.com",
+          "category": "expensive_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/alcunaidea"
+    },
+    "Kaskade": {
+      "deals": [
+        {
+          "card": "Entomb",
+          "price": 21.0,
+          "median": 22.88,
+          "discount": 8.216783216783213,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Odyssey/Entomb?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Entomb%20Odyssey%20site%3Amtgstocks.com",
+          "category": "expensive_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Kaskade"
+    },
+    "isys59": {
+      "deals": [
+        {
+          "card": "Thawing Glaciers",
+          "price": 6.0,
+          "median": 9.4,
+          "discount": 36.17021276595745,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alliances/Thawing-Glaciers?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Thawing%20Glaciers%20Alliances%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/isys59"
+    },
+    "marxistdisco": {
+      "deals": [
+        {
+          "card": "Coat of Arms",
+          "price": 12.0,
+          "median": 12.74,
+          "discount": 5.808477237048667,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Coat-Of-Arms?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Coat%20of%20Arms%20Exodus%20site%3Amtgstocks.com",
+          "category": "expensive_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/marxistdisco"
+    },
+    "benditbeuh": {
+      "deals": [
+        {
+          "card": "Sulfurous Springs",
+          "price": 10.0,
+          "median": 10.53,
+          "discount": 5.033238366571694,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Sulfurous-Springs?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Sulfurous%20Springs%20Ice%20Age%20site%3Amtgstocks.com",
+          "category": "good_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/benditbeuh"
+    },
+    "TheMagicCardTraderUK": {
+      "deals": [
+        {
+          "card": "Lightning Bolt",
+          "price": 378.36,
+          "median": 420.0,
+          "discount": 9.914285714285711,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Lightning-Bolt?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Lightning%20Bolt%20Alpha%20site%3Amtgstocks.com",
+          "category": "expensive_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/TheMagicCardTraderUK"
+    },
+    "Toysnloot": {
+      "deals": [
+        {
+          "card": "Underground River",
+          "price": 13.34,
+          "median": 15.0,
+          "discount": 11.066666666666668,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Underground-River?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Underground%20River%20Ice%20Age%20site%3Amtgstocks.com",
+          "category": "good_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Toysnloot"
+    },
+    "Metropolis-Center": {
+      "deals": [
+        {
+          "card": "Demonic Tutor",
+          "price": 449.99,
+          "median": 523.78,
+          "discount": 14.087975867730721,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Demonic-Tutor?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Demonic%20Tutor%20Beta%20site%3Amtgstocks.com",
+          "category": "expensive_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Metropolis-Center"
+    },
+    "Tristandelacroix": {
+      "deals": [
+        {
+          "card": "Hatred",
+          "price": 23.0,
+          "median": 25.0,
+          "discount": 8.0,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Hatred?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Hatred%20Exodus%20site%3Amtgstocks.com",
+          "category": "expensive_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Tristandelacroix"
+    },
+    "SandyInLondon": {
+      "deals": [
+        {
+          "card": "Nicol Bolas",
+          "price": 99.99,
+          "median": 106.42,
+          "discount": 6.042097350122163,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Nicol-Bolas?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Nicol%20Bolas%20Legends%20site%3Amtgstocks.com",
+          "category": "expensive_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/SandyInLondon"
+    },
+    "Magicboxx": {
+      "deals": [
+        {
+          "card": "Animate Dead",
+          "price": 313.49,
+          "median": 375.0,
+          "discount": 16.402666666666665,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Animate-Dead?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Animate%20Dead%20Alpha%20site%3Amtgstocks.com",
+          "category": "expensive_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Magicboxx"
+    },
+    "Techo": {
+      "deals": [
+        {
+          "card": "Palladia-Mors",
+          "price": 25.0,
+          "median": 27.5,
+          "discount": 9.090909090909092,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Palladia-Mors?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Palladia-Mors%20Legends%20site%3Amtgstocks.com",
+          "category": "expensive_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Techo"
+    }
+  },
+  "threshold": 5.0
+}

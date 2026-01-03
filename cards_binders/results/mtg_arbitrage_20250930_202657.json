@@ -1,0 +1,69 @@
+{
+  "timestamp": "20250930_202657",
+  "summary": {
+    "total_analyzed": 2,
+    "excellent_deals": 0,
+    "good_deals": 0,
+    "expensive_deals": 0,
+    "no_data": 2
+  },
+  "excellent_deals": [],
+  "good_deals": [],
+  "expensive_deals": [],
+  "no_data": [
+    {
+      "rank": 1,
+      "card_name": "Farmstead",
+      "expansion": NaN,
+      "card_id": 16845,
+      "historical_data": {
+        "avg7": 189.77,
+        "avg30": 189.77,
+        "trend": 554.45,
+        "real_discount": 0.6577328884480116
+      },
+      "live_data": null
+    },
+    {
+      "rank": 2,
+      "card_name": "Mesa Pegasus",
+      "expansion": NaN,
+      "card_id": 16854,
+      "historical_data": {
+        "avg7": 147.5,
+        "avg30": 147.5,
+        "trend": 400.21,
+        "real_discount": 0.6314434921666126
+      },
+      "live_data": null
+    }
+  ],
+  "all_results": [
+    {
+      "rank": 1,
+      "card_name": "Farmstead",
+      "expansion": NaN,
+      "card_id": 16845,
+      "historical_data": {
+        "avg7": 189.77,
+        "avg30": 189.77,
+        "trend": 554.45,
+        "real_discount": 0.6577328884480116
+      },
+      "live_data": null
+    },
+    {
+      "rank": 2,
+      "card_name": "Mesa Pegasus",
+      "expansion": NaN,
+      "card_id": 16854,
+      "historical_data": {
+        "avg7": 147.5,
+        "avg30": 147.5,
+        "trend": 400.21,
+        "real_discount": 0.6314434921666126
+      },
+      "live_data": null
+    }
+  ]
+}

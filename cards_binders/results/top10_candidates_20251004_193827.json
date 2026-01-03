@@ -1,0 +1,826 @@
+{
+  "timestamp": "20251004_193827",
+  "run_type": "candidates",
+  "run_param": 10,
+  "summary": {
+    "total_analyzed": 10,
+    "excellent_deals": 4,
+    "good_deals": 2,
+    "expensive_deals": 2,
+    "no_data": 2
+  },
+  "excellent_deals": [
+    {
+      "rank": 4,
+      "card_name": "Living Artifact",
+      "expansion": "Alpha",
+      "card_id": 5350,
+      "historical_data": {
+        "avg7": 305.71,
+        "avg30": 157.84,
+        "trend": 361.04,
+        "real_discount": 0.5628185242632395
+      },
+      "live_data": {
+        "total_listings": 9,
+        "cheapest_current": 339.99,
+        "average_current": 603.218888888889,
+        "cheapest_good_condition": 339.99,
+        "cheapest_good_condition_details": {
+          "price": 339.99,
+          "condition": "EX",
+          "seller": "RubyTrade",
+          "quantity": 1
+        },
+        "top_3_sellers": [
+          {
+            "seller": "RubyTrade",
+            "price": 339.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "grijsje",
+            "price": 350.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "GrimSky",
+            "price": 399.0,
+            "condition": "NM",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 11.21324130712114,
+        "good_condition_vs_trend_pct": -5.830378905384448,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Living-Artifact?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 5,
+      "card_name": "Reverse Damage",
+      "expansion": "Alpha",
+      "card_id": 5452,
+      "historical_data": {
+        "avg7": 391.14,
+        "avg30": 199.78,
+        "trend": 425.86,
+        "real_discount": 0.5308786925280609
+      },
+      "live_data": {
+        "total_listings": 5,
+        "cheapest_current": 350.0,
+        "average_current": 673.9959999999999,
+        "cheapest_good_condition": 350.0,
+        "cheapest_good_condition_details": {
+          "price": 350.0,
+          "condition": "EX",
+          "seller": "Magic-Dreams",
+          "quantity": 1
+        },
+        "top_3_sellers": [
+          {
+            "seller": "Magic-Dreams",
+            "price": 350.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "terryking",
+            "price": 600.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Zlopotom",
+            "price": 669.99,
+            "condition": "NM",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -10.517973104259342,
+        "good_condition_vs_trend_pct": -17.81336589489504,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Reverse-Damage?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 8,
+      "card_name": "Drain Power",
+      "expansion": "Beta",
+      "card_id": 4740,
+      "historical_data": {
+        "avg7": 209.78,
+        "avg30": 122.72,
+        "trend": 238.56,
+        "real_discount": 0.48558014755197854
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 70.95,
+        "average_current": 99.44300000000001,
+        "cheapest_good_condition": 70.95,
+        "cheapest_good_condition_details": {
+          "price": 70.95,
+          "condition": "EX",
+          "seller": "webuyanycard",
+          "quantity": 3
+        },
+        "top_3_sellers": [
+          {
+            "seller": "webuyanycard",
+            "price": 70.95,
+            "condition": "EX",
+            "quantity": 3
+          },
+          {
+            "seller": "peregrin",
+            "price": 87.5,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "BadWorldTCG",
+            "price": 90.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -66.17885403756316,
+        "good_condition_vs_trend_pct": -70.25905432595574,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Drain-Power?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 10,
+      "card_name": "Power Surge",
+      "expansion": "Beta",
+      "card_id": 4962,
+      "historical_data": {
+        "avg7": 167.75,
+        "avg30": 110.43,
+        "trend": 212.4,
+        "real_discount": 0.4800847457627119
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 76.0,
+        "average_current": 111.03600000000002,
+        "cheapest_good_condition": 76.0,
+        "cheapest_good_condition_details": {
+          "price": 76.0,
+          "condition": "EX",
+          "seller": "ABU-Best-Offer",
+          "quantity": 1
+        },
+        "top_3_sellers": [
+          {
+            "seller": "ABU-Best-Offer",
+            "price": 76.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "RetroMagic",
+            "price": 89.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "RetroMagic",
+            "price": 94.5,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -54.69448584202683,
+        "good_condition_vs_trend_pct": -64.21845574387947,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Power-Surge?language=1&minCondition=3"
+      }
+    }
+  ],
+  "good_deals": [
+    {
+      "rank": 2,
+      "card_name": "Manabarbs",
+      "expansion": "Alpha",
+      "card_id": 5397,
+      "historical_data": {
+        "avg7": 307.85,
+        "avg30": 138.11,
+        "trend": 371.08,
+        "real_discount": 0.6278161043440766
+      },
+      "live_data": {
+        "total_listings": 5,
+        "cheapest_current": 360.0,
+        "average_current": 619.598,
+        "cheapest_good_condition": 360.0,
+        "cheapest_good_condition_details": {
+          "price": 360.0,
+          "condition": "EX",
+          "seller": "Tuardian",
+          "quantity": 1
+        },
+        "top_3_sellers": [
+          {
+            "seller": "Tuardian",
+            "price": 360.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Magic-Dreams",
+            "price": 390.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "GrimSky",
+            "price": 449.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 16.940068215039783,
+        "good_condition_vs_trend_pct": -2.9858790557292187,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Manabarbs?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 3,
+      "card_name": "Dingus Egg",
+      "expansion": "Alpha",
+      "card_id": 5474,
+      "historical_data": {
+        "avg7": 318.43,
+        "avg30": 185.71,
+        "trend": 449.44,
+        "real_discount": 0.5867969028123888
+      },
+      "live_data": {
+        "total_listings": 5,
+        "cheapest_current": 439.99,
+        "average_current": 597.796,
+        "cheapest_good_condition": 439.99,
+        "cheapest_good_condition_details": {
+          "price": 439.99,
+          "condition": "EX",
+          "seller": "phigue0",
+          "quantity": 1
+        },
+        "top_3_sellers": [
+          {
+            "seller": "phigue0",
+            "price": 439.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "MarkW",
+            "price": 499.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "lordipk",
+            "price": 500.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 38.174795088402476,
+        "good_condition_vs_trend_pct": -2.1026165895336395,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Dingus-Egg?language=1&minCondition=3"
+      }
+    }
+  ],
+  "expensive_deals": [
+    {
+      "rank": 6,
+      "card_name": "Aspect of Wolf",
+      "expansion": "Alpha",
+      "card_id": 5326,
+      "historical_data": {
+        "avg7": 327.83,
+        "avg30": 189.76,
+        "trend": 403.93,
+        "real_discount": 0.5302156314212859
+      },
+      "live_data": {
+        "total_listings": 8,
+        "cheapest_current": 469.99,
+        "average_current": 1797.2475,
+        "cheapest_good_condition": 469.99,
+        "cheapest_good_condition_details": {
+          "price": 469.99,
+          "condition": "EX",
+          "seller": "RetroMagic",
+          "quantity": 1
+        },
+        "top_3_sellers": [
+          {
+            "seller": "RetroMagic",
+            "price": 469.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "AcidWitch",
+            "price": 480.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Magic-Dreams",
+            "price": 490.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 43.363938626727276,
+        "good_condition_vs_trend_pct": 16.354318817616914,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Aspect-Of-Wolf?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 7,
+      "card_name": "Kormus Bell",
+      "expansion": "Alpha",
+      "card_id": 5490,
+      "historical_data": {
+        "avg7": 322.85,
+        "avg30": 180.81,
+        "trend": 373.28,
+        "real_discount": 0.5156183026146592
+      },
+      "live_data": {
+        "total_listings": 8,
+        "cheapest_current": 399.0,
+        "average_current": 896.1162499999999,
+        "cheapest_good_condition": 399.0,
+        "cheapest_good_condition_details": {
+          "price": 399.0,
+          "condition": "NM",
+          "seller": "GrimSky",
+          "quantity": 1
+        },
+        "top_3_sellers": [
+          {
+            "seller": "GrimSky",
+            "price": 399.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "Wipokorp",
+            "price": 640.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "Leuz87",
+            "price": 650.0,
+            "condition": "MT",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 23.58680501781012,
+        "good_condition_vs_trend_pct": 6.890270038576947,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Kormus-Bell?language=1&minCondition=3"
+      }
+    }
+  ],
+  "no_data": [
+    {
+      "rank": 1,
+      "card_name": "Cockatrice",
+      "expansion": "Alpha",
+      "card_id": 5331,
+      "historical_data": {
+        "avg7": 401.86,
+        "avg30": 176.79,
+        "trend": 479.61,
+        "real_discount": 0.6313880027522363
+      },
+      "live_data": null
+    },
+    {
+      "rank": 9,
+      "card_name": "Helm of Chatzuk",
+      "expansion": "Alpha",
+      "card_id": 5479,
+      "historical_data": {
+        "avg7": 335.71,
+        "avg30": 195.52,
+        "trend": 379.88,
+        "real_discount": 0.48531115088975463
+      },
+      "live_data": null
+    }
+  ],
+  "all_results": [
+    {
+      "rank": 1,
+      "card_name": "Cockatrice",
+      "expansion": "Alpha",
+      "card_id": 5331,
+      "historical_data": {
+        "avg7": 401.86,
+        "avg30": 176.79,
+        "trend": 479.61,
+        "real_discount": 0.6313880027522363
+      },
+      "live_data": null
+    },
+    {
+      "rank": 2,
+      "card_name": "Manabarbs",
+      "expansion": "Alpha",
+      "card_id": 5397,
+      "historical_data": {
+        "avg7": 307.85,
+        "avg30": 138.11,
+        "trend": 371.08,
+        "real_discount": 0.6278161043440766
+      },
+      "live_data": {
+        "total_listings": 5,
+        "cheapest_current": 360.0,
+        "average_current": 619.598,
+        "cheapest_good_condition": 360.0,
+        "cheapest_good_condition_details": {
+          "price": 360.0,
+          "condition": "EX",
+          "seller": "Tuardian",
+          "quantity": 1
+        },
+        "top_3_sellers": [
+          {
+            "seller": "Tuardian",
+            "price": 360.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Magic-Dreams",
+            "price": 390.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "GrimSky",
+            "price": 449.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 16.940068215039783,
+        "good_condition_vs_trend_pct": -2.9858790557292187,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Manabarbs?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 3,
+      "card_name": "Dingus Egg",
+      "expansion": "Alpha",
+      "card_id": 5474,
+      "historical_data": {
+        "avg7": 318.43,
+        "avg30": 185.71,
+        "trend": 449.44,
+        "real_discount": 0.5867969028123888
+      },
+      "live_data": {
+        "total_listings": 5,
+        "cheapest_current": 439.99,
+        "average_current": 597.796,
+        "cheapest_good_condition": 439.99,
+        "cheapest_good_condition_details": {
+          "price": 439.99,
+          "condition": "EX",
+          "seller": "phigue0",
+          "quantity": 1
+        },
+        "top_3_sellers": [
+          {
+            "seller": "phigue0",
+            "price": 439.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "MarkW",
+            "price": 499.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "lordipk",
+            "price": 500.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 38.174795088402476,
+        "good_condition_vs_trend_pct": -2.1026165895336395,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Dingus-Egg?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 4,
+      "card_name": "Living Artifact",
+      "expansion": "Alpha",
+      "card_id": 5350,
+      "historical_data": {
+        "avg7": 305.71,
+        "avg30": 157.84,
+        "trend": 361.04,
+        "real_discount": 0.5628185242632395
+      },
+      "live_data": {
+        "total_listings": 9,
+        "cheapest_current": 339.99,
+        "average_current": 603.218888888889,
+        "cheapest_good_condition": 339.99,
+        "cheapest_good_condition_details": {
+          "price": 339.99,
+          "condition": "EX",
+          "seller": "RubyTrade",
+          "quantity": 1
+        },
+        "top_3_sellers": [
+          {
+            "seller": "RubyTrade",
+            "price": 339.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "grijsje",
+            "price": 350.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "GrimSky",
+            "price": 399.0,
+            "condition": "NM",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 11.21324130712114,
+        "good_condition_vs_trend_pct": -5.830378905384448,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Living-Artifact?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 5,
+      "card_name": "Reverse Damage",
+      "expansion": "Alpha",
+      "card_id": 5452,
+      "historical_data": {
+        "avg7": 391.14,
+        "avg30": 199.78,
+        "trend": 425.86,
+        "real_discount": 0.5308786925280609
+      },
+      "live_data": {
+        "total_listings": 5,
+        "cheapest_current": 350.0,
+        "average_current": 673.9959999999999,
+        "cheapest_good_condition": 350.0,
+        "cheapest_good_condition_details": {
+          "price": 350.0,
+          "condition": "EX",
+          "seller": "Magic-Dreams",
+          "quantity": 1
+        },
+        "top_3_sellers": [
+          {
+            "seller": "Magic-Dreams",
+            "price": 350.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "terryking",
+            "price": 600.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Zlopotom",
+            "price": 669.99,
+            "condition": "NM",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -10.517973104259342,
+        "good_condition_vs_trend_pct": -17.81336589489504,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Reverse-Damage?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 6,
+      "card_name": "Aspect of Wolf",
+      "expansion": "Alpha",
+      "card_id": 5326,
+      "historical_data": {
+        "avg7": 327.83,
+        "avg30": 189.76,
+        "trend": 403.93,
+        "real_discount": 0.5302156314212859
+      },
+      "live_data": {
+        "total_listings": 8,
+        "cheapest_current": 469.99,
+        "average_current": 1797.2475,
+        "cheapest_good_condition": 469.99,
+        "cheapest_good_condition_details": {
+          "price": 469.99,
+          "condition": "EX",
+          "seller": "RetroMagic",
+          "quantity": 1
+        },
+        "top_3_sellers": [
+          {
+            "seller": "RetroMagic",
+            "price": 469.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "AcidWitch",
+            "price": 480.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Magic-Dreams",
+            "price": 490.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 43.363938626727276,
+        "good_condition_vs_trend_pct": 16.354318817616914,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Aspect-Of-Wolf?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 7,
+      "card_name": "Kormus Bell",
+      "expansion": "Alpha",
+      "card_id": 5490,
+      "historical_data": {
+        "avg7": 322.85,
+        "avg30": 180.81,
+        "trend": 373.28,
+        "real_discount": 0.5156183026146592
+      },
+      "live_data": {
+        "total_listings": 8,
+        "cheapest_current": 399.0,
+        "average_current": 896.1162499999999,
+        "cheapest_good_condition": 399.0,
+        "cheapest_good_condition_details": {
+          "price": 399.0,
+          "condition": "NM",
+          "seller": "GrimSky",
+          "quantity": 1
+        },
+        "top_3_sellers": [
+          {
+            "seller": "GrimSky",
+            "price": 399.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "Wipokorp",
+            "price": 640.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "Leuz87",
+            "price": 650.0,
+            "condition": "MT",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 23.58680501781012,
+        "good_condition_vs_trend_pct": 6.890270038576947,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Kormus-Bell?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 8,
+      "card_name": "Drain Power",
+      "expansion": "Beta",
+      "card_id": 4740,
+      "historical_data": {
+        "avg7": 209.78,
+        "avg30": 122.72,
+        "trend": 238.56,
+        "real_discount": 0.48558014755197854
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 70.95,
+        "average_current": 99.44300000000001,
+        "cheapest_good_condition": 70.95,
+        "cheapest_good_condition_details": {
+          "price": 70.95,
+          "condition": "EX",
+          "seller": "webuyanycard",
+          "quantity": 3
+        },
+        "top_3_sellers": [
+          {
+            "seller": "webuyanycard",
+            "price": 70.95,
+            "condition": "EX",
+            "quantity": 3
+          },
+          {
+            "seller": "peregrin",
+            "price": 87.5,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "BadWorldTCG",
+            "price": 90.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -66.17885403756316,
+        "good_condition_vs_trend_pct": -70.25905432595574,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Drain-Power?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 9,
+      "card_name": "Helm of Chatzuk",
+      "expansion": "Alpha",
+      "card_id": 5479,
+      "historical_data": {
+        "avg7": 335.71,
+        "avg30": 195.52,
+        "trend": 379.88,
+        "real_discount": 0.48531115088975463
+      },
+      "live_data": null
+    },
+    {
+      "rank": 10,
+      "card_name": "Power Surge",
+      "expansion": "Beta",
+      "card_id": 4962,
+      "historical_data": {
+        "avg7": 167.75,
+        "avg30": 110.43,
+        "trend": 212.4,
+        "real_discount": 0.4800847457627119
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 76.0,
+        "average_current": 111.03600000000002,
+        "cheapest_good_condition": 76.0,
+        "cheapest_good_condition_details": {
+          "price": 76.0,
+          "condition": "EX",
+          "seller": "ABU-Best-Offer",
+          "quantity": 1
+        },
+        "top_3_sellers": [
+          {
+            "seller": "ABU-Best-Offer",
+            "price": 76.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "RetroMagic",
+            "price": 89.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "RetroMagic",
+            "price": 94.5,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -54.69448584202683,
+        "good_condition_vs_trend_pct": -64.21845574387947,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Power-Surge?language=1&minCondition=3"
+      }
+    }
+  ]
+}

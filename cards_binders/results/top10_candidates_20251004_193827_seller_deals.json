@@ -1,0 +1,95 @@
+{
+  "seller_deals": {
+    "Tuardian": {
+      "deals": [
+        {
+          "card": "Manabarbs",
+          "price": 360.0,
+          "median": 390.0,
+          "discount": 7.6923076923076925,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Manabarbs?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Manabarbs%20Alpha%20site%3Amtgstocks.com",
+          "category": "good_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Tuardian"
+    },
+    "phigue0": {
+      "deals": [
+        {
+          "card": "Dingus Egg",
+          "price": 439.99,
+          "median": 499.0,
+          "discount": 11.825651302605209,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Dingus-Egg?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Dingus%20Egg%20Alpha%20site%3Amtgstocks.com",
+          "category": "good_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/phigue0"
+    },
+    "Magic-Dreams": {
+      "deals": [
+        {
+          "card": "Reverse Damage",
+          "price": 350.0,
+          "median": 600.0,
+          "discount": 41.66666666666667,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Reverse-Damage?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Reverse%20Damage%20Alpha%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Magic-Dreams"
+    },
+    "GrimSky": {
+      "deals": [
+        {
+          "card": "Kormus Bell",
+          "price": 399.0,
+          "median": 640.0,
+          "discount": 37.65625,
+          "condition": "NM",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Kormus-Bell?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Kormus%20Bell%20Alpha%20site%3Amtgstocks.com",
+          "category": "expensive_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/GrimSky"
+    },
+    "webuyanycard": {
+      "deals": [
+        {
+          "card": "Drain Power",
+          "price": 70.95,
+          "median": 87.5,
+          "discount": 18.91428571428571,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Drain-Power?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Drain%20Power%20Beta%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/webuyanycard"
+    },
+    "ABU-Best-Offer": {
+      "deals": [
+        {
+          "card": "Power Surge",
+          "price": 76.0,
+          "median": 89.99,
+          "discount": 15.546171796866314,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Power-Surge?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Power%20Surge%20Beta%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/ABU-Best-Offer"
+    }
+  },
+  "threshold": 5.0
+}

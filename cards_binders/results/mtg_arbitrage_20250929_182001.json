@@ -1,0 +1,179 @@
+{
+  "timestamp": "20250929_182001",
+  "summary": {
+    "total_analyzed": 3,
+    "excellent_deals": 3,
+    "good_deals": 0,
+    "expensive_deals": 0,
+    "no_data": 0
+  },
+  "excellent_deals": [
+    {
+      "rank": 1,
+      "card_name": "Wheel of Fortune",
+      "expansion": "Alpha",
+      "card_id": 5417,
+      "historical_data": {
+        "avg7": 3679.28,
+        "avg30": 1381.18,
+        "trend": 4273.54,
+        "real_discount": 0.6768065818969753
+      },
+      "live_data": {
+        "total_listings": 5,
+        "cheapest_current": 625.0,
+        "average_current": 852.128,
+        "cheapest_good_condition": 625.0,
+        "cheapest_good_condition_details": {
+          "price": 625.0,
+          "condition": "NM",
+          "seller": "Skamarla",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -83.01298080059142,
+        "good_condition_vs_trend_pct": -85.37512226397787,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Wheel-Of-Fortune?minCondition=3"
+      }
+    },
+    {
+      "rank": 2,
+      "card_name": "Timetwister",
+      "expansion": "Alpha",
+      "card_id": 5318,
+      "historical_data": {
+        "avg7": 18455.38,
+        "avg30": 6334.36,
+        "trend": 19126.12,
+        "real_discount": 0.6688110291057464
+      },
+      "live_data": {
+        "total_listings": 5,
+        "cheapest_current": 499.0,
+        "average_current": 639.598,
+        "cheapest_good_condition": 499.0,
+        "cheapest_good_condition_details": {
+          "price": 499.0,
+          "condition": "NM",
+          "seller": "Andinator",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -97.29618138450685,
+        "good_condition_vs_trend_pct": -97.39100246155519,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Timetwister?minCondition=3"
+      }
+    },
+    {
+      "rank": 3,
+      "card_name": "Howling Mine",
+      "expansion": "Alpha",
+      "card_id": 5481,
+      "historical_data": {
+        "avg7": 1165.43,
+        "avg30": 614.48,
+        "trend": 1587.38,
+        "real_discount": 0.6128967229018887
+      },
+      "live_data": {
+        "total_listings": 6,
+        "cheapest_current": 399.99,
+        "average_current": 582.6633333333333,
+        "cheapest_good_condition": 399.99,
+        "cheapest_good_condition_details": {
+          "price": 399.99,
+          "condition": "NM",
+          "seller": "Zlopotom",
+          "quantity": 2
+        },
+        "good_condition_vs_avg7_pct": -65.6787623452288,
+        "good_condition_vs_trend_pct": -74.8018747873855,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Howling-Mine?minCondition=3"
+      }
+    }
+  ],
+  "good_deals": [],
+  "expensive_deals": [],
+  "no_data": [],
+  "all_results": [
+    {
+      "rank": 1,
+      "card_name": "Wheel of Fortune",
+      "expansion": "Alpha",
+      "card_id": 5417,
+      "historical_data": {
+        "avg7": 3679.28,
+        "avg30": 1381.18,
+        "trend": 4273.54,
+        "real_discount": 0.6768065818969753
+      },
+      "live_data": {
+        "total_listings": 5,
+        "cheapest_current": 625.0,
+        "average_current": 852.128,
+        "cheapest_good_condition": 625.0,
+        "cheapest_good_condition_details": {
+          "price": 625.0,
+          "condition": "NM",
+          "seller": "Skamarla",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -83.01298080059142,
+        "good_condition_vs_trend_pct": -85.37512226397787,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Wheel-Of-Fortune?minCondition=3"
+      }
+    },
+    {
+      "rank": 2,
+      "card_name": "Timetwister",
+      "expansion": "Alpha",
+      "card_id": 5318,
+      "historical_data": {
+        "avg7": 18455.38,
+        "avg30": 6334.36,
+        "trend": 19126.12,
+        "real_discount": 0.6688110291057464
+      },
+      "live_data": {
+        "total_listings": 5,
+        "cheapest_current": 499.0,
+        "average_current": 639.598,
+        "cheapest_good_condition": 499.0,
+        "cheapest_good_condition_details": {
+          "price": 499.0,
+          "condition": "NM",
+          "seller": "Andinator",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -97.29618138450685,
+        "good_condition_vs_trend_pct": -97.39100246155519,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Timetwister?minCondition=3"
+      }
+    },
+    {
+      "rank": 3,
+      "card_name": "Howling Mine",
+      "expansion": "Alpha",
+      "card_id": 5481,
+      "historical_data": {
+        "avg7": 1165.43,
+        "avg30": 614.48,
+        "trend": 1587.38,
+        "real_discount": 0.6128967229018887
+      },
+      "live_data": {
+        "total_listings": 6,
+        "cheapest_current": 399.99,
+        "average_current": 582.6633333333333,
+        "cheapest_good_condition": 399.99,
+        "cheapest_good_condition_details": {
+          "price": 399.99,
+          "condition": "NM",
+          "seller": "Zlopotom",
+          "quantity": 2
+        },
+        "good_condition_vs_avg7_pct": -65.6787623452288,
+        "good_condition_vs_trend_pct": -74.8018747873855,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Howling-Mine?minCondition=3"
+      }
+    }
+  ]
+}

@@ -1,0 +1,475 @@
+{
+  "timestamp": "20250929_181010",
+  "summary": {
+    "total_analyzed": 10,
+    "excellent_deals": 6,
+    "good_deals": 0,
+    "expensive_deals": 1,
+    "no_data": 3
+  },
+  "excellent_deals": [
+    {
+      "rank": 2,
+      "card_name": "Manabarbs",
+      "expansion": "Alpha",
+      "card_id": 5397,
+      "historical_data": {
+        "avg7": 307.85,
+        "avg30": 138.11,
+        "trend": 371.08,
+        "real_discount": 0.6278161043440766
+      },
+      "live_data": {
+        "total_listings": 4,
+        "cheapest_current": 299.99,
+        "average_current": 412.2475,
+        "cheapest_good_condition": 299.99,
+        "cheapest_good_condition_details": {
+          "price": 299.99,
+          "condition": "MT",
+          "seller": "Zlopotom",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -2.5531914893617067,
+        "good_condition_vs_trend_pct": -19.157594049800576,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Manabarbs?minCondition=3"
+      }
+    },
+    {
+      "rank": 3,
+      "card_name": "Dingus Egg",
+      "expansion": "Alpha",
+      "card_id": 5474,
+      "historical_data": {
+        "avg7": 318.43,
+        "avg30": 185.71,
+        "trend": 449.44,
+        "real_discount": 0.5867969028123888
+      },
+      "live_data": {
+        "total_listings": 6,
+        "cheapest_current": 300.0,
+        "average_current": 548.1633333333333,
+        "cheapest_good_condition": 300.0,
+        "cheapest_good_condition_details": {
+          "price": 300.0,
+          "condition": "EX",
+          "seller": "Bomian",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -5.787771252708604,
+        "good_condition_vs_trend_pct": -33.250266998932005,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Dingus-Egg?minCondition=3"
+      }
+    },
+    {
+      "rank": 4,
+      "card_name": "Living Artifact",
+      "expansion": "Alpha",
+      "card_id": 5350,
+      "historical_data": {
+        "avg7": 305.71,
+        "avg30": 157.84,
+        "trend": 361.04,
+        "real_discount": 0.5628185242632395
+      },
+      "live_data": {
+        "total_listings": 9,
+        "cheapest_current": 290.0,
+        "average_current": 479.99666666666667,
+        "cheapest_good_condition": 290.0,
+        "cheapest_good_condition_details": {
+          "price": 290.0,
+          "condition": "NM",
+          "seller": "Bomian",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -5.138857086781584,
+        "good_condition_vs_trend_pct": -19.676490139596726,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Living-Artifact?minCondition=3"
+      }
+    },
+    {
+      "rank": 5,
+      "card_name": "Reverse Damage",
+      "expansion": "Alpha",
+      "card_id": 5452,
+      "historical_data": {
+        "avg7": 391.14,
+        "avg30": 199.78,
+        "trend": 425.86,
+        "real_discount": 0.5308786925280609
+      },
+      "live_data": {
+        "total_listings": 5,
+        "cheapest_current": 350.0,
+        "average_current": 673.9959999999999,
+        "cheapest_good_condition": 350.0,
+        "cheapest_good_condition_details": {
+          "price": 350.0,
+          "condition": "EX",
+          "seller": "Magic-Dreams",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -10.517973104259342,
+        "good_condition_vs_trend_pct": -17.81336589489504,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Reverse-Damage?minCondition=3"
+      }
+    },
+    {
+      "rank": 7,
+      "card_name": "Drain Power",
+      "expansion": "Beta",
+      "card_id": 4740,
+      "historical_data": {
+        "avg7": 208.65,
+        "avg30": 122.77,
+        "trend": 257.9,
+        "real_discount": 0.5239627762698721
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 70.78,
+        "average_current": 99.426,
+        "cheapest_good_condition": 70.78,
+        "cheapest_good_condition_details": {
+          "price": 70.78,
+          "condition": "EX",
+          "seller": "webuyanycard",
+          "quantity": 3
+        },
+        "good_condition_vs_avg7_pct": -66.07716271267672,
+        "good_condition_vs_trend_pct": -72.55525397440869,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Drain-Power?minCondition=3"
+      }
+    },
+    {
+      "rank": 8,
+      "card_name": "Kormus Bell",
+      "expansion": "Alpha",
+      "card_id": 5490,
+      "historical_data": {
+        "avg7": 322.85,
+        "avg30": 180.81,
+        "trend": 373.28,
+        "real_discount": 0.5156183026146592
+      },
+      "live_data": {
+        "total_listings": 6,
+        "cheapest_current": 199.95,
+        "average_current": 628.3216666666666,
+        "cheapest_good_condition": 199.95,
+        "cheapest_good_condition_details": {
+          "price": 199.95,
+          "condition": "NM",
+          "seller": "Zukula",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -38.067213876413206,
+        "good_condition_vs_trend_pct": -46.434312044577794,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Kormus-Bell?minCondition=3"
+      }
+    }
+  ],
+  "good_deals": [],
+  "expensive_deals": [
+    {
+      "rank": 6,
+      "card_name": "Aspect of Wolf",
+      "expansion": "Alpha",
+      "card_id": 5326,
+      "historical_data": {
+        "avg7": 327.83,
+        "avg30": 189.76,
+        "trend": 403.93,
+        "real_discount": 0.5302156314212859
+      },
+      "live_data": {
+        "total_listings": 7,
+        "cheapest_current": 469.99,
+        "average_current": 696.9971428571428,
+        "cheapest_good_condition": 469.99,
+        "cheapest_good_condition_details": {
+          "price": 469.99,
+          "condition": "EX",
+          "seller": "RetroMagic",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 43.363938626727276,
+        "good_condition_vs_trend_pct": 16.354318817616914,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Aspect-Of-Wolf?minCondition=3"
+      }
+    }
+  ],
+  "no_data": [
+    {
+      "rank": 1,
+      "card_name": "Cockatrice",
+      "expansion": "Alpha",
+      "card_id": 5331,
+      "historical_data": {
+        "avg7": 401.86,
+        "avg30": 176.79,
+        "trend": 479.61,
+        "real_discount": 0.6313880027522363
+      },
+      "live_data": null
+    },
+    {
+      "rank": 9,
+      "card_name": "Imprison",
+      "expansion": "Legends",
+      "card_id": 6993,
+      "historical_data": {
+        "avg7": 241.56,
+        "avg30": 115.69,
+        "trend": 229.02,
+        "real_discount": 0.494847611562309
+      },
+      "live_data": null
+    },
+    {
+      "rank": 10,
+      "card_name": "Helm of Chatzuk",
+      "expansion": "Alpha",
+      "card_id": 5479,
+      "historical_data": {
+        "avg7": 335.71,
+        "avg30": 195.52,
+        "trend": 379.88,
+        "real_discount": 0.48531115088975463
+      },
+      "live_data": null
+    }
+  ],
+  "all_results": [
+    {
+      "rank": 1,
+      "card_name": "Cockatrice",
+      "expansion": "Alpha",
+      "card_id": 5331,
+      "historical_data": {
+        "avg7": 401.86,
+        "avg30": 176.79,
+        "trend": 479.61,
+        "real_discount": 0.6313880027522363
+      },
+      "live_data": null
+    },
+    {
+      "rank": 2,
+      "card_name": "Manabarbs",
+      "expansion": "Alpha",
+      "card_id": 5397,
+      "historical_data": {
+        "avg7": 307.85,
+        "avg30": 138.11,
+        "trend": 371.08,
+        "real_discount": 0.6278161043440766
+      },
+      "live_data": {
+        "total_listings": 4,
+        "cheapest_current": 299.99,
+        "average_current": 412.2475,
+        "cheapest_good_condition": 299.99,
+        "cheapest_good_condition_details": {
+          "price": 299.99,
+          "condition": "MT",
+          "seller": "Zlopotom",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -2.5531914893617067,
+        "good_condition_vs_trend_pct": -19.157594049800576,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Manabarbs?minCondition=3"
+      }
+    },
+    {
+      "rank": 3,
+      "card_name": "Dingus Egg",
+      "expansion": "Alpha",
+      "card_id": 5474,
+      "historical_data": {
+        "avg7": 318.43,
+        "avg30": 185.71,
+        "trend": 449.44,
+        "real_discount": 0.5867969028123888
+      },
+      "live_data": {
+        "total_listings": 6,
+        "cheapest_current": 300.0,
+        "average_current": 548.1633333333333,
+        "cheapest_good_condition": 300.0,
+        "cheapest_good_condition_details": {
+          "price": 300.0,
+          "condition": "EX",
+          "seller": "Bomian",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -5.787771252708604,
+        "good_condition_vs_trend_pct": -33.250266998932005,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Dingus-Egg?minCondition=3"
+      }
+    },
+    {
+      "rank": 4,
+      "card_name": "Living Artifact",
+      "expansion": "Alpha",
+      "card_id": 5350,
+      "historical_data": {
+        "avg7": 305.71,
+        "avg30": 157.84,
+        "trend": 361.04,
+        "real_discount": 0.5628185242632395
+      },
+      "live_data": {
+        "total_listings": 9,
+        "cheapest_current": 290.0,
+        "average_current": 479.99666666666667,
+        "cheapest_good_condition": 290.0,
+        "cheapest_good_condition_details": {
+          "price": 290.0,
+          "condition": "NM",
+          "seller": "Bomian",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -5.138857086781584,
+        "good_condition_vs_trend_pct": -19.676490139596726,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Living-Artifact?minCondition=3"
+      }
+    },
+    {
+      "rank": 5,
+      "card_name": "Reverse Damage",
+      "expansion": "Alpha",
+      "card_id": 5452,
+      "historical_data": {
+        "avg7": 391.14,
+        "avg30": 199.78,
+        "trend": 425.86,
+        "real_discount": 0.5308786925280609
+      },
+      "live_data": {
+        "total_listings": 5,
+        "cheapest_current": 350.0,
+        "average_current": 673.9959999999999,
+        "cheapest_good_condition": 350.0,
+        "cheapest_good_condition_details": {
+          "price": 350.0,
+          "condition": "EX",
+          "seller": "Magic-Dreams",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -10.517973104259342,
+        "good_condition_vs_trend_pct": -17.81336589489504,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Reverse-Damage?minCondition=3"
+      }
+    },
+    {
+      "rank": 6,
+      "card_name": "Aspect of Wolf",
+      "expansion": "Alpha",
+      "card_id": 5326,
+      "historical_data": {
+        "avg7": 327.83,
+        "avg30": 189.76,
+        "trend": 403.93,
+        "real_discount": 0.5302156314212859
+      },
+      "live_data": {
+        "total_listings": 7,
+        "cheapest_current": 469.99,
+        "average_current": 696.9971428571428,
+        "cheapest_good_condition": 469.99,
+        "cheapest_good_condition_details": {
+          "price": 469.99,
+          "condition": "EX",
+          "seller": "RetroMagic",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 43.363938626727276,
+        "good_condition_vs_trend_pct": 16.354318817616914,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Aspect-Of-Wolf?minCondition=3"
+      }
+    },
+    {
+      "rank": 7,
+      "card_name": "Drain Power",
+      "expansion": "Beta",
+      "card_id": 4740,
+      "historical_data": {
+        "avg7": 208.65,
+        "avg30": 122.77,
+        "trend": 257.9,
+        "real_discount": 0.5239627762698721
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 70.78,
+        "average_current": 99.426,
+        "cheapest_good_condition": 70.78,
+        "cheapest_good_condition_details": {
+          "price": 70.78,
+          "condition": "EX",
+          "seller": "webuyanycard",
+          "quantity": 3
+        },
+        "good_condition_vs_avg7_pct": -66.07716271267672,
+        "good_condition_vs_trend_pct": -72.55525397440869,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Drain-Power?minCondition=3"
+      }
+    },
+    {
+      "rank": 8,
+      "card_name": "Kormus Bell",
+      "expansion": "Alpha",
+      "card_id": 5490,
+      "historical_data": {
+        "avg7": 322.85,
+        "avg30": 180.81,
+        "trend": 373.28,
+        "real_discount": 0.5156183026146592
+      },
+      "live_data": {
+        "total_listings": 6,
+        "cheapest_current": 199.95,
+        "average_current": 628.3216666666666,
+        "cheapest_good_condition": 199.95,
+        "cheapest_good_condition_details": {
+          "price": 199.95,
+          "condition": "NM",
+          "seller": "Zukula",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -38.067213876413206,
+        "good_condition_vs_trend_pct": -46.434312044577794,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Kormus-Bell?minCondition=3"
+      }
+    },
+    {
+      "rank": 9,
+      "card_name": "Imprison",
+      "expansion": "Legends",
+      "card_id": 6993,
+      "historical_data": {
+        "avg7": 241.56,
+        "avg30": 115.69,
+        "trend": 229.02,
+        "real_discount": 0.494847611562309
+      },
+      "live_data": null
+    },
+    {
+      "rank": 10,
+      "card_name": "Helm of Chatzuk",
+      "expansion": "Alpha",
+      "card_id": 5479,
+      "historical_data": {
+        "avg7": 335.71,
+        "avg30": 195.52,
+        "trend": 379.88,
+        "real_discount": 0.48531115088975463
+      },
+      "live_data": null
+    }
+  ]
+}

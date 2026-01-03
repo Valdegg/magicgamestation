@@ -1,0 +1,62 @@
+🃏 MTG ARBITRAGE RESULTS SUMMARY
+==================================================
+Generated: 2025-09-29 16:00:52
+
+📊 OVERVIEW:
+   Total candidates analyzed: 10
+   Excellent deals found: 7
+   Fair deals found: 1
+   Expensive deals: 0
+   No live data: 2
+
+🎉 EXCELLENT DEALS (≤15% vs AVG7):
+----------------------------------------
+
+• Personal Incarnation (Beta)
+  EX+ Price: €140.00 (EX) - ThreeForOne-AT
+  vs AVG7: +14.1% (€122.72)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Personal-Incarnation?minCondition=3
+
+• Wall of Bone (Alpha)
+  EX+ Price: €50.00 (EX) - ThreeForOne-AT
+  vs AVG7: -23.9% (€65.72)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Wall-Of-Bone?minCondition=3
+
+• Simulacrum (Alpha)
+  EX+ Price: €54.99 (EX) - Dragonegg
+  vs AVG7: -33.7% (€82.95)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Simulacrum?minCondition=3
+
+• Nettling Imp (Alpha)
+  EX+ Price: €75.00 (EX) - ThreeForOne-AT
+  vs AVG7: +2.9% (€72.89)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Nettling-Imp?minCondition=3
+
+• Aspect of Wolf (Beta)
+  EX+ Price: €100.00 (EX) - Magictraders
+  vs AVG7: +0.8% (€99.21)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Aspect-Of-Wolf?minCondition=3
+
+• Farmstead (Beta)
+  EX+ Price: €94.95 (EX) - RetroMagic
+  vs AVG7: +10.6% (€85.82)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Farmstead?minCondition=3
+
+• Deathlace (Beta)
+  EX+ Price: €64.88 (EX) - webuyanycard
+  vs AVG7: -7.7% (€70.30)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Deathlace?minCondition=3
+
+🟡 FAIR DEALS (15-30% vs AVG7):
+----------------------------------------
+
+• Volcanic Eruption (Beta)
+  EX+ Price: €99.95 (EX) - Vince82
+  vs AVG7: +29.7% (€77.05)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Volcanic-Eruption?minCondition=3
+
+💡 USAGE NOTES:
+- Excellent deals are ready to buy at near-historical prices
+- Fair deals may be worth considering depending on your strategy
+- Check URLs for current availability and shipping costs
+- Prices may change quickly - verify before purchasing

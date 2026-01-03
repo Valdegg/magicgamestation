@@ -1,0 +1,25 @@
+🃏 MTG ARBITRAGE RESULTS SUMMARY
+==================================================
+Generated: 2025-10-03 12:31:31
+
+📊 OVERVIEW:
+   Total candidates analyzed: 5
+   Excellent deals found: 1
+   Fair deals found: 0
+   Expensive deals: 1
+   No live data: 3
+
+🎉 EXCELLENT DEALS (≤15% vs AVG30):
+----------------------------------------
+
+• Squire (The Dark)
+  EX+ Price: €0.04 (EX) - JessBuildsTech
+  vs AVG30: -85.2% (€0.27)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/The-Dark/Squire?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/The-Dark/Squire?sellerCountry=7&language=1&minCondition=3
+
+💡 USAGE NOTES:
+- Excellent deals are ready to buy at near-historical prices
+- Fair deals may be worth considering depending on your strategy
+- Check URLs for current availability and shipping costs
+- Prices may change quickly - verify before purchasing

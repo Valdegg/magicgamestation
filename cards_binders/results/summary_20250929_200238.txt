@@ -1,0 +1,52 @@
+🃏 MTG ARBITRAGE RESULTS SUMMARY
+==================================================
+Generated: 2025-09-29 20:02:38
+
+📊 OVERVIEW:
+   Total candidates analyzed: 10
+   Excellent deals found: 5
+   Fair deals found: 1
+   Expensive deals: 4
+   No live data: 0
+
+🎉 EXCELLENT DEALS (≤15% vs AVG7):
+----------------------------------------
+
+• Howling Mine (Alpha)
+  EX+ Price: €1499.00 (EX) - Fluoh
+  vs AVG7: +28.6% (€1165.43)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Howling-Mine?minCondition=3
+
+• Mana Vault (Alpha)
+  EX+ Price: €1589.00 (EX) - Leschelmis
+  vs AVG7: -5.7% (€1685.43)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Mana-Vault?minCondition=3
+
+• Howling Mine (Unlimited)
+  EX+ Price: €80.00 (EX) - Niconet91
+  vs AVG7: -44.2% (€143.45)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Howling-Mine?minCondition=3
+
+• Mana Vault (Unlimited)
+  EX+ Price: €185.00 (EX) - xxniinjaxx1
+  vs AVG7: -28.6% (€259.13)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Mana-Vault?minCondition=3
+
+• Winter Orb (Unlimited)
+  EX+ Price: €90.00 (EX) - DoubleDown
+  vs AVG7: -0.9% (€90.84)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Winter-Orb?minCondition=3
+
+🟡 FAIR DEALS (15-30% vs AVG7):
+----------------------------------------
+
+• Mana Flare (Unlimited)
+  EX+ Price: €42.49 (EX) - RacoonRises
+  vs AVG7: +20.7% (€35.21)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Mana-Flare?minCondition=3
+
+💡 USAGE NOTES:
+- Excellent deals are ready to buy at near-historical prices
+- Fair deals may be worth considering depending on your strategy
+- Check URLs for current availability and shipping costs
+- Prices may change quickly - verify before purchasing

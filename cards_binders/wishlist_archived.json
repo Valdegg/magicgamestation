@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Entomb",
+    "sets": [
+      "Odyssey"
+    ],
+    "notes": "Graveyard setup",
+    "archived_at": "2026-01-03T18:58:47.285361"
+  },
+  {
+    "name": "Serendib Efreet",
+    "sets": [
+      "Arabian Nights",
+      "Revised"
+    ],
+    "notes": "Efficient blue flyer",
+    "archived_at": "2026-01-03T18:59:06.899658"
+  },
+  {
+    "name": "Sol Ring",
+    "sets": [
+      "Alpha",
+      "Beta",
+      "Unlimited",
+      "Revised"
+    ],
+    "notes": "Ultimate mana rock",
+    "archived_at": "2026-01-03T19:00:56.460529"
+  }
+]

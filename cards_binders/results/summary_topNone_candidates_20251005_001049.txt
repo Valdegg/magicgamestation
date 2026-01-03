@@ -1,0 +1,226 @@
+🃏 MTG ARBITRAGE RESULTS SUMMARY
+==================================================
+Generated: 2025-10-05 00:10:49
+
+📊 OVERVIEW:
+   Total candidates analyzed: 52
+   Excellent deals found: 29
+   Fair deals found: 5
+   Expensive deals: 10
+   No live data: 8
+
+🎉 EXCELLENT DEALS (≤15% vs AVG30):
+----------------------------------------
+
+• Living Artifact (Alpha)
+  EX+ Price: €339.99 (EX) - RubyTrade
+  vs AVG30: +115.4% (€157.84)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Living-Artifact?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Living-Artifact?sellerCountry=7&language=1&minCondition=3
+
+• Reverse Damage (Alpha)
+  EX+ Price: €350.00 (EX) - Magic-Dreams
+  vs AVG30: +75.2% (€199.78)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Reverse-Damage?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Reverse-Damage?sellerCountry=7&language=1&minCondition=3
+
+• Drain Power (Beta)
+  EX+ Price: €70.95 (EX) - webuyanycard
+  vs AVG30: -42.2% (€122.72)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Drain-Power?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Drain-Power?sellerCountry=7&language=1&minCondition=3
+
+• Power Surge (Beta)
+  EX+ Price: €76.00 (EX) - ABU-Best-Offer
+  vs AVG30: -31.2% (€110.43)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Power-Surge?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Power-Surge?sellerCountry=7&language=1&minCondition=3
+
+• Simulacrum (Alpha)
+  EX+ Price: €54.99 (EX) - Dragonegg
+  vs AVG30: -22.0% (€70.53)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Simulacrum?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Simulacrum?sellerCountry=7&language=1&minCondition=3
+
+• Pirate Ship (Beta)
+  EX+ Price: €118.99 (EX) - RetroMagic
+  vs AVG30: -11.7% (€134.82)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Pirate-Ship?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Pirate-Ship?sellerCountry=7&language=1&minCondition=3
+
+• Sleight of Mind (Beta)
+  EX+ Price: €118.24 (EX) - webuyanycard
+  vs AVG30: -6.9% (€126.99)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Sleight-Of-Mind?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Sleight-Of-Mind?sellerCountry=7&language=1&minCondition=3
+
+• Chaoslace (Alpha)
+  EX+ Price: €245.00 (EX) - ThreeForOne-AT
+  vs AVG30: +34.1% (€182.68)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Chaoslace?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Chaoslace?sellerCountry=7&language=1&minCondition=3
+
+• Howling Mine (Unlimited)
+  EX+ Price: €80.00 (EX) - Niconet91
+  vs AVG30: -10.6% (€89.44)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Howling-Mine?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Howling-Mine?sellerCountry=7&language=1&minCondition=3
+
+• Reverse Damage (Beta)
+  EX+ Price: €85.00 (EX) - milirem
+  vs AVG30: +10.2% (€77.15)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Reverse-Damage?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Reverse-Damage?sellerCountry=7&language=1&minCondition=3
+
+• Personal Incarnation (Beta)
+  EX+ Price: €139.99 (EX) - Zauberschmiede
+  vs AVG30: -13.3% (€161.55)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Personal-Incarnation?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Personal-Incarnation?sellerCountry=7&language=1&minCondition=3
+
+• Island Sanctuary (Beta)
+  EX+ Price: €110.00 (EX) - ThreeForOne-AT
+  vs AVG30: -31.0% (€159.43)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Island-Sanctuary?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Island-Sanctuary?sellerCountry=7&language=1&minCondition=3
+
+• Mana Vault (Unlimited)
+  EX+ Price: €185.00 (EX) - xxniinjaxx1
+  vs AVG30: -6.4% (€197.58)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Mana-Vault?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Mana-Vault?sellerCountry=7&language=1&minCondition=3
+
+• Wall of Bone (Alpha)
+  EX+ Price: €50.00 (EX) - ThreeForOne-AT
+  vs AVG30: -35.0% (€76.89)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Wall-Of-Bone?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Wall-Of-Bone?sellerCountry=7&language=1&minCondition=3
+
+• Winter Orb (Unlimited)
+  EX+ Price: €90.00 (EX) - DoubleDown
+  vs AVG30: +6.0% (€84.89)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Winter-Orb?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Winter-Orb?sellerCountry=7&language=1&minCondition=3
+
+• Conversion (Alpha)
+  EX+ Price: €30.00 (EX) - ThreeForOne-AT
+  vs AVG30: -52.6% (€63.28)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Conversion?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Conversion?sellerCountry=7&language=1&minCondition=3
+
+• Swords to Plowshares (Unlimited)
+  EX+ Price: €57.94 (EX) - Luckylev
+  vs AVG30: -7.7% (€62.80)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Swords-To-Plowshares?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Swords-To-Plowshares?sellerCountry=7&language=1&minCondition=3
+
+• Cleanse (Legends)
+  EX+ Price: €72.00 (EX) - kasj78
+  vs AVG30: -19.4% (€89.33)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Cleanse?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Cleanse?sellerCountry=7&language=1&minCondition=3
+
+• Field of Dreams (Legends)
+  EX+ Price: €94.99 (EX) - teresis
+  vs AVG30: -6.9% (€102.06)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Field-Of-Dreams?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Field-Of-Dreams?sellerCountry=7&language=1&minCondition=3
+
+• Mana Drain (Legends)
+  EX+ Price: €138.84 (EX) - Bronhy
+  vs AVG30: +0.3% (€138.41)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Mana-Drain?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Mana-Drain?sellerCountry=7&language=1&minCondition=3
+
+• Aspect of Wolf (Beta)
+  EX+ Price: €100.00 (EX) - Magictraders
+  vs AVG30: -19.2% (€123.76)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Aspect-Of-Wolf?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Aspect-Of-Wolf?sellerCountry=7&language=1&minCondition=3
+
+• Copper Tablet (Beta)
+  EX+ Price: €75.00 (EX) - MagicFabulous
+  vs AVG30: -13.0% (€86.18)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Copper-Tablet?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Copper-Tablet?sellerCountry=7&language=1&minCondition=3
+
+• Scavenging Ghoul (Alpha)
+  EX+ Price: €39.00 (EX) - GrimSky
+  vs AVG30: -46.5% (€72.83)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Scavenging-Ghoul?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Scavenging-Ghoul?sellerCountry=7&language=1&minCondition=3
+
+• Animate Artifact (Alpha)
+  EX+ Price: €58.64 (EX) - PugsVault
+  vs AVG30: -36.7% (€92.58)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Animate-Artifact?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Animate-Artifact?sellerCountry=7&language=1&minCondition=3
+
+• Icy Manipulator (Unlimited)
+  EX+ Price: €94.59 (EX) - webuyanycard
+  vs AVG30: +8.0% (€87.62)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Icy-Manipulator?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Icy-Manipulator?sellerCountry=7&language=1&minCondition=3
+
+• Roc of Kher Ridges (Beta)
+  EX+ Price: €189.99 (EX) - RubyTrade
+  vs AVG30: +5.6% (€180.00)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Roc-Of-Kher-Ridges?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Roc-Of-Kher-Ridges?sellerCountry=7&language=1&minCondition=3
+
+• Divine Intervention (Legends)
+  EX+ Price: €94.59 (EX) - TheMagicCardTraderUK
+  vs AVG30: -7.5% (€102.31)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Divine-Intervention?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Divine-Intervention?sellerCountry=7&language=1&minCondition=3
+
+• Hellfire (Legends)
+  EX+ Price: €80.00 (EX) - sebest
+  vs AVG30: -10.5% (€89.40)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Hellfire?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Hellfire?sellerCountry=7&language=1&minCondition=3
+
+• Su-Chi (Antiquities)
+  EX+ Price: €99.98 (EX) - Iliaster
+  vs AVG30: -6.1% (€106.50)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Antiquities/Su-chi?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Antiquities/Su-chi?sellerCountry=7&language=1&minCondition=3
+
+🟡 FAIR DEALS (15-30% vs AVG30):
+----------------------------------------
+
+• Manabarbs (Alpha)
+  EX+ Price: €360.00 (EX) - Tuardian
+  vs AVG30: +160.7% (€138.11)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Manabarbs?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Manabarbs?sellerCountry=7&language=1&minCondition=3
+
+• Dingus Egg (Alpha)
+  EX+ Price: €439.99 (EX) - phigue0
+  vs AVG30: +136.9% (€185.71)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Dingus-Egg?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Dingus-Egg?sellerCountry=7&language=1&minCondition=3
+
+• Crusade (Unlimited)
+  EX+ Price: €97.50 (EX) - sorcierfou
+  vs AVG30: +21.0% (€80.60)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Crusade?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Crusade?sellerCountry=7&language=1&minCondition=3
+
+• Library of Leng (Alpha)
+  EX+ Price: €118.24 (EX) - webuyanycard
+  vs AVG30: +16.7% (€101.28)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Library-Of-Leng?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Library-Of-Leng?sellerCountry=7&language=1&minCondition=3
+
+• Sinkhole (Alpha)
+  EX+ Price: €95.00 (EX) - Magic-Dreams
+  vs AVG30: +14.7% (€82.86)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Sinkhole?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Sinkhole?sellerCountry=7&language=1&minCondition=3
+
+💡 USAGE NOTES:
+- Excellent deals are ready to buy at near-historical prices
+- Fair deals may be worth considering depending on your strategy
+- Check URLs for current availability and shipping costs
+- Prices may change quickly - verify before purchasing

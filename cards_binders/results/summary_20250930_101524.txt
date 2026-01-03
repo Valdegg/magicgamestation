@@ -1,0 +1,437 @@
+🃏 MTG ARBITRAGE RESULTS SUMMARY
+==================================================
+Generated: 2025-09-30 10:15:24
+
+📊 OVERVIEW:
+   Total candidates analyzed: 159
+   Excellent deals found: 79
+   Fair deals found: 4
+   Expensive deals: 37
+   No live data: 39
+
+🎉 EXCELLENT DEALS (≤15% vs AVG7):
+----------------------------------------
+
+• Mana Vault (Alpha)
+  EX+ Price: €1589.00 (EX) - Leschelmis
+  vs AVG7: -5.7% (€1685.43)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Mana-Vault?minCondition=3
+
+• Shattering Pulse (Exodus)
+  EX+ Price: €0.02 (NM) - BloodFeast
+  vs AVG7: -93.1% (€0.29)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Shattering-Pulse?minCondition=3
+
+• Mana Vault (Unlimited)
+  EX+ Price: €185.00 (EX) - xxniinjaxx1
+  vs AVG7: -28.6% (€259.13)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Mana-Vault?minCondition=3
+
+• Winter Orb (Unlimited)
+  EX+ Price: €90.00 (EX) - DoubleDown
+  vs AVG7: -0.9% (€90.84)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Winter-Orb?minCondition=3
+
+• Erratic Portal (Exodus)
+  EX+ Price: €0.55 (EX) - Myrmyrmyr
+  vs AVG7: -68.6% (€1.75)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Erratic-Portal?minCondition=3
+
+• Wrath of God (Beta)
+  EX+ Price: €649.99 (EX) - nightdjinn
+  vs AVG7: -6.9% (€698.10)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Wrath-Of-God?minCondition=3
+
+• Dark Ritual (Unlimited)
+  EX+ Price: €12.00 (EX) - Carddude1520
+  vs AVG7: -7.6% (€12.98)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Dark-Ritual?minCondition=3
+
+• Counterspell (Alpha)
+  EX+ Price: €739.00 (EX) - llanowarelfe
+  vs AVG7: +7.6% (€687.10)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Counterspell?minCondition=3
+
+• Chalice of the Void (Mirrodin)
+  EX+ Price: €10.00 (NM) - CollectorsLounge
+  vs AVG7: -40.7% (€16.87)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Mirrodin/Chalice-Of-The-Void?minCondition=3
+
+• Static Orb (Tempest)
+  EX+ Price: €5.50 (EX) - go2pack
+  vs AVG7: -35.1% (€8.47)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Static-Orb?minCondition=3
+
+• Corpse Dance (Tempest)
+  EX+ Price: €14.00 (EX) - mtg-foil-shop
+  vs AVG7: -27.2% (€19.23)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Corpse-Dance?minCondition=3
+
+• Cadaverous Bloom (Mirage)
+  EX+ Price: €2.29 (EX) - CORP-F
+  vs AVG7: -41.4% (€3.91)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Cadaverous-Bloom?minCondition=3
+
+• Maze of Ith (The Dark)
+  EX+ Price: €20.97 (EX) - TheGoose
+  vs AVG7: -5.0% (€22.08)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/The-Dark/Maze-Of-Ith?minCondition=3
+
+• Azusa, Lost but Seeking (Champions of Kamigawa)
+  EX+ Price: €3.00 (EX) - ChristianJ
+  vs AVG7: -60.7% (€7.63)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Champions-Of-Kamigawa/Azusa-Lost-But-Seeking?minCondition=3
+
+• Ensnaring Bridge (Stronghold)
+  EX+ Price: €10.00 (EX) - Rmhulk
+  vs AVG7: -28.4% (€13.97)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Stronghold/Ensnaring-Bridge?minCondition=3
+
+• Underworld Dreams (Legends)
+  EX+ Price: €81.98 (EX) - Bronhy
+  vs AVG7: -2.1% (€83.77)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Underworld-Dreams?minCondition=3
+
+• Enlightened Tutor (Mirage)
+  EX+ Price: €18.00 (EX) - Mouseabuse
+  vs AVG7: -21.5% (€22.94)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Enlightened-Tutor?minCondition=3
+
+• Horn of Greed (Stronghold)
+  EX+ Price: €7.00 (EX) - Pakala
+  vs AVG7: -35.9% (€10.92)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Stronghold/Horn-Of-Greed?minCondition=3
+
+• Wrath of God (Revised)
+  EX+ Price: €8.29 (EX) - Ender2020
+  vs AVG7: -22.9% (€10.75)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Revised/Wrath-Of-God?minCondition=3
+
+• Shallow Grave (Mirage)
+  EX+ Price: €64.95 (EX) - mexba
+  vs AVG7: -17.6% (€78.82)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Shallow-Grave?minCondition=3
+
+• Capsize (Tempest)
+  EX+ Price: €0.02 (EX) - unrealarxinn
+  vs AVG7: -96.4% (€0.56)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Capsize?minCondition=3
+
+• Goblin Welder (Urza's Legacy)
+  EX+ Price: €14.31 (EX) - Meddy36
+  vs AVG7: -21.8% (€18.29)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Legacy/Goblin-Welder?minCondition=3
+
+• Time Spiral (Urza's Saga)
+  EX+ Price: €49.00 (EX) - Bronhy
+  vs AVG7: -27.8% (€67.83)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Saga/Time-Spiral?minCondition=3
+
+• Boseiju, Who Shelters All (Champions of Kamigawa)
+  EX+ Price: €3.60 (EX) - heymans
+  vs AVG7: -40.0% (€6.00)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Champions-Of-Kamigawa/Boseiju-Who-Shelters-All?minCondition=3
+
+• Sylvan Library (Legends)
+  EX+ Price: €119.99 (EX) - cid1212
+  vs AVG7: -4.7% (€125.97)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Sylvan-Library?minCondition=3
+
+• Exalted Dragon (Exodus)
+  EX+ Price: €0.50 (NM) - ruicasasnovas
+  vs AVG7: -45.1% (€0.91)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Exalted-Dragon?minCondition=3
+
+• Abeyance (Weatherlight)
+  EX+ Price: €5.00 (EX) - leonae
+  vs AVG7: -31.1% (€7.26)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Weatherlight/Abeyance?minCondition=3
+
+• Earthcraft (Tempest)
+  EX+ Price: €71.07 (EX) - chika31
+  vs AVG7: -20.0% (€88.79)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Earthcraft?minCondition=3
+
+• Winter Orb (Beta)
+  EX+ Price: €640.00 (EX) - CardGameCorner
+  vs AVG7: +5.4% (€607.42)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Winter-Orb?minCondition=3
+
+• Pandemonium (Exodus)
+  EX+ Price: €0.70 (EX) - Fitzanor
+  vs AVG7: -62.8% (€1.88)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Pandemonium?minCondition=3
+
+• Jokulhaups (Ice Age)
+  EX+ Price: €1.94 (EX) - Goblin-CardSlinger
+  vs AVG7: -48.1% (€3.74)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Jokulhaups?minCondition=3
+
+• Intuition (Tempest)
+  EX+ Price: €125.00 (EX) - CaptainCool
+  vs AVG7: -1.0% (€126.24)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Intuition?minCondition=3
+
+• Dust Bowl (Mercadian Masques)
+  EX+ Price: €13.50 (EX) - Library-Of-Cards
+  vs AVG7: -25.3% (€18.07)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Mercadian-Masques/Dust-Bowl?minCondition=3
+
+• Mystical Tutor (Mirage)
+  EX+ Price: €5.50 (EX) - boensj
+  vs AVG7: -35.3% (€8.50)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Mystical-Tutor?minCondition=3
+
+• Cataclysm (Exodus)
+  EX+ Price: €6.50 (NM) - Joikkeli
+  vs AVG7: -31.6% (€9.50)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Cataclysm?minCondition=3
+
+• Sphere of Resistance (Exodus)
+  EX+ Price: €19.00 (EX) - boensj
+  vs AVG7: -25.9% (€25.65)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Sphere-Of-Resistance?minCondition=3
+
+• Meditate (Tempest)
+  EX+ Price: €2.95 (EX) - mktradingcards
+  vs AVG7: -44.8% (€5.34)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Meditate?minCondition=3
+
+• Survival of the Fittest (Exodus)
+  EX+ Price: €170.00 (EX) - Errcastri
+  vs AVG7: -7.3% (€183.44)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Survival-Of-The-Fittest?minCondition=3
+
+• Land Tax (Legends)
+  EX+ Price: €52.00 (EX) - Slyngelweah
+  vs AVG7: -8.6% (€56.88)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Land-Tax?minCondition=3
+
+• Coat of Arms (Exodus)
+  EX+ Price: €7.00 (EX) - Oldrubber
+  vs AVG7: -52.8% (€14.82)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Coat-Of-Arms?minCondition=3
+
+• Dance of the Dead (Ice Age)
+  EX+ Price: €14.50 (EX) - aliciat
+  vs AVG7: -3.8% (€15.08)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Dance-Of-The-Dead?minCondition=3
+
+• Rhystic Study (Prophecy)
+  EX+ Price: €28.00 (EX) - baleinedessables
+  vs AVG7: -15.1% (€32.98)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Prophecy/Rhystic-Study?minCondition=3
+
+• Vampiric Tutor (Visions)
+  EX+ Price: €35.40 (EX) - Dolll
+  vs AVG7: -8.6% (€38.73)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Visions/Vampiric-Tutor?minCondition=3
+
+• Reanimate (Tempest)
+  EX+ Price: €10.61 (EX) - SwigginPanda
+  vs AVG7: -24.3% (€14.02)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Reanimate?minCondition=3
+
+• Memory Jar (Urza's Legacy)
+  EX+ Price: €15.93 (EX) - Bronhy
+  vs AVG7: -22.0% (€20.41)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Legacy/Memory-Jar?minCondition=3
+
+• Karakas (Legends)
+  EX+ Price: €34.22 (EX) - TheMagicCardTraderUK
+  vs AVG7: -14.9% (€40.19)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Karakas?minCondition=3
+
+• Entomb (Odyssey)
+  EX+ Price: €15.00 (NM) - adrianct
+  vs AVG7: -33.5% (€22.54)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Odyssey/Entomb?minCondition=3
+
+• Worldly Tutor (Mirage)
+  EX+ Price: €10.00 (EX) - Daguet
+  vs AVG7: -21.6% (€12.76)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Worldly-Tutor?minCondition=3
+
+• Sensei's Divining Top (Champions of Kamigawa)
+  EX+ Price: €12.90 (EX) - Benoitkitzin
+  vs AVG7: -12.8% (€14.80)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Champions-Of-Kamigawa/Senseis-Divining-Top?minCondition=3
+
+• Trinisphere (Darksteel)
+  EX+ Price: €13.90 (EX) - blueFongus
+  vs AVG7: -17.6% (€16.86)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Darksteel/Trinisphere?minCondition=3
+
+• Burgeoning (Stronghold)
+  EX+ Price: €15.97 (EX) - Bronhy
+  vs AVG7: -33.3% (€23.96)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Stronghold/Burgeoning?minCondition=3
+
+• Cursed Scroll (Tempest)
+  EX+ Price: €22.00 (EX) - Fremdwanne
+  vs AVG7: -20.0% (€27.51)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Cursed-Scroll?minCondition=3
+
+• Force of Will (Alliances)
+  EX+ Price: €44.00 (EX) - boensj
+  vs AVG7: -18.4% (€53.94)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alliances/Force-Of-Will?minCondition=3
+
+• Necropotence (Ice Age)
+  EX+ Price: €15.99 (EX) - Olli-Baba
+  vs AVG7: -15.8% (€18.99)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Necropotence?minCondition=3
+
+• Sliver Queen (Stronghold)
+  EX+ Price: €128.88 (EX) - Bronhy
+  vs AVG7: -20.8% (€162.73)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Stronghold/Sliver-Queen?minCondition=3
+
+• Cabal Coffers (Torment)
+  EX+ Price: €11.00 (EX) - zaux555
+  vs AVG7: -33.7% (€16.59)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Torment/Cabal-Coffers?minCondition=3
+
+• Price of Progress (Exodus)
+  EX+ Price: €4.17 (EX) - TheManaCave
+  vs AVG7: -33.1% (€6.23)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Price-Of-Progress?minCondition=3
+
+• Phelddagrif (Alliances)
+  EX+ Price: €3.48 (EX) - SlevinKelebra88
+  vs AVG7: -26.6% (€4.74)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alliances/Phelddagrif?minCondition=3
+
+• Phyrexian Arena (Apocalypse)
+  EX+ Price: €5.00 (EX) - mamadoo52
+  vs AVG7: -31.3% (€7.28)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Apocalypse/Phyrexian-Arena?minCondition=3
+
+• Null Rod (Weatherlight)
+  EX+ Price: €50.00 (EX) - vall3jo
+  vs AVG7: -24.0% (€65.83)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Weatherlight/Null-Rod?minCondition=3
+
+• Lake of the Dead (Alliances)
+  EX+ Price: €52.00 (EX) - Schwestern
+  vs AVG7: -11.4% (€58.72)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alliances/Lake-Of-The-Dead?minCondition=3
+
+• Oath of Druids (Exodus)
+  EX+ Price: €9.95 (EX) - malinjacques
+  vs AVG7: -48.7% (€19.40)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Oath-Of-Druids?minCondition=3
+
+• Tinker (Urza's Legacy)
+  EX+ Price: €0.95 (EX) - komet
+  vs AVG7: -53.9% (€2.06)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Legacy/Tinker?minCondition=3
+
+• Strip Mine (Fourth Edition)
+  EX+ Price: €3.90 (EX) - casi-mir
+  vs AVG7: -45.5% (€7.16)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Fourth-Edition/Strip-Mine?minCondition=3
+
+• Tradewind Rider (Tempest)
+  EX+ Price: €1.50 (EX) - ashtonr132
+  vs AVG7: -26.5% (€2.04)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Tradewind-Rider?minCondition=3
+
+• Thawing Glaciers (Alliances)
+  EX+ Price: €6.00 (EX) - isys59
+  vs AVG7: -43.6% (€10.64)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alliances/Thawing-Glaciers?minCondition=3
+
+• Aluren (Tempest)
+  EX+ Price: €26.00 (EX) - nahum86
+  vs AVG7: -13.6% (€30.10)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Aluren?minCondition=3
+
+• Crystalline Sliver (Stronghold)
+  EX+ Price: €0.80 (EX) - CaraCatastrofe
+  vs AVG7: -53.8% (€1.73)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Stronghold/Crystalline-Sliver?minCondition=3
+
+• Hermit Druid (Stronghold)
+  EX+ Price: €6.00 (NM) - boensj
+  vs AVG7: -33.0% (€8.95)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Stronghold/Hermit-Druid?minCondition=3
+
+• Wasteland (Tempest)
+  EX+ Price: €21.00 (EX) - azel92
+  vs AVG7: -30.6% (€30.24)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Wasteland?minCondition=3
+
+• Arcades Sabboth (Legends)
+  EX+ Price: €24.98 (EX) - fabiolone1
+  vs AVG7: -2.8% (€25.71)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Arcades-Sabboth?minCondition=3
+
+• Tolarian Academy (Urza's Saga)
+  EX+ Price: €72.00 (EX) - maclane
+  vs AVG7: -18.2% (€87.98)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Saga/Tolarian-Academy?minCondition=3
+
+• Karplusan Forest (Ice Age)
+  EX+ Price: €15.99 (NM) - CardGameCorner
+  vs AVG7: -36.5% (€25.19)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Karplusan-Forest?minCondition=3
+
+• Hatred (Exodus)
+  EX+ Price: €14.50 (EX) - sloane
+  vs AVG7: -35.4% (€22.43)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Hatred?minCondition=3
+
+• Kjeldoran Outpost (Alliances)
+  EX+ Price: €4.72 (EX) - CairneyCards
+  vs AVG7: -18.9% (€5.82)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alliances/Kjeldoran-Outpost?minCondition=3
+
+• Bazaar of Wonders (Mirage)
+  EX+ Price: €0.45 (EX) - OromisDDL
+  vs AVG7: -44.4% (€0.81)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Bazaar-Of-Wonders?minCondition=3
+
+• Adarkar Wastes (Ice Age)
+  EX+ Price: €14.99 (NM) - ThreeForOne-AT
+  vs AVG7: -20.7% (€18.90)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Adarkar-Wastes?minCondition=3
+
+• Brushland (Ice Age)
+  EX+ Price: €7.08 (NM) - maxtlion
+  vs AVG7: -32.2% (€10.45)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Brushland?minCondition=3
+
+• Oath of Ghouls (Exodus)
+  EX+ Price: €1.80 (EX) - Dulvlav
+  vs AVG7: -11.8% (€2.04)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Oath-Of-Ghouls?minCondition=3
+
+🟡 FAIR DEALS (15-30% vs AVG7):
+----------------------------------------
+
+• City of Traitors (Exodus)
+  EX+ Price: €279.90 (NM) - timotheush
+  vs AVG7: -9.2% (€308.21)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/City-Of-Traitors?minCondition=3
+
+• Ancient Tomb (Tempest)
+  EX+ Price: €72.00 (EX) - Benoitkitzin
+  vs AVG7: -16.2% (€85.91)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Ancient-Tomb?minCondition=3
+
+• Sulfurous Springs (Ice Age)
+  EX+ Price: €9.70 (NM) - Toysnloot
+  vs AVG7: -6.4% (€10.36)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Sulfurous-Springs?minCondition=3
+
+• Phyrexian Dreadnought (Mirage)
+  EX+ Price: €145.00 (EX) - dannymilldm
+  vs AVG7: -6.9% (€155.67)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Phyrexian-Dreadnought?minCondition=3
+
+💡 USAGE NOTES:
+- Excellent deals are ready to buy at near-historical prices
+- Fair deals may be worth considering depending on your strategy
+- Check URLs for current availability and shipping costs
+- Prices may change quickly - verify before purchasing

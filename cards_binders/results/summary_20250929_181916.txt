@@ -1,0 +1,57 @@
+🃏 MTG ARBITRAGE RESULTS SUMMARY
+==================================================
+Generated: 2025-09-29 18:19:16
+
+📊 OVERVIEW:
+   Total candidates analyzed: 10
+   Excellent deals found: 6
+   Fair deals found: 1
+   Expensive deals: 3
+   No live data: 0
+
+🎉 EXCELLENT DEALS (≤15% vs AVG7):
+----------------------------------------
+
+• Mana Flare (Beta)
+  EX+ Price: €300.00 (NM) - RobRot
+  vs AVG7: +33.3% (€225.06)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Mana-Flare?minCondition=3
+
+• Howling Mine (Alpha)
+  EX+ Price: €399.99 (NM) - Zlopotom
+  vs AVG7: -65.7% (€1165.43)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Howling-Mine?minCondition=3
+
+• Timetwister (Beta)
+  EX+ Price: €200.00 (NM) - tzo843
+  vs AVG7: -95.9% (€4911.29)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Timetwister?minCondition=3
+
+• Demonic Tutor (Alpha)
+  EX+ Price: €199.00 (EX) - enricocollector
+  vs AVG7: -66.9% (€600.57)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Demonic-Tutor?minCondition=3
+
+• Winter Orb (Beta)
+  EX+ Price: €640.00 (EX) - CardGameCorner
+  vs AVG7: +5.4% (€607.42)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Winter-Orb?minCondition=3
+
+• Winter Orb (Unlimited)
+  EX+ Price: €90.00 (EX) - DoubleDown
+  vs AVG7: -0.9% (€90.84)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Winter-Orb?minCondition=3
+
+🟡 FAIR DEALS (15-30% vs AVG7):
+----------------------------------------
+
+• Mana Flare (Unlimited)
+  EX+ Price: €42.49 (EX) - RacoonRises
+  vs AVG7: +20.7% (€35.21)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Mana-Flare?minCondition=3
+
+💡 USAGE NOTES:
+- Excellent deals are ready to buy at near-historical prices
+- Fair deals may be worth considering depending on your strategy
+- Check URLs for current availability and shipping costs
+- Prices may change quickly - verify before purchasing

@@ -1,0 +1,355 @@
+{
+  "seller_deals": {
+    "ThreeForOne-AT": {
+      "deals": [
+        {
+          "card": "Island Sanctuary",
+          "price": 110.0,
+          "median": 125.0,
+          "discount": 12.0,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Island-Sanctuary?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Island%20Sanctuary%20Beta%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        },
+        {
+          "card": "Conversion",
+          "price": 30.0,
+          "median": 38.0,
+          "discount": 21.052631578947366,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Conversion?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Conversion%20Alpha%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        },
+        {
+          "card": "Orcish Oriflamme",
+          "price": 175.0,
+          "median": 195.0,
+          "discount": 10.256410256410255,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Orcish-Oriflamme?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Orcish%20Oriflamme%20Alpha%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/ThreeForOne-AT"
+    },
+    "Tuardian": {
+      "deals": [
+        {
+          "card": "Manabarbs",
+          "price": 360.0,
+          "median": 390.0,
+          "discount": 7.6923076923076925,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Manabarbs?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Manabarbs%20Alpha%20site%3Amtgstocks.com",
+          "category": "good_deals"
+        },
+        {
+          "card": "Goblin Balloon Brigade",
+          "price": 212.0,
+          "median": 224.65,
+          "discount": 5.630981526819499,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Goblin-Balloon-Brigade?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Goblin%20Balloon%20Brigade%20Alpha%20site%3Amtgstocks.com",
+          "category": "expensive_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Tuardian"
+    },
+    "Magic-Dreams": {
+      "deals": [
+        {
+          "card": "Reverse Damage",
+          "price": 350.0,
+          "median": 600.0,
+          "discount": 41.66666666666667,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Reverse-Damage?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Reverse%20Damage%20Alpha%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        },
+        {
+          "card": "Sinkhole",
+          "price": 95.0,
+          "median": 106.42,
+          "discount": 10.731065589174968,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Sinkhole?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Sinkhole%20Alpha%20site%3Amtgstocks.com",
+          "category": "good_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Magic-Dreams"
+    },
+    "GrimSky": {
+      "deals": [
+        {
+          "card": "Kormus Bell",
+          "price": 399.0,
+          "median": 640.0,
+          "discount": 37.65625,
+          "condition": "NM",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Kormus-Bell?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Kormus%20Bell%20Alpha%20site%3Amtgstocks.com",
+          "category": "expensive_deals"
+        },
+        {
+          "card": "Scavenging Ghoul",
+          "price": 39.0,
+          "median": 60.0,
+          "discount": 35.0,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Scavenging-Ghoul?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Scavenging%20Ghoul%20Alpha%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/GrimSky"
+    },
+    "phigue0": {
+      "deals": [
+        {
+          "card": "Dingus Egg",
+          "price": 439.99,
+          "median": 499.0,
+          "discount": 11.825651302605209,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Dingus-Egg?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Dingus%20Egg%20Alpha%20site%3Amtgstocks.com",
+          "category": "good_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/phigue0"
+    },
+    "webuyanycard": {
+      "deals": [
+        {
+          "card": "Drain Power",
+          "price": 70.95,
+          "median": 87.5,
+          "discount": 18.91428571428571,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Drain-Power?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Drain%20Power%20Beta%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/webuyanycard"
+    },
+    "ABU-Best-Offer": {
+      "deals": [
+        {
+          "card": "Power Surge",
+          "price": 76.0,
+          "median": 89.99,
+          "discount": 15.546171796866314,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Power-Surge?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Power%20Surge%20Beta%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/ABU-Best-Offer"
+    },
+    "Dragonegg": {
+      "deals": [
+        {
+          "card": "Simulacrum",
+          "price": 54.99,
+          "median": 69.98,
+          "discount": 21.420405830237215,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Simulacrum?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Simulacrum%20Alpha%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Dragonegg"
+    },
+    "Niconet91": {
+      "deals": [
+        {
+          "card": "Howling Mine",
+          "price": 80.0,
+          "median": 137.19,
+          "discount": 41.68671185946498,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Howling-Mine?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Howling%20Mine%20Unlimited%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Niconet91"
+    },
+    "milirem": {
+      "deals": [
+        {
+          "card": "Reverse Damage",
+          "price": 85.0,
+          "median": 94.0,
+          "discount": 9.574468085106384,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Reverse-Damage?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Reverse%20Damage%20Beta%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/milirem"
+    },
+    "xxniinjaxx1": {
+      "deals": [
+        {
+          "card": "Mana Vault",
+          "price": 185.0,
+          "median": 240.0,
+          "discount": 22.916666666666664,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Mana-Vault?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Mana%20Vault%20Unlimited%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/xxniinjaxx1"
+    },
+    "DoubleDown": {
+      "deals": [
+        {
+          "card": "Winter Orb",
+          "price": 90.0,
+          "median": 100.5,
+          "discount": 10.44776119402985,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Winter-Orb?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Winter%20Orb%20Unlimited%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/DoubleDown"
+    },
+    "Zauberschmiede": {
+      "deals": [
+        {
+          "card": "Black Vise",
+          "price": 159.99,
+          "median": 170.0,
+          "discount": 5.888235294117642,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Black-Vise?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Black%20Vise%20Beta%20site%3Amtgstocks.com",
+          "category": "expensive_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Zauberschmiede"
+    },
+    "sorcierfou": {
+      "deals": [
+        {
+          "card": "Crusade",
+          "price": 97.5,
+          "median": 114.99,
+          "discount": 15.2100182624576,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Crusade?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Crusade%20Unlimited%20site%3Amtgstocks.com",
+          "category": "good_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/sorcierfou"
+    },
+    "teresis": {
+      "deals": [
+        {
+          "card": "Field of Dreams",
+          "price": 94.99,
+          "median": 100.0,
+          "discount": 5.010000000000005,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Field-Of-Dreams?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Field%20of%20Dreams%20Legends%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/teresis"
+    },
+    "Magictraders": {
+      "deals": [
+        {
+          "card": "Aspect of Wolf",
+          "price": 100.0,
+          "median": 118.24,
+          "discount": 15.426251691474963,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Aspect-Of-Wolf?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Aspect%20of%20Wolf%20Beta%20site%3Amtgstocks.com",
+          "category": "expensive_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Magictraders"
+    },
+    "MagicFabulous": {
+      "deals": [
+        {
+          "card": "Copper Tablet",
+          "price": 75.0,
+          "median": 82.98,
+          "discount": 9.61677512653652,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Copper-Tablet?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Copper%20Tablet%20Beta%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/MagicFabulous"
+    },
+    "TheMagicCardTraderUK": {
+      "deals": [
+        {
+          "card": "Divine Intervention",
+          "price": 94.59,
+          "median": 105.62,
+          "discount": 10.443097898125355,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Divine-Intervention?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Divine%20Intervention%20Legends%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/TheMagicCardTraderUK"
+    },
+    "Cyberpunk-2084": {
+      "deals": [
+        {
+          "card": "Recall",
+          "price": 82.77,
+          "median": 105.0,
+          "discount": 21.171428571428574,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Recall?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Recall%20Legends%20site%3Amtgstocks.com",
+          "category": "expensive_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Cyberpunk-2084"
+    },
+    "Zinzillino": {
+      "deals": [
+        {
+          "card": "Royal Assassin",
+          "price": 148.0,
+          "median": 160.0,
+          "discount": 7.5,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Royal-Assassin?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Royal%20Assassin%20Unlimited%20site%3Amtgstocks.com",
+          "category": "expensive_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Zinzillino"
+    }
+  },
+  "threshold": 5.0
+}

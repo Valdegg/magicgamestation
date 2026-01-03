@@ -1,0 +1,5301 @@
+{
+  "timestamp": "20251026_111551",
+  "run_type": "wishlist_deck",
+  "run_param": null,
+  "summary": {
+    "total_analyzed": 40,
+    "excellent_deals": 34,
+    "good_deals": 1,
+    "expensive_deals": 5,
+    "no_data": 0
+  },
+  "excellent_deals": [
+    {
+      "rank": 1,
+      "card_name": "Necropotence",
+      "expansion": "Ice Age",
+      "card_id": 6254,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 20.08,
+        "avg30": 19.19,
+        "trend": 22.39,
+        "real_discount": 0.14292094685127285
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 18.0,
+        "average_current": 19.363999999999997,
+        "cheapest_good_condition": 18.0,
+        "cheapest_good_condition_details": {
+          "price": 18.0,
+          "condition": "NM",
+          "seller": "cannca",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "cannca",
+            "price": 18.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "EpiphanyG",
+            "price": 18.8,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Rab-MTG",
+            "price": 18.86,
+            "condition": "EX",
+            "quantity": 3
+          },
+          {
+            "seller": "juzmar",
+            "price": 19.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "maritabv",
+            "price": 19.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "gazza006",
+            "price": 19.99,
+            "condition": "EX",
+            "quantity": 2
+          }
+        ],
+        "good_condition_vs_avg7_pct": -10.358565737051785,
+        "good_condition_vs_trend_pct": -19.606967396159003,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Necropotence?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 2,
+      "card_name": "Mana Vault",
+      "expansion": "Unlimited",
+      "card_id": 5149,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 225.99,
+        "avg30": 196.17,
+        "trend": 228.34,
+        "real_discount": 0.14088639747744597
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 228.4,
+        "average_current": 252.734,
+        "cheapest_good_condition": 228.4,
+        "cheapest_good_condition_details": {
+          "price": 228.4,
+          "condition": "EX",
+          "seller": "Bronhy",
+          "quantity": 2
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Bronhy",
+            "price": 228.4,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "CLS-Magic",
+            "price": 235.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "vietj",
+            "price": 240.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Bronhy",
+            "price": 249.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "Lotus58",
+            "price": 250.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "CorwinD",
+            "price": 260.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 1.066418868091507,
+        "good_condition_vs_trend_pct": 0.0262766050626269,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Mana-Vault?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 3,
+      "card_name": "Memory Jar",
+      "expansion": "Urza's Legacy",
+      "card_id": 10686,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 21.6,
+        "avg30": 20.94,
+        "trend": 22.55,
+        "real_discount": 0.07139689578713966
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 20.89,
+        "average_current": 21.508,
+        "cheapest_good_condition": 20.89,
+        "cheapest_good_condition_details": {
+          "price": 20.89,
+          "condition": "EX",
+          "seller": "Mtgwebshopdk",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Mtgwebshopdk",
+            "price": 20.89,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "louisuut",
+            "price": 21.0,
+            "condition": "EX",
+            "quantity": 4
+          },
+          {
+            "seller": "In2Cards",
+            "price": 21.5,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "etlon",
+            "price": 21.5,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "loxcovinc",
+            "price": 21.5,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Allander",
+            "price": 21.5,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -3.287037037037041,
+        "good_condition_vs_trend_pct": -7.361419068736143,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Legacy/Memory-Jar?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 4,
+      "card_name": "Birds of Paradise",
+      "expansion": "Revised",
+      "card_id": 5622,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 17.83,
+        "avg30": 16.33,
+        "trend": 17.37,
+        "real_discount": 0.05987334484743826
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 15.0,
+        "average_current": 17.48,
+        "cheapest_good_condition": 15.0,
+        "cheapest_good_condition_details": {
+          "price": 15.0,
+          "condition": "EX",
+          "seller": "lxaxbete",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "lxaxbete",
+            "price": 15.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Leo-SDR",
+            "price": 15.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "mfazenda97",
+            "price": 15.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Obliticus",
+            "price": 17.67,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Templar1066",
+            "price": 17.68,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "giggioz",
+            "price": 18.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -15.872125630959049,
+        "good_condition_vs_trend_pct": -13.644214162348883,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Revised/Birds-Of-Paradise?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 5,
+      "card_name": "Triskelion",
+      "expansion": "Antiquities",
+      "card_id": 6909,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 132.08,
+        "avg30": 121.24,
+        "trend": 128.68,
+        "real_discount": 0.057817842710600025
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 129.5,
+        "average_current": 134.316,
+        "cheapest_good_condition": 129.5,
+        "cheapest_good_condition_details": {
+          "price": 129.5,
+          "condition": "NM",
+          "seller": "In2Cards",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "In2Cards",
+            "price": 129.5,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "TheMagicCardTraderUK",
+            "price": 129.73,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Zhycks",
+            "price": 129.98,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Slyngelweah",
+            "price": 130.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "LessIsMore",
+            "price": 130.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "ThreeForOne-AT",
+            "price": 134.99,
+            "condition": "NM",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -1.9533615990308995,
+        "good_condition_vs_trend_pct": 0.6372396642834885,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Antiquities/Triskelion?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 6,
+      "card_name": "Survival of the Fittest",
+      "expansion": "Exodus",
+      "card_id": 9357,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 198.63,
+        "avg30": 194.31,
+        "trend": 205.61,
+        "real_discount": 0.054958416419434906
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 176.9,
+        "average_current": 205.967,
+        "cheapest_good_condition": 176.9,
+        "cheapest_good_condition_details": {
+          "price": 176.9,
+          "condition": "EX",
+          "seller": "satansghost",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "satansghost",
+            "price": 176.9,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "lossolsun",
+            "price": 186.32,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "furiousflow",
+            "price": 199.95,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "WildGames",
+            "price": 207.37,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "BarneyStinson",
+            "price": 210.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Ward1984",
+            "price": 212.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -10.93993857926798,
+        "good_condition_vs_trend_pct": -13.963328631875886,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Survival-Of-The-Fittest?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 7,
+      "card_name": "Sylvan Library",
+      "expansion": "Legends",
+      "card_id": 7092,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 114.63,
+        "avg30": 119.15,
+        "trend": 123.49,
+        "real_discount": 0.035144546117094416
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 126.33,
+        "average_current": 134.66500000000002,
+        "cheapest_good_condition": 126.33,
+        "cheapest_good_condition_details": {
+          "price": 126.33,
+          "condition": "NM",
+          "seller": "Tryllepapp",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Tryllepapp",
+            "price": 126.33,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "Magicboxx",
+            "price": 126.34,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "Magicboxx",
+            "price": 126.34,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "Fiska",
+            "price": 133.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "sune7d",
+            "price": 135.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "Eclypse",
+            "price": 139.64,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 10.206752159120652,
+        "good_condition_vs_trend_pct": 2.2997813588144815,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Sylvan-Library?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 8,
+      "card_name": "Kokusho, the Evening Star",
+      "expansion": "Champions of Kamigawa",
+      "card_id": 12092,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 14.61,
+        "avg30": 13.34,
+        "trend": 13.69,
+        "real_discount": 0.025566106647187704
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 12.99,
+        "average_current": 14.310999999999998,
+        "cheapest_good_condition": 12.99,
+        "cheapest_good_condition_details": {
+          "price": 12.99,
+          "condition": "EX",
+          "seller": "handri",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "handri",
+            "price": 12.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "kcmotta04",
+            "price": 14.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "vashrulez",
+            "price": 14.0,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "Mtgibiza",
+            "price": 14.26,
+            "condition": "EX",
+            "quantity": 4
+          },
+          {
+            "seller": "WildGames",
+            "price": 14.37,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "HD-onlineshop",
+            "price": 14.5,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -11.088295687885005,
+        "good_condition_vs_trend_pct": -5.113221329437541,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Champions-Of-Kamigawa/Kokusho-The-Evening-Star?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 9,
+      "card_name": "Oath of Druids",
+      "expansion": "Exodus",
+      "card_id": 9343,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 19.14,
+        "avg30": 17.55,
+        "trend": 17.85,
+        "real_discount": 0.016806722689075668
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 18.67,
+        "average_current": 21.648000000000003,
+        "cheapest_good_condition": 18.67,
+        "cheapest_good_condition_details": {
+          "price": 18.67,
+          "condition": "EX",
+          "seller": "TcgSouth",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "TcgSouth",
+            "price": 18.67,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "webuyanycard",
+            "price": 21.23,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Kauppiasfoppa",
+            "price": 21.37,
+            "condition": "EX",
+            "quantity": 5
+          },
+          {
+            "seller": "HasardLudiqueMons",
+            "price": 21.5,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "Skaldenmagie",
+            "price": 21.57,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "Urzas-Consulting",
+            "price": 21.78,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -2.455590386624863,
+        "good_condition_vs_trend_pct": 4.593837535014007,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Oath-Of-Druids?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 10,
+      "card_name": "Grim Monolith",
+      "expansion": "Urza's Legacy",
+      "card_id": 10683,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 252.66,
+        "avg30": 243.04,
+        "trend": 246.4,
+        "real_discount": 0.013636363636363691
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 200.0,
+        "average_current": 258.975,
+        "cheapest_good_condition": 200.0,
+        "cheapest_good_condition_details": {
+          "price": 200.0,
+          "condition": "EX",
+          "seller": "handri",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "handri",
+            "price": 200.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "artcamp",
+            "price": 249.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Zoocomics",
+            "price": 255.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "DoubleDown",
+            "price": 260.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "P9TonyTheJudge",
+            "price": 264.5,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Tryllepapp",
+            "price": 264.51,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -20.842238581492914,
+        "good_condition_vs_trend_pct": -18.83116883116883,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Legacy/Grim-Monolith?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 11,
+      "card_name": "Bayou",
+      "expansion": "Revised",
+      "card_id": 5811,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 250.82,
+        "avg30": 264.89,
+        "trend": 266.81,
+        "real_discount": 0.007196132079007593
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 275.0,
+        "average_current": 295.48900000000003,
+        "cheapest_good_condition": 275.0,
+        "cheapest_good_condition_details": {
+          "price": 275.0,
+          "condition": "EX",
+          "seller": "Michel87",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Michel87",
+            "price": 275.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "ODELATORRE1",
+            "price": 275.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Taakeferd",
+            "price": 289.95,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Rawry",
+            "price": 297.95,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "dermedic22",
+            "price": 298.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Master-Collector",
+            "price": 299.99,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 9.640379555059408,
+        "good_condition_vs_trend_pct": 3.06960008995165,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Revised/Bayou?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 12,
+      "card_name": "Palinchron",
+      "expansion": "Urza's Legacy",
+      "card_id": 10595,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 21.27,
+        "avg30": 21.34,
+        "trend": 21.42,
+        "real_discount": 0.003734827264239115
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 18.36,
+        "average_current": 21.438,
+        "cheapest_good_condition": 18.36,
+        "cheapest_good_condition_details": {
+          "price": 18.36,
+          "condition": "EX",
+          "seller": "dakovash",
+          "quantity": 2
+        },
+        "top_6_sellers": [
+          {
+            "seller": "dakovash",
+            "price": 18.36,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "Game-s-Hunters",
+            "price": 20.4,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Gear-Head-Games",
+            "price": 20.56,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "GWBM-",
+            "price": 21.09,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "burfordkane93",
+            "price": 21.23,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "TheVenuePlymouth",
+            "price": 21.65,
+            "condition": "EX",
+            "quantity": 3
+          }
+        ],
+        "good_condition_vs_avg7_pct": -13.681241184767279,
+        "good_condition_vs_trend_pct": -14.285714285714295,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Legacy/Palinchron?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 13,
+      "card_name": "City of Traitors",
+      "expansion": "Exodus",
+      "card_id": 9371,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 300.53,
+        "avg30": 299.28,
+        "trend": 300.29,
+        "real_discount": 0.003363415365147183
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 289.99,
+        "average_current": 299.611,
+        "cheapest_good_condition": 289.99,
+        "cheapest_good_condition_details": {
+          "price": 289.99,
+          "condition": "EX",
+          "seller": "Spellslingers",
+          "quantity": 2
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Spellslingers",
+            "price": 289.99,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "BoosterBreakdown",
+            "price": 297.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "BoosterBreakdown",
+            "price": 297.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "erichitchmo",
+            "price": 299.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "roxart",
+            "price": 300.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "DoubleDown",
+            "price": 300.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -3.507137390609911,
+        "good_condition_vs_trend_pct": -3.4300176496053854,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/City-Of-Traitors?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 14,
+      "card_name": "Lotus Petal",
+      "expansion": "Tempest",
+      "card_id": 9019,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 14.52,
+        "avg30": 15.06,
+        "trend": 15.06,
+        "real_discount": 0.0
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 14.5,
+        "average_current": 15.05,
+        "cheapest_good_condition": 14.5,
+        "cheapest_good_condition_details": {
+          "price": 14.5,
+          "condition": "EX",
+          "seller": "b3renike",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "b3renike",
+            "price": 14.5,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Baxatl",
+            "price": 14.77,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "TIJ97",
+            "price": 14.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "HasardLudiqueMons",
+            "price": 15.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Sanorf",
+            "price": 15.0,
+            "condition": "EX",
+            "quantity": 3
+          },
+          {
+            "seller": "Warion",
+            "price": 15.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -0.137741046831953,
+        "good_condition_vs_trend_pct": -3.7184594953519285,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Lotus-Petal?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 16,
+      "card_name": "Yavimaya Hollow",
+      "expansion": "Urza's Destiny",
+      "card_id": 10843,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 44.73,
+        "avg30": 45.53,
+        "trend": 45.18,
+        "real_discount": -0.007746790615316543
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 40.0,
+        "average_current": 46.013999999999996,
+        "cheapest_good_condition": 40.0,
+        "cheapest_good_condition_details": {
+          "price": 40.0,
+          "condition": "EX",
+          "seller": "MinotESP",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "MinotESP",
+            "price": 40.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Bronhy",
+            "price": 44.88,
+            "condition": "EX",
+            "quantity": 3
+          },
+          {
+            "seller": "Majiano",
+            "price": 45.0,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "timpppen",
+            "price": 45.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "insomniaworm",
+            "price": 45.08,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "webuyanycard",
+            "price": 47.18,
+            "condition": "EX",
+            "quantity": 8
+          }
+        ],
+        "good_condition_vs_avg7_pct": -10.5745584618824,
+        "good_condition_vs_trend_pct": -11.465250110668437,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Destiny/Yavimaya-Hollow?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 17,
+      "card_name": "Reanimate",
+      "expansion": "Tempest",
+      "card_id": 8780,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 14.47,
+        "avg30": 13.55,
+        "trend": 13.36,
+        "real_discount": -0.014221556886227641
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 10.0,
+        "average_current": 12.270999999999999,
+        "cheapest_good_condition": 10.0,
+        "cheapest_good_condition_details": {
+          "price": 10.0,
+          "condition": "EX",
+          "seller": "mudds",
+          "quantity": 2
+        },
+        "top_6_sellers": [
+          {
+            "seller": "mudds",
+            "price": 10.0,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "SwigginPanda",
+            "price": 10.61,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "Baxatl",
+            "price": 10.61,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Bolt-the-Bird-Ltd",
+            "price": 12.87,
+            "condition": "NM",
+            "quantity": 3
+          },
+          {
+            "seller": "bamueller",
+            "price": 12.94,
+            "condition": "EX",
+            "quantity": 3
+          },
+          {
+            "seller": "Scourge-storm",
+            "price": 12.98,
+            "condition": "NM",
+            "quantity": 4
+          }
+        ],
+        "good_condition_vs_avg7_pct": -30.891499654457498,
+        "good_condition_vs_trend_pct": -25.149700598802394,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Reanimate?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 18,
+      "card_name": "Exploration",
+      "expansion": "Urza's Saga",
+      "card_id": 10457,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 32.2,
+        "avg30": 30.82,
+        "trend": 30.26,
+        "real_discount": -0.018506278916060763
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 32.0,
+        "average_current": 34.870000000000005,
+        "cheapest_good_condition": 32.0,
+        "cheapest_good_condition_details": {
+          "price": 32.0,
+          "condition": "EX",
+          "seller": "Mikilin",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Mikilin",
+            "price": 32.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "ronan",
+            "price": 32.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Goldberg90",
+            "price": 32.99,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "loxcovinc",
+            "price": 34.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "JamesBurford",
+            "price": 35.0,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "cataclysm-uk",
+            "price": 35.38,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -0.6211180124223691,
+        "good_condition_vs_trend_pct": 5.750165234633173,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Saga/Exploration?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 20,
+      "card_name": "Transmute Artifact",
+      "expansion": "Antiquities",
+      "card_id": 6929,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 309.73,
+        "avg30": 313.67,
+        "trend": 305.76,
+        "real_discount": -0.02586996336996345
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 311.0,
+        "average_current": 331.531,
+        "cheapest_good_condition": 311.0,
+        "cheapest_good_condition_details": {
+          "price": 311.0,
+          "condition": "EX",
+          "seller": "Gamester52",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Gamester52",
+            "price": 311.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "NicolasB",
+            "price": 315.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "joshandfox",
+            "price": 324.31,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Counter-Magic",
+            "price": 329.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "ggurmeister",
+            "price": 330.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "Fiska",
+            "price": 330.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 0.41003454621766755,
+        "good_condition_vs_trend_pct": 1.7137624280481454,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Antiquities/Transmute-Artifact?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 21,
+      "card_name": "Sengir Vampire",
+      "expansion": "Beta",
+      "card_id": 4698,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 165.38,
+        "avg30": 143.3,
+        "trend": 139.62,
+        "real_discount": -0.026357255407534787
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 147.42,
+        "average_current": 205.66099999999997,
+        "cheapest_good_condition": 147.42,
+        "cheapest_good_condition_details": {
+          "price": 147.42,
+          "condition": "EX",
+          "seller": "webuyanycard",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "webuyanycard",
+            "price": 147.42,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Bronhy",
+            "price": 149.4,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "ManaTrust",
+            "price": 169.95,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "webuyanycard",
+            "price": 176.9,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "yvel",
+            "price": 199.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "funny1",
+            "price": 228.0,
+            "condition": "NM",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -10.859837948966023,
+        "good_condition_vs_trend_pct": 5.586592178770937,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Sengir-Vampire?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 22,
+      "card_name": "Rhystic Study",
+      "expansion": "Prophecy",
+      "card_id": 3939,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 32.47,
+        "avg30": 33.07,
+        "trend": 32.22,
+        "real_discount": -0.026381129733085085
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 30.0,
+        "average_current": 31.887,
+        "cheapest_good_condition": 30.0,
+        "cheapest_good_condition_details": {
+          "price": 30.0,
+          "condition": "EX",
+          "seller": "Zargoz",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Zargoz",
+            "price": 30.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "butterbolt",
+            "price": 30.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Monochrome",
+            "price": 31.98,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Haku2004",
+            "price": 32.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Julianor",
+            "price": 32.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "chromeoo",
+            "price": 32.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -7.6070218663381555,
+        "good_condition_vs_trend_pct": -6.890130353817502,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Prophecy/Rhystic-Study?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 23,
+      "card_name": "Yawgmoth's Will",
+      "expansion": "Urza's Saga",
+      "card_id": 10378,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 105.45,
+        "avg30": 106.42,
+        "trend": 103.24,
+        "real_discount": -0.030802014722975658
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 104.3,
+        "average_current": 111.928,
+        "cheapest_good_condition": 104.3,
+        "cheapest_good_condition_details": {
+          "price": 104.3,
+          "condition": "EX",
+          "seller": "WildGames",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "WildGames",
+            "price": 104.3,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Hatoosh",
+            "price": 105.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "NilsMueller",
+            "price": 105.0,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "leeya",
+            "price": 114.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "MTGshop-NL",
+            "price": 114.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "kkaskanis",
+            "price": 115.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -1.0905642484589906,
+        "good_condition_vs_trend_pct": 1.0267338240991886,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Saga/Yawgmoth-s-Will?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 24,
+      "card_name": "Shallow Grave",
+      "expansion": "Mirage",
+      "card_id": 8090,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 71.15,
+        "avg30": 72.99,
+        "trend": 70.31,
+        "real_discount": -0.03811691082349584
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 70.75,
+        "average_current": 74.714,
+        "cheapest_good_condition": 70.75,
+        "cheapest_good_condition_details": {
+          "price": 70.75,
+          "condition": "EX",
+          "seller": "Domf123",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Domf123",
+            "price": 70.75,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "cataclysm-uk",
+            "price": 70.76,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "kennyrules138",
+            "price": 71.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "CardDroids",
+            "price": 72.46,
+            "condition": "EX",
+            "quantity": 3
+          },
+          {
+            "seller": "Kuupo60",
+            "price": 74.99,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "Simsan",
+            "price": 75.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -0.5621925509487079,
+        "good_condition_vs_trend_pct": 0.6258000284454526,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Shallow-Grave?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 25,
+      "card_name": "Volrath's Stronghold",
+      "expansion": "Stronghold",
+      "card_id": 9222,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 63.21,
+        "avg30": 58.47,
+        "trend": 56.23,
+        "real_discount": -0.039836386270674054
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 58.97,
+        "average_current": 61.92900000000001,
+        "cheapest_good_condition": 58.97,
+        "cheapest_good_condition_details": {
+          "price": 58.97,
+          "condition": "EX",
+          "seller": "BilboMTG",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "BilboMTG",
+            "price": 58.97,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "NilsMueller",
+            "price": 60.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Wopa85",
+            "price": 60.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "castlecards",
+            "price": 60.15,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "TIJ97",
+            "price": 60.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "BulldogCardTraders",
+            "price": 62.29,
+            "condition": "EX",
+            "quantity": 3
+          }
+        ],
+        "good_condition_vs_avg7_pct": -6.707799398829302,
+        "good_condition_vs_trend_pct": 4.872843677752094,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Stronghold/Volrath-s-Stronghold?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 26,
+      "card_name": "Power Artifact",
+      "expansion": "Antiquities",
+      "card_id": 6926,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 131.48,
+        "avg30": 137.22,
+        "trend": 131.5,
+        "real_discount": -0.04349809885931558
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 133.0,
+        "average_current": 140.224,
+        "cheapest_good_condition": 133.0,
+        "cheapest_good_condition_details": {
+          "price": 133.0,
+          "condition": "EX",
+          "seller": "Gamester52",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Gamester52",
+            "price": 133.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "thecountpaolin",
+            "price": 135.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Fiska",
+            "price": 136.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Bronhy",
+            "price": 138.77,
+            "condition": "EX",
+            "quantity": 3
+          },
+          {
+            "seller": "Caraploof",
+            "price": 140.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "dcatchpole1",
+            "price": 141.52,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 1.1560693641618576,
+        "good_condition_vs_trend_pct": 1.1406844106463878,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Antiquities/Power-Artifact?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 27,
+      "card_name": "Gilded Drake",
+      "expansion": "Urza's Saga",
+      "card_id": 10283,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 145.78,
+        "avg30": 147.13,
+        "trend": 140.67,
+        "real_discount": -0.04592308239141259
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 135.62,
+        "average_current": 142.787,
+        "cheapest_good_condition": 135.62,
+        "cheapest_good_condition_details": {
+          "price": 135.62,
+          "condition": "EX",
+          "seller": "TTRescue",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "TTRescue",
+            "price": 135.62,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "ggwhite",
+            "price": 139.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Edu91",
+            "price": 140.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "Friendo87",
+            "price": 140.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Pad4321",
+            "price": 140.33,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "ManaTrust",
+            "price": 144.95,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -6.9694059541775255,
+        "good_condition_vs_trend_pct": -3.589962323167686,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Saga/Gilded-Drake?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 28,
+      "card_name": "Cabal Coffers",
+      "expansion": "Torment",
+      "card_id": 2408,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 15.24,
+        "avg30": 15.9,
+        "trend": 15.2,
+        "real_discount": -0.04605263157894744
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 15.0,
+        "average_current": 17.136999999999997,
+        "cheapest_good_condition": 15.0,
+        "cheapest_good_condition_details": {
+          "price": 15.0,
+          "condition": "EX",
+          "seller": "OAlberto",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "OAlberto",
+            "price": 15.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Damianonegro",
+            "price": 15.9,
+            "condition": "NM",
+            "quantity": 4
+          },
+          {
+            "seller": "Donquixotes",
+            "price": 15.9,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "morganx21",
+            "price": 17.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Crstn",
+            "price": 17.8,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Donquixotes",
+            "price": 17.9,
+            "condition": "NM",
+            "quantity": 2
+          }
+        ],
+        "good_condition_vs_avg7_pct": -1.5748031496063006,
+        "good_condition_vs_trend_pct": -1.315789473684206,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Torment/Cabal-Coffers?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 29,
+      "card_name": "Dance of the Dead",
+      "expansion": "Ice Age",
+      "card_id": 6218,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 14.9,
+        "avg30": 15.21,
+        "trend": 14.51,
+        "real_discount": -0.048242591316333634
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 14.0,
+        "average_current": 14.659,
+        "cheapest_good_condition": 14.0,
+        "cheapest_good_condition_details": {
+          "price": 14.0,
+          "condition": "EX",
+          "seller": "roene",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "roene",
+            "price": 14.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "stefanocan",
+            "price": 14.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Ney888",
+            "price": 14.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "cannca",
+            "price": 14.5,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Bookcase123",
+            "price": 14.75,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "Gus38",
+            "price": 15.0,
+            "condition": "NM",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -6.040268456375841,
+        "good_condition_vs_trend_pct": -3.5148173673328724,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Dance-Of-The-Dead?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 31,
+      "card_name": "Time Warp",
+      "expansion": "Tempest",
+      "card_id": 8832,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 11.97,
+        "avg30": 11.63,
+        "trend": 10.96,
+        "real_discount": -0.061131386861313856
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 11.5,
+        "average_current": 11.911,
+        "cheapest_good_condition": 11.5,
+        "cheapest_good_condition_details": {
+          "price": 11.5,
+          "condition": "EX",
+          "seller": "maxooman",
+          "quantity": 4
+        },
+        "top_6_sellers": [
+          {
+            "seller": "maxooman",
+            "price": 11.5,
+            "condition": "EX",
+            "quantity": 4
+          },
+          {
+            "seller": "Xotai",
+            "price": 11.8,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "WildGames",
+            "price": 11.88,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Mtgwebshopdk",
+            "price": 11.93,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "DUAL-GAMES",
+            "price": 11.95,
+            "condition": "EX",
+            "quantity": 6
+          },
+          {
+            "seller": "Mtg-Abruzzo",
+            "price": 11.95,
+            "condition": "EX",
+            "quantity": 2
+          }
+        ],
+        "good_condition_vs_avg7_pct": -3.9264828738513002,
+        "good_condition_vs_trend_pct": 4.927007299270065,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Time-Warp?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 32,
+      "card_name": "Underworld Dreams",
+      "expansion": "Legends",
+      "card_id": 7008,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 88.59,
+        "avg30": 88.08,
+        "trend": 82.96,
+        "real_discount": -0.06171648987463844
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 81.99,
+        "average_current": 94.333,
+        "cheapest_good_condition": 81.99,
+        "cheapest_good_condition_details": {
+          "price": 81.99,
+          "condition": "EX",
+          "seller": "MichelPlaccini",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "MichelPlaccini",
+            "price": 81.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Tableflip",
+            "price": 82.44,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "magicmike89",
+            "price": 85.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "komachi",
+            "price": 90.0,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "Kerlanen67",
+            "price": 90.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Satanin",
+            "price": 98.9,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -7.45005079580089,
+        "good_condition_vs_trend_pct": -1.1692381870781086,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Underworld-Dreams?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 33,
+      "card_name": "Intuition",
+      "expansion": "Tempest",
+      "card_id": 8805,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 140.58,
+        "avg30": 136.68,
+        "trend": 128.55,
+        "real_discount": -0.06324387397899646
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 135.0,
+        "average_current": 146.86200000000002,
+        "cheapest_good_condition": 135.0,
+        "cheapest_good_condition_details": {
+          "price": 135.0,
+          "condition": "EX",
+          "seller": "FlorianKupf",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "FlorianKupf",
+            "price": 135.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "pagomenos",
+            "price": 140.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "DrMongo",
+            "price": 141.51,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "jmskns69",
+            "price": 148.85,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "lalunapremia",
+            "price": 149.98,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "artcamp",
+            "price": 149.99,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -3.9692701664532737,
+        "good_condition_vs_trend_pct": 5.01750291715285,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Intuition?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 35,
+      "card_name": "Lion's Eye Diamond",
+      "expansion": "Mirage",
+      "card_id": 8323,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 310.89,
+        "avg30": 319.93,
+        "trend": 297.31,
+        "real_discount": -0.0760822037603848
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 300.0,
+        "average_current": 339.78499999999997,
+        "cheapest_good_condition": 300.0,
+        "cheapest_good_condition_details": {
+          "price": 300.0,
+          "condition": "EX",
+          "seller": "Majestik-Games",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Majestik-Games",
+            "price": 300.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Zoocomics",
+            "price": 329.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "noosferatuu",
+            "price": 330.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "qasno",
+            "price": 340.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "energy7000",
+            "price": 349.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "yueh38",
+            "price": 349.9,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -3.502846666023348,
+        "good_condition_vs_trend_pct": 0.9047795230567414,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Lion-s-Eye-Diamond?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 36,
+      "card_name": "Copy Artifact",
+      "expansion": "Revised",
+      "card_id": 5581,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 47.4,
+        "avg30": 51.42,
+        "trend": 47.0,
+        "real_discount": -0.0940425531914894
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 47.5,
+        "average_current": 52.681,
+        "cheapest_good_condition": 47.5,
+        "cheapest_good_condition_details": {
+          "price": 47.5,
+          "condition": "EX",
+          "seller": "Agrocolo",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Agrocolo",
+            "price": 47.5,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Biochimik",
+            "price": 50.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Magp2",
+            "price": 50.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Xtrem72",
+            "price": 52.5,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "TheVenuePlymouth",
+            "price": 53.43,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "GriffinsGamingTCG",
+            "price": 53.44,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 0.21097046413502413,
+        "good_condition_vs_trend_pct": 1.0638297872340425,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Revised/Copy-Artifact?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 37,
+      "card_name": "Underground River",
+      "expansion": "Ice Age",
+      "card_id": 6569,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 11.84,
+        "avg30": 14.55,
+        "trend": 13.05,
+        "real_discount": -0.11494252873563218
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 13.55,
+        "average_current": 16.404999999999998,
+        "cheapest_good_condition": 13.55,
+        "cheapest_good_condition_details": {
+          "price": 13.55,
+          "condition": "EX",
+          "seller": "Toysnloot",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Toysnloot",
+            "price": 13.55,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "ClassicCollection",
+            "price": 15.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "LeapMTG",
+            "price": 15.0,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "ME5R1NE",
+            "price": 15.0,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "artcamp",
+            "price": 15.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "cataclysm-uk",
+            "price": 16.52,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 14.442567567567574,
+        "good_condition_vs_trend_pct": 3.8314176245210727,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Underground-River?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 38,
+      "card_name": "Drain Life",
+      "expansion": "Beta",
+      "card_id": 4654,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 14.89,
+        "avg30": 15.03,
+        "trend": 12.78,
+        "real_discount": -0.17605633802816903
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 12.74,
+        "average_current": 17.996,
+        "cheapest_good_condition": 12.74,
+        "cheapest_good_condition_details": {
+          "price": 12.74,
+          "condition": "EX",
+          "seller": "Iliaster",
+          "quantity": 2
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Iliaster",
+            "price": 12.74,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "Amalaric",
+            "price": 14.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "FacetoFaceGamesNL",
+            "price": 15.75,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Masaccre",
+            "price": 16.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "jonhen0205",
+            "price": 17.88,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "AgentUschi",
+            "price": 18.5,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -14.439220953660175,
+        "good_condition_vs_trend_pct": -0.3129890453834049,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Drain-Life?language=1&minCondition=3"
+      }
+    }
+  ],
+  "good_deals": [
+    {
+      "rank": 34,
+      "card_name": "Time Spiral",
+      "expansion": "Urza's Saga",
+      "card_id": 10310,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 57.49,
+        "avg30": 60.96,
+        "trend": 56.67,
+        "real_discount": -0.07570142932768659
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 63.24,
+        "average_current": 67.857,
+        "cheapest_good_condition": 63.24,
+        "cheapest_good_condition_details": {
+          "price": 63.24,
+          "condition": "EX",
+          "seller": "jarethian",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "jarethian",
+            "price": 63.24,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "DeKartonnenKwaak",
+            "price": 64.79,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "cuisinero",
+            "price": 64.87,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Gedeherren",
+            "price": 68.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "SirLamorak",
+            "price": 69.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Trofast",
+            "price": 69.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 10.001739432944861,
+        "good_condition_vs_trend_pct": 11.593435680254101,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Saga/Time-Spiral?language=1&minCondition=3"
+      }
+    }
+  ],
+  "expensive_deals": [
+    {
+      "rank": 15,
+      "card_name": "Sol Ring",
+      "expansion": "Revised",
+      "card_id": 5804,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 8.71,
+        "avg30": 10.24,
+        "trend": 10.19,
+        "real_discount": -0.004906771344455418
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 13.9,
+        "average_current": 14.498000000000001,
+        "cheapest_good_condition": 13.9,
+        "cheapest_good_condition_details": {
+          "price": 13.9,
+          "condition": "EX",
+          "seller": "77bH77",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "77bH77",
+            "price": 13.9,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "BB-Spiele",
+            "price": 13.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Mivo90",
+            "price": 14.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "SimoonDK",
+            "price": 14.0,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "TrickyDicky",
+            "price": 14.14,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "HASEK-SHOP",
+            "price": 14.95,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 59.586681974741666,
+        "good_condition_vs_trend_pct": 36.408243375858696,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Revised/Sol-Ring?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 19,
+      "card_name": "Dark Ritual",
+      "expansion": "Beta",
+      "card_id": 4640,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 93.35,
+        "avg30": 100.82,
+        "trend": 98.96,
+        "real_discount": -0.018795472918350844
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 125.0,
+        "average_current": 140.198,
+        "cheapest_good_condition": 125.0,
+        "cheapest_good_condition_details": {
+          "price": 125.0,
+          "condition": "EX",
+          "seller": "Slyngelweah",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Slyngelweah",
+            "price": 125.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "ThreeForOne-AT",
+            "price": 135.0,
+            "condition": "EX",
+            "quantity": 3
+          },
+          {
+            "seller": "Fiska",
+            "price": 136.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Olli-Baba",
+            "price": 139.0,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "Fiska",
+            "price": 139.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "oldmagiccollector",
+            "price": 139.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 33.904659882163905,
+        "good_condition_vs_trend_pct": 26.3136620856912,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Dark-Ritual?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 30,
+      "card_name": "Air Elemental",
+      "expansion": "Beta",
+      "card_id": 4720,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 36.37,
+        "avg30": 38.74,
+        "trend": 36.64,
+        "real_discount": -0.05731441048034938
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 47.48,
+        "average_current": 84.921,
+        "cheapest_good_condition": 47.48,
+        "cheapest_good_condition_details": {
+          "price": 47.48,
+          "condition": "EX",
+          "seller": "RetroMagic",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "RetroMagic",
+            "price": 47.48,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Tetsuo007",
+            "price": 49.75,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "mtg-foil-shop",
+            "price": 85.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "RobRot",
+            "price": 85.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "AgentUschi",
+            "price": 89.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "oldmagiccollector",
+            "price": 89.0,
+            "condition": "NM",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 30.547154248006596,
+        "good_condition_vs_trend_pct": 29.585152838427938,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Air-Elemental?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 39,
+      "card_name": "Demonic Tutor",
+      "expansion": "Beta",
+      "card_id": 4652,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 497.49,
+        "avg30": 480.38,
+        "trend": 395.76,
+        "real_discount": -0.2138164544168183
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 522.43,
+        "average_current": 661.4010000000001,
+        "cheapest_good_condition": 522.43,
+        "cheapest_good_condition_details": {
+          "price": 522.43,
+          "condition": "EX",
+          "seller": "MTGpriest",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "MTGpriest",
+            "price": 522.43,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "In2Cards",
+            "price": 645.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "oldmagiccollector",
+            "price": 649.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Catchimba",
+            "price": 650.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "oldgix",
+            "price": 650.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Urzas-Consulting",
+            "price": 650.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 5.013166093790819,
+        "good_condition_vs_trend_pct": 32.006771780877294,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Demonic-Tutor?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 40,
+      "card_name": "Counterspell",
+      "expansion": "Beta",
+      "card_id": 4736,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 341.22,
+        "avg30": 405.69,
+        "trend": 311.02,
+        "real_discount": -0.3043855700598033
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 496.0,
+        "average_current": 587.385,
+        "cheapest_good_condition": 496.0,
+        "cheapest_good_condition_details": {
+          "price": 496.0,
+          "condition": "EX",
+          "seller": "oldmagiccollector",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "oldmagiccollector",
+            "price": 496.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Tryllepapp",
+            "price": 499.98,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "MTGpriest",
+            "price": 518.9,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Bronhy",
+            "price": 599.0,
+            "condition": "NM",
+            "quantity": 3
+          },
+          {
+            "seller": "Dobi-trading-DE",
+            "price": 599.98,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Fiska",
+            "price": 600.0,
+            "condition": "NM",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 45.36076431627688,
+        "good_condition_vs_trend_pct": 59.47527490193557,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Counterspell?language=1&minCondition=3"
+      }
+    }
+  ],
+  "no_data": [],
+  "all_results": [
+    {
+      "rank": 1,
+      "card_name": "Necropotence",
+      "expansion": "Ice Age",
+      "card_id": 6254,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 20.08,
+        "avg30": 19.19,
+        "trend": 22.39,
+        "real_discount": 0.14292094685127285
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 18.0,
+        "average_current": 19.363999999999997,
+        "cheapest_good_condition": 18.0,
+        "cheapest_good_condition_details": {
+          "price": 18.0,
+          "condition": "NM",
+          "seller": "cannca",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "cannca",
+            "price": 18.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "EpiphanyG",
+            "price": 18.8,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Rab-MTG",
+            "price": 18.86,
+            "condition": "EX",
+            "quantity": 3
+          },
+          {
+            "seller": "juzmar",
+            "price": 19.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "maritabv",
+            "price": 19.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "gazza006",
+            "price": 19.99,
+            "condition": "EX",
+            "quantity": 2
+          }
+        ],
+        "good_condition_vs_avg7_pct": -10.358565737051785,
+        "good_condition_vs_trend_pct": -19.606967396159003,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Necropotence?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 2,
+      "card_name": "Mana Vault",
+      "expansion": "Unlimited",
+      "card_id": 5149,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 225.99,
+        "avg30": 196.17,
+        "trend": 228.34,
+        "real_discount": 0.14088639747744597
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 228.4,
+        "average_current": 252.734,
+        "cheapest_good_condition": 228.4,
+        "cheapest_good_condition_details": {
+          "price": 228.4,
+          "condition": "EX",
+          "seller": "Bronhy",
+          "quantity": 2
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Bronhy",
+            "price": 228.4,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "CLS-Magic",
+            "price": 235.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "vietj",
+            "price": 240.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Bronhy",
+            "price": 249.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "Lotus58",
+            "price": 250.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "CorwinD",
+            "price": 260.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 1.066418868091507,
+        "good_condition_vs_trend_pct": 0.0262766050626269,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Mana-Vault?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 3,
+      "card_name": "Memory Jar",
+      "expansion": "Urza's Legacy",
+      "card_id": 10686,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 21.6,
+        "avg30": 20.94,
+        "trend": 22.55,
+        "real_discount": 0.07139689578713966
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 20.89,
+        "average_current": 21.508,
+        "cheapest_good_condition": 20.89,
+        "cheapest_good_condition_details": {
+          "price": 20.89,
+          "condition": "EX",
+          "seller": "Mtgwebshopdk",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Mtgwebshopdk",
+            "price": 20.89,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "louisuut",
+            "price": 21.0,
+            "condition": "EX",
+            "quantity": 4
+          },
+          {
+            "seller": "In2Cards",
+            "price": 21.5,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "etlon",
+            "price": 21.5,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "loxcovinc",
+            "price": 21.5,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Allander",
+            "price": 21.5,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -3.287037037037041,
+        "good_condition_vs_trend_pct": -7.361419068736143,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Legacy/Memory-Jar?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 4,
+      "card_name": "Birds of Paradise",
+      "expansion": "Revised",
+      "card_id": 5622,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 17.83,
+        "avg30": 16.33,
+        "trend": 17.37,
+        "real_discount": 0.05987334484743826
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 15.0,
+        "average_current": 17.48,
+        "cheapest_good_condition": 15.0,
+        "cheapest_good_condition_details": {
+          "price": 15.0,
+          "condition": "EX",
+          "seller": "lxaxbete",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "lxaxbete",
+            "price": 15.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Leo-SDR",
+            "price": 15.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "mfazenda97",
+            "price": 15.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Obliticus",
+            "price": 17.67,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Templar1066",
+            "price": 17.68,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "giggioz",
+            "price": 18.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -15.872125630959049,
+        "good_condition_vs_trend_pct": -13.644214162348883,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Revised/Birds-Of-Paradise?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 5,
+      "card_name": "Triskelion",
+      "expansion": "Antiquities",
+      "card_id": 6909,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 132.08,
+        "avg30": 121.24,
+        "trend": 128.68,
+        "real_discount": 0.057817842710600025
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 129.5,
+        "average_current": 134.316,
+        "cheapest_good_condition": 129.5,
+        "cheapest_good_condition_details": {
+          "price": 129.5,
+          "condition": "NM",
+          "seller": "In2Cards",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "In2Cards",
+            "price": 129.5,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "TheMagicCardTraderUK",
+            "price": 129.73,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Zhycks",
+            "price": 129.98,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Slyngelweah",
+            "price": 130.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "LessIsMore",
+            "price": 130.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "ThreeForOne-AT",
+            "price": 134.99,
+            "condition": "NM",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -1.9533615990308995,
+        "good_condition_vs_trend_pct": 0.6372396642834885,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Antiquities/Triskelion?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 6,
+      "card_name": "Survival of the Fittest",
+      "expansion": "Exodus",
+      "card_id": 9357,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 198.63,
+        "avg30": 194.31,
+        "trend": 205.61,
+        "real_discount": 0.054958416419434906
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 176.9,
+        "average_current": 205.967,
+        "cheapest_good_condition": 176.9,
+        "cheapest_good_condition_details": {
+          "price": 176.9,
+          "condition": "EX",
+          "seller": "satansghost",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "satansghost",
+            "price": 176.9,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "lossolsun",
+            "price": 186.32,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "furiousflow",
+            "price": 199.95,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "WildGames",
+            "price": 207.37,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "BarneyStinson",
+            "price": 210.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Ward1984",
+            "price": 212.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -10.93993857926798,
+        "good_condition_vs_trend_pct": -13.963328631875886,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Survival-Of-The-Fittest?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 7,
+      "card_name": "Sylvan Library",
+      "expansion": "Legends",
+      "card_id": 7092,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 114.63,
+        "avg30": 119.15,
+        "trend": 123.49,
+        "real_discount": 0.035144546117094416
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 126.33,
+        "average_current": 134.66500000000002,
+        "cheapest_good_condition": 126.33,
+        "cheapest_good_condition_details": {
+          "price": 126.33,
+          "condition": "NM",
+          "seller": "Tryllepapp",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Tryllepapp",
+            "price": 126.33,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "Magicboxx",
+            "price": 126.34,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "Magicboxx",
+            "price": 126.34,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "Fiska",
+            "price": 133.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "sune7d",
+            "price": 135.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "Eclypse",
+            "price": 139.64,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 10.206752159120652,
+        "good_condition_vs_trend_pct": 2.2997813588144815,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Sylvan-Library?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 8,
+      "card_name": "Kokusho, the Evening Star",
+      "expansion": "Champions of Kamigawa",
+      "card_id": 12092,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 14.61,
+        "avg30": 13.34,
+        "trend": 13.69,
+        "real_discount": 0.025566106647187704
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 12.99,
+        "average_current": 14.310999999999998,
+        "cheapest_good_condition": 12.99,
+        "cheapest_good_condition_details": {
+          "price": 12.99,
+          "condition": "EX",
+          "seller": "handri",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "handri",
+            "price": 12.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "kcmotta04",
+            "price": 14.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "vashrulez",
+            "price": 14.0,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "Mtgibiza",
+            "price": 14.26,
+            "condition": "EX",
+            "quantity": 4
+          },
+          {
+            "seller": "WildGames",
+            "price": 14.37,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "HD-onlineshop",
+            "price": 14.5,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -11.088295687885005,
+        "good_condition_vs_trend_pct": -5.113221329437541,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Champions-Of-Kamigawa/Kokusho-The-Evening-Star?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 9,
+      "card_name": "Oath of Druids",
+      "expansion": "Exodus",
+      "card_id": 9343,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 19.14,
+        "avg30": 17.55,
+        "trend": 17.85,
+        "real_discount": 0.016806722689075668
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 18.67,
+        "average_current": 21.648000000000003,
+        "cheapest_good_condition": 18.67,
+        "cheapest_good_condition_details": {
+          "price": 18.67,
+          "condition": "EX",
+          "seller": "TcgSouth",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "TcgSouth",
+            "price": 18.67,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "webuyanycard",
+            "price": 21.23,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Kauppiasfoppa",
+            "price": 21.37,
+            "condition": "EX",
+            "quantity": 5
+          },
+          {
+            "seller": "HasardLudiqueMons",
+            "price": 21.5,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "Skaldenmagie",
+            "price": 21.57,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "Urzas-Consulting",
+            "price": 21.78,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -2.455590386624863,
+        "good_condition_vs_trend_pct": 4.593837535014007,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Oath-Of-Druids?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 10,
+      "card_name": "Grim Monolith",
+      "expansion": "Urza's Legacy",
+      "card_id": 10683,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 252.66,
+        "avg30": 243.04,
+        "trend": 246.4,
+        "real_discount": 0.013636363636363691
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 200.0,
+        "average_current": 258.975,
+        "cheapest_good_condition": 200.0,
+        "cheapest_good_condition_details": {
+          "price": 200.0,
+          "condition": "EX",
+          "seller": "handri",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "handri",
+            "price": 200.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "artcamp",
+            "price": 249.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Zoocomics",
+            "price": 255.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "DoubleDown",
+            "price": 260.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "P9TonyTheJudge",
+            "price": 264.5,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Tryllepapp",
+            "price": 264.51,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -20.842238581492914,
+        "good_condition_vs_trend_pct": -18.83116883116883,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Legacy/Grim-Monolith?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 11,
+      "card_name": "Bayou",
+      "expansion": "Revised",
+      "card_id": 5811,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 250.82,
+        "avg30": 264.89,
+        "trend": 266.81,
+        "real_discount": 0.007196132079007593
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 275.0,
+        "average_current": 295.48900000000003,
+        "cheapest_good_condition": 275.0,
+        "cheapest_good_condition_details": {
+          "price": 275.0,
+          "condition": "EX",
+          "seller": "Michel87",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Michel87",
+            "price": 275.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "ODELATORRE1",
+            "price": 275.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Taakeferd",
+            "price": 289.95,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Rawry",
+            "price": 297.95,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "dermedic22",
+            "price": 298.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Master-Collector",
+            "price": 299.99,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 9.640379555059408,
+        "good_condition_vs_trend_pct": 3.06960008995165,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Revised/Bayou?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 12,
+      "card_name": "Palinchron",
+      "expansion": "Urza's Legacy",
+      "card_id": 10595,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 21.27,
+        "avg30": 21.34,
+        "trend": 21.42,
+        "real_discount": 0.003734827264239115
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 18.36,
+        "average_current": 21.438,
+        "cheapest_good_condition": 18.36,
+        "cheapest_good_condition_details": {
+          "price": 18.36,
+          "condition": "EX",
+          "seller": "dakovash",
+          "quantity": 2
+        },
+        "top_6_sellers": [
+          {
+            "seller": "dakovash",
+            "price": 18.36,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "Game-s-Hunters",
+            "price": 20.4,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Gear-Head-Games",
+            "price": 20.56,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "GWBM-",
+            "price": 21.09,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "burfordkane93",
+            "price": 21.23,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "TheVenuePlymouth",
+            "price": 21.65,
+            "condition": "EX",
+            "quantity": 3
+          }
+        ],
+        "good_condition_vs_avg7_pct": -13.681241184767279,
+        "good_condition_vs_trend_pct": -14.285714285714295,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Legacy/Palinchron?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 13,
+      "card_name": "City of Traitors",
+      "expansion": "Exodus",
+      "card_id": 9371,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 300.53,
+        "avg30": 299.28,
+        "trend": 300.29,
+        "real_discount": 0.003363415365147183
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 289.99,
+        "average_current": 299.611,
+        "cheapest_good_condition": 289.99,
+        "cheapest_good_condition_details": {
+          "price": 289.99,
+          "condition": "EX",
+          "seller": "Spellslingers",
+          "quantity": 2
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Spellslingers",
+            "price": 289.99,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "BoosterBreakdown",
+            "price": 297.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "BoosterBreakdown",
+            "price": 297.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "erichitchmo",
+            "price": 299.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "roxart",
+            "price": 300.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "DoubleDown",
+            "price": 300.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -3.507137390609911,
+        "good_condition_vs_trend_pct": -3.4300176496053854,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/City-Of-Traitors?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 14,
+      "card_name": "Lotus Petal",
+      "expansion": "Tempest",
+      "card_id": 9019,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 14.52,
+        "avg30": 15.06,
+        "trend": 15.06,
+        "real_discount": 0.0
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 14.5,
+        "average_current": 15.05,
+        "cheapest_good_condition": 14.5,
+        "cheapest_good_condition_details": {
+          "price": 14.5,
+          "condition": "EX",
+          "seller": "b3renike",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "b3renike",
+            "price": 14.5,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Baxatl",
+            "price": 14.77,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "TIJ97",
+            "price": 14.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "HasardLudiqueMons",
+            "price": 15.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Sanorf",
+            "price": 15.0,
+            "condition": "EX",
+            "quantity": 3
+          },
+          {
+            "seller": "Warion",
+            "price": 15.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -0.137741046831953,
+        "good_condition_vs_trend_pct": -3.7184594953519285,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Lotus-Petal?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 15,
+      "card_name": "Sol Ring",
+      "expansion": "Revised",
+      "card_id": 5804,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 8.71,
+        "avg30": 10.24,
+        "trend": 10.19,
+        "real_discount": -0.004906771344455418
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 13.9,
+        "average_current": 14.498000000000001,
+        "cheapest_good_condition": 13.9,
+        "cheapest_good_condition_details": {
+          "price": 13.9,
+          "condition": "EX",
+          "seller": "77bH77",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "77bH77",
+            "price": 13.9,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "BB-Spiele",
+            "price": 13.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Mivo90",
+            "price": 14.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "SimoonDK",
+            "price": 14.0,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "TrickyDicky",
+            "price": 14.14,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "HASEK-SHOP",
+            "price": 14.95,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 59.586681974741666,
+        "good_condition_vs_trend_pct": 36.408243375858696,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Revised/Sol-Ring?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 16,
+      "card_name": "Yavimaya Hollow",
+      "expansion": "Urza's Destiny",
+      "card_id": 10843,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 44.73,
+        "avg30": 45.53,
+        "trend": 45.18,
+        "real_discount": -0.007746790615316543
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 40.0,
+        "average_current": 46.013999999999996,
+        "cheapest_good_condition": 40.0,
+        "cheapest_good_condition_details": {
+          "price": 40.0,
+          "condition": "EX",
+          "seller": "MinotESP",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "MinotESP",
+            "price": 40.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Bronhy",
+            "price": 44.88,
+            "condition": "EX",
+            "quantity": 3
+          },
+          {
+            "seller": "Majiano",
+            "price": 45.0,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "timpppen",
+            "price": 45.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "insomniaworm",
+            "price": 45.08,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "webuyanycard",
+            "price": 47.18,
+            "condition": "EX",
+            "quantity": 8
+          }
+        ],
+        "good_condition_vs_avg7_pct": -10.5745584618824,
+        "good_condition_vs_trend_pct": -11.465250110668437,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Destiny/Yavimaya-Hollow?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 17,
+      "card_name": "Reanimate",
+      "expansion": "Tempest",
+      "card_id": 8780,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 14.47,
+        "avg30": 13.55,
+        "trend": 13.36,
+        "real_discount": -0.014221556886227641
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 10.0,
+        "average_current": 12.270999999999999,
+        "cheapest_good_condition": 10.0,
+        "cheapest_good_condition_details": {
+          "price": 10.0,
+          "condition": "EX",
+          "seller": "mudds",
+          "quantity": 2
+        },
+        "top_6_sellers": [
+          {
+            "seller": "mudds",
+            "price": 10.0,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "SwigginPanda",
+            "price": 10.61,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "Baxatl",
+            "price": 10.61,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Bolt-the-Bird-Ltd",
+            "price": 12.87,
+            "condition": "NM",
+            "quantity": 3
+          },
+          {
+            "seller": "bamueller",
+            "price": 12.94,
+            "condition": "EX",
+            "quantity": 3
+          },
+          {
+            "seller": "Scourge-storm",
+            "price": 12.98,
+            "condition": "NM",
+            "quantity": 4
+          }
+        ],
+        "good_condition_vs_avg7_pct": -30.891499654457498,
+        "good_condition_vs_trend_pct": -25.149700598802394,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Reanimate?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 18,
+      "card_name": "Exploration",
+      "expansion": "Urza's Saga",
+      "card_id": 10457,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 32.2,
+        "avg30": 30.82,
+        "trend": 30.26,
+        "real_discount": -0.018506278916060763
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 32.0,
+        "average_current": 34.870000000000005,
+        "cheapest_good_condition": 32.0,
+        "cheapest_good_condition_details": {
+          "price": 32.0,
+          "condition": "EX",
+          "seller": "Mikilin",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Mikilin",
+            "price": 32.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "ronan",
+            "price": 32.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Goldberg90",
+            "price": 32.99,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "loxcovinc",
+            "price": 34.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "JamesBurford",
+            "price": 35.0,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "cataclysm-uk",
+            "price": 35.38,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -0.6211180124223691,
+        "good_condition_vs_trend_pct": 5.750165234633173,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Saga/Exploration?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 19,
+      "card_name": "Dark Ritual",
+      "expansion": "Beta",
+      "card_id": 4640,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 93.35,
+        "avg30": 100.82,
+        "trend": 98.96,
+        "real_discount": -0.018795472918350844
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 125.0,
+        "average_current": 140.198,
+        "cheapest_good_condition": 125.0,
+        "cheapest_good_condition_details": {
+          "price": 125.0,
+          "condition": "EX",
+          "seller": "Slyngelweah",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Slyngelweah",
+            "price": 125.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "ThreeForOne-AT",
+            "price": 135.0,
+            "condition": "EX",
+            "quantity": 3
+          },
+          {
+            "seller": "Fiska",
+            "price": 136.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Olli-Baba",
+            "price": 139.0,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "Fiska",
+            "price": 139.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "oldmagiccollector",
+            "price": 139.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 33.904659882163905,
+        "good_condition_vs_trend_pct": 26.3136620856912,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Dark-Ritual?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 20,
+      "card_name": "Transmute Artifact",
+      "expansion": "Antiquities",
+      "card_id": 6929,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 309.73,
+        "avg30": 313.67,
+        "trend": 305.76,
+        "real_discount": -0.02586996336996345
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 311.0,
+        "average_current": 331.531,
+        "cheapest_good_condition": 311.0,
+        "cheapest_good_condition_details": {
+          "price": 311.0,
+          "condition": "EX",
+          "seller": "Gamester52",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Gamester52",
+            "price": 311.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "NicolasB",
+            "price": 315.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "joshandfox",
+            "price": 324.31,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Counter-Magic",
+            "price": 329.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "ggurmeister",
+            "price": 330.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "Fiska",
+            "price": 330.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 0.41003454621766755,
+        "good_condition_vs_trend_pct": 1.7137624280481454,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Antiquities/Transmute-Artifact?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 21,
+      "card_name": "Sengir Vampire",
+      "expansion": "Beta",
+      "card_id": 4698,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 165.38,
+        "avg30": 143.3,
+        "trend": 139.62,
+        "real_discount": -0.026357255407534787
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 147.42,
+        "average_current": 205.66099999999997,
+        "cheapest_good_condition": 147.42,
+        "cheapest_good_condition_details": {
+          "price": 147.42,
+          "condition": "EX",
+          "seller": "webuyanycard",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "webuyanycard",
+            "price": 147.42,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Bronhy",
+            "price": 149.4,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "ManaTrust",
+            "price": 169.95,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "webuyanycard",
+            "price": 176.9,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "yvel",
+            "price": 199.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "funny1",
+            "price": 228.0,
+            "condition": "NM",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -10.859837948966023,
+        "good_condition_vs_trend_pct": 5.586592178770937,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Sengir-Vampire?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 22,
+      "card_name": "Rhystic Study",
+      "expansion": "Prophecy",
+      "card_id": 3939,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 32.47,
+        "avg30": 33.07,
+        "trend": 32.22,
+        "real_discount": -0.026381129733085085
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 30.0,
+        "average_current": 31.887,
+        "cheapest_good_condition": 30.0,
+        "cheapest_good_condition_details": {
+          "price": 30.0,
+          "condition": "EX",
+          "seller": "Zargoz",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Zargoz",
+            "price": 30.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "butterbolt",
+            "price": 30.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Monochrome",
+            "price": 31.98,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Haku2004",
+            "price": 32.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Julianor",
+            "price": 32.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "chromeoo",
+            "price": 32.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -7.6070218663381555,
+        "good_condition_vs_trend_pct": -6.890130353817502,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Prophecy/Rhystic-Study?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 23,
+      "card_name": "Yawgmoth's Will",
+      "expansion": "Urza's Saga",
+      "card_id": 10378,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 105.45,
+        "avg30": 106.42,
+        "trend": 103.24,
+        "real_discount": -0.030802014722975658
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 104.3,
+        "average_current": 111.928,
+        "cheapest_good_condition": 104.3,
+        "cheapest_good_condition_details": {
+          "price": 104.3,
+          "condition": "EX",
+          "seller": "WildGames",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "WildGames",
+            "price": 104.3,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Hatoosh",
+            "price": 105.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "NilsMueller",
+            "price": 105.0,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "leeya",
+            "price": 114.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "MTGshop-NL",
+            "price": 114.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "kkaskanis",
+            "price": 115.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -1.0905642484589906,
+        "good_condition_vs_trend_pct": 1.0267338240991886,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Saga/Yawgmoth-s-Will?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 24,
+      "card_name": "Shallow Grave",
+      "expansion": "Mirage",
+      "card_id": 8090,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 71.15,
+        "avg30": 72.99,
+        "trend": 70.31,
+        "real_discount": -0.03811691082349584
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 70.75,
+        "average_current": 74.714,
+        "cheapest_good_condition": 70.75,
+        "cheapest_good_condition_details": {
+          "price": 70.75,
+          "condition": "EX",
+          "seller": "Domf123",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Domf123",
+            "price": 70.75,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "cataclysm-uk",
+            "price": 70.76,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "kennyrules138",
+            "price": 71.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "CardDroids",
+            "price": 72.46,
+            "condition": "EX",
+            "quantity": 3
+          },
+          {
+            "seller": "Kuupo60",
+            "price": 74.99,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "Simsan",
+            "price": 75.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -0.5621925509487079,
+        "good_condition_vs_trend_pct": 0.6258000284454526,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Shallow-Grave?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 25,
+      "card_name": "Volrath's Stronghold",
+      "expansion": "Stronghold",
+      "card_id": 9222,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 63.21,
+        "avg30": 58.47,
+        "trend": 56.23,
+        "real_discount": -0.039836386270674054
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 58.97,
+        "average_current": 61.92900000000001,
+        "cheapest_good_condition": 58.97,
+        "cheapest_good_condition_details": {
+          "price": 58.97,
+          "condition": "EX",
+          "seller": "BilboMTG",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "BilboMTG",
+            "price": 58.97,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "NilsMueller",
+            "price": 60.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Wopa85",
+            "price": 60.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "castlecards",
+            "price": 60.15,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "TIJ97",
+            "price": 60.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "BulldogCardTraders",
+            "price": 62.29,
+            "condition": "EX",
+            "quantity": 3
+          }
+        ],
+        "good_condition_vs_avg7_pct": -6.707799398829302,
+        "good_condition_vs_trend_pct": 4.872843677752094,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Stronghold/Volrath-s-Stronghold?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 26,
+      "card_name": "Power Artifact",
+      "expansion": "Antiquities",
+      "card_id": 6926,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 131.48,
+        "avg30": 137.22,
+        "trend": 131.5,
+        "real_discount": -0.04349809885931558
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 133.0,
+        "average_current": 140.224,
+        "cheapest_good_condition": 133.0,
+        "cheapest_good_condition_details": {
+          "price": 133.0,
+          "condition": "EX",
+          "seller": "Gamester52",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Gamester52",
+            "price": 133.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "thecountpaolin",
+            "price": 135.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Fiska",
+            "price": 136.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Bronhy",
+            "price": 138.77,
+            "condition": "EX",
+            "quantity": 3
+          },
+          {
+            "seller": "Caraploof",
+            "price": 140.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "dcatchpole1",
+            "price": 141.52,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 1.1560693641618576,
+        "good_condition_vs_trend_pct": 1.1406844106463878,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Antiquities/Power-Artifact?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 27,
+      "card_name": "Gilded Drake",
+      "expansion": "Urza's Saga",
+      "card_id": 10283,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 145.78,
+        "avg30": 147.13,
+        "trend": 140.67,
+        "real_discount": -0.04592308239141259
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 135.62,
+        "average_current": 142.787,
+        "cheapest_good_condition": 135.62,
+        "cheapest_good_condition_details": {
+          "price": 135.62,
+          "condition": "EX",
+          "seller": "TTRescue",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "TTRescue",
+            "price": 135.62,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "ggwhite",
+            "price": 139.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Edu91",
+            "price": 140.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "Friendo87",
+            "price": 140.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Pad4321",
+            "price": 140.33,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "ManaTrust",
+            "price": 144.95,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -6.9694059541775255,
+        "good_condition_vs_trend_pct": -3.589962323167686,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Saga/Gilded-Drake?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 28,
+      "card_name": "Cabal Coffers",
+      "expansion": "Torment",
+      "card_id": 2408,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 15.24,
+        "avg30": 15.9,
+        "trend": 15.2,
+        "real_discount": -0.04605263157894744
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 15.0,
+        "average_current": 17.136999999999997,
+        "cheapest_good_condition": 15.0,
+        "cheapest_good_condition_details": {
+          "price": 15.0,
+          "condition": "EX",
+          "seller": "OAlberto",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "OAlberto",
+            "price": 15.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Damianonegro",
+            "price": 15.9,
+            "condition": "NM",
+            "quantity": 4
+          },
+          {
+            "seller": "Donquixotes",
+            "price": 15.9,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "morganx21",
+            "price": 17.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Crstn",
+            "price": 17.8,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Donquixotes",
+            "price": 17.9,
+            "condition": "NM",
+            "quantity": 2
+          }
+        ],
+        "good_condition_vs_avg7_pct": -1.5748031496063006,
+        "good_condition_vs_trend_pct": -1.315789473684206,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Torment/Cabal-Coffers?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 29,
+      "card_name": "Dance of the Dead",
+      "expansion": "Ice Age",
+      "card_id": 6218,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 14.9,
+        "avg30": 15.21,
+        "trend": 14.51,
+        "real_discount": -0.048242591316333634
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 14.0,
+        "average_current": 14.659,
+        "cheapest_good_condition": 14.0,
+        "cheapest_good_condition_details": {
+          "price": 14.0,
+          "condition": "EX",
+          "seller": "roene",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "roene",
+            "price": 14.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "stefanocan",
+            "price": 14.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Ney888",
+            "price": 14.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "cannca",
+            "price": 14.5,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Bookcase123",
+            "price": 14.75,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "Gus38",
+            "price": 15.0,
+            "condition": "NM",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -6.040268456375841,
+        "good_condition_vs_trend_pct": -3.5148173673328724,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Dance-Of-The-Dead?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 30,
+      "card_name": "Air Elemental",
+      "expansion": "Beta",
+      "card_id": 4720,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 36.37,
+        "avg30": 38.74,
+        "trend": 36.64,
+        "real_discount": -0.05731441048034938
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 47.48,
+        "average_current": 84.921,
+        "cheapest_good_condition": 47.48,
+        "cheapest_good_condition_details": {
+          "price": 47.48,
+          "condition": "EX",
+          "seller": "RetroMagic",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "RetroMagic",
+            "price": 47.48,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Tetsuo007",
+            "price": 49.75,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "mtg-foil-shop",
+            "price": 85.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "RobRot",
+            "price": 85.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "AgentUschi",
+            "price": 89.0,
+            "condition": "NM",
+            "quantity": 1
+          },
+          {
+            "seller": "oldmagiccollector",
+            "price": 89.0,
+            "condition": "NM",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 30.547154248006596,
+        "good_condition_vs_trend_pct": 29.585152838427938,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Air-Elemental?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 31,
+      "card_name": "Time Warp",
+      "expansion": "Tempest",
+      "card_id": 8832,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 11.97,
+        "avg30": 11.63,
+        "trend": 10.96,
+        "real_discount": -0.061131386861313856
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 11.5,
+        "average_current": 11.911,
+        "cheapest_good_condition": 11.5,
+        "cheapest_good_condition_details": {
+          "price": 11.5,
+          "condition": "EX",
+          "seller": "maxooman",
+          "quantity": 4
+        },
+        "top_6_sellers": [
+          {
+            "seller": "maxooman",
+            "price": 11.5,
+            "condition": "EX",
+            "quantity": 4
+          },
+          {
+            "seller": "Xotai",
+            "price": 11.8,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "WildGames",
+            "price": 11.88,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Mtgwebshopdk",
+            "price": 11.93,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "DUAL-GAMES",
+            "price": 11.95,
+            "condition": "EX",
+            "quantity": 6
+          },
+          {
+            "seller": "Mtg-Abruzzo",
+            "price": 11.95,
+            "condition": "EX",
+            "quantity": 2
+          }
+        ],
+        "good_condition_vs_avg7_pct": -3.9264828738513002,
+        "good_condition_vs_trend_pct": 4.927007299270065,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Time-Warp?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 32,
+      "card_name": "Underworld Dreams",
+      "expansion": "Legends",
+      "card_id": 7008,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 88.59,
+        "avg30": 88.08,
+        "trend": 82.96,
+        "real_discount": -0.06171648987463844
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 81.99,
+        "average_current": 94.333,
+        "cheapest_good_condition": 81.99,
+        "cheapest_good_condition_details": {
+          "price": 81.99,
+          "condition": "EX",
+          "seller": "MichelPlaccini",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "MichelPlaccini",
+            "price": 81.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Tableflip",
+            "price": 82.44,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "magicmike89",
+            "price": 85.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "komachi",
+            "price": 90.0,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "Kerlanen67",
+            "price": 90.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Satanin",
+            "price": 98.9,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -7.45005079580089,
+        "good_condition_vs_trend_pct": -1.1692381870781086,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Underworld-Dreams?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 33,
+      "card_name": "Intuition",
+      "expansion": "Tempest",
+      "card_id": 8805,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 140.58,
+        "avg30": 136.68,
+        "trend": 128.55,
+        "real_discount": -0.06324387397899646
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 135.0,
+        "average_current": 146.86200000000002,
+        "cheapest_good_condition": 135.0,
+        "cheapest_good_condition_details": {
+          "price": 135.0,
+          "condition": "EX",
+          "seller": "FlorianKupf",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "FlorianKupf",
+            "price": 135.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "pagomenos",
+            "price": 140.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "DrMongo",
+            "price": 141.51,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "jmskns69",
+            "price": 148.85,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "lalunapremia",
+            "price": 149.98,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "artcamp",
+            "price": 149.99,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -3.9692701664532737,
+        "good_condition_vs_trend_pct": 5.01750291715285,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Intuition?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 34,
+      "card_name": "Time Spiral",
+      "expansion": "Urza's Saga",
+      "card_id": 10310,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 57.49,
+        "avg30": 60.96,
+        "trend": 56.67,
+        "real_discount": -0.07570142932768659
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 63.24,
+        "average_current": 67.857,
+        "cheapest_good_condition": 63.24,
+        "cheapest_good_condition_details": {
+          "price": 63.24,
+          "condition": "EX",
+          "seller": "jarethian",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "jarethian",
+            "price": 63.24,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "DeKartonnenKwaak",
+            "price": 64.79,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "cuisinero",
+            "price": 64.87,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Gedeherren",
+            "price": 68.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "SirLamorak",
+            "price": 69.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Trofast",
+            "price": 69.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 10.001739432944861,
+        "good_condition_vs_trend_pct": 11.593435680254101,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Saga/Time-Spiral?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 35,
+      "card_name": "Lion's Eye Diamond",
+      "expansion": "Mirage",
+      "card_id": 8323,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 310.89,
+        "avg30": 319.93,
+        "trend": 297.31,
+        "real_discount": -0.0760822037603848
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 300.0,
+        "average_current": 339.78499999999997,
+        "cheapest_good_condition": 300.0,
+        "cheapest_good_condition_details": {
+          "price": 300.0,
+          "condition": "EX",
+          "seller": "Majestik-Games",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Majestik-Games",
+            "price": 300.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Zoocomics",
+            "price": 329.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "noosferatuu",
+            "price": 330.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "qasno",
+            "price": 340.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "energy7000",
+            "price": 349.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "yueh38",
+            "price": 349.9,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -3.502846666023348,
+        "good_condition_vs_trend_pct": 0.9047795230567414,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Lion-s-Eye-Diamond?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 36,
+      "card_name": "Copy Artifact",
+      "expansion": "Revised",
+      "card_id": 5581,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 47.4,
+        "avg30": 51.42,
+        "trend": 47.0,
+        "real_discount": -0.0940425531914894
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 47.5,
+        "average_current": 52.681,
+        "cheapest_good_condition": 47.5,
+        "cheapest_good_condition_details": {
+          "price": 47.5,
+          "condition": "EX",
+          "seller": "Agrocolo",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Agrocolo",
+            "price": 47.5,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Biochimik",
+            "price": 50.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Magp2",
+            "price": 50.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Xtrem72",
+            "price": 52.5,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "TheVenuePlymouth",
+            "price": 53.43,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "GriffinsGamingTCG",
+            "price": 53.44,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 0.21097046413502413,
+        "good_condition_vs_trend_pct": 1.0638297872340425,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Revised/Copy-Artifact?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 37,
+      "card_name": "Underground River",
+      "expansion": "Ice Age",
+      "card_id": 6569,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 11.84,
+        "avg30": 14.55,
+        "trend": 13.05,
+        "real_discount": -0.11494252873563218
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 13.55,
+        "average_current": 16.404999999999998,
+        "cheapest_good_condition": 13.55,
+        "cheapest_good_condition_details": {
+          "price": 13.55,
+          "condition": "EX",
+          "seller": "Toysnloot",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Toysnloot",
+            "price": 13.55,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "ClassicCollection",
+            "price": 15.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "LeapMTG",
+            "price": 15.0,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "ME5R1NE",
+            "price": 15.0,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "artcamp",
+            "price": 15.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "cataclysm-uk",
+            "price": 16.52,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 14.442567567567574,
+        "good_condition_vs_trend_pct": 3.8314176245210727,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Underground-River?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 38,
+      "card_name": "Drain Life",
+      "expansion": "Beta",
+      "card_id": 4654,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 14.89,
+        "avg30": 15.03,
+        "trend": 12.78,
+        "real_discount": -0.17605633802816903
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 12.74,
+        "average_current": 17.996,
+        "cheapest_good_condition": 12.74,
+        "cheapest_good_condition_details": {
+          "price": 12.74,
+          "condition": "EX",
+          "seller": "Iliaster",
+          "quantity": 2
+        },
+        "top_6_sellers": [
+          {
+            "seller": "Iliaster",
+            "price": 12.74,
+            "condition": "EX",
+            "quantity": 2
+          },
+          {
+            "seller": "Amalaric",
+            "price": 14.99,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "FacetoFaceGamesNL",
+            "price": 15.75,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Masaccre",
+            "price": 16.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "jonhen0205",
+            "price": 17.88,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "AgentUschi",
+            "price": 18.5,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": -14.439220953660175,
+        "good_condition_vs_trend_pct": -0.3129890453834049,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Drain-Life?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 39,
+      "card_name": "Demonic Tutor",
+      "expansion": "Beta",
+      "card_id": 4652,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 497.49,
+        "avg30": 480.38,
+        "trend": 395.76,
+        "real_discount": -0.2138164544168183
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 522.43,
+        "average_current": 661.4010000000001,
+        "cheapest_good_condition": 522.43,
+        "cheapest_good_condition_details": {
+          "price": 522.43,
+          "condition": "EX",
+          "seller": "MTGpriest",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "MTGpriest",
+            "price": 522.43,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "In2Cards",
+            "price": 645.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "oldmagiccollector",
+            "price": 649.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Catchimba",
+            "price": 650.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "oldgix",
+            "price": 650.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Urzas-Consulting",
+            "price": 650.0,
+            "condition": "EX",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 5.013166093790819,
+        "good_condition_vs_trend_pct": 32.006771780877294,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Demonic-Tutor?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 40,
+      "card_name": "Counterspell",
+      "expansion": "Beta",
+      "card_id": 4736,
+      "source": "Deck Wishlist",
+      "historical_data": {
+        "avg7": 341.22,
+        "avg30": 405.69,
+        "trend": 311.02,
+        "real_discount": -0.3043855700598033
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 496.0,
+        "average_current": 587.385,
+        "cheapest_good_condition": 496.0,
+        "cheapest_good_condition_details": {
+          "price": 496.0,
+          "condition": "EX",
+          "seller": "oldmagiccollector",
+          "quantity": 1
+        },
+        "top_6_sellers": [
+          {
+            "seller": "oldmagiccollector",
+            "price": 496.0,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Tryllepapp",
+            "price": 499.98,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "MTGpriest",
+            "price": 518.9,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Bronhy",
+            "price": 599.0,
+            "condition": "NM",
+            "quantity": 3
+          },
+          {
+            "seller": "Dobi-trading-DE",
+            "price": 599.98,
+            "condition": "EX",
+            "quantity": 1
+          },
+          {
+            "seller": "Fiska",
+            "price": 600.0,
+            "condition": "NM",
+            "quantity": 1
+          }
+        ],
+        "good_condition_vs_avg7_pct": 45.36076431627688,
+        "good_condition_vs_trend_pct": 59.47527490193557,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Counterspell?language=1&minCondition=3"
+      }
+    }
+  ]
+}

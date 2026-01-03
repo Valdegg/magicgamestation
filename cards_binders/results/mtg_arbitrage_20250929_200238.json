@@ -1,0 +1,559 @@
+{
+  "timestamp": "20250929_200238",
+  "summary": {
+    "total_analyzed": 10,
+    "excellent_deals": 5,
+    "good_deals": 1,
+    "expensive_deals": 4,
+    "no_data": 0
+  },
+  "excellent_deals": [
+    {
+      "rank": 2,
+      "card_name": "Howling Mine",
+      "expansion": "Alpha",
+      "card_id": 5481,
+      "historical_data": {
+        "avg7": 1165.43,
+        "avg30": 614.48,
+        "trend": 1587.38,
+        "real_discount": 0.6128967229018887
+      },
+      "live_data": {
+        "total_listings": 7,
+        "cheapest_current": 1499.0,
+        "average_current": 2785.14,
+        "cheapest_good_condition": 1499.0,
+        "cheapest_good_condition_details": {
+          "price": 1499.0,
+          "condition": "EX",
+          "seller": "Fluoh",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 28.62205366259663,
+        "good_condition_vs_trend_pct": -5.567664957351114,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Howling-Mine?minCondition=3"
+      }
+    },
+    {
+      "rank": 3,
+      "card_name": "Mana Vault",
+      "expansion": "Alpha",
+      "card_id": 5493,
+      "historical_data": {
+        "avg7": 1685.43,
+        "avg30": 788.4,
+        "trend": 1908.35,
+        "real_discount": 0.5868682369586291
+      },
+      "live_data": {
+        "total_listings": 4,
+        "cheapest_current": 1589.0,
+        "average_current": 3293.4975,
+        "cheapest_good_condition": 1589.0,
+        "cheapest_good_condition_details": {
+          "price": 1589.0,
+          "condition": "EX",
+          "seller": "Leschelmis",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -5.721388607061703,
+        "good_condition_vs_trend_pct": -16.734351665050955,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Mana-Vault?minCondition=3"
+      }
+    },
+    {
+      "rank": 7,
+      "card_name": "Howling Mine",
+      "expansion": "Unlimited",
+      "card_id": 5125,
+      "historical_data": {
+        "avg7": 143.45,
+        "avg30": 89.44,
+        "trend": 139.97,
+        "real_discount": 0.36100592984210905
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 80.0,
+        "average_current": 243.96300000000002,
+        "cheapest_good_condition": 80.0,
+        "cheapest_good_condition_details": {
+          "price": 80.0,
+          "condition": "EX",
+          "seller": "Niconet91",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -44.23143952596723,
+        "good_condition_vs_trend_pct": -42.844895334714586,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Howling-Mine?minCondition=3"
+      }
+    },
+    {
+      "rank": 9,
+      "card_name": "Mana Vault",
+      "expansion": "Unlimited",
+      "card_id": 5149,
+      "historical_data": {
+        "avg7": 259.13,
+        "avg30": 197.58,
+        "trend": 262.57,
+        "real_discount": 0.24751494839471372
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 185.0,
+        "average_current": 257.589,
+        "cheapest_good_condition": 185.0,
+        "cheapest_good_condition_details": {
+          "price": 185.0,
+          "condition": "EX",
+          "seller": "xxniinjaxx1",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -28.607262763863694,
+        "good_condition_vs_trend_pct": -29.542598164299044,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Mana-Vault?minCondition=3"
+      }
+    },
+    {
+      "rank": 10,
+      "card_name": "Winter Orb",
+      "expansion": "Unlimited",
+      "card_id": 5179,
+      "historical_data": {
+        "avg7": 90.84,
+        "avg30": 84.89,
+        "trend": 111.64,
+        "real_discount": 0.2396094589752777
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 90.0,
+        "average_current": 118.90300000000002,
+        "cheapest_good_condition": 90.0,
+        "cheapest_good_condition_details": {
+          "price": 90.0,
+          "condition": "EX",
+          "seller": "DoubleDown",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -0.924702774108326,
+        "good_condition_vs_trend_pct": -19.38373342887854,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Winter-Orb?minCondition=3"
+      }
+    }
+  ],
+  "good_deals": [
+    {
+      "rank": 8,
+      "card_name": "Mana Flare",
+      "expansion": "Unlimited",
+      "card_id": 4953,
+      "historical_data": {
+        "avg7": 35.21,
+        "avg30": 32.45,
+        "trend": 44.32,
+        "real_discount": 0.26782490974729234
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 42.49,
+        "average_current": 61.30800000000001,
+        "cheapest_good_condition": 42.49,
+        "cheapest_good_condition_details": {
+          "price": 42.49,
+          "condition": "EX",
+          "seller": "RacoonRises",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 20.67594433399603,
+        "good_condition_vs_trend_pct": -4.129061371841152,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Mana-Flare?minCondition=3"
+      }
+    }
+  ],
+  "expensive_deals": [
+    {
+      "rank": 1,
+      "card_name": "Wheel of Fortune",
+      "expansion": "Alpha",
+      "card_id": 5417,
+      "historical_data": {
+        "avg7": 3679.28,
+        "avg30": 1381.18,
+        "trend": 4273.54,
+        "real_discount": 0.6768065818969753
+      },
+      "live_data": {
+        "total_listings": 6,
+        "cheapest_current": 4940.0,
+        "average_current": 26210.10666666667,
+        "cheapest_good_condition": 4940.0,
+        "cheapest_good_condition_details": {
+          "price": 4940.0,
+          "condition": "EX",
+          "seller": "ThreeForOne-AT",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 34.26539975212541,
+        "good_condition_vs_trend_pct": 15.595033625518893,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Wheel-Of-Fortune?minCondition=3"
+      }
+    },
+    {
+      "rank": 4,
+      "card_name": "Wrath of God",
+      "expansion": "Alpha",
+      "card_id": 5462,
+      "historical_data": {
+        "avg7": 1632.4,
+        "avg30": 770.63,
+        "trend": 1796.02,
+        "real_discount": 0.57092348637543
+      },
+      "live_data": {
+        "total_listings": 4,
+        "cheapest_current": 3899.99,
+        "average_current": 5474.9974999999995,
+        "cheapest_good_condition": 3899.99,
+        "cheapest_good_condition_details": {
+          "price": 3899.99,
+          "condition": "EX",
+          "seller": "Zlopotom",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 138.91141876990932,
+        "good_condition_vs_trend_pct": 117.1462455874656,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Wrath-Of-God?minCondition=3"
+      }
+    },
+    {
+      "rank": 5,
+      "card_name": "Winter Orb",
+      "expansion": "Alpha",
+      "card_id": 5508,
+      "historical_data": {
+        "avg7": 1231.13,
+        "avg30": 598.36,
+        "trend": 1227.0,
+        "real_discount": 0.5123390383048084
+      },
+      "live_data": {
+        "total_listings": 3,
+        "cheapest_current": 2000.0,
+        "average_current": 3083.33,
+        "cheapest_good_condition": 2000.0,
+        "cheapest_good_condition_details": {
+          "price": 2000.0,
+          "condition": "NM",
+          "seller": "kappe17",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 62.45238114577663,
+        "good_condition_vs_trend_pct": 62.999185004074974,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Winter-Orb?minCondition=3"
+      }
+    },
+    {
+      "rank": 6,
+      "card_name": "Mana Flare",
+      "expansion": "Alpha",
+      "card_id": 5396,
+      "historical_data": {
+        "avg7": 456.75,
+        "avg30": 314.26,
+        "trend": 555.68,
+        "real_discount": 0.43445868125539877
+      },
+      "live_data": {
+        "total_listings": 6,
+        "cheapest_current": 700.0,
+        "average_current": 1320.83,
+        "cheapest_good_condition": 700.0,
+        "cheapest_good_condition_details": {
+          "price": 700.0,
+          "condition": "EX",
+          "seller": "R3incarna",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 53.25670498084292,
+        "good_condition_vs_trend_pct": 25.971782320760163,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Mana-Flare?minCondition=3"
+      }
+    }
+  ],
+  "no_data": [],
+  "all_results": [
+    {
+      "rank": 1,
+      "card_name": "Wheel of Fortune",
+      "expansion": "Alpha",
+      "card_id": 5417,
+      "historical_data": {
+        "avg7": 3679.28,
+        "avg30": 1381.18,
+        "trend": 4273.54,
+        "real_discount": 0.6768065818969753
+      },
+      "live_data": {
+        "total_listings": 6,
+        "cheapest_current": 4940.0,
+        "average_current": 26210.10666666667,
+        "cheapest_good_condition": 4940.0,
+        "cheapest_good_condition_details": {
+          "price": 4940.0,
+          "condition": "EX",
+          "seller": "ThreeForOne-AT",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 34.26539975212541,
+        "good_condition_vs_trend_pct": 15.595033625518893,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Wheel-Of-Fortune?minCondition=3"
+      }
+    },
+    {
+      "rank": 2,
+      "card_name": "Howling Mine",
+      "expansion": "Alpha",
+      "card_id": 5481,
+      "historical_data": {
+        "avg7": 1165.43,
+        "avg30": 614.48,
+        "trend": 1587.38,
+        "real_discount": 0.6128967229018887
+      },
+      "live_data": {
+        "total_listings": 7,
+        "cheapest_current": 1499.0,
+        "average_current": 2785.14,
+        "cheapest_good_condition": 1499.0,
+        "cheapest_good_condition_details": {
+          "price": 1499.0,
+          "condition": "EX",
+          "seller": "Fluoh",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 28.62205366259663,
+        "good_condition_vs_trend_pct": -5.567664957351114,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Howling-Mine?minCondition=3"
+      }
+    },
+    {
+      "rank": 3,
+      "card_name": "Mana Vault",
+      "expansion": "Alpha",
+      "card_id": 5493,
+      "historical_data": {
+        "avg7": 1685.43,
+        "avg30": 788.4,
+        "trend": 1908.35,
+        "real_discount": 0.5868682369586291
+      },
+      "live_data": {
+        "total_listings": 4,
+        "cheapest_current": 1589.0,
+        "average_current": 3293.4975,
+        "cheapest_good_condition": 1589.0,
+        "cheapest_good_condition_details": {
+          "price": 1589.0,
+          "condition": "EX",
+          "seller": "Leschelmis",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -5.721388607061703,
+        "good_condition_vs_trend_pct": -16.734351665050955,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Mana-Vault?minCondition=3"
+      }
+    },
+    {
+      "rank": 4,
+      "card_name": "Wrath of God",
+      "expansion": "Alpha",
+      "card_id": 5462,
+      "historical_data": {
+        "avg7": 1632.4,
+        "avg30": 770.63,
+        "trend": 1796.02,
+        "real_discount": 0.57092348637543
+      },
+      "live_data": {
+        "total_listings": 4,
+        "cheapest_current": 3899.99,
+        "average_current": 5474.9974999999995,
+        "cheapest_good_condition": 3899.99,
+        "cheapest_good_condition_details": {
+          "price": 3899.99,
+          "condition": "EX",
+          "seller": "Zlopotom",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 138.91141876990932,
+        "good_condition_vs_trend_pct": 117.1462455874656,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Wrath-Of-God?minCondition=3"
+      }
+    },
+    {
+      "rank": 5,
+      "card_name": "Winter Orb",
+      "expansion": "Alpha",
+      "card_id": 5508,
+      "historical_data": {
+        "avg7": 1231.13,
+        "avg30": 598.36,
+        "trend": 1227.0,
+        "real_discount": 0.5123390383048084
+      },
+      "live_data": {
+        "total_listings": 3,
+        "cheapest_current": 2000.0,
+        "average_current": 3083.33,
+        "cheapest_good_condition": 2000.0,
+        "cheapest_good_condition_details": {
+          "price": 2000.0,
+          "condition": "NM",
+          "seller": "kappe17",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 62.45238114577663,
+        "good_condition_vs_trend_pct": 62.999185004074974,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Winter-Orb?minCondition=3"
+      }
+    },
+    {
+      "rank": 6,
+      "card_name": "Mana Flare",
+      "expansion": "Alpha",
+      "card_id": 5396,
+      "historical_data": {
+        "avg7": 456.75,
+        "avg30": 314.26,
+        "trend": 555.68,
+        "real_discount": 0.43445868125539877
+      },
+      "live_data": {
+        "total_listings": 6,
+        "cheapest_current": 700.0,
+        "average_current": 1320.83,
+        "cheapest_good_condition": 700.0,
+        "cheapest_good_condition_details": {
+          "price": 700.0,
+          "condition": "EX",
+          "seller": "R3incarna",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 53.25670498084292,
+        "good_condition_vs_trend_pct": 25.971782320760163,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Mana-Flare?minCondition=3"
+      }
+    },
+    {
+      "rank": 7,
+      "card_name": "Howling Mine",
+      "expansion": "Unlimited",
+      "card_id": 5125,
+      "historical_data": {
+        "avg7": 143.45,
+        "avg30": 89.44,
+        "trend": 139.97,
+        "real_discount": 0.36100592984210905
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 80.0,
+        "average_current": 243.96300000000002,
+        "cheapest_good_condition": 80.0,
+        "cheapest_good_condition_details": {
+          "price": 80.0,
+          "condition": "EX",
+          "seller": "Niconet91",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -44.23143952596723,
+        "good_condition_vs_trend_pct": -42.844895334714586,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Howling-Mine?minCondition=3"
+      }
+    },
+    {
+      "rank": 8,
+      "card_name": "Mana Flare",
+      "expansion": "Unlimited",
+      "card_id": 4953,
+      "historical_data": {
+        "avg7": 35.21,
+        "avg30": 32.45,
+        "trend": 44.32,
+        "real_discount": 0.26782490974729234
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 42.49,
+        "average_current": 61.30800000000001,
+        "cheapest_good_condition": 42.49,
+        "cheapest_good_condition_details": {
+          "price": 42.49,
+          "condition": "EX",
+          "seller": "RacoonRises",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 20.67594433399603,
+        "good_condition_vs_trend_pct": -4.129061371841152,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Mana-Flare?minCondition=3"
+      }
+    },
+    {
+      "rank": 9,
+      "card_name": "Mana Vault",
+      "expansion": "Unlimited",
+      "card_id": 5149,
+      "historical_data": {
+        "avg7": 259.13,
+        "avg30": 197.58,
+        "trend": 262.57,
+        "real_discount": 0.24751494839471372
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 185.0,
+        "average_current": 257.589,
+        "cheapest_good_condition": 185.0,
+        "cheapest_good_condition_details": {
+          "price": 185.0,
+          "condition": "EX",
+          "seller": "xxniinjaxx1",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -28.607262763863694,
+        "good_condition_vs_trend_pct": -29.542598164299044,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Mana-Vault?minCondition=3"
+      }
+    },
+    {
+      "rank": 10,
+      "card_name": "Winter Orb",
+      "expansion": "Unlimited",
+      "card_id": 5179,
+      "historical_data": {
+        "avg7": 90.84,
+        "avg30": 84.89,
+        "trend": 111.64,
+        "real_discount": 0.2396094589752777
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 90.0,
+        "average_current": 118.90300000000002,
+        "cheapest_good_condition": 90.0,
+        "cheapest_good_condition_details": {
+          "price": 90.0,
+          "condition": "EX",
+          "seller": "DoubleDown",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -0.924702774108326,
+        "good_condition_vs_trend_pct": -19.38373342887854,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Winter-Orb?minCondition=3"
+      }
+    }
+  ]
+}

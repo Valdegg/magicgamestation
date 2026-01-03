@@ -1,0 +1,6216 @@
+{
+  "timestamp": "20251003_155637",
+  "summary": {
+    "total_analyzed": 164,
+    "excellent_deals": 46,
+    "good_deals": 10,
+    "expensive_deals": 13,
+    "no_data": 95
+  },
+  "excellent_deals": [
+    {
+      "rank": 2,
+      "card_name": "Stone Calendar",
+      "expansion": "The Dark",
+      "card_id": 7389,
+      "historical_data": {
+        "avg7": 9.27,
+        "avg30": 10.15,
+        "trend": 13.18,
+        "real_discount": 0.22989377845220027
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 9.0,
+        "average_current": 9.863999999999999,
+        "cheapest_good_condition": 9.0,
+        "cheapest_good_condition_details": {
+          "price": 9.0,
+          "condition": "EX",
+          "seller": "k-fab",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -2.9126213592232966,
+        "good_condition_vs_trend_pct": -31.71471927162367,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/The-Dark/Stone-Calendar?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 3,
+      "card_name": "Jihad",
+      "expansion": "Arabian Nights",
+      "card_id": 6839,
+      "historical_data": {
+        "avg7": 420.49,
+        "avg30": 276.48,
+        "trend": 348.24,
+        "real_discount": 0.20606478290833904
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 295.95,
+        "average_current": 335.985,
+        "cheapest_good_condition": 295.95,
+        "cheapest_good_condition_details": {
+          "price": 295.95,
+          "condition": "EX",
+          "seller": "mktradingcards",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -29.617826821089686,
+        "good_condition_vs_trend_pct": -15.015506547208826,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Arabian-Nights/Jihad?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 4,
+      "card_name": "Kobold Overlord",
+      "expansion": "Legends",
+      "card_id": 7127,
+      "historical_data": {
+        "avg7": 66.94,
+        "avg30": 54.71,
+        "trend": 67.82,
+        "real_discount": 0.19330580949572387
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 48.88,
+        "average_current": 56.23199999999999,
+        "cheapest_good_condition": 48.88,
+        "cheapest_good_condition_details": {
+          "price": 48.88,
+          "condition": "EX",
+          "seller": "MagicOfOldSchool",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -26.97938452345383,
+        "good_condition_vs_trend_pct": -27.926865231495125,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Kobold-Overlord?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 5,
+      "card_name": "Cleanse",
+      "expansion": "Legends",
+      "card_id": 7148,
+      "historical_data": {
+        "avg7": 113.11,
+        "avg30": 89.33,
+        "trend": 107.77,
+        "real_discount": 0.1711051312981349
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 72.0,
+        "average_current": 88.811,
+        "cheapest_good_condition": 72.0,
+        "cheapest_good_condition_details": {
+          "price": 72.0,
+          "condition": "EX",
+          "seller": "kasj78",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -36.34515073821943,
+        "good_condition_vs_trend_pct": -33.1910550245894,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Cleanse?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 6,
+      "card_name": "Field of Dreams",
+      "expansion": "Legends",
+      "card_id": 7026,
+      "historical_data": {
+        "avg7": 109.48,
+        "avg30": 102.06,
+        "trend": 122.91,
+        "real_discount": 0.1696363192579936
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 94.99,
+        "average_current": 104.85900000000001,
+        "cheapest_good_condition": 94.99,
+        "cheapest_good_condition_details": {
+          "price": 94.99,
+          "condition": "EX",
+          "seller": "teresis",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -13.235294117647067,
+        "good_condition_vs_trend_pct": -22.715808315027257,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Field-Of-Dreams?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 7,
+      "card_name": "Invoke Prejudice",
+      "expansion": "Legends",
+      "card_id": 7033,
+      "historical_data": {
+        "avg7": 299.88,
+        "avg30": 295.72,
+        "trend": 349.89,
+        "real_discount": 0.15482008631284105
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 298.0,
+        "average_current": 381.08899999999994,
+        "cheapest_good_condition": 298.0,
+        "cheapest_good_condition_details": {
+          "price": 298.0,
+          "condition": "EX",
+          "seller": "Bronhy",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -0.6269174336401212,
+        "good_condition_vs_trend_pct": -14.830375260796247,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Invoke-Prejudice?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 8,
+      "card_name": "City of Solitude",
+      "expansion": "Visions",
+      "card_id": 8453,
+      "historical_data": {
+        "avg7": 10.4,
+        "avg30": 10.11,
+        "trend": 11.9,
+        "real_discount": 0.15042016806722697
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 6.5,
+        "average_current": 7.918000000000001,
+        "cheapest_good_condition": 6.5,
+        "cheapest_good_condition_details": {
+          "price": 6.5,
+          "condition": "EX",
+          "seller": "JulienJ",
+          "quantity": 2
+        },
+        "good_condition_vs_avg7_pct": -37.5,
+        "good_condition_vs_trend_pct": -45.378151260504204,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Visions/City-Of-Solitude?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 9,
+      "card_name": "Divine Intervention",
+      "expansion": "Legends",
+      "card_id": 7151,
+      "historical_data": {
+        "avg7": 116.41,
+        "avg30": 102.31,
+        "trend": 117.79,
+        "real_discount": 0.13142032430596828
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 94.51,
+        "average_current": 113.489,
+        "cheapest_good_condition": 94.51,
+        "cheapest_good_condition_details": {
+          "price": 94.51,
+          "condition": "EX",
+          "seller": "TheMagicCardTraderUK",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -18.812816768318864,
+        "good_condition_vs_trend_pct": -19.76398675609135,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Divine-Intervention?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 10,
+      "card_name": "Hellfire",
+      "expansion": "Legends",
+      "card_id": 6991,
+      "historical_data": {
+        "avg7": 101.19,
+        "avg30": 89.4,
+        "trend": 102.77,
+        "real_discount": 0.13009633161428424
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 80.0,
+        "average_current": 88.833,
+        "cheapest_good_condition": 80.0,
+        "cheapest_good_condition_details": {
+          "price": 80.0,
+          "condition": "EX",
+          "seller": "sebest",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -20.940804427314948,
+        "good_condition_vs_trend_pct": -22.156271285394567,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Hellfire?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 13,
+      "card_name": "Su-Chi",
+      "expansion": "Antiquities",
+      "card_id": 6903,
+      "historical_data": {
+        "avg7": 131.47,
+        "avg30": 105.37,
+        "trend": 118.5,
+        "real_discount": 0.11080168776371305
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 99.0,
+        "average_current": 102.197,
+        "cheapest_good_condition": 99.0,
+        "cheapest_good_condition_details": {
+          "price": 99.0,
+          "condition": "EX",
+          "seller": "Erya2000",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -24.69764965391344,
+        "good_condition_vs_trend_pct": -16.455696202531644,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Antiquities/Su-chi?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 14,
+      "card_name": "Jacques le Vert",
+      "expansion": "Legends",
+      "card_id": 7243,
+      "historical_data": {
+        "avg7": 25.02,
+        "avg30": 24.15,
+        "trend": 27.03,
+        "real_discount": 0.10654827968923428
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 22.0,
+        "average_current": 24.787,
+        "cheapest_good_condition": 22.0,
+        "cheapest_good_condition_details": {
+          "price": 22.0,
+          "condition": "EX",
+          "seller": "ABU-Best-Offer",
+          "quantity": 2
+        },
+        "good_condition_vs_avg7_pct": -12.070343725019983,
+        "good_condition_vs_trend_pct": -18.608953015168332,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Jacques-Le-Vert?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 15,
+      "card_name": "Corpse Dance",
+      "expansion": "Tempest",
+      "card_id": 8745,
+      "historical_data": {
+        "avg7": 18.32,
+        "avg30": 16.98,
+        "trend": 18.98,
+        "real_discount": 0.1053740779768177
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 14.5,
+        "average_current": 17.319,
+        "cheapest_good_condition": 14.5,
+        "cheapest_good_condition_details": {
+          "price": 14.5,
+          "condition": "EX",
+          "seller": "Vitosellmagic",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -20.851528384279476,
+        "good_condition_vs_trend_pct": -23.603793466807165,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Corpse-Dance?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 16,
+      "card_name": "Land Equilibrium",
+      "expansion": "Legends",
+      "card_id": 7035,
+      "historical_data": {
+        "avg7": 97.4,
+        "avg30": 94.14,
+        "trend": 103.86,
+        "real_discount": 0.09358752166377815
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 85.0,
+        "average_current": 92.768,
+        "cheapest_good_condition": 85.0,
+        "cheapest_good_condition_details": {
+          "price": 85.0,
+          "condition": "EX",
+          "seller": "BlackLilith-13",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -12.731006160164277,
+        "good_condition_vs_trend_pct": -18.15906027344502,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Land-Equilibrium?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 17,
+      "card_name": "Phyrexian Devourer",
+      "expansion": "Alliances",
+      "card_id": 8019,
+      "historical_data": {
+        "avg7": 21.66,
+        "avg30": 19.86,
+        "trend": 21.87,
+        "real_discount": 0.09190672153635124
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 16.35,
+        "average_current": 19.631999999999998,
+        "cheapest_good_condition": 16.35,
+        "cheapest_good_condition_details": {
+          "price": 16.35,
+          "condition": "EX",
+          "seller": "jchald",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -24.515235457063707,
+        "good_condition_vs_trend_pct": -25.240054869684496,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alliances/Phyrexian-Devourer?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 18,
+      "card_name": "Lotus Vale",
+      "expansion": "Weatherlight",
+      "card_id": 8733,
+      "historical_data": {
+        "avg7": 21.02,
+        "avg30": 20.05,
+        "trend": 21.92,
+        "real_discount": 0.08531021897810223
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 18.0,
+        "average_current": 20.681,
+        "cheapest_good_condition": 18.0,
+        "cheapest_good_condition_details": {
+          "price": 18.0,
+          "condition": "EX",
+          "seller": "dcdducati",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -14.367269267364414,
+        "good_condition_vs_trend_pct": -17.883211678832122,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Weatherlight/Lotus-Vale?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 19,
+      "card_name": "Scorched Ruins",
+      "expansion": "Weatherlight",
+      "card_id": 8734,
+      "historical_data": {
+        "avg7": 33.11,
+        "avg30": 33.95,
+        "trend": 36.78,
+        "real_discount": 0.0769439912996193
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 32.0,
+        "average_current": 35.588,
+        "cheapest_good_condition": 32.0,
+        "cheapest_good_condition_details": {
+          "price": 32.0,
+          "condition": "EX",
+          "seller": "Overlord2403",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -3.3524614919963738,
+        "good_condition_vs_trend_pct": -12.996193583469278,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Weatherlight/Scorched-Ruins?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 20,
+      "card_name": "Exorcist",
+      "expansion": "The Dark",
+      "card_id": 7360,
+      "historical_data": {
+        "avg7": 12.71,
+        "avg30": 11.28,
+        "trend": 12.22,
+        "real_discount": 0.07692307692307702
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 9.0,
+        "average_current": 11.213000000000001,
+        "cheapest_good_condition": 9.0,
+        "cheapest_good_condition_details": {
+          "price": 9.0,
+          "condition": "EX",
+          "seller": "Slyngelweah",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -29.18961447678993,
+        "good_condition_vs_trend_pct": -26.350245499181675,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/The-Dark/Exorcist?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 22,
+      "card_name": "Powerleech",
+      "expansion": "Antiquities",
+      "card_id": 6935,
+      "historical_data": {
+        "avg7": 13.21,
+        "avg30": 13.97,
+        "trend": 15.13,
+        "real_discount": 0.07666886979510906
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 13.0,
+        "average_current": 15.387,
+        "cheapest_good_condition": 13.0,
+        "cheapest_good_condition_details": {
+          "price": 13.0,
+          "condition": "EX",
+          "seller": "webuyanycard",
+          "quantity": 8
+        },
+        "good_condition_vs_avg7_pct": -1.5897047691143136,
+        "good_condition_vs_trend_pct": -14.077990746860547,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Antiquities/Powerleech?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 23,
+      "card_name": "Earthcraft",
+      "expansion": "Tempest",
+      "card_id": 8851,
+      "historical_data": {
+        "avg7": 90.99,
+        "avg30": 85.53,
+        "trend": 91.98,
+        "real_discount": 0.07012393998695371
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 83.0,
+        "average_current": 91.532,
+        "cheapest_good_condition": 83.0,
+        "cheapest_good_condition_details": {
+          "price": 83.0,
+          "condition": "EX",
+          "seller": "Nyar752",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -8.781184745576432,
+        "good_condition_vs_trend_pct": -9.76299195477278,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Earthcraft?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 24,
+      "card_name": "Undiscovered Paradise",
+      "expansion": "Visions",
+      "card_id": 8568,
+      "historical_data": {
+        "avg7": 16.9,
+        "avg30": 13.28,
+        "trend": 14.27,
+        "real_discount": 0.06937631394533988
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 8.0,
+        "average_current": 11.564,
+        "cheapest_good_condition": 8.0,
+        "cheapest_good_condition_details": {
+          "price": 8.0,
+          "condition": "EX",
+          "seller": "DraconisUK",
+          "quantity": 2
+        },
+        "good_condition_vs_avg7_pct": -52.66272189349112,
+        "good_condition_vs_trend_pct": -43.938332165381915,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Visions/Undiscovered-Paradise?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 25,
+      "card_name": "Halfdane",
+      "expansion": "Legends",
+      "card_id": 7240,
+      "historical_data": {
+        "avg7": 33.56,
+        "avg30": 30.11,
+        "trend": 32.24,
+        "real_discount": 0.06606699751861049
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 28.36,
+        "average_current": 30.976999999999997,
+        "cheapest_good_condition": 28.36,
+        "cheapest_good_condition_details": {
+          "price": 28.36,
+          "condition": "EX",
+          "seller": "TheMagicCardTraderUK",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -15.494636471990471,
+        "good_condition_vs_trend_pct": -12.0347394540943,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Halfdane?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 26,
+      "card_name": "Winding Canyons",
+      "expansion": "Weatherlight",
+      "card_id": 8735,
+      "historical_data": {
+        "avg7": 12.07,
+        "avg30": 13.18,
+        "trend": 14.08,
+        "real_discount": 0.06392045454545457
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 11.82,
+        "average_current": 12.901999999999997,
+        "cheapest_good_condition": 11.82,
+        "cheapest_good_condition_details": {
+          "price": 11.82,
+          "condition": "EX",
+          "seller": "cataclysm-uk",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -2.071251035625518,
+        "good_condition_vs_trend_pct": -16.051136363636363,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Weatherlight/Winding-Canyons?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 28,
+      "card_name": "Dystopia",
+      "expansion": "Alliances",
+      "card_id": 7858,
+      "historical_data": {
+        "avg7": 10.51,
+        "avg30": 10.2,
+        "trend": 10.86,
+        "real_discount": 0.060773480662983444
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 5.91,
+        "average_current": 8.75,
+        "cheapest_good_condition": 5.91,
+        "cheapest_good_condition_details": {
+          "price": 5.91,
+          "condition": "NM",
+          "seller": "Angel-Cards",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -43.76784015223596,
+        "good_condition_vs_trend_pct": -45.58011049723756,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alliances/Dystopia?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 29,
+      "card_name": "Grim Monolith",
+      "expansion": "Urza's Legacy",
+      "card_id": 10683,
+      "historical_data": {
+        "avg7": 244.3,
+        "avg30": 233.05,
+        "trend": 247.29,
+        "real_discount": 0.05758421286748344
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 200.0,
+        "average_current": 243.89600000000002,
+        "cheapest_good_condition": 200.0,
+        "cheapest_good_condition_details": {
+          "price": 200.0,
+          "condition": "EX",
+          "seller": "handri",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -18.133442488743352,
+        "good_condition_vs_trend_pct": -19.123296534433255,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Legacy/Grim-Monolith?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 32,
+      "card_name": "Jovial Evil",
+      "expansion": "Legends",
+      "card_id": 6995,
+      "historical_data": {
+        "avg7": 29.62,
+        "avg30": 27.84,
+        "trend": 29.32,
+        "real_discount": 0.050477489768076415
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 22.48,
+        "average_current": 26.96,
+        "cheapest_good_condition": 22.48,
+        "cheapest_good_condition_details": {
+          "price": 22.48,
+          "condition": "EX",
+          "seller": "Meddy36",
+          "quantity": 4
+        },
+        "good_condition_vs_avg7_pct": -24.105334233625932,
+        "good_condition_vs_trend_pct": -23.328785811732605,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Jovial-Evil?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 33,
+      "card_name": "Falling Star",
+      "expansion": "Legends",
+      "card_id": 7117,
+      "historical_data": {
+        "avg7": 114.09,
+        "avg30": 105.13,
+        "trend": 110.52,
+        "real_discount": 0.048769453492580536
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 100.0,
+        "average_current": 114.852,
+        "cheapest_good_condition": 100.0,
+        "cheapest_good_condition_details": {
+          "price": 100.0,
+          "condition": "EX",
+          "seller": "TORREDIPISADRITTA",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -12.349899202384085,
+        "good_condition_vs_trend_pct": -9.518639160332969,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Falling-Star?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 35,
+      "card_name": "Goblin Wizard",
+      "expansion": "The Dark",
+      "card_id": 7349,
+      "historical_data": {
+        "avg7": 56.4,
+        "avg30": 51.91,
+        "trend": 54.45,
+        "real_discount": 0.046648301193755855
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 48.0,
+        "average_current": 54.689,
+        "cheapest_good_condition": 48.0,
+        "cheapest_good_condition_details": {
+          "price": 48.0,
+          "condition": "EX",
+          "seller": "kasj78",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -14.893617021276592,
+        "good_condition_vs_trend_pct": -11.845730027548214,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/The-Dark/Goblin-Wizard?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 37,
+      "card_name": "Shallow Grave",
+      "expansion": "Mirage",
+      "card_id": 8090,
+      "historical_data": {
+        "avg7": 78.6,
+        "avg30": 74.8,
+        "trend": 77.87,
+        "real_discount": 0.03942468216257875
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 70.88,
+        "average_current": 78.699,
+        "cheapest_good_condition": 70.88,
+        "cheapest_good_condition_details": {
+          "price": 70.88,
+          "condition": "EX",
+          "seller": "cataclysm-uk",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -9.821882951653944,
+        "good_condition_vs_trend_pct": -8.97649929369463,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Shallow-Grave?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 38,
+      "card_name": "Recurring Nightmare",
+      "expansion": "Exodus",
+      "card_id": 9300,
+      "historical_data": {
+        "avg7": 50.06,
+        "avg30": 48.68,
+        "trend": 50.58,
+        "real_discount": 0.037564254646105154
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 46.0,
+        "average_current": 51.117,
+        "cheapest_good_condition": 46.0,
+        "cheapest_good_condition_details": {
+          "price": 46.0,
+          "condition": "EX",
+          "seller": "EpiphanyG",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -8.110267678785462,
+        "good_condition_vs_trend_pct": -9.05496243574535,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Recurring-Nightmare?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 39,
+      "card_name": "Lifeblood",
+      "expansion": "Legends",
+      "card_id": 7170,
+      "historical_data": {
+        "avg7": 26.76,
+        "avg30": 25.2,
+        "trend": 26.14,
+        "real_discount": 0.035960214231063554
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 23.0,
+        "average_current": 25.159,
+        "cheapest_good_condition": 23.0,
+        "cheapest_good_condition_details": {
+          "price": 23.0,
+          "condition": "EX",
+          "seller": "kasj78",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -14.050822122571008,
+        "good_condition_vs_trend_pct": -12.012241775057385,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Lifeblood?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 44,
+      "card_name": "Storm World",
+      "expansion": "Legends",
+      "card_id": 7137,
+      "historical_data": {
+        "avg7": 38.39,
+        "avg30": 39.69,
+        "trend": 40.99,
+        "real_discount": 0.03171505245181762
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 34.25,
+        "average_current": 37.650999999999996,
+        "cheapest_good_condition": 34.25,
+        "cheapest_good_condition_details": {
+          "price": 34.25,
+          "condition": "EX",
+          "seller": "Meddy36",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -10.784058348528264,
+        "good_condition_vs_trend_pct": -16.4430348865577,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Storm-World?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 49,
+      "card_name": "Dream Halls",
+      "expansion": "Stronghold",
+      "card_id": 9113,
+      "historical_data": {
+        "avg7": 19.37,
+        "avg30": 19.69,
+        "trend": 20.14,
+        "real_discount": 0.022343594836146934
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 18.89,
+        "average_current": 19.43,
+        "cheapest_good_condition": 18.89,
+        "cheapest_good_condition_details": {
+          "price": 18.89,
+          "condition": "EX",
+          "seller": "Rarian",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -2.478058853897782,
+        "good_condition_vs_trend_pct": -6.206554121151936,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Stronghold/Dream-Halls?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 50,
+      "card_name": "Gilded Drake",
+      "expansion": "Urza's Saga",
+      "card_id": 10283,
+      "historical_data": {
+        "avg7": 143.75,
+        "avg30": 143.27,
+        "trend": 146.42,
+        "real_discount": 0.021513454446113765
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 132.0,
+        "average_current": 140.628,
+        "cheapest_good_condition": 132.0,
+        "cheapest_good_condition_details": {
+          "price": 132.0,
+          "condition": "NM",
+          "seller": "NilsMueller",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -8.17391304347826,
+        "good_condition_vs_trend_pct": -9.848381368665475,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Saga/Gilded-Drake?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 53,
+      "card_name": "Forsaken Wastes",
+      "expansion": "Mirage",
+      "card_id": 8074,
+      "historical_data": {
+        "avg7": 13.64,
+        "avg30": 13.15,
+        "trend": 13.41,
+        "real_discount": 0.019388516032811318
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 12.0,
+        "average_current": 13.471,
+        "cheapest_good_condition": 12.0,
+        "cheapest_good_condition_details": {
+          "price": 12.0,
+          "condition": "NM",
+          "seller": "zNymph",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -12.023460410557188,
+        "good_condition_vs_trend_pct": -10.51454138702461,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Forsaken-Wastes?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 60,
+      "card_name": "Adun Oakenshield",
+      "expansion": "Legends",
+      "card_id": 7227,
+      "historical_data": {
+        "avg7": 60.76,
+        "avg30": 57.77,
+        "trend": 58.54,
+        "real_discount": 0.013153399385035805
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 52.0,
+        "average_current": 59.916999999999994,
+        "cheapest_good_condition": 52.0,
+        "cheapest_good_condition_details": {
+          "price": 52.0,
+          "condition": "EX",
+          "seller": "Roczyyy",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -14.41737985516787,
+        "good_condition_vs_trend_pct": -11.171848308848649,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Adun-Oakenshield?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 67,
+      "card_name": "Palinchron",
+      "expansion": "Urza's Legacy",
+      "card_id": 10595,
+      "historical_data": {
+        "avg7": 20.77,
+        "avg30": 21.36,
+        "trend": 21.45,
+        "real_discount": 0.00419580419580419
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 20.09,
+        "average_current": 21.135999999999996,
+        "cheapest_good_condition": 20.09,
+        "cheapest_good_condition_details": {
+          "price": 20.09,
+          "condition": "EX",
+          "seller": "MattDakota",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -3.2739528165623484,
+        "good_condition_vs_trend_pct": -6.340326340326338,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Legacy/Palinchron?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 74,
+      "card_name": "Nether Void",
+      "expansion": "Legends",
+      "card_id": 6999,
+      "historical_data": {
+        "avg7": 392.11,
+        "avg30": 399.09,
+        "trend": 395.88,
+        "real_discount": -0.008108517732646205
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 375.0,
+        "average_current": 441.33500000000004,
+        "cheapest_good_condition": 375.0,
+        "cheapest_good_condition_details": {
+          "price": 375.0,
+          "condition": "EX",
+          "seller": "robbi010",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -4.363571446787894,
+        "good_condition_vs_trend_pct": -5.274325553197938,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Nether-Void?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 79,
+      "card_name": "Lady Evangela",
+      "expansion": "Legends",
+      "card_id": 7251,
+      "historical_data": {
+        "avg7": 38.93,
+        "avg30": 38.31,
+        "trend": 37.59,
+        "real_discount": -0.019154030327214654
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 35.0,
+        "average_current": 39.742,
+        "cheapest_good_condition": 35.0,
+        "cheapest_good_condition_details": {
+          "price": 35.0,
+          "condition": "EX",
+          "seller": "alexanderremi",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -10.095042383765733,
+        "good_condition_vs_trend_pct": -6.890130353817512,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Lady-Evangela?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 95,
+      "card_name": "Wood Elemental",
+      "expansion": "Legends",
+      "card_id": 7100,
+      "historical_data": {
+        "avg7": 16.28,
+        "avg30": 17.3,
+        "trend": 16.73,
+        "real_discount": -0.03407053197848178
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 14.8,
+        "average_current": 16.313000000000002,
+        "cheapest_good_condition": 14.8,
+        "cheapest_good_condition_details": {
+          "price": 14.8,
+          "condition": "EX",
+          "seller": "RetroMagic",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -9.090909090909092,
+        "good_condition_vs_trend_pct": -11.536162582187686,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Wood-Elemental?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 104,
+      "card_name": "Powder Keg",
+      "expansion": "Urza's Destiny",
+      "card_id": 10836,
+      "historical_data": {
+        "avg7": 25.34,
+        "avg30": 26.31,
+        "trend": 25.21,
+        "real_discount": -0.043633478778262506
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 21.5,
+        "average_current": 27.452999999999996,
+        "cheapest_good_condition": 21.5,
+        "cheapest_good_condition_details": {
+          "price": 21.5,
+          "condition": "EX",
+          "seller": "Nebuchadnezzar",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -15.153906866614047,
+        "good_condition_vs_trend_pct": -14.716382387941296,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Destiny/Powder-Keg?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 108,
+      "card_name": "Ragnar",
+      "expansion": "Legends",
+      "card_id": 7262,
+      "historical_data": {
+        "avg7": 29.14,
+        "avg30": 32.64,
+        "trend": 31.13,
+        "real_discount": -0.04850626405396729
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 28.0,
+        "average_current": 30.784,
+        "cheapest_good_condition": 28.0,
+        "cheapest_good_condition_details": {
+          "price": 28.0,
+          "condition": "EX",
+          "seller": "finespoo",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -3.9121482498284164,
+        "good_condition_vs_trend_pct": -10.054609701252808,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Ragnar?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 114,
+      "card_name": "Hazezon Tamar",
+      "expansion": "Legends",
+      "card_id": 7241,
+      "historical_data": {
+        "avg7": 107.87,
+        "avg30": 119.58,
+        "trend": 113.62,
+        "real_discount": -0.052455553599718305
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 100.0,
+        "average_current": 133.21200000000002,
+        "cheapest_good_condition": 100.0,
+        "cheapest_good_condition_details": {
+          "price": 100.0,
+          "condition": "EX",
+          "seller": "ThreeForOne-AT",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -7.295819041438772,
+        "good_condition_vs_trend_pct": -11.9873261749692,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Hazezon-Tamar?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 129,
+      "card_name": "Thawing Glaciers",
+      "expansion": "Alliances",
+      "card_id": 8041,
+      "historical_data": {
+        "avg7": 10.49,
+        "avg30": 10.58,
+        "trend": 9.86,
+        "real_discount": -0.07302231237322522
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 6.0,
+        "average_current": 9.354000000000001,
+        "cheapest_good_condition": 6.0,
+        "cheapest_good_condition_details": {
+          "price": 6.0,
+          "condition": "EX",
+          "seller": "isys59",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -42.80266920877026,
+        "good_condition_vs_trend_pct": -39.14807302231237,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alliances/Thawing-Glaciers?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 131,
+      "card_name": "Great Whale",
+      "expansion": "Urza's Saga",
+      "card_id": 10284,
+      "historical_data": {
+        "avg7": 10.22,
+        "avg30": 11.11,
+        "trend": 10.34,
+        "real_discount": -0.07446808510638293
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 9.0,
+        "average_current": 12.331999999999999,
+        "cheapest_good_condition": 9.0,
+        "cheapest_good_condition_details": {
+          "price": 9.0,
+          "condition": "EX",
+          "seller": "zakku",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -11.937377690802354,
+        "good_condition_vs_trend_pct": -12.959381044487426,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Saga/Great-Whale?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 157,
+      "card_name": "Spiritual Sanctuary",
+      "expansion": "Legends",
+      "card_id": 7181,
+      "historical_data": {
+        "avg7": 17.04,
+        "avg30": 18.88,
+        "trend": 16.44,
+        "real_discount": -0.14841849148418476
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 15.0,
+        "average_current": 18.784,
+        "cheapest_good_condition": 15.0,
+        "cheapest_good_condition_details": {
+          "price": 15.0,
+          "condition": "EX",
+          "seller": "kasj78",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -11.971830985915489,
+        "good_condition_vs_trend_pct": -8.759124087591248,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Spiritual-Sanctuary?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 164,
+      "card_name": "North Star",
+      "expansion": "Legends",
+      "card_id": 7204,
+      "historical_data": {
+        "avg7": 21.91,
+        "avg30": 29.43,
+        "trend": 21.57,
+        "real_discount": -0.36439499304589706
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 20.0,
+        "average_current": 26.651999999999997,
+        "cheapest_good_condition": 20.0,
+        "cheapest_good_condition_details": {
+          "price": 20.0,
+          "condition": "EX",
+          "seller": "Wbl2pdn2015",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -8.71748060246463,
+        "good_condition_vs_trend_pct": -7.278627723690311,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/North-Star?language=1&minCondition=3"
+      }
+    }
+  ],
+  "good_deals": [
+    {
+      "rank": 11,
+      "card_name": "Rofellos, Llanowar Emissary",
+      "expansion": "Urza's Destiny",
+      "card_id": 10818,
+      "historical_data": {
+        "avg7": 24.58,
+        "avg30": 23.99,
+        "trend": 27.04,
+        "real_discount": 0.11279585798816572
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 25.99,
+        "average_current": 27.799,
+        "cheapest_good_condition": 25.99,
+        "cheapest_good_condition_details": {
+          "price": 25.99,
+          "condition": "EX",
+          "seller": "Kenzoo",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 5.736371033360457,
+        "good_condition_vs_trend_pct": -3.883136094674559,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Destiny/Rofellos-Llanowar-Emissary?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 27,
+      "card_name": "Tombstone Stairwell",
+      "expansion": "Mirage",
+      "card_id": 8098,
+      "historical_data": {
+        "avg7": 26.79,
+        "avg30": 25.46,
+        "trend": 27.17,
+        "real_discount": 0.06293706293706297
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 27.0,
+        "average_current": 31.517000000000003,
+        "cheapest_good_condition": 27.0,
+        "cheapest_good_condition_details": {
+          "price": 27.0,
+          "condition": "EX",
+          "seller": "NilsMueller",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 0.7838745800671924,
+        "good_condition_vs_trend_pct": -0.6256900993743162,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Tombstone-Stairwell?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 30,
+      "card_name": "Angus Mackenzie",
+      "expansion": "Legends",
+      "card_id": 7228,
+      "historical_data": {
+        "avg7": 146.35,
+        "avg30": 158.04,
+        "trend": 166.79,
+        "real_discount": 0.052461178727741475
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 164.9,
+        "average_current": 185.895,
+        "cheapest_good_condition": 164.9,
+        "cheapest_good_condition_details": {
+          "price": 164.9,
+          "condition": "EX",
+          "seller": "AdCardCollectibles",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 12.675093952852759,
+        "good_condition_vs_trend_pct": -1.1331614605192077,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Angus-Mackenzie?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 46,
+      "card_name": "Time Spiral",
+      "expansion": "Urza's Saga",
+      "card_id": 10310,
+      "historical_data": {
+        "avg7": 66.53,
+        "avg30": 65.48,
+        "trend": 67.29,
+        "real_discount": 0.026898499034031832
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 64.98,
+        "average_current": 68.37,
+        "cheapest_good_condition": 64.98,
+        "cheapest_good_condition_details": {
+          "price": 64.98,
+          "condition": "EX",
+          "seller": "cuisinero",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -2.3297760408838073,
+        "good_condition_vs_trend_pct": -3.432902362906824,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Saga/Time-Spiral?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 48,
+      "card_name": "Ramses Overdark",
+      "expansion": "Legends",
+      "card_id": 7264,
+      "historical_data": {
+        "avg7": 36.42,
+        "avg30": 34.93,
+        "trend": 35.85,
+        "real_discount": 0.025662482566248302
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 34.97,
+        "average_current": 36.976,
+        "cheapest_good_condition": 34.97,
+        "cheapest_good_condition_details": {
+          "price": 34.97,
+          "condition": "EX",
+          "seller": "ThreeForOne-AT",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -3.9813289401427863,
+        "good_condition_vs_trend_pct": -2.454672245467232,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Ramses-Overdark?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 54,
+      "card_name": "Sword of the Ages",
+      "expansion": "Legends",
+      "card_id": 7212,
+      "historical_data": {
+        "avg7": 68.46,
+        "avg30": 61.19,
+        "trend": 62.29,
+        "real_discount": 0.01765933536683258
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 59.5,
+        "average_current": 76.42,
+        "cheapest_good_condition": 59.5,
+        "cheapest_good_condition_details": {
+          "price": 59.5,
+          "condition": "EX",
+          "seller": "Wampopower",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -13.087934560327191,
+        "good_condition_vs_trend_pct": -4.479049606678438,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Sword-Of-The-Ages?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 72,
+      "card_name": "Intuition",
+      "expansion": "Tempest",
+      "card_id": 8805,
+      "historical_data": {
+        "avg7": 130.55,
+        "avg30": 136.27,
+        "trend": 135.82,
+        "real_discount": -0.003313208658518753
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 135.0,
+        "average_current": 142.09099999999998,
+        "cheapest_good_condition": 135.0,
+        "cheapest_good_condition_details": {
+          "price": 135.0,
+          "condition": "EX",
+          "seller": "FlorianKupf",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 3.408655687476054,
+        "good_condition_vs_trend_pct": -0.6037402444411671,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Intuition?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 106,
+      "card_name": "Mana Matrix",
+      "expansion": "Legends",
+      "card_id": 7201,
+      "historical_data": {
+        "avg7": 52.35,
+        "avg30": 53.13,
+        "trend": 50.78,
+        "real_discount": -0.04627806222922413
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 50.0,
+        "average_current": 51.863,
+        "cheapest_good_condition": 50.0,
+        "cheapest_good_condition_details": {
+          "price": 50.0,
+          "condition": "NM",
+          "seller": "kasj78",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -4.489016236867243,
+        "good_condition_vs_trend_pct": -1.536037810161483,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Mana-Matrix?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 135,
+      "card_name": "Reverberation",
+      "expansion": "Legends",
+      "card_id": 7045,
+      "historical_data": {
+        "avg7": 19.92,
+        "avg30": 21.3,
+        "trend": 19.69,
+        "real_discount": -0.08176739461655659
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 18.99,
+        "average_current": 23.032,
+        "cheapest_good_condition": 18.99,
+        "cheapest_good_condition_details": {
+          "price": 18.99,
+          "condition": "EX",
+          "seller": "ThreeForOne-AT",
+          "quantity": 5
+        },
+        "good_condition_vs_avg7_pct": -4.668674698795196,
+        "good_condition_vs_trend_pct": -3.555104113763346,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Reverberation?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 149,
+      "card_name": "Null Rod",
+      "expansion": "Weatherlight",
+      "card_id": 8722,
+      "historical_data": {
+        "avg7": 60.1,
+        "avg30": 66.61,
+        "trend": 59.46,
+        "real_discount": -0.12024890682811971
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 57.0,
+        "average_current": 59.89,
+        "cheapest_good_condition": 57.0,
+        "cheapest_good_condition_details": {
+          "price": 57.0,
+          "condition": "EX",
+          "seller": "Miggy2k",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -5.158069883527457,
+        "good_condition_vs_trend_pct": -4.1372351160444,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Weatherlight/Null-Rod?language=1&minCondition=3"
+      }
+    }
+  ],
+  "expensive_deals": [
+    {
+      "rank": 21,
+      "card_name": "Guardian Beast",
+      "expansion": "Arabian Nights",
+      "card_id": 6784,
+      "historical_data": {
+        "avg7": 451.2,
+        "avg30": 441.6,
+        "trend": 478.38,
+        "real_discount": 0.07688448513733846
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 499.0,
+        "average_current": 559.243,
+        "cheapest_good_condition": 499.0,
+        "cheapest_good_condition_details": {
+          "price": 499.0,
+          "condition": "EX",
+          "seller": "ignaz333",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 10.593971631205676,
+        "good_condition_vs_trend_pct": 4.310380868765417,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Arabian-Nights/Guardian-Beast?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 47,
+      "card_name": "Ali from Cairo",
+      "expansion": "Arabian Nights",
+      "card_id": 6823,
+      "historical_data": {
+        "avg7": 218.33,
+        "avg30": 228.43,
+        "trend": 234.49,
+        "real_discount": 0.025843319544543487
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 237.49,
+        "average_current": 305.788,
+        "cheapest_good_condition": 237.49,
+        "cheapest_good_condition_details": {
+          "price": 237.49,
+          "condition": "EX",
+          "seller": "Magicboxx",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 8.775706499335865,
+        "good_condition_vs_trend_pct": 1.27937225468037,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Arabian-Nights/Ali-From-Cairo?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 51,
+      "card_name": "Planar Gate",
+      "expansion": "Legends",
+      "card_id": 7206,
+      "historical_data": {
+        "avg7": 39.86,
+        "avg30": 40.95,
+        "trend": 41.84,
+        "real_discount": 0.021271510516252402
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 42.0,
+        "average_current": 46.353,
+        "cheapest_good_condition": 42.0,
+        "cheapest_good_condition_details": {
+          "price": 42.0,
+          "condition": "EX",
+          "seller": "Wbl2pdn2015",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 5.368790767686906,
+        "good_condition_vs_trend_pct": 0.3824091778202595,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Planar-Gate?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 52,
+      "card_name": "Squandered Resources",
+      "expansion": "Visions",
+      "card_id": 8538,
+      "historical_data": {
+        "avg7": 50.08,
+        "avg30": 48.06,
+        "trend": 49.1,
+        "real_discount": 0.02118126272912422
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 49.95,
+        "average_current": 57.36,
+        "cheapest_good_condition": 49.95,
+        "cheapest_good_condition_details": {
+          "price": 49.95,
+          "condition": "EX",
+          "seller": "Zukula",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -0.2595846645367321,
+        "good_condition_vs_trend_pct": 1.731160896130349,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Visions/Squandered-Resources?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 118,
+      "card_name": "Academy Rector",
+      "expansion": "Urza's Destiny",
+      "card_id": 10701,
+      "historical_data": {
+        "avg7": 37.74,
+        "avg30": 39.67,
+        "trend": 37.57,
+        "real_discount": -0.05589566143199365
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 38.0,
+        "average_current": 41.933,
+        "cheapest_good_condition": 38.0,
+        "cheapest_good_condition_details": {
+          "price": 38.0,
+          "condition": "EX",
+          "seller": "Skalex-31",
+          "quantity": 3
+        },
+        "good_condition_vs_avg7_pct": 0.6889242183359777,
+        "good_condition_vs_trend_pct": 1.1445302102741541,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Destiny/Academy-Rector?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 137,
+      "card_name": "Argivian Archaeologist",
+      "expansion": "Antiquities",
+      "card_id": 6965,
+      "historical_data": {
+        "avg7": 99.56,
+        "avg30": 104.11,
+        "trend": 96.0,
+        "real_discount": -0.08447916666666666
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 105.0,
+        "average_current": 119.255,
+        "cheapest_good_condition": 105.0,
+        "cheapest_good_condition_details": {
+          "price": 105.0,
+          "condition": "EX",
+          "seller": "kasj78",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 5.464041783848933,
+        "good_condition_vs_trend_pct": 9.375,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Antiquities/Argivian-Archaeologist?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 140,
+      "card_name": "Humility",
+      "expansion": "Tempest",
+      "card_id": 8971,
+      "historical_data": {
+        "avg7": 33.07,
+        "avg30": 35.51,
+        "trend": 32.63,
+        "real_discount": -0.08826233527428731
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 35.44,
+        "average_current": 37.846,
+        "cheapest_good_condition": 35.44,
+        "cheapest_good_condition_details": {
+          "price": 35.44,
+          "condition": "EX",
+          "seller": "JGuess",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 7.16661626852131,
+        "good_condition_vs_trend_pct": 8.611707018081505,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Humility?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 143,
+      "card_name": "Tolarian Academy",
+      "expansion": "Urza's Saga",
+      "card_id": 10537,
+      "historical_data": {
+        "avg7": 85.86,
+        "avg30": 97.46,
+        "trend": 89.17,
+        "real_discount": -0.09296848715935843
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 90.97,
+        "average_current": 101.037,
+        "cheapest_good_condition": 90.97,
+        "cheapest_good_condition_details": {
+          "price": 90.97,
+          "condition": "EX",
+          "seller": "altivo-lee",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 5.951549033310039,
+        "good_condition_vs_trend_pct": 2.0186161264999405,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Saga/Tolarian-Academy?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 144,
+      "card_name": "Mirror Universe",
+      "expansion": "Legends",
+      "card_id": 7203,
+      "historical_data": {
+        "avg7": 218.34,
+        "avg30": 235.0,
+        "trend": 213.99,
+        "real_discount": -0.0981821580447684
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 260.0,
+        "average_current": 275.099,
+        "cheapest_good_condition": 260.0,
+        "cheapest_good_condition_details": {
+          "price": 260.0,
+          "condition": "EX",
+          "seller": "Bronhy",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 19.08033342493359,
+        "good_condition_vs_trend_pct": 21.501004719846716,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Mirror-Universe?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 146,
+      "card_name": "Phyrexian Dreadnought",
+      "expansion": "Mirage",
+      "card_id": 8331,
+      "historical_data": {
+        "avg7": 160.19,
+        "avg30": 165.14,
+        "trend": 149.79,
+        "real_discount": -0.10247680085452965
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 192.05,
+        "average_current": 196.372,
+        "cheapest_good_condition": 192.05,
+        "cheapest_good_condition_details": {
+          "price": 192.05,
+          "condition": "EX",
+          "seller": "tulste",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 19.8888819526812,
+        "good_condition_vs_trend_pct": 28.212831297149354,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Phyrexian-Dreadnought?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 150,
+      "card_name": "Lady Caleria",
+      "expansion": "Legends",
+      "card_id": 7250,
+      "historical_data": {
+        "avg7": 21.55,
+        "avg30": 22.54,
+        "trend": 19.92,
+        "real_discount": -0.13152610441767054
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 21.0,
+        "average_current": 23.917,
+        "cheapest_good_condition": 21.0,
+        "cheapest_good_condition_details": {
+          "price": 21.0,
+          "condition": "EX",
+          "seller": "Dimash",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -2.55220417633411,
+        "good_condition_vs_trend_pct": 5.421686746987943,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Lady-Caleria?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 153,
+      "card_name": "Hatred",
+      "expansion": "Exodus",
+      "card_id": 9292,
+      "historical_data": {
+        "avg7": 23.4,
+        "avg30": 24.02,
+        "trend": 21.11,
+        "real_discount": -0.13784936049265753
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 23.0,
+        "average_current": 26.931,
+        "cheapest_good_condition": 23.0,
+        "cheapest_good_condition_details": {
+          "price": 23.0,
+          "condition": "EX",
+          "seller": "Tristandelacroix",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -1.7094017094017033,
+        "good_condition_vs_trend_pct": 8.953102794883943,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Hatred?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 156,
+      "card_name": "Typhoon",
+      "expansion": "Legends",
+      "card_id": 7094,
+      "historical_data": {
+        "avg7": 18.35,
+        "avg30": 22.11,
+        "trend": 19.3,
+        "real_discount": -0.14559585492227972
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 19.37,
+        "average_current": 20.827,
+        "cheapest_good_condition": 19.37,
+        "cheapest_good_condition_details": {
+          "price": 19.37,
+          "condition": "EX",
+          "seller": "Wampopower",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 5.558583106267028,
+        "good_condition_vs_trend_pct": 0.36269430051813617,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Typhoon?language=1&minCondition=3"
+      }
+    }
+  ],
+  "no_data": [
+    {
+      "rank": 1,
+      "card_name": "Imprison",
+      "expansion": "Legends",
+      "card_id": 6993,
+      "historical_data": {
+        "avg7": 76.86,
+        "avg30": 116.38,
+        "trend": 219.52,
+        "real_discount": 0.46984329446064144
+      },
+      "live_data": null
+    },
+    {
+      "rank": 12,
+      "card_name": "Mind Over Matter",
+      "expansion": "Exodus",
+      "card_id": 9268,
+      "historical_data": {
+        "avg7": 27.29,
+        "avg30": 26.05,
+        "trend": 29.32,
+        "real_discount": 0.11152796725784446
+      },
+      "live_data": null
+    },
+    {
+      "rank": 31,
+      "card_name": "Infinite Authority",
+      "expansion": "Legends",
+      "card_id": 7165,
+      "historical_data": {
+        "avg7": 16.04,
+        "avg30": 13.92,
+        "trend": 14.68,
+        "real_discount": 0.05177111716621252
+      },
+      "live_data": null
+    },
+    {
+      "rank": 34,
+      "card_name": "Livonya Silone",
+      "expansion": "Legends",
+      "card_id": 7254,
+      "historical_data": {
+        "avg7": 37.43,
+        "avg30": 32.01,
+        "trend": 33.59,
+        "real_discount": 0.04703780887168816
+      },
+      "live_data": null
+    },
+    {
+      "rank": 36,
+      "card_name": "Eladamri, Lord of Leaves",
+      "expansion": "Tempest",
+      "card_id": 8853,
+      "historical_data": {
+        "avg7": 32.15,
+        "avg30": 31.6,
+        "trend": 32.93,
+        "real_discount": 0.04038870331005157
+      },
+      "live_data": null
+    },
+    {
+      "rank": 40,
+      "card_name": "Ring of Ma'rûf",
+      "expansion": "Arabian Nights",
+      "card_id": 6861,
+      "historical_data": {
+        "avg7": 80.43,
+        "avg30": 76.12,
+        "trend": 78.82,
+        "real_discount": 0.03425526516112647
+      },
+      "live_data": null
+    },
+    {
+      "rank": 41,
+      "card_name": "Volrath's Stronghold",
+      "expansion": "Stronghold",
+      "card_id": 9222,
+      "historical_data": {
+        "avg7": 57.86,
+        "avg30": 58.9,
+        "trend": 60.93,
+        "real_discount": 0.03331692105695062
+      },
+      "live_data": null
+    },
+    {
+      "rank": 42,
+      "card_name": "Yawgmoth's Will",
+      "expansion": "Urza's Saga",
+      "card_id": 10378,
+      "historical_data": {
+        "avg7": 109.43,
+        "avg30": 106.77,
+        "trend": 110.36,
+        "real_discount": 0.032529902138455996
+      },
+      "live_data": null
+    },
+    {
+      "rank": 43,
+      "card_name": "Tawnos's Coffin",
+      "expansion": "Antiquities",
+      "card_id": 6905,
+      "historical_data": {
+        "avg7": 90.74,
+        "avg30": 88.58,
+        "trend": 91.51,
+        "real_discount": 0.03201835864932801
+      },
+      "live_data": null
+    },
+    {
+      "rank": 45,
+      "card_name": "Ifh-Bíff Efreet",
+      "expansion": "Arabian Nights",
+      "card_id": 6813,
+      "historical_data": {
+        "avg7": 122.74,
+        "avg30": 122.78,
+        "trend": 126.5,
+        "real_discount": 0.02940711462450592
+      },
+      "live_data": null
+    },
+    {
+      "rank": 55,
+      "card_name": "Elephant Graveyard",
+      "expansion": "Arabian Nights",
+      "card_id": 6867,
+      "historical_data": {
+        "avg7": 121.69,
+        "avg30": 120.18,
+        "trend": 122.22,
+        "real_discount": 0.01669121256750116
+      },
+      "live_data": null
+    },
+    {
+      "rank": 56,
+      "card_name": "Ur-Drago",
+      "expansion": "Legends",
+      "card_id": 7279,
+      "historical_data": {
+        "avg7": 18.93,
+        "avg30": 17.71,
+        "trend": 18.01,
+        "real_discount": 0.016657412548584157
+      },
+      "live_data": null
+    },
+    {
+      "rank": 57,
+      "card_name": "City of Shadows",
+      "expansion": "The Dark",
+      "card_id": 7394,
+      "historical_data": {
+        "avg7": 38.09,
+        "avg30": 42.6,
+        "trend": 43.32,
+        "real_discount": 0.016620498614958422
+      },
+      "live_data": null
+    },
+    {
+      "rank": 58,
+      "card_name": "Urza's Miter",
+      "expansion": "Antiquities",
+      "card_id": 6912,
+      "historical_data": {
+        "avg7": 16.53,
+        "avg30": 16.4,
+        "trend": 16.64,
+        "real_discount": 0.014423076923077042
+      },
+      "live_data": null
+    },
+    {
+      "rank": 59,
+      "card_name": "Debt of Loyalty",
+      "expansion": "Weatherlight",
+      "card_id": 8695,
+      "historical_data": {
+        "avg7": 12.64,
+        "avg30": 11.25,
+        "trend": 11.4,
+        "real_discount": 0.013157894736842136
+      },
+      "live_data": null
+    },
+    {
+      "rank": 61,
+      "card_name": "Power Artifact",
+      "expansion": "Antiquities",
+      "card_id": 6926,
+      "historical_data": {
+        "avg7": 142.3,
+        "avg30": 139.88,
+        "trend": 141.27,
+        "real_discount": 0.009839314787286859
+      },
+      "live_data": null
+    },
+    {
+      "rank": 62,
+      "card_name": "Metalworker",
+      "expansion": "Urza's Destiny",
+      "card_id": 10835,
+      "historical_data": {
+        "avg7": 74.03,
+        "avg30": 74.91,
+        "trend": 75.63,
+        "real_discount": 0.009520031733439098
+      },
+      "live_data": null
+    },
+    {
+      "rank": 63,
+      "card_name": "Gaea's Avenger",
+      "expansion": "Antiquities",
+      "card_id": 6934,
+      "historical_data": {
+        "avg7": 45.51,
+        "avg30": 42.23,
+        "trend": 42.54,
+        "real_discount": 0.0072872590503056485
+      },
+      "live_data": null
+    },
+    {
+      "rank": 64,
+      "card_name": "City of Traitors",
+      "expansion": "Exodus",
+      "card_id": 9371,
+      "historical_data": {
+        "avg7": 301.17,
+        "avg30": 299.68,
+        "trend": 301.82,
+        "real_discount": 0.007090318733019635
+      },
+      "live_data": null
+    },
+    {
+      "rank": 65,
+      "card_name": "Drop of Honey",
+      "expansion": "Arabian Nights",
+      "card_id": 6810,
+      "historical_data": {
+        "avg7": 333.0,
+        "avg30": 309.53,
+        "trend": 311.74,
+        "real_discount": 0.007089241034195279
+      },
+      "live_data": null
+    },
+    {
+      "rank": 66,
+      "card_name": "Survival of the Fittest",
+      "expansion": "Exodus",
+      "card_id": 9357,
+      "historical_data": {
+        "avg7": 182.56,
+        "avg30": 189.23,
+        "trend": 190.24,
+        "real_discount": 0.005309083263246527
+      },
+      "live_data": null
+    },
+    {
+      "rank": 68,
+      "card_name": "Master of the Hunt",
+      "expansion": "Legends",
+      "card_id": 7079,
+      "historical_data": {
+        "avg7": 35.98,
+        "avg30": 33.52,
+        "trend": 33.56,
+        "real_discount": 0.0011918951132300103
+      },
+      "live_data": null
+    },
+    {
+      "rank": 69,
+      "card_name": "Shahrazad",
+      "expansion": "Arabian Nights",
+      "card_id": 6846,
+      "historical_data": {
+        "avg7": 309.14,
+        "avg30": 310.42,
+        "trend": 310.71,
+        "real_discount": 0.0009333462070740035
+      },
+      "live_data": null
+    },
+    {
+      "rank": 70,
+      "card_name": "Telekinesis",
+      "expansion": "Legends",
+      "card_id": 7050,
+      "historical_data": {
+        "avg7": 33.5,
+        "avg30": 33.64,
+        "trend": 33.67,
+        "real_discount": 0.0008910008910009247
+      },
+      "live_data": null
+    },
+    {
+      "rank": 71,
+      "card_name": "Karn, Silver Golem",
+      "expansion": "Urza's Saga",
+      "card_id": 10505,
+      "historical_data": {
+        "avg7": 9.64,
+        "avg30": 10.06,
+        "trend": 10.03,
+        "real_discount": -0.0029910269192423866
+      },
+      "live_data": null
+    },
+    {
+      "rank": 73,
+      "card_name": "Thunder Spirit",
+      "expansion": "Legends",
+      "card_id": 7182,
+      "historical_data": {
+        "avg7": 122.18,
+        "avg30": 110.27,
+        "trend": 109.8,
+        "real_discount": -0.004280510018214926
+      },
+      "live_data": null
+    },
+    {
+      "rank": 75,
+      "card_name": "Lake of the Dead",
+      "expansion": "Alliances",
+      "card_id": 8037,
+      "historical_data": {
+        "avg7": 61.14,
+        "avg30": 60.24,
+        "trend": 59.66,
+        "real_discount": -0.009721756620851583
+      },
+      "live_data": null
+    },
+    {
+      "rank": 76,
+      "card_name": "Rasputin Dreamweaver",
+      "expansion": "Legends",
+      "card_id": 7265,
+      "historical_data": {
+        "avg7": 109.1,
+        "avg30": 114.81,
+        "trend": 113.63,
+        "real_discount": -0.010384581536566108
+      },
+      "live_data": null
+    },
+    {
+      "rank": 77,
+      "card_name": "Sliver Queen",
+      "expansion": "Stronghold",
+      "card_id": 9226,
+      "historical_data": {
+        "avg7": 152.31,
+        "avg30": 160.56,
+        "trend": 158.42,
+        "real_discount": -0.013508395404620724
+      },
+      "live_data": null
+    },
+    {
+      "rank": 78,
+      "card_name": "Tuknir Deathlock",
+      "expansion": "Legends",
+      "card_id": 7278,
+      "historical_data": {
+        "avg7": 16.94,
+        "avg30": 17.56,
+        "trend": 17.25,
+        "real_discount": -0.01797101449275355
+      },
+      "live_data": null
+    },
+    {
+      "rank": 80,
+      "card_name": "Sarcomancy",
+      "expansion": "Tempest",
+      "card_id": 8783,
+      "historical_data": {
+        "avg7": 15.29,
+        "avg30": 14.89,
+        "trend": 14.58,
+        "real_discount": -0.02126200274348426
+      },
+      "live_data": null
+    },
+    {
+      "rank": 81,
+      "card_name": "Deranged Hermit",
+      "expansion": "Urza's Legacy",
+      "card_id": 10658,
+      "historical_data": {
+        "avg7": 43.27,
+        "avg30": 40.97,
+        "trend": 40.06,
+        "real_discount": -0.022715926110833663
+      },
+      "live_data": null
+    },
+    {
+      "rank": 82,
+      "card_name": "Opalescence",
+      "expansion": "Urza's Destiny",
+      "card_id": 10713,
+      "historical_data": {
+        "avg7": 20.9,
+        "avg30": 21.55,
+        "trend": 21.05,
+        "real_discount": -0.023752969121140142
+      },
+      "live_data": null
+    },
+    {
+      "rank": 83,
+      "card_name": "Singing Tree",
+      "expansion": "Arabian Nights",
+      "card_id": 6818,
+      "historical_data": {
+        "avg7": 73.83,
+        "avg30": 81.27,
+        "trend": 79.37,
+        "real_discount": -0.023938515812019546
+      },
+      "live_data": null
+    },
+    {
+      "rank": 84,
+      "card_name": "Rohgahh of Kher Keep",
+      "expansion": "Legends",
+      "card_id": 7267,
+      "historical_data": {
+        "avg7": 40.6,
+        "avg30": 41.41,
+        "trend": 40.38,
+        "real_discount": -0.025507677067855224
+      },
+      "live_data": null
+    },
+    {
+      "rank": 85,
+      "card_name": "Serendib Djinn",
+      "expansion": "Arabian Nights",
+      "card_id": 6804,
+      "historical_data": {
+        "avg7": 102.68,
+        "avg30": 109.12,
+        "trend": 106.27,
+        "real_discount": -0.02681848122706322
+      },
+      "live_data": null
+    },
+    {
+      "rank": 86,
+      "card_name": "Sandals of Abdallah",
+      "expansion": "Arabian Nights",
+      "card_id": 6862,
+      "historical_data": {
+        "avg7": 29.53,
+        "avg30": 26.46,
+        "trend": 25.76,
+        "real_discount": -0.027173913043478232
+      },
+      "live_data": null
+    },
+    {
+      "rank": 87,
+      "card_name": "Lion's Eye Diamond",
+      "expansion": "Mirage",
+      "card_id": 8323,
+      "historical_data": {
+        "avg7": 317.46,
+        "avg30": 319.3,
+        "trend": 310.66,
+        "real_discount": -0.027811755617073282
+      },
+      "live_data": null
+    },
+    {
+      "rank": 88,
+      "card_name": "Elder Spawn",
+      "expansion": "Legends",
+      "card_id": 7023,
+      "historical_data": {
+        "avg7": 13.75,
+        "avg30": 13.93,
+        "trend": 13.55,
+        "real_discount": -0.028044280442804354
+      },
+      "live_data": null
+    },
+    {
+      "rank": 89,
+      "card_name": "City in a Bottle",
+      "expansion": "Arabian Nights",
+      "card_id": 6853,
+      "historical_data": {
+        "avg7": 349.77,
+        "avg30": 377.94,
+        "trend": 367.27,
+        "real_discount": -0.029052195932148056
+      },
+      "live_data": null
+    },
+    {
+      "rank": 90,
+      "card_name": "Eureka",
+      "expansion": "Legends",
+      "card_id": 7070,
+      "historical_data": {
+        "avg7": 324.43,
+        "avg30": 358.38,
+        "trend": 348.05,
+        "real_discount": -0.029679643729349184
+      },
+      "live_data": null
+    },
+    {
+      "rank": 91,
+      "card_name": "Memory Jar",
+      "expansion": "Urza's Legacy",
+      "card_id": 10686,
+      "historical_data": {
+        "avg7": 19.61,
+        "avg30": 20.25,
+        "trend": 19.66,
+        "real_discount": -0.030010172939979648
+      },
+      "live_data": null
+    },
+    {
+      "rank": 92,
+      "card_name": "Al-abara's Carpet",
+      "expansion": "Legends",
+      "card_id": 7187,
+      "historical_data": {
+        "avg7": 28.84,
+        "avg30": 27.62,
+        "trend": 26.8,
+        "real_discount": -0.030597014925373145
+      },
+      "live_data": null
+    },
+    {
+      "rank": 93,
+      "card_name": "Acid Rain",
+      "expansion": "Legends",
+      "card_id": 7015,
+      "historical_data": {
+        "avg7": 59.89,
+        "avg30": 67.38,
+        "trend": 65.26,
+        "real_discount": -0.03248544284400843
+      },
+      "live_data": null
+    },
+    {
+      "rank": 94,
+      "card_name": "Gosta Dirk",
+      "expansion": "Legends",
+      "card_id": 7238,
+      "historical_data": {
+        "avg7": 18.9,
+        "avg30": 18.44,
+        "trend": 17.85,
+        "real_discount": -0.03305322128851539
+      },
+      "live_data": null
+    },
+    {
+      "rank": 96,
+      "card_name": "Cursed Scroll",
+      "expansion": "Tempest",
+      "card_id": 9006,
+      "historical_data": {
+        "avg7": 30.8,
+        "avg30": 27.9,
+        "trend": 26.97,
+        "real_discount": -0.03448275862068965
+      },
+      "live_data": null
+    },
+    {
+      "rank": 97,
+      "card_name": "Caverns of Despair",
+      "expansion": "Legends",
+      "card_id": 7108,
+      "historical_data": {
+        "avg7": 39.37,
+        "avg30": 42.04,
+        "trend": 40.57,
+        "real_discount": -0.03623367019965489
+      },
+      "live_data": null
+    },
+    {
+      "rank": 98,
+      "card_name": "Bartel Runeaxe",
+      "expansion": "Legends",
+      "card_id": 7233,
+      "historical_data": {
+        "avg7": 22.56,
+        "avg30": 22.89,
+        "trend": 22.08,
+        "real_discount": -0.03668478260869576
+      },
+      "live_data": null
+    },
+    {
+      "rank": 99,
+      "card_name": "Willow Satyr",
+      "expansion": "Legends",
+      "card_id": 7097,
+      "historical_data": {
+        "avg7": 70.71,
+        "avg30": 77.32,
+        "trend": 74.58,
+        "real_discount": -0.03673907213730216
+      },
+      "live_data": null
+    },
+    {
+      "rank": 100,
+      "card_name": "Transmute Artifact",
+      "expansion": "Antiquities",
+      "card_id": 6929,
+      "historical_data": {
+        "avg7": 300.54,
+        "avg30": 315.21,
+        "trend": 304.01,
+        "real_discount": -0.036840893391664714
+      },
+      "live_data": null
+    },
+    {
+      "rank": 101,
+      "card_name": "Golgothian Sylex",
+      "expansion": "Antiquities",
+      "card_id": 6887,
+      "historical_data": {
+        "avg7": 21.4,
+        "avg30": 22.0,
+        "trend": 21.2,
+        "real_discount": -0.03773584905660381
+      },
+      "live_data": null
+    },
+    {
+      "rank": 102,
+      "card_name": "Gwendlyn Di Corci",
+      "expansion": "Legends",
+      "card_id": 7239,
+      "historical_data": {
+        "avg7": 143.5,
+        "avg30": 166.03,
+        "trend": 159.54,
+        "real_discount": -0.04067945342860731
+      },
+      "live_data": null
+    },
+    {
+      "rank": 103,
+      "card_name": "All Hallow's Eve",
+      "expansion": "Legends",
+      "card_id": 6974,
+      "historical_data": {
+        "avg7": 286.78,
+        "avg30": 335.12,
+        "trend": 321.59,
+        "real_discount": -0.042072203737678504
+      },
+      "live_data": null
+    },
+    {
+      "rank": 105,
+      "card_name": "Tetsuo Umezawa",
+      "expansion": "Legends",
+      "card_id": 7274,
+      "historical_data": {
+        "avg7": 74.51,
+        "avg30": 76.64,
+        "trend": 73.28,
+        "real_discount": -0.045851528384279465
+      },
+      "live_data": null
+    },
+    {
+      "rank": 107,
+      "card_name": "Tithe",
+      "expansion": "Visions",
+      "card_id": 8524,
+      "historical_data": {
+        "avg7": 20.9,
+        "avg30": 21.18,
+        "trend": 20.22,
+        "real_discount": -0.047477744807121705
+      },
+      "live_data": null
+    },
+    {
+      "rank": 109,
+      "card_name": "Quarum Trench Gnomes",
+      "expansion": "Legends",
+      "card_id": 7134,
+      "historical_data": {
+        "avg7": 17.06,
+        "avg30": 17.92,
+        "trend": 17.07,
+        "real_discount": -0.04979496192149979
+      },
+      "live_data": null
+    },
+    {
+      "rank": 110,
+      "card_name": "Alchor's Tomb",
+      "expansion": "Legends",
+      "card_id": 7188,
+      "historical_data": {
+        "avg7": 17.86,
+        "avg30": 18.44,
+        "trend": 17.56,
+        "real_discount": -0.05011389521640106
+      },
+      "live_data": null
+    },
+    {
+      "rank": 111,
+      "card_name": "Mox Diamond",
+      "expansion": "Stronghold",
+      "card_id": 9217,
+      "historical_data": {
+        "avg7": 445.74,
+        "avg30": 462.26,
+        "trend": 439.83,
+        "real_discount": -0.05099697610440399
+      },
+      "live_data": null
+    },
+    {
+      "rank": 112,
+      "card_name": "Mana Vortex",
+      "expansion": "The Dark",
+      "card_id": 7311,
+      "historical_data": {
+        "avg7": 16.65,
+        "avg30": 18.32,
+        "trend": 17.43,
+        "real_discount": -0.051061388410786036
+      },
+      "live_data": null
+    },
+    {
+      "rank": 113,
+      "card_name": "Merchant Ship",
+      "expansion": "Arabian Nights",
+      "card_id": 6802,
+      "historical_data": {
+        "avg7": 26.67,
+        "avg30": 24.95,
+        "trend": 23.71,
+        "real_discount": -0.052298608182201535
+      },
+      "live_data": null
+    },
+    {
+      "rank": 115,
+      "card_name": "Pixie Queen",
+      "expansion": "Legends",
+      "card_id": 7081,
+      "historical_data": {
+        "avg7": 37.41,
+        "avg30": 39.7,
+        "trend": 37.63,
+        "real_discount": -0.055009301089556206
+      },
+      "live_data": null
+    },
+    {
+      "rank": 116,
+      "card_name": "In the Eye of Chaos",
+      "expansion": "Legends",
+      "card_id": 7032,
+      "historical_data": {
+        "avg7": 80.41,
+        "avg30": 85.69,
+        "trend": 81.21,
+        "real_discount": -0.0551656199975373
+      },
+      "live_data": null
+    },
+    {
+      "rank": 117,
+      "card_name": "Yavimaya Hollow",
+      "expansion": "Urza's Destiny",
+      "card_id": 10843,
+      "historical_data": {
+        "avg7": 45.33,
+        "avg30": 44.88,
+        "trend": 42.53,
+        "real_discount": -0.05525511403715028
+      },
+      "live_data": null
+    },
+    {
+      "rank": 119,
+      "card_name": "Living Plane",
+      "expansion": "Legends",
+      "card_id": 7078,
+      "historical_data": {
+        "avg7": 184.58,
+        "avg30": 183.72,
+        "trend": 173.52,
+        "real_discount": -0.058782849239280704
+      },
+      "live_data": null
+    },
+    {
+      "rank": 120,
+      "card_name": "Knowledge Vault",
+      "expansion": "Legends",
+      "card_id": 7197,
+      "historical_data": {
+        "avg7": 37.72,
+        "avg30": 39.9,
+        "trend": 37.65,
+        "real_discount": -0.05976095617529881
+      },
+      "live_data": null
+    },
+    {
+      "rank": 121,
+      "card_name": "Preacher",
+      "expansion": "The Dark",
+      "card_id": 7370,
+      "historical_data": {
+        "avg7": 38.63,
+        "avg30": 35.7,
+        "trend": 33.66,
+        "real_discount": -0.060606060606060795
+      },
+      "live_data": null
+    },
+    {
+      "rank": 122,
+      "card_name": "Gravity Sphere",
+      "expansion": "Legends",
+      "card_id": 7123,
+      "historical_data": {
+        "avg7": 50.42,
+        "avg30": 46.52,
+        "trend": 43.86,
+        "real_discount": -0.06064751481988152
+      },
+      "live_data": null
+    },
+    {
+      "rank": 123,
+      "card_name": "Gate to Phyrexia",
+      "expansion": "Antiquities",
+      "card_id": 6917,
+      "historical_data": {
+        "avg7": 42.61,
+        "avg30": 41.68,
+        "trend": 39.26,
+        "real_discount": -0.06164034640855837
+      },
+      "live_data": null
+    },
+    {
+      "rank": 124,
+      "card_name": "Thought Lash",
+      "expansion": "Alliances",
+      "card_id": 7910,
+      "historical_data": {
+        "avg7": 11.98,
+        "avg30": 12.26,
+        "trend": 11.5,
+        "real_discount": -0.06608695652173911
+      },
+      "live_data": null
+    },
+    {
+      "rank": 125,
+      "card_name": "Forethought Amulet",
+      "expansion": "Legends",
+      "card_id": 7193,
+      "historical_data": {
+        "avg7": 18.12,
+        "avg30": 18.97,
+        "trend": 17.79,
+        "real_discount": -0.06632939853850477
+      },
+      "live_data": null
+    },
+    {
+      "rank": 126,
+      "card_name": "Boris Devilboon",
+      "expansion": "Legends",
+      "card_id": 7234,
+      "historical_data": {
+        "avg7": 21.34,
+        "avg30": 21.16,
+        "trend": 19.83,
+        "real_discount": -0.06707009581442269
+      },
+      "live_data": null
+    },
+    {
+      "rank": 127,
+      "card_name": "Replenish",
+      "expansion": "Urza's Destiny",
+      "card_id": 10715,
+      "historical_data": {
+        "avg7": 68.33,
+        "avg30": 73.55,
+        "trend": 68.86,
+        "real_discount": -0.06810920708684284
+      },
+      "live_data": null
+    },
+    {
+      "rank": 128,
+      "card_name": "Disharmony",
+      "expansion": "Legends",
+      "card_id": 7114,
+      "historical_data": {
+        "avg7": 45.21,
+        "avg30": 47.04,
+        "trend": 43.93,
+        "real_discount": -0.07079444570908262
+      },
+      "live_data": null
+    },
+    {
+      "rank": 130,
+      "card_name": "Island of Wak-Wak",
+      "expansion": "Arabian Nights",
+      "card_id": 6868,
+      "historical_data": {
+        "avg7": 137.16,
+        "avg30": 161.28,
+        "trend": 150.16,
+        "real_discount": -0.07405434203516252
+      },
+      "live_data": null
+    },
+    {
+      "rank": 132,
+      "card_name": "Firestorm Phoenix",
+      "expansion": "Legends",
+      "card_id": 7119,
+      "historical_data": {
+        "avg7": 22.05,
+        "avg30": 25.95,
+        "trend": 24.1,
+        "real_discount": -0.07676348547717833
+      },
+      "live_data": null
+    },
+    {
+      "rank": 133,
+      "card_name": "Old Man of the Sea",
+      "expansion": "Arabian Nights",
+      "card_id": 6803,
+      "historical_data": {
+        "avg7": 176.2,
+        "avg30": 190.3,
+        "trend": 176.31,
+        "real_discount": -0.07934887414213607
+      },
+      "live_data": null
+    },
+    {
+      "rank": 134,
+      "card_name": "Serra's Sanctum",
+      "expansion": "Urza's Saga",
+      "card_id": 10532,
+      "historical_data": {
+        "avg7": 185.95,
+        "avg30": 190.37,
+        "trend": 176.36,
+        "real_discount": -0.07943978226355176
+      },
+      "live_data": null
+    },
+    {
+      "rank": 136,
+      "card_name": "Nova Pentacle",
+      "expansion": "Legends",
+      "card_id": 7205,
+      "historical_data": {
+        "avg7": 24.19,
+        "avg30": 25.71,
+        "trend": 23.76,
+        "real_discount": -0.08207070707070703
+      },
+      "live_data": null
+    },
+    {
+      "rank": 138,
+      "card_name": "King Suleiman",
+      "expansion": "Arabian Nights",
+      "card_id": 6840,
+      "historical_data": {
+        "avg7": 108.41,
+        "avg30": 115.52,
+        "trend": 106.43,
+        "real_discount": -0.08540824955369716
+      },
+      "live_data": null
+    },
+    {
+      "rank": 139,
+      "card_name": "Treachery",
+      "expansion": "Urza's Destiny",
+      "card_id": 10750,
+      "historical_data": {
+        "avg7": 23.98,
+        "avg30": 26.1,
+        "trend": 24.0,
+        "real_discount": -0.08750000000000006
+      },
+      "live_data": null
+    },
+    {
+      "rank": 141,
+      "card_name": "Haunting Wind",
+      "expansion": "Antiquities",
+      "card_id": 6918,
+      "historical_data": {
+        "avg7": 12.34,
+        "avg30": 13.54,
+        "trend": 12.41,
+        "real_discount": -0.09105560032232063
+      },
+      "live_data": null
+    },
+    {
+      "rank": 142,
+      "card_name": "Diamond Valley",
+      "expansion": "Arabian Nights",
+      "card_id": 6866,
+      "historical_data": {
+        "avg7": 427.12,
+        "avg30": 467.74,
+        "trend": 428.63,
+        "real_discount": -0.09124419662646108
+      },
+      "live_data": null
+    },
+    {
+      "rank": 145,
+      "card_name": "Anvil of Bogardan",
+      "expansion": "Visions",
+      "card_id": 8542,
+      "historical_data": {
+        "avg7": 16.58,
+        "avg30": 18.99,
+        "trend": 17.26,
+        "real_discount": -0.10023174971031268
+      },
+      "live_data": null
+    },
+    {
+      "rank": 147,
+      "card_name": "Pyramids",
+      "expansion": "Arabian Nights",
+      "card_id": 6860,
+      "historical_data": {
+        "avg7": 45.59,
+        "avg30": 59.07,
+        "trend": 53.37,
+        "real_discount": -0.10680157391793148
+      },
+      "live_data": null
+    },
+    {
+      "rank": 148,
+      "card_name": "Aluren",
+      "expansion": "Tempest",
+      "card_id": 8842,
+      "historical_data": {
+        "avg7": 30.97,
+        "avg30": 30.99,
+        "trend": 27.88,
+        "real_discount": -0.11154949784791963
+      },
+      "live_data": null
+    },
+    {
+      "rank": 151,
+      "card_name": "Life Matrix",
+      "expansion": "Legends",
+      "card_id": 7200,
+      "historical_data": {
+        "avg7": 18.4,
+        "avg30": 22.43,
+        "trend": 19.81,
+        "real_discount": -0.132256436143362
+      },
+      "live_data": null
+    },
+    {
+      "rank": 152,
+      "card_name": "Khabál Ghoul",
+      "expansion": "Arabian Nights",
+      "card_id": 6789,
+      "historical_data": {
+        "avg7": 59.87,
+        "avg30": 72.87,
+        "trend": 64.22,
+        "real_discount": -0.13469324198069146
+      },
+      "live_data": null
+    },
+    {
+      "rank": 154,
+      "card_name": "Spinal Villain",
+      "expansion": "Legends",
+      "card_id": 7136,
+      "historical_data": {
+        "avg7": 22.37,
+        "avg30": 26.41,
+        "trend": 23.2,
+        "real_discount": -0.13836206896551728
+      },
+      "live_data": null
+    },
+    {
+      "rank": 155,
+      "card_name": "Season of the Witch",
+      "expansion": "The Dark",
+      "card_id": 7296,
+      "historical_data": {
+        "avg7": 19.14,
+        "avg30": 21.01,
+        "trend": 18.43,
+        "real_discount": -0.1399891481280522
+      },
+      "live_data": null
+    },
+    {
+      "rank": 158,
+      "card_name": "Ring of Immortals",
+      "expansion": "Legends",
+      "card_id": 7209,
+      "historical_data": {
+        "avg7": 22.34,
+        "avg30": 25.71,
+        "trend": 21.8,
+        "real_discount": -0.1793577981651376
+      },
+      "live_data": null
+    },
+    {
+      "rank": 159,
+      "card_name": "Mold Demon",
+      "expansion": "Legends",
+      "card_id": 6998,
+      "historical_data": {
+        "avg7": 17.12,
+        "avg30": 19.0,
+        "trend": 16.1,
+        "real_discount": -0.18012422360248437
+      },
+      "live_data": null
+    },
+    {
+      "rank": 160,
+      "card_name": "Lifeline",
+      "expansion": "Urza's Saga",
+      "card_id": 10506,
+      "historical_data": {
+        "avg7": 10.52,
+        "avg30": 11.93,
+        "trend": 9.57,
+        "real_discount": -0.2466039707419017
+      },
+      "live_data": null
+    },
+    {
+      "rank": 161,
+      "card_name": "Masticore",
+      "expansion": "Urza's Destiny",
+      "card_id": 10834,
+      "historical_data": {
+        "avg7": 8.68,
+        "avg30": 12.19,
+        "trend": 9.6,
+        "real_discount": -0.26979166666666665
+      },
+      "live_data": null
+    },
+    {
+      "rank": 162,
+      "card_name": "Helm of Obedience",
+      "expansion": "Alliances",
+      "card_id": 8015,
+      "historical_data": {
+        "avg7": 23.02,
+        "avg30": 28.0,
+        "trend": 21.77,
+        "real_discount": -0.2861736334405145
+      },
+      "live_data": null
+    },
+    {
+      "rank": 163,
+      "card_name": "Rapid Fire",
+      "expansion": "Legends",
+      "card_id": 7175,
+      "historical_data": {
+        "avg7": 13.45,
+        "avg30": 15.07,
+        "trend": 11.27,
+        "real_discount": -0.3371783496007099
+      },
+      "live_data": null
+    }
+  ],
+  "all_results": [
+    {
+      "rank": 1,
+      "card_name": "Imprison",
+      "expansion": "Legends",
+      "card_id": 6993,
+      "historical_data": {
+        "avg7": 76.86,
+        "avg30": 116.38,
+        "trend": 219.52,
+        "real_discount": 0.46984329446064144
+      },
+      "live_data": null
+    },
+    {
+      "rank": 2,
+      "card_name": "Stone Calendar",
+      "expansion": "The Dark",
+      "card_id": 7389,
+      "historical_data": {
+        "avg7": 9.27,
+        "avg30": 10.15,
+        "trend": 13.18,
+        "real_discount": 0.22989377845220027
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 9.0,
+        "average_current": 9.863999999999999,
+        "cheapest_good_condition": 9.0,
+        "cheapest_good_condition_details": {
+          "price": 9.0,
+          "condition": "EX",
+          "seller": "k-fab",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -2.9126213592232966,
+        "good_condition_vs_trend_pct": -31.71471927162367,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/The-Dark/Stone-Calendar?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 3,
+      "card_name": "Jihad",
+      "expansion": "Arabian Nights",
+      "card_id": 6839,
+      "historical_data": {
+        "avg7": 420.49,
+        "avg30": 276.48,
+        "trend": 348.24,
+        "real_discount": 0.20606478290833904
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 295.95,
+        "average_current": 335.985,
+        "cheapest_good_condition": 295.95,
+        "cheapest_good_condition_details": {
+          "price": 295.95,
+          "condition": "EX",
+          "seller": "mktradingcards",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -29.617826821089686,
+        "good_condition_vs_trend_pct": -15.015506547208826,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Arabian-Nights/Jihad?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 4,
+      "card_name": "Kobold Overlord",
+      "expansion": "Legends",
+      "card_id": 7127,
+      "historical_data": {
+        "avg7": 66.94,
+        "avg30": 54.71,
+        "trend": 67.82,
+        "real_discount": 0.19330580949572387
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 48.88,
+        "average_current": 56.23199999999999,
+        "cheapest_good_condition": 48.88,
+        "cheapest_good_condition_details": {
+          "price": 48.88,
+          "condition": "EX",
+          "seller": "MagicOfOldSchool",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -26.97938452345383,
+        "good_condition_vs_trend_pct": -27.926865231495125,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Kobold-Overlord?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 5,
+      "card_name": "Cleanse",
+      "expansion": "Legends",
+      "card_id": 7148,
+      "historical_data": {
+        "avg7": 113.11,
+        "avg30": 89.33,
+        "trend": 107.77,
+        "real_discount": 0.1711051312981349
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 72.0,
+        "average_current": 88.811,
+        "cheapest_good_condition": 72.0,
+        "cheapest_good_condition_details": {
+          "price": 72.0,
+          "condition": "EX",
+          "seller": "kasj78",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -36.34515073821943,
+        "good_condition_vs_trend_pct": -33.1910550245894,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Cleanse?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 6,
+      "card_name": "Field of Dreams",
+      "expansion": "Legends",
+      "card_id": 7026,
+      "historical_data": {
+        "avg7": 109.48,
+        "avg30": 102.06,
+        "trend": 122.91,
+        "real_discount": 0.1696363192579936
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 94.99,
+        "average_current": 104.85900000000001,
+        "cheapest_good_condition": 94.99,
+        "cheapest_good_condition_details": {
+          "price": 94.99,
+          "condition": "EX",
+          "seller": "teresis",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -13.235294117647067,
+        "good_condition_vs_trend_pct": -22.715808315027257,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Field-Of-Dreams?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 7,
+      "card_name": "Invoke Prejudice",
+      "expansion": "Legends",
+      "card_id": 7033,
+      "historical_data": {
+        "avg7": 299.88,
+        "avg30": 295.72,
+        "trend": 349.89,
+        "real_discount": 0.15482008631284105
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 298.0,
+        "average_current": 381.08899999999994,
+        "cheapest_good_condition": 298.0,
+        "cheapest_good_condition_details": {
+          "price": 298.0,
+          "condition": "EX",
+          "seller": "Bronhy",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -0.6269174336401212,
+        "good_condition_vs_trend_pct": -14.830375260796247,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Invoke-Prejudice?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 8,
+      "card_name": "City of Solitude",
+      "expansion": "Visions",
+      "card_id": 8453,
+      "historical_data": {
+        "avg7": 10.4,
+        "avg30": 10.11,
+        "trend": 11.9,
+        "real_discount": 0.15042016806722697
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 6.5,
+        "average_current": 7.918000000000001,
+        "cheapest_good_condition": 6.5,
+        "cheapest_good_condition_details": {
+          "price": 6.5,
+          "condition": "EX",
+          "seller": "JulienJ",
+          "quantity": 2
+        },
+        "good_condition_vs_avg7_pct": -37.5,
+        "good_condition_vs_trend_pct": -45.378151260504204,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Visions/City-Of-Solitude?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 9,
+      "card_name": "Divine Intervention",
+      "expansion": "Legends",
+      "card_id": 7151,
+      "historical_data": {
+        "avg7": 116.41,
+        "avg30": 102.31,
+        "trend": 117.79,
+        "real_discount": 0.13142032430596828
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 94.51,
+        "average_current": 113.489,
+        "cheapest_good_condition": 94.51,
+        "cheapest_good_condition_details": {
+          "price": 94.51,
+          "condition": "EX",
+          "seller": "TheMagicCardTraderUK",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -18.812816768318864,
+        "good_condition_vs_trend_pct": -19.76398675609135,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Divine-Intervention?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 10,
+      "card_name": "Hellfire",
+      "expansion": "Legends",
+      "card_id": 6991,
+      "historical_data": {
+        "avg7": 101.19,
+        "avg30": 89.4,
+        "trend": 102.77,
+        "real_discount": 0.13009633161428424
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 80.0,
+        "average_current": 88.833,
+        "cheapest_good_condition": 80.0,
+        "cheapest_good_condition_details": {
+          "price": 80.0,
+          "condition": "EX",
+          "seller": "sebest",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -20.940804427314948,
+        "good_condition_vs_trend_pct": -22.156271285394567,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Hellfire?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 11,
+      "card_name": "Rofellos, Llanowar Emissary",
+      "expansion": "Urza's Destiny",
+      "card_id": 10818,
+      "historical_data": {
+        "avg7": 24.58,
+        "avg30": 23.99,
+        "trend": 27.04,
+        "real_discount": 0.11279585798816572
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 25.99,
+        "average_current": 27.799,
+        "cheapest_good_condition": 25.99,
+        "cheapest_good_condition_details": {
+          "price": 25.99,
+          "condition": "EX",
+          "seller": "Kenzoo",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 5.736371033360457,
+        "good_condition_vs_trend_pct": -3.883136094674559,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Destiny/Rofellos-Llanowar-Emissary?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 12,
+      "card_name": "Mind Over Matter",
+      "expansion": "Exodus",
+      "card_id": 9268,
+      "historical_data": {
+        "avg7": 27.29,
+        "avg30": 26.05,
+        "trend": 29.32,
+        "real_discount": 0.11152796725784446
+      },
+      "live_data": null
+    },
+    {
+      "rank": 13,
+      "card_name": "Su-Chi",
+      "expansion": "Antiquities",
+      "card_id": 6903,
+      "historical_data": {
+        "avg7": 131.47,
+        "avg30": 105.37,
+        "trend": 118.5,
+        "real_discount": 0.11080168776371305
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 99.0,
+        "average_current": 102.197,
+        "cheapest_good_condition": 99.0,
+        "cheapest_good_condition_details": {
+          "price": 99.0,
+          "condition": "EX",
+          "seller": "Erya2000",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -24.69764965391344,
+        "good_condition_vs_trend_pct": -16.455696202531644,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Antiquities/Su-chi?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 14,
+      "card_name": "Jacques le Vert",
+      "expansion": "Legends",
+      "card_id": 7243,
+      "historical_data": {
+        "avg7": 25.02,
+        "avg30": 24.15,
+        "trend": 27.03,
+        "real_discount": 0.10654827968923428
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 22.0,
+        "average_current": 24.787,
+        "cheapest_good_condition": 22.0,
+        "cheapest_good_condition_details": {
+          "price": 22.0,
+          "condition": "EX",
+          "seller": "ABU-Best-Offer",
+          "quantity": 2
+        },
+        "good_condition_vs_avg7_pct": -12.070343725019983,
+        "good_condition_vs_trend_pct": -18.608953015168332,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Jacques-Le-Vert?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 15,
+      "card_name": "Corpse Dance",
+      "expansion": "Tempest",
+      "card_id": 8745,
+      "historical_data": {
+        "avg7": 18.32,
+        "avg30": 16.98,
+        "trend": 18.98,
+        "real_discount": 0.1053740779768177
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 14.5,
+        "average_current": 17.319,
+        "cheapest_good_condition": 14.5,
+        "cheapest_good_condition_details": {
+          "price": 14.5,
+          "condition": "EX",
+          "seller": "Vitosellmagic",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -20.851528384279476,
+        "good_condition_vs_trend_pct": -23.603793466807165,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Corpse-Dance?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 16,
+      "card_name": "Land Equilibrium",
+      "expansion": "Legends",
+      "card_id": 7035,
+      "historical_data": {
+        "avg7": 97.4,
+        "avg30": 94.14,
+        "trend": 103.86,
+        "real_discount": 0.09358752166377815
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 85.0,
+        "average_current": 92.768,
+        "cheapest_good_condition": 85.0,
+        "cheapest_good_condition_details": {
+          "price": 85.0,
+          "condition": "EX",
+          "seller": "BlackLilith-13",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -12.731006160164277,
+        "good_condition_vs_trend_pct": -18.15906027344502,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Land-Equilibrium?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 17,
+      "card_name": "Phyrexian Devourer",
+      "expansion": "Alliances",
+      "card_id": 8019,
+      "historical_data": {
+        "avg7": 21.66,
+        "avg30": 19.86,
+        "trend": 21.87,
+        "real_discount": 0.09190672153635124
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 16.35,
+        "average_current": 19.631999999999998,
+        "cheapest_good_condition": 16.35,
+        "cheapest_good_condition_details": {
+          "price": 16.35,
+          "condition": "EX",
+          "seller": "jchald",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -24.515235457063707,
+        "good_condition_vs_trend_pct": -25.240054869684496,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alliances/Phyrexian-Devourer?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 18,
+      "card_name": "Lotus Vale",
+      "expansion": "Weatherlight",
+      "card_id": 8733,
+      "historical_data": {
+        "avg7": 21.02,
+        "avg30": 20.05,
+        "trend": 21.92,
+        "real_discount": 0.08531021897810223
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 18.0,
+        "average_current": 20.681,
+        "cheapest_good_condition": 18.0,
+        "cheapest_good_condition_details": {
+          "price": 18.0,
+          "condition": "EX",
+          "seller": "dcdducati",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -14.367269267364414,
+        "good_condition_vs_trend_pct": -17.883211678832122,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Weatherlight/Lotus-Vale?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 19,
+      "card_name": "Scorched Ruins",
+      "expansion": "Weatherlight",
+      "card_id": 8734,
+      "historical_data": {
+        "avg7": 33.11,
+        "avg30": 33.95,
+        "trend": 36.78,
+        "real_discount": 0.0769439912996193
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 32.0,
+        "average_current": 35.588,
+        "cheapest_good_condition": 32.0,
+        "cheapest_good_condition_details": {
+          "price": 32.0,
+          "condition": "EX",
+          "seller": "Overlord2403",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -3.3524614919963738,
+        "good_condition_vs_trend_pct": -12.996193583469278,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Weatherlight/Scorched-Ruins?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 20,
+      "card_name": "Exorcist",
+      "expansion": "The Dark",
+      "card_id": 7360,
+      "historical_data": {
+        "avg7": 12.71,
+        "avg30": 11.28,
+        "trend": 12.22,
+        "real_discount": 0.07692307692307702
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 9.0,
+        "average_current": 11.213000000000001,
+        "cheapest_good_condition": 9.0,
+        "cheapest_good_condition_details": {
+          "price": 9.0,
+          "condition": "EX",
+          "seller": "Slyngelweah",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -29.18961447678993,
+        "good_condition_vs_trend_pct": -26.350245499181675,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/The-Dark/Exorcist?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 21,
+      "card_name": "Guardian Beast",
+      "expansion": "Arabian Nights",
+      "card_id": 6784,
+      "historical_data": {
+        "avg7": 451.2,
+        "avg30": 441.6,
+        "trend": 478.38,
+        "real_discount": 0.07688448513733846
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 499.0,
+        "average_current": 559.243,
+        "cheapest_good_condition": 499.0,
+        "cheapest_good_condition_details": {
+          "price": 499.0,
+          "condition": "EX",
+          "seller": "ignaz333",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 10.593971631205676,
+        "good_condition_vs_trend_pct": 4.310380868765417,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Arabian-Nights/Guardian-Beast?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 22,
+      "card_name": "Powerleech",
+      "expansion": "Antiquities",
+      "card_id": 6935,
+      "historical_data": {
+        "avg7": 13.21,
+        "avg30": 13.97,
+        "trend": 15.13,
+        "real_discount": 0.07666886979510906
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 13.0,
+        "average_current": 15.387,
+        "cheapest_good_condition": 13.0,
+        "cheapest_good_condition_details": {
+          "price": 13.0,
+          "condition": "EX",
+          "seller": "webuyanycard",
+          "quantity": 8
+        },
+        "good_condition_vs_avg7_pct": -1.5897047691143136,
+        "good_condition_vs_trend_pct": -14.077990746860547,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Antiquities/Powerleech?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 23,
+      "card_name": "Earthcraft",
+      "expansion": "Tempest",
+      "card_id": 8851,
+      "historical_data": {
+        "avg7": 90.99,
+        "avg30": 85.53,
+        "trend": 91.98,
+        "real_discount": 0.07012393998695371
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 83.0,
+        "average_current": 91.532,
+        "cheapest_good_condition": 83.0,
+        "cheapest_good_condition_details": {
+          "price": 83.0,
+          "condition": "EX",
+          "seller": "Nyar752",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -8.781184745576432,
+        "good_condition_vs_trend_pct": -9.76299195477278,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Earthcraft?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 24,
+      "card_name": "Undiscovered Paradise",
+      "expansion": "Visions",
+      "card_id": 8568,
+      "historical_data": {
+        "avg7": 16.9,
+        "avg30": 13.28,
+        "trend": 14.27,
+        "real_discount": 0.06937631394533988
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 8.0,
+        "average_current": 11.564,
+        "cheapest_good_condition": 8.0,
+        "cheapest_good_condition_details": {
+          "price": 8.0,
+          "condition": "EX",
+          "seller": "DraconisUK",
+          "quantity": 2
+        },
+        "good_condition_vs_avg7_pct": -52.66272189349112,
+        "good_condition_vs_trend_pct": -43.938332165381915,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Visions/Undiscovered-Paradise?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 25,
+      "card_name": "Halfdane",
+      "expansion": "Legends",
+      "card_id": 7240,
+      "historical_data": {
+        "avg7": 33.56,
+        "avg30": 30.11,
+        "trend": 32.24,
+        "real_discount": 0.06606699751861049
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 28.36,
+        "average_current": 30.976999999999997,
+        "cheapest_good_condition": 28.36,
+        "cheapest_good_condition_details": {
+          "price": 28.36,
+          "condition": "EX",
+          "seller": "TheMagicCardTraderUK",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -15.494636471990471,
+        "good_condition_vs_trend_pct": -12.0347394540943,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Halfdane?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 26,
+      "card_name": "Winding Canyons",
+      "expansion": "Weatherlight",
+      "card_id": 8735,
+      "historical_data": {
+        "avg7": 12.07,
+        "avg30": 13.18,
+        "trend": 14.08,
+        "real_discount": 0.06392045454545457
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 11.82,
+        "average_current": 12.901999999999997,
+        "cheapest_good_condition": 11.82,
+        "cheapest_good_condition_details": {
+          "price": 11.82,
+          "condition": "EX",
+          "seller": "cataclysm-uk",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -2.071251035625518,
+        "good_condition_vs_trend_pct": -16.051136363636363,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Weatherlight/Winding-Canyons?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 27,
+      "card_name": "Tombstone Stairwell",
+      "expansion": "Mirage",
+      "card_id": 8098,
+      "historical_data": {
+        "avg7": 26.79,
+        "avg30": 25.46,
+        "trend": 27.17,
+        "real_discount": 0.06293706293706297
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 27.0,
+        "average_current": 31.517000000000003,
+        "cheapest_good_condition": 27.0,
+        "cheapest_good_condition_details": {
+          "price": 27.0,
+          "condition": "EX",
+          "seller": "NilsMueller",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 0.7838745800671924,
+        "good_condition_vs_trend_pct": -0.6256900993743162,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Tombstone-Stairwell?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 28,
+      "card_name": "Dystopia",
+      "expansion": "Alliances",
+      "card_id": 7858,
+      "historical_data": {
+        "avg7": 10.51,
+        "avg30": 10.2,
+        "trend": 10.86,
+        "real_discount": 0.060773480662983444
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 5.91,
+        "average_current": 8.75,
+        "cheapest_good_condition": 5.91,
+        "cheapest_good_condition_details": {
+          "price": 5.91,
+          "condition": "NM",
+          "seller": "Angel-Cards",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -43.76784015223596,
+        "good_condition_vs_trend_pct": -45.58011049723756,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alliances/Dystopia?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 29,
+      "card_name": "Grim Monolith",
+      "expansion": "Urza's Legacy",
+      "card_id": 10683,
+      "historical_data": {
+        "avg7": 244.3,
+        "avg30": 233.05,
+        "trend": 247.29,
+        "real_discount": 0.05758421286748344
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 200.0,
+        "average_current": 243.89600000000002,
+        "cheapest_good_condition": 200.0,
+        "cheapest_good_condition_details": {
+          "price": 200.0,
+          "condition": "EX",
+          "seller": "handri",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -18.133442488743352,
+        "good_condition_vs_trend_pct": -19.123296534433255,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Legacy/Grim-Monolith?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 30,
+      "card_name": "Angus Mackenzie",
+      "expansion": "Legends",
+      "card_id": 7228,
+      "historical_data": {
+        "avg7": 146.35,
+        "avg30": 158.04,
+        "trend": 166.79,
+        "real_discount": 0.052461178727741475
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 164.9,
+        "average_current": 185.895,
+        "cheapest_good_condition": 164.9,
+        "cheapest_good_condition_details": {
+          "price": 164.9,
+          "condition": "EX",
+          "seller": "AdCardCollectibles",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 12.675093952852759,
+        "good_condition_vs_trend_pct": -1.1331614605192077,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Angus-Mackenzie?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 31,
+      "card_name": "Infinite Authority",
+      "expansion": "Legends",
+      "card_id": 7165,
+      "historical_data": {
+        "avg7": 16.04,
+        "avg30": 13.92,
+        "trend": 14.68,
+        "real_discount": 0.05177111716621252
+      },
+      "live_data": null
+    },
+    {
+      "rank": 32,
+      "card_name": "Jovial Evil",
+      "expansion": "Legends",
+      "card_id": 6995,
+      "historical_data": {
+        "avg7": 29.62,
+        "avg30": 27.84,
+        "trend": 29.32,
+        "real_discount": 0.050477489768076415
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 22.48,
+        "average_current": 26.96,
+        "cheapest_good_condition": 22.48,
+        "cheapest_good_condition_details": {
+          "price": 22.48,
+          "condition": "EX",
+          "seller": "Meddy36",
+          "quantity": 4
+        },
+        "good_condition_vs_avg7_pct": -24.105334233625932,
+        "good_condition_vs_trend_pct": -23.328785811732605,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Jovial-Evil?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 33,
+      "card_name": "Falling Star",
+      "expansion": "Legends",
+      "card_id": 7117,
+      "historical_data": {
+        "avg7": 114.09,
+        "avg30": 105.13,
+        "trend": 110.52,
+        "real_discount": 0.048769453492580536
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 100.0,
+        "average_current": 114.852,
+        "cheapest_good_condition": 100.0,
+        "cheapest_good_condition_details": {
+          "price": 100.0,
+          "condition": "EX",
+          "seller": "TORREDIPISADRITTA",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -12.349899202384085,
+        "good_condition_vs_trend_pct": -9.518639160332969,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Falling-Star?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 34,
+      "card_name": "Livonya Silone",
+      "expansion": "Legends",
+      "card_id": 7254,
+      "historical_data": {
+        "avg7": 37.43,
+        "avg30": 32.01,
+        "trend": 33.59,
+        "real_discount": 0.04703780887168816
+      },
+      "live_data": null
+    },
+    {
+      "rank": 35,
+      "card_name": "Goblin Wizard",
+      "expansion": "The Dark",
+      "card_id": 7349,
+      "historical_data": {
+        "avg7": 56.4,
+        "avg30": 51.91,
+        "trend": 54.45,
+        "real_discount": 0.046648301193755855
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 48.0,
+        "average_current": 54.689,
+        "cheapest_good_condition": 48.0,
+        "cheapest_good_condition_details": {
+          "price": 48.0,
+          "condition": "EX",
+          "seller": "kasj78",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -14.893617021276592,
+        "good_condition_vs_trend_pct": -11.845730027548214,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/The-Dark/Goblin-Wizard?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 36,
+      "card_name": "Eladamri, Lord of Leaves",
+      "expansion": "Tempest",
+      "card_id": 8853,
+      "historical_data": {
+        "avg7": 32.15,
+        "avg30": 31.6,
+        "trend": 32.93,
+        "real_discount": 0.04038870331005157
+      },
+      "live_data": null
+    },
+    {
+      "rank": 37,
+      "card_name": "Shallow Grave",
+      "expansion": "Mirage",
+      "card_id": 8090,
+      "historical_data": {
+        "avg7": 78.6,
+        "avg30": 74.8,
+        "trend": 77.87,
+        "real_discount": 0.03942468216257875
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 70.88,
+        "average_current": 78.699,
+        "cheapest_good_condition": 70.88,
+        "cheapest_good_condition_details": {
+          "price": 70.88,
+          "condition": "EX",
+          "seller": "cataclysm-uk",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -9.821882951653944,
+        "good_condition_vs_trend_pct": -8.97649929369463,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Shallow-Grave?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 38,
+      "card_name": "Recurring Nightmare",
+      "expansion": "Exodus",
+      "card_id": 9300,
+      "historical_data": {
+        "avg7": 50.06,
+        "avg30": 48.68,
+        "trend": 50.58,
+        "real_discount": 0.037564254646105154
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 46.0,
+        "average_current": 51.117,
+        "cheapest_good_condition": 46.0,
+        "cheapest_good_condition_details": {
+          "price": 46.0,
+          "condition": "EX",
+          "seller": "EpiphanyG",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -8.110267678785462,
+        "good_condition_vs_trend_pct": -9.05496243574535,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Recurring-Nightmare?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 39,
+      "card_name": "Lifeblood",
+      "expansion": "Legends",
+      "card_id": 7170,
+      "historical_data": {
+        "avg7": 26.76,
+        "avg30": 25.2,
+        "trend": 26.14,
+        "real_discount": 0.035960214231063554
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 23.0,
+        "average_current": 25.159,
+        "cheapest_good_condition": 23.0,
+        "cheapest_good_condition_details": {
+          "price": 23.0,
+          "condition": "EX",
+          "seller": "kasj78",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -14.050822122571008,
+        "good_condition_vs_trend_pct": -12.012241775057385,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Lifeblood?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 40,
+      "card_name": "Ring of Ma'rûf",
+      "expansion": "Arabian Nights",
+      "card_id": 6861,
+      "historical_data": {
+        "avg7": 80.43,
+        "avg30": 76.12,
+        "trend": 78.82,
+        "real_discount": 0.03425526516112647
+      },
+      "live_data": null
+    },
+    {
+      "rank": 41,
+      "card_name": "Volrath's Stronghold",
+      "expansion": "Stronghold",
+      "card_id": 9222,
+      "historical_data": {
+        "avg7": 57.86,
+        "avg30": 58.9,
+        "trend": 60.93,
+        "real_discount": 0.03331692105695062
+      },
+      "live_data": null
+    },
+    {
+      "rank": 42,
+      "card_name": "Yawgmoth's Will",
+      "expansion": "Urza's Saga",
+      "card_id": 10378,
+      "historical_data": {
+        "avg7": 109.43,
+        "avg30": 106.77,
+        "trend": 110.36,
+        "real_discount": 0.032529902138455996
+      },
+      "live_data": null
+    },
+    {
+      "rank": 43,
+      "card_name": "Tawnos's Coffin",
+      "expansion": "Antiquities",
+      "card_id": 6905,
+      "historical_data": {
+        "avg7": 90.74,
+        "avg30": 88.58,
+        "trend": 91.51,
+        "real_discount": 0.03201835864932801
+      },
+      "live_data": null
+    },
+    {
+      "rank": 44,
+      "card_name": "Storm World",
+      "expansion": "Legends",
+      "card_id": 7137,
+      "historical_data": {
+        "avg7": 38.39,
+        "avg30": 39.69,
+        "trend": 40.99,
+        "real_discount": 0.03171505245181762
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 34.25,
+        "average_current": 37.650999999999996,
+        "cheapest_good_condition": 34.25,
+        "cheapest_good_condition_details": {
+          "price": 34.25,
+          "condition": "EX",
+          "seller": "Meddy36",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -10.784058348528264,
+        "good_condition_vs_trend_pct": -16.4430348865577,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Storm-World?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 45,
+      "card_name": "Ifh-Bíff Efreet",
+      "expansion": "Arabian Nights",
+      "card_id": 6813,
+      "historical_data": {
+        "avg7": 122.74,
+        "avg30": 122.78,
+        "trend": 126.5,
+        "real_discount": 0.02940711462450592
+      },
+      "live_data": null
+    },
+    {
+      "rank": 46,
+      "card_name": "Time Spiral",
+      "expansion": "Urza's Saga",
+      "card_id": 10310,
+      "historical_data": {
+        "avg7": 66.53,
+        "avg30": 65.48,
+        "trend": 67.29,
+        "real_discount": 0.026898499034031832
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 64.98,
+        "average_current": 68.37,
+        "cheapest_good_condition": 64.98,
+        "cheapest_good_condition_details": {
+          "price": 64.98,
+          "condition": "EX",
+          "seller": "cuisinero",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -2.3297760408838073,
+        "good_condition_vs_trend_pct": -3.432902362906824,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Saga/Time-Spiral?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 47,
+      "card_name": "Ali from Cairo",
+      "expansion": "Arabian Nights",
+      "card_id": 6823,
+      "historical_data": {
+        "avg7": 218.33,
+        "avg30": 228.43,
+        "trend": 234.49,
+        "real_discount": 0.025843319544543487
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 237.49,
+        "average_current": 305.788,
+        "cheapest_good_condition": 237.49,
+        "cheapest_good_condition_details": {
+          "price": 237.49,
+          "condition": "EX",
+          "seller": "Magicboxx",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 8.775706499335865,
+        "good_condition_vs_trend_pct": 1.27937225468037,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Arabian-Nights/Ali-From-Cairo?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 48,
+      "card_name": "Ramses Overdark",
+      "expansion": "Legends",
+      "card_id": 7264,
+      "historical_data": {
+        "avg7": 36.42,
+        "avg30": 34.93,
+        "trend": 35.85,
+        "real_discount": 0.025662482566248302
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 34.97,
+        "average_current": 36.976,
+        "cheapest_good_condition": 34.97,
+        "cheapest_good_condition_details": {
+          "price": 34.97,
+          "condition": "EX",
+          "seller": "ThreeForOne-AT",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -3.9813289401427863,
+        "good_condition_vs_trend_pct": -2.454672245467232,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Ramses-Overdark?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 49,
+      "card_name": "Dream Halls",
+      "expansion": "Stronghold",
+      "card_id": 9113,
+      "historical_data": {
+        "avg7": 19.37,
+        "avg30": 19.69,
+        "trend": 20.14,
+        "real_discount": 0.022343594836146934
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 18.89,
+        "average_current": 19.43,
+        "cheapest_good_condition": 18.89,
+        "cheapest_good_condition_details": {
+          "price": 18.89,
+          "condition": "EX",
+          "seller": "Rarian",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -2.478058853897782,
+        "good_condition_vs_trend_pct": -6.206554121151936,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Stronghold/Dream-Halls?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 50,
+      "card_name": "Gilded Drake",
+      "expansion": "Urza's Saga",
+      "card_id": 10283,
+      "historical_data": {
+        "avg7": 143.75,
+        "avg30": 143.27,
+        "trend": 146.42,
+        "real_discount": 0.021513454446113765
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 132.0,
+        "average_current": 140.628,
+        "cheapest_good_condition": 132.0,
+        "cheapest_good_condition_details": {
+          "price": 132.0,
+          "condition": "NM",
+          "seller": "NilsMueller",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -8.17391304347826,
+        "good_condition_vs_trend_pct": -9.848381368665475,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Saga/Gilded-Drake?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 51,
+      "card_name": "Planar Gate",
+      "expansion": "Legends",
+      "card_id": 7206,
+      "historical_data": {
+        "avg7": 39.86,
+        "avg30": 40.95,
+        "trend": 41.84,
+        "real_discount": 0.021271510516252402
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 42.0,
+        "average_current": 46.353,
+        "cheapest_good_condition": 42.0,
+        "cheapest_good_condition_details": {
+          "price": 42.0,
+          "condition": "EX",
+          "seller": "Wbl2pdn2015",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 5.368790767686906,
+        "good_condition_vs_trend_pct": 0.3824091778202595,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Planar-Gate?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 52,
+      "card_name": "Squandered Resources",
+      "expansion": "Visions",
+      "card_id": 8538,
+      "historical_data": {
+        "avg7": 50.08,
+        "avg30": 48.06,
+        "trend": 49.1,
+        "real_discount": 0.02118126272912422
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 49.95,
+        "average_current": 57.36,
+        "cheapest_good_condition": 49.95,
+        "cheapest_good_condition_details": {
+          "price": 49.95,
+          "condition": "EX",
+          "seller": "Zukula",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -0.2595846645367321,
+        "good_condition_vs_trend_pct": 1.731160896130349,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Visions/Squandered-Resources?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 53,
+      "card_name": "Forsaken Wastes",
+      "expansion": "Mirage",
+      "card_id": 8074,
+      "historical_data": {
+        "avg7": 13.64,
+        "avg30": 13.15,
+        "trend": 13.41,
+        "real_discount": 0.019388516032811318
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 12.0,
+        "average_current": 13.471,
+        "cheapest_good_condition": 12.0,
+        "cheapest_good_condition_details": {
+          "price": 12.0,
+          "condition": "NM",
+          "seller": "zNymph",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -12.023460410557188,
+        "good_condition_vs_trend_pct": -10.51454138702461,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Forsaken-Wastes?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 54,
+      "card_name": "Sword of the Ages",
+      "expansion": "Legends",
+      "card_id": 7212,
+      "historical_data": {
+        "avg7": 68.46,
+        "avg30": 61.19,
+        "trend": 62.29,
+        "real_discount": 0.01765933536683258
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 59.5,
+        "average_current": 76.42,
+        "cheapest_good_condition": 59.5,
+        "cheapest_good_condition_details": {
+          "price": 59.5,
+          "condition": "EX",
+          "seller": "Wampopower",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -13.087934560327191,
+        "good_condition_vs_trend_pct": -4.479049606678438,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Sword-Of-The-Ages?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 55,
+      "card_name": "Elephant Graveyard",
+      "expansion": "Arabian Nights",
+      "card_id": 6867,
+      "historical_data": {
+        "avg7": 121.69,
+        "avg30": 120.18,
+        "trend": 122.22,
+        "real_discount": 0.01669121256750116
+      },
+      "live_data": null
+    },
+    {
+      "rank": 56,
+      "card_name": "Ur-Drago",
+      "expansion": "Legends",
+      "card_id": 7279,
+      "historical_data": {
+        "avg7": 18.93,
+        "avg30": 17.71,
+        "trend": 18.01,
+        "real_discount": 0.016657412548584157
+      },
+      "live_data": null
+    },
+    {
+      "rank": 57,
+      "card_name": "City of Shadows",
+      "expansion": "The Dark",
+      "card_id": 7394,
+      "historical_data": {
+        "avg7": 38.09,
+        "avg30": 42.6,
+        "trend": 43.32,
+        "real_discount": 0.016620498614958422
+      },
+      "live_data": null
+    },
+    {
+      "rank": 58,
+      "card_name": "Urza's Miter",
+      "expansion": "Antiquities",
+      "card_id": 6912,
+      "historical_data": {
+        "avg7": 16.53,
+        "avg30": 16.4,
+        "trend": 16.64,
+        "real_discount": 0.014423076923077042
+      },
+      "live_data": null
+    },
+    {
+      "rank": 59,
+      "card_name": "Debt of Loyalty",
+      "expansion": "Weatherlight",
+      "card_id": 8695,
+      "historical_data": {
+        "avg7": 12.64,
+        "avg30": 11.25,
+        "trend": 11.4,
+        "real_discount": 0.013157894736842136
+      },
+      "live_data": null
+    },
+    {
+      "rank": 60,
+      "card_name": "Adun Oakenshield",
+      "expansion": "Legends",
+      "card_id": 7227,
+      "historical_data": {
+        "avg7": 60.76,
+        "avg30": 57.77,
+        "trend": 58.54,
+        "real_discount": 0.013153399385035805
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 52.0,
+        "average_current": 59.916999999999994,
+        "cheapest_good_condition": 52.0,
+        "cheapest_good_condition_details": {
+          "price": 52.0,
+          "condition": "EX",
+          "seller": "Roczyyy",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -14.41737985516787,
+        "good_condition_vs_trend_pct": -11.171848308848649,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Adun-Oakenshield?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 61,
+      "card_name": "Power Artifact",
+      "expansion": "Antiquities",
+      "card_id": 6926,
+      "historical_data": {
+        "avg7": 142.3,
+        "avg30": 139.88,
+        "trend": 141.27,
+        "real_discount": 0.009839314787286859
+      },
+      "live_data": null
+    },
+    {
+      "rank": 62,
+      "card_name": "Metalworker",
+      "expansion": "Urza's Destiny",
+      "card_id": 10835,
+      "historical_data": {
+        "avg7": 74.03,
+        "avg30": 74.91,
+        "trend": 75.63,
+        "real_discount": 0.009520031733439098
+      },
+      "live_data": null
+    },
+    {
+      "rank": 63,
+      "card_name": "Gaea's Avenger",
+      "expansion": "Antiquities",
+      "card_id": 6934,
+      "historical_data": {
+        "avg7": 45.51,
+        "avg30": 42.23,
+        "trend": 42.54,
+        "real_discount": 0.0072872590503056485
+      },
+      "live_data": null
+    },
+    {
+      "rank": 64,
+      "card_name": "City of Traitors",
+      "expansion": "Exodus",
+      "card_id": 9371,
+      "historical_data": {
+        "avg7": 301.17,
+        "avg30": 299.68,
+        "trend": 301.82,
+        "real_discount": 0.007090318733019635
+      },
+      "live_data": null
+    },
+    {
+      "rank": 65,
+      "card_name": "Drop of Honey",
+      "expansion": "Arabian Nights",
+      "card_id": 6810,
+      "historical_data": {
+        "avg7": 333.0,
+        "avg30": 309.53,
+        "trend": 311.74,
+        "real_discount": 0.007089241034195279
+      },
+      "live_data": null
+    },
+    {
+      "rank": 66,
+      "card_name": "Survival of the Fittest",
+      "expansion": "Exodus",
+      "card_id": 9357,
+      "historical_data": {
+        "avg7": 182.56,
+        "avg30": 189.23,
+        "trend": 190.24,
+        "real_discount": 0.005309083263246527
+      },
+      "live_data": null
+    },
+    {
+      "rank": 67,
+      "card_name": "Palinchron",
+      "expansion": "Urza's Legacy",
+      "card_id": 10595,
+      "historical_data": {
+        "avg7": 20.77,
+        "avg30": 21.36,
+        "trend": 21.45,
+        "real_discount": 0.00419580419580419
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 20.09,
+        "average_current": 21.135999999999996,
+        "cheapest_good_condition": 20.09,
+        "cheapest_good_condition_details": {
+          "price": 20.09,
+          "condition": "EX",
+          "seller": "MattDakota",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -3.2739528165623484,
+        "good_condition_vs_trend_pct": -6.340326340326338,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Legacy/Palinchron?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 68,
+      "card_name": "Master of the Hunt",
+      "expansion": "Legends",
+      "card_id": 7079,
+      "historical_data": {
+        "avg7": 35.98,
+        "avg30": 33.52,
+        "trend": 33.56,
+        "real_discount": 0.0011918951132300103
+      },
+      "live_data": null
+    },
+    {
+      "rank": 69,
+      "card_name": "Shahrazad",
+      "expansion": "Arabian Nights",
+      "card_id": 6846,
+      "historical_data": {
+        "avg7": 309.14,
+        "avg30": 310.42,
+        "trend": 310.71,
+        "real_discount": 0.0009333462070740035
+      },
+      "live_data": null
+    },
+    {
+      "rank": 70,
+      "card_name": "Telekinesis",
+      "expansion": "Legends",
+      "card_id": 7050,
+      "historical_data": {
+        "avg7": 33.5,
+        "avg30": 33.64,
+        "trend": 33.67,
+        "real_discount": 0.0008910008910009247
+      },
+      "live_data": null
+    },
+    {
+      "rank": 71,
+      "card_name": "Karn, Silver Golem",
+      "expansion": "Urza's Saga",
+      "card_id": 10505,
+      "historical_data": {
+        "avg7": 9.64,
+        "avg30": 10.06,
+        "trend": 10.03,
+        "real_discount": -0.0029910269192423866
+      },
+      "live_data": null
+    },
+    {
+      "rank": 72,
+      "card_name": "Intuition",
+      "expansion": "Tempest",
+      "card_id": 8805,
+      "historical_data": {
+        "avg7": 130.55,
+        "avg30": 136.27,
+        "trend": 135.82,
+        "real_discount": -0.003313208658518753
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 135.0,
+        "average_current": 142.09099999999998,
+        "cheapest_good_condition": 135.0,
+        "cheapest_good_condition_details": {
+          "price": 135.0,
+          "condition": "EX",
+          "seller": "FlorianKupf",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 3.408655687476054,
+        "good_condition_vs_trend_pct": -0.6037402444411671,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Intuition?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 73,
+      "card_name": "Thunder Spirit",
+      "expansion": "Legends",
+      "card_id": 7182,
+      "historical_data": {
+        "avg7": 122.18,
+        "avg30": 110.27,
+        "trend": 109.8,
+        "real_discount": -0.004280510018214926
+      },
+      "live_data": null
+    },
+    {
+      "rank": 74,
+      "card_name": "Nether Void",
+      "expansion": "Legends",
+      "card_id": 6999,
+      "historical_data": {
+        "avg7": 392.11,
+        "avg30": 399.09,
+        "trend": 395.88,
+        "real_discount": -0.008108517732646205
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 375.0,
+        "average_current": 441.33500000000004,
+        "cheapest_good_condition": 375.0,
+        "cheapest_good_condition_details": {
+          "price": 375.0,
+          "condition": "EX",
+          "seller": "robbi010",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -4.363571446787894,
+        "good_condition_vs_trend_pct": -5.274325553197938,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Nether-Void?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 75,
+      "card_name": "Lake of the Dead",
+      "expansion": "Alliances",
+      "card_id": 8037,
+      "historical_data": {
+        "avg7": 61.14,
+        "avg30": 60.24,
+        "trend": 59.66,
+        "real_discount": -0.009721756620851583
+      },
+      "live_data": null
+    },
+    {
+      "rank": 76,
+      "card_name": "Rasputin Dreamweaver",
+      "expansion": "Legends",
+      "card_id": 7265,
+      "historical_data": {
+        "avg7": 109.1,
+        "avg30": 114.81,
+        "trend": 113.63,
+        "real_discount": -0.010384581536566108
+      },
+      "live_data": null
+    },
+    {
+      "rank": 77,
+      "card_name": "Sliver Queen",
+      "expansion": "Stronghold",
+      "card_id": 9226,
+      "historical_data": {
+        "avg7": 152.31,
+        "avg30": 160.56,
+        "trend": 158.42,
+        "real_discount": -0.013508395404620724
+      },
+      "live_data": null
+    },
+    {
+      "rank": 78,
+      "card_name": "Tuknir Deathlock",
+      "expansion": "Legends",
+      "card_id": 7278,
+      "historical_data": {
+        "avg7": 16.94,
+        "avg30": 17.56,
+        "trend": 17.25,
+        "real_discount": -0.01797101449275355
+      },
+      "live_data": null
+    },
+    {
+      "rank": 79,
+      "card_name": "Lady Evangela",
+      "expansion": "Legends",
+      "card_id": 7251,
+      "historical_data": {
+        "avg7": 38.93,
+        "avg30": 38.31,
+        "trend": 37.59,
+        "real_discount": -0.019154030327214654
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 35.0,
+        "average_current": 39.742,
+        "cheapest_good_condition": 35.0,
+        "cheapest_good_condition_details": {
+          "price": 35.0,
+          "condition": "EX",
+          "seller": "alexanderremi",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -10.095042383765733,
+        "good_condition_vs_trend_pct": -6.890130353817512,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Lady-Evangela?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 80,
+      "card_name": "Sarcomancy",
+      "expansion": "Tempest",
+      "card_id": 8783,
+      "historical_data": {
+        "avg7": 15.29,
+        "avg30": 14.89,
+        "trend": 14.58,
+        "real_discount": -0.02126200274348426
+      },
+      "live_data": null
+    },
+    {
+      "rank": 81,
+      "card_name": "Deranged Hermit",
+      "expansion": "Urza's Legacy",
+      "card_id": 10658,
+      "historical_data": {
+        "avg7": 43.27,
+        "avg30": 40.97,
+        "trend": 40.06,
+        "real_discount": -0.022715926110833663
+      },
+      "live_data": null
+    },
+    {
+      "rank": 82,
+      "card_name": "Opalescence",
+      "expansion": "Urza's Destiny",
+      "card_id": 10713,
+      "historical_data": {
+        "avg7": 20.9,
+        "avg30": 21.55,
+        "trend": 21.05,
+        "real_discount": -0.023752969121140142
+      },
+      "live_data": null
+    },
+    {
+      "rank": 83,
+      "card_name": "Singing Tree",
+      "expansion": "Arabian Nights",
+      "card_id": 6818,
+      "historical_data": {
+        "avg7": 73.83,
+        "avg30": 81.27,
+        "trend": 79.37,
+        "real_discount": -0.023938515812019546
+      },
+      "live_data": null
+    },
+    {
+      "rank": 84,
+      "card_name": "Rohgahh of Kher Keep",
+      "expansion": "Legends",
+      "card_id": 7267,
+      "historical_data": {
+        "avg7": 40.6,
+        "avg30": 41.41,
+        "trend": 40.38,
+        "real_discount": -0.025507677067855224
+      },
+      "live_data": null
+    },
+    {
+      "rank": 85,
+      "card_name": "Serendib Djinn",
+      "expansion": "Arabian Nights",
+      "card_id": 6804,
+      "historical_data": {
+        "avg7": 102.68,
+        "avg30": 109.12,
+        "trend": 106.27,
+        "real_discount": -0.02681848122706322
+      },
+      "live_data": null
+    },
+    {
+      "rank": 86,
+      "card_name": "Sandals of Abdallah",
+      "expansion": "Arabian Nights",
+      "card_id": 6862,
+      "historical_data": {
+        "avg7": 29.53,
+        "avg30": 26.46,
+        "trend": 25.76,
+        "real_discount": -0.027173913043478232
+      },
+      "live_data": null
+    },
+    {
+      "rank": 87,
+      "card_name": "Lion's Eye Diamond",
+      "expansion": "Mirage",
+      "card_id": 8323,
+      "historical_data": {
+        "avg7": 317.46,
+        "avg30": 319.3,
+        "trend": 310.66,
+        "real_discount": -0.027811755617073282
+      },
+      "live_data": null
+    },
+    {
+      "rank": 88,
+      "card_name": "Elder Spawn",
+      "expansion": "Legends",
+      "card_id": 7023,
+      "historical_data": {
+        "avg7": 13.75,
+        "avg30": 13.93,
+        "trend": 13.55,
+        "real_discount": -0.028044280442804354
+      },
+      "live_data": null
+    },
+    {
+      "rank": 89,
+      "card_name": "City in a Bottle",
+      "expansion": "Arabian Nights",
+      "card_id": 6853,
+      "historical_data": {
+        "avg7": 349.77,
+        "avg30": 377.94,
+        "trend": 367.27,
+        "real_discount": -0.029052195932148056
+      },
+      "live_data": null
+    },
+    {
+      "rank": 90,
+      "card_name": "Eureka",
+      "expansion": "Legends",
+      "card_id": 7070,
+      "historical_data": {
+        "avg7": 324.43,
+        "avg30": 358.38,
+        "trend": 348.05,
+        "real_discount": -0.029679643729349184
+      },
+      "live_data": null
+    },
+    {
+      "rank": 91,
+      "card_name": "Memory Jar",
+      "expansion": "Urza's Legacy",
+      "card_id": 10686,
+      "historical_data": {
+        "avg7": 19.61,
+        "avg30": 20.25,
+        "trend": 19.66,
+        "real_discount": -0.030010172939979648
+      },
+      "live_data": null
+    },
+    {
+      "rank": 92,
+      "card_name": "Al-abara's Carpet",
+      "expansion": "Legends",
+      "card_id": 7187,
+      "historical_data": {
+        "avg7": 28.84,
+        "avg30": 27.62,
+        "trend": 26.8,
+        "real_discount": -0.030597014925373145
+      },
+      "live_data": null
+    },
+    {
+      "rank": 93,
+      "card_name": "Acid Rain",
+      "expansion": "Legends",
+      "card_id": 7015,
+      "historical_data": {
+        "avg7": 59.89,
+        "avg30": 67.38,
+        "trend": 65.26,
+        "real_discount": -0.03248544284400843
+      },
+      "live_data": null
+    },
+    {
+      "rank": 94,
+      "card_name": "Gosta Dirk",
+      "expansion": "Legends",
+      "card_id": 7238,
+      "historical_data": {
+        "avg7": 18.9,
+        "avg30": 18.44,
+        "trend": 17.85,
+        "real_discount": -0.03305322128851539
+      },
+      "live_data": null
+    },
+    {
+      "rank": 95,
+      "card_name": "Wood Elemental",
+      "expansion": "Legends",
+      "card_id": 7100,
+      "historical_data": {
+        "avg7": 16.28,
+        "avg30": 17.3,
+        "trend": 16.73,
+        "real_discount": -0.03407053197848178
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 14.8,
+        "average_current": 16.313000000000002,
+        "cheapest_good_condition": 14.8,
+        "cheapest_good_condition_details": {
+          "price": 14.8,
+          "condition": "EX",
+          "seller": "RetroMagic",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -9.090909090909092,
+        "good_condition_vs_trend_pct": -11.536162582187686,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Wood-Elemental?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 96,
+      "card_name": "Cursed Scroll",
+      "expansion": "Tempest",
+      "card_id": 9006,
+      "historical_data": {
+        "avg7": 30.8,
+        "avg30": 27.9,
+        "trend": 26.97,
+        "real_discount": -0.03448275862068965
+      },
+      "live_data": null
+    },
+    {
+      "rank": 97,
+      "card_name": "Caverns of Despair",
+      "expansion": "Legends",
+      "card_id": 7108,
+      "historical_data": {
+        "avg7": 39.37,
+        "avg30": 42.04,
+        "trend": 40.57,
+        "real_discount": -0.03623367019965489
+      },
+      "live_data": null
+    },
+    {
+      "rank": 98,
+      "card_name": "Bartel Runeaxe",
+      "expansion": "Legends",
+      "card_id": 7233,
+      "historical_data": {
+        "avg7": 22.56,
+        "avg30": 22.89,
+        "trend": 22.08,
+        "real_discount": -0.03668478260869576
+      },
+      "live_data": null
+    },
+    {
+      "rank": 99,
+      "card_name": "Willow Satyr",
+      "expansion": "Legends",
+      "card_id": 7097,
+      "historical_data": {
+        "avg7": 70.71,
+        "avg30": 77.32,
+        "trend": 74.58,
+        "real_discount": -0.03673907213730216
+      },
+      "live_data": null
+    },
+    {
+      "rank": 100,
+      "card_name": "Transmute Artifact",
+      "expansion": "Antiquities",
+      "card_id": 6929,
+      "historical_data": {
+        "avg7": 300.54,
+        "avg30": 315.21,
+        "trend": 304.01,
+        "real_discount": -0.036840893391664714
+      },
+      "live_data": null
+    },
+    {
+      "rank": 101,
+      "card_name": "Golgothian Sylex",
+      "expansion": "Antiquities",
+      "card_id": 6887,
+      "historical_data": {
+        "avg7": 21.4,
+        "avg30": 22.0,
+        "trend": 21.2,
+        "real_discount": -0.03773584905660381
+      },
+      "live_data": null
+    },
+    {
+      "rank": 102,
+      "card_name": "Gwendlyn Di Corci",
+      "expansion": "Legends",
+      "card_id": 7239,
+      "historical_data": {
+        "avg7": 143.5,
+        "avg30": 166.03,
+        "trend": 159.54,
+        "real_discount": -0.04067945342860731
+      },
+      "live_data": null
+    },
+    {
+      "rank": 103,
+      "card_name": "All Hallow's Eve",
+      "expansion": "Legends",
+      "card_id": 6974,
+      "historical_data": {
+        "avg7": 286.78,
+        "avg30": 335.12,
+        "trend": 321.59,
+        "real_discount": -0.042072203737678504
+      },
+      "live_data": null
+    },
+    {
+      "rank": 104,
+      "card_name": "Powder Keg",
+      "expansion": "Urza's Destiny",
+      "card_id": 10836,
+      "historical_data": {
+        "avg7": 25.34,
+        "avg30": 26.31,
+        "trend": 25.21,
+        "real_discount": -0.043633478778262506
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 21.5,
+        "average_current": 27.452999999999996,
+        "cheapest_good_condition": 21.5,
+        "cheapest_good_condition_details": {
+          "price": 21.5,
+          "condition": "EX",
+          "seller": "Nebuchadnezzar",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -15.153906866614047,
+        "good_condition_vs_trend_pct": -14.716382387941296,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Destiny/Powder-Keg?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 105,
+      "card_name": "Tetsuo Umezawa",
+      "expansion": "Legends",
+      "card_id": 7274,
+      "historical_data": {
+        "avg7": 74.51,
+        "avg30": 76.64,
+        "trend": 73.28,
+        "real_discount": -0.045851528384279465
+      },
+      "live_data": null
+    },
+    {
+      "rank": 106,
+      "card_name": "Mana Matrix",
+      "expansion": "Legends",
+      "card_id": 7201,
+      "historical_data": {
+        "avg7": 52.35,
+        "avg30": 53.13,
+        "trend": 50.78,
+        "real_discount": -0.04627806222922413
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 50.0,
+        "average_current": 51.863,
+        "cheapest_good_condition": 50.0,
+        "cheapest_good_condition_details": {
+          "price": 50.0,
+          "condition": "NM",
+          "seller": "kasj78",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -4.489016236867243,
+        "good_condition_vs_trend_pct": -1.536037810161483,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Mana-Matrix?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 107,
+      "card_name": "Tithe",
+      "expansion": "Visions",
+      "card_id": 8524,
+      "historical_data": {
+        "avg7": 20.9,
+        "avg30": 21.18,
+        "trend": 20.22,
+        "real_discount": -0.047477744807121705
+      },
+      "live_data": null
+    },
+    {
+      "rank": 108,
+      "card_name": "Ragnar",
+      "expansion": "Legends",
+      "card_id": 7262,
+      "historical_data": {
+        "avg7": 29.14,
+        "avg30": 32.64,
+        "trend": 31.13,
+        "real_discount": -0.04850626405396729
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 28.0,
+        "average_current": 30.784,
+        "cheapest_good_condition": 28.0,
+        "cheapest_good_condition_details": {
+          "price": 28.0,
+          "condition": "EX",
+          "seller": "finespoo",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -3.9121482498284164,
+        "good_condition_vs_trend_pct": -10.054609701252808,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Ragnar?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 109,
+      "card_name": "Quarum Trench Gnomes",
+      "expansion": "Legends",
+      "card_id": 7134,
+      "historical_data": {
+        "avg7": 17.06,
+        "avg30": 17.92,
+        "trend": 17.07,
+        "real_discount": -0.04979496192149979
+      },
+      "live_data": null
+    },
+    {
+      "rank": 110,
+      "card_name": "Alchor's Tomb",
+      "expansion": "Legends",
+      "card_id": 7188,
+      "historical_data": {
+        "avg7": 17.86,
+        "avg30": 18.44,
+        "trend": 17.56,
+        "real_discount": -0.05011389521640106
+      },
+      "live_data": null
+    },
+    {
+      "rank": 111,
+      "card_name": "Mox Diamond",
+      "expansion": "Stronghold",
+      "card_id": 9217,
+      "historical_data": {
+        "avg7": 445.74,
+        "avg30": 462.26,
+        "trend": 439.83,
+        "real_discount": -0.05099697610440399
+      },
+      "live_data": null
+    },
+    {
+      "rank": 112,
+      "card_name": "Mana Vortex",
+      "expansion": "The Dark",
+      "card_id": 7311,
+      "historical_data": {
+        "avg7": 16.65,
+        "avg30": 18.32,
+        "trend": 17.43,
+        "real_discount": -0.051061388410786036
+      },
+      "live_data": null
+    },
+    {
+      "rank": 113,
+      "card_name": "Merchant Ship",
+      "expansion": "Arabian Nights",
+      "card_id": 6802,
+      "historical_data": {
+        "avg7": 26.67,
+        "avg30": 24.95,
+        "trend": 23.71,
+        "real_discount": -0.052298608182201535
+      },
+      "live_data": null
+    },
+    {
+      "rank": 114,
+      "card_name": "Hazezon Tamar",
+      "expansion": "Legends",
+      "card_id": 7241,
+      "historical_data": {
+        "avg7": 107.87,
+        "avg30": 119.58,
+        "trend": 113.62,
+        "real_discount": -0.052455553599718305
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 100.0,
+        "average_current": 133.21200000000002,
+        "cheapest_good_condition": 100.0,
+        "cheapest_good_condition_details": {
+          "price": 100.0,
+          "condition": "EX",
+          "seller": "ThreeForOne-AT",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -7.295819041438772,
+        "good_condition_vs_trend_pct": -11.9873261749692,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Hazezon-Tamar?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 115,
+      "card_name": "Pixie Queen",
+      "expansion": "Legends",
+      "card_id": 7081,
+      "historical_data": {
+        "avg7": 37.41,
+        "avg30": 39.7,
+        "trend": 37.63,
+        "real_discount": -0.055009301089556206
+      },
+      "live_data": null
+    },
+    {
+      "rank": 116,
+      "card_name": "In the Eye of Chaos",
+      "expansion": "Legends",
+      "card_id": 7032,
+      "historical_data": {
+        "avg7": 80.41,
+        "avg30": 85.69,
+        "trend": 81.21,
+        "real_discount": -0.0551656199975373
+      },
+      "live_data": null
+    },
+    {
+      "rank": 117,
+      "card_name": "Yavimaya Hollow",
+      "expansion": "Urza's Destiny",
+      "card_id": 10843,
+      "historical_data": {
+        "avg7": 45.33,
+        "avg30": 44.88,
+        "trend": 42.53,
+        "real_discount": -0.05525511403715028
+      },
+      "live_data": null
+    },
+    {
+      "rank": 118,
+      "card_name": "Academy Rector",
+      "expansion": "Urza's Destiny",
+      "card_id": 10701,
+      "historical_data": {
+        "avg7": 37.74,
+        "avg30": 39.67,
+        "trend": 37.57,
+        "real_discount": -0.05589566143199365
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 38.0,
+        "average_current": 41.933,
+        "cheapest_good_condition": 38.0,
+        "cheapest_good_condition_details": {
+          "price": 38.0,
+          "condition": "EX",
+          "seller": "Skalex-31",
+          "quantity": 3
+        },
+        "good_condition_vs_avg7_pct": 0.6889242183359777,
+        "good_condition_vs_trend_pct": 1.1445302102741541,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Destiny/Academy-Rector?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 119,
+      "card_name": "Living Plane",
+      "expansion": "Legends",
+      "card_id": 7078,
+      "historical_data": {
+        "avg7": 184.58,
+        "avg30": 183.72,
+        "trend": 173.52,
+        "real_discount": -0.058782849239280704
+      },
+      "live_data": null
+    },
+    {
+      "rank": 120,
+      "card_name": "Knowledge Vault",
+      "expansion": "Legends",
+      "card_id": 7197,
+      "historical_data": {
+        "avg7": 37.72,
+        "avg30": 39.9,
+        "trend": 37.65,
+        "real_discount": -0.05976095617529881
+      },
+      "live_data": null
+    },
+    {
+      "rank": 121,
+      "card_name": "Preacher",
+      "expansion": "The Dark",
+      "card_id": 7370,
+      "historical_data": {
+        "avg7": 38.63,
+        "avg30": 35.7,
+        "trend": 33.66,
+        "real_discount": -0.060606060606060795
+      },
+      "live_data": null
+    },
+    {
+      "rank": 122,
+      "card_name": "Gravity Sphere",
+      "expansion": "Legends",
+      "card_id": 7123,
+      "historical_data": {
+        "avg7": 50.42,
+        "avg30": 46.52,
+        "trend": 43.86,
+        "real_discount": -0.06064751481988152
+      },
+      "live_data": null
+    },
+    {
+      "rank": 123,
+      "card_name": "Gate to Phyrexia",
+      "expansion": "Antiquities",
+      "card_id": 6917,
+      "historical_data": {
+        "avg7": 42.61,
+        "avg30": 41.68,
+        "trend": 39.26,
+        "real_discount": -0.06164034640855837
+      },
+      "live_data": null
+    },
+    {
+      "rank": 124,
+      "card_name": "Thought Lash",
+      "expansion": "Alliances",
+      "card_id": 7910,
+      "historical_data": {
+        "avg7": 11.98,
+        "avg30": 12.26,
+        "trend": 11.5,
+        "real_discount": -0.06608695652173911
+      },
+      "live_data": null
+    },
+    {
+      "rank": 125,
+      "card_name": "Forethought Amulet",
+      "expansion": "Legends",
+      "card_id": 7193,
+      "historical_data": {
+        "avg7": 18.12,
+        "avg30": 18.97,
+        "trend": 17.79,
+        "real_discount": -0.06632939853850477
+      },
+      "live_data": null
+    },
+    {
+      "rank": 126,
+      "card_name": "Boris Devilboon",
+      "expansion": "Legends",
+      "card_id": 7234,
+      "historical_data": {
+        "avg7": 21.34,
+        "avg30": 21.16,
+        "trend": 19.83,
+        "real_discount": -0.06707009581442269
+      },
+      "live_data": null
+    },
+    {
+      "rank": 127,
+      "card_name": "Replenish",
+      "expansion": "Urza's Destiny",
+      "card_id": 10715,
+      "historical_data": {
+        "avg7": 68.33,
+        "avg30": 73.55,
+        "trend": 68.86,
+        "real_discount": -0.06810920708684284
+      },
+      "live_data": null
+    },
+    {
+      "rank": 128,
+      "card_name": "Disharmony",
+      "expansion": "Legends",
+      "card_id": 7114,
+      "historical_data": {
+        "avg7": 45.21,
+        "avg30": 47.04,
+        "trend": 43.93,
+        "real_discount": -0.07079444570908262
+      },
+      "live_data": null
+    },
+    {
+      "rank": 129,
+      "card_name": "Thawing Glaciers",
+      "expansion": "Alliances",
+      "card_id": 8041,
+      "historical_data": {
+        "avg7": 10.49,
+        "avg30": 10.58,
+        "trend": 9.86,
+        "real_discount": -0.07302231237322522
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 6.0,
+        "average_current": 9.354000000000001,
+        "cheapest_good_condition": 6.0,
+        "cheapest_good_condition_details": {
+          "price": 6.0,
+          "condition": "EX",
+          "seller": "isys59",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -42.80266920877026,
+        "good_condition_vs_trend_pct": -39.14807302231237,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alliances/Thawing-Glaciers?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 130,
+      "card_name": "Island of Wak-Wak",
+      "expansion": "Arabian Nights",
+      "card_id": 6868,
+      "historical_data": {
+        "avg7": 137.16,
+        "avg30": 161.28,
+        "trend": 150.16,
+        "real_discount": -0.07405434203516252
+      },
+      "live_data": null
+    },
+    {
+      "rank": 131,
+      "card_name": "Great Whale",
+      "expansion": "Urza's Saga",
+      "card_id": 10284,
+      "historical_data": {
+        "avg7": 10.22,
+        "avg30": 11.11,
+        "trend": 10.34,
+        "real_discount": -0.07446808510638293
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 9.0,
+        "average_current": 12.331999999999999,
+        "cheapest_good_condition": 9.0,
+        "cheapest_good_condition_details": {
+          "price": 9.0,
+          "condition": "EX",
+          "seller": "zakku",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -11.937377690802354,
+        "good_condition_vs_trend_pct": -12.959381044487426,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Saga/Great-Whale?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 132,
+      "card_name": "Firestorm Phoenix",
+      "expansion": "Legends",
+      "card_id": 7119,
+      "historical_data": {
+        "avg7": 22.05,
+        "avg30": 25.95,
+        "trend": 24.1,
+        "real_discount": -0.07676348547717833
+      },
+      "live_data": null
+    },
+    {
+      "rank": 133,
+      "card_name": "Old Man of the Sea",
+      "expansion": "Arabian Nights",
+      "card_id": 6803,
+      "historical_data": {
+        "avg7": 176.2,
+        "avg30": 190.3,
+        "trend": 176.31,
+        "real_discount": -0.07934887414213607
+      },
+      "live_data": null
+    },
+    {
+      "rank": 134,
+      "card_name": "Serra's Sanctum",
+      "expansion": "Urza's Saga",
+      "card_id": 10532,
+      "historical_data": {
+        "avg7": 185.95,
+        "avg30": 190.37,
+        "trend": 176.36,
+        "real_discount": -0.07943978226355176
+      },
+      "live_data": null
+    },
+    {
+      "rank": 135,
+      "card_name": "Reverberation",
+      "expansion": "Legends",
+      "card_id": 7045,
+      "historical_data": {
+        "avg7": 19.92,
+        "avg30": 21.3,
+        "trend": 19.69,
+        "real_discount": -0.08176739461655659
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 18.99,
+        "average_current": 23.032,
+        "cheapest_good_condition": 18.99,
+        "cheapest_good_condition_details": {
+          "price": 18.99,
+          "condition": "EX",
+          "seller": "ThreeForOne-AT",
+          "quantity": 5
+        },
+        "good_condition_vs_avg7_pct": -4.668674698795196,
+        "good_condition_vs_trend_pct": -3.555104113763346,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Reverberation?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 136,
+      "card_name": "Nova Pentacle",
+      "expansion": "Legends",
+      "card_id": 7205,
+      "historical_data": {
+        "avg7": 24.19,
+        "avg30": 25.71,
+        "trend": 23.76,
+        "real_discount": -0.08207070707070703
+      },
+      "live_data": null
+    },
+    {
+      "rank": 137,
+      "card_name": "Argivian Archaeologist",
+      "expansion": "Antiquities",
+      "card_id": 6965,
+      "historical_data": {
+        "avg7": 99.56,
+        "avg30": 104.11,
+        "trend": 96.0,
+        "real_discount": -0.08447916666666666
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 105.0,
+        "average_current": 119.255,
+        "cheapest_good_condition": 105.0,
+        "cheapest_good_condition_details": {
+          "price": 105.0,
+          "condition": "EX",
+          "seller": "kasj78",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 5.464041783848933,
+        "good_condition_vs_trend_pct": 9.375,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Antiquities/Argivian-Archaeologist?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 138,
+      "card_name": "King Suleiman",
+      "expansion": "Arabian Nights",
+      "card_id": 6840,
+      "historical_data": {
+        "avg7": 108.41,
+        "avg30": 115.52,
+        "trend": 106.43,
+        "real_discount": -0.08540824955369716
+      },
+      "live_data": null
+    },
+    {
+      "rank": 139,
+      "card_name": "Treachery",
+      "expansion": "Urza's Destiny",
+      "card_id": 10750,
+      "historical_data": {
+        "avg7": 23.98,
+        "avg30": 26.1,
+        "trend": 24.0,
+        "real_discount": -0.08750000000000006
+      },
+      "live_data": null
+    },
+    {
+      "rank": 140,
+      "card_name": "Humility",
+      "expansion": "Tempest",
+      "card_id": 8971,
+      "historical_data": {
+        "avg7": 33.07,
+        "avg30": 35.51,
+        "trend": 32.63,
+        "real_discount": -0.08826233527428731
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 35.44,
+        "average_current": 37.846,
+        "cheapest_good_condition": 35.44,
+        "cheapest_good_condition_details": {
+          "price": 35.44,
+          "condition": "EX",
+          "seller": "JGuess",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 7.16661626852131,
+        "good_condition_vs_trend_pct": 8.611707018081505,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Humility?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 141,
+      "card_name": "Haunting Wind",
+      "expansion": "Antiquities",
+      "card_id": 6918,
+      "historical_data": {
+        "avg7": 12.34,
+        "avg30": 13.54,
+        "trend": 12.41,
+        "real_discount": -0.09105560032232063
+      },
+      "live_data": null
+    },
+    {
+      "rank": 142,
+      "card_name": "Diamond Valley",
+      "expansion": "Arabian Nights",
+      "card_id": 6866,
+      "historical_data": {
+        "avg7": 427.12,
+        "avg30": 467.74,
+        "trend": 428.63,
+        "real_discount": -0.09124419662646108
+      },
+      "live_data": null
+    },
+    {
+      "rank": 143,
+      "card_name": "Tolarian Academy",
+      "expansion": "Urza's Saga",
+      "card_id": 10537,
+      "historical_data": {
+        "avg7": 85.86,
+        "avg30": 97.46,
+        "trend": 89.17,
+        "real_discount": -0.09296848715935843
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 90.97,
+        "average_current": 101.037,
+        "cheapest_good_condition": 90.97,
+        "cheapest_good_condition_details": {
+          "price": 90.97,
+          "condition": "EX",
+          "seller": "altivo-lee",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 5.951549033310039,
+        "good_condition_vs_trend_pct": 2.0186161264999405,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Saga/Tolarian-Academy?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 144,
+      "card_name": "Mirror Universe",
+      "expansion": "Legends",
+      "card_id": 7203,
+      "historical_data": {
+        "avg7": 218.34,
+        "avg30": 235.0,
+        "trend": 213.99,
+        "real_discount": -0.0981821580447684
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 260.0,
+        "average_current": 275.099,
+        "cheapest_good_condition": 260.0,
+        "cheapest_good_condition_details": {
+          "price": 260.0,
+          "condition": "EX",
+          "seller": "Bronhy",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 19.08033342493359,
+        "good_condition_vs_trend_pct": 21.501004719846716,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Mirror-Universe?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 145,
+      "card_name": "Anvil of Bogardan",
+      "expansion": "Visions",
+      "card_id": 8542,
+      "historical_data": {
+        "avg7": 16.58,
+        "avg30": 18.99,
+        "trend": 17.26,
+        "real_discount": -0.10023174971031268
+      },
+      "live_data": null
+    },
+    {
+      "rank": 146,
+      "card_name": "Phyrexian Dreadnought",
+      "expansion": "Mirage",
+      "card_id": 8331,
+      "historical_data": {
+        "avg7": 160.19,
+        "avg30": 165.14,
+        "trend": 149.79,
+        "real_discount": -0.10247680085452965
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 192.05,
+        "average_current": 196.372,
+        "cheapest_good_condition": 192.05,
+        "cheapest_good_condition_details": {
+          "price": 192.05,
+          "condition": "EX",
+          "seller": "tulste",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 19.8888819526812,
+        "good_condition_vs_trend_pct": 28.212831297149354,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Phyrexian-Dreadnought?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 147,
+      "card_name": "Pyramids",
+      "expansion": "Arabian Nights",
+      "card_id": 6860,
+      "historical_data": {
+        "avg7": 45.59,
+        "avg30": 59.07,
+        "trend": 53.37,
+        "real_discount": -0.10680157391793148
+      },
+      "live_data": null
+    },
+    {
+      "rank": 148,
+      "card_name": "Aluren",
+      "expansion": "Tempest",
+      "card_id": 8842,
+      "historical_data": {
+        "avg7": 30.97,
+        "avg30": 30.99,
+        "trend": 27.88,
+        "real_discount": -0.11154949784791963
+      },
+      "live_data": null
+    },
+    {
+      "rank": 149,
+      "card_name": "Null Rod",
+      "expansion": "Weatherlight",
+      "card_id": 8722,
+      "historical_data": {
+        "avg7": 60.1,
+        "avg30": 66.61,
+        "trend": 59.46,
+        "real_discount": -0.12024890682811971
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 57.0,
+        "average_current": 59.89,
+        "cheapest_good_condition": 57.0,
+        "cheapest_good_condition_details": {
+          "price": 57.0,
+          "condition": "EX",
+          "seller": "Miggy2k",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -5.158069883527457,
+        "good_condition_vs_trend_pct": -4.1372351160444,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Weatherlight/Null-Rod?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 150,
+      "card_name": "Lady Caleria",
+      "expansion": "Legends",
+      "card_id": 7250,
+      "historical_data": {
+        "avg7": 21.55,
+        "avg30": 22.54,
+        "trend": 19.92,
+        "real_discount": -0.13152610441767054
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 21.0,
+        "average_current": 23.917,
+        "cheapest_good_condition": 21.0,
+        "cheapest_good_condition_details": {
+          "price": 21.0,
+          "condition": "EX",
+          "seller": "Dimash",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -2.55220417633411,
+        "good_condition_vs_trend_pct": 5.421686746987943,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Lady-Caleria?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 151,
+      "card_name": "Life Matrix",
+      "expansion": "Legends",
+      "card_id": 7200,
+      "historical_data": {
+        "avg7": 18.4,
+        "avg30": 22.43,
+        "trend": 19.81,
+        "real_discount": -0.132256436143362
+      },
+      "live_data": null
+    },
+    {
+      "rank": 152,
+      "card_name": "Khabál Ghoul",
+      "expansion": "Arabian Nights",
+      "card_id": 6789,
+      "historical_data": {
+        "avg7": 59.87,
+        "avg30": 72.87,
+        "trend": 64.22,
+        "real_discount": -0.13469324198069146
+      },
+      "live_data": null
+    },
+    {
+      "rank": 153,
+      "card_name": "Hatred",
+      "expansion": "Exodus",
+      "card_id": 9292,
+      "historical_data": {
+        "avg7": 23.4,
+        "avg30": 24.02,
+        "trend": 21.11,
+        "real_discount": -0.13784936049265753
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 23.0,
+        "average_current": 26.931,
+        "cheapest_good_condition": 23.0,
+        "cheapest_good_condition_details": {
+          "price": 23.0,
+          "condition": "EX",
+          "seller": "Tristandelacroix",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -1.7094017094017033,
+        "good_condition_vs_trend_pct": 8.953102794883943,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Hatred?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 154,
+      "card_name": "Spinal Villain",
+      "expansion": "Legends",
+      "card_id": 7136,
+      "historical_data": {
+        "avg7": 22.37,
+        "avg30": 26.41,
+        "trend": 23.2,
+        "real_discount": -0.13836206896551728
+      },
+      "live_data": null
+    },
+    {
+      "rank": 155,
+      "card_name": "Season of the Witch",
+      "expansion": "The Dark",
+      "card_id": 7296,
+      "historical_data": {
+        "avg7": 19.14,
+        "avg30": 21.01,
+        "trend": 18.43,
+        "real_discount": -0.1399891481280522
+      },
+      "live_data": null
+    },
+    {
+      "rank": 156,
+      "card_name": "Typhoon",
+      "expansion": "Legends",
+      "card_id": 7094,
+      "historical_data": {
+        "avg7": 18.35,
+        "avg30": 22.11,
+        "trend": 19.3,
+        "real_discount": -0.14559585492227972
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 19.37,
+        "average_current": 20.827,
+        "cheapest_good_condition": 19.37,
+        "cheapest_good_condition_details": {
+          "price": 19.37,
+          "condition": "EX",
+          "seller": "Wampopower",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 5.558583106267028,
+        "good_condition_vs_trend_pct": 0.36269430051813617,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Typhoon?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 157,
+      "card_name": "Spiritual Sanctuary",
+      "expansion": "Legends",
+      "card_id": 7181,
+      "historical_data": {
+        "avg7": 17.04,
+        "avg30": 18.88,
+        "trend": 16.44,
+        "real_discount": -0.14841849148418476
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 15.0,
+        "average_current": 18.784,
+        "cheapest_good_condition": 15.0,
+        "cheapest_good_condition_details": {
+          "price": 15.0,
+          "condition": "EX",
+          "seller": "kasj78",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -11.971830985915489,
+        "good_condition_vs_trend_pct": -8.759124087591248,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Spiritual-Sanctuary?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 158,
+      "card_name": "Ring of Immortals",
+      "expansion": "Legends",
+      "card_id": 7209,
+      "historical_data": {
+        "avg7": 22.34,
+        "avg30": 25.71,
+        "trend": 21.8,
+        "real_discount": -0.1793577981651376
+      },
+      "live_data": null
+    },
+    {
+      "rank": 159,
+      "card_name": "Mold Demon",
+      "expansion": "Legends",
+      "card_id": 6998,
+      "historical_data": {
+        "avg7": 17.12,
+        "avg30": 19.0,
+        "trend": 16.1,
+        "real_discount": -0.18012422360248437
+      },
+      "live_data": null
+    },
+    {
+      "rank": 160,
+      "card_name": "Lifeline",
+      "expansion": "Urza's Saga",
+      "card_id": 10506,
+      "historical_data": {
+        "avg7": 10.52,
+        "avg30": 11.93,
+        "trend": 9.57,
+        "real_discount": -0.2466039707419017
+      },
+      "live_data": null
+    },
+    {
+      "rank": 161,
+      "card_name": "Masticore",
+      "expansion": "Urza's Destiny",
+      "card_id": 10834,
+      "historical_data": {
+        "avg7": 8.68,
+        "avg30": 12.19,
+        "trend": 9.6,
+        "real_discount": -0.26979166666666665
+      },
+      "live_data": null
+    },
+    {
+      "rank": 162,
+      "card_name": "Helm of Obedience",
+      "expansion": "Alliances",
+      "card_id": 8015,
+      "historical_data": {
+        "avg7": 23.02,
+        "avg30": 28.0,
+        "trend": 21.77,
+        "real_discount": -0.2861736334405145
+      },
+      "live_data": null
+    },
+    {
+      "rank": 163,
+      "card_name": "Rapid Fire",
+      "expansion": "Legends",
+      "card_id": 7175,
+      "historical_data": {
+        "avg7": 13.45,
+        "avg30": 15.07,
+        "trend": 11.27,
+        "real_discount": -0.3371783496007099
+      },
+      "live_data": null
+    },
+    {
+      "rank": 164,
+      "card_name": "North Star",
+      "expansion": "Legends",
+      "card_id": 7204,
+      "historical_data": {
+        "avg7": 21.91,
+        "avg30": 29.43,
+        "trend": 21.57,
+        "real_discount": -0.36439499304589706
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 20.0,
+        "average_current": 26.651999999999997,
+        "cheapest_good_condition": 20.0,
+        "cheapest_good_condition_details": {
+          "price": 20.0,
+          "condition": "EX",
+          "seller": "Wbl2pdn2015",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -8.71748060246463,
+        "good_condition_vs_trend_pct": -7.278627723690311,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/North-Star?language=1&minCondition=3"
+      }
+    }
+  ]
+}

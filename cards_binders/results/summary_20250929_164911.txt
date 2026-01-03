@@ -1,0 +1,34 @@
+🃏 MTG ARBITRAGE RESULTS SUMMARY
+==================================================
+Generated: 2025-09-29 16:49:11
+
+📊 OVERVIEW:
+   Total candidates analyzed: 10
+   Excellent deals found: 3
+   Fair deals found: 0
+   Expensive deals: 5
+   No live data: 2
+
+🎉 EXCELLENT DEALS (≤15% vs AVG7):
+----------------------------------------
+
+• Wall of Bone (Alpha)
+  EX+ Price: €50.00 (EX) - ThreeForOne-AT
+  vs AVG7: -23.9% (€65.72)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Wall-Of-Bone?minCondition=3
+
+• Simulacrum (Alpha)
+  EX+ Price: €54.99 (EX) - Dragonegg
+  vs AVG7: -33.7% (€82.95)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Simulacrum?minCondition=3
+
+• Deathlace (Beta)
+  EX+ Price: €64.88 (EX) - webuyanycard
+  vs AVG7: -7.7% (€70.30)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Deathlace?minCondition=3
+
+💡 USAGE NOTES:
+- Excellent deals are ready to buy at near-historical prices
+- Fair deals may be worth considering depending on your strategy
+- Check URLs for current availability and shipping costs
+- Prices may change quickly - verify before purchasing

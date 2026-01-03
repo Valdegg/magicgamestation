@@ -1,0 +1,1319 @@
+[
+  {
+    "name": "Demonic Tutor",
+    "sets": [
+      "Alpha",
+      "Beta",
+      "Unlimited"
+    ],
+    "notes": "Classic staple"
+  },
+  {
+    "name": "Lightning Bolt",
+    "sets": [
+      "Alpha",
+      "Beta",
+      "Unlimited"
+    ],
+    "notes": "Iconic burn spell"
+  },
+  {
+    "name": "Counterspell",
+    "sets": [
+      "Alpha",
+      "Beta",
+      "Unlimited"
+    ],
+    "notes": "Blue staple"
+  },
+  {
+    "name": "Dark Ritual",
+    "sets": [
+      "Alpha",
+      "Beta",
+      "Unlimited"
+    ],
+    "notes": "Fast mana"
+  },
+  {
+    "name": "Swords to Plowshares",
+    "sets": [
+      "Alpha",
+      "Beta",
+      "Unlimited"
+    ],
+    "notes": "Premium removal"
+  },
+  {
+    "name": "Chrome Mox",
+    "sets": [
+      "Mirrodin"
+    ],
+    "notes": "Fast mana with imprint"
+  },
+  {
+    "name": "Mana Vault",
+    "sets": [
+      "Alpha",
+      "Beta",
+      "Unlimited",
+      "Revised"
+    ],
+    "notes": "Explosive mana"
+  },
+  {
+    "name": "Vampiric Tutor",
+    "sets": [
+      "Visions",
+      "Sixth Edition"
+    ],
+    "notes": "Instant speed tutor"
+  },
+  {
+    "name": "Enlightened Tutor",
+    "sets": [
+      "Mirage",
+      "Sixth Edition"
+    ],
+    "notes": "Artifact/enchantment tutor"
+  },
+  {
+    "name": "Mystical Tutor",
+    "sets": [
+      "Mirage",
+      "Sixth Edition"
+    ],
+    "notes": "Instant tutor"
+  },
+  {
+    "name": "Worldly Tutor",
+    "sets": [
+      "Mirage",
+      "Sixth Edition"
+    ],
+    "notes": "Creature tutor"
+  },
+  {
+    "name": "Survival of the Fittest",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Creature toolbox engine"
+  },
+  {
+    "name": "Rhystic Study",
+    "sets": [
+      "Prophecy"
+    ],
+    "notes": "Card draw engine"
+  },
+  {
+    "name": "Sylvan Library",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Card selection engine"
+  },
+  {
+    "name": "Sensei's Divining Top",
+    "sets": [
+      "Champions of Kamigawa"
+    ],
+    "notes": "Card selection artifact"
+  },
+  {
+    "name": "Scroll Rack",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Library manipulation"
+  },
+  {
+    "name": "Necropotence",
+    "sets": [
+      "Ice Age"
+    ],
+    "notes": "Powerful card draw"
+  },
+  {
+    "name": "Phyrexian Arena",
+    "sets": [
+      "Apocalypse"
+    ],
+    "notes": "Steady card draw"
+  },
+  {
+    "name": "Force of Will",
+    "sets": [
+      "Alliances"
+    ],
+    "notes": "Free counterspell"
+  },
+  {
+    "name": "Mana Drain",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Powerful counterspell"
+  },
+  {
+    "name": "Wrath of God",
+    "sets": [
+      "Alpha",
+      "Beta",
+      "Unlimited",
+      "Revised"
+    ],
+    "notes": "Classic board wipe"
+  },
+  {
+    "name": "Azusa, Lost but Seeking",
+    "sets": [
+      "Champions of Kamigawa"
+    ],
+    "notes": "Extra land drops"
+  },
+  {
+    "name": "Exploration",
+    "sets": [
+      "Urza's Saga"
+    ],
+    "notes": "Extra land drops"
+  },
+  {
+    "name": "Burgeoning",
+    "sets": [
+      "Stronghold"
+    ],
+    "notes": "Ramp on opponents' turns"
+  },
+  {
+    "name": "Onslaught Fetchlands",
+    "sets": [
+      "Onslaught"
+    ],
+    "notes": "Premium mana fixing"
+  },
+  {
+    "name": "Ancient Tomb",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Fast colorless mana"
+  },
+  {
+    "name": "City of Traitors",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Explosive mana land"
+  },
+  {
+    "name": "Boseiju, Who Shelters All",
+    "sets": [
+      "Champions of Kamigawa"
+    ],
+    "notes": "Uncounterable spells"
+  },
+  {
+    "name": "Strip Mine",
+    "sets": [
+      "Antiquities",
+      "Fourth Edition"
+    ],
+    "notes": "Land destruction"
+  },
+  {
+    "name": "Wasteland",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Nonbasic land hate"
+  },
+  {
+    "name": "Yawgmoth's Will",
+    "sets": [
+      "Urza's Saga"
+    ],
+    "notes": "Graveyard storm"
+  },
+  {
+    "name": "Time Spiral",
+    "sets": [
+      "Urza's Saga"
+    ],
+    "notes": "Untap and draw"
+  },
+  {
+    "name": "Memory Jar",
+    "sets": [
+      "Urza's Legacy"
+    ],
+    "notes": "Temporary card draw"
+  },
+  {
+    "name": "Intuition",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Graveyard setup"
+  },
+  {
+    "name": "Reanimate",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Cheap reanimation"
+  },
+  {
+    "name": "Animate Dead",
+    "sets": [
+      "Alpha",
+      "Beta",
+      "Unlimited"
+    ],
+    "notes": "Classic reanimation"
+  },
+  {
+    "name": "Dance of the Dead",
+    "sets": [
+      "Ice Age"
+    ],
+    "notes": "Reanimation enchantment"
+  },
+  {
+    "name": "Goblin Welder",
+    "sets": [
+      "Urza's Legacy"
+    ],
+    "notes": "Artifact recursion"
+  },
+  {
+    "name": "Tinker",
+    "sets": [
+      "Urza's Legacy"
+    ],
+    "notes": "Artifact tutor"
+  },
+  {
+    "name": "Tolarian Academy",
+    "sets": [
+      "Urza's Saga"
+    ],
+    "notes": "Artifact mana"
+  },
+  {
+    "name": "Cabal Coffers",
+    "sets": [
+      "Torment"
+    ],
+    "notes": "Swamp mana multiplier"
+  },
+  {
+    "name": "Maze of Ith",
+    "sets": [
+      "The Dark"
+    ],
+    "notes": "Creature control"
+  },
+  {
+    "name": "Rishadan Port",
+    "sets": [
+      "Mercadian Masques"
+    ],
+    "notes": "Land disruption"
+  },
+  {
+    "name": "Dust Bowl",
+    "sets": [
+      "Mercadian Masques"
+    ],
+    "notes": "Land destruction"
+  },
+  {
+    "name": "High Tide",
+    "sets": [
+      "Fallen Empires"
+    ],
+    "notes": "Island mana doubler"
+  },
+  {
+    "name": "Winter Orb",
+    "sets": [
+      "Alpha",
+      "Beta",
+      "Unlimited"
+    ],
+    "notes": "Land lockdown"
+  },
+  {
+    "name": "Static Orb",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Permanent lockdown"
+  },
+  {
+    "name": "Sphere of Resistance",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Spell tax"
+  },
+  {
+    "name": "Trinisphere",
+    "sets": [
+      "Darksteel"
+    ],
+    "notes": "Minimum spell cost"
+  },
+  {
+    "name": "Chalice of the Void",
+    "sets": [
+      "Mirrodin"
+    ],
+    "notes": "Spell lockdown"
+  },
+  {
+    "name": "Library of Alexandria",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "notes": "Legendary card draw land"
+  },
+  {
+    "name": "Bazaar of Baghdad",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "notes": "Graveyard filling land"
+  },
+  {
+    "name": "Diamond Valley",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "notes": "Creature sacrifice for life"
+  },
+  {
+    "name": "Juzám Djinn",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "notes": "Iconic black creature"
+  },
+  {
+    "name": "The Abyss",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Creature control enchantment"
+  },
+  {
+    "name": "Moat",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Flying creature protection"
+  },
+  {
+    "name": "Karakas",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Legend bounce land"
+  },
+  {
+    "name": "Land Tax",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Land ramp enchantment"
+  },
+  {
+    "name": "Mirror Universe",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Life total swap"
+  },
+  {
+    "name": "All Hallow's Eve",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Mass reanimation"
+  },
+  {
+    "name": "Eureka",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Free permanent spell"
+  },
+  {
+    "name": "Transmute Artifact",
+    "sets": [
+      "Antiquities"
+    ],
+    "notes": "Artifact tutor"
+  },
+  {
+    "name": "Tawnos's Coffin",
+    "sets": [
+      "Antiquities"
+    ],
+    "notes": "Creature protection"
+  },
+  {
+    "name": "Argivian Archaeologist",
+    "sets": [
+      "Antiquities"
+    ],
+    "notes": "Artifact recursion"
+  },
+  {
+    "name": "Erhnam Djinn",
+    "sets": [
+      "Arabian Nights",
+      "Judgment"
+    ],
+    "notes": "Efficient green beater"
+  },
+  {
+    "name": "Drop of Honey",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "notes": "Creature removal"
+  },
+  {
+    "name": "City in a Bottle",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "notes": "Arabian Nights hoser"
+  },
+  {
+    "name": "Ifh-Bíff Efreet",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "notes": "Flying trampler"
+  },
+  {
+    "name": "Aladdin",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "notes": "Artifact control"
+  },
+  {
+    "name": "Guardian Beast",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "notes": "Artifact protection"
+  },
+  {
+    "name": "Ring of Ma'rûf",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "notes": "Sideboard tutor"
+  },
+  {
+    "name": "City of Brass",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "notes": "Five-color mana"
+  },
+  {
+    "name": "Nicol Bolas",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Elder dragon legend"
+  },
+  {
+    "name": "Chromium",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Elder dragon legend"
+  },
+  {
+    "name": "Arcades Sabboth",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Elder dragon legend"
+  },
+  {
+    "name": "Palladia-Mors",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Elder dragon legend"
+  },
+  {
+    "name": "Vaevictis Asmadi",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Elder dragon legend"
+  },
+  {
+    "name": "Underworld Dreams",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Card draw punishment"
+  },
+  {
+    "name": "Concordant Crossroads",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Universal haste"
+  },
+  {
+    "name": "Adarkar Wastes",
+    "sets": [
+      "Ice Age"
+    ],
+    "notes": "White/Blue pain land"
+  },
+  {
+    "name": "Underground River",
+    "sets": [
+      "Ice Age"
+    ],
+    "notes": "Blue/Black pain land"
+  },
+  {
+    "name": "Sulfurous Springs",
+    "sets": [
+      "Ice Age"
+    ],
+    "notes": "Black/Red pain land"
+  },
+  {
+    "name": "Karplusan Forest",
+    "sets": [
+      "Ice Age"
+    ],
+    "notes": "Red/Green pain land"
+  },
+  {
+    "name": "Brushland",
+    "sets": [
+      "Ice Age"
+    ],
+    "notes": "Green/White pain land"
+  },
+  {
+    "name": "Caves of Koilos",
+    "sets": [
+      "Apocalypse"
+    ],
+    "notes": "White/Black pain land"
+  },
+  {
+    "name": "Shivan Reef",
+    "sets": [
+      "Apocalypse"
+    ],
+    "notes": "Blue/Red pain land"
+  },
+  {
+    "name": "Llanowar Wastes",
+    "sets": [
+      "Apocalypse"
+    ],
+    "notes": "Black/Green pain land"
+  },
+  {
+    "name": "Yavimaya Coast",
+    "sets": [
+      "Apocalypse"
+    ],
+    "notes": "Green/Blue pain land"
+  },
+  {
+    "name": "Battlefield Forge",
+    "sets": [
+      "Apocalypse"
+    ],
+    "notes": "Red/White pain land"
+  },
+  {
+    "name": "Jester's Cap",
+    "sets": [
+      "Ice Age"
+    ],
+    "notes": "Exile from library"
+  },
+  {
+    "name": "Jokulhaups",
+    "sets": [
+      "Ice Age"
+    ],
+    "notes": "Mass land destruction"
+  },
+  {
+    "name": "Lake of the Dead",
+    "sets": [
+      "Alliances"
+    ],
+    "notes": "Black mana acceleration"
+  },
+  {
+    "name": "Thawing Glaciers",
+    "sets": [
+      "Alliances"
+    ],
+    "notes": "Repeatable land search"
+  },
+  {
+    "name": "Kjeldoran Outpost",
+    "sets": [
+      "Alliances"
+    ],
+    "notes": "Token generation land"
+  },
+  {
+    "name": "Phelddagrif",
+    "sets": [
+      "Alliances"
+    ],
+    "notes": "Group hug creature"
+  },
+  {
+    "name": "Lim-Dûl's Vault",
+    "sets": [
+      "Alliances"
+    ],
+    "notes": "Library manipulation"
+  },
+  {
+    "name": "Mirage Fetches",
+    "sets": [
+      "Mirage"
+    ],
+    "notes": "Slow fetch lands"
+  },
+  {
+    "name": "Phyrexian Dreadnought",
+    "sets": [
+      "Mirage"
+    ],
+    "notes": "Efficient threat"
+  },
+  {
+    "name": "Lion's Eye Diamond",
+    "sets": [
+      "Mirage"
+    ],
+    "notes": "Fast mana artifact"
+  },
+  {
+    "name": "Bazaar of Wonders",
+    "sets": [
+      "Mirage"
+    ],
+    "notes": "Spell restriction"
+  },
+  {
+    "name": "Cadaverous Bloom",
+    "sets": [
+      "Mirage"
+    ],
+    "notes": "Card to mana conversion"
+  },
+  {
+    "name": "Shallow Grave",
+    "sets": [
+      "Mirage"
+    ],
+    "notes": "Temporary reanimation"
+  },
+  {
+    "name": "Meditate",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Skip turn for cards"
+  },
+  {
+    "name": "Cursed Scroll",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Repeatable damage"
+  },
+  {
+    "name": "Earthcraft",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Creature-based mana"
+  },
+  {
+    "name": "Aluren",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Free small creatures"
+  },
+  {
+    "name": "Humility",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Creature nullification"
+  },
+  {
+    "name": "Recurring Nightmare",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Reanimation engine"
+  },
+  {
+    "name": "Oath of Druids",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Creature cheating"
+  },
+  {
+    "name": "Price of Progress",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Nonbasic land punishment"
+  },
+  {
+    "name": "Volrath's Stronghold",
+    "sets": [
+      "Stronghold"
+    ],
+    "notes": "Creature recursion land"
+  },
+  {
+    "name": "Sliver Queen",
+    "sets": [
+      "Stronghold"
+    ],
+    "notes": "Sliver tribal commander"
+  },
+  {
+    "name": "Horn of Greed",
+    "sets": [
+      "Stronghold"
+    ],
+    "notes": "Land-based card draw"
+  },
+  {
+    "name": "Hermit Druid",
+    "sets": [
+      "Stronghold"
+    ],
+    "notes": "Library mill engine"
+  },
+  {
+    "name": "Ensnaring Bridge",
+    "sets": [
+      "Stronghold"
+    ],
+    "notes": "Attack prevention"
+  },
+  {
+    "name": "Crystalline Sliver",
+    "sets": [
+      "Stronghold"
+    ],
+    "notes": "Sliver protection"
+  },
+  {
+    "name": "Corpse Dance",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Buyback reanimation"
+  },
+  {
+    "name": "Tradewind Rider",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Bounce engine"
+  },
+  {
+    "name": "Capsize",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Buyback bounce"
+  },
+  {
+    "name": "Shattering Pulse",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Buyback artifact destruction"
+  },
+  {
+    "name": "Erratic Portal",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Creature bounce artifact"
+  },
+  {
+    "name": "Oath of Ghouls",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Graveyard recursion"
+  },
+  {
+    "name": "Pandemonium",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Creature damage engine"
+  },
+  {
+    "name": "Exalted Dragon",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Expensive flying threat"
+  },
+  {
+    "name": "Hatred",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Life for damage"
+  },
+  {
+    "name": "Cataclysm",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Mass permanent reduction"
+  },
+  {
+    "name": "Coat of Arms",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Tribal pump artifact"
+  },
+  {
+    "name": "Doomsday",
+    "sets": [
+      "Weatherlight"
+    ],
+    "notes": "Library manipulation"
+  },
+  {
+    "name": "Null Rod",
+    "sets": [
+      "Weatherlight"
+    ],
+    "notes": "Artifact shutdown"
+  },
+  {
+    "name": "Abeyance",
+    "sets": [
+      "Weatherlight"
+    ],
+    "notes": "Instant/sorcery prevention"
+  },
+  {
+    "name": "Scalding Tarn",
+    "sets": [
+      "Zendikar",
+      "Modern Horizons 2"
+    ],
+    "notes": "Fetchland - Blue/Red"
+  },
+  {
+    "name": "Misty Rainforest",
+    "sets": [
+      "Zendikar",
+      "Modern Horizons 2"
+    ],
+    "notes": "Fetchland - Blue/Green"
+  },
+  {
+    "name": "Verdant Catacombs",
+    "sets": [
+      "Zendikar",
+      "Modern Horizons 2"
+    ],
+    "notes": "Fetchland - Black/Green"
+  },
+  {
+    "name": "Arid Mesa",
+    "sets": [
+      "Zendikar",
+      "Modern Horizons 2"
+    ],
+    "notes": "Fetchland - Red/White"
+  },
+  {
+    "name": "Marsh Flats",
+    "sets": [
+      "Zendikar",
+      "Modern Horizons 2"
+    ],
+    "notes": "Fetchland - White/Black"
+  },
+  {
+    "name": "Steam Vents",
+    "sets": [
+      "Guildpact",
+      "Return to Ravnica"
+    ],
+    "notes": "Shockland - Blue/Red"
+  },
+  {
+    "name": "Overgrown Tomb",
+    "sets": [
+      "Ravnica: City of Guilds",
+      "Return to Ravnica"
+    ],
+    "notes": "Shockland - Black/Green"
+  },
+  {
+    "name": "Sacred Foundry",
+    "sets": [
+      "Ravnica: City of Guilds",
+      "Gatecrash"
+    ],
+    "notes": "Shockland - Red/White"
+  },
+  {
+    "name": "Watery Grave",
+    "sets": [
+      "Ravnica: City of Guilds",
+      "Gatecrash"
+    ],
+    "notes": "Shockland - Blue/Black"
+  },
+  {
+    "name": "Temple Garden",
+    "sets": [
+      "Ravnica: City of Guilds",
+      "Return to Ravnica"
+    ],
+    "notes": "Shockland - Green/White"
+  },
+  {
+    "name": "Godless Shrine",
+    "sets": [
+      "Guildpact",
+      "Gatecrash"
+    ],
+    "notes": "Shockland - White/Black"
+  },
+  {
+    "name": "Stomping Ground",
+    "sets": [
+      "Guildpact",
+      "Gatecrash"
+    ],
+    "notes": "Shockland - Red/Green"
+  },
+  {
+    "name": "Breeding Pool",
+    "sets": [
+      "Dissension",
+      "Gatecrash"
+    ],
+    "notes": "Shockland - Blue/Green"
+  },
+  {
+    "name": "Hallowed Fountain",
+    "sets": [
+      "Dissension",
+      "Return to Ravnica"
+    ],
+    "notes": "Shockland - White/Blue"
+  },
+  {
+    "name": "Blood Crypt",
+    "sets": [
+      "Dissension",
+      "Return to Ravnica"
+    ],
+    "notes": "Shockland - Black/Red"
+  },
+  {
+    "name": "Snapcaster Mage",
+    "sets": [
+      "Innistrad"
+    ],
+    "notes": "Flashback utility"
+  },
+  {
+    "name": "Liliana of the Veil",
+    "sets": [
+      "Innistrad"
+    ],
+    "notes": "Iconic Planeswalker"
+  },
+  {
+    "name": "Jace, the Mind Sculptor",
+    "sets": [
+      "Worldwake"
+    ],
+    "notes": "Iconic Planeswalker"
+  },
+  {
+    "name": "Stoneforge Mystic",
+    "sets": [
+      "Worldwake"
+    ],
+    "notes": "Equipment tutor"
+  },
+  {
+    "name": "Tarmogoyf",
+    "sets": [
+      "Future Sight"
+    ],
+    "notes": "Graveyard beater"
+  },
+  {
+    "name": "Dark Confidant",
+    "sets": [
+      "Ravnica: City of Guilds"
+    ],
+    "notes": "Card advantage"
+  },
+  {
+    "name": "Cyclonic Rift",
+    "sets": [
+      "Return to Ravnica"
+    ],
+    "notes": "Mass bounce"
+  },
+  {
+    "name": "Teferi's Protection",
+    "sets": [
+      "Commander 2017"
+    ],
+    "notes": "Ultimate protection"
+  },
+  {
+    "name": "Craterhoof Behemoth",
+    "sets": [
+      "Avacyn Restored"
+    ],
+    "notes": "Finisher"
+  },
+  {
+    "name": "Doubling Season",
+    "sets": [
+      "Ravnica: City of Guilds"
+    ],
+    "notes": "Token/Counter doubler"
+  },
+  {
+    "name": "The Great Henge",
+    "sets": [
+      "Throne of Eldraine"
+    ],
+    "notes": "Card draw engine"
+  },
+  {
+    "name": "Smothering Tithe",
+    "sets": [
+      "Ravnica Allegiance"
+    ],
+    "notes": "Treasure generator"
+  },
+  {
+    "name": "Fierce Guardianship",
+    "sets": [
+      "Commander 2020"
+    ],
+    "notes": "Free counterspell"
+  },
+  {
+    "name": "Deflecting Swat",
+    "sets": [
+      "Commander 2020"
+    ],
+    "notes": "Free redirection"
+  },
+  {
+    "name": "Urza's Saga",
+    "sets": [
+      "Modern Horizons 2"
+    ],
+    "notes": "Construct utility land"
+  },
+  {
+    "name": "Esper Sentinel",
+    "sets": [
+      "Modern Horizons 2"
+    ],
+    "notes": "White card draw"
+  },
+  {
+    "name": "The One Ring",
+    "sets": [
+      "Lord of the Rings: Tales of Middle-earth"
+    ],
+    "notes": "Protection and draw"
+  },
+  {
+    "name": "Orcish Bowmasters",
+    "sets": [
+      "Lord of the Rings: Tales of Middle-earth"
+    ],
+    "notes": "Punish card draw"
+  },
+  {
+    "name": "Sheoldred, the Apocalypse",
+    "sets": [
+      "Dominaria United"
+    ],
+    "notes": "Punish card draw"
+  },
+  {
+    "name": "Tundra",
+    "sets": [
+      "Revised",
+      "Foreign White Bordered"
+    ],
+    "notes": "Original Dual Land - White/Blue"
+  },
+  {
+    "name": "Underground Sea",
+    "sets": [
+      "Revised",
+      "Foreign White Bordered"
+    ],
+    "notes": "Original Dual Land - Blue/Black"
+  },
+  {
+    "name": "Badlands",
+    "sets": [
+      "Revised",
+      "Foreign White Bordered"
+    ],
+    "notes": "Original Dual Land - Black/Red"
+  },
+  {
+    "name": "Taiga",
+    "sets": [
+      "Revised",
+      "Foreign White Bordered"
+    ],
+    "notes": "Original Dual Land - Red/Green"
+  },
+  {
+    "name": "Savannah",
+    "sets": [
+      "Revised",
+      "Foreign White Bordered"
+    ],
+    "notes": "Original Dual Land - Green/White"
+  },
+  {
+    "name": "Scrubland",
+    "sets": [
+      "Revised",
+      "Foreign White Bordered"
+    ],
+    "notes": "Original Dual Land - White/Black"
+  },
+  {
+    "name": "Volcanic Island",
+    "sets": [
+      "Revised",
+      "Foreign White Bordered"
+    ],
+    "notes": "Original Dual Land - Blue/Red"
+  },
+  {
+    "name": "Bayou",
+    "sets": [
+      "Revised",
+      "Foreign White Bordered"
+    ],
+    "notes": "Original Dual Land - Black/Green"
+  },
+  {
+    "name": "Plateau",
+    "sets": [
+      "Revised",
+      "Foreign White Bordered"
+    ],
+    "notes": "Original Dual Land - Red/White"
+  },
+  {
+    "name": "Horizon Canopy",
+    "sets": [
+      "Future Sight"
+    ],
+    "notes": "Horizon Land - Green/White"
+  },
+  {
+    "name": "Seachrome Coast",
+    "sets": [
+      "Scars of Mirrodin"
+    ],
+    "notes": "Fast Land - White/Blue"
+  },
+  {
+    "name": "Darkslick Shores",
+    "sets": [
+      "Scars of Mirrodin"
+    ],
+    "notes": "Fast Land - Blue/Black"
+  },
+  {
+    "name": "Blackcleave Cliffs",
+    "sets": [
+      "Scars of Mirrodin"
+    ],
+    "notes": "Fast Land - Black/Red"
+  },
+  {
+    "name": "Copperline Gorge",
+    "sets": [
+      "Scars of Mirrodin"
+    ],
+    "notes": "Fast Land - Red/Green"
+  },
+  {
+    "name": "Razorverge Thicket",
+    "sets": [
+      "Scars of Mirrodin"
+    ],
+    "notes": "Fast Land - Green/White"
+  },
+  {
+    "name": "Tropical Island",
+    "sets": [
+      "Revised",
+      "Foreign White Bordered"
+    ],
+    "notes": "Original Dual Land - Green/Blue"
+  },
+  {
+    "name": "Black Lotus",
+    "sets": [
+      "Unlimited Edition"
+    ]
+  }
+]

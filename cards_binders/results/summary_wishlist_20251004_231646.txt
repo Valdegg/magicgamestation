@@ -1,0 +1,364 @@
+🃏 MTG ARBITRAGE RESULTS SUMMARY
+==================================================
+Generated: 2025-10-04 23:16:46
+
+📊 OVERVIEW:
+   Total candidates analyzed: 109
+   Excellent deals found: 41
+   Fair deals found: 16
+   Expensive deals: 38
+   No live data: 14
+
+🎉 EXCELLENT DEALS (≤15% vs AVG30):
+----------------------------------------
+
+• Strip Mine (Antiquities)
+  EX+ Price: €50.00 (EX) - Buzzle1-
+  vs AVG30: +2.0% (€49.00)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Antiquities/Strip-Mine?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Antiquities/Strip-Mine?sellerCountry=7&language=1&minCondition=3
+
+• Mana Vault (Unlimited)
+  EX+ Price: €185.00 (EX) - xxniinjaxx1
+  vs AVG30: -6.4% (€197.58)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Mana-Vault?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Mana-Vault?sellerCountry=7&language=1&minCondition=3
+
+• Winter Orb (Unlimited)
+  EX+ Price: €90.00 (EX) - DoubleDown
+  vs AVG30: +6.0% (€84.89)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Winter-Orb?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Winter-Orb?sellerCountry=7&language=1&minCondition=3
+
+• Swords to Plowshares (Unlimited)
+  EX+ Price: €57.94 (EX) - Luckylev
+  vs AVG30: -7.7% (€62.80)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Swords-To-Plowshares?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Swords-To-Plowshares?sellerCountry=7&language=1&minCondition=3
+
+• Dark Ritual (Unlimited)
+  EX+ Price: €12.00 (EX) - Carddude1520
+  vs AVG30: +10.4% (€10.87)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Dark-Ritual?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Dark-Ritual?sellerCountry=7&language=1&minCondition=3
+
+• Strip Mine (Antiquities)
+  EX+ Price: €50.00 (EX) - Buzzle1-
+  vs AVG30: -6.2% (€53.33)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Antiquities/Strip-Mine?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Antiquities/Strip-Mine?sellerCountry=7&language=1&minCondition=3
+
+• Mana Drain (Legends)
+  EX+ Price: €138.84 (EX) - Bronhy
+  vs AVG30: +0.3% (€138.41)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Mana-Drain?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Mana-Drain?sellerCountry=7&language=1&minCondition=3
+
+• Arcades Sabboth (Legends)
+  EX+ Price: €24.98 (EX) - fabiolone1
+  vs AVG30: -23.6% (€32.68)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Arcades-Sabboth?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Arcades-Sabboth?sellerCountry=7&language=1&minCondition=3
+
+• Earthcraft (Tempest)
+  EX+ Price: €83.00 (EX) - Nyar752
+  vs AVG30: -3.1% (€85.63)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Earthcraft?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Earthcraft?sellerCountry=7&language=1&minCondition=3
+
+• Chalice of the Void (Mirrodin)
+  EX+ Price: €13.00 (EX) - Favorit60
+  vs AVG30: -10.7% (€14.56)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Mirrodin/Chalice-Of-The-Void?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Mirrodin/Chalice-Of-The-Void?sellerCountry=7&language=1&minCondition=3
+
+• Dust Bowl (Mercadian Masques)
+  EX+ Price: €17.74 (NM) - r1z1a
+  vs AVG30: +2.0% (€17.40)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Mercadian-Masques/Dust-Bowl?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Mercadian-Masques/Dust-Bowl?sellerCountry=7&language=1&minCondition=3
+
+• Maze of Ith (The Dark)
+  EX+ Price: €21.02 (EX) - TheGoose
+  vs AVG30: -5.6% (€22.26)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/The-Dark/Maze-Of-Ith?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/The-Dark/Maze-Of-Ith?sellerCountry=7&language=1&minCondition=3
+
+• Corpse Dance (Tempest)
+  EX+ Price: €14.50 (EX) - Vitosellmagic
+  vs AVG30: -14.5% (€16.96)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Corpse-Dance?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Corpse-Dance?sellerCountry=7&language=1&minCondition=3
+
+• Horn of Greed (Stronghold)
+  EX+ Price: €8.00 (EX) - Schwestern
+  vs AVG30: -20.5% (€10.06)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Stronghold/Horn-Of-Greed?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Stronghold/Horn-Of-Greed?sellerCountry=7&language=1&minCondition=3
+
+• Underworld Dreams (Legends)
+  EX+ Price: €81.99 (EX) - MichelPlaccini
+  vs AVG30: -5.3% (€86.61)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Underworld-Dreams?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Underworld-Dreams?sellerCountry=7&language=1&minCondition=3
+
+• Time Spiral (Urza's Saga)
+  EX+ Price: €65.03 (EX) - cuisinero
+  vs AVG30: -1.7% (€66.18)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Saga/Time-Spiral?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Saga/Time-Spiral?sellerCountry=7&language=1&minCondition=3
+
+• Rishadan Port (Mercadian Masques)
+  EX+ Price: €41.99 (EX) - NAJ-cards
+  vs AVG30: -6.7% (€45.02)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Mercadian-Masques/Rishadan-Port?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Mercadian-Masques/Rishadan-Port?sellerCountry=7&language=1&minCondition=3
+
+• Recurring Nightmare (Exodus)
+  EX+ Price: €46.00 (EX) - EpiphanyG
+  vs AVG30: -6.0% (€48.93)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Recurring-Nightmare?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Recurring-Nightmare?sellerCountry=7&language=1&minCondition=3
+
+• Goblin Welder (Urza's Legacy)
+  EX+ Price: €15.77 (EX) - KimDahl
+  vs AVG30: -8.6% (€17.25)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Legacy/Goblin-Welder?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Legacy/Goblin-Welder?sellerCountry=7&language=1&minCondition=3
+
+• Strip Mine (Antiquities)
+  EX+ Price: €50.00 (EX) - Buzzle1-
+  vs AVG30: -20.0% (€62.51)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Antiquities/Strip-Mine?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Antiquities/Strip-Mine?sellerCountry=7&language=1&minCondition=3
+
+• Worldly Tutor (Mirage)
+  EX+ Price: €9.00 (EX) - JulienJ
+  vs AVG30: -33.0% (€13.43)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Worldly-Tutor?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Worldly-Tutor?sellerCountry=7&language=1&minCondition=3
+
+• Survival of the Fittest (Exodus)
+  EX+ Price: €177.36 (EX) - satansghost
+  vs AVG30: -6.3% (€189.20)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Survival-Of-The-Fittest?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Survival-Of-The-Fittest?sellerCountry=7&language=1&minCondition=3
+
+• Ensnaring Bridge (Stronghold)
+  EX+ Price: €11.00 (EX) - EmirM
+  vs AVG30: -15.5% (€13.02)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Stronghold/Ensnaring-Bridge?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Stronghold/Ensnaring-Bridge?sellerCountry=7&language=1&minCondition=3
+
+• Karakas (Legends)
+  EX+ Price: €34.29 (EX) - TheMagicCardTraderUK
+  vs AVG30: -13.2% (€39.51)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Karakas?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Karakas?sellerCountry=7&language=1&minCondition=3
+
+• Land Tax (Legends)
+  EX+ Price: €50.00 (EX) - BlackLilith-13
+  vs AVG30: -12.2% (€56.97)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Land-Tax?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Land-Tax?sellerCountry=7&language=1&minCondition=3
+
+• Dance of the Dead (Ice Age)
+  EX+ Price: €14.00 (EX) - roene
+  vs AVG30: -9.4% (€15.46)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Dance-Of-The-Dead?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Dance-Of-The-Dead?sellerCountry=7&language=1&minCondition=3
+
+• Reanimate (Tempest)
+  EX+ Price: €10.63 (EX) - SwigginPanda
+  vs AVG30: -22.1% (€13.65)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Reanimate?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Reanimate?sellerCountry=7&language=1&minCondition=3
+
+• Enlightened Tutor (Mirage)
+  EX+ Price: €20.00 (NM) - ZZZzzzleeper
+  vs AVG30: -7.1% (€21.53)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Enlightened-Tutor?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Enlightened-Tutor?sellerCountry=7&language=1&minCondition=3
+
+• Trinisphere (Darksteel)
+  EX+ Price: €15.00 (NM) - alvaro1990
+  vs AVG30: -14.3% (€17.50)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Darksteel/Trinisphere?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Darksteel/Trinisphere?sellerCountry=7&language=1&minCondition=3
+
+• Entomb (Odyssey)
+  EX+ Price: €21.00 (EX) - Kaskade
+  vs AVG30: -7.5% (€22.71)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Odyssey/Entomb?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Odyssey/Entomb?sellerCountry=7&language=1&minCondition=3
+
+• Cabal Coffers (Torment)
+  EX+ Price: €15.00 (EX) - NilsMueller
+  vs AVG30: -8.3% (€16.36)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Torment/Cabal-Coffers?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Torment/Cabal-Coffers?sellerCountry=7&language=1&minCondition=3
+
+• Sphere of Resistance (Exodus)
+  EX+ Price: €20.00 (NM) - karkow1
+  vs AVG30: -12.0% (€22.74)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Sphere-Of-Resistance?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Sphere-Of-Resistance?sellerCountry=7&language=1&minCondition=3
+
+• Karplusan Forest (Ice Age)
+  EX+ Price: €22.35 (EX) - Toysnloot
+  vs AVG30: -9.0% (€24.56)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Karplusan-Forest?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Karplusan-Forest?sellerCountry=7&language=1&minCondition=3
+
+• Brushland (Ice Age)
+  EX+ Price: €7.10 (NM) - maxtlion
+  vs AVG30: -41.5% (€12.14)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Brushland?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Brushland?sellerCountry=7&language=1&minCondition=3
+
+• Sulfurous Springs (Ice Age)
+  EX+ Price: €10.00 (EX) - benditbeuh
+  vs AVG30: -9.6% (€11.06)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Sulfurous-Springs?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Sulfurous-Springs?sellerCountry=7&language=1&minCondition=3
+
+• Vaevictis Asmadi (Legends)
+  EX+ Price: €28.95 (EX) - CardHouseOfTheEast
+  vs AVG30: -10.5% (€32.33)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Vaevictis-Asmadi?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Vaevictis-Asmadi?sellerCountry=7&language=1&minCondition=3
+
+• Cursed Scroll (Tempest)
+  EX+ Price: €23.95 (EX) - CARBON14
+  vs AVG30: -14.2% (€27.93)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Cursed-Scroll?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Cursed-Scroll?sellerCountry=7&language=1&minCondition=3
+
+• Thawing Glaciers (Alliances)
+  EX+ Price: €6.00 (EX) - isys59
+  vs AVG30: -43.3% (€10.58)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alliances/Thawing-Glaciers?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Alliances/Thawing-Glaciers?sellerCountry=7&language=1&minCondition=3
+
+• Aluren (Tempest)
+  EX+ Price: €26.70 (EX) - James88
+  vs AVG30: -14.8% (€31.33)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Aluren?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Aluren?sellerCountry=7&language=1&minCondition=3
+
+• Underground River (Ice Age)
+  EX+ Price: €12.62 (EX) - Toysnloot
+  vs AVG30: -16.4% (€15.09)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Underground-River?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Underground-River?sellerCountry=7&language=1&minCondition=3
+
+• Oath of Druids (Exodus)
+  EX+ Price: €14.39 (EX) - qasno
+  vs AVG30: -21.5% (€18.33)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Oath-Of-Druids?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Oath-Of-Druids?sellerCountry=7&language=1&minCondition=3
+
+🟡 FAIR DEALS (15-30% vs AVG30):
+----------------------------------------
+
+• Chrome Mox (Mirrodin)
+  EX+ Price: €55.00 (EX) - Ampyre
+  vs AVG30: +10.2% (€49.89)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Mirrodin/Chrome-Mox?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Mirrodin/Chrome-Mox?sellerCountry=7&language=1&minCondition=3
+
+• Scroll Rack (Tempest)
+  EX+ Price: €23.00 (EX) - Dgvs10
+  vs AVG30: -1.7% (€23.40)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Scroll-Rack?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Scroll-Rack?sellerCountry=7&language=1&minCondition=3
+
+• Vampiric Tutor (Visions)
+  EX+ Price: €38.45 (EX) - deada
+  vs AVG30: -3.4% (€39.82)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Visions/Vampiric-Tutor?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Visions/Vampiric-Tutor?sellerCountry=7&language=1&minCondition=3
+
+• Sensei's Divining Top (Champions of Kamigawa)
+  EX+ Price: €14.95 (EX) - Azyrhaphal
+  vs AVG30: -2.0% (€15.26)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Champions-Of-Kamigawa/Senseis-Divining-Top?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Champions-Of-Kamigawa/Senseis-Divining-Top?sellerCountry=7&language=1&minCondition=3
+
+• Mana Vault (Revised)
+  EX+ Price: €47.99 (EX) - lukey52
+  vs AVG30: +1.0% (€47.51)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Revised/Mana-Vault?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Revised/Mana-Vault?sellerCountry=7&language=1&minCondition=3
+
+• Rhystic Study (Prophecy)
+  EX+ Price: €33.00 (NM) - gaetan3344
+  vs AVG30: -0.3% (€33.11)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Prophecy/Rhystic-Study?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Prophecy/Rhystic-Study?sellerCountry=7&language=1&minCondition=3
+
+• Lake of the Dead (Alliances)
+  EX+ Price: €59.99 (EX) - hete1990
+  vs AVG30: -0.3% (€60.19)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alliances/Lake-Of-The-Dead?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Alliances/Lake-Of-The-Dead?sellerCountry=7&language=1&minCondition=3
+
+• City of Traitors (Exodus)
+  EX+ Price: €289.99 (EX) - Spellslingers
+  vs AVG30: -3.0% (€298.84)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/City-Of-Traitors?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/City-Of-Traitors?sellerCountry=7&language=1&minCondition=3
+
+• Sylvan Library (Legends)
+  EX+ Price: €119.88 (EX) - Bronhy
+  vs AVG30: -5.6% (€127.02)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Sylvan-Library?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Sylvan-Library?sellerCountry=7&language=1&minCondition=3
+
+• Burgeoning (Stronghold)
+  EX+ Price: €23.65 (NM) - Hoshi14637
+  vs AVG30: -2.8% (€24.32)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Stronghold/Burgeoning?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Stronghold/Burgeoning?sellerCountry=7&language=1&minCondition=3
+
+• Sliver Queen (Stronghold)
+  EX+ Price: €150.00 (EX) - PieterC
+  vs AVG30: -6.5% (€160.46)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Stronghold/Sliver-Queen?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Stronghold/Sliver-Queen?sellerCountry=7&language=1&minCondition=3
+
+• Shallow Grave (Mirage)
+  EX+ Price: €70.95 (EX) - cataclysm-uk
+  vs AVG30: -5.1% (€74.79)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Shallow-Grave?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Shallow-Grave?sellerCountry=7&language=1&minCondition=3
+
+• Tolarian Academy (Urza's Saga)
+  EX+ Price: €91.05 (EX) - altivo-lee
+  vs AVG30: -6.2% (€97.02)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Saga/Tolarian-Academy?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Saga/Tolarian-Academy?sellerCountry=7&language=1&minCondition=3
+
+• Necropotence (Ice Age)
+  EX+ Price: €16.50 (NM) - ZZZzzzleeper
+  vs AVG30: -10.4% (€18.42)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Necropotence?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Necropotence?sellerCountry=7&language=1&minCondition=3
+
+• Ancient Tomb (Tempest)
+  EX+ Price: €75.00 (EX) - boensj
+  vs AVG30: -8.4% (€81.92)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Ancient-Tomb?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Ancient-Tomb?sellerCountry=7&language=1&minCondition=3
+
+• Null Rod (Weatherlight)
+  EX+ Price: €57.00 (EX) - Miggy2k
+  vs AVG30: -13.2% (€65.69)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Weatherlight/Null-Rod?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Weatherlight/Null-Rod?sellerCountry=7&language=1&minCondition=3
+
+💡 USAGE NOTES:
+- Excellent deals are ready to buy at near-historical prices
+- Fair deals may be worth considering depending on your strategy
+- Check URLs for current availability and shipping costs
+- Prices may change quickly - verify before purchasing

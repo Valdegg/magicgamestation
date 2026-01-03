@@ -1,0 +1,43 @@
+{
+  "timestamp": "20250930_201801",
+  "summary": {
+    "total_analyzed": 1,
+    "excellent_deals": 0,
+    "good_deals": 0,
+    "expensive_deals": 0,
+    "no_data": 1
+  },
+  "excellent_deals": [],
+  "good_deals": [],
+  "expensive_deals": [],
+  "no_data": [
+    {
+      "rank": 1,
+      "card_name": "Cockatrice",
+      "expansion": "Alpha",
+      "card_id": 5331,
+      "historical_data": {
+        "avg7": 401.86,
+        "avg30": 176.79,
+        "trend": 479.61,
+        "real_discount": 0.6313880027522363
+      },
+      "live_data": null
+    }
+  ],
+  "all_results": [
+    {
+      "rank": 1,
+      "card_name": "Cockatrice",
+      "expansion": "Alpha",
+      "card_id": 5331,
+      "historical_data": {
+        "avg7": 401.86,
+        "avg30": 176.79,
+        "trend": 479.61,
+        "real_discount": 0.6313880027522363
+      },
+      "live_data": null
+    }
+  ]
+}

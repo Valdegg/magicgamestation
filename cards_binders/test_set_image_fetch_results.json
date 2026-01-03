@@ -1,0 +1,52 @@
+[
+  {
+    "card_name": "Mox Jet",
+    "set_name": "International Edition",
+    "success": false,
+    "error": "All query formats failed (404 or other error)",
+    "query_used": "!\"Mox Jet\" set:\"cei\"",
+    "scryfall_set_code": "CEI",
+    "found_cards": [],
+    "selected_card": null
+  },
+  {
+    "card_name": "Mox Jet",
+    "set_name": "Collector's Edition",
+    "success": false,
+    "error": "All query formats failed (404 or other error)",
+    "query_used": "!\"Mox Jet\" set:\"ced\"",
+    "scryfall_set_code": "CED",
+    "found_cards": [],
+    "selected_card": null
+  },
+  {
+    "card_name": "Mox Jet",
+    "set_name": "Alpha (Limited Edition)",
+    "success": false,
+    "error": "All query formats failed (404 or other error)",
+    "query_used": "!\"Mox Jet\" set:\"lea\"",
+    "scryfall_set_code": "LEA",
+    "found_cards": [],
+    "selected_card": null
+  },
+  {
+    "card_name": "Mox Jet",
+    "set_name": "Beta (Limited Edition)",
+    "success": false,
+    "error": "All query formats failed (404 or other error)",
+    "query_used": "!\"Mox Jet\" set:\"leb\"",
+    "scryfall_set_code": "LEB",
+    "found_cards": [],
+    "selected_card": null
+  },
+  {
+    "card_name": "Mox Jet",
+    "set_name": "Unlimited Edition",
+    "success": false,
+    "error": "All query formats failed (404 or other error)",
+    "query_used": "!\"Mox Jet\" set:\"2ed\"",
+    "scryfall_set_code": "2ED",
+    "found_cards": [],
+    "selected_card": null
+  }
+]

@@ -1,0 +1,82 @@
+🃏 MTG ARBITRAGE RESULTS SUMMARY
+==================================================
+Generated: 2025-09-30 20:29:30
+
+📊 OVERVIEW:
+   Total candidates analyzed: 54
+   Excellent deals found: 8
+   Fair deals found: 2
+   Expensive deals: 2
+   No live data: 42
+
+🎉 EXCELLENT DEALS (≤15% vs AVG30):
+----------------------------------------
+
+• Living Artifact (Alpha)
+  EX+ Price: €339.99 (EX) - RubyTrade
+  vs AVG30: +115.4% (€157.84)
+  URL (All Sellers): https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Living-Artifact
+  URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Living-Artifact?sellerCountry=7&language=1&minCondition=3
+
+• Reverse Damage (Alpha)
+  EX+ Price: €350.00 (EX) - Magic-Dreams
+  vs AVG30: +75.2% (€199.78)
+  URL (All Sellers): https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Reverse-Damage
+  URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Reverse-Damage?sellerCountry=7&language=1&minCondition=3
+
+• Chaoslace (Alpha)
+  EX+ Price: €245.00 (EX) - ThreeForOne-AT
+  vs AVG30: +34.1% (€182.68)
+  URL (All Sellers): https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Chaoslace
+  URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Chaoslace?sellerCountry=7&language=1&minCondition=3
+
+• Reverse Damage (Beta)
+  EX+ Price: €85.00 (EX) - milirem
+  vs AVG30: +10.2% (€77.15)
+  URL (All Sellers): https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Reverse-Damage
+  URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Reverse-Damage?sellerCountry=7&language=1&minCondition=3
+
+• Personal Incarnation (Beta)
+  EX+ Price: €140.00 (EX) - ThreeForOne-AT
+  vs AVG30: -13.3% (€161.55)
+  URL (All Sellers): https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Personal-Incarnation
+  URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Personal-Incarnation?sellerCountry=7&language=1&minCondition=3
+
+• Field of Dreams (Legends)
+  EX+ Price: €94.99 (EX) - teresis
+  vs AVG30: -6.9% (€102.06)
+  URL (All Sellers): https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Field-Of-Dreams
+  URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Field-Of-Dreams?sellerCountry=7&language=1&minCondition=3
+
+• Divine Intervention (Legends)
+  EX+ Price: €94.39 (EX) - TheMagicCardTraderUK
+  vs AVG30: -7.7% (€102.31)
+  URL (All Sellers): https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Divine-Intervention
+  URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Divine-Intervention?sellerCountry=7&language=1&minCondition=3
+
+• Hellfire (Legends)
+  EX+ Price: €80.00 (EX) - sebest
+  vs AVG30: -10.5% (€89.40)
+  URL (All Sellers): https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Hellfire
+  URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Hellfire?sellerCountry=7&language=1&minCondition=3
+
+🟡 FAIR DEALS (15-30% vs AVG30):
+----------------------------------------
+
+• Manabarbs (Alpha)
+  EX+ Price: €360.00 (EX) - Tuardian
+  vs AVG30: +160.7% (€138.11)
+  URL (All Sellers): https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Manabarbs
+  URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Manabarbs?sellerCountry=7&language=1&minCondition=3
+
+• Dingus Egg (Alpha)
+  EX+ Price: €439.99 (EX) - phigue0
+  vs AVG30: +136.9% (€185.71)
+  URL (All Sellers): https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Dingus-Egg
+  URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Dingus-Egg?sellerCountry=7&language=1&minCondition=3
+
+💡 USAGE NOTES:
+- Excellent deals are ready to buy at near-historical prices
+- Fair deals may be worth considering depending on your strategy
+- Check URLs for current availability and shipping costs
+- Prices may change quickly - verify before purchasing

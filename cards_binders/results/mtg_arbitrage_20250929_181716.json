@@ -1,0 +1,288 @@
+{
+  "timestamp": "20250929_181716",
+  "summary": {
+    "total_analyzed": 5,
+    "excellent_deals": 4,
+    "good_deals": 0,
+    "expensive_deals": 1,
+    "no_data": 0
+  },
+  "excellent_deals": [
+    {
+      "rank": 1,
+      "card_name": "Mana Flare",
+      "expansion": "Beta",
+      "card_id": 4952,
+      "historical_data": {
+        "avg7": 225.06,
+        "avg30": 294.49,
+        "trend": 318.09,
+        "real_discount": 0.29246439686881065
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 300.0,
+        "average_current": 343.08200000000005,
+        "cheapest_good_condition": 300.0,
+        "cheapest_good_condition_details": {
+          "price": 300.0,
+          "condition": "NM",
+          "seller": "RobRot",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 33.29778725673154,
+        "good_condition_vs_trend_pct": -5.687069697255486,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Mana-Flare?minCondition=3"
+      }
+    },
+    {
+      "rank": 2,
+      "card_name": "Howling Mine",
+      "expansion": "Alpha",
+      "card_id": 5481,
+      "historical_data": {
+        "avg7": 1165.43,
+        "avg30": 614.48,
+        "trend": 1587.38,
+        "real_discount": 0.2658153687207852
+      },
+      "live_data": {
+        "total_listings": 6,
+        "cheapest_current": 399.99,
+        "average_current": 582.6633333333333,
+        "cheapest_good_condition": 399.99,
+        "cheapest_good_condition_details": {
+          "price": 399.99,
+          "condition": "NM",
+          "seller": "Zlopotom",
+          "quantity": 2
+        },
+        "good_condition_vs_avg7_pct": -65.6787623452288,
+        "good_condition_vs_trend_pct": -74.8018747873855,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Howling-Mine?minCondition=3"
+      }
+    },
+    {
+      "rank": 3,
+      "card_name": "Timetwister",
+      "expansion": "Beta",
+      "card_id": 4796,
+      "historical_data": {
+        "avg7": 4911.29,
+        "avg30": 4756.95,
+        "trend": 6630.14,
+        "real_discount": 0.25924791935011937
+      },
+      "live_data": {
+        "total_listings": 6,
+        "cheapest_current": 200.0,
+        "average_current": 674.9916666666667,
+        "cheapest_good_condition": 200.0,
+        "cheapest_good_condition_details": {
+          "price": 200.0,
+          "condition": "NM",
+          "seller": "tzo843",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -95.92775014303777,
+        "good_condition_vs_trend_pct": -96.98347244552905,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Timetwister?minCondition=3"
+      }
+    },
+    {
+      "rank": 5,
+      "card_name": "Demonic Tutor",
+      "expansion": "Alpha",
+      "card_id": 5246,
+      "historical_data": {
+        "avg7": 600.57,
+        "avg30": 858.24,
+        "trend": 793.0,
+        "real_discount": 0.24266078184110965
+      },
+      "live_data": {
+        "total_listings": 9,
+        "cheapest_current": 199.0,
+        "average_current": 519.1866666666667,
+        "cheapest_good_condition": 199.0,
+        "cheapest_good_condition_details": {
+          "price": 199.0,
+          "condition": "EX",
+          "seller": "enricocollector",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -66.86481176215928,
+        "good_condition_vs_trend_pct": -74.90542244640605,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Demonic-Tutor?minCondition=3"
+      }
+    }
+  ],
+  "good_deals": [],
+  "expensive_deals": [
+    {
+      "rank": 4,
+      "card_name": "Wrath of God",
+      "expansion": "Unlimited",
+      "card_id": 5087,
+      "historical_data": {
+        "avg7": 77.84,
+        "avg30": 96.74,
+        "trend": 103.9,
+        "real_discount": 0.25081809432146296
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 180.0,
+        "average_current": 202.374,
+        "cheapest_good_condition": 180.0,
+        "cheapest_good_condition_details": {
+          "price": 180.0,
+          "condition": "EX",
+          "seller": "ThreeForOne-AT",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 131.24357656731755,
+        "good_condition_vs_trend_pct": 73.24350336862366,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Wrath-Of-God?minCondition=3"
+      }
+    }
+  ],
+  "no_data": [],
+  "all_results": [
+    {
+      "rank": 1,
+      "card_name": "Mana Flare",
+      "expansion": "Beta",
+      "card_id": 4952,
+      "historical_data": {
+        "avg7": 225.06,
+        "avg30": 294.49,
+        "trend": 318.09,
+        "real_discount": 0.29246439686881065
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 300.0,
+        "average_current": 343.08200000000005,
+        "cheapest_good_condition": 300.0,
+        "cheapest_good_condition_details": {
+          "price": 300.0,
+          "condition": "NM",
+          "seller": "RobRot",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 33.29778725673154,
+        "good_condition_vs_trend_pct": -5.687069697255486,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Mana-Flare?minCondition=3"
+      }
+    },
+    {
+      "rank": 2,
+      "card_name": "Howling Mine",
+      "expansion": "Alpha",
+      "card_id": 5481,
+      "historical_data": {
+        "avg7": 1165.43,
+        "avg30": 614.48,
+        "trend": 1587.38,
+        "real_discount": 0.2658153687207852
+      },
+      "live_data": {
+        "total_listings": 6,
+        "cheapest_current": 399.99,
+        "average_current": 582.6633333333333,
+        "cheapest_good_condition": 399.99,
+        "cheapest_good_condition_details": {
+          "price": 399.99,
+          "condition": "NM",
+          "seller": "Zlopotom",
+          "quantity": 2
+        },
+        "good_condition_vs_avg7_pct": -65.6787623452288,
+        "good_condition_vs_trend_pct": -74.8018747873855,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Howling-Mine?minCondition=3"
+      }
+    },
+    {
+      "rank": 3,
+      "card_name": "Timetwister",
+      "expansion": "Beta",
+      "card_id": 4796,
+      "historical_data": {
+        "avg7": 4911.29,
+        "avg30": 4756.95,
+        "trend": 6630.14,
+        "real_discount": 0.25924791935011937
+      },
+      "live_data": {
+        "total_listings": 6,
+        "cheapest_current": 200.0,
+        "average_current": 674.9916666666667,
+        "cheapest_good_condition": 200.0,
+        "cheapest_good_condition_details": {
+          "price": 200.0,
+          "condition": "NM",
+          "seller": "tzo843",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -95.92775014303777,
+        "good_condition_vs_trend_pct": -96.98347244552905,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Timetwister?minCondition=3"
+      }
+    },
+    {
+      "rank": 4,
+      "card_name": "Wrath of God",
+      "expansion": "Unlimited",
+      "card_id": 5087,
+      "historical_data": {
+        "avg7": 77.84,
+        "avg30": 96.74,
+        "trend": 103.9,
+        "real_discount": 0.25081809432146296
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 180.0,
+        "average_current": 202.374,
+        "cheapest_good_condition": 180.0,
+        "cheapest_good_condition_details": {
+          "price": 180.0,
+          "condition": "EX",
+          "seller": "ThreeForOne-AT",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 131.24357656731755,
+        "good_condition_vs_trend_pct": 73.24350336862366,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Wrath-Of-God?minCondition=3"
+      }
+    },
+    {
+      "rank": 5,
+      "card_name": "Demonic Tutor",
+      "expansion": "Alpha",
+      "card_id": 5246,
+      "historical_data": {
+        "avg7": 600.57,
+        "avg30": 858.24,
+        "trend": 793.0,
+        "real_discount": 0.24266078184110965
+      },
+      "live_data": {
+        "total_listings": 9,
+        "cheapest_current": 199.0,
+        "average_current": 519.1866666666667,
+        "cheapest_good_condition": 199.0,
+        "cheapest_good_condition_details": {
+          "price": 199.0,
+          "condition": "EX",
+          "seller": "enricocollector",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -66.86481176215928,
+        "good_condition_vs_trend_pct": -74.90542244640605,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Demonic-Tutor?minCondition=3"
+      }
+    }
+  ]
+}

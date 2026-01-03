@@ -1,0 +1,16 @@
+🃏 MTG ARBITRAGE RESULTS SUMMARY
+==================================================
+Generated: 2025-09-30 20:26:57
+
+📊 OVERVIEW:
+   Total candidates analyzed: 2
+   Excellent deals found: 0
+   Fair deals found: 0
+   Expensive deals: 0
+   No live data: 2
+
+💡 USAGE NOTES:
+- Excellent deals are ready to buy at near-historical prices
+- Fair deals may be worth considering depending on your strategy
+- Check URLs for current availability and shipping costs
+- Prices may change quickly - verify before purchasing

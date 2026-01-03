@@ -1,0 +1,789 @@
+{
+  "timestamp": "2026-01-03 17:50:12",
+  "wishlist_file": "wishlist.json",
+  "config": {
+    "min_discount": 0.0,
+    "delay_between_cards": 10.0,
+    "use_historical_data": true
+  },
+  "summary": {
+    "total_deals": 10,
+    "excellent": 7,
+    "good": 0,
+    "fair": 3,
+    "expensive": 0,
+    "no_data": 0
+  },
+  "deals": [
+    {
+      "card": {
+        "name": "Demonic Tutor",
+        "expansion": "Beta",
+        "card_id": 4652,
+        "historical": {
+          "trend": 414.25,
+          "avg30": 483.41,
+          "avg7": 455.6
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Demonic-Tutor?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 73,
+        "expansion_name": "Beta",
+        "cheapest_good_condition": 600.0,
+        "cheapest_good_details": {
+          "price": 600.0,
+          "condition": "EX",
+          "seller": "simppp",
+          "quantity": 1,
+          "country": "Denmark"
+        },
+        "top_sellers": [
+          {
+            "seller": "simppp",
+            "price": 600.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "Olli-Baba",
+            "price": 639.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "oldmagiccollector",
+            "price": 649.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "Catchimba",
+            "price": 650.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Luxembourg"
+          },
+          {
+            "seller": "oldgix",
+            "price": 650.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "Urzas-Consulting",
+            "price": 650.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 7.2642967542503865,
+        "market_baseline": 647.0,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Demonic Tutor",
+        "expansion": "Unlimited",
+        "card_id": 4653,
+        "historical": {
+          "trend": 73.54,
+          "avg30": 66.77,
+          "avg7": 87.11
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Demonic-Tutor?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 100,
+        "expansion_name": "Unlimited",
+        "cheapest_good_condition": 80.0,
+        "cheapest_good_details": {
+          "price": 80.0,
+          "condition": "EX",
+          "seller": "Christobye",
+          "quantity": 1,
+          "country": "Switzerland"
+        },
+        "top_sellers": [
+          {
+            "seller": "Christobye",
+            "price": 80.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "Ninja118",
+            "price": 88.73,
+            "condition": "EX",
+            "quantity": 2,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Earthwindandfab",
+            "price": 125.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "kielj",
+            "price": 129.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "Mithcu",
+            "price": 130.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Finland"
+          },
+          {
+            "seller": "HulKraken",
+            "price": 147.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 32.449548256353964,
+        "market_baseline": 118.43,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Demonic Tutor",
+        "expansion": "Alpha",
+        "card_id": 5246,
+        "historical": {
+          "trend": 760.01,
+          "avg30": 861.59,
+          "avg7": 635.42
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Demonic-Tutor?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 40,
+        "expansion_name": "Alpha",
+        "cheapest_good_condition": 990.0,
+        "cheapest_good_details": {
+          "price": 990.0,
+          "condition": "NM",
+          "seller": "ThreeForOne-AT",
+          "quantity": 1,
+          "country": "Austria"
+        },
+        "top_sellers": [
+          {
+            "seller": "ThreeForOne-AT",
+            "price": 990.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Austria"
+          },
+          {
+            "seller": "LeRonin83",
+            "price": 1200.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "DeKartonnenKwaak",
+            "price": 1275.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Netherlands"
+          },
+          {
+            "seller": "Zukula",
+            "price": 1279.95,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "Cartapapa-GP",
+            "price": 1299.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "mzpet",
+            "price": 1399.9,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 21.64544564152791,
+        "market_baseline": 1263.4875,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Lightning Bolt",
+        "expansion": "Beta",
+        "card_id": 4950,
+        "historical": {
+          "trend": 217.07,
+          "avg30": 215.39,
+          "avg7": 197.22
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Lightning-Bolt?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 188,
+        "expansion_name": "Beta",
+        "cheapest_good_condition": 270.0,
+        "cheapest_good_details": {
+          "price": 270.0,
+          "condition": "EX",
+          "seller": "druler",
+          "quantity": 2,
+          "country": "Belgium"
+        },
+        "top_sellers": [
+          {
+            "seller": "druler",
+            "price": 270.0,
+            "condition": "EX",
+            "quantity": 2,
+            "country": "Belgium"
+          },
+          {
+            "seller": "Yanatoy",
+            "price": 274.95,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Netherlands"
+          },
+          {
+            "seller": "yvel",
+            "price": 274.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "Fiska",
+            "price": 275.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "gneisenau0815",
+            "price": 275.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "Aquablue71",
+            "price": 275.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 1.8128261541538677,
+        "market_baseline": 274.985,
+        "baseline_count": 4
+      },
+      "category": "fair"
+    },
+    {
+      "card": {
+        "name": "Lightning Bolt",
+        "expansion": "Unlimited",
+        "card_id": 4951,
+        "historical": {
+          "trend": 16.86,
+          "avg30": 18.23,
+          "avg7": 19.52
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Lightning-Bolt?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 387,
+        "expansion_name": "Unlimited",
+        "cheapest_good_condition": 15.38,
+        "cheapest_good_details": {
+          "price": 15.38,
+          "condition": "EX",
+          "seller": "Angel-Cards",
+          "quantity": 1,
+          "country": "United Kingdom"
+        },
+        "top_sellers": [
+          {
+            "seller": "Angel-Cards",
+            "price": 15.38,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Llanbadios",
+            "price": 22.47,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "RODERCOM",
+            "price": 22.79,
+            "condition": "EX",
+            "quantity": 2,
+            "country": "Italy"
+          },
+          {
+            "seller": "Opaps",
+            "price": 23.53,
+            "condition": "EX",
+            "quantity": 2,
+            "country": "Belgium"
+          },
+          {
+            "seller": "Dantus19",
+            "price": 24.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Slovenia"
+          },
+          {
+            "seller": "Vhengry",
+            "price": 24.75,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Spain"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 33.69975212846211,
+        "market_baseline": 23.197499999999998,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Lightning Bolt",
+        "expansion": "Alpha",
+        "card_id": 5395,
+        "historical": {
+          "trend": 413.81,
+          "avg30": 387.56,
+          "avg7": 413.02
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Lightning-Bolt?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 78,
+        "expansion_name": "Alpha",
+        "cheapest_good_condition": 370.0,
+        "cheapest_good_details": {
+          "price": 370.0,
+          "condition": "EX",
+          "seller": "MeroSensei",
+          "quantity": 1,
+          "country": "France"
+        },
+        "top_sellers": [
+          {
+            "seller": "MeroSensei",
+            "price": 370.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "smaxcorp",
+            "price": 420.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "Zauberschmiede",
+            "price": 424.75,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "Magic-Dreams",
+            "price": 449.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "Santiago",
+            "price": 450.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "Santiago",
+            "price": 450.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Spain"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 15.125448028673835,
+        "market_baseline": 435.9375,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Counterspell",
+        "expansion": "Beta",
+        "card_id": 4736,
+        "historical": {
+          "trend": 344.57,
+          "avg30": 380.82,
+          "avg7": 366.2
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Counterspell?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 91,
+        "expansion_name": "Beta",
+        "cheapest_good_condition": 496.0,
+        "cheapest_good_details": {
+          "price": 496.0,
+          "condition": "EX",
+          "seller": "oldmagiccollector",
+          "quantity": 1,
+          "country": "France"
+        },
+        "top_sellers": [
+          {
+            "seller": "oldmagiccollector",
+            "price": 496.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "RacoonRises",
+            "price": 594.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "Fiska",
+            "price": 599.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "Tofuuuu",
+            "price": 599.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "Tofuuuu",
+            "price": 599.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "Dobi-trading-DE",
+            "price": 599.98,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 17.05650943356786,
+        "market_baseline": 597.9975,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Counterspell",
+        "expansion": "Unlimited",
+        "card_id": 4737,
+        "historical": {
+          "trend": 53.13,
+          "avg30": 56.19,
+          "avg7": 43.61
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Counterspell?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 76,
+        "expansion_name": "Unlimited",
+        "cheapest_good_condition": 70.97,
+        "cheapest_good_details": {
+          "price": 70.97,
+          "condition": "EX",
+          "seller": "Llanbadios",
+          "quantity": 1,
+          "country": "United Kingdom"
+        },
+        "top_sellers": [
+          {
+            "seller": "Llanbadios",
+            "price": 70.97,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "PokemondoGE",
+            "price": 71.49,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "goodman123",
+            "price": 71.5,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Netherlands"
+          },
+          {
+            "seller": "tschaka2002",
+            "price": 72.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "Fiska",
+            "price": 72.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "Fiska",
+            "price": 85.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Italy"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 1.083661451618528,
+        "market_baseline": 71.7475,
+        "baseline_count": 4
+      },
+      "category": "fair"
+    },
+    {
+      "card": {
+        "name": "Counterspell",
+        "expansion": "Alpha",
+        "card_id": 5288,
+        "historical": {
+          "trend": 734.79,
+          "avg30": 691.17,
+          "avg7": 591.99
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Counterspell?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 36,
+        "expansion_name": "Alpha",
+        "cheapest_good_condition": 750.0,
+        "cheapest_good_details": {
+          "price": 750.0,
+          "condition": "EX",
+          "seller": "kasj78",
+          "quantity": 1,
+          "country": "Denmark"
+        },
+        "top_sellers": [
+          {
+            "seller": "kasj78",
+            "price": 750.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "llanowarelfe",
+            "price": 799.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "ThreeForOne-AT",
+            "price": 800.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Austria"
+          },
+          {
+            "seller": "Bronhy",
+            "price": 989.98,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Croatia"
+          },
+          {
+            "seller": "Distritozero-Bilbao",
+            "price": 989.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "ThreeForOne-AT",
+            "price": 990.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Austria"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 16.1770006454371,
+        "market_baseline": 894.7425000000001,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Dark Ritual",
+        "expansion": "Beta",
+        "card_id": 4640,
+        "historical": {
+          "trend": 108.2,
+          "avg30": 109.1,
+          "avg7": 123.54
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Dark-Ritual?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 138,
+        "expansion_name": "Beta",
+        "cheapest_good_condition": 128.99,
+        "cheapest_good_details": {
+          "price": 128.99,
+          "condition": "EX",
+          "seller": "Tryllepapp",
+          "quantity": 1,
+          "country": "Norway"
+        },
+        "top_sellers": [
+          {
+            "seller": "Tryllepapp",
+            "price": 128.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Norway"
+          },
+          {
+            "seller": "Tryllepapp",
+            "price": 128.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Norway"
+          },
+          {
+            "seller": "Card-Jungle",
+            "price": 129.0,
+            "condition": "EX",
+            "quantity": 3,
+            "country": "Germany"
+          },
+          {
+            "seller": "Olli-Baba",
+            "price": 129.99,
+            "condition": "EX",
+            "quantity": 2,
+            "country": "Germany"
+          },
+          {
+            "seller": "Fiska",
+            "price": 130.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "Fiska",
+            "price": 130.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 0.38997644696706085,
+        "market_baseline": 129.495,
+        "baseline_count": 4
+      },
+      "category": "fair"
+    }
+  ]
+}

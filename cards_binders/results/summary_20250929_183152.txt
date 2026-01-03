@@ -1,0 +1,29 @@
+🃏 MTG ARBITRAGE RESULTS SUMMARY
+==================================================
+Generated: 2025-09-29 18:31:52
+
+📊 OVERVIEW:
+   Total candidates analyzed: 3
+   Excellent deals found: 2
+   Fair deals found: 0
+   Expensive deals: 0
+   No live data: 1
+
+🎉 EXCELLENT DEALS (≤15% vs AVG7):
+----------------------------------------
+
+• Wheel of Fortune (Alpha)
+  EX+ Price: €625.00 (NM) - Skamarla
+  vs AVG7: -83.0% (€3679.28)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Wheel-Of-Fortune?minCondition=3
+
+• Howling Mine (Alpha)
+  EX+ Price: €399.99 (NM) - Zlopotom
+  vs AVG7: -65.7% (€1165.43)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Howling-Mine?minCondition=3
+
+💡 USAGE NOTES:
+- Excellent deals are ready to buy at near-historical prices
+- Fair deals may be worth considering depending on your strategy
+- Check URLs for current availability and shipping costs
+- Prices may change quickly - verify before purchasing

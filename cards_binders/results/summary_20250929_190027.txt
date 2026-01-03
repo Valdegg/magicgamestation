@@ -1,0 +1,24 @@
+🃏 MTG ARBITRAGE RESULTS SUMMARY
+==================================================
+Generated: 2025-09-29 19:00:27
+
+📊 OVERVIEW:
+   Total candidates analyzed: 2
+   Excellent deals found: 1
+   Fair deals found: 0
+   Expensive deals: 1
+   No live data: 0
+
+🎉 EXCELLENT DEALS (≤15% vs AVG7):
+----------------------------------------
+
+• Howling Mine (Alpha)
+  EX+ Price: €1499.00 (EX) - Fluoh
+  vs AVG7: +28.6% (€1165.43)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Howling-Mine?minCondition=3
+
+💡 USAGE NOTES:
+- Excellent deals are ready to buy at near-historical prices
+- Fair deals may be worth considering depending on your strategy
+- Check URLs for current availability and shipping costs
+- Prices may change quickly - verify before purchasing

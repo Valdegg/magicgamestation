@@ -1,0 +1,49 @@
+🃏 MTG ARBITRAGE RESULTS SUMMARY
+==================================================
+Generated: 2025-09-29 18:15:13
+
+📊 OVERVIEW:
+   Total candidates analyzed: 10
+   Excellent deals found: 6
+   Fair deals found: 0
+   Expensive deals: 1
+   No live data: 3
+
+🎉 EXCELLENT DEALS (≤15% vs AVG7):
+----------------------------------------
+
+• Manabarbs (Alpha)
+  EX+ Price: €299.99 (MT) - Zlopotom
+  vs AVG7: -2.6% (€307.85)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Manabarbs?minCondition=3
+
+• Dingus Egg (Alpha)
+  EX+ Price: €300.00 (EX) - Bomian
+  vs AVG7: -5.8% (€318.43)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Dingus-Egg?minCondition=3
+
+• Living Artifact (Alpha)
+  EX+ Price: €290.00 (NM) - Bomian
+  vs AVG7: -5.1% (€305.71)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Living-Artifact?minCondition=3
+
+• Reverse Damage (Alpha)
+  EX+ Price: €350.00 (EX) - Magic-Dreams
+  vs AVG7: -10.5% (€391.14)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Reverse-Damage?minCondition=3
+
+• Drain Power (Beta)
+  EX+ Price: €70.78 (EX) - webuyanycard
+  vs AVG7: -66.1% (€208.65)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Drain-Power?minCondition=3
+
+• Kormus Bell (Alpha)
+  EX+ Price: €199.95 (NM) - Zukula
+  vs AVG7: -38.1% (€322.85)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Kormus-Bell?minCondition=3
+
+💡 USAGE NOTES:
+- Excellent deals are ready to buy at near-historical prices
+- Fair deals may be worth considering depending on your strategy
+- Check URLs for current availability and shipping costs
+- Prices may change quickly - verify before purchasing

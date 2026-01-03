@@ -1,0 +1,455 @@
+{
+  "seller_deals": {
+    "TheMagicCardTraderUK": {
+      "deals": [
+        {
+          "card": "Divine Intervention",
+          "price": 94.59,
+          "median": 105.62,
+          "discount": 10.443097898125355,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Divine-Intervention?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Divine%20Intervention%20Legends%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        },
+        {
+          "card": "Bartel Runeaxe",
+          "price": 18.92,
+          "median": 23.65,
+          "discount": 19.999999999999986,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Bartel-Runeaxe?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Bartel%20Runeaxe%20Legends%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/TheMagicCardTraderUK"
+    },
+    "handri": {
+      "deals": [
+        {
+          "card": "Grim Monolith",
+          "price": 200.0,
+          "median": 230.0,
+          "discount": 13.043478260869565,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Legacy/Grim-Monolith?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Grim%20Monolith%20Urzas%20Legacy%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        },
+        {
+          "card": "Deranged Hermit",
+          "price": 34.0,
+          "median": 39.71,
+          "discount": 14.379249559304963,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Legacy/Deranged-Hermit?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Deranged%20Hermit%20Urzas%20Legacy%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/handri"
+    },
+    "Wbl2pdn2015": {
+      "deals": [
+        {
+          "card": "Planar Gate",
+          "price": 42.0,
+          "median": 44.89,
+          "discount": 6.437959456449099,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Planar-Gate?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Planar%20Gate%20Legends%20site%3Amtgstocks.com",
+          "category": "good_deals"
+        },
+        {
+          "card": "North Star",
+          "price": 20.0,
+          "median": 22.54,
+          "discount": 11.268855368234247,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/North-Star?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=North%20Star%20Legends%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Wbl2pdn2015"
+    },
+    "teresis": {
+      "deals": [
+        {
+          "card": "Field of Dreams",
+          "price": 94.99,
+          "median": 100.0,
+          "discount": 5.010000000000005,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Field-Of-Dreams?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Field%20of%20Dreams%20Legends%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/teresis"
+    },
+    "Bronhy": {
+      "deals": [
+        {
+          "card": "Invoke Prejudice",
+          "price": 298.0,
+          "median": 353.53,
+          "discount": 15.707294996181364,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Invoke-Prejudice?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Invoke%20Prejudice%20Legends%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Bronhy"
+    },
+    "Iliaster": {
+      "deals": [
+        {
+          "card": "Jacques le Vert",
+          "price": 18.74,
+          "median": 22.0,
+          "discount": 14.818181818181825,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Jacques-Le-Vert?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Jacques%20le%20Vert%20Legends%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Iliaster"
+    },
+    "BlackLilith-13": {
+      "deals": [
+        {
+          "card": "Land Equilibrium",
+          "price": 85.0,
+          "median": 89.8,
+          "discount": 5.345211581291757,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Land-Equilibrium?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Land%20Equilibrium%20Legends%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/BlackLilith-13"
+    },
+    "Dragonegg": {
+      "deals": [
+        {
+          "card": "Rohgahh of Kher Keep",
+          "price": 33.99,
+          "median": 37.49,
+          "discount": 9.33582288610296,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Rohgahh-Of-Kher-Keep?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Rohgahh%20of%20Kher%20Keep%20Legends%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Dragonegg"
+    },
+    "webuyanycard": {
+      "deals": [
+        {
+          "card": "Powerleech",
+          "price": 13.01,
+          "median": 14.88,
+          "discount": 12.567204301075275,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Antiquities/Powerleech?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Powerleech%20Antiquities%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/webuyanycard"
+    },
+    "Vitosellmagic": {
+      "deals": [
+        {
+          "card": "Corpse Dance",
+          "price": 14.5,
+          "median": 16.29,
+          "discount": 10.988336402701039,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Corpse-Dance?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Corpse%20Dance%20Tempest%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Vitosellmagic"
+    },
+    "DraconisUK": {
+      "deals": [
+        {
+          "card": "Undiscovered Paradise",
+          "price": 8.0,
+          "median": 9.46,
+          "discount": 15.433403805496837,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Visions/Undiscovered-Paradise?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Undiscovered%20Paradise%20Visions%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/DraconisUK"
+    },
+    "Meddy36": {
+      "deals": [
+        {
+          "card": "Jovial Evil",
+          "price": 22.48,
+          "median": 24.98,
+          "discount": 10.0080064051241,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Jovial-Evil?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Jovial%20Evil%20Legends%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Meddy36"
+    },
+    "Filemon": {
+      "deals": [
+        {
+          "card": "Squandered Resources",
+          "price": 50.0,
+          "median": 54.49,
+          "discount": 8.240044044778863,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Visions/Squandered-Resources?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Squandered%20Resources%20Visions%20site%3Amtgstocks.com",
+          "category": "good_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Filemon"
+    },
+    "Angel-Cards": {
+      "deals": [
+        {
+          "card": "Dystopia",
+          "price": 5.92,
+          "median": 7.09,
+          "discount": 16.502115655853313,
+          "condition": "NM",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alliances/Dystopia?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Dystopia%20Alliances%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Angel-Cards"
+    },
+    "Skalex-31": {
+      "deals": [
+        {
+          "card": "Academy Rector",
+          "price": 38.0,
+          "median": 40.95,
+          "discount": 7.20390720390721,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Destiny/Academy-Rector?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Academy%20Rector%20Urzas%20Destiny%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Skalex-31"
+    },
+    "EpiphanyG": {
+      "deals": [
+        {
+          "card": "Recurring Nightmare",
+          "price": 46.0,
+          "median": 49.0,
+          "discount": 6.122448979591836,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Recurring-Nightmare?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Recurring%20Nightmare%20Exodus%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/EpiphanyG"
+    },
+    "kasj78": {
+      "deals": [
+        {
+          "card": "Lifeblood",
+          "price": 23.0,
+          "median": 24.99,
+          "discount": 7.963185274109638,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Lifeblood?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Lifeblood%20Legends%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/kasj78"
+    },
+    "Slyngelweah": {
+      "deals": [
+        {
+          "card": "Exorcist",
+          "price": 9.0,
+          "median": 9.89,
+          "discount": 8.998988877654202,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/The-Dark/Exorcist?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Exorcist%20The%20Dark%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Slyngelweah"
+    },
+    "RetroMagic": {
+      "deals": [
+        {
+          "card": "Elephant Graveyard",
+          "price": 119.98,
+          "median": 139.99,
+          "discount": 14.293878134152443,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Arabian-Nights/Elephant-Graveyard?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Elephant%20Graveyard%20Arabian%20Nights%20site%3Amtgstocks.com",
+          "category": "good_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/RetroMagic"
+    },
+    "Tristan-lesda": {
+      "deals": [
+        {
+          "card": "Sarcomancy",
+          "price": 12.0,
+          "median": 13.0,
+          "discount": 7.6923076923076925,
+          "condition": "NM",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Sarcomancy?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Sarcomancy%20Tempest%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Tristan-lesda"
+    },
+    "BilboMTG": {
+      "deals": [
+        {
+          "card": "Preacher",
+          "price": 33.11,
+          "median": 34.98,
+          "discount": 5.345911949685528,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/The-Dark/Preacher?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Preacher%20The%20Dark%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/BilboMTG"
+    },
+    "cataclysm-uk": {
+      "deals": [
+        {
+          "card": "Shallow Grave",
+          "price": 70.95,
+          "median": 75.0,
+          "discount": 5.399999999999997,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Shallow-Grave?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Shallow%20Grave%20Mirage%20site%3Amtgstocks.com",
+          "category": "good_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/cataclysm-uk"
+    },
+    "Elhaindil": {
+      "deals": [
+        {
+          "card": "Serendib Djinn",
+          "price": 120.0,
+          "median": 130.0,
+          "discount": 7.6923076923076925,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Arabian-Nights/Serendib-Djinn?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Serendib%20Djinn%20Arabian%20Nights%20site%3Amtgstocks.com",
+          "category": "expensive_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Elhaindil"
+    },
+    "DuckPancakes": {
+      "deals": [
+        {
+          "card": "Yavimaya Hollow",
+          "price": 42.56,
+          "median": 44.88,
+          "discount": 5.169340463458111,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Destiny/Yavimaya-Hollow?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Yavimaya%20Hollow%20Urzas%20Destiny%20site%3Amtgstocks.com",
+          "category": "good_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/DuckPancakes"
+    },
+    "finespoo": {
+      "deals": [
+        {
+          "card": "Ragnar",
+          "price": 28.0,
+          "median": 29.99,
+          "discount": 6.635545181727237,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Ragnar?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Ragnar%20Legends%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/finespoo"
+    },
+    "JulienJ": {
+      "deals": [
+        {
+          "card": "Haunting Wind",
+          "price": 14.0,
+          "median": 14.89,
+          "discount": 5.977165883143052,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Antiquities/Haunting-Wind?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Haunting%20Wind%20Antiquities%20site%3Amtgstocks.com",
+          "category": "expensive_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/JulienJ"
+    },
+    "isys59": {
+      "deals": [
+        {
+          "card": "Thawing Glaciers",
+          "price": 6.0,
+          "median": 9.4,
+          "discount": 36.17021276595745,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alliances/Thawing-Glaciers?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Thawing%20Glaciers%20Alliances%20site%3Amtgstocks.com",
+          "category": "excellent_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/isys59"
+    },
+    "Tristandelacroix": {
+      "deals": [
+        {
+          "card": "Hatred",
+          "price": 23.0,
+          "median": 25.0,
+          "discount": 8.0,
+          "condition": "EX",
+          "card_url": "https://www.cardmarket.com/en/Magic/Products/Singles/Exodus/Hatred?language=1&minCondition=3",
+          "mtgstocks_search": "https://www.google.com/search?btnI=1&q=Hatred%20Exodus%20site%3Amtgstocks.com",
+          "category": "expensive_deals"
+        }
+      ],
+      "url": "https://www.cardmarket.com/en/Magic/Users/Tristandelacroix"
+    }
+  },
+  "threshold": 5.0
+}

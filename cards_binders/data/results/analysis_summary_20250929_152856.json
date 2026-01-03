@@ -1,0 +1,24 @@
+{
+  "timestamp": "20250929_152856",
+  "config": {
+    "target_net_margin": 0.15,
+    "cardmarket_fee": 0.05,
+    "price_min": 50.0,
+    "price_max": 150.0,
+    "trend_discount_threshold": 0.15,
+    "rank_target": 9,
+    "undercut_buffer": 0.2,
+    "min_avg7": 0.01
+  },
+  "analysis_summary": {
+    "total_cards_analyzed": 117892,
+    "candidates_found": 105,
+    "buyable_cards": 10,
+    "final_recommendations": 0,
+    "success_rate": {
+      "candidate_rate": 0.0890645675703186,
+      "buyable_rate": 9.523809523809524,
+      "recommendation_rate": 0.0
+    }
+  }
+}

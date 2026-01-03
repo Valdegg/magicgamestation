@@ -1,0 +1,849 @@
+{
+  "seller_deals": {
+    "xxniinjaxx1": [
+      {
+        "card": "Mana Vault",
+        "price": 185.0,
+        "median": 240.0,
+        "discount": 22.916666666666664,
+        "condition": "EX"
+      }
+    ],
+    "vietj": [
+      {
+        "card": "Mana Vault",
+        "price": 240.0,
+        "median": 240.0,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "DoubleDown": [
+      {
+        "card": "Winter Orb",
+        "price": 90.0,
+        "median": 100.5,
+        "discount": 10.44776119402985,
+        "condition": "EX"
+      }
+    ],
+    "webuyanycard": [
+      {
+        "card": "Winter Orb",
+        "price": 100.5,
+        "median": 100.5,
+        "discount": 0.0,
+        "condition": "EX"
+      },
+      {
+        "card": "Aladdin",
+        "price": 59.12,
+        "median": 59.12,
+        "discount": 0.0,
+        "condition": "EX"
+      },
+      {
+        "card": "Nicol Bolas",
+        "price": 106.42,
+        "median": 106.42,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "boensj": [
+      {
+        "card": "Sol Ring",
+        "price": 90.0,
+        "median": 90.0,
+        "discount": 0.0,
+        "condition": "EX"
+      },
+      {
+        "card": "Ancient Tomb",
+        "price": 75.0,
+        "median": 75.0,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "DJC38": [
+      {
+        "card": "Sol Ring",
+        "price": 90.0,
+        "median": 90.0,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "RollingToyChest": [
+      {
+        "card": "Sol Ring",
+        "price": 90.0,
+        "median": 90.0,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "Luckylev": [
+      {
+        "card": "Swords to Plowshares",
+        "price": 57.94,
+        "median": 59.12,
+        "discount": 1.9959404600811903,
+        "condition": "EX"
+      }
+    ],
+    "CairneyCards": [
+      {
+        "card": "Swords to Plowshares",
+        "price": 59.12,
+        "median": 59.12,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "Carddude1520": [
+      {
+        "card": "Dark Ritual",
+        "price": 12.0,
+        "median": 13.0,
+        "discount": 7.6923076923076925,
+        "condition": "EX"
+      }
+    ],
+    "Josif92": [
+      {
+        "card": "Dark Ritual",
+        "price": 13.0,
+        "median": 13.0,
+        "discount": 0.0,
+        "condition": "NM"
+      }
+    ],
+    "hellz0r": [
+      {
+        "card": "Dark Ritual",
+        "price": 13.0,
+        "median": 13.0,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "Bronhy": [
+      {
+        "card": "Mana Drain",
+        "price": 138.84,
+        "median": 145.0,
+        "discount": 4.248275862068963,
+        "condition": "EX"
+      },
+      {
+        "card": "Dark Ritual",
+        "price": 209.9,
+        "median": 209.9,
+        "discount": 0.0,
+        "condition": "EX"
+      },
+      {
+        "card": "Serendib Efreet",
+        "price": 475.0,
+        "median": 475.0,
+        "discount": 0.0,
+        "condition": "EX"
+      },
+      {
+        "card": "Aladdin",
+        "price": 59.0,
+        "median": 59.12,
+        "discount": 0.2029769959404558,
+        "condition": "EX"
+      }
+    ],
+    "Jomara2b": [
+      {
+        "card": "Mana Drain",
+        "price": 145.0,
+        "median": 145.0,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "Ampyre": [
+      {
+        "card": "Chrome Mox",
+        "price": 55.0,
+        "median": 59.0,
+        "discount": 6.779661016949152,
+        "condition": "EX"
+      }
+    ],
+    "sgflbr": [
+      {
+        "card": "Chrome Mox",
+        "price": 59.0,
+        "median": 59.0,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "fabrice002": [
+      {
+        "card": "Chrome Mox",
+        "price": 59.0,
+        "median": 59.0,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "RetroMagic": [
+      {
+        "card": "Dark Ritual",
+        "price": 198.99,
+        "median": 209.9,
+        "discount": 5.19771319676036,
+        "condition": "EX"
+      }
+    ],
+    "druler": [
+      {
+        "card": "Lightning Bolt",
+        "price": 270.0,
+        "median": 274.32,
+        "discount": 1.5748031496062969,
+        "condition": "EX"
+      }
+    ],
+    "Outpostgamecenter": [
+      {
+        "card": "Lightning Bolt",
+        "price": 274.32,
+        "median": 274.32,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "fabiolone1": [
+      {
+        "card": "Arcades Sabboth",
+        "price": 24.98,
+        "median": 24.99,
+        "discount": 0.04001600640255307,
+        "condition": "EX"
+      }
+    ],
+    "Fuhrious-TC": [
+      {
+        "card": "Arcades Sabboth",
+        "price": 24.99,
+        "median": 24.99,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "Iglix": [
+      {
+        "card": "Animate Dead",
+        "price": 315.0,
+        "median": 315.0,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "spacefix": [
+      {
+        "card": "Animate Dead",
+        "price": 315.0,
+        "median": 315.0,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "Nyar752": [
+      {
+        "card": "Earthcraft",
+        "price": 83.0,
+        "median": 85.0,
+        "discount": 2.3529411764705883,
+        "condition": "EX"
+      }
+    ],
+    "karkow1": [
+      {
+        "card": "Earthcraft",
+        "price": 85.0,
+        "median": 85.0,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "ignaz333": [
+      {
+        "card": "Guardian Beast",
+        "price": 499.0,
+        "median": 500.0,
+        "discount": 0.2,
+        "condition": "EX"
+      }
+    ],
+    "LessIsMore": [
+      {
+        "card": "Guardian Beast",
+        "price": 500.0,
+        "median": 500.0,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "Favorit60": [
+      {
+        "card": "Chalice of the Void",
+        "price": 13.0,
+        "median": 14.0,
+        "discount": 7.142857142857142,
+        "condition": "EX"
+      }
+    ],
+    "raphydu50": [
+      {
+        "card": "Chalice of the Void",
+        "price": 14.0,
+        "median": 14.0,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "Mrwalker1": [
+      {
+        "card": "Chalice of the Void",
+        "price": 14.0,
+        "median": 14.0,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "r1z1a": [
+      {
+        "card": "Dust Bowl",
+        "price": 17.74,
+        "median": 17.74,
+        "discount": 0.0,
+        "condition": "NM"
+      }
+    ],
+    "Itsallabout-Mtg": [
+      {
+        "card": "Dust Bowl",
+        "price": 17.74,
+        "median": 17.74,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "andybeta": [
+      {
+        "card": "Dust Bowl",
+        "price": 17.74,
+        "median": 17.74,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "TheGoose": [
+      {
+        "card": "Maze of Ith",
+        "price": 21.02,
+        "median": 26.0,
+        "discount": 19.153846153846153,
+        "condition": "EX"
+      }
+    ],
+    "pjotri": [
+      {
+        "card": "Maze of Ith",
+        "price": 26.0,
+        "median": 26.0,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "Vitosellmagic": [
+      {
+        "card": "Corpse Dance",
+        "price": 14.5,
+        "median": 16.29,
+        "discount": 10.988336402701039,
+        "condition": "EX"
+      }
+    ],
+    "jwahind": [
+      {
+        "card": "Corpse Dance",
+        "price": 16.29,
+        "median": 16.29,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "Schwestern": [
+      {
+        "card": "Horn of Greed",
+        "price": 8.0,
+        "median": 8.0,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "Backdraft": [
+      {
+        "card": "Horn of Greed",
+        "price": 8.0,
+        "median": 8.0,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "MichelPlaccini": [
+      {
+        "card": "Underworld Dreams",
+        "price": 81.99,
+        "median": 82.65,
+        "discount": 0.7985480943738786,
+        "condition": "EX"
+      }
+    ],
+    "Tableflip": [
+      {
+        "card": "Underworld Dreams",
+        "price": 82.65,
+        "median": 82.65,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "ronan": [
+      {
+        "card": "Exploration",
+        "price": 32.0,
+        "median": 34.0,
+        "discount": 5.88235294117647,
+        "condition": "EX"
+      }
+    ],
+    "dermedic22": [
+      {
+        "card": "Exploration",
+        "price": 34.0,
+        "median": 34.0,
+        "discount": 0.0,
+        "condition": "EX"
+      },
+      {
+        "card": "Scroll Rack",
+        "price": 24.0,
+        "median": 24.0,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "cuisinero": [
+      {
+        "card": "Time Spiral",
+        "price": 65.03,
+        "median": 67.25,
+        "discount": 3.301115241635686,
+        "condition": "EX"
+      }
+    ],
+    "MAGICWOODS": [
+      {
+        "card": "Time Spiral",
+        "price": 67.25,
+        "median": 67.25,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "Diliz13": [
+      {
+        "card": "Serendib Efreet",
+        "price": 463.0,
+        "median": 475.0,
+        "discount": 2.526315789473684,
+        "condition": "EX"
+      }
+    ],
+    "Fiska": [
+      {
+        "card": "Serendib Efreet",
+        "price": 475.0,
+        "median": 475.0,
+        "discount": 0.0,
+        "condition": "NM"
+      },
+      {
+        "card": "Wrath of God",
+        "price": 180.0,
+        "median": 180.01,
+        "discount": 0.005555246930721018,
+        "condition": "EX"
+      },
+      {
+        "card": "Dark Ritual",
+        "price": 136.0,
+        "median": 136.0,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "RELIC-TCG": [
+      {
+        "card": "Wrath of God",
+        "price": 180.01,
+        "median": 180.01,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "Legacytcg": [
+      {
+        "card": "Concordant Crossroads",
+        "price": 94.96,
+        "median": 94.97,
+        "discount": 0.010529640939249359,
+        "condition": "EX"
+      }
+    ],
+    "ThreeForOne-AT": [
+      {
+        "card": "Concordant Crossroads",
+        "price": 94.97,
+        "median": 94.97,
+        "discount": 0.0,
+        "condition": "EX"
+      },
+      {
+        "card": "Dark Ritual",
+        "price": 135.0,
+        "median": 136.0,
+        "discount": 0.7352941176470588,
+        "condition": "EX"
+      }
+    ],
+    "NAJ-cards": [
+      {
+        "card": "Rishadan Port",
+        "price": 41.99,
+        "median": 44.0,
+        "discount": 4.568181818181814,
+        "condition": "EX"
+      }
+    ],
+    "CardCouncil": [
+      {
+        "card": "Rishadan Port",
+        "price": 44.0,
+        "median": 44.0,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "EpiphanyG": [
+      {
+        "card": "Recurring Nightmare",
+        "price": 46.0,
+        "median": 49.0,
+        "discount": 6.122448979591836,
+        "condition": "EX"
+      }
+    ],
+    "hofzge": [
+      {
+        "card": "Recurring Nightmare",
+        "price": 49.0,
+        "median": 49.0,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "Dgvs10": [
+      {
+        "card": "Scroll Rack",
+        "price": 23.0,
+        "median": 24.0,
+        "discount": 4.166666666666666,
+        "condition": "EX"
+      }
+    ],
+    "KimDahl": [
+      {
+        "card": "Goblin Welder",
+        "price": 15.77,
+        "median": 16.5,
+        "discount": 4.424242424242427,
+        "condition": "EX"
+      }
+    ],
+    "Leksa87": [
+      {
+        "card": "Goblin Welder",
+        "price": 16.5,
+        "median": 16.5,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "JulienJ": [
+      {
+        "card": "Worldly Tutor",
+        "price": 9.0,
+        "median": 11.58,
+        "discount": 22.27979274611399,
+        "condition": "EX"
+      }
+    ],
+    "MarcRasmussen": [
+      {
+        "card": "Worldly Tutor",
+        "price": 11.58,
+        "median": 11.58,
+        "discount": 0.0,
+        "condition": "NM"
+      }
+    ],
+    "satansghost": [
+      {
+        "card": "Survival of the Fittest",
+        "price": 177.36,
+        "median": 179.99,
+        "discount": 1.4611922884604673,
+        "condition": "EX"
+      }
+    ],
+    "artcamp": [
+      {
+        "card": "Survival of the Fittest",
+        "price": 179.99,
+        "median": 179.99,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "deada": [
+      {
+        "card": "Vampiric Tutor",
+        "price": 38.45,
+        "median": 39.95,
+        "discount": 3.754693366708385,
+        "condition": "EX"
+      }
+    ],
+    "bjurhager": [
+      {
+        "card": "Vampiric Tutor",
+        "price": 39.95,
+        "median": 39.95,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "Spada1992": [
+      {
+        "card": "Sensei's Divining Top",
+        "price": 14.0,
+        "median": 14.95,
+        "discount": 6.35451505016722,
+        "condition": "EX"
+      }
+    ],
+    "Azyrhaphal": [
+      {
+        "card": "Sensei's Divining Top",
+        "price": 14.95,
+        "median": 14.95,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "lukey52": [
+      {
+        "card": "Mana Vault",
+        "price": 47.99,
+        "median": 49.0,
+        "discount": 2.061224489795914,
+        "condition": "EX"
+      }
+    ],
+    "Khemintiri": [
+      {
+        "card": "Mana Vault",
+        "price": 49.0,
+        "median": 49.0,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "EmirM": [
+      {
+        "card": "Ensnaring Bridge",
+        "price": 11.0,
+        "median": 11.5,
+        "discount": 4.3478260869565215,
+        "condition": "EX"
+      }
+    ],
+    "Bailinn": [
+      {
+        "card": "Ensnaring Bridge",
+        "price": 11.5,
+        "median": 11.5,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "Corky": [
+      {
+        "card": "Necropotence",
+        "price": 10.65,
+        "median": 16.5,
+        "discount": 35.45454545454545,
+        "condition": "NM"
+      }
+    ],
+    "ZZZzzzleeper": [
+      {
+        "card": "Necropotence",
+        "price": 16.5,
+        "median": 16.5,
+        "discount": 0.0,
+        "condition": "NM"
+      }
+    ],
+    "GameMahatma": [
+      {
+        "card": "Ancient Tomb",
+        "price": 65.0,
+        "median": 75.0,
+        "discount": 13.333333333333334,
+        "condition": "EX"
+      }
+    ],
+    "Chris8698": [
+      {
+        "card": "Ancient Tomb",
+        "price": 75.0,
+        "median": 75.0,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "Miggy2k": [
+      {
+        "card": "Null Rod",
+        "price": 57.0,
+        "median": 57.87,
+        "discount": 1.5033696215655736,
+        "condition": "EX"
+      }
+    ],
+    "Xotai": [
+      {
+        "card": "Null Rod",
+        "price": 57.87,
+        "median": 57.87,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "tzirtzi": [
+      {
+        "card": "Animate Dead",
+        "price": 29.0,
+        "median": 29.0,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "CBerg": [
+      {
+        "card": "Animate Dead",
+        "price": 29.0,
+        "median": 29.0,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "Metropolis-Center": [
+      {
+        "card": "Demonic Tutor",
+        "price": 449.99,
+        "median": 523.78,
+        "discount": 14.087975867730721,
+        "condition": "EX"
+      }
+    ],
+    "MTGpriest": [
+      {
+        "card": "Demonic Tutor",
+        "price": 523.78,
+        "median": 523.78,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "SandyInLondon": [
+      {
+        "card": "Nicol Bolas",
+        "price": 99.99,
+        "median": 106.42,
+        "discount": 6.042097350122163,
+        "condition": "EX"
+      }
+    ],
+    "Recollect-Ltd": [
+      {
+        "card": "Nicol Bolas",
+        "price": 106.42,
+        "median": 106.42,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "Tristandelacroix": [
+      {
+        "card": "Hatred",
+        "price": 23.0,
+        "median": 25.0,
+        "discount": 8.0,
+        "condition": "EX"
+      }
+    ],
+    "Tristan-lesda": [
+      {
+        "card": "Hatred",
+        "price": 25.0,
+        "median": 25.0,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ],
+    "Baldo1986": [
+      {
+        "card": "Wasteland",
+        "price": 26.0,
+        "median": 26.78,
+        "discount": 2.912621359223305,
+        "condition": "EX"
+      }
+    ],
+    "WildGames": [
+      {
+        "card": "Wasteland",
+        "price": 26.78,
+        "median": 26.78,
+        "discount": 0.0,
+        "condition": "EX"
+      }
+    ]
+  },
+  "threshold": 0.0
+}

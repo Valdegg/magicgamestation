@@ -1,0 +1,137 @@
+🃏 MTG ARBITRAGE RESULTS SUMMARY
+==================================================
+Generated: 2025-09-29 20:19:25
+
+📊 OVERVIEW:
+   Total candidates analyzed: 50
+   Excellent deals found: 22
+   Fair deals found: 1
+   Expensive deals: 15
+   No live data: 12
+
+🎉 EXCELLENT DEALS (≤15% vs AVG7):
+----------------------------------------
+
+• Howling Mine (Alpha)
+  EX+ Price: €1499.00 (EX) - Fluoh
+  vs AVG7: +28.6% (€1165.43)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Howling-Mine?minCondition=3
+
+• Mana Vault (Alpha)
+  EX+ Price: €1589.00 (EX) - Leschelmis
+  vs AVG7: -5.7% (€1685.43)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Mana-Vault?minCondition=3
+
+• Howling Mine (Unlimited)
+  EX+ Price: €80.00 (EX) - Niconet91
+  vs AVG7: -44.2% (€143.45)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Howling-Mine?minCondition=3
+
+• Mana Vault (Unlimited)
+  EX+ Price: €185.00 (EX) - xxniinjaxx1
+  vs AVG7: -28.6% (€259.13)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Mana-Vault?minCondition=3
+
+• Winter Orb (Unlimited)
+  EX+ Price: €90.00 (EX) - DoubleDown
+  vs AVG7: -0.9% (€90.84)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Winter-Orb?minCondition=3
+
+• Wrath of God (Beta)
+  EX+ Price: €649.99 (EX) - nightdjinn
+  vs AVG7: -6.9% (€698.10)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Wrath-Of-God?minCondition=3
+
+• Dark Ritual (Unlimited)
+  EX+ Price: €12.00 (EX) - Carddude1520
+  vs AVG7: -7.6% (€12.98)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Dark-Ritual?minCondition=3
+
+• Counterspell (Alpha)
+  EX+ Price: €739.00 (EX) - llanowarelfe
+  vs AVG7: +7.6% (€687.10)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Counterspell?minCondition=3
+
+• Swords to Plowshares (Unlimited)
+  EX+ Price: €57.80 (EX) - Luckylev
+  vs AVG7: -7.5% (€62.46)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Swords-To-Plowshares?minCondition=3
+
+• Chalice of the Void (Mirrodin)
+  EX+ Price: €10.00 (NM) - CollectorsLounge
+  vs AVG7: -40.7% (€16.87)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Mirrodin/Chalice-Of-The-Void?minCondition=3
+
+• Static Orb (Tempest)
+  EX+ Price: €5.50 (EX) - go2pack
+  vs AVG7: -35.1% (€8.47)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Static-Orb?minCondition=3
+
+• Mana Drain (Legends)
+  EX+ Price: €138.84 (EX) - Bronhy
+  vs AVG7: -0.4% (€139.41)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Mana-Drain?minCondition=3
+
+• Chrome Mox (Mirrodin)
+  EX+ Price: €48.00 (EX) - Sukuzuro
+  vs AVG7: -13.2% (€55.29)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Mirrodin/Chrome-Mox?minCondition=3
+
+• Rishadan Port (Mercadian Masques)
+  EX+ Price: €39.55 (EX) - CrCards
+  vs AVG7: -16.4% (€47.29)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Mercadian-Masques/Rishadan-Port?minCondition=3
+
+• Mana Flare (Beta)
+  EX+ Price: €300.00 (NM) - RobRot
+  vs AVG7: +33.3% (€225.06)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Mana-Flare?minCondition=3
+
+• Maze of Ith (The Dark)
+  EX+ Price: €20.96 (EX) - TheGoose
+  vs AVG7: -5.1% (€22.08)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/The-Dark/Maze-Of-Ith?minCondition=3
+
+• Scroll Rack (Tempest)
+  EX+ Price: €20.00 (EX) - Vindicate223
+  vs AVG7: -19.9% (€24.97)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Scroll-Rack?minCondition=3
+
+• Exploration (Urza's Saga)
+  EX+ Price: €24.90 (EX) - ThreeForOne-AT
+  vs AVG7: -18.1% (€30.41)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Saga/Exploration?minCondition=3
+
+• Azusa, Lost but Seeking (Champions of Kamigawa)
+  EX+ Price: €3.00 (EX) - ChristianJ
+  vs AVG7: -60.7% (€7.63)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Champions-Of-Kamigawa/Azusa-Lost-But-Seeking?minCondition=3
+
+• Exhume (Urza's Saga)
+  EX+ Price: €2.00 (EX) - Waseritan
+  vs AVG7: -57.4% (€4.69)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Saga/Exhume?minCondition=3
+
+• Enlightened Tutor (Mirage)
+  EX+ Price: €18.00 (EX) - Mouseabuse
+  vs AVG7: -21.5% (€22.94)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Mirage/Enlightened-Tutor?minCondition=3
+
+• Necromancy (Visions)
+  EX+ Price: €5.00 (NM) - ThaCozmo
+  vs AVG7: -36.4% (€7.86)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Visions/Necromancy?minCondition=3
+
+🟡 FAIR DEALS (15-30% vs AVG7):
+----------------------------------------
+
+• Mana Flare (Unlimited)
+  EX+ Price: €42.49 (EX) - RacoonRises
+  vs AVG7: +20.7% (€35.21)
+  URL: https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Mana-Flare?minCondition=3
+
+💡 USAGE NOTES:
+- Excellent deals are ready to buy at near-historical prices
+- Fair deals may be worth considering depending on your strategy
+- Check URLs for current availability and shipping costs
+- Prices may change quickly - verify before purchasing

@@ -1,0 +1,152 @@
+{
+  "timestamp": "20250929_180606",
+  "summary": {
+    "total_analyzed": 3,
+    "excellent_deals": 0,
+    "good_deals": 0,
+    "expensive_deals": 2,
+    "no_data": 1
+  },
+  "excellent_deals": [],
+  "good_deals": [],
+  "expensive_deals": [
+    {
+      "rank": 2,
+      "card_name": "Manabarbs",
+      "expansion": "Alpha",
+      "card_id": 5397,
+      "historical_data": {
+        "avg7": 307.85,
+        "avg30": 138.11,
+        "trend": 371.08,
+        "real_discount": 0.6278161043440766
+      },
+      "live_data": {
+        "total_listings": 4,
+        "cheapest_current": 299.99,
+        "average_current": 412.2475,
+        "cheapest_good_condition": 299.99,
+        "cheapest_good_condition_details": {
+          "price": 299.99,
+          "condition": "MT",
+          "seller": "Zlopotom",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -2.5531914893617067,
+        "good_condition_vs_trend_pct": -19.157594049800576,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Manabarbs?minCondition=3"
+      }
+    },
+    {
+      "rank": 3,
+      "card_name": "Dingus Egg",
+      "expansion": "Alpha",
+      "card_id": 5474,
+      "historical_data": {
+        "avg7": 318.43,
+        "avg30": 185.71,
+        "trend": 449.44,
+        "real_discount": 0.5867969028123888
+      },
+      "live_data": {
+        "total_listings": 6,
+        "cheapest_current": 300.0,
+        "average_current": 548.1633333333333,
+        "cheapest_good_condition": 300.0,
+        "cheapest_good_condition_details": {
+          "price": 300.0,
+          "condition": "EX",
+          "seller": "Bomian",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -5.787771252708604,
+        "good_condition_vs_trend_pct": -33.250266998932005,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Dingus-Egg?minCondition=3"
+      }
+    }
+  ],
+  "no_data": [
+    {
+      "rank": 1,
+      "card_name": "Cockatrice",
+      "expansion": "Alpha",
+      "card_id": 5331,
+      "historical_data": {
+        "avg7": 401.86,
+        "avg30": 176.79,
+        "trend": 479.61,
+        "real_discount": 0.6313880027522363
+      },
+      "live_data": null
+    }
+  ],
+  "all_results": [
+    {
+      "rank": 1,
+      "card_name": "Cockatrice",
+      "expansion": "Alpha",
+      "card_id": 5331,
+      "historical_data": {
+        "avg7": 401.86,
+        "avg30": 176.79,
+        "trend": 479.61,
+        "real_discount": 0.6313880027522363
+      },
+      "live_data": null
+    },
+    {
+      "rank": 2,
+      "card_name": "Manabarbs",
+      "expansion": "Alpha",
+      "card_id": 5397,
+      "historical_data": {
+        "avg7": 307.85,
+        "avg30": 138.11,
+        "trend": 371.08,
+        "real_discount": 0.6278161043440766
+      },
+      "live_data": {
+        "total_listings": 4,
+        "cheapest_current": 299.99,
+        "average_current": 412.2475,
+        "cheapest_good_condition": 299.99,
+        "cheapest_good_condition_details": {
+          "price": 299.99,
+          "condition": "MT",
+          "seller": "Zlopotom",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -2.5531914893617067,
+        "good_condition_vs_trend_pct": -19.157594049800576,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Manabarbs?minCondition=3"
+      }
+    },
+    {
+      "rank": 3,
+      "card_name": "Dingus Egg",
+      "expansion": "Alpha",
+      "card_id": 5474,
+      "historical_data": {
+        "avg7": 318.43,
+        "avg30": 185.71,
+        "trend": 449.44,
+        "real_discount": 0.5867969028123888
+      },
+      "live_data": {
+        "total_listings": 6,
+        "cheapest_current": 300.0,
+        "average_current": 548.1633333333333,
+        "cheapest_good_condition": 300.0,
+        "cheapest_good_condition_details": {
+          "price": 300.0,
+          "condition": "EX",
+          "seller": "Bomian",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -5.787771252708604,
+        "good_condition_vs_trend_pct": -33.250266998932005,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Dingus-Egg?minCondition=3"
+      }
+    }
+  ]
+}

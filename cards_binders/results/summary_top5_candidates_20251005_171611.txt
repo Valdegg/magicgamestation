@@ -1,0 +1,46 @@
+🃏 MTG ARBITRAGE RESULTS SUMMARY
+==================================================
+Generated: 2025-10-05 17:16:11
+
+📊 OVERVIEW:
+   Total candidates analyzed: 5
+   Excellent deals found: 2
+   Fair deals found: 2
+   Expensive deals: 0
+   No live data: 1
+
+🎉 EXCELLENT DEALS (≤15% vs AVG30):
+----------------------------------------
+
+• Living Artifact (Alpha)
+  EX+ Price: €339.99 (EX) - RubyTrade
+  vs AVG30: +115.4% (€157.84)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Living-Artifact?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Living-Artifact?sellerCountry=7&language=1&minCondition=3
+
+• Reverse Damage (Alpha)
+  EX+ Price: €350.00 (EX) - Magic-Dreams
+  vs AVG30: +75.2% (€199.78)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Reverse-Damage?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Reverse-Damage?sellerCountry=7&language=1&minCondition=3
+
+🟡 FAIR DEALS (15-30% vs AVG30):
+----------------------------------------
+
+• Manabarbs (Alpha)
+  EX+ Price: €360.00 (EX) - Tuardian
+  vs AVG30: +160.7% (€138.11)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Manabarbs?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Manabarbs?sellerCountry=7&language=1&minCondition=3
+
+• Dingus Egg (Alpha)
+  EX+ Price: €439.99 (EX) - phigue0
+  vs AVG30: +136.9% (€185.71)
+  Primary URL: https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Dingus-Egg?language=1&minCondition=3
+  Alternative URL (German Only): https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Dingus-Egg?sellerCountry=7&language=1&minCondition=3
+
+💡 USAGE NOTES:
+- Excellent deals are ready to buy at near-historical prices
+- Fair deals may be worth considering depending on your strategy
+- Check URLs for current availability and shipping costs
+- Prices may change quickly - verify before purchasing

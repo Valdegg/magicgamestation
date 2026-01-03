@@ -1,0 +1,1846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTG Card Binder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --binder-page-black: #1a1a1a;
+            --binder-page-dark: #141414;
+            --pocket-border: #2a2a2a;
+            --pocket-shine: rgba(255, 255, 255, 0.08);
+            --binding-color: #0d0d0d;
+            --ring-metal: #3d3d3d;
+            --table-surface: #2c2418;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: 
+                radial-gradient(ellipse at center, #3d3020 0%, #1a1510 50%, #0d0a08 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding: 20px;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+
+        /* Wood grain table texture */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(
+                    90deg,
+                    transparent 0px,
+                    transparent 3px,
+                    rgba(0, 0, 0, 0.1) 3px,
+                    rgba(0, 0, 0, 0.1) 4px
+                ),
+                repeating-linear-gradient(
+                    0deg,
+                    transparent 0px,
+                    transparent 80px,
+                    rgba(0, 0, 0, 0.05) 80px,
+                    rgba(0, 0, 0, 0.05) 82px
+                );
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(180deg, rgba(20, 20, 20, 0.95) 0%, rgba(30, 30, 30, 0.95) 100%);
+            border-radius: 12px;
+            padding: 20px 25px;
+            margin-bottom: 25px;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2em;
+            color: #d4af37;
+            margin-bottom: 18px;
+            text-align: center;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+        }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+
+        .control-group {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        label {
+            font-weight: 600;
+            color: #a0a0a0;
+            font-size: 0.85em;
+        }
+
+        select, input {
+            padding: 8px 12px;
+            border: 1px solid #3a3a3a;
+            border-radius: 6px;
+            font-size: 0.9em;
+            background: #252525;
+            color: #e0e0e0;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        select:hover, input:hover {
+            border-color: #4a4a4a;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+        }
+
+        .stats {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+
+        .stat {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+            color: #d4af37;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 0.85em;
+            box-shadow: 
+                0 2px 8px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            border: 1px solid #3a3a3a;
+        }
+
+        .stat-number {
+            font-size: 1.6em;
+            font-weight: bold;
+            display: block;
+            color: #fff;
+        }
+
+        .seller-header {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 15px 25px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #d4af37;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* ============================================
+           REALISTIC CARD BINDER STYLES
+           ============================================ */
+        
+        .binder-wrapper {
+            perspective: 2500px;
+            margin: 30px auto;
+            max-width: 1400px;
+        }
+
+        /* The open binder - two page spread */
+        .binder-spread {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            position: relative;
+            transform-style: preserve-3d;
+            /* Slight 3D tilt like looking at an open book */
+            transform: rotateX(5deg);
+        }
+
+        /* Central binding spine */
+        .binder-spine {
+            width: 40px;
+            background: 
+                linear-gradient(90deg, 
+                    #080808 0%,
+                    #151515 10%, 
+                    #1a1a1a 25%, 
+                    #0f0f0f 40%,
+                    #1a1a1a 50%,
+                    #0f0f0f 60%,
+                    #1a1a1a 75%,
+                    #151515 90%,
+                    #080808 100%
+                );
+            position: relative;
+            z-index: 10;
+            box-shadow: 
+                inset 0 0 30px rgba(0, 0, 0, 0.9),
+                -3px 0 10px rgba(0, 0, 0, 0.5),
+                3px 0 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            padding: 40px 0;
+        }
+
+        /* Vertical seam line on spine */
+        .binder-spine::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            bottom: 10%;
+            left: 50%;
+            width: 2px;
+            transform: translateX(-50%);
+            background: linear-gradient(
+                180deg,
+                transparent 0%,
+                #252525 10%,
+                #252525 90%,
+                transparent 100%
+            );
+        }
+
+        /* Metal rings in spine - 3D ring effect */
+        .binder-ring {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: 
+                radial-gradient(circle at 30% 30%, 
+                    #6a6a6a 0%, 
+                    #4a4a4a 30%,
+                    #3a3a3a 60%, 
+                    #2a2a2a 100%
+                );
+            border: 4px solid #505050;
+            box-shadow: 
+                inset 0 3px 6px rgba(0, 0, 0, 0.7),
+                inset 0 -2px 4px rgba(255, 255, 255, 0.1),
+                0 3px 8px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        /* Ring highlight */
+        .binder-ring::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        /* Ring inner shadow */
+        .binder-ring::after {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            right: 6px;
+            bottom: 6px;
+            border-radius: 50%;
+            background: radial-gradient(circle at center, 
+                #1a1a1a 0%, 
+                #252525 100%
+            );
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Individual binder page (left or right) */
+        .binder-page {
+            background: 
+                linear-gradient(180deg, #121212 0%, #0e0e0e 50%, #0a0a0a 100%);
+            width: 50%;
+            max-width: 520px;
+            min-height: 480px;
+            padding: 12px;
+            position: relative;
+            box-shadow: 
+                0 20px 50px rgba(0, 0, 0, 0.6),
+                inset 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .binder-page.left-page {
+            border-radius: 10px 0 0 10px;
+            /* Page curl shadow on right edge */
+            box-shadow: 
+                0 25px 70px rgba(0, 0, 0, 0.7),
+                inset -15px 0 30px rgba(0, 0, 0, 0.4),
+                inset 0 0 40px rgba(0, 0, 0, 0.4);
+            /* Stitching effect on outer edge */
+            border-left: 3px solid #1f1f1f;
+        }
+
+        .binder-page.right-page {
+            border-radius: 0 10px 10px 0;
+            /* Page curl shadow on left edge */
+            box-shadow: 
+                0 25px 70px rgba(0, 0, 0, 0.7),
+                inset 15px 0 30px rgba(0, 0, 0, 0.4),
+                inset 0 0 40px rgba(0, 0, 0, 0.4);
+            /* Stitching effect on outer edge */
+            border-right: 3px solid #1f1f1f;
+        }
+
+        /* Matte texture for binder page */
+        .binder-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(
+                    ellipse at 30% 20%,
+                    rgba(255, 255, 255, 0.02) 0%,
+                    transparent 50%
+                ),
+                repeating-linear-gradient(
+                    45deg,
+                    transparent 0px,
+                    transparent 2px,
+                    rgba(0, 0, 0, 0.03) 2px,
+                    rgba(0, 0, 0, 0.03) 4px
+                );
+            pointer-events: none;
+            border-radius: inherit;
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 8px;
+            font-size: 0.8em;
+            color: rgba(255, 255, 255, 0.3);
+            font-family: 'Cinzel', serif;
+        }
+
+        .left-page .page-number {
+            left: 15px;
+        }
+
+        .right-page .page-number {
+            right: 15px;
+        }
+
+        /* ============================================
+           CARD POCKET GRID - 3x3 per page
+           ============================================ */
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 5px;
+            height: calc(100% - 25px);
+            padding: 3px;
+        }
+
+        /* Individual plastic sleeve pocket */
+        .card-pocket {
+            position: relative;
+            background: #0a0a0a;
+            border-radius: 3px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            aspect-ratio: 0.714; /* MTG card ratio */
+            
+            /* Thin pocket frame - cleaner look */
+            border: 2px solid #1a1a1a;
+            box-shadow: 
+                inset 0 0 10px rgba(0, 0, 0, 0.6),
+                0 1px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Outer pocket frame - subtle depth */
+        .card-pocket::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border: 1px solid #222;
+            border-radius: 4px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Plastic sleeve shine/reflection overlay */
+        .card-pocket::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(
+                    135deg,
+                    rgba(255, 255, 255, 0.12) 0%,
+                    rgba(255, 255, 255, 0.05) 20%,
+                    transparent 45%,
+                    transparent 55%,
+                    rgba(255, 255, 255, 0.02) 80%,
+                    rgba(255, 255, 255, 0.06) 100%
+                );
+            pointer-events: none;
+            z-index: 10;
+            border-radius: 2px;
+        }
+
+        .card-pocket:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 
+                inset 0 0 0 2px #0d0d0d,
+                inset 0 0 20px rgba(0, 0, 0, 0.8),
+                0 12px 35px rgba(0, 0, 0, 0.6),
+                0 0 0 2px rgba(212, 175, 55, 0.4);
+            z-index: 15;
+        }
+
+        /* Empty pocket styling - darker, more subtle */
+        .card-pocket.empty {
+            cursor: default;
+            background: #050505;
+            border-color: #111;
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.9);
+        }
+
+        .card-pocket.empty:hover {
+            transform: none;
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.9);
+        }
+
+        .empty-slot {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.05);
+            font-size: 1.5em;
+        }
+
+        /* Card inside the pocket */
+        .card-sleeve {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 4px;
+        }
+
+        /* Condition badge in corner */
+        .card-condition {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(4px);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.7em;
+            font-weight: 600;
+            color: #fff;
+            z-index: 8;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Price overlay at bottom */
+        .card-info-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, 
+                rgba(0, 0, 0, 0.95) 0%, 
+                rgba(0, 0, 0, 0.8) 60%, 
+                transparent 100%
+            );
+            padding: 25px 8px 8px;
+            z-index: 7;
+        }
+
+        .card-name {
+            font-weight: 700;
+            font-size: 0.85em;
+            color: #fff;
+            margin-bottom: 2px;
+            line-height: 1.2;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-expansion {
+            font-size: 0.65em;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-price {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #d4af37;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        .card-discount {
+            font-size: 0.75em;
+            color: #4ade80;
+            font-weight: 600;
+            display: inline-block;
+            margin-left: 6px;
+        }
+
+        .card-discount.expensive {
+            color: #f87171;
+        }
+        
+        .card-avg30 {
+            font-size: 0.65em;
+            color: rgba(255, 255, 255, 0.75);
+            margin-top: 4px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        
+        .card-volume {
+            font-size: 0.65em;
+            color: rgba(255, 255, 255, 0.75);
+            margin-top: 2px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        
+        .card-seller {
+            font-size: 0.65em;
+            color: rgba(255, 255, 255, 0.75);
+            margin-top: 2px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        .card-badge {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.6em;
+            font-weight: 600;
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-excellent {
+            background: #22c55e;
+            color: #fff;
+        }
+
+        .badge-good {
+            background: #f59e0b;
+            color: #fff;
+        }
+
+        .badge-fair {
+            background: #3b82f6;
+            color: #fff;
+        }
+
+        .badge-expensive {
+            background: #ef4444;
+            color: #fff;
+        }
+
+        /* ============================================
+           PAGE FLIP ANIMATION
+           ============================================ */
+        
+        .binder-wrapper {
+            perspective: 2000px;
+            position: relative;
+        }
+
+        .binder-spread {
+            transform-style: preserve-3d;
+            position: relative;
+        }
+
+        /* Page flip zones - invisible click areas */
+        .page-flip-zone {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 80px;
+            cursor: pointer;
+            z-index: 20;
+            transition: all 0.3s ease;
+        }
+
+        .page-flip-zone.left {
+            left: 0;
+            border-radius: 10px 0 0 10px;
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0) 0%, transparent 100%);
+        }
+
+        .page-flip-zone.right {
+            right: 0;
+            border-radius: 0 10px 10px 0;
+            background: linear-gradient(-90deg, rgba(212, 175, 55, 0) 0%, transparent 100%);
+        }
+
+        .page-flip-zone:hover {
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.15) 0%, transparent 100%);
+        }
+
+        .page-flip-zone.right:hover {
+            background: linear-gradient(-90deg, rgba(212, 175, 55, 0.15) 0%, transparent 100%);
+        }
+
+        .page-flip-zone::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 60px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .page-flip-zone.left::before {
+            left: 15px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d4af37'%3E%3Cpath d='M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z'/%3E%3C/svg%3E") no-repeat center;
+            background-size: contain;
+        }
+
+        .page-flip-zone.right::before {
+            right: 15px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d4af37'%3E%3Cpath d='M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z'/%3E%3C/svg%3E") no-repeat center;
+            background-size: contain;
+        }
+
+        .page-flip-zone:hover::before {
+            opacity: 0.8;
+        }
+
+        .page-flip-zone.disabled {
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        /* Page curl hint on hover */
+        .binder-page {
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            transform-origin: center center;
+            backface-visibility: hidden;
+        }
+
+        /* Subtle page lift when hovering over flip zones */
+        .page-flip-zone.left:hover ~ .left-page {
+            transform: rotateY(5deg) translateX(5px);
+            box-shadow: 
+                15px 25px 70px rgba(0, 0, 0, 0.7),
+                inset -15px 0 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .page-flip-zone.right:hover ~ .right-page,
+        .binder-spread:has(.page-flip-zone.right:hover) .right-page {
+            transform: rotateY(-5deg) translateX(-5px);
+            box-shadow: 
+                -15px 25px 70px rgba(0, 0, 0, 0.7),
+                inset 15px 0 30px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Page corner curl effect */
+        .left-page::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, transparent 50%, rgba(30, 30, 30, 0.3) 50%);
+            border-radius: 0 0 0 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .right-page::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(-135deg, transparent 50%, rgba(30, 30, 30, 0.3) 50%);
+            border-radius: 0 0 10px 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .page-flip-zone.left:hover ~ .left-page::after,
+        .page-flip-zone.right:hover ~ .right-page::after {
+            opacity: 1;
+        }
+
+        /* Page flip animation states */
+        .binder-spread.flipping-forward .right-page {
+            animation: flipPageForward 0.6s ease-in-out forwards;
+            transform-origin: left center;
+        }
+
+        .binder-spread.flipping-backward .left-page {
+            animation: flipPageBackward 0.6s ease-in-out forwards;
+            transform-origin: right center;
+        }
+
+        @keyframes flipPageForward {
+            0% {
+                transform: rotateY(0deg);
+                box-shadow: 0 25px 70px rgba(0, 0, 0, 0.7);
+            }
+            50% {
+                transform: rotateY(-90deg);
+                box-shadow: -30px 25px 70px rgba(0, 0, 0, 0.5);
+            }
+            100% {
+                transform: rotateY(-180deg);
+                box-shadow: 0 25px 70px rgba(0, 0, 0, 0.7);
+            }
+        }
+
+        @keyframes flipPageBackward {
+            0% {
+                transform: rotateY(0deg);
+                box-shadow: 0 25px 70px rgba(0, 0, 0, 0.7);
+            }
+            50% {
+                transform: rotateY(90deg);
+                box-shadow: 30px 25px 70px rgba(0, 0, 0, 0.5);
+            }
+            100% {
+                transform: rotateY(180deg);
+                box-shadow: 0 25px 70px rgba(0, 0, 0, 0.7);
+            }
+        }
+
+        /* Page flip indicator arrows at edges */
+        .flip-indicator {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            color: #d4af37;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .flip-indicator.left {
+            left: -50px;
+        }
+
+        .flip-indicator.right {
+            right: -50px;
+        }
+
+        .binder-wrapper:hover .flip-indicator {
+            opacity: 0.6;
+        }
+
+        .binder-wrapper:hover .flip-indicator.left:not(.disabled) {
+            animation: pulseLeft 1.5s ease-in-out infinite;
+        }
+
+        .binder-wrapper:hover .flip-indicator.right:not(.disabled) {
+            animation: pulseRight 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulseLeft {
+            0%, 100% { transform: translateY(-50%) translateX(0); opacity: 0.4; }
+            50% { transform: translateY(-50%) translateX(-5px); opacity: 0.8; }
+        }
+
+        @keyframes pulseRight {
+            0%, 100% { transform: translateY(-50%) translateX(0); opacity: 0.4; }
+            50% { transform: translateY(-50%) translateX(5px); opacity: 0.8; }
+        }
+
+        .flip-indicator.disabled {
+            opacity: 0.15 !important;
+            animation: none !important;
+        }
+
+        /* Swipe hint text */
+        .swipe-hint {
+            text-align: center;
+            color: rgba(212, 175, 55, 0.5);
+            font-size: 0.8em;
+            margin-top: 10px;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+        }
+
+        /* ============================================
+           PAGE NAVIGATION BUTTONS (backup)
+           ============================================ */
+        
+        .page-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .page-btn {
+            padding: 12px 24px;
+            background: linear-gradient(180deg, #2a2a2a 0%, #1f1f1f 100%);
+            border: 1px solid #3a3a3a;
+            border-radius: 8px;
+            font-size: 0.95em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #d4af37;
+            font-family: 'Cinzel', serif;
+        }
+
+        .page-btn:hover:not(:disabled) {
+            background: linear-gradient(180deg, #3a3a3a 0%, #2a2a2a 100%);
+            border-color: #d4af37;
+            transform: translateY(-2px);
+        }
+
+        .page-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .page-info {
+            font-size: 1em;
+            font-weight: 600;
+            color: #d4af37;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+        }
+
+        /* ============================================
+           FILTERS SECTION
+           ============================================ */
+        
+        .filters-section {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(30, 30, 30, 0.95);
+            border-radius: 8px;
+            border: 1px solid #3a3a3a;
+        }
+
+        .filters-section h3 {
+            margin-bottom: 12px;
+            color: #d4af37;
+            font-size: 1em;
+            font-family: 'Cinzel', serif;
+        }
+
+        .filter-row {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .filter-group label {
+            display: block;
+            font-weight: 600;
+            color: #a0a0a0;
+            margin-bottom: 6px;
+            font-size: 0.8em;
+        }
+
+        .checkbox-group {
+            max-height: 130px;
+            overflow-y: auto;
+            border: 1px solid #3a3a3a;
+            border-radius: 6px;
+            padding: 6px;
+            background: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .checkbox-group::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .checkbox-group::-webkit-scrollbar-track {
+            background: #1a1a1a;
+            border-radius: 3px;
+        }
+
+        .checkbox-group::-webkit-scrollbar-thumb {
+            background: #3a3a3a;
+            border-radius: 3px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 6px;
+            border-radius: 4px;
+            transition: background 0.15s;
+        }
+
+        .checkbox-item:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+            accent-color: #d4af37;
+        }
+
+        .checkbox-item label {
+            font-weight: normal;
+            font-size: 0.8em;
+            cursor: pointer;
+            margin: 0;
+            color: #c0c0c0;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 6px;
+            margin-top: 6px;
+        }
+
+        .filter-btn {
+            padding: 5px 10px;
+            background: #2a2a2a;
+            color: #d4af37;
+            border: 1px solid #3a3a3a;
+            border-radius: 4px;
+            font-size: 0.75em;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover {
+            background: #3a3a3a;
+            border-color: #d4af37;
+        }
+
+        .price-range {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .price-input {
+            flex: 1;
+            padding: 8px 10px;
+            border: 1px solid #3a3a3a;
+            border-radius: 6px;
+            font-size: 0.85em;
+            background: #1a1a1a;
+            color: #e0e0e0;
+        }
+
+        .price-range span {
+            color: #666;
+            font-size: 0.85em;
+        }
+
+        /* ============================================
+           LOADING & EMPTY STATES
+           ============================================ */
+        
+        .loading {
+            text-align: center;
+            padding: 80px 20px;
+            color: #d4af37;
+        }
+
+        .spinner {
+            border: 3px solid rgba(212, 175, 55, 0.2);
+            border-top: 3px solid #d4af37;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            color: #888;
+        }
+
+        .empty-state h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #d4af37;
+            font-family: 'Cinzel', serif;
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        
+        @media (max-width: 1200px) {
+            .binder-spread {
+                flex-direction: column;
+                transform: none;
+            }
+
+            .binder-spine {
+                width: 100%;
+                height: 30px;
+                flex-direction: row;
+                padding: 0 30px;
+                order: -1;
+                border-radius: 8px 8px 0 0;
+            }
+
+            .binder-ring {
+                width: 22px;
+                height: 22px;
+            }
+
+            .binder-page {
+                width: 100%;
+                max-width: 100%;
+                border-radius: 0;
+            }
+
+            .binder-page.left-page {
+                border-radius: 0;
+                box-shadow: 
+                    0 10px 30px rgba(0, 0, 0, 0.4),
+                    inset 0 -5px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            .binder-page.right-page {
+                border-radius: 0 0 8px 8px;
+                box-shadow: 
+                    0 10px 30px rgba(0, 0, 0, 0.4),
+                    inset 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            .card-grid {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+                gap: 6px;
+            }
+
+            .binder-page {
+                min-height: 400px;
+                padding: 12px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .control-group {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✦ MTG Card Binder ✦</h1>
+            
+            <div class="market-scanner-explanation" style="background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 8px; padding: 15px; margin-bottom: 20px; color: #e0e0e0; font-size: 0.95em; line-height: 1.6;">
+                <h3 style="color: #d4af37; font-family: 'Cinzel', serif; font-size: 1.1em; margin-bottom: 10px; font-weight: 600;">📊 How the Market Scanner Works</h3>
+                <ul style="margin-left: 20px; padding-left: 5px;">
+                    <li>Scans Cardmarket for current listings of cards in your wishlist</li>
+                    <li>Identifies deals by comparing the cheapest listing (#1) against the average price of listings #2-5</li>
+                    <li>Categorizes cards as <strong>Excellent</strong> (≥7% below market), <strong>Good</strong> (3-7% below), <strong>Fair</strong> (0-3% below), or <strong>Expensive</strong> (above market average)</li>
+                    <li>Collects volume data (number of listings) and seller information for each card</li>
+                    <li>Includes AVG30 (30-day average) from historical data for reference</li>
+                </ul>
+            </div>
+            
+            <div class="controls">
+                <div class="control-group">
+                    <label for="categoryFilter">Category:</label>
+                    <select id="categoryFilter">
+                        <option value="">All</option>
+                        <option value="excellent">Excellent</option>
+                        <option value="good">Good</option>
+                        <option value="fair">Fair</option>
+                        <option value="expensive">Expensive</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label for="sortBy">Sort By:</label>
+                    <select id="sortBy">
+                        <option value="discount">Discount %</option>
+                        <option value="price">Price</option>
+                        <option value="name">Card Name</option>
+                        <option value="expansion">Expansion</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label for="minDiscount">Min Discount:</label>
+                    <input type="number" id="minDiscount" min="0" max="100" step="0.1" placeholder="0">
+                </div>
+                
+                <div class="control-group">
+                    <label for="groupBySeller" style="cursor: pointer;">
+                        <input type="checkbox" id="groupBySeller" onchange="applyFilters()" style="margin-right: 6px;">
+                        Group by Seller
+                    </label>
+                </div>
+            </div>
+            
+            <div class="filters-section">
+                <h3>⚙ Filters</h3>
+                
+                <div class="filter-row">
+                    <div class="filter-group">
+                        <label>📦 Sets:</label>
+                        <div id="setsFilter" class="checkbox-group"></div>
+                        <div class="filter-buttons">
+                            <button type="button" onclick="selectAllSets()" class="filter-btn">Select All</button>
+                            <button type="button" onclick="deselectAllSets()" class="filter-btn">Clear</button>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>🌍 Countries:</label>
+                        <div id="countriesFilter" class="checkbox-group"></div>
+                        <div class="filter-buttons">
+                            <button type="button" onclick="selectAllCountries()" class="filter-btn">Select All</button>
+                            <button type="button" onclick="deselectAllCountries()" class="filter-btn">Clear</button>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>💰 Price Range (€):</label>
+                        <div class="price-range">
+                            <input type="number" id="priceMin" min="0" step="0.01" placeholder="Min" class="price-input">
+                            <span>to</span>
+                            <input type="number" id="priceMax" min="0" step="0.01" placeholder="Max" class="price-input">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats" id="stats">
+                <div class="stat">
+                    <span class="stat-number" id="totalCards">0</span>
+                    <span>Total Cards</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="excellentCards">0</span>
+                    <span>Excellent</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="goodCards">0</span>
+                    <span>Good</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="fairCards">0</span>
+                    <span>Fair</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="binder-wrapper" id="binderWrapper">
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Loading cards...</p>
+            </div>
+        </div>
+
+        <div class="page-nav" id="pageNav" style="display: none;">
+            <button class="page-btn" id="prevPage" onclick="changePage(-1)">◄ Previous</button>
+            <span class="page-info" id="pageInfo">Page 1 of 1</span>
+            <button class="page-btn" id="nextPage" onclick="changePage(1)">Next ►</button>
+        </div>
+    </div>
+
+    <script>
+        // 9 cards per page (3x3), 2 pages visible = 18 cards per spread
+        const CARDS_PER_PAGE = 9;
+        const CARDS_PER_SPREAD = 18;
+        
+        let allDeals = [];
+        let currentPage = 1; // This represents the "spread" (two pages)
+        let groupBySeller = false;
+        let sellerGroups = []; // Array of {seller: string, deals: []}
+        let sellerRows = []; // Store organized rows for seller grouping
+        let currentFile = '';
+        let availableSets = [];
+        let availableCountries = [];
+
+        // Load newest file automatically
+        async function loadNewestFile() {
+            try {
+                const response = await fetch('/api/results');
+                const files = await response.json();
+                
+                if (files.length === 0) {
+                    document.getElementById('binderWrapper').innerHTML = 
+                        '<div class="empty-state"><h2>No Result Files</h2><p>Run an analysis first to generate results.</p></div>';
+                    return;
+                }
+                
+                currentFile = files[0].path;
+                await loadDeals(currentFile);
+                await loadFilterOptions(currentFile);
+            } catch (error) {
+                console.error('Error loading newest file:', error);
+            }
+        }
+
+        // Load filter options
+        async function loadFilterOptions(filePath) {
+            try {
+                const params = new URLSearchParams({ file: filePath });
+                const response = await fetch(`/api/filter-options?${params}`);
+                const data = await response.json();
+                
+                availableSets = data.sets || [];
+                availableCountries = data.countries || [];
+                
+                populateSetFilters();
+                populateCountryFilters();
+            } catch (error) {
+                console.error('Error loading filter options:', error);
+            }
+        }
+
+        function populateSetFilters() {
+            const container = document.getElementById('setsFilter');
+            container.innerHTML = '';
+            
+            if (!availableSets.length) {
+                container.innerHTML = '<div style="padding: 8px; color: #666; font-size: 0.8em;">No sets available</div>';
+                return;
+            }
+            
+            availableSets.forEach(set => {
+                if (!set) return;
+                const div = document.createElement('div');
+                div.className = 'checkbox-item';
+                const safeId = set.replace(/[^a-zA-Z0-9]/g, '_').substring(0, 50);
+                div.innerHTML = `
+                    <input type="checkbox" id="set-${safeId}" value="${set.replace(/"/g, '&quot;')}" onchange="applyFilters()">
+                    <label for="set-${safeId}">${set}</label>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function populateCountryFilters() {
+            const container = document.getElementById('countriesFilter');
+            container.innerHTML = '';
+            
+            if (!availableCountries.length) {
+                container.innerHTML = '<div style="padding: 8px; color: #666; font-size: 0.8em;">No countries available</div>';
+                return;
+            }
+            
+            availableCountries.forEach(country => {
+                if (!country) return;
+                const div = document.createElement('div');
+                div.className = 'checkbox-item';
+                const safeId = country.replace(/[^a-zA-Z0-9]/g, '_').substring(0, 50);
+                div.innerHTML = `
+                    <input type="checkbox" id="country-${safeId}" value="${country.replace(/"/g, '&quot;')}" onchange="applyFilters()">
+                    <label for="country-${safeId}">${country}</label>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function selectAllSets() {
+            document.querySelectorAll('#setsFilter input').forEach(cb => cb.checked = true);
+            applyFilters();
+        }
+
+        function deselectAllSets() {
+            document.querySelectorAll('#setsFilter input').forEach(cb => cb.checked = false);
+            applyFilters();
+        }
+
+        function selectAllCountries() {
+            document.querySelectorAll('#countriesFilter input').forEach(cb => cb.checked = true);
+            applyFilters();
+        }
+
+        function deselectAllCountries() {
+            document.querySelectorAll('#countriesFilter input').forEach(cb => cb.checked = false);
+            applyFilters();
+        }
+
+        async function loadDeals(filePath) {
+            if (!filePath) return;
+            
+            document.getElementById('binderWrapper').innerHTML = '<div class="loading"><div class="spinner"></div><p>Loading cards...</p></div>';
+            
+            try {
+                await applyFilters();
+            } catch (error) {
+                console.error('Error loading deals:', error);
+                document.getElementById('binderWrapper').innerHTML = 
+                    '<div class="empty-state"><h2>Error</h2><p>Failed to load deals.</p></div>';
+            }
+        }
+
+        async function applyFilters() {
+            if (!currentFile) return;
+            
+            const category = document.getElementById('categoryFilter').value;
+            const minDiscount = document.getElementById('minDiscount').value;
+            const sortBy = document.getElementById('sortBy').value;
+            const priceMin = document.getElementById('priceMin').value;
+            const priceMax = document.getElementById('priceMax').value;
+            groupBySeller = document.getElementById('groupBySeller').checked;
+            
+            const selectedSets = Array.from(document.querySelectorAll('#setsFilter input:checked')).map(cb => cb.value);
+            const selectedCountries = Array.from(document.querySelectorAll('#countriesFilter input:checked')).map(cb => cb.value);
+            
+            const params = new URLSearchParams({
+                file: currentFile,
+                sort: sortBy,
+                order: 'desc'
+            });
+            
+            if (category) params.append('category', category);
+            if (minDiscount) params.append('min_discount', minDiscount);
+            if (selectedSets.length) params.append('sets', selectedSets.join(','));
+            if (selectedCountries.length) params.append('countries', selectedCountries.join(','));
+            if (priceMin) params.append('price_min', priceMin);
+            if (priceMax) params.append('price_max', priceMax);
+            
+            const response = await fetch(`/api/deals?${params}`);
+            const data = await response.json();
+            
+            allDeals = data.deals || [];
+            currentPage = 1;
+            
+            updateStats();
+            renderBinder();
+        }
+
+        function updateStats() {
+            const excellent = allDeals.filter(d => d.category === 'excellent').length;
+            const good = allDeals.filter(d => d.category === 'good').length;
+            const fair = allDeals.filter(d => d.category === 'fair').length;
+            
+            document.getElementById('totalCards').textContent = allDeals.length;
+            document.getElementById('excellentCards').textContent = excellent;
+            document.getElementById('goodCards').textContent = good;
+            document.getElementById('fairCards').textContent = fair;
+        }
+
+        function groupDealsBySeller(deals) {
+            const grouped = {};
+            deals.forEach(deal => {
+                const seller = deal.seller || 'Unknown';
+                if (!grouped[seller]) {
+                    grouped[seller] = [];
+                }
+                grouped[seller].push(deal);
+            });
+            
+            // Convert to array and sort by number of deals (descending)
+            return Object.entries(grouped)
+                .map(([seller, sellerDeals]) => ({
+                    seller: seller,
+                    deals: sellerDeals,
+                    country: sellerDeals[0]?.seller_country || ''
+                }))
+                .sort((a, b) => b.deals.length - a.deals.length);
+        }
+        
+        function renderBinder() {
+            if (allDeals.length === 0) {
+                document.getElementById('binderWrapper').innerHTML = 
+                    '<div class="empty-state"><h2>No Cards Found</h2><p>Try adjusting your filters.</p></div>';
+                document.getElementById('pageNav').style.display = 'none';
+                return;
+            }
+            
+            // Organize deals by seller rows if grouping is enabled
+            if (groupBySeller) {
+                const { rows } = organizeDealsBySellerRows(allDeals);
+                sellerRows = rows;
+            } else {
+                sellerRows = [];
+            }
+            
+            // Calculate pagination
+            let totalSpreads;
+            let leftStartRowIndex, rightStartRowIndex;
+            const ROWS_PER_PAGE = 3;
+            
+            if (groupBySeller && sellerRows.length > 0) {
+                // Paginate by rows (each spread shows 6 rows = 2 pages of 3 rows each)
+                const totalRows = sellerRows.length;
+                const ROWS_PER_SPREAD = ROWS_PER_PAGE * 2; // 6 rows per spread (3 per page)
+                totalSpreads = Math.ceil(totalRows / ROWS_PER_SPREAD);
+                
+                const startRow = (currentPage - 1) * ROWS_PER_SPREAD;
+                leftStartRowIndex = startRow;
+                rightStartRowIndex = startRow + ROWS_PER_PAGE;
+            } else {
+                // Normal pagination
+                totalSpreads = Math.ceil(allDeals.length / CARDS_PER_SPREAD);
+                leftStartRowIndex = 0;
+                rightStartRowIndex = 0;
+            }
+            
+            // Get cards for left page and right page
+            const leftPageDeals = groupBySeller ? [] : allDeals.slice((currentPage - 1) * CARDS_PER_SPREAD, (currentPage - 1) * CARDS_PER_SPREAD + CARDS_PER_PAGE);
+            const rightPageDeals = groupBySeller ? [] : allDeals.slice((currentPage - 1) * CARDS_PER_SPREAD + CARDS_PER_PAGE, currentPage * CARDS_PER_SPREAD);
+            
+            const leftPageNum = (currentPage - 1) * 2 + 1;
+            const rightPageNum = leftPageNum + 1;
+            
+            const canGoPrev = currentPage > 1;
+            const canGoNext = currentPage < totalSpreads;
+            
+            const binderHTML = `
+                <div class="flip-indicator left ${!canGoPrev ? 'disabled' : ''}" title="Previous page">◀</div>
+                <div class="flip-indicator right ${!canGoNext ? 'disabled' : ''}" title="Next page">▶</div>
+                
+                <div class="binder-spread" id="binderSpread">
+                    <div class="page-flip-zone left ${!canGoPrev ? 'disabled' : ''}" onclick="flipPage(-1)" title="Click to flip back"></div>
+                    
+                    <div class="binder-page left-page">
+                        <div class="card-grid">
+                            ${renderPageCards(leftPageDeals, CARDS_PER_PAGE, leftStartRowIndex)}
+                        </div>
+                        <div class="page-number">${leftPageNum}</div>
+                    </div>
+                    
+                    <div class="binder-spine">
+                        <div class="binder-ring"></div>
+                        <div class="binder-ring"></div>
+                        <div class="binder-ring"></div>
+                        <div class="binder-ring"></div>
+                    </div>
+                    
+                    <div class="binder-page right-page">
+                        <div class="card-grid">
+                            ${renderPageCards(rightPageDeals, CARDS_PER_PAGE, rightStartRowIndex)}
+                        </div>
+                        <div class="page-number">${rightPageNum}</div>
+                    </div>
+                    
+                    <div class="page-flip-zone right ${!canGoNext ? 'disabled' : ''}" onclick="flipPage(1)" title="Click to flip forward"></div>
+                </div>
+                
+                <div class="swipe-hint">← Swipe or click edges to flip pages →</div>
+            `;
+            
+            document.getElementById('binderWrapper').innerHTML = binderHTML;
+            
+            // Setup swipe gestures
+            setupSwipeGestures();
+            
+            // Update navigation
+            document.getElementById('pageInfo').textContent = `Page ${currentPage} of ${totalSpreads}`;
+            document.getElementById('prevPage').disabled = currentPage === 1;
+            document.getElementById('nextPage').disabled = currentPage === totalSpreads;
+            document.getElementById('pageNav').style.display = totalSpreads > 1 ? 'flex' : 'none';
+        }
+
+        function organizeDealsBySellerRows(allDeals) {
+            // Group deals by seller
+            const sellerGroups = {};
+            allDeals.forEach(deal => {
+                const seller = deal.seller || 'Unknown';
+                if (!sellerGroups[seller]) {
+                    sellerGroups[seller] = [];
+                }
+                sellerGroups[seller].push(deal);
+            });
+            
+            // Organize into rows (3 cards per row)
+            // Each row contains cards from only one seller
+            const rows = [];
+            const CARDS_PER_ROW = 3;
+            
+            Object.entries(sellerGroups).forEach(([seller, sellerDeals]) => {
+                // Split seller's deals into rows
+                for (let i = 0; i < sellerDeals.length; i += CARDS_PER_ROW) {
+                    const rowDeals = sellerDeals.slice(i, i + CARDS_PER_ROW);
+                    rows.push({
+                        seller: seller,
+                        deals: rowDeals
+                    });
+                }
+            });
+            
+            // Flatten rows back into a single array for pagination
+            // But keep track of row boundaries
+            const organizedDeals = [];
+            rows.forEach(row => {
+                // Add cards from this row
+                row.deals.forEach(deal => organizedDeals.push(deal));
+                // If row has fewer than 3 cards, we'll handle empty slots in rendering
+            });
+            
+            return { organizedDeals, rows };
+        }
+        
+        function renderPageCards(deals, slotsPerPage, startRowIndex = 0) {
+            let html = '';
+            const CARDS_PER_ROW = 3;
+            const ROWS_PER_PAGE = 3;
+            
+            if (groupBySeller && sellerRows.length > 0) {
+                // Render rows (up to 3 rows per page) starting from startRowIndex
+                for (let rowIdx = 0; rowIdx < ROWS_PER_PAGE; rowIdx++) {
+                    const actualRowIdx = startRowIndex + rowIdx;
+                    if (actualRowIdx < sellerRows.length) {
+                        const row = sellerRows[actualRowIdx];
+                        // Render cards in this row
+                        for (let i = 0; i < CARDS_PER_ROW; i++) {
+                            if (i < row.deals.length) {
+                                html += createCardHTML(row.deals[i]);
+                            } else {
+                                // Fill empty slot in row
+                                html += `
+                                    <div class="card-pocket empty">
+                                        <div class="empty-slot">✦</div>
+                                    </div>
+                                `;
+                            }
+                        }
+                    } else {
+                        // Fill entire empty row
+                        for (let i = 0; i < CARDS_PER_ROW; i++) {
+                            html += `
+                                <div class="card-pocket empty">
+                                    <div class="empty-slot">✦</div>
+                                </div>
+                            `;
+                        }
+                    }
+                }
+            } else {
+                // Normal rendering - no seller grouping
+                // Render actual cards
+                for (let i = 0; i < deals.length; i++) {
+                    html += createCardHTML(deals[i]);
+                }
+                
+                // Fill empty slots
+                for (let i = deals.length; i < slotsPerPage; i++) {
+                    html += `
+                        <div class="card-pocket empty">
+                            <div class="empty-slot">✦</div>
+                        </div>
+                    `;
+                }
+            }
+            
+            return html;
+        }
+
+        function createCardHTML(deal) {
+            const cardName = deal.card_name || 'Unknown';
+            const expansion = deal.expansion || null;
+            const price = deal.price ? `€${deal.price.toFixed(2)}` : 'N/A';
+            const discount = deal.discount != null ? `${deal.discount.toFixed(1)}%` : null;
+            const category = deal.category || 'unknown';
+            const condition = deal.condition || 'EX';
+            const url = deal.url || '#';
+            const seller = deal.seller || 'Unknown';
+            const sellerCountry = deal.seller_country || '';
+            const totalListings = deal.total_listings || 0;
+            const availableItems = deal.available_items_total;
+            const historical = deal.historical || {};
+            const avg30 = historical.avg30 || historical.AVG30 || null;
+            
+            const imageName = cardName.replace(/[<>:"/\\|?*]/g, '').replace(/\s+/g, '_');
+            const imagePath = `/card_images/${imageName}.jpg`;
+            
+            const badgeClass = `badge-${category}`;
+            const discountClass = deal.discount != null && deal.discount < 0 ? 'expensive' : '';
+            const escapedUrl = url.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+            
+            // Abbreviate condition
+            const conditionAbbr = {
+                'Near Mint': 'NM',
+                'Excellent': 'EX',
+                'Good': 'GD',
+                'Light Played': 'LP',
+                'Played': 'PL',
+                'Poor': 'PR'
+            }[condition] || condition.substring(0, 2).toUpperCase();
+            
+            // Avg30 display
+            let avg30HTML = '';
+            if (avg30 !== null && avg30 !== undefined && avg30 > 0) {
+                avg30HTML = `<div class="card-avg30">📈 Avg30: €${avg30.toFixed(2)}</div>`;
+            }
+            
+            // Volume/liquidity display
+            let volumeHTML = '';
+            if (availableItems !== null && availableItems !== undefined) {
+                volumeHTML = `<div class="card-volume">📊 ${availableItems.toLocaleString()} available</div>`;
+            } else if (totalListings > 0) {
+                volumeHTML = `<div class="card-volume">📋 ${totalListings} listings</div>`;
+            }
+            
+            return `
+                <div class="card-pocket" onclick="window.open('${escapedUrl}', '_blank')" title="${cardName} - Click to view on CardMarket">
+                    <div class="card-sleeve">
+                        <img src="${imagePath}" alt="${cardName}" class="card-image" 
+                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' viewBox=\\'0 0 100 140\\'%3E%3Crect fill=\\'%23111\\' width=\\'100\\' height=\\'140\\'/%3E%3Ctext fill=\\'%23333\\' x=\\'50\\' y=\\'70\\' text-anchor=\\'middle\\' font-size=\\'12\\'%3E${cardName.substring(0,8)}%3C/text%3E%3C/svg%3E'">
+                        <div class="card-condition">${conditionAbbr}</div>
+                        <div class="card-info-overlay">
+                            <div class="card-name">${cardName}</div>
+                            ${expansion ? `<div class="card-expansion">${expansion}</div>` : ''}
+                            <div>
+                                <span class="card-price">${price}</span>
+                                ${discount ? `<span class="card-discount ${discountClass}">-${discount}</span>` : ''}
+                            </div>
+                            ${avg30HTML}
+                            ${volumeHTML}
+                            <div class="card-seller">🏪 ${seller}${sellerCountry ? ` (${sellerCountry})` : ''}</div>
+                            <span class="card-badge ${badgeClass}">${category}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        let isFlipping = false;
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        function getTotalSpreads() {
+            const ROWS_PER_PAGE = 3;
+            if (groupBySeller && sellerRows.length > 0) {
+                const totalRows = sellerRows.length;
+                const ROWS_PER_SPREAD = ROWS_PER_PAGE * 2;
+                return Math.ceil(totalRows / ROWS_PER_SPREAD);
+            } else {
+                return Math.ceil(allDeals.length / CARDS_PER_SPREAD);
+            }
+        }
+
+        function flipPage(delta) {
+            if (isFlipping) return;
+            
+            const totalSpreads = getTotalSpreads();
+            const newPage = currentPage + delta;
+            
+            if (newPage < 1 || newPage > totalSpreads) return;
+            
+            isFlipping = true;
+            const spread = document.getElementById('binderSpread');
+            
+            if (spread) {
+                // Add flip animation class
+                if (delta > 0) {
+                    spread.classList.add('flipping-forward');
+                } else {
+                    spread.classList.add('flipping-backward');
+                }
+                
+                // After animation, change page and render
+                setTimeout(() => {
+                    currentPage = newPage;
+                    renderBinder();
+                    isFlipping = false;
+                }, 350); // Half of animation duration for smoother transition
+            } else {
+                currentPage = newPage;
+                renderBinder();
+                isFlipping = false;
+            }
+        }
+
+        function changePage(delta) {
+            flipPage(delta);
+        }
+
+        // Swipe gesture support
+        function setupSwipeGestures() {
+            const wrapper = document.getElementById('binderWrapper');
+            if (!wrapper) return;
+            
+            wrapper.addEventListener('touchstart', handleTouchStart, { passive: true });
+            wrapper.addEventListener('touchmove', handleTouchMove, { passive: true });
+            wrapper.addEventListener('touchend', handleTouchEnd, { passive: true });
+            
+            // Mouse drag support for desktop
+            let mouseDown = false;
+            let mouseStartX = 0;
+            
+            wrapper.addEventListener('mousedown', (e) => {
+                // Don't start drag if clicking on a card
+                if (e.target.closest('.card-pocket')) return;
+                mouseDown = true;
+                mouseStartX = e.clientX;
+                wrapper.style.cursor = 'grabbing';
+            });
+            
+            document.addEventListener('mouseup', () => {
+                if (mouseDown) {
+                    wrapper.style.cursor = '';
+                    mouseDown = false;
+                }
+            });
+            
+            document.addEventListener('mousemove', (e) => {
+                if (!mouseDown) return;
+                const diff = mouseStartX - e.clientX;
+                if (Math.abs(diff) > 100) {
+                    if (diff > 0) {
+                        flipPage(1); // Swipe left = next page
+                    } else {
+                        flipPage(-1); // Swipe right = prev page
+                    }
+                    mouseDown = false;
+                    wrapper.style.cursor = '';
+                }
+            });
+        }
+
+        function handleTouchStart(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }
+
+        function handleTouchMove(e) {
+            touchEndX = e.changedTouches[0].screenX;
+        }
+
+        function handleTouchEnd() {
+            const diff = touchStartX - touchEndX;
+            const threshold = 80; // Minimum swipe distance
+            
+            if (Math.abs(diff) > threshold) {
+                if (diff > 0) {
+                    flipPage(1); // Swipe left = next page
+                } else {
+                    flipPage(-1); // Swipe right = prev page
+                }
+            }
+            
+            touchStartX = 0;
+            touchEndX = 0;
+        }
+
+        // Event listeners
+        document.getElementById('categoryFilter').addEventListener('change', applyFilters);
+        document.getElementById('sortBy').addEventListener('change', applyFilters);
+        document.getElementById('minDiscount').addEventListener('input', applyFilters);
+        document.getElementById('priceMin').addEventListener('input', applyFilters);
+        document.getElementById('priceMax').addEventListener('input', applyFilters);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            // Don't trigger if user is typing in an input
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+            
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                flipPage(-1);
+            }
+            if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                flipPage(1);
+            }
+        });
+
+        // Initialize
+        loadNewestFile();
+    </script>
+</body>
+</html>

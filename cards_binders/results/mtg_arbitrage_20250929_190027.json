@@ -1,0 +1,126 @@
+{
+  "timestamp": "20250929_190027",
+  "summary": {
+    "total_analyzed": 2,
+    "excellent_deals": 1,
+    "good_deals": 0,
+    "expensive_deals": 1,
+    "no_data": 0
+  },
+  "excellent_deals": [
+    {
+      "rank": 2,
+      "card_name": "Howling Mine",
+      "expansion": "Alpha",
+      "card_id": 5481,
+      "historical_data": {
+        "avg7": 1165.43,
+        "avg30": 614.48,
+        "trend": 1587.38,
+        "real_discount": 0.6128967229018887
+      },
+      "live_data": {
+        "total_listings": 7,
+        "cheapest_current": 1499.0,
+        "average_current": 2785.14,
+        "cheapest_good_condition": 1499.0,
+        "cheapest_good_condition_details": {
+          "price": 1499.0,
+          "condition": "EX",
+          "seller": "Fluoh",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 28.62205366259663,
+        "good_condition_vs_trend_pct": -5.567664957351114,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Howling-Mine?minCondition=3"
+      }
+    }
+  ],
+  "good_deals": [],
+  "expensive_deals": [
+    {
+      "rank": 1,
+      "card_name": "Wheel of Fortune",
+      "expansion": "Alpha",
+      "card_id": 5417,
+      "historical_data": {
+        "avg7": 3679.28,
+        "avg30": 1381.18,
+        "trend": 4273.54,
+        "real_discount": 0.6768065818969753
+      },
+      "live_data": {
+        "total_listings": 6,
+        "cheapest_current": 4940.0,
+        "average_current": 26210.10666666667,
+        "cheapest_good_condition": 4940.0,
+        "cheapest_good_condition_details": {
+          "price": 4940.0,
+          "condition": "EX",
+          "seller": "ThreeForOne-AT",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 34.26539975212541,
+        "good_condition_vs_trend_pct": 15.595033625518893,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Wheel-Of-Fortune?minCondition=3"
+      }
+    }
+  ],
+  "no_data": [],
+  "all_results": [
+    {
+      "rank": 1,
+      "card_name": "Wheel of Fortune",
+      "expansion": "Alpha",
+      "card_id": 5417,
+      "historical_data": {
+        "avg7": 3679.28,
+        "avg30": 1381.18,
+        "trend": 4273.54,
+        "real_discount": 0.6768065818969753
+      },
+      "live_data": {
+        "total_listings": 6,
+        "cheapest_current": 4940.0,
+        "average_current": 26210.10666666667,
+        "cheapest_good_condition": 4940.0,
+        "cheapest_good_condition_details": {
+          "price": 4940.0,
+          "condition": "EX",
+          "seller": "ThreeForOne-AT",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 34.26539975212541,
+        "good_condition_vs_trend_pct": 15.595033625518893,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Wheel-Of-Fortune?minCondition=3"
+      }
+    },
+    {
+      "rank": 2,
+      "card_name": "Howling Mine",
+      "expansion": "Alpha",
+      "card_id": 5481,
+      "historical_data": {
+        "avg7": 1165.43,
+        "avg30": 614.48,
+        "trend": 1587.38,
+        "real_discount": 0.6128967229018887
+      },
+      "live_data": {
+        "total_listings": 7,
+        "cheapest_current": 1499.0,
+        "average_current": 2785.14,
+        "cheapest_good_condition": 1499.0,
+        "cheapest_good_condition_details": {
+          "price": 1499.0,
+          "condition": "EX",
+          "seller": "Fluoh",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 28.62205366259663,
+        "good_condition_vs_trend_pct": -5.567664957351114,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Howling-Mine?minCondition=3"
+      }
+    }
+  ]
+}

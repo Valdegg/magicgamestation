@@ -1,0 +1,147 @@
+{
+  "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Animate-Artifact?minCondition=3",
+  "timestamp": 1759153205.39324,
+  "listings": [
+    {
+      "price": 58.64,
+      "condition": "EX",
+      "seller": "PugsVault",
+      "seller_country": "Unknown",
+      "language": "Unknown",
+      "quantity": 1,
+      "foil": false
+    },
+    {
+      "price": 58.98,
+      "condition": "EX",
+      "seller": "webuyanycard",
+      "seller_country": "Unknown",
+      "language": "Unknown",
+      "quantity": 1,
+      "foil": false
+    },
+    {
+      "price": 59.99,
+      "condition": "EX",
+      "seller": "TEMPEST-STORE",
+      "seller_country": "Unknown",
+      "language": "Unknown",
+      "quantity": 1,
+      "foil": false
+    },
+    {
+      "price": 60.0,
+      "condition": "EX",
+      "seller": "mutare68",
+      "seller_country": "Unknown",
+      "language": "Unknown",
+      "quantity": 1,
+      "foil": false
+    },
+    {
+      "price": 60.0,
+      "condition": "EX",
+      "seller": "mutare68",
+      "seller_country": "Unknown",
+      "language": "Unknown",
+      "quantity": 1,
+      "foil": false
+    },
+    {
+      "price": 63.0,
+      "condition": "EX",
+      "seller": "kyashan",
+      "seller_country": "Unknown",
+      "language": "Unknown",
+      "quantity": 1,
+      "foil": false
+    },
+    {
+      "price": 78.0,
+      "condition": "EX",
+      "seller": "ciprihl77",
+      "seller_country": "Unknown",
+      "language": "Unknown",
+      "quantity": 1,
+      "foil": false
+    },
+    {
+      "price": 84.95,
+      "condition": "EX",
+      "seller": "Tier1MTG",
+      "seller_country": "Unknown",
+      "language": "Unknown",
+      "quantity": 1,
+      "foil": false
+    },
+    {
+      "price": 99.0,
+      "condition": "EX",
+      "seller": "mtg-foil-shop",
+      "seller_country": "Unknown",
+      "language": "Unknown",
+      "quantity": 1,
+      "foil": true
+    },
+    {
+      "price": 99.0,
+      "condition": "EX",
+      "seller": "Satanin",
+      "seller_country": "Unknown",
+      "language": "Unknown",
+      "quantity": 1,
+      "foil": false
+    },
+    {
+      "price": 110.0,
+      "condition": "NM",
+      "seller": "AgentUschi",
+      "seller_country": "Unknown",
+      "language": "Unknown",
+      "quantity": 1,
+      "foil": false
+    },
+    {
+      "price": 119.0,
+      "condition": "NM",
+      "seller": "Ainulindale",
+      "seller_country": "Unknown",
+      "language": "Unknown",
+      "quantity": 1,
+      "foil": false
+    },
+    {
+      "price": 140.0,
+      "condition": "EX",
+      "seller": "Leuz87",
+      "seller_country": "Unknown",
+      "language": "Unknown",
+      "quantity": 1,
+      "foil": false
+    },
+    {
+      "price": 149.9,
+      "condition": "NM",
+      "seller": "mzpet",
+      "seller_country": "Unknown",
+      "language": "Unknown",
+      "quantity": 1,
+      "foil": false
+    },
+    {
+      "price": 149.99,
+      "condition": "EX",
+      "seller": "yvel",
+      "seller_country": "Unknown",
+      "language": "Unknown",
+      "quantity": 1,
+      "foil": false
+    }
+  ],
+  "analysis": {
+    "total_listings": 15,
+    "cheapest": 58.64,
+    "most_expensive": 149.99,
+    "average": 92.69666666666667
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "timestamp": "2026-01-03 17:44:37",
+  "wishlist_file": "wishlist.json",
+  "config": {
+    "min_discount": 0.0,
+    "delay_between_cards": 10.0,
+    "use_historical_data": true
+  },
+  "summary": {
+    "total_deals": 1,
+    "excellent": 1,
+    "good": 0,
+    "fair": 0,
+    "expensive": 0,
+    "no_data": 0
+  },
+  "deals": [
+    {
+      "card": {
+        "name": "Demonic Tutor",
+        "expansion": "Beta",
+        "card_id": 4652,
+        "historical": {
+          "trend": 414.25,
+          "avg30": 483.41,
+          "avg7": 455.6
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Demonic-Tutor?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 73,
+        "expansion_name": "Beta",
+        "cheapest_good_condition": 600.0,
+        "cheapest_good_details": {
+          "price": 600.0,
+          "condition": "EX",
+          "seller": "simppp",
+          "quantity": 1,
+          "country": "Denmark"
+        },
+        "top_sellers": [
+          {
+            "seller": "simppp",
+            "price": 600.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "Olli-Baba",
+            "price": 639.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "oldmagiccollector",
+            "price": 649.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "Catchimba",
+            "price": 650.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Luxembourg"
+          },
+          {
+            "seller": "oldgix",
+            "price": 650.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "Urzas-Consulting",
+            "price": 650.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 7.2642967542503865,
+        "market_baseline": 647.0,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    }
+  ]
+}

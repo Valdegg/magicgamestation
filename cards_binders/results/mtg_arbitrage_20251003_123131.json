@@ -1,0 +1,205 @@
+{
+  "timestamp": "20251003_123131",
+  "summary": {
+    "total_analyzed": 5,
+    "excellent_deals": 1,
+    "good_deals": 0,
+    "expensive_deals": 1,
+    "no_data": 3
+  },
+  "excellent_deals": [
+    {
+      "rank": 5,
+      "card_name": "Squire",
+      "expansion": "The Dark",
+      "card_id": 7371,
+      "historical_data": {
+        "avg7": 0.32,
+        "avg30": 0.27,
+        "trend": 0.4,
+        "real_discount": 0.325
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 0.04,
+        "average_current": 0.096,
+        "cheapest_good_condition": 0.04,
+        "cheapest_good_condition_details": {
+          "price": 0.04,
+          "condition": "EX",
+          "seller": "JessBuildsTech",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -87.50000000000001,
+        "good_condition_vs_trend_pct": -90.0,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/The-Dark/Squire?language=1&minCondition=3"
+      }
+    }
+  ],
+  "good_deals": [],
+  "expensive_deals": [
+    {
+      "rank": 1,
+      "card_name": "Chaos Orb",
+      "expansion": "Alpha",
+      "card_id": 5468,
+      "historical_data": {
+        "avg7": 1920.61,
+        "avg30": 844.68,
+        "trend": 1874.91,
+        "real_discount": 0.5494823751540073
+      },
+      "live_data": {
+        "total_listings": 5,
+        "cheapest_current": 8500.0,
+        "average_current": 10883.798,
+        "cheapest_good_condition": 8500.0,
+        "cheapest_good_condition_details": {
+          "price": 8500.0,
+          "condition": "EX",
+          "seller": "Magic-Dreams",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 342.5677258787573,
+        "good_condition_vs_trend_pct": 353.35509437786345,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Chaos-Orb?language=1&minCondition=3"
+      }
+    }
+  ],
+  "no_data": [
+    {
+      "rank": 2,
+      "card_name": "Imprison",
+      "expansion": "Legends",
+      "card_id": 6993,
+      "historical_data": {
+        "avg7": 76.86,
+        "avg30": 116.38,
+        "trend": 219.52,
+        "real_discount": 0.46984329446064144
+      },
+      "live_data": null
+    },
+    {
+      "rank": 3,
+      "card_name": "Army of Allah",
+      "expansion": "Arabian Nights",
+      "card_id": 6835,
+      "historical_data": {
+        "avg7": 21.49,
+        "avg30": 23.56,
+        "trend": 35.38,
+        "real_discount": 0.3340870548332392
+      },
+      "live_data": null
+    },
+    {
+      "rank": 4,
+      "card_name": "Giant Slug",
+      "expansion": "Legends",
+      "card_id": 6985,
+      "historical_data": {
+        "avg7": 0.51,
+        "avg30": 0.43,
+        "trend": 0.64,
+        "real_discount": 0.328125
+      },
+      "live_data": null
+    }
+  ],
+  "all_results": [
+    {
+      "rank": 1,
+      "card_name": "Chaos Orb",
+      "expansion": "Alpha",
+      "card_id": 5468,
+      "historical_data": {
+        "avg7": 1920.61,
+        "avg30": 844.68,
+        "trend": 1874.91,
+        "real_discount": 0.5494823751540073
+      },
+      "live_data": {
+        "total_listings": 5,
+        "cheapest_current": 8500.0,
+        "average_current": 10883.798,
+        "cheapest_good_condition": 8500.0,
+        "cheapest_good_condition_details": {
+          "price": 8500.0,
+          "condition": "EX",
+          "seller": "Magic-Dreams",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": 342.5677258787573,
+        "good_condition_vs_trend_pct": 353.35509437786345,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Chaos-Orb?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 2,
+      "card_name": "Imprison",
+      "expansion": "Legends",
+      "card_id": 6993,
+      "historical_data": {
+        "avg7": 76.86,
+        "avg30": 116.38,
+        "trend": 219.52,
+        "real_discount": 0.46984329446064144
+      },
+      "live_data": null
+    },
+    {
+      "rank": 3,
+      "card_name": "Army of Allah",
+      "expansion": "Arabian Nights",
+      "card_id": 6835,
+      "historical_data": {
+        "avg7": 21.49,
+        "avg30": 23.56,
+        "trend": 35.38,
+        "real_discount": 0.3340870548332392
+      },
+      "live_data": null
+    },
+    {
+      "rank": 4,
+      "card_name": "Giant Slug",
+      "expansion": "Legends",
+      "card_id": 6985,
+      "historical_data": {
+        "avg7": 0.51,
+        "avg30": 0.43,
+        "trend": 0.64,
+        "real_discount": 0.328125
+      },
+      "live_data": null
+    },
+    {
+      "rank": 5,
+      "card_name": "Squire",
+      "expansion": "The Dark",
+      "card_id": 7371,
+      "historical_data": {
+        "avg7": 0.32,
+        "avg30": 0.27,
+        "trend": 0.4,
+        "real_discount": 0.325
+      },
+      "live_data": {
+        "total_listings": 10,
+        "cheapest_current": 0.04,
+        "average_current": 0.096,
+        "cheapest_good_condition": 0.04,
+        "cheapest_good_condition_details": {
+          "price": 0.04,
+          "condition": "EX",
+          "seller": "JessBuildsTech",
+          "quantity": 1
+        },
+        "good_condition_vs_avg7_pct": -87.50000000000001,
+        "good_condition_vs_trend_pct": -90.0,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/The-Dark/Squire?language=1&minCondition=3"
+      }
+    }
+  ]
+}

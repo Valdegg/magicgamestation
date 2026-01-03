@@ -1,0 +1,271 @@
+{
+  "timestamp": "20251005_171611",
+  "run_type": "candidates",
+  "run_param": 5,
+  "summary": {
+    "total_analyzed": 5,
+    "excellent_deals": 2,
+    "good_deals": 2,
+    "expensive_deals": 0,
+    "no_data": 1
+  },
+  "excellent_deals": [
+    {
+      "rank": 4,
+      "card_name": "Living Artifact",
+      "expansion": "Alpha",
+      "card_id": 5350,
+      "historical_data": {
+        "avg7": 305.71,
+        "avg30": 157.84,
+        "trend": 361.04,
+        "real_discount": 0.5628185242632395
+      },
+      "live_data": {
+        "total_listings": 9,
+        "cheapest_current": 339.99,
+        "average_current": 603.218888888889,
+        "cheapest_good_condition": 339.99,
+        "cheapest_good_condition_details": {
+          "price": 339.99,
+          "condition": "EX",
+          "seller": "RubyTrade",
+          "quantity": 1
+        },
+        "top_3_sellers": [],
+        "good_condition_vs_avg7_pct": 11.21324130712114,
+        "good_condition_vs_trend_pct": -5.830378905384448,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Living-Artifact?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 5,
+      "card_name": "Reverse Damage",
+      "expansion": "Alpha",
+      "card_id": 5452,
+      "historical_data": {
+        "avg7": 391.14,
+        "avg30": 199.78,
+        "trend": 425.86,
+        "real_discount": 0.5308786925280609
+      },
+      "live_data": {
+        "total_listings": 5,
+        "cheapest_current": 350.0,
+        "average_current": 673.9959999999999,
+        "cheapest_good_condition": 350.0,
+        "cheapest_good_condition_details": {
+          "price": 350.0,
+          "condition": "EX",
+          "seller": "Magic-Dreams",
+          "quantity": 1
+        },
+        "top_3_sellers": [],
+        "good_condition_vs_avg7_pct": -10.517973104259342,
+        "good_condition_vs_trend_pct": -17.81336589489504,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Reverse-Damage?language=1&minCondition=3"
+      }
+    }
+  ],
+  "good_deals": [
+    {
+      "rank": 2,
+      "card_name": "Manabarbs",
+      "expansion": "Alpha",
+      "card_id": 5397,
+      "historical_data": {
+        "avg7": 307.85,
+        "avg30": 138.11,
+        "trend": 371.08,
+        "real_discount": 0.6278161043440766
+      },
+      "live_data": {
+        "total_listings": 5,
+        "cheapest_current": 360.0,
+        "average_current": 619.598,
+        "cheapest_good_condition": 360.0,
+        "cheapest_good_condition_details": {
+          "price": 360.0,
+          "condition": "EX",
+          "seller": "Tuardian",
+          "quantity": 1
+        },
+        "top_3_sellers": [],
+        "good_condition_vs_avg7_pct": 16.940068215039783,
+        "good_condition_vs_trend_pct": -2.9858790557292187,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Manabarbs?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 3,
+      "card_name": "Dingus Egg",
+      "expansion": "Alpha",
+      "card_id": 5474,
+      "historical_data": {
+        "avg7": 318.43,
+        "avg30": 185.71,
+        "trend": 449.44,
+        "real_discount": 0.5867969028123888
+      },
+      "live_data": {
+        "total_listings": 5,
+        "cheapest_current": 439.99,
+        "average_current": 597.796,
+        "cheapest_good_condition": 439.99,
+        "cheapest_good_condition_details": {
+          "price": 439.99,
+          "condition": "EX",
+          "seller": "phigue0",
+          "quantity": 1
+        },
+        "top_3_sellers": [],
+        "good_condition_vs_avg7_pct": 38.174795088402476,
+        "good_condition_vs_trend_pct": -2.1026165895336395,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Dingus-Egg?language=1&minCondition=3"
+      }
+    }
+  ],
+  "expensive_deals": [],
+  "no_data": [
+    {
+      "rank": 1,
+      "card_name": "Cockatrice",
+      "expansion": "Alpha",
+      "card_id": 5331,
+      "historical_data": {
+        "avg7": 401.86,
+        "avg30": 176.79,
+        "trend": 479.61,
+        "real_discount": 0.6313880027522363
+      },
+      "live_data": null
+    }
+  ],
+  "all_results": [
+    {
+      "rank": 1,
+      "card_name": "Cockatrice",
+      "expansion": "Alpha",
+      "card_id": 5331,
+      "historical_data": {
+        "avg7": 401.86,
+        "avg30": 176.79,
+        "trend": 479.61,
+        "real_discount": 0.6313880027522363
+      },
+      "live_data": null
+    },
+    {
+      "rank": 2,
+      "card_name": "Manabarbs",
+      "expansion": "Alpha",
+      "card_id": 5397,
+      "historical_data": {
+        "avg7": 307.85,
+        "avg30": 138.11,
+        "trend": 371.08,
+        "real_discount": 0.6278161043440766
+      },
+      "live_data": {
+        "total_listings": 5,
+        "cheapest_current": 360.0,
+        "average_current": 619.598,
+        "cheapest_good_condition": 360.0,
+        "cheapest_good_condition_details": {
+          "price": 360.0,
+          "condition": "EX",
+          "seller": "Tuardian",
+          "quantity": 1
+        },
+        "top_3_sellers": [],
+        "good_condition_vs_avg7_pct": 16.940068215039783,
+        "good_condition_vs_trend_pct": -2.9858790557292187,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Manabarbs?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 3,
+      "card_name": "Dingus Egg",
+      "expansion": "Alpha",
+      "card_id": 5474,
+      "historical_data": {
+        "avg7": 318.43,
+        "avg30": 185.71,
+        "trend": 449.44,
+        "real_discount": 0.5867969028123888
+      },
+      "live_data": {
+        "total_listings": 5,
+        "cheapest_current": 439.99,
+        "average_current": 597.796,
+        "cheapest_good_condition": 439.99,
+        "cheapest_good_condition_details": {
+          "price": 439.99,
+          "condition": "EX",
+          "seller": "phigue0",
+          "quantity": 1
+        },
+        "top_3_sellers": [],
+        "good_condition_vs_avg7_pct": 38.174795088402476,
+        "good_condition_vs_trend_pct": -2.1026165895336395,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Dingus-Egg?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 4,
+      "card_name": "Living Artifact",
+      "expansion": "Alpha",
+      "card_id": 5350,
+      "historical_data": {
+        "avg7": 305.71,
+        "avg30": 157.84,
+        "trend": 361.04,
+        "real_discount": 0.5628185242632395
+      },
+      "live_data": {
+        "total_listings": 9,
+        "cheapest_current": 339.99,
+        "average_current": 603.218888888889,
+        "cheapest_good_condition": 339.99,
+        "cheapest_good_condition_details": {
+          "price": 339.99,
+          "condition": "EX",
+          "seller": "RubyTrade",
+          "quantity": 1
+        },
+        "top_3_sellers": [],
+        "good_condition_vs_avg7_pct": 11.21324130712114,
+        "good_condition_vs_trend_pct": -5.830378905384448,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Living-Artifact?language=1&minCondition=3"
+      }
+    },
+    {
+      "rank": 5,
+      "card_name": "Reverse Damage",
+      "expansion": "Alpha",
+      "card_id": 5452,
+      "historical_data": {
+        "avg7": 391.14,
+        "avg30": 199.78,
+        "trend": 425.86,
+        "real_discount": 0.5308786925280609
+      },
+      "live_data": {
+        "total_listings": 5,
+        "cheapest_current": 350.0,
+        "average_current": 673.9959999999999,
+        "cheapest_good_condition": 350.0,
+        "cheapest_good_condition_details": {
+          "price": 350.0,
+          "condition": "EX",
+          "seller": "Magic-Dreams",
+          "quantity": 1
+        },
+        "top_3_sellers": [],
+        "good_condition_vs_avg7_pct": -10.517973104259342,
+        "good_condition_vs_trend_pct": -17.81336589489504,
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Reverse-Damage?language=1&minCondition=3"
+      }
+    }
+  ]
+}
