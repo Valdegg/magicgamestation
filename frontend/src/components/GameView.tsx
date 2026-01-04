@@ -418,6 +418,9 @@ export default function GameView({ onBackToLobby }: GameViewProps) {
           <motion.button onClick={handleNewGame} className="px-2 py-1 text-xs font-bold text-red-400 border border-red-400/30 rounded hover:bg-red-500/10 flex items-center gap-1" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <span>🚪</span> Lobby
           </motion.button>
+          <motion.a href="http://localhost:5010/" className="px-2 py-1 text-xs font-bold text-blue-400 border border-blue-400/30 rounded hover:bg-blue-500/10 flex items-center gap-1" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <span>🏠</span> Main Page
+          </motion.a>
         </div>
         </div>
       </div>

@@ -2118,6 +2118,23 @@
             }
         });
 
+        // Handle Enter key in card name autocomplete
+        document.getElementById('cardName').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const dropdown = document.getElementById('cardNameDropdown');
+                if (dropdown.classList.contains('show')) {
+                    e.preventDefault();
+                    const firstItem = dropdown.querySelector('.sets-dropdown-item');
+                    if (firstItem && !firstItem.textContent.includes('No cards found')) {
+                        const cardName = firstItem.querySelector('.sets-dropdown-item-name').textContent;
+                        selectCardName(cardName);
+                        // Move focus to next field (sets input)
+                        document.getElementById('cardSetsInput').focus();
+                    }
+                }
+            }
+        });
+
         async function fetchCardAutocomplete(query) {
             try {
                 const response = await fetch(`/api/autocomplete-card?q=${encodeURIComponent(query)}`);
@@ -2161,6 +2178,23 @@
             const query = e.target.value.trim();
             const filtered = filterSets(query);
             renderSetsDropdown(filtered);
+        });
+
+        // Handle Enter key in sets autocomplete
+        document.getElementById('cardSetsInput').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const dropdown = document.getElementById('cardSetsDropdown');
+                if (dropdown.classList.contains('show')) {
+                    e.preventDefault();
+                    const firstItem = dropdown.querySelector('.sets-dropdown-item');
+                    if (firstItem && !firstItem.textContent.includes('No sets found')) {
+                        const setName = firstItem.querySelector('.sets-dropdown-item-name').textContent;
+                        selectSet(setName);
+                        // Move focus to next field (Save Card button)
+                        document.querySelector('#cardForm button[type="submit"]').focus();
+                    }
+                }
+            }
         });
 
         // Close dropdowns when clicking outside

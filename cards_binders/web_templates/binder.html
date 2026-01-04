@@ -299,6 +299,7 @@
             box-shadow: 
                 0 20px 50px rgba(0, 0, 0, 0.6),
                 inset 0 0 30px rgba(0, 0, 0, 0.5);
+            overflow: visible; /* Allow hover effects to extend beyond page */
         }
 
         .binder-page.left-page {
@@ -344,8 +345,9 @@
                     rgba(0, 0, 0, 0.03) 2px,
                     rgba(0, 0, 0, 0.03) 4px
                 );
-            pointer-events: none;
+            pointer-events: none; /* Don't block clicks */
             border-radius: inherit;
+            z-index: 0; /* Ensure it's behind content */
         }
 
         .page-number {
@@ -354,6 +356,7 @@
             font-size: 0.8em;
             color: rgba(255, 255, 255, 0.3);
             font-family: 'Cinzel', serif;
+            pointer-events: none; /* Don't block clicks */
         }
 
         .left-page .page-number {
@@ -375,6 +378,9 @@
             gap: 5px;
             height: calc(100% - 25px);
             padding: 3px;
+            position: relative;
+            z-index: 1; /* Ensure grid is above page background */
+            overflow: visible; /* Allow hover effects to extend beyond grid */
         }
 
         /* Individual plastic sleeve pocket */
@@ -382,10 +388,11 @@
             position: relative;
             background: #0a0a0a;
             border-radius: 3px;
-            overflow: hidden;
+            overflow: hidden; /* Keep hidden for card content, but allow hover transform */
             cursor: pointer;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             aspect-ratio: 0.714; /* MTG card ratio */
+            will-change: transform; /* Optimize hover animation */
             
             /* Thin pocket frame - cleaner look */
             border: 2px solid #1a1a1a;
@@ -508,6 +515,12 @@
             );
             padding: 25px 8px 8px;
             z-index: 7;
+            pointer-events: none; /* Allow clicks to pass through to card-pocket */
+        }
+        
+        /* Make text elements inside overlay clickable */
+        .card-info-overlay > * {
+            pointer-events: auto;
         }
 
         .card-name {
@@ -1160,7 +1173,8 @@
                 <div class="control-group">
                     <label for="sortBy">Sort By:</label>
                     <select id="sortBy">
-                        <option value="discount">Discount %</option>
+                        <option value="discount">Discount % (vs Market)</option>
+                        <option value="discount_vs_avg30">Discount % (vs AVG30)</option>
                         <option value="price">Price</option>
                         <option value="name">Card Name</option>
                         <option value="expansion">Expansion</option>
@@ -1209,6 +1223,12 @@
                             <span>to</span>
                             <input type="number" id="priceMax" min="0" step="0.01" placeholder="Max" class="price-input">
                         </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>📊 Min Available Items:</label>
+                        <input type="number" id="minAvailable" min="0" step="1" placeholder="e.g. 5" class="price-input" style="width: 100px;">
+                        <span style="font-size: 0.85em; color: rgba(255,255,255,0.6); margin-left: 8px;">(liquidity filter)</span>
                     </div>
                 </div>
             </div>
@@ -1384,6 +1404,7 @@
             const sortBy = document.getElementById('sortBy').value;
             const priceMin = document.getElementById('priceMin').value;
             const priceMax = document.getElementById('priceMax').value;
+            const minAvailable = document.getElementById('minAvailable').value;
             groupBySeller = document.getElementById('groupBySeller').checked;
             
             const selectedSets = Array.from(document.querySelectorAll('#setsFilter input:checked')).map(cb => cb.value);
@@ -1401,6 +1422,7 @@
             if (selectedCountries.length) params.append('countries', selectedCountries.join(','));
             if (priceMin) params.append('price_min', priceMin);
             if (priceMax) params.append('price_max', priceMax);
+            if (minAvailable) params.append('min_available', minAvailable);
             
             const response = await fetch(`/api/deals?${params}`);
             const data = await response.json();
@@ -1526,6 +1548,9 @@
             
             document.getElementById('binderWrapper').innerHTML = binderHTML;
             
+            // Setup click logging and handlers after rendering
+            setupCardClickHandlers();
+            
             // Setup swipe gestures
             setupSwipeGestures();
             
@@ -1547,12 +1572,16 @@
                 sellerGroups[seller].push(deal);
             });
             
+            // Sort sellers by number of deals (most items first)
+            const sortedSellers = Object.entries(sellerGroups)
+                .sort((a, b) => b[1].length - a[1].length); // Sort descending by deal count
+            
             // Organize into rows (3 cards per row)
             // Each row contains cards from only one seller
             const rows = [];
             const CARDS_PER_ROW = 3;
             
-            Object.entries(sellerGroups).forEach(([seller, sellerDeals]) => {
+            sortedSellers.forEach(([seller, sellerDeals]) => {
                 // Split seller's deals into rows
                 for (let i = 0; i < sellerDeals.length; i += CARDS_PER_ROW) {
                     const rowDeals = sellerDeals.slice(i, i + CARDS_PER_ROW);
@@ -1676,8 +1705,10 @@
                 volumeHTML = `<div class="card-volume">📋 ${totalListings} listings</div>`;
             }
             
+            const cardId = `card-${cardName.replace(/[^a-zA-Z0-9]/g, '_')}-${Math.random().toString(36).substr(2, 9)}`;
+            
             return `
-                <div class="card-pocket" onclick="window.open('${escapedUrl}', '_blank')" title="${cardName} - Click to view on CardMarket">
+                <div class="card-pocket" id="${cardId}" data-card-name="${cardName.replace(/"/g, '&quot;')}" data-url="${escapedUrl}" title="${cardName} - Click to view on CardMarket">
                     <div class="card-sleeve">
                         <img src="${imagePath}" alt="${cardName}" class="card-image" 
                              onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' viewBox=\\'0 0 100 140\\'%3E%3Crect fill=\\'%23111\\' width=\\'100\\' height=\\'140\\'/%3E%3Ctext fill=\\'%23333\\' x=\\'50\\' y=\\'70\\' text-anchor=\\'middle\\' font-size=\\'12\\'%3E${cardName.substring(0,8)}%3C/text%3E%3C/svg%3E'">
@@ -1765,7 +1796,11 @@
             
             wrapper.addEventListener('mousedown', (e) => {
                 // Don't start drag if clicking on a card
-                if (e.target.closest('.card-pocket')) return;
+                const cardPocket = e.target.closest('.card-pocket');
+                if (cardPocket) {
+                    console.log(`[CLICK DEBUG] Swipe handler: Click on card-pocket, allowing event to propagate`);
+                    return; // Let the event continue to card-pocket handlers
+                }
                 mouseDown = true;
                 mouseStartX = e.clientX;
                 wrapper.style.cursor = 'grabbing';
@@ -1817,12 +1852,219 @@
             touchEndX = 0;
         }
 
+        function setupCardClickHandlers() {
+            // Add document-level mousedown listener to catch ALL clicks, even blocked ones
+            document.addEventListener('mousedown', function(e) {
+                const elementsAtPoint = document.elementsFromPoint(e.clientX, e.clientY);
+                const topElement = elementsAtPoint[0];
+                
+                // Check if click is in binder area
+                const binderWrapper = document.getElementById('binderWrapper');
+                if (binderWrapper && binderWrapper.contains(topElement)) {
+                    console.log(`[CLICK DEBUG] Document mousedown at (${e.clientX}, ${e.clientY}):`, {
+                        topElement: {
+                            tag: topElement.tagName,
+                            class: topElement.className,
+                            id: topElement.id,
+                            zIndex: window.getComputedStyle(topElement).zIndex,
+                            pointerEvents: window.getComputedStyle(topElement).pointerEvents
+                        },
+                        allElements: elementsAtPoint.slice(0, 5).map(el => ({
+                            tag: el.tagName,
+                            class: el.className,
+                            zIndex: window.getComputedStyle(el).zIndex,
+                            pointerEvents: window.getComputedStyle(el).pointerEvents
+                        }))
+                    });
+                    
+                    // Check if click is on a card-pocket
+                    const cardPocket = topElement.closest('.card-pocket');
+                    if (cardPocket && !cardPocket.classList.contains('empty')) {
+                        console.log(`[CLICK DEBUG] Click is on card-pocket:`, cardPocket);
+                        console.log(`[CLICK DEBUG] Card-pocket has event listeners:`, {
+                            id: cardPocket.id,
+                            dataCardName: cardPocket.getAttribute('data-card-name'),
+                            hasClickHandler: cardPocket.onclick !== null,
+                            url: cardPocket.getAttribute('data-url')
+                        });
+                        
+                        // If click handler didn't fire, manually trigger it
+                        const url = cardPocket.getAttribute('data-url');
+                        if (url && url !== '#') {
+                            // Use a small delay to see if the normal handler fires first
+                            setTimeout(() => {
+                                console.log(`[CLICK DEBUG] Manually opening URL for card-pocket (fallback)`);
+                                window.open(url, '_blank');
+                            }, 50);
+                        }
+                    } else {
+                        console.warn(`[CLICK DEBUG] Click in binder area but NOT on card-pocket! Top element:`, topElement);
+                    }
+                }
+            }, true); // Use capture phase
+            
+            // Add click logging to all card pockets
+            const cardPockets = document.querySelectorAll('.card-pocket:not(.empty)');
+            console.log(`[CLICK DEBUG] Found ${cardPockets.length} card pockets to setup`);
+            
+            cardPockets.forEach((pocket, index) => {
+                const cardName = pocket.getAttribute('data-card-name') || pocket.querySelector('.card-name')?.textContent || 'Unknown';
+                const url = pocket.getAttribute('data-url') || '#';
+                
+                // Get position info
+                const rect = pocket.getBoundingClientRect();
+                const grid = pocket.closest('.card-grid');
+                const gridRect = grid ? grid.getBoundingClientRect() : null;
+                const row = grid ? Math.floor((rect.top - gridRect.top) / (rect.height + 5)) : -1;
+                const col = grid ? Math.floor((rect.left - gridRect.left) / (rect.width + 5)) : -1;
+                
+                // Remove onclick attribute and use event listener instead
+                pocket.removeAttribute('onclick');
+                
+                // Add mousedown listener first (fires before click)
+                pocket.addEventListener('mousedown', function(e) {
+                    console.log(`[CLICK DEBUG] Mouse down on card: ${cardName}`, {
+                        target: e.target.className,
+                        button: e.button,
+                        clientX: e.clientX,
+                        clientY: e.clientY,
+                        row: row,
+                        col: col
+                    });
+                }, false);
+                
+                // Add comprehensive click logging - try both capture and bubble phases
+                // Capture phase (fires first)
+                pocket.addEventListener('click', function(e) {
+                    console.log(`[CLICK DEBUG] Card click handler FIRED (CAPTURE) for: ${cardName}`, {
+                        row: row,
+                        col: col,
+                        clientY: e.clientY,
+                        eventPhase: 'CAPTURING'
+                    });
+                    // Don't stop propagation here, let it bubble too
+                }, true);
+                
+                // Bubble phase (fires after capture)
+                pocket.addEventListener('click', function(e) {
+                    console.log(`[CLICK DEBUG] Card click handler FIRED (BUBBLE) for: ${cardName}`, {
+                        row: row,
+                        col: col,
+                        clientY: e.clientY,
+                        eventPhase: 'BUBBLING'
+                    });
+                    console.log(`[CLICK DEBUG] Card clicked:`, {
+                        cardName: cardName,
+                        element: e.target.tagName,
+                        elementClass: e.target.className,
+                        clickedElement: e.target,
+                        cardPocket: this,
+                        url: url,
+                        position: {
+                            row: row,
+                            col: col,
+                            index: index,
+                            rect: {
+                                top: rect.top,
+                                bottom: rect.bottom,
+                                left: rect.left,
+                                right: rect.right,
+                                width: rect.width,
+                                height: rect.height
+                            }
+                        },
+                        eventPhase: e.eventPhase,
+                        bubbles: e.bubbles,
+                        defaultPrevented: e.defaultPrevented,
+                        timestamp: Date.now()
+                    });
+                    
+                    // Check if click is on overlay
+                    if (e.target.closest('.card-info-overlay')) {
+                        console.log(`[CLICK DEBUG] Click originated from overlay area`);
+                    }
+                    
+                    // Check if click is on image
+                    if (e.target.classList.contains('card-image')) {
+                        console.log(`[CLICK DEBUG] Click originated from image`);
+                    }
+                    
+                    // Check z-index of clicked element
+                    const computedStyle = window.getComputedStyle(e.target);
+                    console.log(`[CLICK DEBUG] Clicked element z-index:`, computedStyle.zIndex);
+                    console.log(`[CLICK DEBUG] Clicked element pointer-events:`, computedStyle.pointerEvents);
+                    
+                    // Check all elements at click point
+                    const elementsAtPoint = document.elementsFromPoint(e.clientX, e.clientY);
+                    console.log(`[CLICK DEBUG] Elements at click point (${e.clientX}, ${e.clientY}):`, 
+                        elementsAtPoint.map(el => ({
+                            tag: el.tagName,
+                            class: el.className,
+                            zIndex: window.getComputedStyle(el).zIndex,
+                            pointerEvents: window.getComputedStyle(el).pointerEvents
+                        }))
+                    );
+                    
+                    // Open URL
+                    if (url && url !== '#') {
+                        window.open(url, '_blank');
+                    } else {
+                        console.warn(`[CLICK DEBUG] No valid URL for card: ${cardName}`);
+                    }
+                }, false); // Use bubble phase
+            });
+            
+            // Log overlay elements
+            const overlays = document.querySelectorAll('.card-info-overlay');
+            console.log(`[CLICK DEBUG] Found ${overlays.length} overlays`);
+            overlays.forEach((overlay, idx) => {
+                const style = window.getComputedStyle(overlay);
+                const rect = overlay.getBoundingClientRect();
+                console.log(`[CLICK DEBUG] Overlay ${idx}:`, {
+                    zIndex: style.zIndex,
+                    pointerEvents: style.pointerEvents,
+                    position: style.position,
+                    bottom: style.bottom,
+                    height: overlay.offsetHeight,
+                    rect: {
+                        top: rect.top,
+                        bottom: rect.bottom,
+                        left: rect.left,
+                        right: rect.right
+                    }
+                });
+            });
+            
+            // Log card-grid structure
+            const grids = document.querySelectorAll('.card-grid');
+            console.log(`[CLICK DEBUG] Found ${grids.length} card grids`);
+            grids.forEach((grid, idx) => {
+                const rect = grid.getBoundingClientRect();
+                const pockets = grid.querySelectorAll('.card-pocket');
+                const lastPocket = pockets.length > 0 ? pockets[pockets.length - 1] : null;
+                console.log(`[CLICK DEBUG] Grid ${idx}:`, {
+                    rect: {
+                        top: rect.top,
+                        bottom: rect.bottom,
+                        left: rect.left,
+                        right: rect.right,
+                        width: rect.width,
+                        height: rect.height
+                    },
+                    pockets: pockets.length,
+                    lastPocketBottom: lastPocket ? lastPocket.getBoundingClientRect().bottom : null,
+                    gridBottom: rect.bottom
+                });
+            });
+        }
+
         // Event listeners
         document.getElementById('categoryFilter').addEventListener('change', applyFilters);
         document.getElementById('sortBy').addEventListener('change', applyFilters);
         document.getElementById('minDiscount').addEventListener('input', applyFilters);
         document.getElementById('priceMin').addEventListener('input', applyFilters);
         document.getElementById('priceMax').addEventListener('input', applyFilters);
+        document.getElementById('minAvailable').addEventListener('input', applyFilters);
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {

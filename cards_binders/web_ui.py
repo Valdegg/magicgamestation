@@ -13,6 +13,8 @@ import os
 import glob
 import sys
 import argparse
+import re
+import requests
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse, JSONResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -213,7 +215,8 @@ async def api_deals(
     sets: Optional[str] = None,  # Comma-separated list of sets
     countries: Optional[str] = None,  # Comma-separated list of countries
     price_min: Optional[float] = None,
-    price_max: Optional[float] = None
+    price_max: Optional[float] = None,
+    min_available: Optional[int] = None  # Minimum number of available items (liquidity filter)
 ):
     """Get deals from a specific result file."""
     if not file:
@@ -259,11 +262,25 @@ async def api_deals(
     if price_max is not None:
         deals = [d for d in deals if d.get('price') and d.get('price') <= price_max]
     
+    # Filter by minimum available items (liquidity)
+    if min_available is not None:
+        deals = [d for d in deals if d.get('available_items_total') is not None and d.get('available_items_total') >= min_available]
+    
     # Apply sorting
     reverse = order == 'desc'
     
     if sort == 'discount':
         deals.sort(key=lambda x: x.get('discount') or -999, reverse=reverse)
+    elif sort == 'discount_vs_avg30':
+        # Calculate discount vs avg30: (avg30 - price) / avg30 * 100
+        def calc_discount_vs_avg30(deal):
+            historical = deal.get('historical', {})
+            avg30 = historical.get('avg30') or historical.get('AVG30') or 0
+            price = deal.get('price')
+            if avg30 and price and avg30 > 0:
+                return ((avg30 - price) / avg30) * 100
+            return -999
+        deals.sort(key=calc_discount_vs_avg30, reverse=reverse)
     elif sort == 'price':
         deals.sort(key=lambda x: x.get('price') or 999999, reverse=reverse)
     elif sort == 'name':

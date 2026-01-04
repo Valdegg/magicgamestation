@@ -613,6 +613,17 @@ const Lobby: React.FC<LobbyProps> = ({ onJoinGame }) => {
           >
             MAGIC GAMESTATION
           </h1>
+          <div className="flex justify-center mb-4">
+            <a
+              href="http://localhost:5010/"
+              className="px-4 py-2 text-sm font-semibold text-[#d4b36b] border border-[#d4b36b]/50 rounded-lg hover:bg-[#d4b36b]/10 transition-all duration-200 flex items-center gap-2"
+              style={{
+                textShadow: '0 2px 4px rgba(0, 0, 0, 0.5)',
+              }}
+            >
+              <span>←</span> Back to Main Page
+            </a>
+          </div>
           <div className="flex justify-center gap-2 mb-4">
             {/* White Mana */}
             <div className="mana-symbol mana-white">

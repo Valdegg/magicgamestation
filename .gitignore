@@ -15,6 +15,7 @@ dist/
 # Logs
 logs/
 *.log
+*.zip
 
 # Redis
 dump.rdb

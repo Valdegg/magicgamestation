@@ -15,7 +15,7 @@ import sys
 import argparse
 import re
 from fastapi import FastAPI, Request
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from pathlib import Path
@@ -338,7 +338,16 @@ async def home_page():
 
 # Import route handlers from each module
 # We need to import the functions directly from the modules
+# Ensure we're importing from the current directory, not from trash or other locations
 import importlib
+import sys
+import os
+
+# Add current directory to path first to ensure we import from here
+_current_dir = os.path.dirname(os.path.abspath(__file__))
+if _current_dir not in sys.path:
+    sys.path.insert(0, _current_dir)
+
 import web_ui
 import wishlist_ui
 import collection_ui
@@ -422,7 +431,8 @@ async def market_api_deals(
     sets: str = None,
     countries: str = None,
     price_min: float = None,
-    price_max: float = None
+    price_max: float = None,
+    min_available: int = None
 ):
     return await api_deals(
         file=file,
@@ -433,7 +443,8 @@ async def market_api_deals(
         sets=sets,
         countries=countries,
         price_min=price_min,
-        price_max=price_max
+        price_max=price_max,
+        min_available=min_available
     )
 
 @app.get("/market/api/filter-options")
@@ -572,7 +583,6 @@ async def collection_api_fetch_image(name: str, set: str = None):
 @app.get("/games")
 async def games_route(request: Request):
     """Games lobby page - redirects to full screen game frontend."""
-    from fastapi.responses import RedirectResponse
     game_frontend_url = os.getenv("GAME_FRONTEND_URL", "http://localhost:5173")
     # Redirect directly to the game frontend for full screen experience
     return RedirectResponse(url=game_frontend_url)
@@ -678,10 +688,6 @@ Examples:
     print(f"\n🗂️  Collection:      http://{args.host}:{args.port}/collection")
     print(f"📋 Wishlist:        http://{args.host}:{args.port}/wishlist")
     print(f"📊 Market Scanner:  http://{args.host}:{args.port}/market")
-    print(f"🎮 Games:           http://{args.host}:{args.port}/games")
-    print(f"=" * 60)
-    print(f"\n⚠️  Note: Games require the game backend (port 9000) and frontend (port 5173) to be running.")
-    print(f"   Start them with: ./start_server.sh")
     print(f"=" * 60)
     
     try:
