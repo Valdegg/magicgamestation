@@ -451,6 +451,50 @@ async def market_api_deals(
 async def market_api_filter_options(file: str = None):
     return await api_filter_options(file=file)
 
+@app.get("/market/api/fetch-card-image")
+async def market_api_fetch_card_image(name: str, set: str = None):
+    """Fetch card image from Scryfall if it doesn't exist locally. Supports set-specific fetching."""
+    # Import the fetch function from wishlist_ui (they share the same implementation)
+    from wishlist_ui import fetch_card_image_from_scryfall, get_image_filename, IMAGE_DIR_SETS, IMAGE_DIR
+    import os
+    
+    try:
+        # Generate filename with set if provided
+        filename = get_image_filename(name, set)
+        target_dir = IMAGE_DIR_SETS if set else IMAGE_DIR
+        filepath = os.path.join(target_dir, filename)
+        
+        # Check if image already exists
+        if os.path.exists(filepath) and os.path.getsize(filepath) > 0:
+            return JSONResponse({
+                "success": True,
+                "image_path": f"/card_images_sets/{filename}" if set else f"/card_images/{filename}",
+                "message": "Image already exists"
+            })
+        
+        # Fetch from Scryfall (with set if provided)
+        image_path = fetch_card_image_from_scryfall(name, set)
+        
+        if image_path:
+            return JSONResponse({
+                "success": True,
+                "image_path": image_path,
+                "message": "Image fetched successfully"
+            })
+        else:
+            return JSONResponse({
+                "success": False,
+                "message": "Could not fetch image from Scryfall"
+            }, status_code=404)
+    except Exception as e:
+        import traceback
+        print(f"Error in market_api_fetch_card_image: {e}", flush=True)
+        traceback.print_exc()
+        return JSONResponse({
+            "success": False,
+            "message": str(e)
+        }, status_code=500)
+
 # Wishlist routes
 @app.get("/wishlist", response_class=HTMLResponse)
 async def wishlist_route(request: Request):

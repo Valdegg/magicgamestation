@@ -20,8 +20,8 @@ error() { echo -e "${RED}[ERR]${NC} $1"; }
 
 # Configuration
 DOMAIN="playmagic.now"
-PROJECT_ROOT="/opt/magicworkstation"
-REPO_URL="${REPO_URL:-https://github.com/YourUsername/magicworkstation.git}"  # Override with env var
+PROJECT_ROOT="/opt/magicgamestation"
+REPO_URL="${REPO_URL:-https://github.com/YourUsername/magicgamestation.git}"  # Override with env var
 USERNAME="${SUDO_USER:-$USER}"
 
 # Check if running as root or with sudo
@@ -66,12 +66,7 @@ success "Redis started and enabled"
 log "Step 3: Setting up application..."
 if [ -d "$PROJECT_ROOT" ]; then
     warn "Project directory already exists at $PROJECT_ROOT"
-    read -p "Continue with existing directory? (y/n) " -n 1 -r
-    echo
-    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-        error "Deployment cancelled"
-        exit 1
-    fi
+    log "Continuing with existing directory..."
     cd "$PROJECT_ROOT"
     log "Pulling latest changes..."
     git pull || warn "Git pull failed, continuing..."
@@ -136,8 +131,8 @@ success "Directories created"
 # Step 8: Build Frontend
 log "Step 8: Building game frontend for production..."
 cd frontend
-export VITE_API_URL="https://$DOMAIN/api"
-export VITE_WS_URL="wss://$DOMAIN"
+export VITE_API_URL="https://games.$DOMAIN/api"
+export VITE_WS_URL="wss://games.$DOMAIN"
 sudo -u "$USERNAME" npm run build
 success "Frontend built successfully"
 cd ..
@@ -158,8 +153,8 @@ Type=simple
 User=$USERNAME
 WorkingDirectory=$PROJECT_ROOT/cards_binders
 Environment="PATH=$PROJECT_ROOT/cards_binders/venv/bin"
-Environment="GAME_FRONTEND_URL=https://$DOMAIN/games"
-Environment="GAME_BACKEND_URL=https://$DOMAIN/api"
+Environment="GAME_FRONTEND_URL=https://games.$DOMAIN"
+Environment="GAME_BACKEND_URL=https://games.$DOMAIN/api"
 ExecStart=$PROJECT_ROOT/cards_binders/venv/bin/python main_app.py --host 0.0.0.0 --port 5010
 Restart=always
 RestartSec=10
@@ -214,15 +209,129 @@ fi
 
 log "Creating Caddyfile..."
 cat > /etc/caddy/Caddyfile << EOF
+# Main domain - Home page
 $DOMAIN {
-    # Enable automatic HTTPS
     encode zstd gzip
     
-    # Logging
     log {
         output file /var/log/caddy/access.log
         format json
     }
+    
+    # Serve card images from unified website
+    handle /card_images/* {
+        root * $PROJECT_ROOT/cards_binders
+        header Cache-Control "public, max-age=31536000"
+        file_server
+    }
+    
+    handle /card_images_sets/* {
+        root * $PROJECT_ROOT/cards_binders
+        header Cache-Control "public, max-age=31536000"
+        file_server
+    }
+    
+    # Unified Website (main_app.py) - home page
+    handle {
+        reverse_proxy localhost:5010 {
+            header_up X-Real-IP {remote_host}
+            header_up X-Forwarded-For {remote_host}
+            header_up X-Forwarded-Proto {scheme}
+            header_up Host {host}
+        }
+    }
+}
+
+# Collection subdomain
+collection.$DOMAIN {
+    encode zstd gzip
+    
+    # Serve card images
+    handle /card_images/* {
+        root * $PROJECT_ROOT/cards_binders
+        header Cache-Control "public, max-age=31536000"
+        file_server
+    }
+    
+    handle /card_images_sets/* {
+        root * $PROJECT_ROOT/cards_binders
+        header Cache-Control "public, max-age=31536000"
+        file_server
+    }
+    
+    # Route to collection page
+    handle {
+        rewrite * /collection{uri}
+        reverse_proxy localhost:5010 {
+            header_up X-Real-IP {remote_host}
+            header_up X-Forwarded-For {remote_host}
+            header_up X-Forwarded-Proto {scheme}
+            header_up Host {host}
+        }
+    }
+}
+
+# Wishlist subdomain
+wishlist.$DOMAIN {
+    encode zstd gzip
+    
+    # Serve card images
+    handle /card_images/* {
+        root * $PROJECT_ROOT/cards_binders
+        header Cache-Control "public, max-age=31536000"
+        file_server
+    }
+    
+    handle /card_images_sets/* {
+        root * $PROJECT_ROOT/cards_binders
+        header Cache-Control "public, max-age=31536000"
+        file_server
+    }
+    
+    # Route to wishlist page
+    handle {
+        rewrite * /wishlist{uri}
+        reverse_proxy localhost:5010 {
+            header_up X-Real-IP {remote_host}
+            header_up X-Forwarded-For {remote_host}
+            header_up X-Forwarded-Proto {scheme}
+            header_up Host {host}
+        }
+    }
+}
+
+# Market Scanner subdomain
+marketscan.$DOMAIN {
+    encode zstd gzip
+    
+    # Serve card images
+    handle /card_images/* {
+        root * $PROJECT_ROOT/cards_binders
+        header Cache-Control "public, max-age=31536000"
+        file_server
+    }
+    
+    handle /card_images_sets/* {
+        root * $PROJECT_ROOT/cards_binders
+        header Cache-Control "public, max-age=31536000"
+        file_server
+    }
+    
+    # Route to market scanner page
+    handle {
+        rewrite * /market{uri}
+        reverse_proxy localhost:5010 {
+            header_up X-Real-IP {remote_host}
+            header_up X-Forwarded-For {remote_host}
+            header_up X-Forwarded-Proto {scheme}
+            header_up Host {host}
+        }
+    }
+}
+
+# Games subdomain - Game Frontend
+games.$DOMAIN {
+    encode zstd gzip
     
     # Game Backend API (MUST come first - most specific routes)
     handle /api/* {
@@ -244,44 +353,57 @@ $DOMAIN {
         }
     }
     
-    # Serve card images from unified website
+    # Serve card images from frontend public
     handle /card_images/* {
-        root * $PROJECT_ROOT/cards_binders
+        root * $PROJECT_ROOT/frontend/public
+        header Content-Type image/jpeg
         header Cache-Control "public, max-age=31536000"
+        header Access-Control-Allow-Origin "*"
         file_server
     }
     
-    handle /card_images_sets/* {
-        root * $PROJECT_ROOT/cards_binders
+    handle /cards/* {
+        root * $PROJECT_ROOT/frontend/public
+        header Content-Type image/jpeg
         header Cache-Control "public, max-age=31536000"
+        header Access-Control-Allow-Origin "*"
         file_server
     }
     
-    # Game Frontend (static build) - served at /games
-    handle /games/* {
+    handle /data/* {
+        root * $PROJECT_ROOT/frontend/public
+        header Content-Type application/json
+        header Access-Control-Allow-Origin "*"
+        file_server
+    }
+    
+    handle /decks/* {
+        root * $PROJECT_ROOT/frontend/public
+        header Content-Type application/json
+        header Access-Control-Allow-Origin "*"
+        file_server
+    }
+    
+    # Game Frontend (static build)
+    handle {
         root * $PROJECT_ROOT/frontend/dist
         header Cache-Control "public, max-age=3600"
         try_files {path} /index.html
         file_server
     }
-    
-    # Game Frontend root path
-    handle /games {
-        rewrite /games /games/
-        handle {
-            root * $PROJECT_ROOT/frontend/dist
-            try_files /index.html
-            file_server
+}
+
+# Spjall Chat Configuration (keep existing)
+spjall.chat {
+    handle /ws {
+        reverse_proxy localhost:8081 {
+            header_up X-Real-IP {remote_host}
         }
     }
     
-    # Unified Website (main_app.py) - all other routes
     handle {
-        reverse_proxy localhost:5010 {
+        reverse_proxy localhost:8080 {
             header_up X-Real-IP {remote_host}
-            header_up X-Forwarded-For {remote_host}
-            header_up X-Forwarded-Proto {scheme}
-            header_up Host {host}
         }
     }
 }
@@ -384,11 +506,11 @@ systemctl status caddy --no-pager -l | head -3
 echo ""
 log "URLs:"
 echo "   Home:           https://$DOMAIN/"
-echo "   Collection:     https://$DOMAIN/collection"
-echo "   Wishlist:       https://$DOMAIN/wishlist"
-echo "   Market Scanner: https://$DOMAIN/market"
-echo "   Games:          https://$DOMAIN/games"
-echo "   Game API:       https://$DOMAIN/api/"
+echo "   Collection:     https://collection.$DOMAIN"
+echo "   Wishlist:       https://wishlist.$DOMAIN"
+echo "   Market Scanner: https://marketscan.$DOMAIN"
+echo "   Games:          https://games.$DOMAIN"
+echo "   Game API:       https://games.$DOMAIN/api/"
 echo ""
 log "Logs:"
 echo "   Unified Website: $PROJECT_ROOT/logs/unified_website.log"
@@ -400,7 +522,12 @@ echo "   View logs:       sudo journalctl -u unified-website.service -f"
 echo "   Restart:         sudo systemctl restart unified-website.service"
 echo "   Status:          sudo systemctl status unified-website.service"
 echo ""
-warn "⚠️  Make sure DNS is configured: $DOMAIN should point to this server's IP"
+warn "⚠️  Make sure DNS is configured:"
+warn "     - $DOMAIN should point to this server's IP"
+warn "     - collection.$DOMAIN should point to this server's IP"
+warn "     - wishlist.$DOMAIN should point to this server's IP"
+warn "     - marketscan.$DOMAIN should point to this server's IP"
+warn "     - games.$DOMAIN should point to this server's IP"
 warn "⚠️  HTTPS certificates will be automatically generated by Caddy"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""

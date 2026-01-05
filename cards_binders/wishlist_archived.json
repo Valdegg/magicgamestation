@@ -26,5 +26,16 @@
     ],
     "notes": "Ultimate mana rock",
     "archived_at": "2026-01-03T19:00:56.460529"
+  },
+  {
+    "name": "Swords to Plowshares",
+    "sets": [
+      "Alpha",
+      "Beta",
+      "Unlimited"
+    ],
+    "notes": "Premium removal",
+    "archived_at": "2026-01-04T19:00:22.630058",
+    "moved_to_collection": true
   }
 ]

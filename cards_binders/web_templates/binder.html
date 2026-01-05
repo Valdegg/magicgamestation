@@ -1659,6 +1659,27 @@
             return html;
         }
 
+        
+        async function fetchMissingCardImage(imgElement, cardName, expansion) {
+            // Show placeholder first
+            imgElement.src = 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 140\'%3E%3Crect fill=\'%23111\' width=\'100\' height=\'140\'/%3E%3Ctext fill=\'%23333\' x=\'50\' y=\'70\' text-anchor=\'middle\' font-size=\'12\'%3E' + cardName.substring(0,8) + '%3C/text%3E%3C/svg%3E';
+            
+            try {
+                const params = new URLSearchParams({ name: cardName });
+                if (expansion) params.append('set', expansion);
+                
+                const response = await fetch(`/market/api/fetch-card-image?${params}`);
+                const data = await response.json();
+                
+                if (data.success && data.image_path) {
+                    // Reload the image with the new path
+                    imgElement.src = data.image_path;
+                }
+            } catch (error) {
+                console.error('Failed to fetch card image:', error);
+            }
+        }
+        
         function createCardHTML(deal) {
             const cardName = deal.card_name || 'Unknown';
             const expansion = deal.expansion || null;
@@ -1674,8 +1695,9 @@
             const historical = deal.historical || {};
             const avg30 = historical.avg30 || historical.AVG30 || null;
             
-            const imageName = cardName.replace(/[<>:"/\\|?*]/g, '').replace(/\s+/g, '_');
-            const imagePath = `/card_images/${imageName}.jpg`;
+            const imageName = cardName.toLowerCase().replace(/[',]/g, '').replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, '');
+            const expansionNormalized = expansion ? expansion.toLowerCase().replace(/[',]/g, '').replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, '') : null;
+            const imagePath = expansionNormalized ? `/card_images_sets/${imageName};${expansionNormalized}.jpg` : `/card_images_sets/${imageName}.jpg`;
             
             const badgeClass = `badge-${category}`;
             const discountClass = deal.discount != null && deal.discount < 0 ? 'expensive' : '';
@@ -1711,7 +1733,7 @@
                 <div class="card-pocket" id="${cardId}" data-card-name="${cardName.replace(/"/g, '&quot;')}" data-url="${escapedUrl}" title="${cardName} - Click to view on CardMarket">
                     <div class="card-sleeve">
                         <img src="${imagePath}" alt="${cardName}" class="card-image" 
-                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' viewBox=\\'0 0 100 140\\'%3E%3Crect fill=\\'%23111\\' width=\\'100\\' height=\\'140\\'/%3E%3Ctext fill=\\'%23333\\' x=\\'50\\' y=\\'70\\' text-anchor=\\'middle\\' font-size=\\'12\\'%3E${cardName.substring(0,8)}%3C/text%3E%3C/svg%3E'">
+                             onerror="fetchMissingCardImage(this, '${cardName}', '${expansion || ''}')">
                         <div class="card-condition">${conditionAbbr}</div>
                         <div class="card-info-overlay">
                             <div class="card-name">${cardName}</div>

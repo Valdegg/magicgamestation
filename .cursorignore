@@ -45,3 +45,13 @@ Thumbs.db
 # Large data files (if auto-generated)
 frontend/public/data/cards.json
 
+# Media files
+*.html
+*.jpg
+*.jpeg
+
+# Data directories
+card_binders/data/
+results/
+debug_html/
+

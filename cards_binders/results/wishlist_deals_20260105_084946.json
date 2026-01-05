@@ -1,0 +1,3379 @@
+{
+  "timestamp": "2026-01-05 08:49:46",
+  "wishlist_file": "wishlist.json",
+  "config": {
+    "min_discount": 0.0,
+    "delay_between_cards": 10.0,
+    "use_historical_data": true
+  },
+  "summary": {
+    "total_deals": 224,
+    "excellent": 0,
+    "good": 0,
+    "fair": 0,
+    "expensive": 0,
+    "no_data": 224
+  },
+  "deals": [
+    {
+      "card": {
+        "name": "Demonic Tutor",
+        "expansion": "Unknown",
+        "card_id": 4652,
+        "historical": {
+          "trend": 414.25,
+          "avg30": 483.41,
+          "avg7": 455.6
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Demonic Tutor",
+        "expansion": "Unknown",
+        "card_id": 4653,
+        "historical": {
+          "trend": 70.21,
+          "avg30": 66.62,
+          "avg7": 87.11
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Demonic Tutor",
+        "expansion": "Unknown",
+        "card_id": 5246,
+        "historical": {
+          "trend": 760.01,
+          "avg30": 861.59,
+          "avg7": 635.42
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Lightning Bolt",
+        "expansion": "Unknown",
+        "card_id": 4950,
+        "historical": {
+          "trend": 217.07,
+          "avg30": 215.39,
+          "avg7": 197.22
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Lightning Bolt",
+        "expansion": "Unknown",
+        "card_id": 4951,
+        "historical": {
+          "trend": 18.52,
+          "avg30": 17.75,
+          "avg7": 17.49
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Lightning Bolt",
+        "expansion": "Unknown",
+        "card_id": 5395,
+        "historical": {
+          "trend": 413.81,
+          "avg30": 387.56,
+          "avg7": 413.02
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Counterspell",
+        "expansion": "Unknown",
+        "card_id": 4736,
+        "historical": {
+          "trend": 344.57,
+          "avg30": 380.82,
+          "avg7": 366.2
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Counterspell",
+        "expansion": "Unknown",
+        "card_id": 4737,
+        "historical": {
+          "trend": 49.88,
+          "avg30": 56.19,
+          "avg7": 43.29
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Counterspell",
+        "expansion": "Unknown",
+        "card_id": 5288,
+        "historical": {
+          "trend": 734.79,
+          "avg30": 691.17,
+          "avg7": 591.99
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Dark Ritual",
+        "expansion": "Unknown",
+        "card_id": 4640,
+        "historical": {
+          "trend": 108.2,
+          "avg30": 109.1,
+          "avg7": 123.54
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Dark Ritual",
+        "expansion": "Unknown",
+        "card_id": 4641,
+        "historical": {
+          "trend": 9.6,
+          "avg30": 9.15,
+          "avg7": 9.72
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Dark Ritual",
+        "expansion": "Unknown",
+        "card_id": 5240,
+        "historical": {
+          "trend": 196.06,
+          "avg30": 162.04,
+          "avg7": 192.27
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Chrome Mox",
+        "expansion": "Unknown",
+        "card_id": 152,
+        "historical": {
+          "trend": 58.11,
+          "avg30": 57.03,
+          "avg7": 55.92
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Mana Vault",
+        "expansion": "Unknown",
+        "card_id": 5148,
+        "historical": {
+          "trend": 1113.96,
+          "avg30": 1185.26,
+          "avg7": 1097.7
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Mana Vault",
+        "expansion": "Unknown",
+        "card_id": 5149,
+        "historical": {
+          "trend": 218.17,
+          "avg30": 198.79,
+          "avg7": 202.24
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Mana Vault",
+        "expansion": "Unknown",
+        "card_id": 5493,
+        "historical": {
+          "trend": 1908.35,
+          "avg30": 788.4,
+          "avg7": 1685.43
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Mana Vault",
+        "expansion": "Unknown",
+        "card_id": 5792,
+        "historical": {
+          "trend": 48.35,
+          "avg30": 50.0,
+          "avg7": 48.36
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Vampiric Tutor",
+        "expansion": "Unknown",
+        "card_id": 8423,
+        "historical": {
+          "trend": 42.1,
+          "avg30": 41.3,
+          "avg7": 42.27
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Vampiric Tutor",
+        "expansion": "Unknown",
+        "card_id": 11004,
+        "historical": {
+          "trend": 38.82,
+          "avg30": 37.98,
+          "avg7": 39.55
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Enlightened Tutor",
+        "expansion": "Unknown",
+        "card_id": 8269,
+        "historical": {
+          "trend": 24.67,
+          "avg30": 22.77,
+          "avg7": 23.71
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Enlightened Tutor",
+        "expansion": "Unknown",
+        "card_id": 10862,
+        "historical": {
+          "trend": 21.53,
+          "avg30": 21.02,
+          "avg7": 21.65
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Mystical Tutor",
+        "expansion": "Unknown",
+        "card_id": 8131,
+        "historical": {
+          "trend": 9.55,
+          "avg30": 8.74,
+          "avg7": 9.11
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Mystical Tutor",
+        "expansion": "Unknown",
+        "card_id": 10926,
+        "historical": {
+          "trend": 8.93,
+          "avg30": 8.24,
+          "avg7": 8.44
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Worldly Tutor",
+        "expansion": "Unknown",
+        "card_id": 8204,
+        "historical": {
+          "trend": 15.11,
+          "avg30": 14.79,
+          "avg7": 14.74
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Worldly Tutor",
+        "expansion": "Unknown",
+        "card_id": 11112,
+        "historical": {
+          "trend": 13.06,
+          "avg30": 13.5,
+          "avg7": 13.27
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Survival of the Fittest",
+        "expansion": "Unknown",
+        "card_id": 9357,
+        "historical": {
+          "trend": 200.79,
+          "avg30": 197.1,
+          "avg7": 206.26
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Rhystic Study",
+        "expansion": "Unknown",
+        "card_id": 3939,
+        "historical": {
+          "trend": 31.95,
+          "avg30": 31.4,
+          "avg7": 32.26
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Sylvan Library",
+        "expansion": "Unknown",
+        "card_id": 7092,
+        "historical": {
+          "trend": 135.08,
+          "avg30": 126.59,
+          "avg7": 129.13
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Sensei's Divining Top",
+        "expansion": "Unknown",
+        "card_id": 12179,
+        "historical": {
+          "trend": 16.3,
+          "avg30": 16.03,
+          "avg7": 16.99
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Scroll Rack",
+        "expansion": "Unknown",
+        "card_id": 9033,
+        "historical": {
+          "trend": 22.38,
+          "avg30": 22.88,
+          "avg7": 21.99
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Necropotence",
+        "expansion": "Unknown",
+        "card_id": 6254,
+        "historical": {
+          "trend": 20.56,
+          "avg30": 20.92,
+          "avg7": 22.71
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Phyrexian Arena",
+        "expansion": "Unknown",
+        "card_id": 3159,
+        "historical": {
+          "trend": 9.66,
+          "avg30": 8.76,
+          "avg7": 9.05
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Force of Will",
+        "expansion": "Unknown",
+        "card_id": 7894,
+        "historical": {
+          "trend": 53.52,
+          "avg30": 51.98,
+          "avg7": 53.34
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Mana Drain",
+        "expansion": "Unknown",
+        "card_id": 7036,
+        "historical": {
+          "trend": 145.19,
+          "avg30": 145.4,
+          "avg7": 145.21
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Wrath of God",
+        "expansion": "Unknown",
+        "card_id": 5086,
+        "historical": {
+          "trend": 781.6,
+          "avg30": 638.05,
+          "avg7": 703.85
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Wrath of God",
+        "expansion": "Unknown",
+        "card_id": 5087,
+        "historical": {
+          "trend": 108.69,
+          "avg30": 101.02,
+          "avg7": 101.66
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Wrath of God",
+        "expansion": "Unknown",
+        "card_id": 5462,
+        "historical": {
+          "trend": 1796.02,
+          "avg30": 770.63,
+          "avg7": 1632.4
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Wrath of God",
+        "expansion": "Unknown",
+        "card_id": 5758,
+        "historical": {
+          "trend": 5.16,
+          "avg30": 6.41,
+          "avg7": 5.77
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Azusa, Lost but Seeking",
+        "expansion": "Unknown",
+        "card_id": 11963,
+        "historical": {
+          "trend": 8.25,
+          "avg30": 7.88,
+          "avg7": 8.15
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Exploration",
+        "expansion": "Unknown",
+        "card_id": 10457,
+        "historical": {
+          "trend": 35.22,
+          "avg30": 33.72,
+          "avg7": 32.48
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Burgeoning",
+        "expansion": "Unknown",
+        "card_id": 9137,
+        "historical": {
+          "trend": 21.2,
+          "avg30": 21.48,
+          "avg7": 21.68
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Ancient Tomb",
+        "expansion": "Unknown",
+        "card_id": 9040,
+        "historical": {
+          "trend": 80.31,
+          "avg30": 77.99,
+          "avg7": 78.35
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "City of Traitors",
+        "expansion": "Unknown",
+        "card_id": 9371,
+        "historical": {
+          "trend": 317.36,
+          "avg30": 316.99,
+          "avg7": 325.02
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Boseiju, Who Shelters All",
+        "expansion": "Unknown",
+        "card_id": 11972,
+        "historical": {
+          "trend": 7.33,
+          "avg30": 6.26,
+          "avg7": 5.8
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Strip Mine",
+        "expansion": "Unknown",
+        "card_id": 6023,
+        "historical": {
+          "trend": 8.01,
+          "avg30": 7.86,
+          "avg7": 8.89
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Strip Mine",
+        "expansion": "Unknown",
+        "card_id": 6942,
+        "historical": {
+          "trend": 44.17,
+          "avg30": 52.37,
+          "avg7": 40.88
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Strip Mine",
+        "expansion": "Unknown",
+        "card_id": 6943,
+        "historical": {
+          "trend": 32.73,
+          "avg30": 44.06,
+          "avg7": 50.79
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Strip Mine",
+        "expansion": "Unknown",
+        "card_id": 6944,
+        "historical": {
+          "trend": 23.02,
+          "avg30": 23.96,
+          "avg7": 21.64
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Strip Mine",
+        "expansion": "Unknown",
+        "card_id": 6945,
+        "historical": {
+          "trend": 43.74,
+          "avg30": 57.31,
+          "avg7": 41.12
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Wasteland",
+        "expansion": "Unknown",
+        "card_id": 9075,
+        "historical": {
+          "trend": 32.05,
+          "avg30": 30.86,
+          "avg7": 32.41
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Yawgmoth's Will",
+        "expansion": "Unknown",
+        "card_id": 10378,
+        "historical": {
+          "trend": 98.9,
+          "avg30": 103.41,
+          "avg7": 103.14
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Time Spiral",
+        "expansion": "Unknown",
+        "card_id": 10310,
+        "historical": {
+          "trend": 58.83,
+          "avg30": 58.93,
+          "avg7": 60.74
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Memory Jar",
+        "expansion": "Unknown",
+        "card_id": 10686,
+        "historical": {
+          "trend": 21.05,
+          "avg30": 20.07,
+          "avg7": 20.29
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Intuition",
+        "expansion": "Unknown",
+        "card_id": 8805,
+        "historical": {
+          "trend": 153.29,
+          "avg30": 150.44,
+          "avg7": 151.2
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Reanimate",
+        "expansion": "Unknown",
+        "card_id": 8780,
+        "historical": {
+          "trend": 14.77,
+          "avg30": 14.29,
+          "avg7": 15.04
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Animate Dead",
+        "expansion": "Unknown",
+        "card_id": 4628,
+        "historical": {
+          "trend": 272.32,
+          "avg30": 262.69,
+          "avg7": 256.12
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Animate Dead",
+        "expansion": "Unknown",
+        "card_id": 4629,
+        "historical": {
+          "trend": 22.93,
+          "avg30": 22.69,
+          "avg7": 23.95
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Animate Dead",
+        "expansion": "Unknown",
+        "card_id": 5234,
+        "historical": {
+          "trend": 285.15,
+          "avg30": 367.64,
+          "avg7": 307.17
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Dance of the Dead",
+        "expansion": "Unknown",
+        "card_id": 6218,
+        "historical": {
+          "trend": 18.16,
+          "avg30": 16.62,
+          "avg7": 17.79
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Goblin Welder",
+        "expansion": "Unknown",
+        "card_id": 10637,
+        "historical": {
+          "trend": 18.6,
+          "avg30": 17.0,
+          "avg7": 18.1
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Tinker",
+        "expansion": "Unknown",
+        "card_id": 10602,
+        "historical": {
+          "trend": 2.54,
+          "avg30": 2.49,
+          "avg7": 2.42
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Tolarian Academy",
+        "expansion": "Unknown",
+        "card_id": 10537,
+        "historical": {
+          "trend": 93.71,
+          "avg30": 91.78,
+          "avg7": 89.42
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Cabal Coffers",
+        "expansion": "Unknown",
+        "card_id": 2408,
+        "historical": {
+          "trend": 16.51,
+          "avg30": 16.49,
+          "avg7": 16.92
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Maze of Ith",
+        "expansion": "Unknown",
+        "card_id": 7395,
+        "historical": {
+          "trend": 25.26,
+          "avg30": 23.9,
+          "avg7": 24.14
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Rishadan Port",
+        "expansion": "Unknown",
+        "card_id": 11697,
+        "historical": {
+          "trend": 58.67,
+          "avg30": 56.37,
+          "avg7": 57.29
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Dust Bowl",
+        "expansion": "Unknown",
+        "card_id": 11689,
+        "historical": {
+          "trend": 18.61,
+          "avg30": 17.95,
+          "avg7": 18.31
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "High Tide",
+        "expansion": "Unknown",
+        "card_id": 7435,
+        "historical": {
+          "trend": 1.32,
+          "avg30": 1.29,
+          "avg7": 1.43
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "High Tide",
+        "expansion": "Unknown",
+        "card_id": 7436,
+        "historical": {
+          "trend": 1.35,
+          "avg30": 1.24,
+          "avg7": 1.22
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "High Tide",
+        "expansion": "Unknown",
+        "card_id": 7437,
+        "historical": {
+          "trend": 1.61,
+          "avg30": 1.48,
+          "avg7": 1.6
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Winter Orb",
+        "expansion": "Unknown",
+        "card_id": 5178,
+        "historical": {
+          "trend": 782.08,
+          "avg30": 759.48,
+          "avg7": 607.42
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Winter Orb",
+        "expansion": "Unknown",
+        "card_id": 5179,
+        "historical": {
+          "trend": 87.47,
+          "avg30": 90.49,
+          "avg7": 79.25
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Winter Orb",
+        "expansion": "Unknown",
+        "card_id": 5508,
+        "historical": {
+          "trend": 1227.0,
+          "avg30": 598.36,
+          "avg7": 1231.13
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Static Orb",
+        "expansion": "Unknown",
+        "card_id": 9035,
+        "historical": {
+          "trend": 8.54,
+          "avg30": 7.59,
+          "avg7": 9.17
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Sphere of Resistance",
+        "expansion": "Unknown",
+        "card_id": 9367,
+        "historical": {
+          "trend": 23.28,
+          "avg30": 22.41,
+          "avg7": 23.14
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Trinisphere",
+        "expansion": "Unknown",
+        "card_id": 370,
+        "historical": {
+          "trend": 15.2,
+          "avg30": 14.65,
+          "avg7": 15.15
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Chalice of the Void",
+        "expansion": "Unknown",
+        "card_id": 150,
+        "historical": {
+          "trend": 13.18,
+          "avg30": 14.01,
+          "avg7": 13.84
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Library of Alexandria",
+        "expansion": "Unknown",
+        "card_id": 6869,
+        "historical": {
+          "trend": 986.53,
+          "avg30": 902.93,
+          "avg7": 1072.2
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Bazaar of Baghdad",
+        "expansion": "Unknown",
+        "card_id": 6863,
+        "historical": {
+          "trend": 1200.35,
+          "avg30": 1527.4,
+          "avg7": 1088.28
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Diamond Valley",
+        "expansion": "Unknown",
+        "card_id": 6866,
+        "historical": {
+          "trend": 441.5,
+          "avg30": 447.86,
+          "avg7": 417.22
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Juzám Djinn",
+        "expansion": "Unknown",
+        "card_id": 6788,
+        "historical": {
+          "trend": 1545.76,
+          "avg30": 1541.79,
+          "avg7": 1313.36
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "The Abyss",
+        "expansion": "Unknown",
+        "card_id": 6973,
+        "historical": {
+          "trend": 648.9,
+          "avg30": 608.29,
+          "avg7": 654.49
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Moat",
+        "expansion": "Unknown",
+        "card_id": 7171,
+        "historical": {
+          "trend": 714.66,
+          "avg30": 778.04,
+          "avg7": 779.7
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Karakas",
+        "expansion": "Unknown",
+        "card_id": 7219,
+        "historical": {
+          "trend": 42.76,
+          "avg30": 37.83,
+          "avg7": 42.13
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Land Tax",
+        "expansion": "Unknown",
+        "card_id": 7169,
+        "historical": {
+          "trend": 52.79,
+          "avg30": 55.13,
+          "avg7": 59.06
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Mirror Universe",
+        "expansion": "Unknown",
+        "card_id": 7203,
+        "historical": {
+          "trend": 190.0,
+          "avg30": 220.85,
+          "avg7": 189.92
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "All Hallow's Eve",
+        "expansion": "Unknown",
+        "card_id": 6974,
+        "historical": {
+          "trend": 353.75,
+          "avg30": 341.54,
+          "avg7": 351.28
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Eureka",
+        "expansion": "Unknown",
+        "card_id": 7070,
+        "historical": {
+          "trend": 320.83,
+          "avg30": 359.52,
+          "avg7": 344.12
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Transmute Artifact",
+        "expansion": "Unknown",
+        "card_id": 6929,
+        "historical": {
+          "trend": 326.57,
+          "avg30": 320.35,
+          "avg7": 316.29
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Tawnos's Coffin",
+        "expansion": "Unknown",
+        "card_id": 6905,
+        "historical": {
+          "trend": 104.67,
+          "avg30": 92.54,
+          "avg7": 100.11
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Argivian Archaeologist",
+        "expansion": "Unknown",
+        "card_id": 6965,
+        "historical": {
+          "trend": 90.9,
+          "avg30": 98.99,
+          "avg7": 91.16
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Erhnam Djinn",
+        "expansion": "Unknown",
+        "card_id": 2239,
+        "historical": {
+          "trend": 0.43,
+          "avg30": 0.44,
+          "avg7": 0.51
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Erhnam Djinn",
+        "expansion": "Unknown",
+        "card_id": 6811,
+        "historical": {
+          "trend": 306.26,
+          "avg30": 266.29,
+          "avg7": 283.65
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Drop of Honey",
+        "expansion": "Unknown",
+        "card_id": 6810,
+        "historical": {
+          "trend": 355.25,
+          "avg30": 323.93,
+          "avg7": 338.92
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "City in a Bottle",
+        "expansion": "Unknown",
+        "card_id": 6853,
+        "historical": {
+          "trend": 365.22,
+          "avg30": 382.22,
+          "avg7": 380.5
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Ifh-Bíff Efreet",
+        "expansion": "Unknown",
+        "card_id": 6813,
+        "historical": {
+          "trend": 122.03,
+          "avg30": 121.69,
+          "avg7": 117.84
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Aladdin",
+        "expansion": "Unknown",
+        "card_id": 6821,
+        "historical": {
+          "trend": 47.52,
+          "avg30": 51.03,
+          "avg7": 48.75
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Aladdin's Lamp",
+        "expansion": "Unknown",
+        "card_id": 6849,
+        "historical": {
+          "trend": 29.77,
+          "avg30": 31.78,
+          "avg7": 25.53
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Aladdin's Ring",
+        "expansion": "Unknown",
+        "card_id": 6850,
+        "historical": {
+          "trend": 27.31,
+          "avg30": 27.89,
+          "avg7": 21.24
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Guardian Beast",
+        "expansion": "Unknown",
+        "card_id": 6784,
+        "historical": {
+          "trend": 458.63,
+          "avg30": 451.85,
+          "avg7": 438.05
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Ring of Ma'rûf",
+        "expansion": "Unknown",
+        "card_id": 6861,
+        "historical": {
+          "trend": 72.67,
+          "avg30": 74.28,
+          "avg7": 67.09
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "City of Brass",
+        "expansion": "Unknown",
+        "card_id": 6864,
+        "historical": {
+          "trend": 451.56,
+          "avg30": 376.56,
+          "avg7": 435.98
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nicol Bolas",
+        "expansion": "Unknown",
+        "card_id": 7258,
+        "historical": {
+          "trend": 77.69,
+          "avg30": 98.0,
+          "avg7": 81.84
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Chromium",
+        "expansion": "Unknown",
+        "card_id": 7235,
+        "historical": {
+          "trend": 33.16,
+          "avg30": 33.77,
+          "avg7": 32.82
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Arcades Sabboth",
+        "expansion": "Unknown",
+        "card_id": 7229,
+        "historical": {
+          "trend": 27.01,
+          "avg30": 30.0,
+          "avg7": 21.44
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Palladia-Mors",
+        "expansion": "Unknown",
+        "card_id": 7259,
+        "historical": {
+          "trend": 24.9,
+          "avg30": 27.99,
+          "avg7": 26.96
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Vaevictis Asmadi",
+        "expansion": "Unknown",
+        "card_id": 7280,
+        "historical": {
+          "trend": 28.03,
+          "avg30": 30.53,
+          "avg7": 31.38
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Underworld Dreams",
+        "expansion": "Unknown",
+        "card_id": 7008,
+        "historical": {
+          "trend": 91.17,
+          "avg30": 88.82,
+          "avg7": 92.45
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Concordant Crossroads",
+        "expansion": "Unknown",
+        "card_id": 7064,
+        "historical": {
+          "trend": 92.14,
+          "avg30": 86.32,
+          "avg7": 90.28
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Adarkar Wastes",
+        "expansion": "Unknown",
+        "card_id": 6538,
+        "historical": {
+          "trend": 20.87,
+          "avg30": 20.88,
+          "avg7": 21.34
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Underground River",
+        "expansion": "Unknown",
+        "card_id": 6569,
+        "historical": {
+          "trend": 18.99,
+          "avg30": 18.22,
+          "avg7": 17.42
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Sulfurous Springs",
+        "expansion": "Unknown",
+        "card_id": 6564,
+        "historical": {
+          "trend": 13.46,
+          "avg30": 13.83,
+          "avg7": 14.9
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Karplusan Forest",
+        "expansion": "Unknown",
+        "card_id": 6549,
+        "historical": {
+          "trend": 19.94,
+          "avg30": 21.98,
+          "avg7": 25.41
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Brushland",
+        "expansion": "Unknown",
+        "card_id": 6539,
+        "historical": {
+          "trend": 11.04,
+          "avg30": 12.32,
+          "avg7": 12.15
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Caves of Koilos",
+        "expansion": "Unknown",
+        "card_id": 3252,
+        "historical": {
+          "trend": 12.32,
+          "avg30": 11.91,
+          "avg7": 12.17
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Shivan Reef",
+        "expansion": "Unknown",
+        "card_id": 3254,
+        "historical": {
+          "trend": 9.32,
+          "avg30": 9.19,
+          "avg7": 10.19
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Llanowar Wastes",
+        "expansion": "Unknown",
+        "card_id": 3253,
+        "historical": {
+          "trend": 19.73,
+          "avg30": 18.87,
+          "avg7": 20.4
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Yavimaya Coast",
+        "expansion": "Unknown",
+        "card_id": 3255,
+        "historical": {
+          "trend": 20.62,
+          "avg30": 16.86,
+          "avg7": 18.17
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Battlefield Forge",
+        "expansion": "Unknown",
+        "card_id": 3251,
+        "historical": {
+          "trend": 5.34,
+          "avg30": 6.18,
+          "avg7": 5.46
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Jester's Cap",
+        "expansion": "Unknown",
+        "card_id": 6511,
+        "historical": {
+          "trend": 4.67,
+          "avg30": 3.45,
+          "avg7": 4.33
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Jokulhaups",
+        "expansion": "Unknown",
+        "card_id": 6407,
+        "historical": {
+          "trend": 3.46,
+          "avg30": 3.45,
+          "avg7": 3.28
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Lake of the Dead",
+        "expansion": "Unknown",
+        "card_id": 8037,
+        "historical": {
+          "trend": 64.46,
+          "avg30": 63.11,
+          "avg7": 64.7
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Thawing Glaciers",
+        "expansion": "Unknown",
+        "card_id": 8041,
+        "historical": {
+          "trend": 10.46,
+          "avg30": 10.34,
+          "avg7": 10.47
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Kjeldoran Outpost",
+        "expansion": "Unknown",
+        "card_id": 8036,
+        "historical": {
+          "trend": 5.86,
+          "avg30": 6.37,
+          "avg7": 6.57
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Phelddagrif",
+        "expansion": "Unknown",
+        "card_id": 8048,
+        "historical": {
+          "trend": 4.55,
+          "avg30": 4.13,
+          "avg7": 4.59
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Lim-Dûl's Vault",
+        "expansion": "Unknown",
+        "card_id": 8044,
+        "historical": {
+          "trend": 3.47,
+          "avg30": 3.46,
+          "avg7": 3.33
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Phyrexian Dreadnought",
+        "expansion": "Unknown",
+        "card_id": 8331,
+        "historical": {
+          "trend": 182.85,
+          "avg30": 183.37,
+          "avg7": 186.19
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Lion's Eye Diamond",
+        "expansion": "Unknown",
+        "card_id": 8323,
+        "historical": {
+          "trend": 332.61,
+          "avg30": 364.42,
+          "avg7": 324.35
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Bazaar of Wonders",
+        "expansion": "Unknown",
+        "card_id": 8106,
+        "historical": {
+          "trend": 0.94,
+          "avg30": 1.18,
+          "avg7": 0.98
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Cadaverous Bloom",
+        "expansion": "Unknown",
+        "card_id": 8369,
+        "historical": {
+          "trend": 3.27,
+          "avg30": 3.36,
+          "avg7": 3.4
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Shallow Grave",
+        "expansion": "Unknown",
+        "card_id": 8090,
+        "historical": {
+          "trend": 72.19,
+          "avg30": 68.03,
+          "avg7": 69.01
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Meditate",
+        "expansion": "Unknown",
+        "card_id": 8811,
+        "historical": {
+          "trend": 5.4,
+          "avg30": 5.2,
+          "avg7": 5.95
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Cursed Scroll",
+        "expansion": "Unknown",
+        "card_id": 9006,
+        "historical": {
+          "trend": 32.7,
+          "avg30": 31.63,
+          "avg7": 34.21
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Earthcraft",
+        "expansion": "Unknown",
+        "card_id": 8851,
+        "historical": {
+          "trend": 94.05,
+          "avg30": 93.55,
+          "avg7": 95.77
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Aluren",
+        "expansion": "Unknown",
+        "card_id": 8842,
+        "historical": {
+          "trend": 29.43,
+          "avg30": 29.6,
+          "avg7": 29.75
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Humility",
+        "expansion": "Unknown",
+        "card_id": 8971,
+        "historical": {
+          "trend": 35.85,
+          "avg30": 35.3,
+          "avg7": 36.39
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Recurring Nightmare",
+        "expansion": "Unknown",
+        "card_id": 9300,
+        "historical": {
+          "trend": 51.31,
+          "avg30": 49.9,
+          "avg7": 48.5
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Oath of Druids",
+        "expansion": "Unknown",
+        "card_id": 9343,
+        "historical": {
+          "trend": 21.84,
+          "avg30": 19.51,
+          "avg7": 22.26
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Price of Progress",
+        "expansion": "Unknown",
+        "card_id": 9323,
+        "historical": {
+          "trend": 6.28,
+          "avg30": 6.56,
+          "avg7": 6.72
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Volrath's Stronghold",
+        "expansion": "Unknown",
+        "card_id": 9222,
+        "historical": {
+          "trend": 56.56,
+          "avg30": 60.19,
+          "avg7": 54.96
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Sliver Queen",
+        "expansion": "Unknown",
+        "card_id": 9226,
+        "historical": {
+          "trend": 145.09,
+          "avg30": 160.15,
+          "avg7": 151.38
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Horn of Greed",
+        "expansion": "Unknown",
+        "card_id": 9214,
+        "historical": {
+          "trend": 10.55,
+          "avg30": 10.35,
+          "avg7": 11.13
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Hermit Druid",
+        "expansion": "Unknown",
+        "card_id": 9143,
+        "historical": {
+          "trend": 9.27,
+          "avg30": 8.58,
+          "avg7": 9.09
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Ensnaring Bridge",
+        "expansion": "Unknown",
+        "card_id": 9212,
+        "historical": {
+          "trend": 13.13,
+          "avg30": 12.8,
+          "avg7": 13.48
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Crystalline Sliver",
+        "expansion": "Unknown",
+        "card_id": 9224,
+        "historical": {
+          "trend": 1.59,
+          "avg30": 1.88,
+          "avg7": 1.85
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Corpse Dance",
+        "expansion": "Unknown",
+        "card_id": 8745,
+        "historical": {
+          "trend": 17.41,
+          "avg30": 17.16,
+          "avg7": 17.95
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Tradewind Rider",
+        "expansion": "Unknown",
+        "card_id": 8833,
+        "historical": {
+          "trend": 2.62,
+          "avg30": 2.41,
+          "avg7": 2.45
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Capsize",
+        "expansion": "Unknown",
+        "card_id": 8790,
+        "historical": {
+          "trend": 0.46,
+          "avg30": 0.6,
+          "avg7": 0.47
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Shattering Pulse",
+        "expansion": "Unknown",
+        "card_id": 9330,
+        "historical": {
+          "trend": 0.33,
+          "avg30": 0.27,
+          "avg7": 0.25
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Erratic Portal",
+        "expansion": "Unknown",
+        "card_id": 9360,
+        "historical": {
+          "trend": 1.25,
+          "avg30": 1.71,
+          "avg7": 1.56
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Oath of Ghouls",
+        "expansion": "Unknown",
+        "card_id": 9297,
+        "historical": {
+          "trend": 2.61,
+          "avg30": 2.69,
+          "avg7": 2.82
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Pandemonium",
+        "expansion": "Unknown",
+        "card_id": 9321,
+        "historical": {
+          "trend": 1.93,
+          "avg30": 1.81,
+          "avg7": 1.88
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Exalted Dragon",
+        "expansion": "Unknown",
+        "card_id": 9234,
+        "historical": {
+          "trend": 1.63,
+          "avg30": 1.53,
+          "avg7": 1.18
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Hatred",
+        "expansion": "Unknown",
+        "card_id": 9292,
+        "historical": {
+          "trend": 26.18,
+          "avg30": 25.26,
+          "avg7": 25.49
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Cataclysm",
+        "expansion": "Unknown",
+        "card_id": 9231,
+        "historical": {
+          "trend": 8.39,
+          "avg30": 8.86,
+          "avg7": 8.94
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Coat of Arms",
+        "expansion": "Unknown",
+        "card_id": 9359,
+        "historical": {
+          "trend": 14.88,
+          "avg30": 13.77,
+          "avg7": 13.8
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Doomsday",
+        "expansion": "Unknown",
+        "card_id": 8576,
+        "historical": {
+          "trend": 8.64,
+          "avg30": 7.57,
+          "avg7": 8.52
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Null Rod",
+        "expansion": "Unknown",
+        "card_id": 8722,
+        "historical": {
+          "trend": 66.09,
+          "avg30": 71.23,
+          "avg7": 66.37
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Abeyance",
+        "expansion": "Unknown",
+        "card_id": 8685,
+        "historical": {
+          "trend": 9.25,
+          "avg30": 7.96,
+          "avg7": 8.54
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Sacred Foundry",
+        "expansion": "Unknown",
+        "card_id": 259833,
+        "historical": {
+          "trend": 8.1,
+          "avg30": 8.24,
+          "avg7": 8.1
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Watery Grave",
+        "expansion": "Unknown",
+        "card_id": 259836,
+        "historical": {
+          "trend": 9.26,
+          "avg30": 9.06,
+          "avg7": 9.28
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Godless Shrine",
+        "expansion": "Unknown",
+        "card_id": 259830,
+        "historical": {
+          "trend": 8.05,
+          "avg30": 7.84,
+          "avg7": 7.91
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Stomping Ground",
+        "expansion": "Unknown",
+        "card_id": 259835,
+        "historical": {
+          "trend": 6.9,
+          "avg30": 6.66,
+          "avg7": 7.0
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Breeding Pool",
+        "expansion": "Unknown",
+        "card_id": 12972,
+        "historical": {
+          "trend": 12.63,
+          "avg30": 13.71,
+          "avg7": 12.48
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Breeding Pool",
+        "expansion": "Unknown",
+        "card_id": 259828,
+        "historical": {
+          "trend": 9.54,
+          "avg30": 8.81,
+          "avg7": 9.02
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Hallowed Fountain",
+        "expansion": "Unknown",
+        "card_id": 13011,
+        "historical": {
+          "trend": 11.35,
+          "avg30": 11.32,
+          "avg7": 11.7
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Blood Crypt",
+        "expansion": "Unknown",
+        "card_id": 12967,
+        "historical": {
+          "trend": 15.6,
+          "avg30": 16.24,
+          "avg7": 16.12
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Snapcaster Mage",
+        "expansion": "Unknown",
+        "card_id": 250553,
+        "historical": {
+          "trend": 13.36,
+          "avg30": 13.18,
+          "avg7": 13.54
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Liliana of the Veil",
+        "expansion": "Unknown",
+        "card_id": 250442,
+        "historical": {
+          "trend": 9.06,
+          "avg30": 9.31,
+          "avg7": 8.82
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Tarmogoyf",
+        "expansion": "Unknown",
+        "card_id": 15145,
+        "historical": {
+          "trend": 10.69,
+          "avg30": 9.88,
+          "avg7": 10.5
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Tundra",
+        "expansion": "Unknown",
+        "card_id": 5832,
+        "historical": {
+          "trend": 355.86,
+          "avg30": 328.42,
+          "avg7": 335.8
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Underground Sea",
+        "expansion": "Unknown",
+        "card_id": 5833,
+        "historical": {
+          "trend": 538.82,
+          "avg30": 583.93,
+          "avg7": 591.78
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Badlands",
+        "expansion": "Unknown",
+        "card_id": 5810,
+        "historical": {
+          "trend": 306.25,
+          "avg30": 291.93,
+          "avg7": 299.26
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Taiga",
+        "expansion": "Unknown",
+        "card_id": 5830,
+        "historical": {
+          "trend": 218.49,
+          "avg30": 227.2,
+          "avg7": 222.35
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Savannah Lions",
+        "expansion": "Unknown",
+        "card_id": 5751,
+        "historical": {
+          "trend": 3.23,
+          "avg30": 4.9,
+          "avg7": 4.2
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Savannah",
+        "expansion": "Unknown",
+        "card_id": 5825,
+        "historical": {
+          "trend": 220.45,
+          "avg30": 216.48,
+          "avg7": 212.79
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Scrubland",
+        "expansion": "Unknown",
+        "card_id": 5826,
+        "historical": {
+          "trend": 232.53,
+          "avg30": 239.0,
+          "avg7": 226.76
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Volcanic Island",
+        "expansion": "Unknown",
+        "card_id": 5834,
+        "historical": {
+          "trend": 492.41,
+          "avg30": 497.27,
+          "avg7": 493.62
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Bayou",
+        "expansion": "Unknown",
+        "card_id": 5811,
+        "historical": {
+          "trend": 262.82,
+          "avg30": 263.98,
+          "avg7": 257.05
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Plateau",
+        "expansion": "Unknown",
+        "card_id": 5824,
+        "historical": {
+          "trend": 208.53,
+          "avg30": 211.7,
+          "avg7": 211.55
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Horizon Canopy",
+        "expansion": "Unknown",
+        "card_id": 15169,
+        "historical": {
+          "trend": 3.78,
+          "avg30": 3.62,
+          "avg7": 3.6
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Seachrome Coast",
+        "expansion": "Unknown",
+        "card_id": 242647,
+        "historical": {
+          "trend": 1.53,
+          "avg30": 1.67,
+          "avg7": 1.76
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Darkslick Shores",
+        "expansion": "Unknown",
+        "card_id": 242651,
+        "historical": {
+          "trend": 3.37,
+          "avg30": 3.19,
+          "avg7": 3.24
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Blackcleave Cliffs",
+        "expansion": "Unknown",
+        "card_id": 242650,
+        "historical": {
+          "trend": 2.3,
+          "avg30": 2.45,
+          "avg7": 2.51
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Copperline Gorge",
+        "expansion": "Unknown",
+        "card_id": 242648,
+        "historical": {
+          "trend": 2.01,
+          "avg30": 1.85,
+          "avg7": 2.01
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Razorverge Thicket",
+        "expansion": "Unknown",
+        "card_id": 242649,
+        "historical": {
+          "trend": 1.51,
+          "avg30": 1.55,
+          "avg7": 1.52
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Tropical Island",
+        "expansion": "Unknown",
+        "card_id": 5831,
+        "historical": {
+          "trend": 337.32,
+          "avg30": 333.88,
+          "avg7": 331.62
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 5162,
+        "historical": {
+          "trend": 532.05,
+          "avg30": 802.0,
+          "avg7": 548.43
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 5163,
+        "historical": {
+          "trend": 121.01,
+          "avg30": 126.4,
+          "avg7": 123.48
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 5500,
+        "historical": {
+          "trend": 1465.49,
+          "avg30": 646.88,
+          "avg7": 1341.43
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 5796,
+        "historical": {
+          "trend": 5.83,
+          "avg30": 6.32,
+          "avg7": 5.23
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 6191,
+        "historical": {
+          "trend": 3.1,
+          "avg30": 3.05,
+          "avg7": 2.61
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 9763,
+        "historical": {
+          "trend": 2.7,
+          "avg30": 2.86,
+          "avg7": 2.58
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 15444,
+        "historical": {
+          "trend": 29.13,
+          "avg30": 30.01,
+          "avg7": 28.73
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 16126,
+        "historical": {
+          "trend": 3.24,
+          "avg30": 3.16,
+          "avg7": 3.51
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 16556,
+        "historical": {
+          "trend": 2.31,
+          "avg30": 2.42,
+          "avg7": 2.58
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 16910,
+        "historical": {
+          "trend": 2000.0,
+          "avg30": 2000.0,
+          "avg7": 2000.0
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 17217,
+        "historical": {
+          "trend": 28.78,
+          "avg30": 34.26,
+          "avg7": 32.17
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 17519,
+        "historical": {
+          "trend": 28.78,
+          "avg30": 31.83,
+          "avg7": 28.22
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 22686,
+        "historical": {
+          "trend": 1.35,
+          "avg30": 1.58,
+          "avg7": 1.48
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 22719,
+        "historical": {
+          "trend": 1.38,
+          "avg30": 1.35,
+          "avg7": 1.43
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 22754,
+        "historical": {
+          "trend": 1.39,
+          "avg30": 1.36,
+          "avg7": 1.3
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 22755,
+        "historical": {
+          "trend": 1.17,
+          "avg30": 1.23,
+          "avg7": 1.07
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 22882,
+        "historical": {
+          "trend": 1.56,
+          "avg30": 1.35,
+          "avg7": 1.39
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 242239,
+        "historical": {
+          "trend": 0.0,
+          "avg30": 0.0,
+          "avg7": 0.0
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 249896,
+        "historical": {
+          "trend": 1.33,
+          "avg30": 1.12,
+          "avg7": 0.98
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 250115,
+        "historical": {
+          "trend": 1.2,
+          "avg30": 1.1,
+          "avg7": 1.33
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 251189,
+        "historical": {
+          "trend": 32.11,
+          "avg30": 30.59,
+          "avg7": 35.62
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 264968,
+        "historical": {
+          "trend": 0.31,
+          "avg30": 0.34,
+          "avg7": 0.33
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 270720,
+        "historical": {
+          "trend": 0.37,
+          "avg30": 0.33,
+          "avg7": 0.35
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 272821,
+        "historical": {
+          "trend": 48.63,
+          "avg30": 27.15,
+          "avg7": 34.98
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 290201,
+        "historical": {
+          "trend": 0.31,
+          "avg30": 0.36,
+          "avg7": 0.31
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 293760,
+        "historical": {
+          "trend": 0.52,
+          "avg30": 0.43,
+          "avg7": 0.57
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 300530,
+        "historical": {
+          "trend": 0.64,
+          "avg30": 0.5,
+          "avg7": 0.5
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 512155,
+        "historical": {
+          "trend": 0.35,
+          "avg30": 0.31,
+          "avg7": 0.34
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 512160,
+        "historical": {
+          "trend": 1.31,
+          "avg30": 1.44,
+          "avg7": 1.32
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral, Urborg Tyrant",
+        "expansion": "Unknown",
+        "card_id": 512165,
+        "historical": {
+          "trend": 0.28,
+          "avg30": 0.18,
+          "avg7": 0.28
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral, Urborg Tyrant",
+        "expansion": "Unknown",
+        "card_id": 512170,
+        "historical": {
+          "trend": 0.28,
+          "avg30": 0.6,
+          "avg7": 0.42
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 566530,
+        "historical": {
+          "trend": 0.24,
+          "avg30": 0.26,
+          "avg7": 0.33
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 567660,
+        "historical": {
+          "trend": 0.38,
+          "avg30": 0.34,
+          "avg7": 0.39
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 684018,
+        "historical": {
+          "trend": 43.39,
+          "avg30": 50.33,
+          "avg7": 50.33
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 686001,
+        "historical": {
+          "trend": 0.0,
+          "avg30": 0.0,
+          "avg7": 0.0
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Unknown",
+        "card_id": 722983,
+        "historical": {
+          "trend": 0.47,
+          "avg30": 0.39,
+          "avg7": 0.42
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Erg Raiders",
+        "expansion": "Unknown",
+        "card_id": 6782,
+        "historical": {
+          "trend": 4.41,
+          "avg30": 4.08,
+          "avg7": 4.34
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Erg Raiders",
+        "expansion": "Unknown",
+        "card_id": 6783,
+        "historical": {
+          "trend": 3.68,
+          "avg30": 3.7,
+          "avg7": 3.86
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    }
+  ]
+}

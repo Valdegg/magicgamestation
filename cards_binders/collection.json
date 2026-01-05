@@ -50,5 +50,18 @@
     "sets": [
       "International Edition"
     ]
+  },
+  {
+    "name": "Swords to Plowshares",
+    "sets": [
+      "Alpha",
+      "Beta",
+      "Unlimited"
+    ],
+    "buy_price": 50,
+    "condition": "Near Mint",
+    "source": "Cardmarket",
+    "added_at": "2026-01-04T19:00:22.629899",
+    "moved_from_wishlist": true
   }
 ]

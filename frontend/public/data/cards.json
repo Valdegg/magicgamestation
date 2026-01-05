@@ -6803,5 +6803,107 @@
     "cmc": 0.0,
     "oracle_text": "Suspend 3\u2014{0} (Rather than cast this card from your hand, pay {0} and exile it with three time counters on it. At the beginning of your upkeep, remove a time counter. When the last is removed, you may cast it without paying its mana cost.)\n{T}, Sacrifice this artifact: Add three mana of any one color.",
     "colors": []
+  },
+  "gemstone_mine": {
+    "id": "gemstone_mine",
+    "name": "Gemstone Mine",
+    "set": "WTH",
+    "set_name": "Weatherlight",
+    "image": "/card_images/gemstone_mine.jpg",
+    "type": "Land",
+    "mana_cost": "",
+    "cmc": 0.0,
+    "oracle_text": "This land enters with three mining counters on it.\n{T}, Remove a mining counter from this land: Add one mana of any color. If there are no mining counters on this land, sacrifice it.",
+    "colors": []
+  },
+  "akroma_angel_of_wrath": {
+    "id": "akroma_angel_of_wrath",
+    "name": "Akroma, Angel of Wrath",
+    "set": "LGN",
+    "set_name": "Legions",
+    "image": "/card_images/akroma_angel_of_wrath.jpg",
+    "type": "Legendary Creature \u2014 Angel",
+    "mana_cost": "{5}{W}{W}{W}",
+    "cmc": 8.0,
+    "oracle_text": "Flying, first strike, vigilance, trample, haste, protection from black and from red",
+    "colors": [
+      "W"
+    ]
+  },
+  "rorix_bladewing": {
+    "id": "rorix_bladewing",
+    "name": "Rorix Bladewing",
+    "set": "ONS",
+    "set_name": "Onslaught",
+    "image": "/card_images/rorix_bladewing.jpg",
+    "type": "Legendary Creature \u2014 Dragon",
+    "mana_cost": "{3}{R}{R}{R}",
+    "cmc": 6.0,
+    "oracle_text": "Flying, haste",
+    "colors": [
+      "R"
+    ]
+  },
+  "symbiotic_wurm": {
+    "id": "symbiotic_wurm",
+    "name": "Symbiotic Wurm",
+    "set": "ONS",
+    "set_name": "Onslaught",
+    "image": "/card_images/symbiotic_wurm.jpg",
+    "type": "Creature \u2014 Wurm",
+    "mana_cost": "{5}{G}{G}{G}",
+    "cmc": 8.0,
+    "oracle_text": "When this creature dies, create seven 1/1 green Insect creature tokens.",
+    "colors": [
+      "G"
+    ]
+  },
+  "unmask": {
+    "id": "unmask",
+    "name": "Unmask",
+    "set": "MMQ",
+    "set_name": "Mercadian Masques",
+    "image": "/card_images/unmask.jpg",
+    "type": "Sorcery",
+    "mana_cost": "{3}{B}",
+    "cmc": 4.0,
+    "oracle_text": "You may exile a black card from your hand rather than pay this spell's mana cost.\nTarget player reveals their hand. You choose a nonland card from it. That player discards that card.",
+    "colors": [
+      "B"
+    ]
+  },
+  "ray_of_revelation": {
+    "id": "ray_of_revelation",
+    "name": "Ray of Revelation",
+    "set": "JUD",
+    "set_name": "Judgment",
+    "image": "/card_images/ray_of_revelation.jpg",
+    "type": "Instant",
+    "mana_cost": "{1}{W}",
+    "cmc": 2.0,
+    "oracle_text": "Destroy target enchantment.\nFlashback {G} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+    "colors": [
+      "W"
+    ]
+  },
+  "life_death": {
+    "id": "life_death",
+    "name": "Life // Death",
+    "set": "APC",
+    "set_name": "Apocalypse",
+    "image": "/card_images/life_death.jpg",
+    "type": "Sorcery // Sorcery",
+    "mana_cost": "{G} // {1}{B}",
+    "cmc": 3.0,
+    "oracle_text": null,
+    "colors": [
+      "B",
+      "G"
+    ]
+  }
+} this creature is dealt damage, sacrifice that many permanents.",
+    "colors": [
+      "B"
+    ]
   }
 }
