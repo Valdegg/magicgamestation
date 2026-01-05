@@ -1,52 +1,71 @@
 [
   {
-    "name": "Mox Jet",
-    "sets": [],
-    "archived_at": "2026-01-03T19:57:07.062940"
-  },
-  {
-    "name": "Mox Jet",
-    "sets": [],
-    "archived_at": "2026-01-03T20:13:54.591185"
-  },
-  {
-    "name": "Mox Jet",
-    "sets": [],
-    "archived_at": "2026-01-03T20:14:26.736235"
-  },
-  {
-    "name": "Mox Jet",
-    "sets": [
-      "International Edition"
-    ],
-    "archived_at": "2026-01-03T20:32:50.750825"
-  },
-  {
-    "name": "Mox Jet",
-    "sets": [
-      "International Edition"
-    ],
-    "archived_at": "2026-01-03T20:34:45.197387"
-  },
-  {
-    "name": "Mox Jet",
-    "sets": [
-      "Alpha (Limited Edition)"
-    ],
-    "archived_at": "2026-01-03T20:44:32.629953"
-  },
-  {
-    "name": "Mox Sapphire",
+    "name": "Lightning Bolt",
     "sets": [
       "Unlimited Edition"
     ],
-    "archived_at": "2026-01-03T20:51:42.466548"
+    "archived_at": "2026-01-05T18:13:02.815906"
   },
   {
-    "name": "Mox Ruby",
+    "name": "Mana Leak",
     "sets": [
-      "Alpha (Limited Edition)"
+      "Seventh Edition"
     ],
-    "archived_at": "2026-01-03T20:51:43.811297"
+    "archived_at": "2026-01-05T18:13:05.911081"
+  },
+  {
+    "name": "Mana Vault",
+    "sets": [
+      "Alpha",
+      "Beta",
+      "Unlimited",
+      "Revised"
+    ],
+    "added_at": "2026-01-05T21:19:05.884002",
+    "moved_from_wishlist": true,
+    "archived_at": "2026-01-05T21:19:37.693033"
+  },
+  {
+    "name": "Dark Ritual",
+    "sets": [
+      "Alpha",
+      "Beta",
+      "Unlimited"
+    ],
+    "added_at": "2026-01-05T21:14:06.583735",
+    "moved_from_wishlist": true,
+    "archived_at": "2026-01-05T21:19:40.871425"
+  },
+  {
+    "name": "Strip Mine",
+    "sets": [
+      "Antiquities",
+      "Fourth Edition"
+    ],
+    "added_at": "2026-01-05T21:20:19.694468",
+    "moved_from_wishlist": true,
+    "archived_at": "2026-01-05T21:23:24.548578"
+  },
+  {
+    "name": "Lightning Bolt",
+    "sets": [
+      "Beta (Limited Edition)"
+    ],
+    "buy_price": 5050,
+    "language": "",
+    "foil": false,
+    "archived_at": "2026-01-05T21:25:05.855719"
+  },
+  {
+    "name": "Lightning Bolt",
+    "sets": [
+      "Alpha"
+    ],
+    "buy_price": 420,
+    "condition": "Near Mint",
+    "source": "Facebook",
+    "added_at": "2026-01-05T21:24:01.061822",
+    "moved_from_wishlist": true,
+    "archived_at": "2026-01-05T21:25:08.777878"
   }
 ]

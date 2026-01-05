@@ -1,0 +1,682 @@
+[
+  {
+    "name": "Nevinyrral's Disk",
+    "sets": [
+      "Fourth Edition (Foreign Black Border)"
+    ],
+    "buy_price": 5,
+    "sell_price": 0
+  },
+  {
+    "name": "Hymn to Tourach (Circle)",
+    "sets": [
+      "Fallen Empires"
+    ],
+    "buy_price": 1.5,
+    "sell_price": 0
+  },
+  {
+    "name": "Ebon Stronghold",
+    "sets": [
+      "Fallen Empires"
+    ],
+    "buy_price": 2.3,
+    "sell_price": 0
+  },
+  {
+    "name": "Counterspell",
+    "sets": [
+      "Revised Edition"
+    ],
+    "buy_price": 3.5,
+    "sell_price": 0
+  },
+  {
+    "name": "Counterspell",
+    "sets": [
+      "Revised Edition"
+    ],
+    "buy_price": 3.5,
+    "sell_price": 0
+  },
+  {
+    "name": "Counterspell",
+    "sets": [
+      "Beta Edition"
+    ],
+    "buy_price": 313,
+    "sell_price": 0
+  },
+  {
+    "name": "Tundra",
+    "sets": [
+      "Revised Edition"
+    ],
+    "buy_price": 460,
+    "sell_price": 0
+  },
+  {
+    "name": "Underground Sea",
+    "sets": [
+      "Revised Edition"
+    ],
+    "buy_price": 656,
+    "sell_price": 0
+  },
+  {
+    "name": "Icy Manipulator",
+    "sets": [
+      "Unlimited Edition"
+    ],
+    "buy_price": 180,
+    "sell_price": 0
+  },
+  {
+    "name": "Mox Jet (IE)",
+    "sets": [
+      "International Edition"
+    ],
+    "buy_price": 646,
+    "sell_price": 0
+  },
+  {
+    "name": "Psionic Blast",
+    "sets": [
+      "Beta Edition"
+    ],
+    "buy_price": 166,
+    "sell_price": 0
+  },
+  {
+    "name": "Hypnotic Specter",
+    "sets": [
+      "Unlimited Edition"
+    ],
+    "buy_price": 52,
+    "sell_price": 0
+  },
+  {
+    "name": "Hypnotic Specter",
+    "sets": [
+      "Unlimited Edition"
+    ],
+    "buy_price": 70,
+    "sell_price": 0
+  },
+  {
+    "name": "Hypnotic Specter",
+    "sets": [
+      "Unlimited Edition"
+    ],
+    "buy_price": 69.8,
+    "sell_price": 0
+  },
+  {
+    "name": "Swords to Plowshares",
+    "sets": [
+      "Unlimited Edition"
+    ],
+    "buy_price": 59,
+    "sell_price": 0
+  },
+  {
+    "name": "Balance",
+    "sets": [
+      "Unlimited Edition"
+    ],
+    "buy_price": 75,
+    "sell_price": 0
+  },
+  {
+    "name": "Scrubland",
+    "sets": [
+      "Revised Edition"
+    ],
+    "buy_price": 250,
+    "sell_price": 0
+  },
+  {
+    "name": "Scrubland",
+    "sets": [
+      "Revised Edition (Foreign White Border)"
+    ],
+    "buy_price": 227,
+    "sell_price": 0
+  },
+  {
+    "name": "City of Brass (Italian) - \"Citta d'Ottone\"",
+    "sets": [
+      "Renaissance"
+    ],
+    "buy_price": 82,
+    "sell_price": 0
+  },
+  {
+    "name": "Disenchant",
+    "sets": [
+      "Beta Edition"
+    ],
+    "buy_price": 70,
+    "sell_price": 0
+  },
+  {
+    "name": "Disenchant",
+    "sets": [
+      "Beta Edition"
+    ],
+    "buy_price": 47,
+    "sell_price": 0
+  },
+  {
+    "name": "Cabal Ritual",
+    "sets": [
+      "Torment"
+    ],
+    "buy_price": 8,
+    "sell_price": 0
+  },
+  {
+    "name": "Serendib Efreet",
+    "sets": [
+      "Revised Edition"
+    ],
+    "buy_price": 7,
+    "sell_price": 0
+  },
+  {
+    "name": "Serendib Efreet",
+    "sets": [
+      "Revised Edition"
+    ],
+    "buy_price": 7,
+    "sell_price": 0
+  },
+  {
+    "name": "Serendib Efreet",
+    "sets": [
+      "Revised Edition"
+    ],
+    "buy_price": 7,
+    "sell_price": 0
+  },
+  {
+    "name": "Serendib Efreet",
+    "sets": [
+      "Revised Edition"
+    ],
+    "buy_price": 7,
+    "sell_price": 0
+  },
+  {
+    "name": "Black Knight",
+    "sets": [
+      "Fourth Edition (Foreign Black Border)"
+    ],
+    "buy_price": 20.8,
+    "sell_price": 0
+  },
+  {
+    "name": "Strip Mine (Uneven Horizon)",
+    "sets": [
+      "Antiquities"
+    ],
+    "buy_price": 90,
+    "sell_price": 0
+  },
+  {
+    "name": "Strip Mine (Tower)",
+    "sets": [
+      "Antiquities"
+    ],
+    "buy_price": 57.8,
+    "sell_price": 0
+  },
+  {
+    "name": "Sengir Vampire",
+    "sets": [
+      "Fourth Edition (Foreign Black Border)"
+    ],
+    "buy_price": 6.5,
+    "sell_price": 0
+  },
+  {
+    "name": "Sengir Vampire",
+    "sets": [
+      "Beta Edition"
+    ],
+    "buy_price": 93,
+    "sell_price": 0
+  },
+  {
+    "name": "Arcbound Ravager",
+    "sets": [
+      "Darksteel"
+    ],
+    "buy_price": 44.5,
+    "sell_price": 0
+  },
+  {
+    "name": "Mishra's Factory (Italian) - \"Fabbrica di Mishra\"",
+    "sets": [
+      "Renaissance"
+    ],
+    "buy_price": 19.5,
+    "sell_price": 0
+  },
+  {
+    "name": "Mishra's Factory (Italian) - \"Fabbrica di Mishra\"",
+    "sets": [
+      "Renaissance"
+    ],
+    "buy_price": 19.5,
+    "sell_price": 0
+  },
+  {
+    "name": "Mishra's Factory (Italian) - \"Fabbrica di Mishra\"",
+    "sets": [
+      "Renaissance"
+    ],
+    "buy_price": 19.5,
+    "sell_price": 0
+  },
+  {
+    "name": "Mishra's Factory (Italian) - \"Fabbrica di Mishra\"",
+    "sets": [
+      "Renaissance"
+    ],
+    "buy_price": 19.5,
+    "sell_price": 0
+  },
+  {
+    "name": "Mind Twist",
+    "sets": [
+      "Revised Edition (Foreign White Border)"
+    ],
+    "buy_price": 54,
+    "sell_price": 0
+  },
+  {
+    "name": "Prodigal Sorcerer",
+    "sets": [
+      "Beta Edition"
+    ],
+    "buy_price": 29,
+    "sell_price": 0
+  },
+  {
+    "name": "Sinkhole",
+    "sets": [
+      "Unlimited Edition"
+    ],
+    "buy_price": 25.5,
+    "sell_price": 0
+  },
+  {
+    "name": "Sinkhole",
+    "sets": [
+      "Unlimited Edition"
+    ],
+    "buy_price": 25.5,
+    "sell_price": 0
+  },
+  {
+    "name": "Sengir Vampire",
+    "sets": [
+      "Unlimited Edition"
+    ],
+    "buy_price": 46,
+    "sell_price": 0
+  },
+  {
+    "name": "Jalum Tome",
+    "sets": [
+      "Antiquities"
+    ],
+    "buy_price": 11.6,
+    "sell_price": 0
+  },
+  {
+    "name": "Royal Assassin",
+    "sets": [
+      "Revised Edition"
+    ],
+    "buy_price": 7.5,
+    "sell_price": 0
+  },
+  {
+    "name": "Imprison",
+    "sets": [
+      "Legends"
+    ],
+    "buy_price": 127.5,
+    "sell_price": 0
+  },
+  {
+    "name": "Oubliette",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "buy_price": 40.5,
+    "sell_price": 0
+  },
+  {
+    "name": "Oubliette",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "buy_price": 40.5,
+    "sell_price": 0
+  },
+  {
+    "name": "Control Magic",
+    "sets": [
+      "Unlimited Edition"
+    ],
+    "buy_price": 23,
+    "sell_price": 0
+  },
+  {
+    "name": "Control Magic",
+    "sets": [
+      "Unlimited Edition"
+    ],
+    "buy_price": 23,
+    "sell_price": 0
+  },
+  {
+    "name": "Triskelion",
+    "sets": [
+      "Antiquities"
+    ],
+    "buy_price": 162,
+    "sell_price": 0
+  },
+  {
+    "name": "Pestilence",
+    "sets": [
+      "Beta Edition"
+    ],
+    "buy_price": 22,
+    "sell_price": 0
+  },
+  {
+    "name": "Power Sink",
+    "sets": [
+      "Beta Edition"
+    ],
+    "buy_price": 12.7,
+    "sell_price": 0
+  },
+  {
+    "name": "Memory Jar",
+    "sets": [
+      "Urza's Legacy"
+    ],
+    "buy_price": 203,
+    "sell_price": 0
+  },
+  {
+    "name": "Sol Ring",
+    "sets": [
+      "Unlimited Edition"
+    ],
+    "buy_price": 105,
+    "sell_price": 0
+  },
+  {
+    "name": "Sol Ring",
+    "sets": [
+      "Beta Edition"
+    ],
+    "buy_price": 371,
+    "sell_price": 0
+  },
+  {
+    "name": "Mana Vault",
+    "sets": [
+      "Revised Edition"
+    ],
+    "buy_price": 58.2,
+    "sell_price": 0
+  },
+  {
+    "name": "Mahamoti Djinn",
+    "sets": [
+      "Unlimited Edition"
+    ],
+    "buy_price": 80,
+    "sell_price": 0
+  },
+  {
+    "name": "Mana Leak",
+    "sets": [
+      "Stronghold"
+    ],
+    "buy_price": 1.16,
+    "sell_price": 0
+  },
+  {
+    "name": "Mahamoti Djinn",
+    "sets": [
+      "Fourth Edition"
+    ],
+    "buy_price": 1.16,
+    "sell_price": 0
+  },
+  {
+    "name": "Howling Mine",
+    "sets": [
+      "Unlimited Edition"
+    ],
+    "buy_price": 93,
+    "sell_price": 0
+  },
+  {
+    "name": "Psionic Blast",
+    "sets": [
+      "Beta Edition"
+    ],
+    "buy_price": 151,
+    "sell_price": 0
+  },
+  {
+    "name": "Polluted Delta",
+    "sets": [
+      "Onslaught"
+    ],
+    "buy_price": 58.3,
+    "sell_price": 0
+  },
+  {
+    "name": "Hypnotic Specter",
+    "sets": [
+      "Revised Edition"
+    ],
+    "buy_price": 3.3,
+    "sell_price": 0
+  },
+  {
+    "name": "Bribery",
+    "sets": [
+      "Mercadian Masques"
+    ],
+    "buy_price": 7.5,
+    "sell_price": 0
+  },
+  {
+    "name": "Laquatus's Champion",
+    "sets": [
+      "Torment"
+    ],
+    "buy_price": 18,
+    "sell_price": 0
+  },
+  {
+    "name": "Palinchron",
+    "sets": [
+      "Urza's Legacy"
+    ],
+    "buy_price": 29,
+    "sell_price": 0
+  },
+  {
+    "name": "City of Brass",
+    "sets": [
+      "Chronicles"
+    ],
+    "buy_price": 22,
+    "sell_price": 0
+  },
+  {
+    "name": "Mana Drain",
+    "sets": [
+      "Legends"
+    ],
+    "buy_price": 156.9,
+    "sell_price": 0
+  },
+  {
+    "name": "Mana Drain",
+    "sets": [
+      "Legends"
+    ],
+    "buy_price": 156.9,
+    "sell_price": 0
+  },
+  {
+    "name": "Swamp (C)",
+    "sets": [
+      "Beta Edition"
+    ],
+    "buy_price": 35.23,
+    "sell_price": 0
+  },
+  {
+    "name": "Unsummon",
+    "sets": [
+      "Beta Edition"
+    ],
+    "buy_price": 15,
+    "sell_price": 0
+  },
+  {
+    "name": "Terror",
+    "sets": [
+      "Beta Edition"
+    ],
+    "buy_price": 44.62,
+    "sell_price": 0
+  },
+  {
+    "name": "Ensnaring Bridge",
+    "sets": [
+      "Stronghold"
+    ],
+    "buy_price": 11.92,
+    "sell_price": 0
+  },
+  {
+    "name": "Reanimate",
+    "sets": [
+      "Tempest"
+    ],
+    "buy_price": 15.3,
+    "sell_price": 0
+  },
+  {
+    "name": "Island (A)",
+    "sets": [
+      "Beta Edition"
+    ],
+    "buy_price": 52,
+    "sell_price": 0
+  },
+  {
+    "name": "Animate Dead",
+    "sets": [
+      "Unlimited Edition"
+    ],
+    "buy_price": 58.7,
+    "sell_price": 0
+  },
+  {
+    "name": "Maze of Ith",
+    "sets": [
+      "The Dark"
+    ],
+    "buy_price": 29.34,
+    "sell_price": 0
+  },
+  {
+    "name": "Doomsday",
+    "sets": [
+      "Weatherlight"
+    ],
+    "buy_price": 6.45,
+    "sell_price": 0
+  },
+  {
+    "name": "Lake of the Dead",
+    "sets": [
+      "Alliances"
+    ],
+    "buy_price": 69.45,
+    "sell_price": 0
+  },
+  {
+    "name": "Lim-Dul's Vault",
+    "sets": [
+      "Alliances"
+    ],
+    "buy_price": 4.11,
+    "sell_price": 0
+  },
+  {
+    "name": "Force of Will",
+    "sets": [
+      "Alliances"
+    ],
+    "buy_price": 62.53,
+    "sell_price": 0
+  },
+  {
+    "name": "Ancient Tomb",
+    "sets": [
+      "Tempest"
+    ],
+    "buy_price": 88.05,
+    "sell_price": 0
+  },
+  {
+    "name": "Entomb",
+    "sets": [
+      "Odyssey"
+    ],
+    "buy_price": 23.48,
+    "sell_price": 0
+  },
+  {
+    "name": "Demonic Tutor",
+    "sets": [
+      "Revised Edition"
+    ],
+    "buy_price": 46.97,
+    "sell_price": 0
+  },
+  {
+    "name": "Necropotence",
+    "sets": [
+      "Ice Age"
+    ],
+    "buy_price": 22,
+    "sell_price": 0
+  },
+  {
+    "name": "Vampiric Tutor",
+    "sets": [
+      "Visions"
+    ],
+    "buy_price": 45.95,
+    "sell_price": 0
+  }
+]

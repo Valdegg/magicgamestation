@@ -178,6 +178,7 @@
             position: relative;
             transform-style: preserve-3d;
             transform: rotateX(5deg);
+            pointer-events: none; /* Let clicks pass through to cards */
         }
 
         /* Central binding spine */
@@ -363,7 +364,7 @@
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(3, 1fr);
             gap: 8px;
-            height: calc(100% - 30px);
+            min-height: calc(100% - 30px);
             padding: 5px 5px 15px 5px; /* Extra bottom padding for remove buttons */
             overflow: visible; /* Ensure remove buttons aren't clipped */
             transform-style: flat; /* Prevent 3D transform from affecting card hit-testing */
@@ -458,6 +459,30 @@
         }
 
         /* Card inside pocket */
+        
+        /* Drag and Drop Styles */
+        .card-pocket.dragging {
+            opacity: 0.5;
+            transform: scale(0.95);
+            z-index: 1000;
+        }
+        
+        .card-pocket.drag-over {
+            border-color: var(--gold-accent);
+            box-shadow: 
+                inset 0 0 0 2px var(--gold-accent),
+                0 0 20px rgba(212, 175, 55, 0.6);
+            transform: scale(1.05);
+        }
+        
+        .card-pocket[draggable="true"] {
+            cursor: grab;
+        }
+        
+        .card-pocket[draggable="true"]:active {
+            cursor: grabbing;
+        }
+        
         .card-sleeve {
             position: relative;
             width: 100%;
@@ -603,6 +628,7 @@
         /* Flip zones - positioned OUTSIDE the binder spread, in the margins */
         .page-flip-zone {
             position: absolute;
+            pointer-events: auto; /* Re-enable for page flipping */
             top: 50%;
             transform: translateY(-50%);
             width: 60px;
@@ -1136,10 +1162,7 @@
                     <span class="stat-number" id="totalCards">0</span>
                     <span>Total Cards</span>
                 </div>
-                <div class="stat">
-                    <span class="stat-number" id="totalItems">0</span>
-                    <span>Collection Items</span>
-                </div>
+
             </div>
         </header>
 
@@ -1260,7 +1283,6 @@
                 }
                 
                 document.getElementById('totalCards').textContent = allCards.length;
-                document.getElementById('totalItems').textContent = collectionItems.length;
                 
                 renderBinder();
             } catch (error) {
@@ -1376,26 +1398,7 @@
                         const cardGrid = card.closest('.card-grid');
                         const gridRect = cardGrid ? cardGrid.getBoundingClientRect() : null;
                         
-                        console.log(`Bottom row card ${idx} (${card.dataset.cardName}):`, {
-                            card: {
-                                zIndex: computed.zIndex,
-                                position: computed.position,
-                                pointerEvents: computed.pointerEvents,
-                                transform: computed.transform,
-                                rect: { top: rect.top, bottom: rect.bottom, left: rect.left, right: rect.right, width: rect.width, height: rect.height }
-                            },
-                            cardGrid: gridRect ? {
-                                rect: { top: gridRect.top, bottom: gridRect.bottom, height: gridRect.height },
-                                cardWithinGrid: rect.top >= gridRect.top && rect.bottom <= gridRect.bottom
-                            } : 'NOT FOUND',
-                            removeBtn: removeBtn ? {
-                                zIndex: btnComputed.zIndex,
-                                position: btnComputed.position,
-                                pointerEvents: btnComputed.pointerEvents,
-                                opacity: btnComputed.opacity,
-                                rect: { top: btnRect.top, bottom: btnRect.bottom, left: btnRect.left, right: btnRect.right, width: btnRect.width, height: btnRect.height }
-                            } : 'NOT FOUND'
-                        });
+                        
                     }
                 });
                 console.log('=== End debug ===');
@@ -1406,6 +1409,7 @@
             
             // Setup hover debugging for bottom row
             setupHoverDebugging();
+            setTimeout(debugBottomRowOverlay, 1000);
             
             // Update nav
             document.getElementById('pageInfo').textContent = `Page ${currentPage} of ${totalSpreads}`;
@@ -1414,146 +1418,179 @@
             document.getElementById('pageNav').style.display = totalSpreads > 1 ? 'flex' : 'none';
         }
 
+        
+        function debugBottomRowOverlay() {
+            const bottomRowCards = document.querySelectorAll('.card-pocket[data-row="2"]:not(.empty)');
+            const wrapper = document.getElementById('binderWrapper');
+            
+            if (bottomRowCards.length === 0) {
+                console.warn('[DEBUG] No bottom row cards found!');
+                return;
+            }
+            
+            bottomRowCards.forEach((card, idx) => {
+                const rect = card.getBoundingClientRect();
+                const cardName = card.dataset.cardName || 'Unknown';
+                
+                // Check what elements are at the center and corners of the card
+                const testPoints = [
+                    { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2, name: 'center' },
+                    { x: rect.left + 10, y: rect.top + 10, name: 'top-left' },
+                    { x: rect.right - 10, y: rect.top + 10, name: 'top-right' },
+                    { x: rect.left + 10, y: rect.bottom - 10, name: 'bottom-left' },
+                    { x: rect.right - 10, y: rect.bottom - 10, name: 'bottom-right' }
+                ];
+                
+
+                
+                testPoints.forEach(point => {
+                    const elementAtPoint = document.elementFromPoint(point.x, point.y);
+                    if (!elementAtPoint) {
+                        return; // Skip to next iteration in forEach
+                    }
+                    const isCard = elementAtPoint === card || card.contains(elementAtPoint);
+                    
+                    if (!isCard) {
+                        const elementPath = [];
+                        let current = elementAtPoint;
+                        let depth = 0;
+                        while (current && current !== document.body && depth < 10) {
+                            const tag = current.tagName.toLowerCase();
+                            const classes = current.className ? '.' + current.className.split(' ').join('.') : '';
+                            const id = current.id ? '#' + current.id : '';
+                            const computed = window.getComputedStyle(current);
+                            elementPath.push({
+                                element: tag + id + classes,
+                                zIndex: computed.zIndex,
+                                position: computed.position,
+                                pointerEvents: computed.pointerEvents,
+                                display: computed.display,
+                                visibility: computed.visibility
+                            });
+                            current = current.parentElement;
+                            depth++;
+                        }
+                        
+                        console.warn(`[DEBUG] Point ${point.name} (${point.x}, ${point.y}) is NOT on card, element at point:`, {
+                            element: elementAtPoint.tagName + (elementAtPoint.className ? '.' + elementAtPoint.className : ''),
+                            elementPath: elementPath,
+                            cardBounds: rect
+                        });
+                    } else {
+                        console.log(``);
+                    }
+                });
+                
+                // Check parent elements
+                let parent = card.parentElement;
+                let parentLevel = 0;
+                while (parent && parent !== wrapper && parentLevel < 5) {
+                    const computed = window.getComputedStyle(parent);
+                    const rect = parent.getBoundingClientRect();
+        
+                    parent = parent.parentElement;
+                    parentLevel++;
+                }
+            });
+        }
+
         function setupHoverDebugging() {
+            
             // Remove existing listeners if any
             const wrapper = document.getElementById('binderWrapper');
             if (wrapper._hoverDebugHandler) {
                 wrapper.removeEventListener('mousemove', wrapper._hoverDebugHandler);
+                wrapper.removeEventListener('mouseenter', wrapper._hoverDebugHandler);
+                wrapper.removeEventListener('mouseleave', wrapper._hoverDebugHandler);
             }
             
-            // Add global mouse move listener to track hover over bottom row
+            // Add comprehensive hover and click debugging
+            let lastHoverLog = 0;
+            const hoverThrottleMs = 500; // Log at most once every 500ms
+            
             wrapper._hoverDebugHandler = (e) => {
-                // Check what element is actually at the mouse position
-                const elementBelow = document.elementFromPoint(e.clientX, e.clientY);
-                
-                // Find all bottom row cards
+                const now = Date.now();
+                if (now - lastHoverLog < hoverThrottleMs) {
+                    return; // Throttle logging
+                }
+                lastHoverLog = now;
+                const elementAtPoint = document.elementFromPoint(e.clientX, e.clientY);
+                    if (!elementAtPoint) {
+                        return; // Skip if element is null
+                    }
                 const bottomRowCards = document.querySelectorAll('.card-pocket[data-row="2"]:not(.empty)');
                 
-                // Check if mouse is over any bottom row card's bounding box
-                bottomRowCards.forEach(cardPocket => {
-                    const rect = cardPocket.getBoundingClientRect();
-                    const isInBounds = e.clientX >= rect.left && e.clientX <= rect.right &&
-                                      e.clientY >= rect.top && e.clientY <= rect.bottom;
+                bottomRowCards.forEach((card, idx) => {
+                    const rect = card.getBoundingClientRect();
+                    const isInside = e.clientX >= rect.left && e.clientX <= rect.right &&
+                                   e.clientY >= rect.top && e.clientY <= rect.bottom;
                     
-                    if (isInBounds) {
-                        const cardName = cardPocket.dataset.cardName;
-                        const removeBtn = cardPocket.querySelector('.card-remove-btn');
-                        const btnRect = removeBtn.getBoundingClientRect();
+                    if (isInside) {
+                        const computed = window.getComputedStyle(card);
+                        const cardName = card.dataset.cardName || 'Unknown';
                         
-                        // Log what's blocking
-                        const elementPath = [];
-                        let current = elementBelow;
-                        while (current && current !== document.body) {
-                            const tag = current.tagName.toLowerCase();
-                            const classes = current.className ? '.' + current.className.split(' ').join('.') : '';
-                            const id = current.id ? '#' + current.id : '';
-                            elementPath.push(tag + id + classes);
-                            current = current.parentElement;
-                        }
                         
-                        console.log(`[BOTTOM ROW DEBUG] Mouse at (${e.clientX}, ${e.clientY}) over card "${cardName}":`, {
-                            cardBounds: {
-                                top: rect.top,
-                                left: rect.left,
-                                bottom: rect.bottom,
-                                right: rect.right,
-                                width: rect.width,
-                                height: rect.height
-                            },
-                            mouseInBounds: isInBounds,
-                            elementAtMouse: elementBelow.tagName + (elementBelow.className ? '.' + elementBelow.className : ''),
-                            elementPath: elementPath,
-                            isCardPocket: elementBelow === cardPocket || cardPocket.contains(elementBelow),
-                            cardPocketHovered: cardPocket.matches(':hover'),
-                            removeBtnBounds: {
-                                top: btnRect.top,
-                                left: btnRect.left,
-                                bottom: btnRect.bottom,
-                                right: btnRect.right
-                            },
-                            mouseOverRemoveBtn: e.clientX >= btnRect.left && e.clientX <= btnRect.right &&
-                                              e.clientY >= btnRect.top && e.clientY <= btnRect.bottom,
-                            removeBtnHovered: removeBtn ? removeBtn.matches(':hover') : false
-                        });
-                        
-                        // Check for overlapping elements
-                        const allElements = document.elementsFromPoint(e.clientX, e.clientY);
-                        const overlapping = allElements.filter(el => {
-                            const elRect = el.getBoundingClientRect();
-                            return elRect.top <= e.clientY && elRect.bottom >= e.clientY &&
-                                   elRect.left <= e.clientX && elRect.right >= e.clientX;
-                        }).map(el => ({
-                            tag: el.tagName.toLowerCase(),
-                            class: el.className || '',
-                            id: el.id || '',
-                            zIndex: window.getComputedStyle(el).zIndex,
-                            pointerEvents: window.getComputedStyle(el).pointerEvents,
-                            position: window.getComputedStyle(el).position
-                        }));
-                        
-                        if (overlapping.length > 1) {
-                            console.log('  Overlapping elements:', overlapping);
-                        }
                     }
                 });
             };
             
+            // Add mouseenter/mouseleave for bottom row cards specifically
             wrapper.addEventListener('mousemove', wrapper._hoverDebugHandler);
             
-            // Also check CSS hover state periodically for bottom row cards
-            const checkHoverState = () => {
+            // Also add direct event listeners to bottom row cards
+            const addCardListeners = () => {
                 const bottomRowCards = document.querySelectorAll('.card-pocket[data-row="2"]:not(.empty)');
-                bottomRowCards.forEach(card => {
-                    const removeBtn = card.querySelector('.card-remove-btn');
-                    if (removeBtn) {
-                        const pocketHovered = card.matches(':hover');
-                        const btnHovered = removeBtn.matches(':hover');
-                        const btnComputed = window.getComputedStyle(removeBtn);
-                        
-                        if (pocketHovered && btnComputed.opacity === '0') {
-                            console.warn(`[HOVER STATE CHECK] Bottom row card "${card.dataset.cardName}" is hovered but remove button opacity is 0!`, {
-                                pocketHovered: pocketHovered,
-                                btnHovered: btnHovered,
-                                btnOpacity: btnComputed.opacity,
-                                btnZIndex: btnComputed.zIndex,
-                                btnPointerEvents: btnComputed.pointerEvents
-                            });
-                        }
-                    }
+                
+                bottomRowCards.forEach((card, idx) => {
+                    const cardName = card.dataset.cardName || 'Unknown';
+                    
+                    // Remove existing listeners
+                    const newCard = card.cloneNode(true);
+                    card.parentNode.replaceChild(newCard, card);
+                    
+                    // Add mouseenter
+                    newCard.addEventListener('mouseenter', (e) => {
+                        console.log(`[CARD EVENT] mouseenter on bottom row card "${cardName}" (index ${idx})`, {
+                            target: e.target,
+                            currentTarget: e.currentTarget,
+                            relatedTarget: e.relatedTarget
+                        });
+                    });
+                    
+                    // Add mouseleave
+                    newCard.addEventListener('mouseleave', (e) => {
+                        console.log(`[CARD EVENT] mouseleave on bottom row card "${cardName}" (index ${idx})`, {
+                            target: e.target,
+                            currentTarget: e.currentTarget,
+                            relatedTarget: e.relatedTarget
+                        });
+                    });
+                    
+                    // Add click
+                    newCard.addEventListener('click', (e) => {
+                        console.log(`[CARD EVENT] click on bottom row card "${cardName}" (index ${idx})`, {
+                            target: e.target,
+                            currentTarget: e.currentTarget,
+                            button: e.button,
+                            bubbles: e.bubbles,
+                            cancelable: e.cancelable,
+                            defaultPrevented: e.defaultPrevented
+                        });
+                    }, true); // Use capture phase
+                    
+                    // Add mousedown
+                    newCard.addEventListener('mousedown', (e) => {
+                        console.log(`[CARD EVENT] mousedown on bottom row card "${cardName}" (index ${idx})`, {
+                            target: e.target,
+                            currentTarget: e.currentTarget
+                        });
+                    });
                 });
             };
             
-            // Check every 500ms when mouse is over binder
-            let hoverCheckInterval = null;
-            wrapper.addEventListener('mouseenter', () => {
-                hoverCheckInterval = setInterval(checkHoverState, 500);
-            });
-            wrapper.addEventListener('mouseleave', () => {
-                if (hoverCheckInterval) {
-                    clearInterval(hoverCheckInterval);
-                    hoverCheckInterval = null;
-                }
-            });
-            
-            // Add click handler to log what's being clicked in bottom row area
-            wrapper.addEventListener('click', (e) => {
-                const bottomRowCards = document.querySelectorAll('.card-pocket[data-row="2"]:not(.empty)');
-                bottomRowCards.forEach(cardPocket => {
-                    const rect = cardPocket.getBoundingClientRect();
-                    if (e.clientX >= rect.left && e.clientX <= rect.right &&
-                        e.clientY >= rect.top && e.clientY <= rect.bottom) {
-                        const elementAtClick = document.elementFromPoint(e.clientX, e.clientY);
-                        console.log(`[CLICK DEBUG] Clicked in bottom row card "${cardPocket.dataset.cardName}" area:`, {
-                            clickedElement: elementAtClick.tagName + (elementAtClick.className ? '.' + elementAtClick.className : ''),
-                            isCardPocket: elementAtClick === cardPocket || cardPocket.contains(elementAtClick),
-                            cardBounds: { top: rect.top, bottom: rect.bottom, left: rect.left, right: rect.right },
-                            clickPos: { x: e.clientX, y: e.clientY }
-                        });
-                    }
-                });
-            });
+            // Call after a short delay to ensure DOM is ready
+            setTimeout(addCardListeners, 500);
         }
-
         function logHover(type, cardName, row, col, cardIndex, event) {
             const timestamp = new Date().toISOString().split('T')[1].split('.')[0];
             console.log(`[${timestamp}] ${type}:`, {
@@ -1687,12 +1724,12 @@
             const imagePath = expansion 
                 ? `/card_images_sets/${imageName}`
                 : `/card_images/${imageName}`;
-            
+            // log image path in console
             const expansionHTML = expansion ? `<div class="card-expansion">${expansion}</div>` : '';
             // Only show buy price, condition, and sell price in hover overlay (not source)
             const buyPriceHTML = buyPrice !== undefined && buyPrice !== null ? `<div class="card-buy-price">Bought: €${parseFloat(buyPrice).toFixed(2)}</div>` : '';
             const conditionHTML = condition ? `<div class="card-condition">${condition}</div>` : '';
-            const sellPriceHTML = sellPrice !== undefined && sellPrice !== null ? `<div class="card-sell-price">Sell: €${parseFloat(sellPrice).toFixed(2)}</div>` : '';
+            const sellPriceHTML = sellPrice !== undefined && sellPrice !== null ? `<div class="card-sell-price">Sold: €${parseFloat(sellPrice).toFixed(2)}</div>` : '';
             
             return `
                 <div class="card-pocket" 
@@ -1700,22 +1737,18 @@
                      data-row="${row}" 
                      data-col="${col}"
                      data-card-name="${cardName.replace(/"/g, '&quot;')}"
-                     onmouseenter="logHover('card-pocket-enter', '${cardName.replace(/'/g, "\\'")}', ${row}, ${col}, ${cardIndex}, event)"
-                     onmouseleave="logHover('card-pocket-leave', '${cardName.replace(/'/g, "\\'")}', ${row}, ${col}, ${cardIndex}, event)"
-                     onmousemove="if(${row} === 2) { logHover('card-pocket-move', '${cardName.replace(/'/g, "\\'")}', ${row}, ${col}, ${cardIndex}, event); }"
-                     onclick="console.log('Card clicked:', '${cardName.replace(/'/g, "\\'")}', 'row:', ${row}, 'col:', ${col}); editCard(${collectionIndex})" 
-                     title="Click to edit">
-                    <div class="card-remove-btn" 
-                         data-card-index="${cardIndex}"
-                         data-row="${row}"
-                         onmouseenter="logHover('remove-btn-enter', '${cardName.replace(/'/g, "\\'")}', ${row}, ${col}, ${cardIndex}, event)"
-                         onmouseleave="logHover('remove-btn-leave', '${cardName.replace(/'/g, "\\'")}', ${row}, ${col}, ${cardIndex}, event)"
-                         onmousemove="if(${row} === 2) { logHover('remove-btn-move', '${cardName.replace(/'/g, "\\'")}', ${row}, ${col}, ${cardIndex}, event); }"
-                          onclick="console.log('Remove button clicked:', '${cardName.replace(/'/g, "\\'")}', 'row:', ${row}, 'col:', ${col}); event.stopPropagation(); archiveCard(${collectionIndex})"
-                          title="Remove from collection">×</div>
+                     data-collection-index="${collectionIndex}"
+                     draggable="true" 
+                     ondragstart="handleDragStart(event)" 
+                     ondragend="handleDragEnd(event)" 
+                     ondragover="handleDragOver(event)" 
+                     ondrop="handleDrop(event)" 
+                     ondragleave="handleDragLeave(event)"
+                     onclick="editCard(${collectionIndex})" 
+                     title="Click to edit - drag to reorder">
                     <div class="card-sleeve">
                         <img src="${imagePath}" alt="${cardName}" class="card-image" 
-                             onerror="handleImageError(this, '${cardName.replace(/'/g, "\\'")}', ${expansion ? `'${expansion.replace(/'/g, "\\'")}'` : 'null'})">
+                             onerror="handleImageError(this, '${cardName.replace(/'/g, "\\'")}', '${(expansion || '').replace(/'/g, "\\'")}')">
                         <div class="card-info-overlay">
                             <div class="card-name">${cardName}</div>
                             ${expansionHTML}
@@ -1724,6 +1757,9 @@
                             ${sellPriceHTML}
                         </div>
                     </div>
+                    <button class="card-remove-btn" 
+                            onclick="event.stopPropagation(); archiveCard(${collectionIndex})" 
+                            title="Remove from collection">×</button>
                 </div>
             `;
         }
@@ -2121,11 +2157,23 @@
             
             const name = document.getElementById('cardName').value.trim();
             const sets = [...selectedSets];
+            const buyPrice = document.getElementById('buyPrice').value.trim();
+            const condition = document.getElementById('condition').value.trim();
+            const source = document.getElementById('source').value.trim();
+            const sellPrice = document.getElementById('sellPrice').value.trim();
+            const notes = document.getElementById('notes').value.trim();
             
             const data = {
                 name: name,
                 sets: sets
             };
+            
+            // Add optional fields if they have values
+            if (buyPrice) data.buy_price = parseFloat(buyPrice);
+            if (condition) data.condition = condition;
+            if (source) data.source = source;
+            if (sellPrice) data.sell_price = parseFloat(sellPrice);
+            if (notes) data.notes = notes;
             
             try {
                 if (editingIndex !== null) {
@@ -2187,6 +2235,165 @@
                 closeModal();
             }
         });
+
+        
+        // Drag and Drop functionality
+        let draggedCardIndex = null;
+        let draggedCollectionIndex = null;
+        
+        function handleDragStart(e) {
+            // Prevent dragging the remove button
+            if (e.target.closest('.card-remove-btn')) {
+                e.preventDefault();
+                return false;
+            }
+            
+            const cardPocket = e.target.closest('.card-pocket');
+            if (!cardPocket || cardPocket.classList.contains('empty')) {
+                e.preventDefault();
+                return false;
+            }
+            
+            draggedCardIndex = parseInt(cardPocket.dataset.cardIndex);
+            const collectionIndex = parseInt(cardPocket.dataset.collectionIndex || '-1');
+            draggedCollectionIndex = collectionIndex;
+            
+            cardPocket.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/html', cardPocket.outerHTML);
+            
+            // Store the collection index in dataTransfer for cross-page dragging
+            e.dataTransfer.setData('collection-index', collectionIndex.toString());
+            
+            return true;
+        }
+        
+        function handleDragEnd(e) {
+            const cardPocket = e.target.closest('.card-pocket');
+            if (cardPocket) {
+                cardPocket.classList.remove('dragging');
+            }
+            draggedCardIndex = null;
+            draggedCollectionIndex = null;
+        }
+        
+        function handleDragOver(e) {
+            // Prevent dragging the remove button
+            if (e.target.closest('.card-remove-btn')) {
+                return;
+            }
+            
+            const cardPocket = e.target.closest('.card-pocket');
+            if (!cardPocket || cardPocket.classList.contains('empty')) {
+                return;
+            }
+            
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+            
+            // Add visual feedback
+            if (!cardPocket.classList.contains('drag-over')) {
+                cardPocket.classList.add('drag-over');
+            }
+        }
+        
+        function handleDragLeave(e) {
+            const cardPocket = e.target.closest('.card-pocket');
+            if (cardPocket) {
+                cardPocket.classList.remove('drag-over');
+            }
+        }
+        
+        async function handleDrop(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Prevent dropping on remove button
+            if (e.target.closest('.card-remove-btn')) {
+                return;
+            }
+            
+            const targetPocket = e.target.closest('.card-pocket');
+            if (!targetPocket || targetPocket.classList.contains('empty')) {
+                return;
+            }
+            
+            targetPocket.classList.remove('drag-over');
+            
+            const targetCardIndex = parseInt(targetPocket.dataset.cardIndex);
+            const targetCollectionIndex = parseInt(targetPocket.dataset.collectionIndex || '-1');
+            
+            // Get the dragged collection index from dataTransfer or fallback to stored variable
+            const draggedIndex = parseInt(e.dataTransfer.getData('collection-index')) || draggedCollectionIndex;
+            
+            if (draggedIndex === null || draggedIndex < 0 || targetCollectionIndex < 0) {
+                console.log('Invalid drag operation - collection indices not available');
+                return;
+            }
+            
+            if (draggedIndex === targetCollectionIndex) {
+                return; // Same position, no change needed
+            }
+            
+            // Reorder the collection items
+            await reorderCollectionItems(draggedIndex, targetCollectionIndex);
+        }
+        
+        async function reorderCollectionItems(fromIndex, toIndex) {
+            try {
+                // fromIndex and toIndex are collection item indices (not card indices)
+                // Create new order array for collection items
+                const newOrder = [];
+                const collectionLength = collectionItems.length;
+                
+                // Simple approach: remove fromIndex, insert at toIndex
+                for (let i = 0; i < collectionLength; i++) {
+                    if (i === fromIndex) {
+                        continue; // Skip the dragged item for now
+                    }
+                    newOrder.push(i);
+                }
+                
+                // Insert dragged item at target position
+                if (fromIndex < toIndex) {
+                    // Moving forward: insert before toIndex (which is now toIndex - 1 after removal)
+                    newOrder.splice(toIndex, 0, fromIndex);
+                } else {
+                    // Moving backward: insert at toIndex position
+                    newOrder.splice(toIndex, 0, fromIndex);
+                }
+                
+                // Ensure we have the correct length
+                if (newOrder.length !== collectionLength) {
+                    console.error('Reorder array length mismatch:', newOrder.length, 'expected', collectionLength);
+                    // Fallback: create identity array and swap
+                    newOrder.length = 0;
+                    for (let i = 0; i < collectionLength; i++) {
+                        newOrder.push(i);
+                    }
+                    const [removed] = newOrder.splice(fromIndex, 1);
+                    newOrder.splice(toIndex, 0, removed);
+                }
+                
+                // Send reorder request to backend
+                const response = await fetch('/api/collection/reorder', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ order: newOrder })
+                });
+                
+                if (response.ok) {
+                    // Reload collection to reflect new order
+                    await loadCollection(true);
+                } else {
+                    const error = await response.json();
+                    alert('Error reordering collection: ' + (error.detail || 'Failed to reorder'));
+                }
+            } catch (error) {
+                console.error('Error reordering collection:', error);
+                alert('Error: ' + error.message);
+            }
+        }
 
         // Initialize
         loadSets().then(() => {

@@ -583,13 +583,14 @@ def print_summary(deals: List[Dict[str, Any]]) -> None:
                     print(f"   Seller: {details.get('seller')} ({details.get('country')})")
 
 
-def save_results(deals: List[Dict[str, Any]], output_file: Optional[str] = None) -> str:
+def save_results(deals: List[Dict[str, Any]], output_file: Optional[str] = None, wishlist_file: Optional[str] = None) -> str:
     """
     Save deals to JSON file.
     
     Args:
         deals: List of deal dictionaries
         output_file: Path to output file (None = auto-generate)
+        wishlist_file: Source wishlist file (for generating filename, defaults to WISHLIST_FILE)
         
     Returns:
         Path to saved file
@@ -600,7 +601,9 @@ def save_results(deals: List[Dict[str, Any]], output_file: Optional[str] = None)
     # Generate filename if not provided
     if not output_file:
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        wishlist_name = os.path.splitext(os.path.basename(WISHLIST_FILE))[0]
+        # Use provided wishlist_file or fall back to global WISHLIST_FILE
+        source_file = wishlist_file if wishlist_file else WISHLIST_FILE
+        wishlist_name = os.path.splitext(os.path.basename(source_file))[0]
         output_file = f"results/{wishlist_name}_deals_{timestamp}.json"
     
     # Ensure output_file is in results directory if relative path
@@ -608,9 +611,10 @@ def save_results(deals: List[Dict[str, Any]], output_file: Optional[str] = None)
         output_file = f"results/{output_file}"
     
     # Prepare output data
+    source_file = wishlist_file if wishlist_file else WISHLIST_FILE
     output_data = {
         'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-        'wishlist_file': WISHLIST_FILE,
+        'wishlist_file': source_file,
         'config': {
             'min_discount': MIN_DISCOUNT,
             'delay_between_cards': DELAY_BETWEEN_CARDS,

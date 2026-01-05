@@ -348,7 +348,7 @@ def run_wishlist_analysis(wishlist_file: str = "wishlist.json", delay: float = 1
         )
         
         if deals:
-            output_file = save_results(deals, None)  # Auto-generate filename
+            output_file = save_results(deals, None, wishlist_file)  # Auto-generate filename based on source file
             print(f"\n✅ Analysis complete! Results saved to: {output_file}")
             return output_file
         else:

@@ -378,6 +378,7 @@ update_collection_item = collection_ui.update_collection_item
 archive_collection_item = collection_ui.archive_collection_item
 collection_autocomplete = collection_ui.autocomplete_card_name
 collection_fetch_image = collection_ui.fetch_card_image
+get_archived_stats = collection_ui.get_archived_stats
 
 # Market Scanner routes
 @app.get("/market", response_class=HTMLResponse)
@@ -615,6 +616,10 @@ async def collection_api_update(index: int, request: Request):
 async def collection_api_delete(index: int):
     return await archive_collection_item(index)
 
+@app.post("/collection/api/collection/reorder")
+async def collection_api_reorder(request: Request):
+    return await collection_ui.reorder_collection(request)
+
 @app.get("/collection/api/autocomplete-card")
 async def collection_api_autocomplete(q: str = ""):
     return await collection_autocomplete(q=q)
@@ -622,6 +627,10 @@ async def collection_api_autocomplete(q: str = ""):
 @app.get("/collection/api/fetch-card-image")
 async def collection_api_fetch_image(name: str, set: str = None):
     return await collection_fetch_image(name=name, set=set)
+
+@app.get("/collection/api/archived-stats")
+async def collection_api_archived_stats():
+    return await get_archived_stats()
 
 # Games routes
 @app.get("/games")

@@ -11,7 +11,6 @@
   {
     "name": "Lightning Bolt",
     "sets": [
-      "Alpha",
       "Beta",
       "Unlimited"
     ],
@@ -27,30 +26,11 @@
     "notes": "Blue staple"
   },
   {
-    "name": "Dark Ritual",
-    "sets": [
-      "Alpha",
-      "Beta",
-      "Unlimited"
-    ],
-    "notes": "Fast mana"
-  },
-  {
     "name": "Chrome Mox",
     "sets": [
       "Mirrodin"
     ],
     "notes": "Fast mana with imprint"
-  },
-  {
-    "name": "Mana Vault",
-    "sets": [
-      "Alpha",
-      "Beta",
-      "Unlimited",
-      "Revised"
-    ],
-    "notes": "Explosive mana"
   },
   {
     "name": "Vampiric Tutor",
@@ -205,14 +185,6 @@
       "Champions of Kamigawa"
     ],
     "notes": "Uncounterable spells"
-  },
-  {
-    "name": "Strip Mine",
-    "sets": [
-      "Antiquities",
-      "Fourth Edition"
-    ],
-    "notes": "Land destruction"
   },
   {
     "name": "Wasteland",

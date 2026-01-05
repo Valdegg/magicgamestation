@@ -2216,11 +2216,17 @@
             
             const name = document.getElementById('cardName').value.trim();
             const sets = [...selectedSets];
+            const maxPrice = document.getElementById('maxPrice').value.trim();
+            const notes = document.getElementById('notes').value.trim();
             
             const data = {
                 name: name,
                 sets: sets
             };
+            
+            // Add optional fields if they have values
+            if (maxPrice) data.max_price = parseFloat(maxPrice);
+            if (notes) data.notes = notes;
             
             try {
                 if (editingIndex !== null) {

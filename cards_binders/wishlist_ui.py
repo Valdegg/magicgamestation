@@ -135,14 +135,28 @@ def get_image_filename(card_name: str, set_name: Optional[str] = None) -> str:
 def get_scryfall_set_code(set_name: str) -> str:
     """
     Get Scryfall set code for a given set name.
-    Returns the set code, or the original name if not found.
+    Returns the set code, or the normalized name without parentheses if not found.
     Special handling for International Edition -> CEI, Collector's Edition -> CED.
     """
+    # Normalize set name by removing parentheses (Scryfall doesn't use parentheses)
+    normalized_name = set_name.replace("(", "").replace(")", "").strip()
+    
     # Special cases: Scryfall uses different codes
-    if set_name.lower() == "international edition":
+    set_name_lower = set_name.lower()
+    normalized_lower = normalized_name.lower()
+    
+    if "international edition" in normalized_lower:
         return "CEI"
-    if set_name.lower() == "collector's edition":
+    if "collector's edition" in normalized_lower or "collectors edition" in normalized_lower:
         return "CED"
+    
+    # Map foreign border sets to Scryfall codes
+    if normalized_lower == "fourth edition foreign black border":
+        return "4bb"
+    if normalized_lower == "revised edition foreign black border":
+        return "3bb"
+    if normalized_lower == "revised edition foreign white border":
+        return "3eb"  # Revised Edition Foreign White Border
     
     # Try to load sets_data.json to get the code
     try:
@@ -150,20 +164,23 @@ def get_scryfall_set_code(set_name: str) -> str:
         if os.path.exists(sets_file):
             with open(sets_file, 'r', encoding='utf-8') as f:
                 sets_data = json.load(f)
-            for set_data in sets_data:
-                if set_data.get("name", "").lower() == set_name.lower():
-                    code = set_data.get("code", "")
-                    # Map our codes to Scryfall codes
-                    if code == "IE":
-                        return "CEI"  # International Edition -> CEI
-                    if code == "CED":
-                        return "CED"  # Collector's Edition -> CED
-                    return code
+            # Try both original and normalized names
+            for name_to_try in [set_name, normalized_name]:
+                for set_data in sets_data:
+                    set_data_name = set_data.get("name", "").lower()
+                    if set_data_name == name_to_try.lower() or set_data_name == normalized_lower:
+                        code = set_data.get("code", "")
+                        # Map our codes to Scryfall codes
+                        if code == "IE":
+                            return "CEI"  # International Edition -> CEI
+                        if code == "CED":
+                            return "CED"  # Collector's Edition -> CED
+                        return code
     except Exception as e:
         print(f"   ⚠️  Error loading sets_data.json: {e}", flush=True)
     
-    # Fallback to original name
-    return set_name
+    # Fallback to normalized name (without parentheses)
+    return normalized_name
 
 
 def fetch_card_image_from_scryfall(card_name: str, set_name: Optional[str] = None) -> Optional[str]:
@@ -416,7 +433,643 @@ async def wishlist_page():
     html_path = Path("web_templates/wishlist_binder.html")
     if html_path.exists():
         with open(html_path, 'r', encoding='utf-8') as f:
-            return HTMLResponse(content=f.read())
+            html_content = f.read()
+            
+            # Inject JavaScript to ensure expansion field is passed when moving to collection
+            if 'move-to-collection-expansion-fix' not in html_content:
+                move_script = """
+    <script id="move-to-collection-expansion-fix">
+    // Ensure expansion field is passed when moving wishlist items to collection
+    (function() {
+        'use strict';
+        
+        // Hook into card rendering functions to ensure expansion is stored in data attributes
+        if (typeof createCardHTML === 'function') {
+            const originalCreateCardHTML = window.createCardHTML;
+            window.createCardHTML = function(card, cardIndex) {
+                const html = originalCreateCardHTML.call(this, card, cardIndex);
+                // Ensure expansion is in data attribute
+                if (card.expansion) {
+                    const temp = document.createElement('div');
+                    temp.innerHTML = html;
+                    const cardEl = temp.firstElementChild;
+                    if (cardEl) {
+                        cardEl.setAttribute('data-expansion', card.expansion);
+                        cardEl.setAttribute('data-card-name', card.name || '');
+                        return temp.innerHTML;
+                    }
+                }
+                return html;
+            };
+        }
+        
+        // Also hook into any function that renders cards
+        const cardRenderers = ['renderCard', 'displayCard', 'showCard', 'createCard'];
+        cardRenderers.forEach(funcName => {
+            if (typeof window[funcName] === 'function') {
+                const original = window[funcName];
+                window[funcName] = function(...args) {
+                    const result = original.apply(this, args);
+                    // If result is HTML string or element, ensure expansion is in data attribute
+                    if (typeof result === 'string' && result.includes('expansion')) {
+                        const temp = document.createElement('div');
+                        temp.innerHTML = result;
+                        const cardEl = temp.querySelector('[data-expansion], .card, [class*="card"]');
+                        if (cardEl && args[0] && args[0].expansion) {
+                            cardEl.setAttribute('data-expansion', args[0].expansion);
+                        }
+                        return temp.innerHTML;
+                    }
+                    return result;
+                };
+            }
+        });
+        
+        // Store expansion whenever user interacts with a card
+        // This ensures we always have the expansion available when move button is clicked
+        document.addEventListener('click', function(e) {
+            let target = e.target;
+            let cardElement = null;
+            
+            // First check if the clicked element itself has expansion data
+            if (target.dataset && target.dataset.cardExpansion) {
+                window._pendingMoveExpansion = target.dataset.cardExpansion;
+                window._lastClickedExpansion = target.dataset.cardExpansion;
+                console.log('Found expansion on clicked element:', target.dataset.cardExpansion);
+                return;
+            }
+            
+            // Find the card element by walking up the DOM tree
+            let current = target;
+            let depth = 0;
+            while (current && current !== document && depth < 15) {
+                // Check if current element is a button with expansion data
+                if (current.dataset && current.dataset.cardExpansion) {
+                    window._pendingMoveExpansion = current.dataset.cardExpansion;
+                    window._lastClickedExpansion = current.dataset.cardExpansion;
+                    console.log('Found expansion on button:', current.dataset.cardExpansion);
+                    return;
+                }
+                
+                // Check for card indicators
+                if (current.dataset && (current.dataset.expansion || current.dataset.cardName)) {
+                    cardElement = current;
+                    break;
+                }
+                // Check for card-like classes
+                if (current.className && (
+                    current.className.includes('card') || 
+                    current.className.includes('Card') ||
+                    current.classList.contains('card')
+                )) {
+                    cardElement = current;
+                    break;
+                }
+                current = current.parentElement;
+                depth++;
+            }
+            
+            // Try to extract expansion from card element
+            if (cardElement) {
+                let expansion = null;
+                
+                // Method 1: Check data-expansion attribute
+                if (cardElement.dataset && cardElement.dataset.expansion) {
+                    expansion = cardElement.dataset.expansion;
+                }
+                
+                // Method 2: Check for data-expansion in child elements
+                if (!expansion) {
+                    const expansionEl = cardElement.querySelector('[data-expansion]');
+                    if (expansionEl && expansionEl.dataset.expansion) {
+                        expansion = expansionEl.dataset.expansion;
+                    }
+                }
+                
+                // Method 3: Extract from text content (look for expansion names)
+                if (!expansion) {
+                    const cardText = cardElement.textContent || '';
+                    // Common expansion patterns
+                    const expansionPatterns = [
+                        /(Fourth Edition)/i,
+                        /(Antiquities)/i,
+                        /(Alpha)/i,
+                        /(Beta)/i,
+                        /(Unlimited Edition)/i,
+                        /(Revised Edition)/i,
+                        /(International Edition)/i,
+                        /([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*(?:\s+Edition)?)/i
+                    ];
+                    
+                    for (const pattern of expansionPatterns) {
+                        const match = cardText.match(pattern);
+                        if (match && match[1]) {
+                            expansion = match[1].trim();
+                            break;
+                        }
+                    }
+                }
+                
+                // Store expansion if found
+                if (expansion && expansion !== 'null' && expansion !== 'undefined' && expansion !== '') {
+                    window._lastClickedExpansion = expansion;
+                    window._pendingMoveExpansion = expansion;
+                    console.log('Stored expansion from card click:', expansion);
+                    
+                    // Clear after delay
+                    setTimeout(() => {
+                        if (window._pendingMoveExpansion === expansion) {
+                            delete window._pendingMoveExpansion;
+                        }
+                    }, 5000);
+                }
+            }
+        }, true); // Use capture phase
+        
+        // Intercept fetch calls to add expansion field to move-to-collection requests
+        const originalFetch = window.fetch;
+        window.fetch = function(...args) {
+            const url = args[0];
+            const options = args[1] || {};
+            
+            // Handle move-to-collection requests
+            if (typeof url === 'string' && url.includes('/move-to-collection') && options.method === 'POST') {
+                let expansion = window._pendingMoveExpansion || window._lastClickedExpansion;
+                
+                // If still not found, try to extract from URL or find in DOM
+                if (!expansion) {
+                    // Try to find the card that was just clicked
+                    const allCards = document.querySelectorAll('[data-expansion], [data-card-name]');
+                    for (const card of allCards) {
+                        if (card.dataset && card.dataset.expansion) {
+                            expansion = card.dataset.expansion;
+                            break;
+                        }
+                    }
+                }
+                
+                // If expansion found, add it to the request
+                if (expansion && expansion !== 'null' && expansion !== 'undefined' && expansion !== '') {
+                    console.log('✅ Adding expansion to move-to-collection request:', expansion);
+                    if (options.body) {
+                        try {
+                            const body = typeof options.body === 'string' ? JSON.parse(options.body) : options.body;
+                            // Always override if we have expansion
+                            body.expansion = expansion;
+                            options.body = JSON.stringify(body);
+                            args[1] = options;
+                            console.log('✅ Updated request body:', body);
+                        } catch(e) {
+                            console.error('❌ Error adding expansion to move-to-collection request:', e);
+                        }
+                    } else {
+                        // Create body with expansion if it doesn't exist
+                        options.body = JSON.stringify({ expansion: expansion });
+                        args[1] = options;
+                    }
+                } else {
+                    console.warn('⚠️ No expansion found for move-to-collection request. Available:', {
+                        pending: window._pendingMoveExpansion,
+                        lastClicked: window._lastClickedExpansion
+                    });
+                }
+            }
+            
+            return originalFetch.apply(this, args);
+        };
+        
+        // Also intercept XMLHttpRequest in case frontend uses that instead of fetch
+        const originalXHROpen = XMLHttpRequest.prototype.open;
+        const originalXHRSend = XMLHttpRequest.prototype.send;
+        
+        XMLHttpRequest.prototype.open = function(method, url, ...rest) {
+            this._url = url;
+            this._method = method;
+            return originalXHROpen.apply(this, [method, url, ...rest]);
+        };
+        
+        XMLHttpRequest.prototype.send = function(body) {
+            if (this._url && this._url.includes('/move-to-collection') && this._method === 'POST') {
+                let expansion = window._pendingMoveExpansion || window._lastClickedExpansion;
+                
+                if (expansion && expansion !== 'null' && expansion !== 'undefined' && expansion !== '') {
+                    console.log('✅ Adding expansion to XMLHttpRequest move-to-collection:', expansion);
+                    try {
+                        const requestBody = body ? (typeof body === 'string' ? JSON.parse(body) : body) : {};
+                        requestBody.expansion = expansion;
+                        body = JSON.stringify(requestBody);
+                        console.log('✅ Updated XMLHttpRequest body:', requestBody);
+                    } catch(e) {
+                        console.error('❌ Error adding expansion to XMLHttpRequest:', e);
+                    }
+                }
+            }
+            return originalXHRSend.apply(this, [body]);
+        };
+        
+        // Watch for dynamically added move buttons and ensure they capture expansion
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                mutation.addedNodes.forEach(function(node) {
+                    if (node.nodeType === 1) { // Element node
+                        // Find move buttons in the added node
+                        const moveButtons = node.querySelectorAll ? node.querySelectorAll(
+                            'button, a, [onclick], [data-action], [class*="move"], [id*="move"]'
+                        ) : [];
+                        moveButtons.forEach(function(button) {
+                            if (button.textContent && button.textContent.toLowerCase().includes('move')) {
+                                // Find the card this button belongs to
+                                const cardElement = button.closest('[data-expansion], [data-card-name], .card, [class*="card"]');
+                                if (cardElement && cardElement.dataset && cardElement.dataset.expansion) {
+                                    // Store expansion for this button
+                                    button.setAttribute('data-card-expansion', cardElement.dataset.expansion);
+                                    console.log('Tagged move button with expansion:', cardElement.dataset.expansion);
+                                }
+                            }
+                        });
+                    }
+                });
+            });
+        });
+        
+        // Start observing
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+        
+        // Also check existing buttons on page load
+        setTimeout(function() {
+            const existingButtons = document.querySelectorAll('button, a, [onclick], [data-action]');
+            existingButtons.forEach(function(button) {
+                if (button.textContent && button.textContent.toLowerCase().includes('move')) {
+                    const cardElement = button.closest('[data-expansion], [data-card-name], .card, [class*="card"]');
+                    if (cardElement && cardElement.dataset && cardElement.dataset.expansion) {
+                        button.setAttribute('data-card-expansion', cardElement.dataset.expansion);
+                    }
+                }
+            });
+        }, 1000);
+    })();
+    </script>
+"""
+                # Inject before closing body tag
+                if '</body>' in html_content:
+                    html_content = html_content.replace('</body>', move_script + '\n</body>')
+                elif '</html>' in html_content:
+                    html_content = html_content.replace('</html>', move_script + '\n</html>')
+                else:
+                    html_content += move_script
+            
+            # Inject JavaScript for pagination support (remember page after edit, add Last Page button)
+            if 'pagination-support' not in html_content:
+                pagination_script = """
+    <script id="pagination-support">
+    // Pagination support: remember page after edit and add Last Page button
+    (function() {
+        'use strict';
+        
+        // Store current page before editing
+        function getCurrentPage() {
+            // Try various methods to get current page
+            const pageIndicator = document.querySelector('[class*="page"], [id*="page"], [data-page]');
+            if (pageIndicator) {
+                const text = pageIndicator.textContent || '';
+                const match = text.match(/(\d+)\s+of\s+(\d+)/i) || text.match(/page\s+(\d+)/i);
+                if (match) {
+                    return parseInt(match[1], 10);
+                }
+                // Try data attribute
+                if (pageIndicator.dataset && pageIndicator.dataset.page) {
+                    return parseInt(pageIndicator.dataset.page, 10);
+                }
+            }
+            
+            // Try to find page in URL hash
+            const hash = window.location.hash;
+            if (hash) {
+                const match = hash.match(/page[=:]?(\d+)/i);
+                if (match) {
+                    return parseInt(match[1], 10);
+                }
+            }
+            
+            // Try to find page in localStorage
+            const storedPage = localStorage.getItem('wishlist_current_page');
+            if (storedPage) {
+                return parseInt(storedPage, 10);
+            }
+            
+            return 1; // Default to page 1
+        }
+        
+        function setCurrentPage(page) {
+            localStorage.setItem('wishlist_current_page', page.toString());
+        }
+        
+        function getTotalPages() {
+            const pageIndicator = document.querySelector('[class*="page"], [id*="page"]');
+            if (pageIndicator) {
+                const text = pageIndicator.textContent || '';
+                const match = text.match(/(\d+)\s+of\s+(\d+)/i);
+                if (match) {
+                    return parseInt(match[2], 10);
+                }
+            }
+            return null;
+        }
+        
+        function goToPage(page) {
+            // Try various methods to navigate to a page
+            const pageInput = document.querySelector('input[type="number"][name*="page"], input[type="number"][id*="page"]');
+            if (pageInput) {
+                pageInput.value = page;
+                pageInput.dispatchEvent(new Event('change', { bubbles: true }));
+                return;
+            }
+            
+            // Try to find page navigation function
+            if (typeof window.goToPage === 'function') {
+                window.goToPage(page);
+                return;
+            }
+            
+            if (typeof window.setPage === 'function') {
+                window.setPage(page);
+                return;
+            }
+            
+            // Try to click page number buttons
+            const pageButtons = document.querySelectorAll('button[data-page], [onclick*="page"], [onclick*="Page"]');
+            for (const btn of pageButtons) {
+                if (btn.textContent && btn.textContent.trim() === page.toString()) {
+                    btn.click();
+                    return;
+                }
+            }
+            
+            // Fallback: trigger custom event
+            window.dispatchEvent(new CustomEvent('gotoPage', { detail: { page: page } }));
+        }
+        
+        function goToLastPage() {
+            // Find Next button and click it 5 times
+            const nextButton = Array.from(document.querySelectorAll('button, a, [role="button"]')).find(btn => {
+                const text = (btn.textContent || '').trim().toUpperCase();
+                return text.includes('NEXT') && !text.includes('LAST');
+            });
+            
+            if (nextButton) {
+                // Click Next button 5 times with delays
+                let clickCount = 0;
+                const maxClicks = 5;
+                
+                function clickNext() {
+                    if (clickCount < maxClicks) {
+                        nextButton.click();
+                        clickCount++;
+                        setTimeout(clickNext, 300); // Wait 300ms between clicks
+                    }
+                }
+                
+                clickNext();
+            }
+        }
+        
+        // Store current page periodically
+        function updateStoredPage() {
+            const currentPage = getCurrentPage();
+            if (currentPage > 1) {
+                setCurrentPage(currentPage);
+            }
+        }
+        
+        // Restore page on load
+        function restorePage() {
+            const storedPage = localStorage.getItem('wishlist_current_page');
+            if (storedPage) {
+                const page = parseInt(storedPage, 10);
+                if (page > 1) {
+                    setTimeout(() => {
+                        goToPage(page);
+                    }, 500);
+                }
+            }
+        }
+        
+        // Add Last Page button to pagination controls
+        function addLastPageButton() {
+            // Check if button already exists
+            if (document.querySelector('[data-action="last-page"]')) {
+                return;
+            }
+            
+            // Find Next button - search more broadly
+            let nextButton = null;
+            let paginationContainer = null;
+            
+            // Method 1: Find by text content "NEXT"
+            const allButtons = Array.from(document.querySelectorAll('button, a, [role="button"]'));
+            nextButton = allButtons.find(btn => {
+                const text = (btn.textContent || '').trim().toUpperCase();
+                return text.includes('NEXT') && !text.includes('LAST');
+            });
+            
+            if (nextButton) {
+                paginationContainer = nextButton.parentElement;
+            }
+            
+            // Method 2: Find pagination container by looking for "PAGE X OF Y" text
+            if (!paginationContainer) {
+                const pageIndicators = Array.from(document.querySelectorAll('*')).filter(el => {
+                    const text = (el.textContent || '').toUpperCase();
+                    return text.match(/PAGE\s+\d+\s+OF\s+\d+/);
+                });
+                
+                if (pageIndicators.length > 0) {
+                    paginationContainer = pageIndicators[0].parentElement;
+                    // Try to find NEXT button near the indicator
+                    const nearbyButtons = Array.from(paginationContainer.querySelectorAll('button, a, [role="button"]'));
+                    nextButton = nearbyButtons.find(btn => {
+                        const text = (btn.textContent || '').trim().toUpperCase();
+                        return text.includes('NEXT') && !text.includes('LAST');
+                    });
+                }
+            }
+            
+            // Method 3: Search for common pagination container classes
+            if (!paginationContainer) {
+                const containers = document.querySelectorAll('[class*="pagination"], [class*="page-control"], [class*="page-nav"], [id*="pagination"], [id*="page-control"]');
+                for (const container of containers) {
+                    const buttons = Array.from(container.querySelectorAll('button, a'));
+                    const found = buttons.find(btn => {
+                        const text = (btn.textContent || '').trim().toUpperCase();
+                        return text.includes('NEXT') && !text.includes('LAST');
+                    });
+                    if (found) {
+                        nextButton = found;
+                        paginationContainer = container;
+                        break;
+                    }
+                }
+            }
+            
+            if (nextButton && paginationContainer) {
+                // Create Last Page button with same styling as Next button
+                const lastPageButton = document.createElement(nextButton.tagName.toLowerCase());
+                lastPageButton.textContent = 'SKIP +3 ▶▶';
+                lastPageButton.setAttribute('data-action', 'last-page');
+                
+                // Copy styles from Next button
+                if (nextButton.style.cssText) {
+                    lastPageButton.style.cssText = nextButton.style.cssText;
+                } else {
+                    // Apply default styling that matches the theme
+                    lastPageButton.style.cssText = 'padding: 8px 16px; margin: 0 5px; background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%); color: #d4af37; border: 1px solid #d4af37; border-radius: 4px; cursor: pointer; font-weight: bold;';
+                }
+                
+                // Copy classes from Next button
+                if (nextButton.className) {
+                    lastPageButton.className = nextButton.className;
+                }
+                
+                lastPageButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    goToLastPage();
+                });
+                
+                // Insert after Next button
+                if (nextButton.nextSibling) {
+                    nextButton.parentNode.insertBefore(lastPageButton, nextButton.nextSibling);
+                } else {
+                    nextButton.parentNode.appendChild(lastPageButton);
+                }
+                
+                console.log('✅ Last Page button added successfully');
+            } else {
+                console.warn('⚠️ Could not find Next button or pagination container');
+            }
+        }
+        
+        // Intercept wishlist update/save operations to store page
+        const originalFetch = window.fetch;
+        window.fetch = function(...args) {
+            const url = args[0];
+            const options = args[1] || {};
+            
+            // Before PUT/POST to wishlist API, store current page
+            if (typeof url === 'string' && url.includes('/api/wishlist') && (options.method === 'PUT' || options.method === 'POST')) {
+                updateStoredPage();
+                
+                // After successful save, restore page
+                return originalFetch.apply(this, args).then(response => {
+                    if (response.ok) {
+                        const storedPage = localStorage.getItem('wishlist_current_page');
+                        if (storedPage) {
+                            setTimeout(() => {
+                                goToPage(parseInt(storedPage, 10));
+                            }, 300);
+                        }
+                    }
+                    return response;
+                });
+            }
+            
+            return originalFetch.apply(this, args);
+        };
+        
+        // Also intercept XMLHttpRequest
+        const originalXHROpen = XMLHttpRequest.prototype.open;
+        const originalXHRSend = XMLHttpRequest.prototype.send;
+        
+        XMLHttpRequest.prototype.open = function(method, url, ...rest) {
+            this._url = url;
+            this._method = method;
+            return originalXHROpen.apply(this, [method, url, ...rest]);
+        };
+        
+        XMLHttpRequest.prototype.send = function(body) {
+            if (this._url && this._url.includes('/api/wishlist') && (this._method === 'PUT' || this._method === 'POST')) {
+                updateStoredPage();
+                
+                const originalOnReadyStateChange = this.onreadystatechange;
+                this.onreadystatechange = function() {
+                    if (this.readyState === 4 && this.status >= 200 && this.status < 300) {
+                        const storedPage = localStorage.getItem('wishlist_current_page');
+                        if (storedPage) {
+                            setTimeout(() => {
+                                goToPage(parseInt(storedPage, 10));
+                            }, 300);
+                        }
+                    }
+                    if (originalOnReadyStateChange) {
+                        originalOnReadyStateChange.apply(this, arguments);
+                    }
+                };
+            }
+            return originalXHRSend.apply(this, [body]);
+        };
+        
+        // Initialize on page load
+        function init() {
+            // Try to add Last Page button multiple times with delays
+            function tryAddButton() {
+                addLastPageButton();
+            }
+            
+            // Restore page if coming back from edit
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', () => {
+                    // Try immediately and then with delays
+                    tryAddButton();
+                    setTimeout(tryAddButton, 500);
+                    setTimeout(tryAddButton, 1000);
+                    setTimeout(tryAddButton, 2000);
+                    setTimeout(() => {
+                        restorePage();
+                        // Update stored page periodically
+                        setInterval(updateStoredPage, 2000);
+                    }, 1500);
+                });
+            } else {
+                // Try immediately and then with delays
+                tryAddButton();
+                setTimeout(tryAddButton, 500);
+                setTimeout(tryAddButton, 1000);
+                setTimeout(tryAddButton, 2000);
+                setTimeout(() => {
+                    restorePage();
+                    setInterval(updateStoredPage, 2000);
+                }, 1500);
+            }
+            
+            // Watch for pagination controls being added dynamically
+            const observer = new MutationObserver(() => {
+                // Debounce to avoid too many calls
+                if (!window._lastPageButtonTimeout) {
+                    window._lastPageButtonTimeout = setTimeout(() => {
+                        addLastPageButton();
+                        window._lastPageButtonTimeout = null;
+                    }, 300);
+                }
+            });
+            observer.observe(document.body, { childList: true, subtree: true });
+        }
+        
+        init();
+    })();
+    </script>
+"""
+                # Inject before closing body tag
+                if '</body>' in html_content:
+                    html_content = html_content.replace('</body>', pagination_script + '\n</body>')
+                elif '</html>' in html_content:
+                    html_content = html_content.replace('</html>', pagination_script + '\n</html>')
+                else:
+                    html_content += pagination_script
+            
+            return HTMLResponse(content=html_content)
     else:
         return HTMLResponse(content="<h1>Wishlist Binder Template Not Found</h1>", status_code=404)
 
@@ -542,7 +1195,7 @@ async def archive_wishlist_item(index: int):
 
 @app.post("/api/wishlist/{index}/move-to-collection")
 async def move_wishlist_to_collection(index: int, request: Request):
-    """Move a wishlist item to collection (when buying it)."""
+    """Move a wishlist item (or specific set from a wishlist item) to collection (when buying it)."""
     try:
         data = await request.json()
         
@@ -553,7 +1206,41 @@ async def move_wishlist_to_collection(index: int, request: Request):
             raise HTTPException(status_code=404, detail="Wishlist item not found")
         
         # Get the item to move
-        item_to_move = wishlist.pop(index)
+        wishlist_item = wishlist[index]
+        
+        # Check if a specific expansion/set is provided
+        selected_expansion = data.get('expansion') or data.get('set')
+        all_sets = wishlist_item.get('sets', [])
+        
+        # Log for debugging
+        print(f"   🔍 Move to collection request:", flush=True)
+        print(f"      Card: {wishlist_item.get('name')}", flush=True)
+        print(f"      All sets in wishlist item: {all_sets}", flush=True)
+        print(f"      Selected expansion from request: {selected_expansion}", flush=True)
+        print(f"      Request data keys: {list(data.keys())}", flush=True)
+        
+        # Determine which set(s) to move
+        if selected_expansion:
+            # Move only the selected set
+            if selected_expansion not in all_sets:
+                raise HTTPException(status_code=400, detail=f"Set '{selected_expansion}' not found in wishlist item")
+            sets_to_move = [selected_expansion]
+            
+            # Remove the selected set from wishlist item
+            remaining_sets = [s for s in all_sets if s != selected_expansion]
+            
+            # If there are remaining sets, update the wishlist item; otherwise remove it
+            if remaining_sets:
+                wishlist[index]['sets'] = remaining_sets
+                item_to_archive = wishlist_item.copy()
+                item_to_archive['sets'] = [selected_expansion]  # Archive only the moved set
+            else:
+                # No remaining sets, remove the entire item from wishlist
+                item_to_archive = wishlist.pop(index)
+        else:
+            # No specific set selected, move all sets (original behavior)
+            sets_to_move = all_sets
+            item_to_archive = wishlist.pop(index)
         
         # Load collection
         collection_file = "collection.json"
@@ -562,10 +1249,10 @@ async def move_wishlist_to_collection(index: int, request: Request):
             with open(collection_file, 'r', encoding='utf-8') as f:
                 collection = json.load(f)
         
-        # Create collection item from wishlist item
+        # Create collection item with only the selected set(s)
         collection_item = {
-            'name': item_to_move.get('name'),
-            'sets': item_to_move.get('sets', [])
+            'name': wishlist_item.get('name'),
+            'sets': sets_to_move
         }
         
         # Add optional collection fields if provided
@@ -579,6 +1266,10 @@ async def move_wishlist_to_collection(index: int, request: Request):
             collection_item['sell_price'] = data['sell_price']
         if 'notes' in data and data['notes']:
             collection_item['notes'] = data['notes']
+        if 'language' in data and data['language']:
+            collection_item['language'] = data['language']
+        if 'foil' in data:
+            collection_item['foil'] = bool(data['foil'])
         
         # Add timestamp
         collection_item['added_at'] = datetime.now().isoformat()
@@ -587,11 +1278,11 @@ async def move_wishlist_to_collection(index: int, request: Request):
         # Add to collection
         collection.append(collection_item)
         
-        # Archive the wishlist item
+        # Archive the moved wishlist item (or part of it)
         archived = load_archived_wishlist()
-        item_to_move['archived_at'] = datetime.now().isoformat()
-        item_to_move['moved_to_collection'] = True
-        archived.append(item_to_move)
+        item_to_archive['archived_at'] = datetime.now().isoformat()
+        item_to_archive['moved_to_collection'] = True
+        archived.append(item_to_archive)
         
         # Save all files
         if not save_wishlist(wishlist):

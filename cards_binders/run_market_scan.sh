@@ -2,15 +2,32 @@
 
 # Market Scanner Daily Update Script
 # Runs a market scan and saves results without starting the web server
-# Usage: ./run_market_scan.sh [delay] [wishlist_file]
+# Usage: ./run_market_scan.sh [wishlist|collection] [delay]
+#   Examples:
+#     ./run_market_scan.sh                    # Scan wishlist.json with 10s delay
+#     ./run_market_scan.sh collection         # Scan collection.json with 10s delay
+#     ./run_market_scan.sh wishlist 5.0       # Scan wishlist.json with 5s delay
 
 # Get script directory
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$SCRIPT_DIR"
 
 # Configuration
-DELAY=${1:-10.0}  # Default delay: 10 seconds between cards
-WISHLIST_FILE=${2:-"wishlist.json"}  # Default wishlist file
+SOURCE_TYPE=${1:-"wishlist"}  # Default: wishlist (or can be "collection")
+DELAY=${2:-10.0}  # Default delay: 10 seconds between cards
+
+# Determine the file to scan based on source type
+if [[ "$SOURCE_TYPE" == "collection" ]]; then
+    WISHLIST_FILE="collection.json"
+elif [[ "$SOURCE_TYPE" == "wishlist" ]]; then
+    WISHLIST_FILE="wishlist.json"
+elif [[ -f "$SOURCE_TYPE" ]]; then
+    # If it's a valid file path, use it directly
+    WISHLIST_FILE="$SOURCE_TYPE"
+else
+    # Default to wishlist.json
+    WISHLIST_FILE="wishlist.json"
+fi
 
 # Colors
 GREEN='\033[0;32m'
@@ -35,15 +52,16 @@ else
     source venv/bin/activate
 fi
 
-# Check if wishlist file exists
+# Check if source file exists
 if [ ! -f "$WISHLIST_FILE" ]; then
-    error "Wishlist file not found: $WISHLIST_FILE"
-    error "Please create a wishlist.json file or specify a different file."
+    error "Source file not found: $WISHLIST_FILE"
+    error "Please create the file or specify a different source type (wishlist/collection)."
     exit 1
 fi
 
 log "Starting market scan..."
-log "Wishlist file: $WISHLIST_FILE"
+log "Source type: $SOURCE_TYPE"
+log "Source file: $WISHLIST_FILE"
 log "Delay between cards: ${DELAY}s"
 echo ""
 
@@ -71,7 +89,7 @@ deals = check_wishlist_deals(
 )
 
 if deals:
-    output_file = save_results(deals, None)  # Auto-generate filename
+    output_file = save_results(deals, None, '$WISHLIST_FILE')  # Auto-generate filename based on source file
     print(f'\n✅ Scan complete! Results saved to: {output_file}')
     print(f'📊 Found {len(deals)} deals')
     

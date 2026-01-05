@@ -37,5 +37,47 @@
     "notes": "Premium removal",
     "archived_at": "2026-01-04T19:00:22.630058",
     "moved_to_collection": true
+  },
+  {
+    "name": "Dark Ritual",
+    "sets": [
+      "Alpha",
+      "Beta",
+      "Unlimited"
+    ],
+    "notes": "Fast mana",
+    "archived_at": "2026-01-05T21:14:06.583915",
+    "moved_to_collection": true
+  },
+  {
+    "name": "Mana Vault",
+    "sets": [
+      "Alpha",
+      "Beta",
+      "Unlimited",
+      "Revised"
+    ],
+    "notes": "Explosive mana",
+    "archived_at": "2026-01-05T21:19:05.884230",
+    "moved_to_collection": true
+  },
+  {
+    "name": "Strip Mine",
+    "sets": [
+      "Antiquities",
+      "Fourth Edition"
+    ],
+    "notes": "Land destruction",
+    "archived_at": "2026-01-05T21:20:19.695148",
+    "moved_to_collection": true
+  },
+  {
+    "name": "Lightning Bolt",
+    "sets": [
+      "Alpha"
+    ],
+    "notes": "Iconic burn spell",
+    "archived_at": "2026-01-05T21:24:01.062002",
+    "moved_to_collection": true
   }
 ]
