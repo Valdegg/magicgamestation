@@ -1,0 +1,5857 @@
+{
+  "timestamp": "2026-01-06 15:32:03",
+  "wishlist_file": "collection.json",
+  "config": {
+    "min_discount": 0.0,
+    "delay_between_cards": 15.0,
+    "use_historical_data": true
+  },
+  "summary": {
+    "total_deals": 77,
+    "excellent": 52,
+    "good": 19,
+    "fair": 5,
+    "expensive": 0,
+    "no_data": 0
+  },
+  "deals": [
+    {
+      "card": {
+        "name": "Nevinyrral's Disk",
+        "expansion": "Fourth Edition",
+        "card_id": 6191,
+        "historical": {
+          "trend": 3.05,
+          "avg30": 3.11,
+          "avg7": 2.84
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Fourth-Edition/Nevinyrral-s-Disk?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 396,
+        "expansion_name": "Fourth Edition",
+        "cheapest_good_condition": 2.63,
+        "cheapest_good_details": {
+          "price": 2.63,
+          "condition": "NM",
+          "seller": "77bH77",
+          "quantity": 1,
+          "country": "Belgium"
+        },
+        "top_sellers": [
+          {
+            "seller": "77bH77",
+            "price": 2.63,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Belgium"
+          },
+          {
+            "seller": "Secundum",
+            "price": 2.8,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "TheMagicCardTraderUK",
+            "price": 2.86,
+            "condition": "NM",
+            "quantity": 2,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "GerryFallova",
+            "price": 2.98,
+            "condition": "NM",
+            "quantity": 2,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Playin",
+            "price": 2.99,
+            "condition": "NM",
+            "quantity": 2,
+            "country": "France"
+          },
+          {
+            "seller": "drelinou",
+            "price": 3.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 9.544282029234747,
+        "market_baseline": 2.9075,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Counterspell",
+        "expansion": "Beta",
+        "card_id": 4736,
+        "historical": {
+          "trend": 344.57,
+          "avg30": 380.82,
+          "avg7": 366.2
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Counterspell?language=1&minCondition=7",
+        "total_listings": 10,
+        "available_items_total": 93,
+        "expansion_name": "Beta",
+        "cheapest_good_condition": 250.0,
+        "cheapest_good_details": {
+          "price": 250.0,
+          "condition": "PO",
+          "seller": "Tengy94",
+          "quantity": 2,
+          "country": "France"
+        },
+        "top_sellers": [
+          {
+            "seller": "Tengy94",
+            "price": 250.0,
+            "condition": "PO",
+            "quantity": 2,
+            "country": "France"
+          },
+          {
+            "seller": "MTGWARHAMMER",
+            "price": 270.0,
+            "condition": "PO",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "MTGWARHAMMER",
+            "price": 270.0,
+            "condition": "PO",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "DOLCETNOR",
+            "price": 273.0,
+            "condition": "PO",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "Korsgaard84",
+            "price": 273.0,
+            "condition": "PO",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "Korsgaard84",
+            "price": 273.0,
+            "condition": "PL",
+            "quantity": 1,
+            "country": "Denmark"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 7.918968692449356,
+        "market_baseline": 271.5,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Ebon Stronghold",
+        "expansion": "Fallen Empires",
+        "card_id": 7580,
+        "historical": {
+          "trend": 0.67,
+          "avg30": 0.74,
+          "avg7": 0.67
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Fallen-Empires/Ebon-Stronghold?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 520,
+        "expansion_name": "Fallen Empires",
+        "cheapest_good_condition": 0.3,
+        "cheapest_good_details": {
+          "price": 0.3,
+          "condition": "EX",
+          "seller": "Fragment",
+          "quantity": 1,
+          "country": "Belgium"
+        },
+        "top_sellers": [
+          {
+            "seller": "Fragment",
+            "price": 0.3,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Belgium"
+          },
+          {
+            "seller": "labremainders",
+            "price": 0.3,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Belgium"
+          },
+          {
+            "seller": "Hoffi0103",
+            "price": 0.47,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Austria"
+          },
+          {
+            "seller": "Nerd-Kingdom",
+            "price": 0.49,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Netherlands"
+          },
+          {
+            "seller": "Nocifer",
+            "price": 0.49,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Luxembourg"
+          },
+          {
+            "seller": "Pureekonijn",
+            "price": 0.5,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Netherlands"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 31.428571428571434,
+        "market_baseline": 0.4375,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Counterspell",
+        "expansion": "Revised",
+        "card_id": 5582,
+        "historical": {
+          "trend": 4.2,
+          "avg30": 4.09,
+          "avg7": 4.26
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Revised/Counterspell?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 703,
+        "expansion_name": "Revised",
+        "cheapest_good_condition": 5.99,
+        "cheapest_good_details": {
+          "price": 5.99,
+          "condition": "NM",
+          "seller": "cernyrytir",
+          "quantity": 4,
+          "country": "Germany"
+        },
+        "top_sellers": [
+          {
+            "seller": "cernyrytir",
+            "price": 5.99,
+            "condition": "NM",
+            "quantity": 4,
+            "country": "Germany"
+          },
+          {
+            "seller": "danielenervino01",
+            "price": 5.99,
+            "condition": "NM",
+            "quantity": 4,
+            "country": "Italy"
+          },
+          {
+            "seller": "afrolawave",
+            "price": 6.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "kabooom-tcg",
+            "price": 6.98,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "squeakycards",
+            "price": 6.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "SanctumofCards",
+            "price": 7.18,
+            "condition": "NM",
+            "quantity": 3,
+            "country": "Germany"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 7.704160246533127,
+        "market_baseline": 6.49,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Tundra",
+        "expansion": "Revised",
+        "card_id": 5832,
+        "historical": {
+          "trend": 350.06,
+          "avg30": 328.13,
+          "avg7": 331.57
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Revised/Tundra?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 427,
+        "expansion_name": "Revised",
+        "cheapest_good_condition": 445.0,
+        "cheapest_good_details": {
+          "price": 445.0,
+          "condition": "NM",
+          "seller": "TheRedDuke12",
+          "quantity": 1,
+          "country": "Spain"
+        },
+        "top_sellers": [
+          {
+            "seller": "TheRedDuke12",
+            "price": 445.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "Frodon",
+            "price": 450.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "sune7d",
+            "price": 450.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "Phyrex-SiB",
+            "price": 468.5,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "Phyrex-SiB",
+            "price": 469.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "regenzeus",
+            "price": 469.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 3.1292517006802725,
+        "market_baseline": 459.375,
+        "baseline_count": 4
+      },
+      "category": "good"
+    },
+    {
+      "card": {
+        "name": "Underground Sea",
+        "expansion": "Revised",
+        "card_id": 5833,
+        "historical": {
+          "trend": 538.82,
+          "avg30": 583.93,
+          "avg7": 591.78
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Revised/Underground-Sea?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 293,
+        "expansion_name": "Revised",
+        "cheapest_good_condition": 650.0,
+        "cheapest_good_details": {
+          "price": 650.0,
+          "condition": "NM",
+          "seller": "vlc73",
+          "quantity": 1,
+          "country": "Spain"
+        },
+        "top_sellers": [
+          {
+            "seller": "vlc73",
+            "price": 650.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "Elianae-Aescentiel",
+            "price": 700.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "tallon",
+            "price": 700.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "shadowfax",
+            "price": 725.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Netherlands"
+          },
+          {
+            "seller": "Magicboxx",
+            "price": 739.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "Magicboxx",
+            "price": 739.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 9.217877094972067,
+        "market_baseline": 716.0,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Icy Manipulator",
+        "expansion": "Unlimited",
+        "card_id": 5127,
+        "historical": {
+          "trend": 96.57,
+          "avg30": 78.44,
+          "avg7": 91.66
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Icy-Manipulator?language=1&minCondition=1",
+        "total_listings": 2,
+        "available_items_total": 102,
+        "expansion_name": "Unlimited",
+        "cheapest_good_condition": 420.0,
+        "cheapest_good_details": {
+          "price": 420.0,
+          "condition": "MT",
+          "seller": "CommanderVault",
+          "quantity": 1,
+          "country": "Germany"
+        },
+        "top_sellers": [
+          {
+            "seller": "CommanderVault",
+            "price": 420.0,
+            "condition": "MT",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "PEKELNIK",
+            "price": 499.0,
+            "condition": "MT",
+            "quantity": 1,
+            "country": "Czech Republic"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 15.831663326653306,
+        "market_baseline": 499.0,
+        "baseline_count": 1
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Psionic Blast",
+        "expansion": "Beta",
+        "card_id": 4776,
+        "historical": {
+          "trend": 164.89,
+          "avg30": 151.37,
+          "avg7": 158.59
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Psionic-Blast?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 96,
+        "expansion_name": "Beta",
+        "cheapest_good_condition": 180.0,
+        "cheapest_good_details": {
+          "price": 180.0,
+          "condition": "EX",
+          "seller": "Anakronos",
+          "quantity": 1,
+          "country": "France"
+        },
+        "top_sellers": [
+          {
+            "seller": "Anakronos",
+            "price": 180.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "xajorkith",
+            "price": 185.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Netherlands"
+          },
+          {
+            "seller": "SandyInLondon",
+            "price": 189.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "willybizarre",
+            "price": 189.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "willybizarre",
+            "price": 189.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "Zinzillino",
+            "price": 195.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 4.6319721313429705,
+        "market_baseline": 188.7425,
+        "baseline_count": 4
+      },
+      "category": "good"
+    },
+    {
+      "card": {
+        "name": "Hypnotic Specter",
+        "expansion": "Unlimited",
+        "card_id": 4669,
+        "historical": {
+          "trend": 41.28,
+          "avg30": 40.85,
+          "avg7": 44.14
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Hypnotic-Specter?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 132,
+        "expansion_name": "Unlimited",
+        "cheapest_good_condition": 74.95,
+        "cheapest_good_details": {
+          "price": 74.95,
+          "condition": "NM",
+          "seller": "Patmansie",
+          "quantity": 1,
+          "country": "Netherlands"
+        },
+        "top_sellers": [
+          {
+            "seller": "Patmansie",
+            "price": 74.95,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Netherlands"
+          },
+          {
+            "seller": "Butorc",
+            "price": 79.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "goodman123",
+            "price": 79.5,
+            "condition": "NM",
+            "quantity": 4,
+            "country": "Netherlands"
+          },
+          {
+            "seller": "TurinTMS",
+            "price": 80.0,
+            "condition": "NM",
+            "quantity": 2,
+            "country": "Greece"
+          },
+          {
+            "seller": "maharajah13",
+            "price": 80.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "Angel-Cards",
+            "price": 83.31,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 5.871271585557296,
+        "market_baseline": 79.625,
+        "baseline_count": 4
+      },
+      "category": "good"
+    },
+    {
+      "card": {
+        "name": "Swords to Plowshares",
+        "expansion": "Unlimited",
+        "card_id": 5077,
+        "historical": {
+          "trend": 66.68,
+          "avg30": 67.05,
+          "avg7": 62.04
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Swords-To-Plowshares?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 102,
+        "expansion_name": "Unlimited",
+        "cheapest_good_condition": 68.85,
+        "cheapest_good_details": {
+          "price": 68.85,
+          "condition": "NM",
+          "seller": "BreakingNews",
+          "quantity": 1,
+          "country": "Austria"
+        },
+        "top_sellers": [
+          {
+            "seller": "BreakingNews",
+            "price": 68.85,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Austria"
+          },
+          {
+            "seller": "Bronhy",
+            "price": 99.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Croatia"
+          },
+          {
+            "seller": "grijsje",
+            "price": 99.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Netherlands"
+          },
+          {
+            "seller": "Fiska",
+            "price": 99.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "Spinal123",
+            "price": 100.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "Spinal123",
+            "price": 100.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 30.629722921914365,
+        "market_baseline": 99.25,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Hymn to Tourach",
+        "expansion": "Fallen Empires",
+        "card_id": 7412,
+        "historical": {
+          "trend": 0.98,
+          "avg30": 1.04,
+          "avg7": 0.89
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Fallen-Empires/Hymn-To-Tourach?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 1085,
+        "expansion_name": "Fallen Empires",
+        "cheapest_good_condition": 0.72,
+        "cheapest_good_details": {
+          "price": 0.72,
+          "condition": "NM",
+          "seller": "Nigelg1975",
+          "quantity": 1,
+          "country": "United Kingdom"
+        },
+        "top_sellers": [
+          {
+            "seller": "Nigelg1975",
+            "price": 0.72,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Crstn",
+            "price": 0.75,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "Len1001",
+            "price": 0.89,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Greece"
+          },
+          {
+            "seller": "Demyx14",
+            "price": 0.99,
+            "condition": "NM",
+            "quantity": 4,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "sune7d",
+            "price": 0.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "Lennert",
+            "price": 0.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Netherlands"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 20.44198895027625,
+        "market_baseline": 0.905,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Hymn to Tourach",
+        "expansion": "Fallen Empires",
+        "card_id": 7413,
+        "historical": {
+          "trend": 1.06,
+          "avg30": 0.85,
+          "avg7": 1.01
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Fallen-Empires/Hymn-To-Tourach?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 1085,
+        "expansion_name": "Fallen Empires",
+        "cheapest_good_condition": 0.72,
+        "cheapest_good_details": {
+          "price": 0.72,
+          "condition": "NM",
+          "seller": "Nigelg1975",
+          "quantity": 1,
+          "country": "United Kingdom"
+        },
+        "top_sellers": [
+          {
+            "seller": "Nigelg1975",
+            "price": 0.72,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Crstn",
+            "price": 0.75,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "Len1001",
+            "price": 0.89,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Greece"
+          },
+          {
+            "seller": "Demyx14",
+            "price": 0.99,
+            "condition": "NM",
+            "quantity": 4,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "sune7d",
+            "price": 0.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "Lennert",
+            "price": 0.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Netherlands"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 20.44198895027625,
+        "market_baseline": 0.905,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Hymn to Tourach",
+        "expansion": "Fallen Empires",
+        "card_id": 7414,
+        "historical": {
+          "trend": 0.76,
+          "avg30": 0.78,
+          "avg7": 0.96
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Fallen-Empires/Hymn-To-Tourach?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 1085,
+        "expansion_name": "Fallen Empires",
+        "cheapest_good_condition": 0.72,
+        "cheapest_good_details": {
+          "price": 0.72,
+          "condition": "NM",
+          "seller": "Nigelg1975",
+          "quantity": 1,
+          "country": "United Kingdom"
+        },
+        "top_sellers": [
+          {
+            "seller": "Nigelg1975",
+            "price": 0.72,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Crstn",
+            "price": 0.75,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "Len1001",
+            "price": 0.89,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Greece"
+          },
+          {
+            "seller": "Demyx14",
+            "price": 0.99,
+            "condition": "NM",
+            "quantity": 4,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "sune7d",
+            "price": 0.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "Lennert",
+            "price": 0.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Netherlands"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 20.44198895027625,
+        "market_baseline": 0.905,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Hymn to Tourach",
+        "expansion": "Fallen Empires",
+        "card_id": 7415,
+        "historical": {
+          "trend": 0.71,
+          "avg30": 0.86,
+          "avg7": 0.67
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Fallen-Empires/Hymn-To-Tourach?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 1085,
+        "expansion_name": "Fallen Empires",
+        "cheapest_good_condition": 0.72,
+        "cheapest_good_details": {
+          "price": 0.72,
+          "condition": "NM",
+          "seller": "Nigelg1975",
+          "quantity": 1,
+          "country": "United Kingdom"
+        },
+        "top_sellers": [
+          {
+            "seller": "Nigelg1975",
+            "price": 0.72,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Crstn",
+            "price": 0.75,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "Len1001",
+            "price": 0.89,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Greece"
+          },
+          {
+            "seller": "Demyx14",
+            "price": 0.99,
+            "condition": "NM",
+            "quantity": 4,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "sune7d",
+            "price": 0.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "Lennert",
+            "price": 0.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Netherlands"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 20.44198895027625,
+        "market_baseline": 0.905,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Balance",
+        "expansion": "Unlimited",
+        "card_id": 5001,
+        "historical": {
+          "trend": 71.87,
+          "avg30": 76.58,
+          "avg7": 72.05
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Balance?language=1&minCondition=7",
+        "total_listings": 10,
+        "available_items_total": 63,
+        "expansion_name": "Unlimited",
+        "cheapest_good_condition": 64.95,
+        "cheapest_good_details": {
+          "price": 64.95,
+          "condition": "PL",
+          "seller": "BoltthebirdCZ",
+          "quantity": 1,
+          "country": "Czech Republic"
+        },
+        "top_sellers": [
+          {
+            "seller": "BoltthebirdCZ",
+            "price": 64.95,
+            "condition": "PL",
+            "quantity": 1,
+            "country": "Czech Republic"
+          },
+          {
+            "seller": "BoltthebirdCZ",
+            "price": 64.95,
+            "condition": "PL",
+            "quantity": 1,
+            "country": "Czech Republic"
+          },
+          {
+            "seller": "BoltthebirdCZ",
+            "price": 64.95,
+            "condition": "PL",
+            "quantity": 1,
+            "country": "Czech Republic"
+          },
+          {
+            "seller": "BoltthebirdCZ",
+            "price": 64.95,
+            "condition": "PL",
+            "quantity": 1,
+            "country": "Czech Republic"
+          },
+          {
+            "seller": "DiamondValley",
+            "price": 69.99,
+            "condition": "LP",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "TORREDIPISADRITTA",
+            "price": 70.0,
+            "condition": "LP",
+            "quantity": 1,
+            "country": "Italy"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 1.9030357951971075,
+        "market_baseline": 66.21000000000001,
+        "baseline_count": 4
+      },
+      "category": "fair"
+    },
+    {
+      "card": {
+        "name": "Scrubland",
+        "expansion": "Revised",
+        "card_id": 5826,
+        "historical": {
+          "trend": 232.53,
+          "avg30": 239.0,
+          "avg7": 226.76
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Revised/Scrubland?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 410,
+        "expansion_name": "Revised",
+        "cheapest_good_condition": 225.0,
+        "cheapest_good_details": {
+          "price": 225.0,
+          "condition": "EX",
+          "seller": "FlorianKupf",
+          "quantity": 1,
+          "country": "Switzerland"
+        },
+        "top_sellers": [
+          {
+            "seller": "FlorianKupf",
+            "price": 225.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "ejvarriale",
+            "price": 238.03,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "maniac75",
+            "price": 239.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "TurinTMS",
+            "price": 250.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Greece"
+          },
+          {
+            "seller": "TurinTMS",
+            "price": 250.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Greece"
+          },
+          {
+            "seller": "THENINETAILEDF0X",
+            "price": 260.0,
+            "condition": "EX",
+            "quantity": 3,
+            "country": "United Kingdom"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 7.884097724737211,
+        "market_baseline": 244.2575,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Disenchant",
+        "expansion": "Beta",
+        "card_id": 5032,
+        "historical": {
+          "trend": 33.78,
+          "avg30": 42.95,
+          "avg7": 30.93
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Disenchant?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 139,
+        "expansion_name": "Beta",
+        "cheapest_good_condition": 42.73,
+        "cheapest_good_details": {
+          "price": 42.73,
+          "condition": "EX",
+          "seller": "Tryllepapp",
+          "quantity": 2,
+          "country": "Norway"
+        },
+        "top_sellers": [
+          {
+            "seller": "Tryllepapp",
+            "price": 42.73,
+            "condition": "EX",
+            "quantity": 2,
+            "country": "Norway"
+          },
+          {
+            "seller": "Richmighty",
+            "price": 42.74,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "msulley",
+            "price": 45.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Regimbaud",
+            "price": 55.76,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "MorfelWorfel",
+            "price": 60.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Netherlands"
+          },
+          {
+            "seller": "Jabato86",
+            "price": 63.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Spain"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 16.009828009828016,
+        "market_baseline": 50.875,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Cabal Ritual",
+        "expansion": "Torment",
+        "card_id": 2320,
+        "historical": {
+          "trend": 8.36,
+          "avg30": 8.07,
+          "avg7": 8.46
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Torment/Cabal-Ritual?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 1404,
+        "expansion_name": "Torment",
+        "cheapest_good_condition": 7.5,
+        "cheapest_good_details": {
+          "price": 7.5,
+          "condition": "NM",
+          "seller": "CapnYbe",
+          "quantity": 4,
+          "country": "Norway"
+        },
+        "top_sellers": [
+          {
+            "seller": "CapnYbe",
+            "price": 7.5,
+            "condition": "NM",
+            "quantity": 4,
+            "country": "Norway"
+          },
+          {
+            "seller": "golbezofeuw",
+            "price": 7.77,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Sweden"
+          },
+          {
+            "seller": "Dr4ken",
+            "price": 7.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Poland"
+          },
+          {
+            "seller": "rormust",
+            "price": 8.0,
+            "condition": "NM",
+            "quantity": 3,
+            "country": "Spain"
+          },
+          {
+            "seller": "zackper",
+            "price": 8.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Greece"
+          },
+          {
+            "seller": "TheOneTheyCallJoB",
+            "price": 8.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Belgium"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 5.541561712846342,
+        "market_baseline": 7.9399999999999995,
+        "baseline_count": 4
+      },
+      "category": "good"
+    },
+    {
+      "card": {
+        "name": "Serendib Efreet",
+        "expansion": "Revised",
+        "card_id": 5607,
+        "historical": {
+          "trend": 5.02,
+          "avg30": 4.72,
+          "avg7": 5.33
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Revised/Serendib-Efreet?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 895,
+        "expansion_name": "Revised",
+        "cheapest_good_condition": 3.9,
+        "cheapest_good_details": {
+          "price": 3.9,
+          "condition": "EX",
+          "seller": "Pizzabaecker",
+          "quantity": 1,
+          "country": "Germany"
+        },
+        "top_sellers": [
+          {
+            "seller": "Pizzabaecker",
+            "price": 3.9,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "atticjomagic",
+            "price": 4.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "Mat64160",
+            "price": 4.59,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "fogxanic",
+            "price": 4.74,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Finland"
+          },
+          {
+            "seller": "luckysod",
+            "price": 4.75,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Ireland"
+          },
+          {
+            "seller": "Templar1066",
+            "price": 4.77,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 13.71681415929203,
+        "market_baseline": 4.52,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Black Knight",
+        "expansion": "Fourth Edition",
+        "card_id": 5839,
+        "historical": {
+          "trend": 0.49,
+          "avg30": 0.46,
+          "avg7": 0.44
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Fourth-Edition/Black-Knight?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 636,
+        "expansion_name": "Fourth Edition",
+        "cheapest_good_condition": 0.09,
+        "cheapest_good_details": {
+          "price": 0.09,
+          "condition": "NM",
+          "seller": "Ashen7",
+          "quantity": 1,
+          "country": "Italy"
+        },
+        "top_sellers": [
+          {
+            "seller": "Ashen7",
+            "price": 0.09,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "Garion",
+            "price": 0.3,
+            "condition": "NM",
+            "quantity": 2,
+            "country": "Spain"
+          },
+          {
+            "seller": "Sooksred",
+            "price": 0.35,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "lomostew",
+            "price": 0.36,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Zack-Zack",
+            "price": 0.45,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "PVDWalle",
+            "price": 0.47,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Belgium"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 75.34246575342465,
+        "market_baseline": 0.36499999999999994,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Sengir Vampire",
+        "expansion": "Fourth Edition",
+        "card_id": 5878,
+        "historical": {
+          "trend": 0.35,
+          "avg30": 0.44,
+          "avg7": 0.3
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Fourth-Edition/Sengir-Vampire?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 962,
+        "expansion_name": "Fourth Edition",
+        "cheapest_good_condition": 0.12,
+        "cheapest_good_details": {
+          "price": 0.12,
+          "condition": "EX",
+          "seller": "douglasmacleod",
+          "quantity": 1,
+          "country": "United Kingdom"
+        },
+        "top_sellers": [
+          {
+            "seller": "douglasmacleod",
+            "price": 0.12,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "DapperD",
+            "price": 0.2,
+            "condition": "EX",
+            "quantity": 2,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Adirecards",
+            "price": 0.2,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "VYS-DM",
+            "price": 0.2,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Belgium"
+          },
+          {
+            "seller": "el-dumah",
+            "price": 0.24,
+            "condition": "EX",
+            "quantity": 2,
+            "country": "Belgium"
+          },
+          {
+            "seller": "TCGLigaMurten",
+            "price": 0.25,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Switzerland"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 42.85714285714287,
+        "market_baseline": 0.21000000000000002,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Sengir Vampire",
+        "expansion": "Beta",
+        "card_id": 4698,
+        "historical": {
+          "trend": 137.53,
+          "avg30": 139.53,
+          "avg7": 162.25
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Sengir-Vampire?language=1&minCondition=5",
+        "total_listings": 10,
+        "available_items_total": 54,
+        "expansion_name": "Beta",
+        "cheapest_good_condition": 118.98,
+        "cheapest_good_details": {
+          "price": 118.98,
+          "condition": "GD",
+          "seller": "Bronhy",
+          "quantity": 1,
+          "country": "Croatia"
+        },
+        "top_sellers": [
+          {
+            "seller": "Bronhy",
+            "price": 118.98,
+            "condition": "GD",
+            "quantity": 1,
+            "country": "Croatia"
+          },
+          {
+            "seller": "InfiniteMagicCZ",
+            "price": 118.99,
+            "condition": "LP",
+            "quantity": 1,
+            "country": "Czech Republic"
+          },
+          {
+            "seller": "Chris8698",
+            "price": 121.77,
+            "condition": "GD",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "KaKo21",
+            "price": 125.9,
+            "condition": "LP",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "BoltthebirdCZ",
+            "price": 129.99,
+            "condition": "LP",
+            "quantity": 1,
+            "country": "Czech Republic"
+          },
+          {
+            "seller": "Multiforma123",
+            "price": 133.0,
+            "condition": "GD",
+            "quantity": 1,
+            "country": "Croatia"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 4.173965569314399,
+        "market_baseline": 124.1625,
+        "baseline_count": 4
+      },
+      "category": "good"
+    },
+    {
+      "card": {
+        "name": "Sengir Vampire",
+        "expansion": "Unlimited",
+        "card_id": 4699,
+        "historical": {
+          "trend": 18.29,
+          "avg30": 17.68,
+          "avg7": 22.73
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Sengir-Vampire?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 131,
+        "expansion_name": "Unlimited",
+        "cheapest_good_condition": 23.0,
+        "cheapest_good_details": {
+          "price": 23.0,
+          "condition": "EX",
+          "seller": "Counter-Magic",
+          "quantity": 1,
+          "country": "Norway"
+        },
+        "top_sellers": [
+          {
+            "seller": "Counter-Magic",
+            "price": 23.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Norway"
+          },
+          {
+            "seller": "Bronhy",
+            "price": 24.94,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Croatia"
+          },
+          {
+            "seller": "larchiviste",
+            "price": 25.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "Zinzillino",
+            "price": 27.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "Dylai",
+            "price": 28.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "SeventhCity",
+            "price": 29.82,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 12.33085572708214,
+        "market_baseline": 26.235,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Arcbound Ravager",
+        "expansion": "Darksteel",
+        "card_id": 316,
+        "historical": {
+          "trend": 7.7,
+          "avg30": 8.23,
+          "avg7": 8.08
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Darksteel/Arcbound-Ravager?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 973,
+        "expansion_name": "Darksteel",
+        "cheapest_good_condition": 6.5,
+        "cheapest_good_details": {
+          "price": 6.5,
+          "condition": "EX",
+          "seller": "Shino23",
+          "quantity": 1,
+          "country": "Italy"
+        },
+        "top_sellers": [
+          {
+            "seller": "Shino23",
+            "price": 6.5,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "rfryca",
+            "price": 6.75,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Poland"
+          },
+          {
+            "seller": "bestmanu",
+            "price": 6.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "Yvonnos",
+            "price": 6.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "Zearlott",
+            "price": 7.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "CorwinD",
+            "price": 7.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 6.238730616660658,
+        "market_baseline": 6.9325,
+        "baseline_count": 4
+      },
+      "category": "good"
+    },
+    {
+      "card": {
+        "name": "Mind Twist",
+        "expansion": "Revised",
+        "card_id": 5553,
+        "historical": {
+          "trend": 6.05,
+          "avg30": 6.01,
+          "avg7": 5.13
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Revised/Mind-Twist?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 574,
+        "expansion_name": "Revised",
+        "cheapest_good_condition": 6.01,
+        "cheapest_good_details": {
+          "price": 6.01,
+          "condition": "NM",
+          "seller": "WildGames",
+          "quantity": 1,
+          "country": "Norway"
+        },
+        "top_sellers": [
+          {
+            "seller": "WildGames",
+            "price": 6.01,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Norway"
+          },
+          {
+            "seller": "cwam",
+            "price": 8.9,
+            "condition": "NM",
+            "quantity": 9,
+            "country": "France"
+          },
+          {
+            "seller": "msulley",
+            "price": 9.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Kyuss",
+            "price": 9.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "alexisfidalgo",
+            "price": 9.5,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "Itsallabout-Mtg",
+            "price": 9.53,
+            "condition": "NM",
+            "quantity": 4,
+            "country": "United Kingdom"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 33.956043956043956,
+        "market_baseline": 9.1,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Prodigal Sorcerer",
+        "expansion": "Beta",
+        "card_id": 4774,
+        "historical": {
+          "trend": 11.35,
+          "avg30": 12.29,
+          "avg7": 11.55
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Prodigal-Sorcerer?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 114,
+        "expansion_name": "Beta",
+        "cheapest_good_condition": 19.0,
+        "cheapest_good_details": {
+          "price": 19.0,
+          "condition": "NM",
+          "seller": "OldskullMtg",
+          "quantity": 1,
+          "country": "Spain"
+        },
+        "top_sellers": [
+          {
+            "seller": "OldskullMtg",
+            "price": 19.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "foufbibi",
+            "price": 23.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "malinjacques",
+            "price": 24.95,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "ancestral-cards",
+            "price": 25.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "MTGBCN",
+            "price": 27.95,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "willybizarre",
+            "price": 29.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 25.409755618804592,
+        "market_baseline": 25.4725,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Sinkhole",
+        "expansion": "Unlimited",
+        "card_id": 4703,
+        "historical": {
+          "trend": 18.98,
+          "avg30": 17.69,
+          "avg7": 19.09
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Sinkhole?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 518,
+        "expansion_name": "Unlimited",
+        "cheapest_good_condition": 21.99,
+        "cheapest_good_details": {
+          "price": 21.99,
+          "condition": "NM",
+          "seller": "Nameless4President",
+          "quantity": 1,
+          "country": "Austria"
+        },
+        "top_sellers": [
+          {
+            "seller": "Nameless4President",
+            "price": 21.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Austria"
+          },
+          {
+            "seller": "Charcoal",
+            "price": 22.95,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "Hipnotico",
+            "price": 23.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "Sulliken",
+            "price": 23.33,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Norway"
+          },
+          {
+            "seller": "squalys",
+            "price": 23.9,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "romainsama",
+            "price": 24.89,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 5.602060528010316,
+        "market_baseline": 23.295,
+        "baseline_count": 4
+      },
+      "category": "good"
+    },
+    {
+      "card": {
+        "name": "Control Magic",
+        "expansion": "Unlimited",
+        "card_id": 4733,
+        "historical": {
+          "trend": 10.42,
+          "avg30": 10.64,
+          "avg7": 8.92
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Control-Magic?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 177,
+        "expansion_name": "Unlimited",
+        "cheapest_good_condition": 16.0,
+        "cheapest_good_details": {
+          "price": 16.0,
+          "condition": "NM",
+          "seller": "Magictraders",
+          "quantity": 1,
+          "country": "Denmark"
+        },
+        "top_sellers": [
+          {
+            "seller": "Magictraders",
+            "price": 16.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "Angel-Cards",
+            "price": 19.05,
+            "condition": "NM",
+            "quantity": 4,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "raserchrigi",
+            "price": 19.8,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "CardGameCorner",
+            "price": 19.9,
+            "condition": "NM",
+            "quantity": 3,
+            "country": "Italy"
+          },
+          {
+            "seller": "maharajah13",
+            "price": 19.9,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "NAJ-cards",
+            "price": 19.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 18.626827717736816,
+        "market_baseline": 19.6625,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Jalum Tome",
+        "expansion": "Antiquities",
+        "card_id": 6890,
+        "historical": {
+          "trend": 6.99,
+          "avg30": 7.77,
+          "avg7": 5.01
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Antiquities/Jalum-Tome?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 251,
+        "expansion_name": "Antiquities",
+        "cheapest_good_condition": 8.93,
+        "cheapest_good_details": {
+          "price": 8.93,
+          "condition": "NM",
+          "seller": "cataclysm-uk",
+          "quantity": 1,
+          "country": "United Kingdom"
+        },
+        "top_sellers": [
+          {
+            "seller": "cataclysm-uk",
+            "price": 8.93,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "JaaroZ",
+            "price": 9.5,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Netherlands"
+          },
+          {
+            "seller": "Eropte",
+            "price": 9.85,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "Dav123",
+            "price": 10.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "cernyrytir",
+            "price": 11.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "Desmond12",
+            "price": 12.95,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Switzerland"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 13.59458151910983,
+        "market_baseline": 10.335,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Royal Assassin",
+        "expansion": "Revised",
+        "card_id": 5561,
+        "historical": {
+          "trend": 7.13,
+          "avg30": 6.4,
+          "avg7": 6.83
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Revised/Royal-Assassin?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 360,
+        "expansion_name": "Revised",
+        "cheapest_good_condition": 6.54,
+        "cheapest_good_details": {
+          "price": 6.54,
+          "condition": "NM",
+          "seller": "QuiieT",
+          "quantity": 1,
+          "country": "United Kingdom"
+        },
+        "top_sellers": [
+          {
+            "seller": "QuiieT",
+            "price": 6.54,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Richmighty",
+            "price": 7.43,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "mrtcrazyfoo",
+            "price": 8.04,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "SC-BrosGaming",
+            "price": 8.31,
+            "condition": "NM",
+            "quantity": 3,
+            "country": "Italy"
+          },
+          {
+            "seller": "Templar1066",
+            "price": 8.34,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Itsallabout-Mtg",
+            "price": 8.34,
+            "condition": "NM",
+            "quantity": 4,
+            "country": "United Kingdom"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 18.555417185554184,
+        "market_baseline": 8.030000000000001,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Imprison",
+        "expansion": "Legends",
+        "card_id": 6993,
+        "historical": {
+          "trend": 115.21,
+          "avg30": 118.48,
+          "avg7": 73.99
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Imprison?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 73,
+        "expansion_name": "Legends",
+        "cheapest_good_condition": 106.47,
+        "cheapest_good_details": {
+          "price": 106.47,
+          "condition": "NM",
+          "seller": "Tryllepapp",
+          "quantity": 1,
+          "country": "Norway"
+        },
+        "top_sellers": [
+          {
+            "seller": "Tryllepapp",
+            "price": 106.47,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Norway"
+          },
+          {
+            "seller": "webuyanycard",
+            "price": 107.12,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "thallain",
+            "price": 108.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "mtg-foil-shop",
+            "price": 110.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "WildGames",
+            "price": 117.51,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Norway"
+          },
+          {
+            "seller": "DHGames",
+            "price": 119.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Finland"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 3.784198992386418,
+        "market_baseline": 110.6575,
+        "baseline_count": 4
+      },
+      "category": "good"
+    },
+    {
+      "card": {
+        "name": "Oubliette",
+        "expansion": "Arabian Nights",
+        "card_id": 6790,
+        "historical": {
+          "trend": 20.08,
+          "avg30": 22.43,
+          "avg7": 22.56
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Arabian-Nights/Oubliette?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 168,
+        "expansion_name": "Arabian Nights",
+        "cheapest_good_condition": 36.5,
+        "cheapest_good_details": {
+          "price": 36.5,
+          "condition": "NM",
+          "seller": "Lowo",
+          "quantity": 1,
+          "country": "Germany"
+        },
+        "top_sellers": [
+          {
+            "seller": "Lowo",
+            "price": 36.5,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "Macak",
+            "price": 36.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Slovakia"
+          },
+          {
+            "seller": "Sakiko",
+            "price": 39.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "live4theride",
+            "price": 50.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "MoxENBY",
+            "price": 54.91,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "Satanin",
+            "price": 55.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 19.292426755113325,
+        "market_baseline": 45.225,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Oubliette",
+        "expansion": "Arabian Nights",
+        "card_id": 6791,
+        "historical": {
+          "trend": 22.47,
+          "avg30": 22.69,
+          "avg7": 21.98
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Arabian-Nights/Oubliette?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 168,
+        "expansion_name": "Arabian Nights",
+        "cheapest_good_condition": 36.5,
+        "cheapest_good_details": {
+          "price": 36.5,
+          "condition": "NM",
+          "seller": "Lowo",
+          "quantity": 1,
+          "country": "Germany"
+        },
+        "top_sellers": [
+          {
+            "seller": "Lowo",
+            "price": 36.5,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "Macak",
+            "price": 36.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Slovakia"
+          },
+          {
+            "seller": "Sakiko",
+            "price": 39.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "live4theride",
+            "price": 50.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "MoxENBY",
+            "price": 54.91,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "Satanin",
+            "price": 55.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 19.292426755113325,
+        "market_baseline": 45.225,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Triskelion",
+        "expansion": "Antiquities",
+        "card_id": 6909,
+        "historical": {
+          "trend": 133.13,
+          "avg30": 128.56,
+          "avg7": 130.48
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Antiquities/Triskelion?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 111,
+        "expansion_name": "Antiquities",
+        "cheapest_good_condition": 125.0,
+        "cheapest_good_details": {
+          "price": 125.0,
+          "condition": "NM",
+          "seller": "Scracchio",
+          "quantity": 1,
+          "country": "Italy"
+        },
+        "top_sellers": [
+          {
+            "seller": "Scracchio",
+            "price": 125.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "Harrystasi",
+            "price": 135.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "Fiska",
+            "price": 135.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "trader0811",
+            "price": 140.0,
+            "condition": "NM",
+            "quantity": 2,
+            "country": "Germany"
+          },
+          {
+            "seller": "Slyngelweah",
+            "price": 140.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "tiram24",
+            "price": 144.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 9.090909090909092,
+        "market_baseline": 137.5,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Pestilence",
+        "expansion": "Beta",
+        "card_id": 4684,
+        "historical": {
+          "trend": 16.76,
+          "avg30": 16.68,
+          "avg7": 18.08
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Pestilence?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 113,
+        "expansion_name": "Beta",
+        "cheapest_good_condition": 25.0,
+        "cheapest_good_details": {
+          "price": 25.0,
+          "condition": "NM",
+          "seller": "OldskullMtg",
+          "quantity": 2,
+          "country": "Spain"
+        },
+        "top_sellers": [
+          {
+            "seller": "OldskullMtg",
+            "price": 25.0,
+            "condition": "NM",
+            "quantity": 2,
+            "country": "Spain"
+          },
+          {
+            "seller": "Tryllepapp",
+            "price": 26.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Norway"
+          },
+          {
+            "seller": "mtg-foil-shop",
+            "price": 27.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "MoxENBY",
+            "price": 34.95,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "yvel",
+            "price": 39.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "Emporium",
+            "price": 50.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Italy"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 22.438532537035606,
+        "market_baseline": 32.2325,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Power Sink",
+        "expansion": "Beta",
+        "card_id": 4772,
+        "historical": {
+          "trend": 11.94,
+          "avg30": 12.66,
+          "avg7": 12.94
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Power-Sink?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 200,
+        "expansion_name": "Beta",
+        "cheapest_good_condition": 18.0,
+        "cheapest_good_details": {
+          "price": 18.0,
+          "condition": "NM",
+          "seller": "Bardbrady",
+          "quantity": 2,
+          "country": "France"
+        },
+        "top_sellers": [
+          {
+            "seller": "Bardbrady",
+            "price": 18.0,
+            "condition": "NM",
+            "quantity": 2,
+            "country": "France"
+          },
+          {
+            "seller": "Tetsuo007",
+            "price": 19.75,
+            "condition": "NM",
+            "quantity": 2,
+            "country": "Belgium"
+          },
+          {
+            "seller": "tibo-",
+            "price": 19.9,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "Satanin",
+            "price": 19.9,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "Dutch-Cardsfarm",
+            "price": 19.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Netherlands"
+          },
+          {
+            "seller": "Dutch-Cardsfarm",
+            "price": 19.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Netherlands"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 9.479507166205673,
+        "market_baseline": 19.884999999999998,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Memory Jar",
+        "expansion": "Urzas Legacy",
+        "card_id": 10686,
+        "historical": {
+          "trend": 21.22,
+          "avg30": 20.51,
+          "avg7": 20.62
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Legacy/Memory-Jar?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 1027,
+        "expansion_name": "Urzas Legacy",
+        "cheapest_good_condition": 21.0,
+        "cheapest_good_details": {
+          "price": 21.0,
+          "condition": "EX",
+          "seller": "louisuut",
+          "quantity": 3,
+          "country": "Netherlands"
+        },
+        "top_sellers": [
+          {
+            "seller": "louisuut",
+            "price": 21.0,
+            "condition": "EX",
+            "quantity": 3,
+            "country": "Netherlands"
+          },
+          {
+            "seller": "RaulReok",
+            "price": 21.5,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "NordicCollect",
+            "price": 21.84,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "77bH77",
+            "price": 21.85,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Belgium"
+          },
+          {
+            "seller": "Krush0r",
+            "price": 22.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "HouseOfCardsBE",
+            "price": 22.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Belgium"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 3.658676453721755,
+        "market_baseline": 21.7975,
+        "baseline_count": 4
+      },
+      "category": "good"
+    },
+    {
+      "card": {
+        "name": "Sol Ring",
+        "expansion": "Unlimited",
+        "card_id": 5169,
+        "historical": {
+          "trend": 44.97,
+          "avg30": 58.9,
+          "avg7": 47.89
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Sol-Ring?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 89,
+        "expansion_name": "Unlimited",
+        "cheapest_good_condition": 85.0,
+        "cheapest_good_details": {
+          "price": 85.0,
+          "condition": "EX",
+          "seller": "Tristandelacroix",
+          "quantity": 1,
+          "country": "Switzerland"
+        },
+        "top_sellers": [
+          {
+            "seller": "Tristandelacroix",
+            "price": 85.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "boensj",
+            "price": 90.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "sune7d",
+            "price": 95.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "Llanbadios",
+            "price": 95.2,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Melkhart",
+            "price": 100.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "cards4future",
+            "price": 109.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Austria"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 10.573382430299839,
+        "market_baseline": 95.05,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Sol Ring",
+        "expansion": "Beta",
+        "card_id": 5168,
+        "historical": {
+          "trend": 460.83,
+          "avg30": 510.13,
+          "avg7": 493.4
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Sol-Ring?language=1&minCondition=7",
+        "total_listings": 10,
+        "available_items_total": 63,
+        "expansion_name": "Beta",
+        "cheapest_good_condition": 325.0,
+        "cheapest_good_details": {
+          "price": 325.0,
+          "condition": "PO",
+          "seller": "CollectorsSanctum",
+          "quantity": 1,
+          "country": "Germany"
+        },
+        "top_sellers": [
+          {
+            "seller": "CollectorsSanctum",
+            "price": 325.0,
+            "condition": "PO",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "Ziky010",
+            "price": 370.0,
+            "condition": "PO",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "Olli-Baba",
+            "price": 373.99,
+            "condition": "PO",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "shivan-pup",
+            "price": 374.0,
+            "condition": "PO",
+            "quantity": 1,
+            "country": "Netherlands"
+          },
+          {
+            "seller": "Highmarket",
+            "price": 374.98,
+            "condition": "PO",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "willybizarre",
+            "price": 374.99,
+            "condition": "PO",
+            "quantity": 1,
+            "country": "Spain"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 12.925242972062401,
+        "market_baseline": 373.2425,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Mana Vault",
+        "expansion": "Revised",
+        "card_id": 5792,
+        "historical": {
+          "trend": 48.35,
+          "avg30": 50.0,
+          "avg7": 48.36
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Revised/Mana-Vault?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 272,
+        "expansion_name": "Revised",
+        "cheapest_good_condition": 48.0,
+        "cheapest_good_details": {
+          "price": 48.0,
+          "condition": "EX",
+          "seller": "Magictraders",
+          "quantity": 1,
+          "country": "Denmark"
+        },
+        "top_sellers": [
+          {
+            "seller": "Magictraders",
+            "price": 48.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "ernered",
+            "price": 48.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Lithuania"
+          },
+          {
+            "seller": "Laukg",
+            "price": 49.95,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "marzou81",
+            "price": 50.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "clan19",
+            "price": 50.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Casinha",
+            "price": 50.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 3.005809547865617,
+        "market_baseline": 49.4875,
+        "baseline_count": 4
+      },
+      "category": "good"
+    },
+    {
+      "card": {
+        "name": "Mahamoti Djinn",
+        "expansion": "Unlimited",
+        "card_id": 4757,
+        "historical": {
+          "trend": 60.28,
+          "avg30": 61.28,
+          "avg7": 52.61
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Mahamoti-Djinn?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 77,
+        "expansion_name": "Unlimited",
+        "cheapest_good_condition": 75.0,
+        "cheapest_good_details": {
+          "price": 75.0,
+          "condition": "EX",
+          "seller": "PowerNegen",
+          "quantity": 4,
+          "country": "Netherlands"
+        },
+        "top_sellers": [
+          {
+            "seller": "PowerNegen",
+            "price": 75.0,
+            "condition": "EX",
+            "quantity": 4,
+            "country": "Netherlands"
+          },
+          {
+            "seller": "kabooom-tcg",
+            "price": 77.4,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "kyashan",
+            "price": 78.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "Pakelito",
+            "price": 90.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "Magic-Dreams",
+            "price": 95.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "CommanderVault",
+            "price": 95.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 11.868390129259689,
+        "market_baseline": 85.1,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Mana Leak",
+        "expansion": "Stronghold",
+        "card_id": 9121,
+        "historical": {
+          "trend": 1.16,
+          "avg30": 0.92,
+          "avg7": 1.16
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Stronghold/Mana-Leak?language=1&minCondition=1",
+        "total_listings": 2,
+        "available_items_total": 2481,
+        "expansion_name": "Stronghold",
+        "cheapest_good_condition": 16.0,
+        "cheapest_good_details": {
+          "price": 16.0,
+          "condition": "MT",
+          "seller": "Jacethesculptor",
+          "quantity": 2,
+          "country": "Italy"
+        },
+        "top_sellers": [
+          {
+            "seller": "Jacethesculptor",
+            "price": 16.0,
+            "condition": "MT",
+            "quantity": 2,
+            "country": "Italy"
+          },
+          {
+            "seller": "Jacethesculptor",
+            "price": 23.0,
+            "condition": "MT",
+            "quantity": 1,
+            "country": "Italy"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 30.434782608695656,
+        "market_baseline": 23.0,
+        "baseline_count": 1
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Mahamoti Djinn",
+        "expansion": "Fourth Edition",
+        "card_id": 5918,
+        "historical": {
+          "trend": 0.63,
+          "avg30": 0.61,
+          "avg7": 0.6
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Fourth-Edition/Mahamoti-Djinn?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 466,
+        "expansion_name": "Fourth Edition",
+        "cheapest_good_condition": 0.35,
+        "cheapest_good_details": {
+          "price": 0.35,
+          "condition": "NM",
+          "seller": "YannickSilent1",
+          "quantity": 1,
+          "country": "Germany"
+        },
+        "top_sellers": [
+          {
+            "seller": "YannickSilent1",
+            "price": 0.35,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "ThePirate",
+            "price": 0.5,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "Micron",
+            "price": 0.5,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "Devnoy",
+            "price": 0.56,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "TCGGear",
+            "price": 0.59,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Bazaarofmagic",
+            "price": 0.7,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Netherlands"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 34.883720930232556,
+        "market_baseline": 0.5375,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Howling Mine",
+        "expansion": "Unlimited",
+        "card_id": 5125,
+        "historical": {
+          "trend": 111.19,
+          "avg30": 89.69,
+          "avg7": 77.58
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Howling-Mine?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 51,
+        "expansion_name": "Unlimited",
+        "cheapest_good_condition": 178.0,
+        "cheapest_good_details": {
+          "price": 178.0,
+          "condition": "EX",
+          "seller": "CommanderVault",
+          "quantity": 1,
+          "country": "Germany"
+        },
+        "top_sellers": [
+          {
+            "seller": "CommanderVault",
+            "price": 178.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "willemh",
+            "price": 180.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Netherlands"
+          },
+          {
+            "seller": "GeraintUltimus",
+            "price": 184.14,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "mtg-foil-shop",
+            "price": 187.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "OldskullMtg",
+            "price": 195.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "Magictraders",
+            "price": 200.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Denmark"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 4.575548824617362,
+        "market_baseline": 186.535,
+        "baseline_count": 4
+      },
+      "category": "good"
+    },
+    {
+      "card": {
+        "name": "Polluted Delta",
+        "expansion": "Onslaught",
+        "card_id": 1952,
+        "historical": {
+          "trend": 92.27,
+          "avg30": 51.32,
+          "avg7": 66.46
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Onslaught/Polluted-Delta?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 780,
+        "expansion_name": "Onslaught",
+        "cheapest_good_condition": 50.0,
+        "cheapest_good_details": {
+          "price": 50.0,
+          "condition": "EX",
+          "seller": "mrhaugli",
+          "quantity": 1,
+          "country": "Norway"
+        },
+        "top_sellers": [
+          {
+            "seller": "mrhaugli",
+            "price": 50.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Norway"
+          },
+          {
+            "seller": "Random-player",
+            "price": 52.8,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "Malakamalaka",
+            "price": 53.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "Random-player",
+            "price": 57.2,
+            "condition": "EX",
+            "quantity": 2,
+            "country": "Spain"
+          },
+          {
+            "seller": "Rab-MTG",
+            "price": 58.32,
+            "condition": "EX",
+            "quantity": 3,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "WildGames",
+            "price": 58.43,
+            "condition": "EX",
+            "quantity": 3,
+            "country": "Norway"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 9.633110428339053,
+        "market_baseline": 55.33,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Hypnotic Specter",
+        "expansion": "Revised",
+        "card_id": 5551,
+        "historical": {
+          "trend": 3.77,
+          "avg30": 3.59,
+          "avg7": 3.45
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Revised/Hypnotic-Specter?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 366,
+        "expansion_name": "Revised",
+        "cheapest_good_condition": 3.0,
+        "cheapest_good_details": {
+          "price": 3.0,
+          "condition": "EX",
+          "seller": "StefDB",
+          "quantity": 1,
+          "country": "Belgium"
+        },
+        "top_sellers": [
+          {
+            "seller": "StefDB",
+            "price": 3.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Belgium"
+          },
+          {
+            "seller": "Charcoal",
+            "price": 3.1,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "Elo1545",
+            "price": 3.41,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "Snauz",
+            "price": 3.43,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "raserchrigi",
+            "price": 3.5,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "webuyanycard",
+            "price": 3.58,
+            "condition": "EX",
+            "quantity": 6,
+            "country": "United Kingdom"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 10.714285714285712,
+        "market_baseline": 3.36,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Bribery",
+        "expansion": "Mercadian Masques",
+        "card_id": 11435,
+        "historical": {
+          "trend": 6.94,
+          "avg30": 7.16,
+          "avg7": 6.85
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Mercadian-Masques/Bribery?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 741,
+        "expansion_name": "Mercadian Masques",
+        "cheapest_good_condition": 6.0,
+        "cheapest_good_details": {
+          "price": 6.0,
+          "condition": "EX",
+          "seller": "peterg99",
+          "quantity": 1,
+          "country": "Austria"
+        },
+        "top_sellers": [
+          {
+            "seller": "peterg99",
+            "price": 6.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Austria"
+          },
+          {
+            "seller": "StefDB",
+            "price": 6.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Belgium"
+          },
+          {
+            "seller": "Toad15",
+            "price": 6.1,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Austria"
+          },
+          {
+            "seller": "Melkhart",
+            "price": 6.5,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "matttx",
+            "price": 6.5,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "AstralWolf80",
+            "price": 6.5,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Belgium"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 4.382470119521917,
+        "market_baseline": 6.275,
+        "baseline_count": 4
+      },
+      "category": "good"
+    },
+    {
+      "card": {
+        "name": "Laquatus's Champion",
+        "expansion": "Torment",
+        "card_id": 2336,
+        "historical": {
+          "trend": 0.88,
+          "avg30": 0.89,
+          "avg7": 0.69
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Torment/Laquatus-s-Champion?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 718,
+        "expansion_name": "Torment",
+        "cheapest_good_condition": 0.3,
+        "cheapest_good_details": {
+          "price": 0.3,
+          "condition": "NM",
+          "seller": "br0gan",
+          "quantity": 1,
+          "country": "United Kingdom"
+        },
+        "top_sellers": [
+          {
+            "seller": "br0gan",
+            "price": 0.3,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Nico55300",
+            "price": 0.5,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "JohnJ",
+            "price": 0.5,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Netherlands"
+          },
+          {
+            "seller": "xargon",
+            "price": 0.5,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "Loghaven-Trading",
+            "price": 0.5,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Netherlands"
+          },
+          {
+            "seller": "Wakkyloela",
+            "price": 0.5,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Netherlands"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 40.0,
+        "market_baseline": 0.5,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Palinchron",
+        "expansion": "Urzas Legacy",
+        "card_id": 10595,
+        "historical": {
+          "trend": 22.15,
+          "avg30": 22.09,
+          "avg7": 21.69
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Legacy/Palinchron?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 637,
+        "expansion_name": "Urzas Legacy",
+        "cheapest_good_condition": 20.6,
+        "cheapest_good_details": {
+          "price": 20.6,
+          "condition": "EX",
+          "seller": "Gear-Head-Games",
+          "quantity": 1,
+          "country": "United Kingdom"
+        },
+        "top_sellers": [
+          {
+            "seller": "Gear-Head-Games",
+            "price": 20.6,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "EthanYushi",
+            "price": 21.42,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Panforte",
+            "price": 22.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "ambre1604",
+            "price": 22.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Belgium"
+          },
+          {
+            "seller": "GengarPirate",
+            "price": 23.21,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "LightspeedCards",
+            "price": 23.78,
+            "condition": "EX",
+            "quantity": 2,
+            "country": "United Kingdom"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 7.0292226108541005,
+        "market_baseline": 22.1575,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "City of Brass",
+        "expansion": "Chronicles",
+        "card_id": 7679,
+        "historical": {
+          "trend": 20.41,
+          "avg30": 20.02,
+          "avg7": 21.38
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Chronicles/City-Of-Brass?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 250,
+        "expansion_name": "Chronicles",
+        "cheapest_good_condition": 17.99,
+        "cheapest_good_details": {
+          "price": 17.99,
+          "condition": "EX",
+          "seller": "CLS-Magic",
+          "quantity": 1,
+          "country": "Denmark"
+        },
+        "top_sellers": [
+          {
+            "seller": "CLS-Magic",
+            "price": 17.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "CharlesRae97",
+            "price": 18.45,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Jeeesuz93",
+            "price": 18.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "bizmerlin",
+            "price": 19.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "TAPPZEIT-SHOP",
+            "price": 19.18,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "Crossover",
+            "price": 19.19,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 4.839989420788165,
+        "market_baseline": 18.905,
+        "baseline_count": 4
+      },
+      "category": "good"
+    },
+    {
+      "card": {
+        "name": "Mana Drain",
+        "expansion": "Legends",
+        "card_id": 7036,
+        "historical": {
+          "trend": 145.19,
+          "avg30": 145.4,
+          "avg7": 145.21
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Legends/Mana-Drain?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 256,
+        "expansion_name": "Legends",
+        "cheapest_good_condition": 150.0,
+        "cheapest_good_details": {
+          "price": 150.0,
+          "condition": "EX",
+          "seller": "mtgleipzigerland",
+          "quantity": 1,
+          "country": "Germany"
+        },
+        "top_sellers": [
+          {
+            "seller": "mtgleipzigerland",
+            "price": 150.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "Tryllepapp",
+            "price": 153.52,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Norway"
+          },
+          {
+            "seller": "webuyanycard",
+            "price": 154.72,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "HiveGames",
+            "price": 154.74,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Austria"
+          },
+          {
+            "seller": "Highmarket",
+            "price": 154.74,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "zuendo",
+            "price": 155.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Switzerland"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 2.86861361134495,
+        "market_baseline": 154.43,
+        "baseline_count": 4
+      },
+      "category": "fair"
+    },
+    {
+      "card": {
+        "name": "Swamp",
+        "expansion": "Beta",
+        "card_id": 5216,
+        "historical": {
+          "trend": 21.2,
+          "avg30": 21.97,
+          "avg7": 21.38
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Swamp?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 314,
+        "expansion_name": "Beta",
+        "cheapest_good_condition": 22.0,
+        "cheapest_good_details": {
+          "price": 22.0,
+          "condition": "EX",
+          "seller": "Skalex-31",
+          "quantity": 1,
+          "country": "France"
+        },
+        "top_sellers": [
+          {
+            "seller": "Skalex-31",
+            "price": 22.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "yardbirds",
+            "price": 24.9,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "Tryllepapp",
+            "price": 24.9,
+            "condition": "EX",
+            "quantity": 2,
+            "country": "Norway"
+          },
+          {
+            "seller": "kabooom-tcg",
+            "price": 24.91,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "Poromagia",
+            "price": 24.99,
+            "condition": "EX",
+            "quantity": 2,
+            "country": "Finland"
+          },
+          {
+            "seller": "RMP1982",
+            "price": 25.5,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Netherlands"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 11.735205616850541,
+        "market_baseline": 24.924999999999997,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Swamp",
+        "expansion": "Beta",
+        "card_id": 5218,
+        "historical": {
+          "trend": 20.83,
+          "avg30": 22.0,
+          "avg7": 19.03
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Swamp?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 314,
+        "expansion_name": "Beta",
+        "cheapest_good_condition": 22.0,
+        "cheapest_good_details": {
+          "price": 22.0,
+          "condition": "EX",
+          "seller": "Skalex-31",
+          "quantity": 1,
+          "country": "France"
+        },
+        "top_sellers": [
+          {
+            "seller": "Skalex-31",
+            "price": 22.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "yardbirds",
+            "price": 24.9,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "Tryllepapp",
+            "price": 24.9,
+            "condition": "EX",
+            "quantity": 2,
+            "country": "Norway"
+          },
+          {
+            "seller": "kabooom-tcg",
+            "price": 24.91,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "Poromagia",
+            "price": 24.99,
+            "condition": "EX",
+            "quantity": 2,
+            "country": "Finland"
+          },
+          {
+            "seller": "RMP1982",
+            "price": 25.5,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Netherlands"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 11.735205616850541,
+        "market_baseline": 24.924999999999997,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Swamp",
+        "expansion": "Beta",
+        "card_id": 5220,
+        "historical": {
+          "trend": 24.52,
+          "avg30": 21.05,
+          "avg7": 25.64
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Swamp?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 314,
+        "expansion_name": "Beta",
+        "cheapest_good_condition": 22.0,
+        "cheapest_good_details": {
+          "price": 22.0,
+          "condition": "EX",
+          "seller": "Skalex-31",
+          "quantity": 1,
+          "country": "France"
+        },
+        "top_sellers": [
+          {
+            "seller": "Skalex-31",
+            "price": 22.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "yardbirds",
+            "price": 24.9,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "Tryllepapp",
+            "price": 24.9,
+            "condition": "EX",
+            "quantity": 2,
+            "country": "Norway"
+          },
+          {
+            "seller": "kabooom-tcg",
+            "price": 24.91,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "Poromagia",
+            "price": 24.99,
+            "condition": "EX",
+            "quantity": 2,
+            "country": "Finland"
+          },
+          {
+            "seller": "RMP1982",
+            "price": 25.5,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Netherlands"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 11.735205616850541,
+        "market_baseline": 24.924999999999997,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Forest",
+        "expansion": "Alpha",
+        "card_id": 5512,
+        "historical": {
+          "trend": 30.51,
+          "avg30": 35.78,
+          "avg7": 37.74
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Forest?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 332,
+        "expansion_name": "Alpha",
+        "cheapest_good_condition": 29.9,
+        "cheapest_good_details": {
+          "price": 29.9,
+          "condition": "EX",
+          "seller": "Juansn",
+          "quantity": 2,
+          "country": "Spain"
+        },
+        "top_sellers": [
+          {
+            "seller": "Juansn",
+            "price": 29.9,
+            "condition": "EX",
+            "quantity": 2,
+            "country": "Spain"
+          },
+          {
+            "seller": "DKGames",
+            "price": 29.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "Erosin",
+            "price": 30.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "sune7d",
+            "price": 32.0,
+            "condition": "EX",
+            "quantity": 2,
+            "country": "Denmark"
+          },
+          {
+            "seller": "AgentUschi",
+            "price": 33.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "InfiniteMagicCZ",
+            "price": 33.89,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Czech Republic"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 4.312344987599008,
+        "market_baseline": 31.2475,
+        "baseline_count": 4
+      },
+      "category": "good"
+    },
+    {
+      "card": {
+        "name": "Forest",
+        "expansion": "Alpha",
+        "card_id": 5513,
+        "historical": {
+          "trend": 26.96,
+          "avg30": 25.08,
+          "avg7": 25.32
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alpha/Forest?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 332,
+        "expansion_name": "Alpha",
+        "cheapest_good_condition": 29.9,
+        "cheapest_good_details": {
+          "price": 29.9,
+          "condition": "EX",
+          "seller": "Juansn",
+          "quantity": 2,
+          "country": "Spain"
+        },
+        "top_sellers": [
+          {
+            "seller": "Juansn",
+            "price": 29.9,
+            "condition": "EX",
+            "quantity": 2,
+            "country": "Spain"
+          },
+          {
+            "seller": "DKGames",
+            "price": 29.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "Erosin",
+            "price": 30.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "sune7d",
+            "price": 32.0,
+            "condition": "EX",
+            "quantity": 2,
+            "country": "Denmark"
+          },
+          {
+            "seller": "AgentUschi",
+            "price": 33.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "InfiniteMagicCZ",
+            "price": 33.89,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Czech Republic"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 4.312344987599008,
+        "market_baseline": 31.2475,
+        "baseline_count": 4
+      },
+      "category": "good"
+    },
+    {
+      "card": {
+        "name": "Unsummon",
+        "expansion": "Beta",
+        "card_id": 4800,
+        "historical": {
+          "trend": 12.06,
+          "avg30": 10.1,
+          "avg7": 10.79
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Unsummon?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 174,
+        "expansion_name": "Beta",
+        "cheapest_good_condition": 17.0,
+        "cheapest_good_details": {
+          "price": 17.0,
+          "condition": "NM",
+          "seller": "Kyuss",
+          "quantity": 1,
+          "country": "Germany"
+        },
+        "top_sellers": [
+          {
+            "seller": "Kyuss",
+            "price": 17.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "CommanderVault",
+            "price": 18.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "mtg-foil-shop",
+            "price": 19.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "Bardbrady",
+            "price": 20.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "Desmond12",
+            "price": 20.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "Flepsinka",
+            "price": 24.95,
+            "condition": "NM",
+            "quantity": 2,
+            "country": "Czech Republic"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 11.688311688311687,
+        "market_baseline": 19.25,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Terror",
+        "expansion": "Beta",
+        "card_id": 4704,
+        "historical": {
+          "trend": 29.08,
+          "avg30": 30.72,
+          "avg7": 30.22
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Terror?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 155,
+        "expansion_name": "Beta",
+        "cheapest_good_condition": 49.4,
+        "cheapest_good_details": {
+          "price": 49.4,
+          "condition": "NM",
+          "seller": "goodman123",
+          "quantity": 2,
+          "country": "Netherlands"
+        },
+        "top_sellers": [
+          {
+            "seller": "goodman123",
+            "price": 49.4,
+            "condition": "NM",
+            "quantity": 2,
+            "country": "Netherlands"
+          },
+          {
+            "seller": "oldmagiccollector",
+            "price": 49.9,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "oldmagiccollector",
+            "price": 49.9,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "willybizarre",
+            "price": 49.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "yvel",
+            "price": 49.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "SpielRaum",
+            "price": 50.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Austria"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 1.091200320352391,
+        "market_baseline": 49.945,
+        "baseline_count": 4
+      },
+      "category": "fair"
+    },
+    {
+      "card": {
+        "name": "Ensnaring Bridge",
+        "expansion": "Stronghold",
+        "card_id": 9212,
+        "historical": {
+          "trend": 13.27,
+          "avg30": 12.83,
+          "avg7": 13.56
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Stronghold/Ensnaring-Bridge?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 1042,
+        "expansion_name": "Stronghold",
+        "cheapest_good_condition": 10.66,
+        "cheapest_good_details": {
+          "price": 10.66,
+          "condition": "NM",
+          "seller": "ExplodingCat3333",
+          "quantity": 1,
+          "country": "United Kingdom"
+        },
+        "top_sellers": [
+          {
+            "seller": "ExplodingCat3333",
+            "price": 10.66,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Sindellor",
+            "price": 12.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "Ludisfactory",
+            "price": 13.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "mmm19",
+            "price": 13.19,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Austria"
+          },
+          {
+            "seller": "manus420",
+            "price": 14.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "SergioAP",
+            "price": 14.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 18.29852462157501,
+        "market_baseline": 13.0475,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Reanimate",
+        "expansion": "Tempest",
+        "card_id": 8780,
+        "historical": {
+          "trend": 14.85,
+          "avg30": 14.33,
+          "avg7": 15.23
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Reanimate?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 978,
+        "expansion_name": "Tempest",
+        "cheapest_good_condition": 13.5,
+        "cheapest_good_details": {
+          "price": 13.5,
+          "condition": "NM",
+          "seller": "Rhoekath",
+          "quantity": 1,
+          "country": "France"
+        },
+        "top_sellers": [
+          {
+            "seller": "Rhoekath",
+            "price": 13.5,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "Malkavian95",
+            "price": 14.1,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "Bolt-the-Bird-Ltd",
+            "price": 14.27,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Roguesquarter",
+            "price": 14.29,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Yeti102",
+            "price": 15.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Norway"
+          },
+          {
+            "seller": "Cardseller374",
+            "price": 15.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 6.347554630593126,
+        "market_baseline": 14.415,
+        "baseline_count": 4
+      },
+      "category": "good"
+    },
+    {
+      "card": {
+        "name": "Island Sanctuary",
+        "expansion": "Beta",
+        "card_id": 5046,
+        "historical": {
+          "trend": 212.78,
+          "avg30": 159.43,
+          "avg7": 199.23
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Island-Sanctuary?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 39,
+        "expansion_name": "Beta",
+        "cheapest_good_condition": 110.0,
+        "cheapest_good_details": {
+          "price": 110.0,
+          "condition": "EX",
+          "seller": "jesperhermansen",
+          "quantity": 1,
+          "country": "Denmark"
+        },
+        "top_sellers": [
+          {
+            "seller": "jesperhermansen",
+            "price": 110.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "Bronhy",
+            "price": 129.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Croatia"
+          },
+          {
+            "seller": "Magic-Style",
+            "price": 139.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "willybizarre",
+            "price": 139.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "willybizarre",
+            "price": 139.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "TEMPEST-STORE",
+            "price": 144.95,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Spain"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 19.84990072317249,
+        "market_baseline": 137.2425,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Island",
+        "expansion": "Beta",
+        "card_id": 5192,
+        "historical": {
+          "trend": 38.21,
+          "avg30": 32.15,
+          "avg7": 34.09
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Island?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 256,
+        "expansion_name": "Beta",
+        "cheapest_good_condition": 43.99,
+        "cheapest_good_details": {
+          "price": 43.99,
+          "condition": "NM",
+          "seller": "SandyInLondon",
+          "quantity": 1,
+          "country": "United Kingdom"
+        },
+        "top_sellers": [
+          {
+            "seller": "SandyInLondon",
+            "price": 43.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "ilcanenero",
+            "price": 45.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "mtg-foil-shop",
+            "price": 54.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "ThreeForOne-AT",
+            "price": 55.0,
+            "condition": "NM",
+            "quantity": 2,
+            "country": "Austria"
+          },
+          {
+            "seller": "oldmagiccollector",
+            "price": 64.9,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "willybizarre",
+            "price": 64.99,
+            "condition": "NM",
+            "quantity": 8,
+            "country": "Spain"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 19.61626313385107,
+        "market_baseline": 54.725,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Island",
+        "expansion": "Beta",
+        "card_id": 5194,
+        "historical": {
+          "trend": 29.67,
+          "avg30": 27.56,
+          "avg7": 25.71
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Island?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 256,
+        "expansion_name": "Beta",
+        "cheapest_good_condition": 43.99,
+        "cheapest_good_details": {
+          "price": 43.99,
+          "condition": "NM",
+          "seller": "SandyInLondon",
+          "quantity": 1,
+          "country": "United Kingdom"
+        },
+        "top_sellers": [
+          {
+            "seller": "SandyInLondon",
+            "price": 43.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "ilcanenero",
+            "price": 45.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "mtg-foil-shop",
+            "price": 54.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "ThreeForOne-AT",
+            "price": 55.0,
+            "condition": "NM",
+            "quantity": 2,
+            "country": "Austria"
+          },
+          {
+            "seller": "oldmagiccollector",
+            "price": 64.9,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "willybizarre",
+            "price": 64.99,
+            "condition": "NM",
+            "quantity": 8,
+            "country": "Spain"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 19.61626313385107,
+        "market_baseline": 54.725,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Island",
+        "expansion": "Beta",
+        "card_id": 5196,
+        "historical": {
+          "trend": 29.55,
+          "avg30": 27.28,
+          "avg7": 32.27
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Island?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 256,
+        "expansion_name": "Beta",
+        "cheapest_good_condition": 43.99,
+        "cheapest_good_details": {
+          "price": 43.99,
+          "condition": "NM",
+          "seller": "SandyInLondon",
+          "quantity": 1,
+          "country": "United Kingdom"
+        },
+        "top_sellers": [
+          {
+            "seller": "SandyInLondon",
+            "price": 43.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "ilcanenero",
+            "price": 45.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "mtg-foil-shop",
+            "price": 54.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "ThreeForOne-AT",
+            "price": 55.0,
+            "condition": "NM",
+            "quantity": 2,
+            "country": "Austria"
+          },
+          {
+            "seller": "oldmagiccollector",
+            "price": 64.9,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "willybizarre",
+            "price": 64.99,
+            "condition": "NM",
+            "quantity": 8,
+            "country": "Spain"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 19.61626313385107,
+        "market_baseline": 54.725,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Tropical Island",
+        "expansion": "Beta",
+        "card_id": 5224,
+        "historical": {
+          "trend": 4132.81,
+          "avg30": 2567.49,
+          "avg7": 3456.98
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Tropical-Island?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 35,
+        "expansion_name": "Beta",
+        "cheapest_good_condition": 2699.0,
+        "cheapest_good_details": {
+          "price": 2699.0,
+          "condition": "EX",
+          "seller": "Bronhy",
+          "quantity": 1,
+          "country": "Croatia"
+        },
+        "top_sellers": [
+          {
+            "seller": "Bronhy",
+            "price": 2699.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Croatia"
+          },
+          {
+            "seller": "Bronhy",
+            "price": 2699.0,
+            "condition": "EX",
+            "quantity": 3,
+            "country": "Croatia"
+          },
+          {
+            "seller": "TCG-Investments",
+            "price": 2800.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Poland"
+          },
+          {
+            "seller": "trader0811",
+            "price": 2900.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "Bronhy",
+            "price": 3075.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Croatia"
+          },
+          {
+            "seller": "Vhengry",
+            "price": 3075.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Spain"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 5.909011678577654,
+        "market_baseline": 2868.5,
+        "baseline_count": 4
+      },
+      "category": "good"
+    },
+    {
+      "card": {
+        "name": "Volcanic Island",
+        "expansion": "Beta",
+        "card_id": 5230,
+        "historical": {
+          "trend": 10577.4,
+          "avg30": 5391.55,
+          "avg7": 9464.43
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Beta/Volcanic-Island?language=1&minCondition=3",
+        "total_listings": 1,
+        "available_items_total": 8,
+        "expansion_name": "Beta",
+        "cheapest_good_condition": 24750.0,
+        "cheapest_good_details": {
+          "price": 24750.0,
+          "condition": "NM",
+          "seller": "Spinal123",
+          "quantity": 1,
+          "country": "Germany"
+        },
+        "top_sellers": [
+          {
+            "seller": "Spinal123",
+            "price": 24750.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": false,
+        "discount_vs_market": null,
+        "market_baseline": null,
+        "baseline_count": null
+      },
+      "category": "unknown"
+    },
+    {
+      "card": {
+        "name": "Animate Dead",
+        "expansion": "Unlimited",
+        "card_id": 4629,
+        "historical": {
+          "trend": 22.93,
+          "avg30": 22.69,
+          "avg7": 23.95
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Unlimited/Animate-Dead?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 150,
+        "expansion_name": "Unlimited",
+        "cheapest_good_condition": 34.5,
+        "cheapest_good_details": {
+          "price": 34.5,
+          "condition": "NM",
+          "seller": "cannca",
+          "quantity": 1,
+          "country": "United Kingdom"
+        },
+        "top_sellers": [
+          {
+            "seller": "cannca",
+            "price": 34.5,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "HorroristJ",
+            "price": 47.5,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Netherlands"
+          },
+          {
+            "seller": "MTG-Finland",
+            "price": 49.75,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Finland"
+          },
+          {
+            "seller": "Flepsinka",
+            "price": 49.95,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Czech Republic"
+          },
+          {
+            "seller": "goodman123",
+            "price": 58.5,
+            "condition": "NM",
+            "quantity": 4,
+            "country": "Netherlands"
+          },
+          {
+            "seller": "ancestral-cards",
+            "price": 59.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 32.912007778317935,
+        "market_baseline": 51.425,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Maze of Ith",
+        "expansion": "The Dark",
+        "card_id": 7395,
+        "historical": {
+          "trend": 24.97,
+          "avg30": 23.87,
+          "avg7": 24.25
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/The-Dark/Maze-Of-Ith?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 364,
+        "expansion_name": "The Dark",
+        "cheapest_good_condition": 25.0,
+        "cheapest_good_details": {
+          "price": 25.0,
+          "condition": "EX",
+          "seller": "Jannelinkan",
+          "quantity": 1,
+          "country": "Sweden"
+        },
+        "top_sellers": [
+          {
+            "seller": "Jannelinkan",
+            "price": 25.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Sweden"
+          },
+          {
+            "seller": "Linny",
+            "price": 26.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "lizzieteabunny",
+            "price": 26.84,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "SandyInLondon",
+            "price": 26.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "DHGames",
+            "price": 28.98,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Finland"
+          },
+          {
+            "seller": "webuyanycard",
+            "price": 29.76,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 8.09668229023068,
+        "market_baseline": 27.2025,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Doomsday",
+        "expansion": "Weatherlight",
+        "card_id": 8576,
+        "historical": {
+          "trend": 8.25,
+          "avg30": 7.62,
+          "avg7": 8.35
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Weatherlight/Doomsday?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 531,
+        "expansion_name": "Weatherlight",
+        "cheapest_good_condition": 4.75,
+        "cheapest_good_details": {
+          "price": 4.75,
+          "condition": "NM",
+          "seller": "Llanbadios",
+          "quantity": 1,
+          "country": "United Kingdom"
+        },
+        "top_sellers": [
+          {
+            "seller": "Llanbadios",
+            "price": 4.75,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Ozy193",
+            "price": 4.9,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "TheDataFox",
+            "price": 5.21,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "BeccaBrads1992",
+            "price": 5.22,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Onward",
+            "price": 5.24,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "DUDLEYMATT",
+            "price": 5.96,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 7.632474477394265,
+        "market_baseline": 5.1425,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Lake of the Dead",
+        "expansion": "Alliances",
+        "card_id": 8037,
+        "historical": {
+          "trend": 65.06,
+          "avg30": 63.26,
+          "avg7": 65.81
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alliances/Lake-Of-The-Dead?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 556,
+        "expansion_name": "Alliances",
+        "cheapest_good_condition": 60.0,
+        "cheapest_good_details": {
+          "price": 60.0,
+          "condition": "EX",
+          "seller": "simppp",
+          "quantity": 1,
+          "country": "Denmark"
+        },
+        "top_sellers": [
+          {
+            "seller": "simppp",
+            "price": 60.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "Emrys-NRG",
+            "price": 61.87,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Kaleki",
+            "price": 61.88,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Mrhen55",
+            "price": 61.89,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "webuyanycard",
+            "price": 62.49,
+            "condition": "EX",
+            "quantity": 8,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Sooksred",
+            "price": 63.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 3.276508281948977,
+        "market_baseline": 62.0325,
+        "baseline_count": 4
+      },
+      "category": "good"
+    },
+    {
+      "card": {
+        "name": "Force of Will",
+        "expansion": "Alliances",
+        "card_id": 7894,
+        "historical": {
+          "trend": 53.08,
+          "avg30": 51.99,
+          "avg7": 52.15
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Alliances/Force-Of-Will?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 1137,
+        "expansion_name": "Alliances",
+        "cheapest_good_condition": 48.45,
+        "cheapest_good_details": {
+          "price": 48.45,
+          "condition": "EX",
+          "seller": "Dyldrab",
+          "quantity": 1,
+          "country": "United Kingdom"
+        },
+        "top_sellers": [
+          {
+            "seller": "Dyldrab",
+            "price": 48.45,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Bmw156",
+            "price": 49.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "TTRescue",
+            "price": 49.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Bolt-the-Bird-Ltd",
+            "price": 51.39,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Bolt-the-Bird-Ltd",
+            "price": 51.72,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Nathanaz",
+            "price": 52.75,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 4.106877783275598,
+        "market_baseline": 50.525,
+        "baseline_count": 4
+      },
+      "category": "good"
+    },
+    {
+      "card": {
+        "name": "Ancient Tomb",
+        "expansion": "Tempest",
+        "card_id": 9040,
+        "historical": {
+          "trend": 80.31,
+          "avg30": 77.99,
+          "avg7": 78.35
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Tempest/Ancient-Tomb?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 463,
+        "expansion_name": "Tempest",
+        "cheapest_good_condition": 74.9,
+        "cheapest_good_details": {
+          "price": 74.9,
+          "condition": "EX",
+          "seller": "Untrack",
+          "quantity": 1,
+          "country": "United Kingdom"
+        },
+        "top_sellers": [
+          {
+            "seller": "Untrack",
+            "price": 74.9,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Domf123",
+            "price": 79.73,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "EUREKA-FR",
+            "price": 82.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "maczaUK",
+            "price": 83.31,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Trotte",
+            "price": 84.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "MyCardsOfMagic",
+            "price": 84.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Netherlands"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 9.491873602803444,
+        "market_baseline": 82.755,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Entomb",
+        "expansion": "Odyssey",
+        "card_id": 2544,
+        "historical": {
+          "trend": 15.04,
+          "avg30": 15.78,
+          "avg7": 16.66
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Odyssey/Entomb?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 620,
+        "expansion_name": "Odyssey",
+        "cheapest_good_condition": 13.7,
+        "cheapest_good_details": {
+          "price": 13.7,
+          "condition": "EX",
+          "seller": "Joecoss",
+          "quantity": 2,
+          "country": "France"
+        },
+        "top_sellers": [
+          {
+            "seller": "Joecoss",
+            "price": 13.7,
+            "condition": "EX",
+            "quantity": 2,
+            "country": "France"
+          },
+          {
+            "seller": "Poliser",
+            "price": 15.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "snabblars",
+            "price": 15.0,
+            "condition": "EX",
+            "quantity": 4,
+            "country": "Sweden"
+          },
+          {
+            "seller": "tallon",
+            "price": 15.0,
+            "condition": "EX",
+            "quantity": 4,
+            "country": "Spain"
+          },
+          {
+            "seller": "Ponchim-MTG",
+            "price": 17.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Finland"
+          },
+          {
+            "seller": "rockin1000",
+            "price": 17.5,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 11.612903225806456,
+        "market_baseline": 15.5,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Demonic Tutor",
+        "expansion": "Revised",
+        "card_id": 5541,
+        "historical": {
+          "trend": 36.72,
+          "avg30": 34.18,
+          "avg7": 35.15
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Revised/Demonic-Tutor?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 381,
+        "expansion_name": "Revised",
+        "cheapest_good_condition": 40.0,
+        "cheapest_good_details": {
+          "price": 40.0,
+          "condition": "NM",
+          "seller": "Bodybag",
+          "quantity": 1,
+          "country": "United Kingdom"
+        },
+        "top_sellers": [
+          {
+            "seller": "Bodybag",
+            "price": 40.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Phlop-Shop",
+            "price": 40.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Norway"
+          },
+          {
+            "seller": "Polytox",
+            "price": 41.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "BulldogCardTraders",
+            "price": 41.13,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "LightspeedCards",
+            "price": 41.64,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "TradingCardCenter",
+            "price": 41.66,
+            "condition": "NM",
+            "quantity": 2,
+            "country": "United Kingdom"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 2.3020089149416756,
+        "market_baseline": 40.942499999999995,
+        "baseline_count": 4
+      },
+      "category": "fair"
+    },
+    {
+      "card": {
+        "name": "Necropotence",
+        "expansion": "Ice Age",
+        "card_id": 6254,
+        "historical": {
+          "trend": 20.84,
+          "avg30": 21.06,
+          "avg7": 23.52
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Ice-Age/Necropotence?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 382,
+        "expansion_name": "Ice Age",
+        "cheapest_good_condition": 18.0,
+        "cheapest_good_details": {
+          "price": 18.0,
+          "condition": "EX",
+          "seller": "Sp1d3y",
+          "quantity": 1,
+          "country": "France"
+        },
+        "top_sellers": [
+          {
+            "seller": "Sp1d3y",
+            "price": 18.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "gazza006",
+            "price": 19.99,
+            "condition": "EX",
+            "quantity": 2,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Emrys-NRG",
+            "price": 21.49,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "qasno",
+            "price": 23.2,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Norway"
+          },
+          {
+            "seller": "webuyanycard",
+            "price": 23.81,
+            "condition": "EX",
+            "quantity": 2,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "LightspeedCards",
+            "price": 24.4,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 18.63487399706181,
+        "market_baseline": 22.1225,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Vampiric Tutor",
+        "expansion": "Visions",
+        "card_id": 8423,
+        "historical": {
+          "trend": 43.1,
+          "avg30": 41.45,
+          "avg7": 42.76
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Visions/Vampiric-Tutor?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 374,
+        "expansion_name": "Visions",
+        "cheapest_good_condition": 40.0,
+        "cheapest_good_details": {
+          "price": 40.0,
+          "condition": "EX",
+          "seller": "koertjuh",
+          "quantity": 1,
+          "country": "Netherlands"
+        },
+        "top_sellers": [
+          {
+            "seller": "koertjuh",
+            "price": 40.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Netherlands"
+          },
+          {
+            "seller": "madhug0",
+            "price": 40.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "Estragon",
+            "price": 41.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Luxembourg"
+          },
+          {
+            "seller": "MysticalMagic",
+            "price": 41.95,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "drivershigh",
+            "price": 41.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "davideinter1",
+            "price": 42.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 2.995028495210378,
+        "market_baseline": 41.235,
+        "baseline_count": 4
+      },
+      "category": "fair"
+    },
+    {
+      "card": {
+        "name": "Taiga",
+        "expansion": "Revised",
+        "card_id": 5830,
+        "historical": {
+          "trend": 214.96,
+          "avg30": 229.41,
+          "avg7": 225.35
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Revised/Taiga?language=1&minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 537,
+        "expansion_name": "Revised",
+        "cheapest_good_condition": 259.99,
+        "cheapest_good_details": {
+          "price": 259.99,
+          "condition": "NM",
+          "seller": "Seebi",
+          "quantity": 1,
+          "country": "Switzerland"
+        },
+        "top_sellers": [
+          {
+            "seller": "Seebi",
+            "price": 259.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "MortarionsBoy",
+            "price": 297.54,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "peancajo",
+            "price": 297.95,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Netherlands"
+          },
+          {
+            "seller": "komachi",
+            "price": 300.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Billylooser",
+            "price": 300.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "Magp2",
+            "price": 300.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 13.009728228592458,
+        "market_baseline": 298.8725,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    }
+  ]
+}

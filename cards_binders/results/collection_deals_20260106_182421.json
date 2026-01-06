@@ -1,0 +1,567 @@
+{
+  "timestamp": "2026-01-06 18:24:21",
+  "wishlist_file": "collection.json",
+  "config": {
+    "min_discount": 0.0,
+    "delay_between_cards": 15.0,
+    "use_historical_data": true
+  },
+  "summary": {
+    "total_deals": 9,
+    "excellent": 5,
+    "good": 1,
+    "fair": 1,
+    "expensive": 0,
+    "no_data": 2
+  },
+  "deals": [
+    {
+      "card": {
+        "name": "Black Knight",
+        "expansion": "Fourth Edition",
+        "card_id": 5839,
+        "historical": {
+          "trend": 0.49,
+          "avg30": 0.46,
+          "avg7": 0.44
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Fourth-Edition/Black-Knight?minCondition=2&language=4",
+        "total_listings": 3,
+        "available_items_total": 636,
+        "expansion_name": "Fourth Edition",
+        "cheapest_good_condition": 2.0,
+        "cheapest_good_details": {
+          "price": 2.0,
+          "condition": "NM",
+          "seller": "Sastometro",
+          "quantity": 1,
+          "country": "Spain"
+        },
+        "top_sellers": [
+          {
+            "seller": "Sastometro",
+            "price": 2.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "DanielaFit",
+            "price": 3.25,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "Xcicore",
+            "price": 5.35,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Netherlands"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 53.48837209302325,
+        "market_baseline": 4.3,
+        "baseline_count": 2
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Memory Jar",
+        "expansion": "Urzas Legacy",
+        "card_id": 10686,
+        "historical": {
+          "trend": 21.22,
+          "avg30": 20.51,
+          "avg7": 20.62
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Legacy/Memory-Jar?minCondition=3&isFoil=Y",
+        "total_listings": 10,
+        "available_items_total": 83,
+        "expansion_name": "Urzas Legacy",
+        "cheapest_good_condition": 180.0,
+        "cheapest_good_details": {
+          "price": 180.0,
+          "condition": "NM",
+          "seller": "mx0ne",
+          "quantity": 1,
+          "country": "Germany"
+        },
+        "top_sellers": [
+          {
+            "seller": "mx0ne",
+            "price": 180.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "simppp",
+            "price": 210.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "webuyanycard",
+            "price": 214.23,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "CardGameCorner",
+            "price": 215.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "Olli-Baba",
+            "price": 219.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "Johardrymnol",
+            "price": 220.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Sweden"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 16.203067898791932,
+        "market_baseline": 214.805,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Serendib Efreet",
+        "expansion": "Foreign White Bordered",
+        "card_id": 5607,
+        "historical": {
+          "trend": 5.02,
+          "avg30": 4.72,
+          "avg7": 5.33
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Foreign-White-Bordered/Serendib-Efreet?minCondition=3&language=5",
+        "total_listings": 10,
+        "available_items_total": 157,
+        "expansion_name": "Foreign White Bordered",
+        "cheapest_good_condition": 30.0,
+        "cheapest_good_details": {
+          "price": 30.0,
+          "condition": "EX",
+          "seller": "Veverica",
+          "quantity": 1,
+          "country": "Slovenia"
+        },
+        "top_sellers": [
+          {
+            "seller": "Veverica",
+            "price": 30.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Slovenia"
+          },
+          {
+            "seller": "Cruash",
+            "price": 31.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "Cruash",
+            "price": 33.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "dani91",
+            "price": 33.4,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "CardGameCorner",
+            "price": 34.9,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "micheliluca",
+            "price": 34.9,
+            "condition": "EX",
+            "quantity": 2,
+            "country": "Italy"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 9.29705215419502,
+        "market_baseline": 33.075,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Palinchron",
+        "expansion": "Urzas Legacy",
+        "card_id": 10595,
+        "historical": {
+          "trend": 22.15,
+          "avg30": 22.09,
+          "avg7": 21.69
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Legacy/Palinchron?minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 637,
+        "expansion_name": "Urzas Legacy",
+        "cheapest_good_condition": 19.99,
+        "cheapest_good_details": {
+          "price": 19.99,
+          "condition": "EX",
+          "seller": "stefy34",
+          "quantity": 1,
+          "country": "France"
+        },
+        "top_sellers": [
+          {
+            "seller": "stefy34",
+            "price": 19.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "typhodius",
+            "price": 20.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Belgium"
+          },
+          {
+            "seller": "kcmotta04",
+            "price": 20.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "Gear-Head-Games",
+            "price": 20.6,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "EthanYushi",
+            "price": 21.42,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Jandrojandro",
+            "price": 21.95,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Spain"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 2.5115825408437162,
+        "market_baseline": 20.505000000000003,
+        "baseline_count": 4
+      },
+      "category": "fair"
+    },
+    {
+      "card": {
+        "name": "Mox Jet",
+        "expansion": "International Edition",
+        "card_id": null,
+        "historical": {
+          "trend": 0,
+          "avg30": 0,
+          "avg7": 0
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/International-Edition/Mox-Jet?minCondition=2",
+        "total_listings": 10,
+        "available_items_total": 23,
+        "expansion_name": "International Edition",
+        "cheapest_good_condition": 599.95,
+        "cheapest_good_details": {
+          "price": 599.95,
+          "condition": "NM",
+          "seller": "ManaTrust",
+          "quantity": 1,
+          "country": "Italy"
+        },
+        "top_sellers": [
+          {
+            "seller": "ManaTrust",
+            "price": 599.95,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "In2Cards",
+            "price": 625.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Netherlands"
+          },
+          {
+            "seller": "Bronhy",
+            "price": 699.0,
+            "condition": "NM",
+            "quantity": 2,
+            "country": "Croatia"
+          },
+          {
+            "seller": "CommanderVault",
+            "price": 711.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "SeventhCity",
+            "price": 719.73,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "BoltthebirdCZ",
+            "price": 749.95,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Czech Republic"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 12.884384313526184,
+        "market_baseline": 688.6825,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Strip Mine (Uneven Horizon)",
+        "expansion": "Antiquities",
+        "card_id": null,
+        "historical": {
+          "trend": 0,
+          "avg30": 0,
+          "avg7": 0
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Strip Mine (Tower)",
+        "expansion": "Antiquities",
+        "card_id": null,
+        "historical": {
+          "trend": 0,
+          "avg30": 0,
+          "avg7": 0
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Citta d'Ottone",
+        "expansion": "Rinascimento",
+        "card_id": null,
+        "historical": {
+          "trend": 0,
+          "avg30": 0,
+          "avg7": 0
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Rinascimento/City-Of-Brass?minCondition=3&language=5",
+        "total_listings": 10,
+        "available_items_total": 109,
+        "expansion_name": "Rinascimento",
+        "cheapest_good_condition": 79.99,
+        "cheapest_good_details": {
+          "price": 79.99,
+          "condition": "EX",
+          "seller": "alex79",
+          "quantity": 1,
+          "country": "Italy"
+        },
+        "top_sellers": [
+          {
+            "seller": "alex79",
+            "price": 79.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "hotbanditoflo",
+            "price": 79.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "alea77",
+            "price": 84.97,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "Mundug",
+            "price": 85.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Belgium"
+          },
+          {
+            "seller": "camme78",
+            "price": 89.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "CommanderVault",
+            "price": 89.9,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 5.605381165919283,
+        "market_baseline": 84.74,
+        "baseline_count": 4
+      },
+      "category": "good"
+    },
+    {
+      "card": {
+        "name": "Fabbrica di Mishra",
+        "expansion": "Rinascimento",
+        "card_id": null,
+        "historical": {
+          "trend": 0,
+          "avg30": 0,
+          "avg7": 0
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Rinascimento/Mishra-s-Factory?minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 95,
+        "expansion_name": "Rinascimento",
+        "cheapest_good_condition": 15.18,
+        "cheapest_good_details": {
+          "price": 15.18,
+          "condition": "NM",
+          "seller": "Llines",
+          "quantity": 1,
+          "country": "Spain"
+        },
+        "top_sellers": [
+          {
+            "seller": "Llines",
+            "price": 15.18,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "onefunsite",
+            "price": 16.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Sweden"
+          },
+          {
+            "seller": "ACecconi",
+            "price": 19.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "MasterTCG",
+            "price": 20.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "rea1994",
+            "price": 20.0,
+            "condition": "EX",
+            "quantity": 2,
+            "country": "Italy"
+          },
+          {
+            "seller": "BillWarren",
+            "price": 24.99,
+            "condition": "EX",
+            "quantity": 5,
+            "country": "Italy"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 19.040000000000003,
+        "market_baseline": 18.75,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    }
+  ]
+}

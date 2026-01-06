@@ -1,0 +1,537 @@
+{
+  "timestamp": "2026-01-06 20:47:07",
+  "wishlist_file": "collection.json",
+  "config": {
+    "min_discount": 0.0,
+    "delay_between_cards": 15.0,
+    "use_historical_data": true
+  },
+  "summary": {
+    "total_deals": 7,
+    "excellent": 6,
+    "good": 0,
+    "fair": 1,
+    "expensive": 0,
+    "no_data": 0
+  },
+  "deals": [
+    {
+      "card": {
+        "name": "Memory Jar",
+        "expansion": "Urzas Legacy",
+        "card_id": 10686,
+        "historical": {
+          "trend": 21.22,
+          "avg30": 20.51,
+          "avg7": 20.62
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Legacy/Memory-Jar?minCondition=3&isFoil=Y",
+        "total_listings": 10,
+        "available_items_total": 83,
+        "expansion_name": "Urzas Legacy",
+        "cheapest_good_condition": 180.0,
+        "cheapest_good_details": {
+          "price": 180.0,
+          "condition": "NM",
+          "seller": "mx0ne",
+          "quantity": 1,
+          "country": "Germany"
+        },
+        "top_sellers": [
+          {
+            "seller": "mx0ne",
+            "price": 180.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "simppp",
+            "price": 210.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "webuyanycard",
+            "price": 214.23,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "CardGameCorner",
+            "price": 215.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "Olli-Baba",
+            "price": 219.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "Johardrymnol",
+            "price": 220.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Sweden"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 16.203067898791932,
+        "market_baseline": 214.805,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Palinchron",
+        "expansion": "Urzas Legacy",
+        "card_id": 10595,
+        "historical": {
+          "trend": 22.15,
+          "avg30": 22.09,
+          "avg7": 21.69
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Legacy/Palinchron?minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 637,
+        "expansion_name": "Urzas Legacy",
+        "cheapest_good_condition": 19.99,
+        "cheapest_good_details": {
+          "price": 19.99,
+          "condition": "EX",
+          "seller": "stefy34",
+          "quantity": 1,
+          "country": "France"
+        },
+        "top_sellers": [
+          {
+            "seller": "stefy34",
+            "price": 19.99,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "typhodius",
+            "price": 20.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Belgium"
+          },
+          {
+            "seller": "kcmotta04",
+            "price": 20.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "Gear-Head-Games",
+            "price": 20.6,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "EthanYushi",
+            "price": 21.42,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Jandrojandro",
+            "price": 21.95,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Spain"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 2.5115825408437162,
+        "market_baseline": 20.505000000000003,
+        "baseline_count": 4
+      },
+      "category": "fair"
+    },
+    {
+      "card": {
+        "name": "Black Knight",
+        "expansion": "Fourth Edition Black Bordered",
+        "card_id": null,
+        "historical": {
+          "trend": 0,
+          "avg30": 0,
+          "avg7": 0
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Fourth-Edition-Black-Bordered/Black-Knight?minCondition=2&language=4",
+        "total_listings": 8,
+        "available_items_total": 221,
+        "expansion_name": "Fourth Edition Black Bordered",
+        "cheapest_good_condition": 12.0,
+        "cheapest_good_details": {
+          "price": 12.0,
+          "condition": "NM",
+          "seller": "ElBaptisterioTCG",
+          "quantity": 1,
+          "country": "Spain"
+        },
+        "top_sellers": [
+          {
+            "seller": "ElBaptisterioTCG",
+            "price": 12.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "ElBaptisterioTCG",
+            "price": 16.0,
+            "condition": "NM",
+            "quantity": 2,
+            "country": "Spain"
+          },
+          {
+            "seller": "ElBaptisterioTCG",
+            "price": 19.5,
+            "condition": "NM",
+            "quantity": 2,
+            "country": "Spain"
+          },
+          {
+            "seller": "mundicomics",
+            "price": 19.99,
+            "condition": "NM",
+            "quantity": 2,
+            "country": "Spain"
+          },
+          {
+            "seller": "CommanderVault",
+            "price": 22.4,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          },
+          {
+            "seller": "Fernan",
+            "price": 25.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 38.37463088971626,
+        "market_baseline": 19.472499999999997,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Efreet di Serendib",
+        "expansion": "Foreign White Bordered",
+        "card_id": null,
+        "historical": {
+          "trend": 0,
+          "avg30": 0,
+          "avg7": 0
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Foreign-White-Bordered/Serendib-Efreet?minCondition=3&language=5",
+        "total_listings": 10,
+        "available_items_total": 157,
+        "expansion_name": "Foreign White Bordered",
+        "cheapest_good_condition": 30.0,
+        "cheapest_good_details": {
+          "price": 30.0,
+          "condition": "EX",
+          "seller": "Veverica",
+          "quantity": 1,
+          "country": "Slovenia"
+        },
+        "top_sellers": [
+          {
+            "seller": "Veverica",
+            "price": 30.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Slovenia"
+          },
+          {
+            "seller": "Cruash",
+            "price": 31.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "Cruash",
+            "price": 33.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "dani91",
+            "price": 33.4,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "CardGameCorner",
+            "price": 34.9,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "micheliluca",
+            "price": 34.9,
+            "condition": "EX",
+            "quantity": 2,
+            "country": "Italy"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 9.29705215419502,
+        "market_baseline": 33.075,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Taiga",
+        "expansion": "Foreign White Bordered",
+        "card_id": null,
+        "historical": {
+          "trend": 0,
+          "avg30": 0,
+          "avg7": 0
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Foreign-White-Bordered/Taiga?minCondition=2&language=5",
+        "total_listings": 10,
+        "available_items_total": 213,
+        "expansion_name": "Foreign White Bordered",
+        "cheapest_good_condition": 249.99,
+        "cheapest_good_details": {
+          "price": 249.99,
+          "condition": "NM",
+          "seller": "Agrocolo",
+          "quantity": 1,
+          "country": "Spain"
+        },
+        "top_sellers": [
+          {
+            "seller": "Agrocolo",
+            "price": 249.99,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "sune7d",
+            "price": 260.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "Techserv",
+            "price": 270.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "GrimSky",
+            "price": 299.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "CORP-F",
+            "price": 300.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "France"
+          },
+          {
+            "seller": "Highmarket",
+            "price": 312.9,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Germany"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 11.429583702391493,
+        "market_baseline": 282.25,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Mind Twist",
+        "expansion": "Foreign Black Bordered",
+        "card_id": null,
+        "historical": {
+          "trend": 0,
+          "avg30": 0,
+          "avg7": 0
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Foreign-Black-Bordered/Mind-Twist?minCondition=2&language=5",
+        "total_listings": 3,
+        "available_items_total": 147,
+        "expansion_name": "Foreign Black Bordered",
+        "cheapest_good_condition": 63.68,
+        "cheapest_good_details": {
+          "price": 63.68,
+          "condition": "NM",
+          "seller": "maczaUK",
+          "quantity": 2,
+          "country": "United Kingdom"
+        },
+        "top_sellers": [
+          {
+            "seller": "maczaUK",
+            "price": 63.68,
+            "condition": "NM",
+            "quantity": 2,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Magic-Dreams",
+            "price": 75.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "simpieru",
+            "price": 149.0,
+            "condition": "MT",
+            "quantity": 1,
+            "country": "Italy"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 43.142857142857146,
+        "market_baseline": 112.0,
+        "baseline_count": 2
+      },
+      "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Sengir Vampire",
+        "expansion": "Fourth Edition Black Bordered",
+        "card_id": null,
+        "historical": {
+          "trend": 0,
+          "avg30": 0,
+          "avg7": 0
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Fourth-Edition-Black-Bordered/Sengir-Vampire?minCondition=3&language=4",
+        "total_listings": 10,
+        "available_items_total": 242,
+        "expansion_name": "Fourth Edition Black Bordered",
+        "cheapest_good_condition": 5.0,
+        "cheapest_good_details": {
+          "price": 5.0,
+          "condition": "EX",
+          "seller": "Iglix",
+          "quantity": 1,
+          "country": "Spain"
+        },
+        "top_sellers": [
+          {
+            "seller": "Iglix",
+            "price": 5.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "27Dracos",
+            "price": 6.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "Amarthedhel",
+            "price": 6.5,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Belgium"
+          },
+          {
+            "seller": "flashmanbo",
+            "price": 7.5,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "daxware",
+            "price": 7.5,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "davomon01",
+            "price": 7.89,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Spain"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 27.27272727272727,
+        "market_baseline": 6.875,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    }
+  ]
+}

@@ -45,7 +45,7 @@ class SimpleBrowserScraper:
         Initialize the simple browser scraper.
         
         Args:
-            delay_range: Random delay range between requests (min, max) seconds (default: 3-5s, increases if rate limited)
+            delay_range: Random delay range between requests (min, max) seconds (default: 5-8s base + 2-3s added = 7-11s actual)
             max_retries: Maximum number of retry attempts for failed requests
             save_images: Whether to save card images
             image_dir: Directory to save card images
@@ -56,6 +56,7 @@ class SimpleBrowserScraper:
         self.image_dir = image_dir
         self.session = requests.Session()
         self.rate_limited = False  # Track if we've been rate limited
+        self.session_initialized = False  # Track if we've visited main site
         
         # Create image directory if needed
         if self.save_images:
@@ -76,23 +77,23 @@ class SimpleBrowserScraper:
             accept_encoding = 'gzip, deflate'  # Skip brotli if not available
             print("   💡 Brotli compression not available - install with: pip install brotli")
         
-        # Perfect Chrome headers (copied from real browser)
+        # Updated Chrome 131 headers (current as of Jan 2025) - copied from real browser
         self.session.headers.update({
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-            'Accept-Language': 'en-US,en;q=0.9',
+            'Accept-Language': 'en-US,en;q=0.9,de;q=0.8',  # Added German since CardMarket is European
             'Accept-Encoding': accept_encoding,
-            'DNT': '1',
             'Connection': 'keep-alive',
             'Upgrade-Insecure-Requests': '1',
             'Sec-Fetch-Dest': 'document',
             'Sec-Fetch-Mode': 'navigate',
-            'Sec-Fetch-Site': 'none',
+            'Sec-Fetch-Site': 'same-origin',  # Changed from 'none' to 'same-origin' for more realistic navigation
             'Sec-Fetch-User': '?1',
-            'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
+            'sec-ch-ua': '"Chromium";v="131", "Not_A Brand";v="24", "Google Chrome";v="131"',  # Updated and reordered
             'sec-ch-ua-mobile': '?0',
             'sec-ch-ua-platform': '"macOS"',
-            'Cache-Control': 'max-age=0'
+            'Pragma': 'no-cache',
+            'Cache-Control': 'no-cache'
         })
         
         # Set a realistic timeout
@@ -144,30 +145,67 @@ class SimpleBrowserScraper:
             print(f"   ❌ Manual decompression failed: {e}")
             return None
     
-    def _make_realistic_request(self, url: str, retry_attempt: int = 0) -> Optional[requests.Response]:
+    def _initialize_session(self):
+        """Initialize session by visiting main site once (to get cookies)."""
+        if not self.session_initialized:
+            try:
+                print("   🌐 Initializing session with CardMarket...")
+                # Initial delay before first request
+                time.sleep(random.uniform(2.0, 4.0))
+                
+                # Visit main page to establish session
+                main_url = 'https://www.cardmarket.com/en/Magic'
+                response = self.session.get(main_url, timeout=15)
+                
+                if response.status_code == 200:
+                    print(f"   ✅ Session established (cookies: {len(response.cookies)})")
+                    self.session_initialized = True
+                    # Longer delay after successful session initialization
+                    time.sleep(random.uniform(3.0, 5.0))
+                elif response.status_code == 429:
+                    print(f"   ⚠️  Rate limited on session init - IP may be flagged")
+                    print(f"   💡 Continuing anyway (will try direct requests)...")
+                    self.session_initialized = True  # Mark as tried, continue anyway
+                    self.rate_limited = True
+                else:
+                    print(f"   ⚠️  Unexpected response: {response.status_code}")
+                    print(f"   💡 Continuing anyway...")
+                    self.session_initialized = True  # Mark as tried
+                
+            except Exception as e:
+                print(f"   ⚠️  Session initialization failed: {e}")
+                print(f"   💡 Continuing anyway...")
+                self.session_initialized = True  # Mark as tried even if failed
+    
+    def _make_realistic_request(self, url: str, retry_attempt: int = 0, skip_init: bool = False) -> Optional[requests.Response]:
         """Make a request that looks exactly like a real browser with retry logic."""
         
-        # Adaptive delay: start fast, slow down if rate limited
+        # Initialize session once at the start (not per card!)
+        # Skip if already rate limited to avoid double-429
+        if not skip_init and not self.rate_limited:
+            self._initialize_session()
+        
+        # Adaptive delay: start reasonable, slow down if rate limited
         if self.rate_limited:
-            delay = random.uniform(9.0, 12.0)
+            delay = random.uniform(15.0, 20.0)  # Much longer if rate limited
         elif retry_attempt > 0:
             base_delay = random.uniform(*self.delay_range)
             retry_multiplier = 2 ** retry_attempt
             delay = base_delay * retry_multiplier
         else:
-            delay = random.uniform(*self.delay_range)
+            # Increased base delay to be safer
+            delay = random.uniform(self.delay_range[0] + 2, self.delay_range[1] + 3)
         
         time.sleep(delay)
         
         try:
-            # First, let's visit the main site to get cookies/session
-            main_response = self.session.get('https://www.cardmarket.com/en/Magic', timeout=15)
+            # Add Referer header for card page requests (more realistic)
+            headers = {}
+            if '/Singles/' in url or '/Products/' in url:
+                headers['Referer'] = 'https://www.cardmarket.com/en/Magic'
             
-            # Small delay
-            time.sleep(random.uniform(1.0, 2.0))
-            
-            # Now make the actual request
-            response = self.session.get(url, timeout=15)
+            # Now make the actual request (session already has cookies from initialization)
+            response = self.session.get(url, headers=headers, timeout=15)
             
             if response.status_code == 200:
                 return response
@@ -183,25 +221,36 @@ class SimpleBrowserScraper:
                         wait_time = 10 * (2 ** retry_attempt)
                         print(f"⚠️  Server error {response.status_code} (attempt {retry_attempt + 1}/{self.max_retries + 1}), waiting {wait_time}s...")
                     time.sleep(wait_time)
-                    return self._make_realistic_request(url, retry_attempt + 1)
+                    return self._make_realistic_request(url, retry_attempt + 1, skip_init=True)
                 
                 # If we exhausted retries due to rate limiting, stop the script
                 if response.status_code == 429:
+                    if retry_attempt == 0:
+                        print("\n" + "=" * 60)
+                        print("⚠️  IMMEDIATE RATE LIMITING DETECTED")
+                        print("=" * 60)
+                        print("Your IP may already be flagged. Suggestions:")
+                        print("1. Wait 24 hours before trying again")
+                        print("2. Try from a different network/IP address")
+                        print("3. Use a VPN or proxy service")
+                        print("4. Consider using Selenium with a real browser")
+                        print("5. Reduce scan frequency (max once per day)")
+                        print("=" * 60 + "\n")
                     raise Exception(f"❌ RATE LIMITED: CardMarket is blocking requests after {retry_attempt + 1} attempts. Stopping script to avoid ban.")
                 
                 return None
                 
         except requests.exceptions.Timeout:
             if retry_attempt < self.max_retries:
-                return self._make_realistic_request(url, retry_attempt + 1)
+                return self._make_realistic_request(url, retry_attempt + 1, skip_init=True)
             return None
         except requests.exceptions.ConnectionError as e:
             if retry_attempt < self.max_retries:
-                return self._make_realistic_request(url, retry_attempt + 1)
+                return self._make_realistic_request(url, retry_attempt + 1, skip_init=True)
             return None
         except requests.exceptions.RequestException as e:
             if retry_attempt < self.max_retries:
-                return self._make_realistic_request(url, retry_attempt + 1)
+                return self._make_realistic_request(url, retry_attempt + 1, skip_init=True)
             return None
     
     def fetch_listings(self, url: str, max_listings: int = 20, retry_count: int = 0) -> FetchResult:
@@ -1018,12 +1067,12 @@ def main():
     print()
     print("💡 This approach uses:")
     print("   - Perfect Chrome browser headers")
-    print("   - Session cookies from main site first")
-    print("   - Adaptive delays (3-5s fast, 9-12s if rate limited)")
-    print("   - No proxies - just good headers")
+    print("   - Session cookies from main site once at start")
+    print("   - Adaptive delays (7-11s normal, 15-20s if rate limited)")
+    print("   - No proxies - just good headers and respectful delays")
     print()
     
-    scraper = SimpleBrowserScraper(delay_range=(3.0, 5.0))
+    scraper = SimpleBrowserScraper(delay_range=(5.0, 8.0))
     result = scraper.fetch_listings(test_url, max_listings=15)
     listings = result.listings
     

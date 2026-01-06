@@ -79,5 +79,21 @@
     "notes": "Iconic burn spell",
     "archived_at": "2026-01-05T21:24:01.062002",
     "moved_to_collection": true
+  },
+  {
+    "name": "Azusa, Lost but Seeking",
+    "sets": [
+      "Champions of Kamigawa"
+    ],
+    "notes": "Extra land drops",
+    "archived_at": "2026-01-06T21:21:02.762256"
+  },
+  {
+    "name": "Onslaught Fetchlands",
+    "sets": [
+      "Onslaught"
+    ],
+    "notes": "Premium mana fixing",
+    "archived_at": "2026-01-06T21:21:06.600986"
   }
 ]

@@ -1,0 +1,173 @@
+{
+  "timestamp": "2026-01-06 17:48:06",
+  "wishlist_file": "collection.json",
+  "config": {
+    "min_discount": 0.0,
+    "delay_between_cards": 15.0,
+    "use_historical_data": true
+  },
+  "summary": {
+    "total_deals": 2,
+    "excellent": 1,
+    "good": 1,
+    "fair": 0,
+    "expensive": 0,
+    "no_data": 0
+  },
+  "deals": [
+    {
+      "card": {
+        "name": "Memory Jar",
+        "expansion": "Urzas Legacy",
+        "card_id": 10686,
+        "historical": {
+          "trend": 21.22,
+          "avg30": 20.51,
+          "avg7": 20.62
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Legacy/Memory-Jar?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 1027,
+        "expansion_name": "Urzas Legacy",
+        "cheapest_good_condition": 21.0,
+        "cheapest_good_details": {
+          "price": 21.0,
+          "condition": "EX",
+          "seller": "louisuut",
+          "quantity": 3,
+          "country": "Netherlands"
+        },
+        "top_sellers": [
+          {
+            "seller": "louisuut",
+            "price": 21.0,
+            "condition": "EX",
+            "quantity": 3,
+            "country": "Netherlands"
+          },
+          {
+            "seller": "RaulReok",
+            "price": 21.5,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Spain"
+          },
+          {
+            "seller": "NordicCollect",
+            "price": 21.84,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Denmark"
+          },
+          {
+            "seller": "77bH77",
+            "price": 21.85,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Belgium"
+          },
+          {
+            "seller": "Krush0r",
+            "price": 22.0,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "Switzerland"
+          },
+          {
+            "seller": "HouseOfCardsBE",
+            "price": 22.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Belgium"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 3.658676453721755,
+        "market_baseline": 21.7975,
+        "baseline_count": 4
+      },
+      "category": "good"
+    },
+    {
+      "card": {
+        "name": "Palinchron",
+        "expansion": "Urzas Legacy",
+        "card_id": 10595,
+        "historical": {
+          "trend": 22.15,
+          "avg30": 22.09,
+          "avg7": 21.69
+        }
+      },
+      "live_data": {
+        "url": "https://www.cardmarket.com/en/Magic/Products/Singles/Urzas-Legacy/Palinchron?language=1&minCondition=3",
+        "total_listings": 10,
+        "available_items_total": 637,
+        "expansion_name": "Urzas Legacy",
+        "cheapest_good_condition": 20.6,
+        "cheapest_good_details": {
+          "price": 20.6,
+          "condition": "EX",
+          "seller": "Gear-Head-Games",
+          "quantity": 1,
+          "country": "United Kingdom"
+        },
+        "top_sellers": [
+          {
+            "seller": "Gear-Head-Games",
+            "price": 20.6,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "EthanYushi",
+            "price": 21.42,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "Panforte",
+            "price": 22.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Italy"
+          },
+          {
+            "seller": "ambre1604",
+            "price": 22.0,
+            "condition": "EX",
+            "quantity": 1,
+            "country": "Belgium"
+          },
+          {
+            "seller": "GengarPirate",
+            "price": 23.21,
+            "condition": "NM",
+            "quantity": 1,
+            "country": "United Kingdom"
+          },
+          {
+            "seller": "LightspeedCards",
+            "price": 23.78,
+            "condition": "EX",
+            "quantity": 2,
+            "country": "United Kingdom"
+          }
+        ]
+      },
+      "discounts": {
+        "has_discount": true,
+        "discount_vs_market": 7.0292226108541005,
+        "market_baseline": 22.1575,
+        "baseline_count": 4
+      },
+      "category": "excellent"
+    }
+  ]
+}

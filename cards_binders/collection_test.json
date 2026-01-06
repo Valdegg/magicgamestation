@@ -1,0 +1,21 @@
+[
+  {
+    "name": "Taiga",
+    "sets": [
+      "Revised Edition"
+    ],
+    "buy_price": 215,
+    "condition": "Near Mint",
+    "language": "Italian"
+  },
+  {
+    "name": "Scrubland",
+    "sets": [
+      "Revised Edition"
+    ],
+    "language": "Italian",
+    "buy_price": 192.95,
+    "sell_price": 0,
+    "condition": "Excellent"
+  }
+]

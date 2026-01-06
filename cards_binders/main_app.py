@@ -354,6 +354,7 @@ import collection_ui
 
 # Get route handlers from each module
 market_index = web_ui.index
+market_collection = web_ui.collection_market_scan
 api_results = web_ui.api_results
 api_deals = web_ui.api_deals
 api_filter_options = web_ui.api_filter_options
@@ -410,6 +411,49 @@ async def market_route(request: Request):
         
         print(f"Market route: Replaced {api_count_before} /api/ occurrences, {market_api_count} /market/api/ now present", flush=True)
         
+        # Inject JavaScript to set source_type based on URL path - MUST be in <head> to run early
+        source_type_script = """
+    <script>
+    // Set source_type based on URL path - run immediately
+    (function() {
+        const path = window.location.pathname;
+        const sourceType = path.includes('/collection') ? 'collection' : 'wishlist';
+        
+        // Set as global variable for frontend to use
+        window.MARKET_SCANNER_SOURCE_TYPE = sourceType;
+        
+        // Intercept API calls IMMEDIATELY - must happen before any fetch calls
+        if (!window._market_scanner_fetch_intercepted) {
+            window._market_scanner_fetch_intercepted = true;
+            const originalFetch = window.fetch;
+            window.fetch = function(...args) {
+                const url = args[0];
+                if (typeof url === 'string' && (url.includes('/market/api/deals') || url.includes('/market/api/results'))) {
+                    // Add source_type if not already present
+                    if (!url.includes('source_type=') && !url.includes('sourceType=')) {
+                        const separator = url.includes('?') ? '&' : '?';
+                        args[0] = url + separator + 'source_type=' + sourceType;
+                        console.log('📊 Intercepted API call, added source_type=' + sourceType + ' to:', url);
+                    }
+                }
+                return originalFetch.apply(this, args);
+            };
+        }
+        
+        console.log('📊 Market Scanner: source_type set to', sourceType);
+    })();
+    </script>
+"""
+        # Inject in <head> section to run early, before any other scripts
+        if '<head>' in html:
+            # Find the <head> tag and inject right after it
+            html = html.replace('<head>', '<head>' + source_type_script)
+        elif '</head>' in html:
+            html = html.replace('</head>', source_type_script + '\n</head>')
+        else:
+            # If no head tag, prepend to body
+            html = source_type_script + html
+        
         return HTMLResponse(content=inject_navigation(html, "market"))
     except Exception as e:
         import traceback
@@ -418,13 +462,110 @@ async def market_route(request: Request):
         traceback.print_exc()
         return HTMLResponse(content=error_msg, status_code=500)
 
+@app.get("/market/collection", response_class=HTMLResponse)
+async def market_collection_route(request: Request):
+    """Collection market scanner page with navigation."""
+    try:
+        response = await market_collection()
+        
+        # Extract HTML content from response
+        if isinstance(response, HTMLResponse):
+            html = response.body.decode('utf-8') if response.body else ""
+        elif hasattr(response, 'body'):
+            html = response.body.decode('utf-8') if isinstance(response.body, bytes) else str(response.body)
+        else:
+            html = str(response)
+        
+        if not html or html.strip() == "":
+            return HTMLResponse(content="<h1>Error: Empty response from collection market scanner</h1>", status_code=500)
+        
+        # Update API paths in HTML to use /market prefix
+        api_count_before = html.count('/api/')
+        html = re.sub(r'(?<!market)/api/', '/market/api/', html)
+        market_api_count = html.count('/market/api/')
+        
+        print(f"Collection market route: Replaced {api_count_before} /api/ occurrences, {market_api_count} /market/api/ now present", flush=True)
+        
+        # Inject JavaScript to set source_type to 'collection' - MUST be in <head> to run early
+        source_type_script = """
+    <script>
+    // Set source_type to collection for this page - run immediately
+    (function() {
+        const sourceType = 'collection';
+        
+        // Set as global variable for frontend to use
+        window.MARKET_SCANNER_SOURCE_TYPE = sourceType;
+        
+        // Intercept API calls IMMEDIATELY - must happen before any fetch calls
+        if (!window._market_scanner_fetch_intercepted) {
+            window._market_scanner_fetch_intercepted = true;
+            const originalFetch = window.fetch;
+            window.fetch = function(...args) {
+                const url = args[0];
+                if (typeof url === 'string' && (url.includes('/market/api/deals') || url.includes('/market/api/results'))) {
+                    // Add source_type if not already present
+                    if (!url.includes('source_type=') && !url.includes('sourceType=')) {
+                        const separator = url.includes('?') ? '&' : '?';
+                        args[0] = url + separator + 'source_type=' + sourceType;
+                        console.log('📊 Intercepted API call, added source_type=' + sourceType + ' to:', url);
+                    }
+                }
+                return originalFetch.apply(this, args);
+            };
+        }
+        
+        console.log('📊 Market Scanner: source_type set to', sourceType);
+    })();
+    </script>
+"""
+        # Inject in <head> section to run early, before any other scripts
+        if '<head>' in html:
+            # Find the <head> tag and inject right after it
+            html = html.replace('<head>', '<head>' + source_type_script)
+        elif '</head>' in html:
+            html = html.replace('</head>', source_type_script + '\n</head>')
+        else:
+            # If no head tag, prepend to body
+            html = source_type_script + html
+        
+        return HTMLResponse(content=inject_navigation(html, "market"))
+    except Exception as e:
+        import traceback
+        error_msg = f"<h1>Error loading collection market scanner</h1><pre>{traceback.format_exc()}</pre>"
+        print(f"Error in market_collection_route: {e}", flush=True)
+        traceback.print_exc()
+        return HTMLResponse(content=error_msg, status_code=500)
+
+@app.get("/market/api/results/{filename:path}")
+async def market_api_raw_results(filename: str):
+    """
+    Serve raw JSON result files for viewing/downloading.
+    Example: /market/api/results/wishlist_deals_20260106_193111.json
+    """
+    import os
+    from fastapi.responses import FileResponse
+    
+    # Security: ensure file is in results directory
+    file_path = os.path.join('results', filename)
+    
+    # Prevent directory traversal
+    if not os.path.abspath(file_path).startswith(os.path.abspath('results')):
+        return JSONResponse(content={'error': 'Invalid file path'}, status_code=400)
+    
+    if not os.path.exists(file_path):
+        return JSONResponse(content={'error': 'File not found'}, status_code=404)
+    
+    # Return as JSON with proper content type
+    return FileResponse(file_path, media_type='application/json', filename=filename)
+
 @app.get("/market/api/results")
-async def market_api_results():
-    return await api_results()
+async def market_api_results(source_type: str = None):
+    return await api_results(source_type=source_type)
 
 @app.get("/market/api/deals")
 async def market_api_deals(
     file: str = None,
+    source_type: str = None,
     category: str = None,
     min_discount: float = None,
     sort: str = 'discount',
@@ -437,6 +578,7 @@ async def market_api_deals(
 ):
     return await api_deals(
         file=file,
+        source_type=source_type,
         category=category,
         min_discount=min_discount,
         sort=sort,

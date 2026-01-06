@@ -67,5 +67,15 @@
     "added_at": "2026-01-05T21:24:01.061822",
     "moved_from_wishlist": true,
     "archived_at": "2026-01-05T21:25:08.777878"
+  },
+  {
+    "name": "Psionic Blast",
+    "sets": [
+      "Beta"
+    ],
+    "buy_price": 141.1,
+    "sell_price": 0,
+    "condition": "Excellent",
+    "archived_at": "2026-01-06T19:32:53.005589"
   }
 ]

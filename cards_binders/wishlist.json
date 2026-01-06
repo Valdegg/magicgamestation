@@ -138,13 +138,6 @@
     "notes": "Classic board wipe"
   },
   {
-    "name": "Azusa, Lost but Seeking",
-    "sets": [
-      "Champions of Kamigawa"
-    ],
-    "notes": "Extra land drops"
-  },
-  {
     "name": "Exploration",
     "sets": [
       "Urza's Saga"
@@ -157,13 +150,6 @@
       "Stronghold"
     ],
     "notes": "Ramp on opponents' turns"
-  },
-  {
-    "name": "Onslaught Fetchlands",
-    "sets": [
-      "Onslaught"
-    ],
-    "notes": "Premium mana fixing"
   },
   {
     "name": "Ancient Tomb",

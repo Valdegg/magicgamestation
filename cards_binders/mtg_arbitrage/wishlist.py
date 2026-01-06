@@ -56,6 +56,87 @@ def create_sample_wishlist(filepath: str = "wishlist.json") -> None:
     print(f"✅ Created sample wishlist: {filepath}")
 
 
+def normalize_set_name_for_matching(name: str) -> str:
+    """
+    Normalize set name for fuzzy matching.
+    Handles apostrophes, removes parentheticals, normalizes common variations.
+    """
+    if not name or pd.isna(name):
+        return ''
+    
+    name_str = str(name)
+    # Remove parentheticals
+    name_str = name_str.split('(')[0].strip()
+    # Remove "Edition" for matching (but keep "International" distinct)
+    if 'international' not in name_str.lower():
+        name_str = name_str.replace('Edition', '').strip()
+    # Normalize apostrophes: "Urza's" -> "urzas", "Mishra's" -> "mishras"
+    name_str = name_str.replace("'", "").replace("'", "").replace("'", "")
+    # Normalize spaces and hyphens
+    name_str = name_str.replace('-', ' ').replace('_', ' ')
+    # Collapse multiple spaces
+    import re
+    name_str = re.sub(r'\s+', ' ', name_str).strip()
+    return name_str.lower()
+
+
+def get_cardmarket_set_name(set_name: str, language: str = None) -> str:
+    """
+    Map collection set names to Cardmarket set names.
+    Special handling for:
+    - International Edition (various formats)
+    - Revised Edition + non-English language -> Foreign White Bordered (FWB)
+    - Fourth Edition (Foreign Black Border) -> Fourth Edition Black Bordered
+    """
+    if not set_name:
+        return set_name
+    
+    set_lower = set_name.lower()
+    
+    # International Edition - handle various formats
+    if 'international' in set_lower:
+        return 'International Edition'
+    
+    # Handle sets with "(Black Bordered)" pattern FIRST - this overrides language-based mapping
+    # This catches: "Revised Edition (Black Bordered)" -> "Foreign Black Bordered"
+    # Also handles: "Fourth Edition (Foreign Black Border)" -> "Fourth Edition Black Bordered"
+    if '(black border' in set_lower or 'black border' in set_lower:
+        # Check if it's Revised Edition (Black Bordered) -> Foreign Black Bordered
+        if 'revised' in set_lower:
+            mapped = 'Foreign Black Bordered'
+            print(f"      🔄 Mapping set: '{set_name}' -> '{mapped}'")
+            return mapped
+        # Otherwise, remove the parenthetical and add "Black Bordered"
+        base_set = set_name.split('(')[0].strip()
+        if base_set:
+            mapped = f'{base_set} Black Bordered'
+            print(f"      🔄 Mapping set: '{set_name}' -> '{mapped}'")
+            return mapped
+    
+    # Revised Edition + non-English language -> Foreign White Bordered (only if not black bordered)
+    if 'revised' in set_lower and language and language.lower() not in ['', 'english']:
+        return 'Foreign White Bordered'
+    
+    # Handle sets with "(Foreign Black Border)" or "(Foreign Black Bordered)" pattern
+    # This catches: "Fourth Edition (Foreign Black Border)" -> "Fourth Edition Black Bordered"
+    # Also handles: "Fourth Edition (Foreign Black Bordered)" -> "Fourth Edition Black Bordered"
+    if '(foreign black border' in set_lower or 'foreign black border' in set_lower:
+        # Remove the parenthetical and add "Black Bordered"
+        base_set = set_name.split('(')[0].strip()
+        if base_set:
+            mapped = f'{base_set} Black Bordered'
+            print(f"      🔄 Mapping set: '{set_name}' -> '{mapped}'")
+            return mapped
+    
+    # Fourth Edition (Foreign Black Border) -> Fourth Edition Black Bordered (backup check)
+    if 'fourth edition' in set_lower and 'foreign black border' in set_lower:
+        mapped = 'Fourth Edition Black Bordered'
+        print(f"      🔄 Mapping set: '{set_name}' -> '{mapped}'")
+        return mapped
+    
+    return set_name
+
+
 def filter_by_wishlist(data: pd.DataFrame, wishlist: List[Dict[str, Any]]) -> pd.DataFrame:
     """Filter data to only include cards from the wishlist."""
     if not wishlist or data.empty:
@@ -65,31 +146,90 @@ def filter_by_wishlist(data: pd.DataFrame, wishlist: List[Dict[str, Any]]) -> pd
     matching_cards = []
     
     for item in wishlist:
+        item_display_name = item.get('name', 'Unknown')
         card_name = item.get('name', '').lower()
+        alternative_name = item.get('alternative_name', '').lower()
         allowed_sets = item.get('sets', [])
+        language = item.get('language', '')
         max_price = item.get('max_price', float('inf'))
         
         if not card_name:
+            print(f"   ⚠️  Skipping item with no name: {item}")
             continue
         
-        # Find cards matching the name
+        # Map set names to Cardmarket equivalents
+        mapped_sets = [get_cardmarket_set_name(s, language) for s in allowed_sets]
+        
+        # Log what we're trying to match
+        print(f"   🔍 Matching: {item_display_name} (sets: {allowed_sets})")
+        if alternative_name:
+            print(f"      Alternative name: {alternative_name}")
+        if language:
+            print(f"      Language: {language}")
+        if mapped_sets != allowed_sets:
+            print(f"      Mapped sets: {mapped_sets}")
+        
+        # Find cards matching the name (try main name first)
+        # Escape special regex characters in card_name
+        import re
+        escaped_card_name = re.escape(card_name)
         name_matches = data[
-            data['name'].str.lower().str.contains(card_name, na=False)
+            data['name'].str.lower().str.contains(escaped_card_name, na=False, regex=True)
         ].copy()
         
+        print(f"      Found {len(name_matches)} cards matching name '{item_display_name}'")
+        
+        # If no matches and alternative_name exists, try alternative_name
+        if name_matches.empty and alternative_name:
+            escaped_alt_name = re.escape(alternative_name)
+            name_matches = data[
+                data['name'].str.lower().str.contains(escaped_alt_name, na=False, regex=True)
+            ].copy()
+            if not name_matches.empty:
+                print(f"      ✅ Matched via alternative_name: {item_display_name} -> {alternative_name} ({len(name_matches)} cards)")
+            else:
+                print(f"      ❌ No matches for alternative_name '{alternative_name}' either")
+        elif name_matches.empty:
+            print(f"      ❌ No cards found matching name '{item_display_name}'")
+        
         # Filter by sets if specified
-        if allowed_sets:
-            set_matches = name_matches[
-                name_matches['expansionName'].isin(allowed_sets)
+        if mapped_sets:
+            # Try exact match first
+            exact_matches = name_matches[
+                name_matches['expansionName'].isin(mapped_sets)
             ]
+            
+            print(f"      Found {len(exact_matches)} cards with exact set match: {mapped_sets}")
+            
+            # If no exact matches, try fuzzy matching (normalize apostrophes, etc.) on MAPPED sets only
+            if exact_matches.empty:
+                # Normalize set names for fuzzy matching (only on mapped sets, not original)
+                normalized_allowed = [normalize_set_name_for_matching(s) for s in mapped_sets]
+                
+                set_matches = name_matches[
+                    name_matches['expansionName'].apply(normalize_set_name_for_matching).isin(normalized_allowed)
+                ]
+                
+                print(f"      Found {len(set_matches)} cards with fuzzy set match (normalized: {normalized_allowed})")
+                
+                # If still no matches, show what sets were found in name_matches
+                if set_matches.empty and not name_matches.empty:
+                    found_sets = name_matches['expansionName'].dropna().unique().tolist()
+                    print(f"      ⚠️  Available sets in name matches: {found_sets[:10]}")  # Show first 10
+                    print(f"      💡 Will use fallback URL building (card not in price guide)")
+            else:
+                set_matches = exact_matches
         else:
             set_matches = name_matches
+            print(f"      No set filter applied, using all {len(set_matches)} name matches")
         
         # Filter by max price (using AVG7 as current market price)
         if 'AVG7' in set_matches.columns:
             price_matches = set_matches[
                 set_matches['AVG7'] <= max_price
             ]
+            if len(price_matches) < len(set_matches):
+                print(f"      ⚠️  Price filter removed {len(set_matches) - len(price_matches)} cards (max_price: €{max_price})")
         else:
             price_matches = set_matches
         
@@ -101,6 +241,24 @@ def filter_by_wishlist(data: pd.DataFrame, wishlist: List[Dict[str, Any]]) -> pd
             price_matches['wishlist_max_price'] = max_price
             
             matching_cards.append(price_matches)
+            print(f"      ✅ Successfully matched {len(price_matches)} card(s)")
+        else:
+            print(f"      ❌ FAILED to match: {item_display_name}")
+            if name_matches.empty:
+                print(f"         Reason: No cards found with name '{item_display_name}'")
+                if alternative_name:
+                    print(f"         (Also tried alternative_name '{alternative_name}')")
+            elif set_matches.empty:
+                print(f"         Reason: No cards found in sets {allowed_sets}")
+                if mapped_sets != allowed_sets:
+                    print(f"         (Also tried mapped sets {mapped_sets})")
+                if not name_matches.empty:
+                    found_sets = name_matches['expansionName'].dropna().unique().tolist()
+                    print(f"         Available sets in name matches: {found_sets[:5]}")
+            elif len(price_matches) < len(set_matches):
+                print(f"         Reason: Price filter (max €{max_price}) excluded all matches")
+        
+        print()  # Blank line for readability
     
     if not matching_cards:
         print("❌ No cards found matching wishlist criteria")

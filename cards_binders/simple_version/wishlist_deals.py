@@ -53,7 +53,7 @@ Data Structure:
 # ============================================================================
 WISHLIST_FILE = "wishlist.json"
 MIN_DISCOUNT = 0.0  # Minimum discount percentage (0 = show all deals)
-DELAY_BETWEEN_CARDS = 10.0  # Seconds to wait between scraping cards
+DELAY_BETWEEN_CARDS = 15.0  # Minimum seconds to wait between scraping cards (actual: 15-25s random)
 USE_HISTORICAL_DATA = True  # If False, skips catalogue download and discount calculations
 OUTPUT_FILE = None  # Path to save JSON results (None = auto-generate filename based on timestamp)
 # ============================================================================
@@ -73,7 +73,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 # Import required modules
 from card_lookup import load_cardmarket_data
 from mtg_arbitrage.wishlist import load_wishlist, filter_by_wishlist
-from mtg_arbitrage.utils import get_cardmarket_url
+from mtg_arbitrage.utils import get_cardmarket_url, map_condition_to_cardmarket_code
 from mtg_arbitrage.config import get_config
 
 # Import scraper
@@ -104,6 +104,8 @@ def load_wishlist_cards(wishlist_file: str = "wishlist.json", use_historical: bo
         print("❌ No wishlist items found")
         return []
     
+    print(f"📊 Collection has {len(wishlist)} items")
+    
     if not use_historical:
         # Return wishlist items directly without matching to price guide
         print("⚠️  Historical data disabled - will only show live prices (no discount calculations)")
@@ -130,19 +132,104 @@ def load_wishlist_cards(wishlist_file: str = "wishlist.json", use_historical: bo
         print("❌ No price guide data available")
         return []
     
-    print(f"🔍 Matching wishlist items to cards...")
+    print(f"🔍 Matching wishlist items to cards in price guide...")
     matched_cards = filter_by_wishlist(data, wishlist)
     
     if matched_cards.empty:
         print("❌ No cards matched from wishlist")
+        print(f"💡 This could mean:")
+        print(f"   - Cards not in price guide data")
+        print(f"   - Set names don't match exactly")
+        print(f"   - Cards have no sales data")
         return []
     
-    # Convert to list of dictionaries
+    # Convert to list of dictionaries and preserve condition from wishlist/collection
     cards = []
-    for _, row in matched_cards.iterrows():
-        cards.append(row.to_dict())
+    matched_wishlist_items = set()  # Track which wishlist items were matched
     
-    print(f"✅ Found {len(cards)} matching cards")
+    for _, row in matched_cards.iterrows():
+        card_dict = row.to_dict()
+        card_name = card_dict.get('name', '').lower()
+        card_expansion = card_dict.get('expansionName', '')
+        
+        # Try to find matching wishlist item to preserve condition and alternative_name
+        # Match by name first, then by expansion if available
+        matching_item = None
+        for item in wishlist:
+            item_name = item.get('name', '').lower()
+            item_alt_name = item.get('alternative_name', '').lower()
+            # Match if main name matches OR alternative name matches
+            if item_name == card_name or (item_alt_name and item_alt_name == card_name):
+                # If expansion matches or item has no sets specified, use this item
+                item_sets = item.get('sets', [])
+                if not item_sets or card_expansion in item_sets or any(card_expansion in str(s) for s in item_sets):
+                    matching_item = item
+                    matched_wishlist_items.add(item.get('name'))
+                    break
+        
+        # Preserve condition, alternative_name, and foil if found in wishlist/collection item
+        if matching_item:
+            if 'condition' in matching_item:
+                card_dict['collection_condition'] = matching_item['condition']
+            if 'alternative_name' in matching_item:
+                card_dict['alternative_name'] = matching_item['alternative_name']
+            if 'language' in matching_item:
+                card_dict['collection_language'] = matching_item['language']
+            if 'foil' in matching_item:
+                card_dict['foil'] = matching_item['foil']
+        
+        cards.append(card_dict)
+    
+    matched_count = len(cards)
+    total_items = len(wishlist)
+    unmatched = total_items - matched_count
+    
+    print(f"\n✅ Found {matched_count} matching cards (out of {total_items} collection items)")
+    
+    # Add fallback cards for unmatched items (will scrape without card_id)
+    if unmatched > 0:
+        print(f"\n⚠️  {unmatched} collection items couldn't be matched to price guide (will use fallback):")
+        # Show which items failed and add fallback entries
+        for item in wishlist:
+            item_name = item.get('name', 'Unknown')
+            if item_name not in matched_wishlist_items:
+                sets = item.get('sets', [])
+                alt_name = item.get('alternative_name', '')
+                language = item.get('language', '')
+                print(f"   ⚠️  {item_name}", end="")
+                if sets:
+                    print(f" ({', '.join(sets)})", end="")
+                if alt_name:
+                    print(f" [alt: {alt_name}]", end="")
+                if language:
+                    print(f" [lang: {language}]", end="")
+                print(" → Will scrape without card ID")
+                
+                # Create fallback card entry
+                # Use first set as expansion, or map set names if needed
+                expansion = sets[0] if sets else None
+                if expansion and language:
+                    # Map set names (e.g., Revised + Italian → Foreign White Bordered)
+                    from mtg_arbitrage.wishlist import get_cardmarket_set_name
+                    expansion = get_cardmarket_set_name(expansion, language)
+                
+                fallback_card = {
+                    'name': item_name,
+                    'expansionName': expansion,
+                    'sets': sets,
+                    'alternative_name': alt_name,
+                    'language': language,
+                    'foil': item.get('foil', False),
+                    'collection_condition': item.get('condition'),
+                    'TREND': 0,
+                    'AVG30': 0,
+                    'AVG7': 0,
+                    'idProduct': None  # No card ID - will use fallback URL building
+                }
+                cards.append(fallback_card)
+        
+        print(f"\n   💡 Fallback mode: Will scrape using expansion + card name (no historical data)")
+    
     return cards
 
 
@@ -151,7 +238,7 @@ def scrape_card_prices(card: Dict[str, Any], scraper: SimpleBrowserScraper) -> O
     Scrape live prices for a single card.
     
     Args:
-        card: Card data dictionary
+        card: Card data dictionary (may contain 'collection_condition' for collection items)
         scraper: Scraper instance
         
     Returns:
@@ -160,17 +247,67 @@ def scrape_card_prices(card: Dict[str, Any], scraper: SimpleBrowserScraper) -> O
     card_id = card.get('idProduct')
     card_name = card.get('name', f"Card ID {card_id}")
     expansion_name = card.get('expansionName')
+    sets = card.get('sets', [])
     
+    # Prefer sets array over expansionName for mapping (sets array has the original collection set name)
+    # This ensures we catch patterns like "Fourth Edition (Foreign Black Bordered)"
+    set_to_map = sets[0] if sets else expansion_name
+    
+    # Fallback: if no expansionName, use sets array
+    if not expansion_name:
+        if sets:
+            expansion_name = sets[0]
+    
+    # Always map set name (handles language-based mappings and set name patterns)
+    language = card.get('language') or card.get('collection_language')
+    if set_to_map:
+        from mtg_arbitrage.wishlist import get_cardmarket_set_name
+        original_expansion = expansion_name or set_to_map
+        mapped_expansion = get_cardmarket_set_name(set_to_map, language)
+        if mapped_expansion != set_to_map:
+            print(f"   🔄 Mapped expansion: '{set_to_map}' -> '{mapped_expansion}'")
+            expansion_name = mapped_expansion
+        elif expansion_name != mapped_expansion:
+            expansion_name = mapped_expansion
+    
+    collection_condition = card.get('collection_condition')  # Condition from collection item
+    
+    # If no card_id, we'll use fallback URL building (expansion + card name)
     if not card_id:
-        print(f"   ⚠️  No card ID available for {card_name}")
-        return None
+        if not expansion_name:
+            print(f"   ❌ No card ID and no expansion name available for {card_name}")
+            print(f"      Cannot build Cardmarket URL - need either card_id or expansion name")
+            return None
+        print(f"   ⚠️  No card ID available for {card_name} - using fallback URL (expansion + name)")
+    
+    # Determine minimum condition for URL
+    # If collection_condition exists, use it; otherwise default to Excellent+ (3)
+    if collection_condition:
+        min_condition_code = map_condition_to_cardmarket_code(collection_condition)
+        print(f"   📋 Using collection condition: {collection_condition} (code: {min_condition_code})")
+    else:
+        min_condition_code = 3  # Default to Excellent+ for wishlist
+        print(f"   📋 No condition specified, using Excellent+ (code: 3)")
     
     # Generate Cardmarket URL
     try:
         config = get_config()
         use_german_only = config.get('USE_GERMAN_SELLERS_ONLY', False)
-        url = get_cardmarket_url(card_id, card_name, expansion_name, 'direct', include_filters=use_german_only)
+        alternative_name = card.get('alternative_name')  # Use alternative_name if available (e.g., for foreign card names)
+        is_foil = card.get('foil', False)  # Check if card is foil
+        card_language = language  # Use language from card (already extracted above)
+        
+        # If no card_id, pass None and URL builder will use expansion + card name
+        url = get_cardmarket_url(card_id, card_name, expansion_name, 'direct', include_filters=use_german_only, min_condition=min_condition_code, alternative_name=alternative_name, is_foil=is_foil, language=card_language)
         print(f"   🔗 URL: {url}")
+        if alternative_name:
+            print(f"   📝 Using alternative_name: {alternative_name}")
+        if is_foil:
+            print(f"   ✨ Filtering for foil versions only")
+        if card_language:
+            print(f"   🌍 Filtering for language: {card_language}")
+        if not card_id:
+            print(f"   📝 Fallback mode: URL built from expansion '{expansion_name}' + card name")
     except Exception as e:
         print(f"   ❌ Error generating URL: {e}")
         import traceback
@@ -229,15 +366,37 @@ def scrape_card_prices(card: Dict[str, Any], scraper: SimpleBrowserScraper) -> O
     if scraped_expansion:
         print(f"   📦 Expansion: {scraped_expansion}")
     
-    # Extract prices and find best EX+ listing
+    # Extract prices and find best listing matching the condition
     prices = [l.price for l in listings if l.price > 0]
     if not prices:
         return None
     
-    # Find EX+ condition listings (EX, NM, MT)
+    # Determine which conditions to accept based on collection_condition
+    # Cardmarket condition codes: 1=MT, 2=NM, 3=EX, 4=GD, 5=LP, 6=PL, 7=PO
+    collection_condition = card.get('collection_condition')
+    if collection_condition:
+        min_condition_code = map_condition_to_cardmarket_code(collection_condition)
+        # Map condition codes to accepted condition strings
+        condition_map = {
+            1: ['MT'],  # Mint only
+            2: ['NM', 'MT'],  # Near Mint or better
+            3: ['EX', 'NM', 'MT'],  # Excellent or better
+            4: ['GD', 'EX', 'NM', 'MT'],  # Good or better
+            5: ['LP', 'GD', 'EX', 'NM', 'MT'],  # Lightly Played or better
+            6: ['PL', 'LP', 'GD', 'EX', 'NM', 'MT'],  # Played or better
+            7: ['PO', 'PL', 'LP', 'GD', 'EX', 'NM', 'MT']  # Poor or better (all)
+        }
+        accepted_conditions = condition_map.get(min_condition_code, ['EX', 'NM', 'MT'])
+        print(f"   🔍 Filtering for conditions: {', '.join(accepted_conditions)}")
+    else:
+        # Default to EX+ for wishlist (no condition specified)
+        accepted_conditions = ['EX', 'NM', 'MT']
+        print(f"   🔍 Filtering for EX+ conditions: {', '.join(accepted_conditions)}")
+    
+    # Find listings matching the condition requirement
     good_condition_listings = [
         l for l in listings 
-        if l.condition.upper() in ['EX', 'NM', 'MT']
+        if l.condition.upper() in [c.upper() for c in accepted_conditions]
     ]
     
     cheapest_good = None
@@ -382,8 +541,8 @@ def check_wishlist_deals(wishlist_file: str,
     if not cards:
         return []
     
-    # Initialize scraper (same as main.py)
-    scraper = SimpleBrowserScraper(delay_range=(3.0, 5.0), max_retries=3, save_images=True)
+    # Initialize scraper with safer, more human-like delays
+    scraper = SimpleBrowserScraper(delay_range=(5.0, 8.0), max_retries=3, save_images=True)
     
     print(f"\n💰 Scraping live prices for {len(cards)} cards...")
     print("=" * 60)
@@ -451,8 +610,10 @@ def check_wishlist_deals(wishlist_file: str,
         
         # Print summary
         cheapest_good = live_data.get('cheapest_good_condition')
+        card_condition = card.get('collection_condition')
+        condition_label = card_condition if card_condition else "EX+"
         if cheapest_good:
-            print(f"   💶 Best EX+: €{cheapest_good:.2f}")
+            print(f"   💶 Best {condition_label}: €{cheapest_good:.2f}")
             
             discount_vs_market = discounts.get('discount_vs_market')
             if discount_vs_market is not None:
@@ -502,9 +663,9 @@ def check_wishlist_deals(wishlist_file: str,
         
         deals.append(deal)
         
-        # Delay between cards (except last one) - same as main.py for consistency
+        # Delay between cards (except last one) - longer delays to avoid rate limiting
         if i < len(cards):
-            delay = random.uniform(10, 15)  # 10-15 seconds between cards (same as main.py)
+            delay = random.uniform(15, 25)  # 15-25 seconds between cards to avoid rate limiting
             print(f"   ⏳ Waiting {delay:.1f}s before next card...")
             time.sleep(delay)
     

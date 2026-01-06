@@ -12,6 +12,7 @@ import sys
 import argparse
 import re
 import requests
+import glob
 from datetime import datetime
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.responses import HTMLResponse, JSONResponse, FileResponse
@@ -453,13 +454,136 @@ def fetch_card_image_from_scryfall(card_name: str, set_name: Optional[str] = Non
         return None
 
 
+def normalize_expansion_for_lookup(exp: str) -> Optional[str]:
+    """
+    Normalize expansion name for lookup (remove apostrophes, lowercase).
+    Handles variations like "Urza's Legacy" vs "Urzas Legacy".
+    """
+    if not exp:
+        return None
+    # Remove apostrophes and normalize
+    normalized = exp.replace("'", "").replace("'", "").replace("'", "").lower()
+    return normalized
+
+
+def load_latest_collection_scan_results() -> Dict[str, Dict[str, Any]]:
+    """
+    Load the most recent collection market scan results and create a lookup dictionary.
+    
+    Returns:
+        Dictionary mapping (card_name, expansion) -> market data
+        Format: {(name_lower, expansion_lower): {'price': float, 'discount': float, 'category': str, ...}}
+    """
+    results_dir = 'results'
+    if not os.path.exists(results_dir):
+        print(f"⚠️  Market scan: results directory not found: {results_dir}", flush=True)
+        return {}
+    
+    # Find all collection scan result files
+    json_files = glob.glob(os.path.join(results_dir, 'collection_deals_*.json'))
+    if not json_files:
+        print(f"⚠️  Market scan: No collection_deals_*.json files found in {results_dir}", flush=True)
+        return {}
+    
+    # Sort by modification time, newest first
+    json_files.sort(key=os.path.getmtime, reverse=True)
+    latest_file = json_files[0]
+    print(f"📊 Market scan: Loading latest scan results from {latest_file}", flush=True)
+    
+    try:
+        with open(latest_file, 'r', encoding='utf-8') as f:
+            results = json.load(f)
+        
+        print(f"📊 Market scan: File loaded, timestamp: {results.get('timestamp', 'unknown')}", flush=True)
+        
+        # Normalize deal data (reuse logic from web_ui.py)
+        deals = []
+        if 'deals' in results or 'candidates' in results:
+            deal_list = results.get('deals', []) or results.get('candidates', [])
+            print(f"📊 Market scan: Found {len(deal_list)} deals in scan results", flush=True)
+            for deal in deal_list:
+                card = deal.get('card', {})
+                live_data = deal.get('live_data', {})
+                url = live_data.get('url', '')
+                
+                # Extract language from URL if present (language=1,2,3,4,5)
+                language_code = None
+                language_name = None
+                if url and 'language=' in url:
+                    try:
+                        import re
+                        match = re.search(r'language=(\d+)', url)
+                        if match:
+                            language_code = int(match.group(1))
+                            # Map language code to language name (normalize English to None)
+                            language_map = {1: None, 2: 'French', 3: 'German', 4: 'Spanish', 5: 'Italian'}
+                            language_name = language_map.get(language_code, None)
+                    except Exception as e:
+                        pass
+                
+                normalized = {
+                    'card_name': card.get('name', ''),
+                    'expansion': card.get('expansion') or card.get('expansionName') or None,
+                    'price': live_data.get('cheapest_good_condition'),
+                    'discount': deal.get('discounts', {}).get('discount_vs_market'),
+                    'category': deal.get('category', 'unknown'),
+                    'url': url,
+                    'language': language_name,  # Store language extracted from URL (None for English/default)
+                    'language_code': language_code,  # Store language code for matching
+                    'timestamp': results.get('timestamp', '')
+                }
+                deals.append(normalized)
+        else:
+            print(f"⚠️  Market scan: No 'deals' or 'candidates' key in results", flush=True)
+        
+        # Create lookup dictionary: (name_lower, expansion_lower, language) -> market_data
+        # Normalize expansion names to handle apostrophes (Urza's Legacy vs Urzas Legacy)
+        # Include language in key to handle multiple cards with same name/set but different languages
+        market_lookup = {}
+        for deal in deals:
+            card_name = deal.get('card_name', '').lower()
+            expansion = deal.get('expansion')
+            expansion_normalized = normalize_expansion_for_lookup(expansion) if expansion else None
+            language = deal.get('language')  # Can be None for English/default
+            
+            # Create key with language (None for English/default)
+            key = (card_name, expansion_normalized, language)
+            
+            # Store all language variants - prefer non-None language if available, otherwise keep first
+            if key not in market_lookup:
+                market_lookup[key] = deal
+            elif deal.get('price') and language:  # Prefer entries with explicit language
+                market_lookup[key] = deal
+        
+        print(f"✅ Market scan: Created lookup with {len(market_lookup)} entries", flush=True)
+        if len(market_lookup) > 0:
+            # Show first few examples
+            sample_keys = list(market_lookup.keys())[:3]
+            for key in sample_keys:
+                lang_part = f", '{key[2]}'" if len(key) > 2 and key[2] else ", 'English'"
+                print(f"   Example: ({key[0]}, '{key[1]}'{lang_part}) -> €{market_lookup[key].get('price', 'N/A')}", flush=True)
+        
+        return market_lookup
+    except Exception as e:
+        print(f"❌ Error loading collection scan results: {e}", flush=True)
+        import traceback
+        print(f"   Traceback: {traceback.format_exc()}", flush=True)
+        return {}
+
+
 def expand_collection_to_cards(collection: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """
     Expand collection items to show one card per set.
     Each collection item with multiple sets becomes multiple card entries.
     Images are fetched on-demand when requested by the browser (via /api/fetch-card-image).
+    Includes market value from most recent collection scan if available.
     """
+    # Load market scan data once
+    market_data = load_latest_collection_scan_results()
+    print(f"📊 Collection cards: Loaded {len(market_data)} market scan entries", flush=True)
+    
     cards = []
+    matched_count = 0
     
     for index, item in enumerate(collection):
         card_name = item.get('name', 'Unknown')
@@ -474,6 +598,23 @@ def expand_collection_to_cards(collection: List[Dict[str, Any]]) -> List[Dict[st
         
         # If no sets specified, create one entry with no set
         if not sets:
+            # Try to find market data
+            market_value = None
+            market_discount = None
+            market_category = None
+            market_url = None
+            
+            lookup_key = (card_name.lower(), None)
+            if lookup_key in market_data:
+                market_info = market_data[lookup_key]
+                market_value = market_info.get('price')
+                market_discount = market_info.get('discount')
+                market_category = market_info.get('category')
+                market_url = market_info.get('url')
+                matched_count += 1
+                if matched_count <= 3:  # Log first 3 matches
+                    print(f"   ✅ Matched: {card_name} (no expansion) -> €{market_value}", flush=True)
+            
             cards.append({
                 'name': card_name,
                 'expansion': None,
@@ -484,11 +625,122 @@ def expand_collection_to_cards(collection: List[Dict[str, Any]]) -> List[Dict[st
                 'sell_price': sell_price,
                 'language': language,
                 'foil': foil,
+                'market_value': market_value,
+                'market_discount': market_discount,
+                'market_category': market_category,
+                'market_url': market_url,
                 'collection_index': index  # Track original index for editing
             })
         else:
             # Create one card per set
             for expansion in sets:
+                # Try to find market data for this specific card+expansion
+                market_value = None
+                market_discount = None
+                market_category = None
+                market_url = None
+                
+                # Map expansion name using same logic as scanning (e.g., Revised + Italian -> Foreign White Bordered)
+                mapped_expansion = expansion
+                if expansion and language:
+                    try:
+                        from mtg_arbitrage.wishlist import get_cardmarket_set_name
+                        mapped_expansion = get_cardmarket_set_name(expansion, language)
+                        if mapped_expansion != expansion:
+                            print(f"   🔄 Matching: Mapped '{expansion}' -> '{mapped_expansion}' for {card_name}", flush=True)
+                    except Exception as e:
+                        print(f"   ⚠️  Error mapping expansion '{expansion}': {e}", flush=True)
+                
+                # Try exact match first with mapped expansion (normalized to handle apostrophes)
+                # Include language in lookup key
+                mapped_exp_normalized = normalize_expansion_for_lookup(mapped_expansion) if mapped_expansion else None
+                collection_language = language if language and language.lower() not in ['', 'english'] else None
+                
+                # Try with language first (if collection item has language)
+                lookup_key = (card_name.lower(), mapped_exp_normalized, collection_language)
+                if lookup_key in market_data:
+                    market_info = market_data[lookup_key]
+                    market_value = market_info.get('price')
+                    market_discount = market_info.get('discount')
+                    market_category = market_info.get('category')
+                    market_url = market_info.get('url')
+                    matched_count += 1
+                    if matched_count <= 3:  # Log first 3 matches
+                        print(f"   ✅ Matched: {card_name} ({expansion} -> {mapped_expansion}, lang: {collection_language}) -> €{market_value}", flush=True)
+                else:
+                    # Try without language (fallback for English or if no language match)
+                    lookup_key_no_lang = (card_name.lower(), mapped_exp_normalized, None)
+                    if lookup_key_no_lang in market_data:
+                        market_info = market_data[lookup_key_no_lang]
+                        market_value = market_info.get('price')
+                        market_discount = market_info.get('discount')
+                        market_category = market_info.get('category')
+                        market_url = market_info.get('url')
+                        matched_count += 1
+                        if matched_count <= 3:  # Log first 3 matches
+                            print(f"   ✅ Matched (no lang): {card_name} ({expansion} -> {mapped_expansion}) -> €{market_value}", flush=True)
+                    else:
+                        # Try with 'English' as fallback (for old scan results that might have stored 'English' instead of None)
+                        if collection_language is None:
+                            lookup_key_english = (card_name.lower(), mapped_exp_normalized, 'English')
+                            if lookup_key_english in market_data:
+                                market_info = market_data[lookup_key_english]
+                                market_value = market_info.get('price')
+                                market_discount = market_info.get('discount')
+                                market_category = market_info.get('category')
+                                market_url = market_info.get('url')
+                                matched_count += 1
+                                if matched_count <= 3:  # Log first 3 matches
+                                    print(f"   ✅ Matched (English fallback): {card_name} ({expansion} -> {mapped_expansion}) -> €{market_value}", flush=True)
+                        # If still no match, try with original expansion name (normalized, fallback)
+                        if market_value is None:
+                            exp_normalized = normalize_expansion_for_lookup(expansion) if expansion else None
+                            lookup_key_original = (card_name.lower(), exp_normalized, collection_language)
+                            if lookup_key_original in market_data:
+                                market_info = market_data[lookup_key_original]
+                                market_value = market_info.get('price')
+                                market_discount = market_info.get('discount')
+                                market_category = market_info.get('category')
+                                market_url = market_info.get('url')
+                                matched_count += 1
+                                if matched_count <= 3:  # Log first 3 matches
+                                    print(f"   ✅ Matched (original normalized): {card_name} ({expansion}) -> €{market_value}", flush=True)
+                            else:
+                                # Try fuzzy match - check if expansion name contains or is contained (normalized)
+                                # Also check language matches
+                                for (name_key, exp_key, lang_key), market_info in market_data.items():
+                                    if name_key == card_name.lower():
+                                        # Check language match:
+                                        # - Exact match: same language (including both None for English)
+                                        # - English fallback: if collection item has no language (None), also match 'English' or None
+                                        if collection_language is None:
+                                            lang_matches = (lang_key is None) or (lang_key == 'English')
+                                        else:
+                                            lang_matches = (collection_language == lang_key)
+                                        
+                                        # Check if expansions match (fuzzy) - try mapped expansion first (normalized)
+                                        if exp_key and mapped_exp_normalized and lang_matches:
+                                            if exp_key in mapped_exp_normalized or mapped_exp_normalized in exp_key:
+                                                market_value = market_info.get('price')
+                                                market_discount = market_info.get('discount')
+                                                market_category = market_info.get('category')
+                                                market_url = market_info.get('url')
+                                                matched_count += 1
+                                                if matched_count <= 3:  # Log first 3 matches
+                                                    print(f"   ✅ Fuzzy matched: {card_name} ({expansion} -> {mapped_expansion}, lang: {collection_language}) -> €{market_value} (matched {exp_key}, scan lang: {lang_key})", flush=True)
+                                                break
+                                        # Fallback to original expansion for fuzzy matching (normalized)
+                                        elif exp_key and exp_normalized and lang_matches:
+                                            if exp_key in exp_normalized or exp_normalized in exp_key:
+                                                market_value = market_info.get('price')
+                                                market_discount = market_info.get('discount')
+                                                market_category = market_info.get('category')
+                                                market_url = market_info.get('url')
+                                                matched_count += 1
+                                                if matched_count <= 3:  # Log first 3 matches
+                                                    print(f"   ✅ Fuzzy matched: {card_name} ({expansion}, lang: {collection_language}) -> €{market_value} (matched {exp_key}, scan lang: {lang_key})", flush=True)
+                                                break
+                
                 cards.append({
                     'name': card_name,
                     'expansion': expansion,
@@ -499,9 +751,14 @@ def expand_collection_to_cards(collection: List[Dict[str, Any]]) -> List[Dict[st
                     'sell_price': sell_price,
                     'language': language,
                     'foil': foil,
+                    'market_value': market_value,
+                    'market_discount': market_discount,
+                    'market_category': market_category,
+                    'market_url': market_url,
                     'collection_index': index  # Track original index for editing
                 })
     
+    print(f"📊 Collection cards: Expanded to {len(cards)} cards, matched {matched_count} with market data", flush=True)
     return cards
 
 
@@ -582,7 +839,9 @@ async def collection_page():
         }
         
         // Intercept fetch calls to add language to API requests
-        const originalFetch = window.fetch;
+        if (!window.originalFetch) {
+            window.originalFetch = window.fetch;
+        }
         window.fetch = function(...args) {
             const url = args[0];
             const options = args[1] || {};
@@ -622,14 +881,18 @@ async def collection_page():
                 }
             }
             
-            return originalFetch.apply(this, args);
+            return window.originalFetch.apply(this, args);
         };
         
-        // Update card display to show language and foil
+        // Update card display to show language, foil, and market value
         function updateCardDisplays() {
             document.querySelectorAll('[data-card-name]').forEach(cardEl => {
                 const language = cardEl.dataset.language;
                 const foil = cardEl.dataset.foil === 'true';
+                const marketValue = cardEl.dataset.marketValue;
+                const marketDiscount = cardEl.dataset.marketDiscount;
+                const marketCategory = cardEl.dataset.marketCategory;
+                const marketUrl = cardEl.dataset.marketUrl;
                 
                 if (language && language !== '' && language.toLowerCase() !== 'english') {
                     // Check if language already displayed
@@ -660,10 +923,103 @@ async def collection_page():
                         }
                     }
                 }
+                
+                // Display market value if available
+                if (marketValue && !cardEl.querySelector('.card-market-value')) {
+                    const cardName = cardEl.dataset.cardName || cardEl.textContent?.substring(0, 30) || 'Unknown';
+                    console.log(`🔍 updateCardDisplays: Market value found for ${cardName}: €${marketValue}`);
+                    
+                    // Try multiple selectors to find where to insert market value
+                    let insertPoint = cardEl.querySelector('.card-price, [class*="price"], [class*="buy"], [class*="cost"], [class*="bought"]');
+                    
+                    // If no price element found, try to find condition or any info section
+                    if (!insertPoint) {
+                        insertPoint = cardEl.querySelector('.card-condition, [class*="condition"], .card-info, [class*="info"]');
+                    }
+                    
+                    // If still nothing, try to find the card overlay or details section
+                    if (!insertPoint) {
+                        insertPoint = cardEl.querySelector('.card-overlay, [class*="overlay"], .card-details, [class*="details"]');
+                    }
+                    
+                    // Debug: log what we found
+                    if (insertPoint) {
+                        console.log(`✅ updateCardDisplays: Found insert point for ${cardName}:`, insertPoint.className || insertPoint.tagName);
+                    } else {
+                        console.warn(`⚠️  updateCardDisplays: No insert point found for ${cardName}`);
+                        console.log(`   Card element structure:`, cardEl.innerHTML.substring(0, 300));
+                    }
+                    
+                    if (insertPoint) {
+                        const marketDiv = document.createElement('div');
+                        marketDiv.className = 'card-market-value';
+                        
+                        const value = parseFloat(marketValue);
+                        let marketText = `Market: €${value.toFixed(2)}`;
+                        
+                        // Add category color coding
+                        let color = '#e0e0e0'; // Default gray
+                        if (marketCategory === 'excellent') {
+                            color = '#4ade80'; // Green
+                        } else if (marketCategory === 'good') {
+                            color = '#fbbf24'; // Yellow/Amber
+                        } else if (marketCategory === 'fair') {
+                            color = '#60a5fa'; // Blue
+                        } else if (marketCategory === 'expensive') {
+                            color = '#f87171'; // Red
+                        }
+                        
+                        marketDiv.textContent = marketText;
+                        marketDiv.style.cssText = `color: ${color}; font-size: 1em; margin-top: 4px; font-weight: 500;`;
+                        
+                        // Add hover tooltip with debug info
+                        const debugInfo = `Market Value: €${value.toFixed(2)}\\n` +
+                            (marketDiscount ? `Discount: ${parseFloat(marketDiscount).toFixed(1)}%\\n` : '') +
+                            `Category: ${marketCategory || 'unknown'}\\n` +
+                            `Card: ${cardName}`;
+                        marketDiv.title = debugInfo;
+                        
+                        // Add hover event for debugging
+                        marketDiv.addEventListener('mouseenter', function() {
+                            console.log('🖱️  Market value hover (updateCardDisplays):', {
+                                card: cardName,
+                                marketValue: value,
+                                discount: marketDiscount,
+                                category: marketCategory,
+                                url: marketUrl
+                            });
+                        });
+                        
+                        // Make it clickable if URL available
+                        if (marketUrl) {
+                            marketDiv.style.cursor = 'pointer';
+                            marketDiv.style.textDecoration = 'underline';
+                            marketDiv.title += '\\n\\nClick to view on Cardmarket';
+                            marketDiv.addEventListener('click', function(e) {
+                                e.stopPropagation();
+                                console.log('🔗 Opening Cardmarket URL:', marketUrl);
+                                window.open(marketUrl, '_blank');
+                            });
+                        }
+                        
+                        // Insert after the found element
+                        if (insertPoint.nextSibling) {
+                            insertPoint.parentNode.insertBefore(marketDiv, insertPoint.nextSibling);
+                            console.log(`✅ updateCardDisplays: Inserted market value for ${cardName} after insertPoint`);
+                        } else {
+                            insertPoint.parentNode.appendChild(marketDiv);
+                            console.log(`✅ updateCardDisplays: Appended market value for ${cardName} to parent`);
+                        }
+                    } else {
+                        console.warn(`❌ updateCardDisplays: Could not insert market value for ${cardName} - no insert point found`);
+                    }
+                } else if (marketValue) {
+                    console.debug(`ℹ️  updateCardDisplays: Market value already displayed for card`);
+                }
             });
         }
         
-        // Hook into card rendering to add language display and data attribute
+        // Hook into card rendering to add language, foil, and market value display and data attributes
         if (typeof createCardHTML === 'function') {
             const original = createCardHTML;
             window.createCardHTML = function(card, cardIndex) {
@@ -681,6 +1037,34 @@ async def collection_page():
                     // Store foil in data attribute
                     if (card.foil !== undefined) {
                         cardEl.setAttribute('data-foil', card.foil ? 'true' : 'false');
+                    }
+                    
+                    // Store market value data attributes
+                    if (card.market_value !== undefined && card.market_value !== null) {
+                        cardEl.setAttribute('data-market-value', card.market_value);
+                    }
+                    if (card.market_discount !== undefined && card.market_discount !== null) {
+                        cardEl.setAttribute('data-market-discount', card.market_discount);
+                    }
+                    if (card.market_category !== undefined && card.market_category !== null) {
+                        cardEl.setAttribute('data-market-category', card.market_category);
+                    }
+                    if (card.market_url !== undefined && card.market_url !== null) {
+                        cardEl.setAttribute('data-market-url', card.market_url);
+                    }
+                    
+                    // Store market value data attributes
+                    if (card.market_value !== undefined && card.market_value !== null) {
+                        cardEl.setAttribute('data-market-value', card.market_value);
+                    }
+                    if (card.market_discount !== undefined && card.market_discount !== null) {
+                        cardEl.setAttribute('data-market-discount', card.market_discount);
+                    }
+                    if (card.market_category !== undefined && card.market_category !== null) {
+                        cardEl.setAttribute('data-market-category', card.market_category);
+                    }
+                    if (card.market_url !== undefined && card.market_url !== null) {
+                        cardEl.setAttribute('data-market-url', card.market_url);
                     }
                     
                     // Display language if not English/empty
@@ -711,6 +1095,103 @@ async def collection_page():
                             }
                         }
                     }
+                    
+                    // Display market value if available
+                    if (card.market_value !== undefined && card.market_value !== null && !cardEl.querySelector('.card-market-value')) {
+                        console.log(`🔍 Market value found for ${card.name}: €${card.market_value}`, card);
+                        
+                        // Try multiple selectors to find where to insert market value
+                        let insertPoint = cardEl.querySelector('.card-price, [class*="price"], [class*="buy"], [class*="cost"], [class*="bought"]');
+                        
+                        // If no price element found, try to find condition or any info section
+                        if (!insertPoint) {
+                            insertPoint = cardEl.querySelector('.card-condition, [class*="condition"], .card-info, [class*="info"]');
+                        }
+                        
+                        // If still nothing, try to find the card overlay or details section
+                        if (!insertPoint) {
+                            insertPoint = cardEl.querySelector('.card-overlay, [class*="overlay"], .card-details, [class*="details"]');
+                        }
+                        
+                        // Debug: log what we found
+                        if (insertPoint) {
+                            console.log(`✅ Found insert point for ${card.name}:`, insertPoint.className || insertPoint.tagName);
+                        } else {
+                            console.warn(`⚠️  No insert point found for ${card.name}, card structure:`, cardEl.innerHTML.substring(0, 200));
+                        }
+                        
+                        if (insertPoint) {
+                            const marketDiv = document.createElement('div');
+                            marketDiv.className = 'card-market-value';
+                            
+                            const marketValue = parseFloat(card.market_value);
+                            let marketText = `Market: €${marketValue.toFixed(2)}`;
+                            
+                            // Add category color coding
+                            let color = '#e0e0e0'; // Default gray
+                            if (card.market_category === 'excellent') {
+                                color = '#4ade80'; // Green
+                            } else if (card.market_category === 'good') {
+                                color = '#fbbf24'; // Yellow/Amber
+                            } else if (card.market_category === 'fair') {
+                                color = '#60a5fa'; // Blue
+                            } else if (card.market_category === 'expensive') {
+                                color = '#f87171'; // Red
+                            }
+                            
+                            marketDiv.textContent = marketText;
+                            marketDiv.style.cssText = `color: ${color}; font-size: 0.9em; margin-top: 4px; font-weight: 500;`;
+                            
+                            // Add hover tooltip with debug info
+                            const debugInfo = `Market Value: €${marketValue.toFixed(2)}\\n` +
+                                (card.market_discount ? `Discount: ${parseFloat(card.market_discount).toFixed(1)}%\\n` : '') +
+                                `Category: ${card.market_category || 'unknown'}\\n` +
+                                `Card: ${card.name}\\n` +
+                                `Expansion: ${card.expansion || 'none'}`;
+                            marketDiv.title = debugInfo;
+                            
+                            // Add hover event for debugging
+                            marketDiv.addEventListener('mouseenter', function() {
+                                console.log('🖱️  Market value hover:', {
+                                    card: card.name,
+                                    expansion: card.expansion,
+                                    marketValue: marketValue,
+                                    discount: card.market_discount,
+                                    category: card.market_category,
+                                    url: card.market_url
+                                });
+                            });
+                            
+                            // Make it clickable if URL available
+                            if (card.market_url) {
+                                marketDiv.style.cursor = 'pointer';
+                                marketDiv.style.textDecoration = 'underline';
+                                marketDiv.title += '\\n\\nClick to view on Cardmarket';
+                                marketDiv.addEventListener('click', function(e) {
+                                    e.stopPropagation();
+                                    console.log('🔗 Opening Cardmarket URL:', card.market_url);
+                                    window.open(card.market_url, '_blank');
+                                });
+                            }
+                            
+                            // Insert after the found element
+                            if (insertPoint.nextSibling) {
+                                insertPoint.parentNode.insertBefore(marketDiv, insertPoint.nextSibling);
+                                console.log(`✅ Inserted market value for ${card.name} after insertPoint`);
+                            } else {
+                                insertPoint.parentNode.appendChild(marketDiv);
+                                console.log(`✅ Appended market value for ${card.name} to parent`);
+                            }
+                        } else {
+                            console.warn(`❌ Could not insert market value for ${card.name} - no insert point found`);
+                        }
+                    } else if (card.market_value === null || card.market_value === undefined) {
+                        // Log when market value is missing
+                        if (card.name && card.name !== 'Unknown') {
+                            console.debug(`ℹ️  No market value for ${card.name} (${card.expansion || 'no expansion'})`);
+                        }
+                    }
+                    
                     return temp.innerHTML;
                 }
                 return html;
@@ -771,6 +1252,76 @@ async def collection_page():
             observer.observe(document.body, { childList: true, subtree: true });
         }
         
+        // Debug function: Check market data for cards
+        window.debugMarketData = function() {
+            console.log('🔍 Debugging Market Data');
+            console.log('='.repeat(60));
+            
+            // Check API response
+            fetch('/api/collection-cards')
+                .then(res => res.json())
+                .then(data => {
+                    console.log(`📊 Total cards: ${data.cards.length}`);
+                    const withMarket = data.cards.filter(c => c.market_value !== undefined && c.market_value !== null);
+                    console.log(`📊 Cards with market data: ${withMarket.length}`);
+                    
+                    if (withMarket.length > 0) {
+                        console.log('✅ Sample cards with market data:');
+                        withMarket.slice(0, 5).forEach(card => {
+                            console.log(`   - ${card.name} (${card.expansion || 'no expansion'}): €${card.market_value}`, card);
+                        });
+                    } else {
+                        console.warn('⚠️  No cards have market data!');
+                        console.log('   First 5 cards:', data.cards.slice(0, 5).map(c => ({
+                            name: c.name,
+                            expansion: c.expansion,
+                            has_market_value: c.market_value !== undefined
+                        })));
+                    }
+                    
+                    // Check DOM elements
+                    const cardElements = document.querySelectorAll('[data-card-name], [class*="card"]');
+                    console.log(`\n📋 Found ${cardElements.length} card elements in DOM`);
+                    
+                    let foundMarketValues = 0;
+                    cardElements.forEach((el, idx) => {
+                        if (el.querySelector('.card-market-value')) {
+                            foundMarketValues++;
+                            if (foundMarketValues <= 3) {
+                                console.log(`   ✅ Card ${idx} has market value displayed`);
+                            }
+                        }
+                        if (el.dataset.marketValue) {
+                            console.log(`   📊 Card ${idx} has market data attribute: €${el.dataset.marketValue}`);
+                        }
+                    });
+                    
+                    console.log(`\n📊 Summary: ${foundMarketValues} cards have market value displayed in DOM`);
+                })
+                .catch(err => console.error('❌ Error checking market data:', err));
+        };
+        
+        // Log when cards are loaded
+        if (!window.originalFetch) {
+            window.originalFetch = window.fetch;
+        }
+        window.fetch = function(...args) {
+            const url = args[0];
+            if (typeof url === 'string' && url.includes('/api/collection-cards')) {
+                return window.originalFetch.apply(this, args).then(response => {
+                    response.clone().json().then(data => {
+                        const withMarket = data.cards.filter(c => c.market_value !== undefined && c.market_value !== null);
+                        console.log(`📊 Cards loaded: ${data.cards.length} total, ${withMarket.length} with market data`);
+                        if (withMarket.length > 0) {
+                            console.log('   Sample:', withMarket.slice(0, 3).map(c => `${c.name}: €${c.market_value}`).join(', '));
+                        }
+                    });
+                    return response;
+                });
+            }
+            return window.originalFetch.apply(this, args);
+        };
+        
         init();
     })();
     </script>
@@ -821,27 +1372,49 @@ async def collection_page():
             }
             
             if (statsContainer) {
-                // Create stat cards with compact styling
-                const statCardStyle = 'background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%); border: 2px solid #3a3a3a; border-radius: 8px; padding: 12px 16px; min-width: 120px; text-align: center;';
-                const statValueStyle = 'font-size: 1.5em; font-weight: bold; color: #ffffff; margin-bottom: 4px;';
-                const statLabelStyle = 'font-size: 0.8em; color: #d4af37; text-transform: uppercase; letter-spacing: 0.5px;';
+                // Two-row layout: What we have | What we have sold
+                statsContainer.style.cssText = 'display: flex; flex-direction: column; align-items: center; gap: 20px; margin: 20px 0;';
+                
+                const rowStyle = 'display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 20px; width: 100%;';
+                const statCardStyle = 'background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%); border: 2px solid #3a3a3a; border-radius: 10px; padding: 16px 24px; min-width: 140px; text-align: center; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); transition: transform 0.2s, box-shadow 0.2s;';
+                const statCardHoverStyle = 'transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);';
+                const statValueStyle = 'font-size: 1.8em; font-weight: bold; color: #ffffff; margin-bottom: 6px; line-height: 1.2;';
+                const statLabelStyle = 'font-size: 0.75em; color: #d4af37; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;';
+                const rowTitleStyle = 'font-size: 0.9em; color: #d4af37; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-bottom: 12px; text-align: center; width: 100%;';
+                
+                // Profit color: green if positive, red if negative
+                const profitColor = stats.total_profit >= 0 ? '#4ade80' : '#f87171';
                 
                 statsContainer.innerHTML = `
-                    <div style="${statCardStyle}">
-                        <div style="${statValueStyle}">€${stats.total_cost.toFixed(2)}</div>
-                        <div style="${statLabelStyle}">Total Cost</div>
+                    <div style="${rowStyle}">
+                        <div style="${rowTitleStyle}">What We Have</div>
+                        <div style="${statCardStyle}" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 12px rgba(0, 0, 0, 0.4)';" onmouseout="this.style.transform=''; this.style.boxShadow='';">
+                            <div style="${statValueStyle}">${stats.collection_count || 0}</div>
+                            <div style="${statLabelStyle}">Items</div>
+                        </div>
+                        <div style="${statCardStyle}" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 12px rgba(0, 0, 0, 0.4)';" onmouseout="this.style.transform=''; this.style.boxShadow='';">
+                            <div style="${statValueStyle}">€${(stats.total_cost || 0).toFixed(2)}</div>
+                            <div style="${statLabelStyle}">Total Cost</div>
+                        </div>
+                        <div style="${statCardStyle}" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 12px rgba(0, 0, 0, 0.4)';" onmouseout="this.style.transform=''; this.style.boxShadow='';">
+                            <div style="${statValueStyle}">€${(stats.total_market_value || 0).toFixed(2)}</div>
+                            <div style="${statLabelStyle}">Current Value</div>
+                        </div>
                     </div>
-                    <div style="${statCardStyle}">
-                        <div style="${statValueStyle}">${stats.sold_count}</div>
-                        <div style="${statLabelStyle}">Sold Items</div>
-                    </div>
-                    <div style="${statCardStyle}">
-                        <div style="${statValueStyle}">€${stats.total_sold_amount.toFixed(2)}</div>
-                        <div style="${statLabelStyle}">Total Sold</div>
-                    </div>
-                    <div style="${statCardStyle}">
-                        <div style="${statValueStyle}">€${stats.total_profit.toFixed(2)}</div>
-                        <div style="${statLabelStyle}">Total Profit</div>
+                    <div style="${rowStyle}">
+                        <div style="${rowTitleStyle}">What We Have Sold</div>
+                        <div style="${statCardStyle}" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 12px rgba(0, 0, 0, 0.4)';" onmouseout="this.style.transform=''; this.style.boxShadow='';">
+                            <div style="${statValueStyle}">${stats.sold_count || 0}</div>
+                            <div style="${statLabelStyle}">Items Sold</div>
+                        </div>
+                        <div style="${statCardStyle}" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 12px rgba(0, 0, 0, 0.4)';" onmouseout="this.style.transform=''; this.style.boxShadow='';">
+                            <div style="${statValueStyle}">€${(stats.total_sold_amount || 0).toFixed(2)}</div>
+                            <div style="${statLabelStyle}">Total Sold</div>
+                        </div>
+                        <div style="${statCardStyle}" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 12px rgba(0, 0, 0, 0.4)';" onmouseout="this.style.transform=''; this.style.boxShadow='';">
+                            <div style="${statValueStyle}; color: ${profitColor}">€${(stats.total_profit || 0).toFixed(2)}</div>
+                            <div style="${statLabelStyle}">Total Profit</div>
+                        </div>
                     </div>
                 `;
             }
@@ -1019,8 +1592,34 @@ async def collection_page():
         // Store current page periodically
         function updateStoredPage() {
             const currentPage = getCurrentPage();
-            if (currentPage > 1) {
+            if (currentPage && currentPage > 0) {
+                console.log(`💾 Storing page ${currentPage} to localStorage`);
                 setCurrentPage(currentPage);
+            }
+        }
+        
+        // Also store page whenever user navigates pages
+        function setupPageNavigationTracking() {
+            // Track clicks on pagination buttons
+            document.addEventListener('click', function(e) {
+                const target = e.target;
+                // Check if it's a pagination button
+                if (target && (target.textContent && (target.textContent.includes('Next') || target.textContent.includes('Prev') || target.textContent.match(/\d+/)))) {
+                    // Wait a bit for page to change, then store it
+                    setTimeout(() => {
+                        updateStoredPage();
+                    }, 200);
+                }
+            });
+            
+            // Track page input changes
+            const pageInput = document.querySelector('input[type="number"][name*="page"], input[type="number"][id*="page"]');
+            if (pageInput) {
+                pageInput.addEventListener('change', function() {
+                    setTimeout(() => {
+                        updateStoredPage();
+                    }, 200);
+                });
             }
         }
         
@@ -1030,9 +1629,20 @@ async def collection_page():
             if (storedPage) {
                 const page = parseInt(storedPage, 10);
                 if (page > 1) {
+                    console.log(`📄 Restoring page ${page} from localStorage`);
+                    // Try multiple times with increasing delays to ensure it works
+                    setTimeout(() => {
+                        goToPage(page);
+                    }, 100);
                     setTimeout(() => {
                         goToPage(page);
                     }, 500);
+                    setTimeout(() => {
+                        goToPage(page);
+                    }, 1000);
+                    setTimeout(() => {
+                        goToPage(page);
+                    }, 2000);
                 }
             }
         }
@@ -1133,30 +1743,51 @@ async def collection_page():
         }
         
         // Intercept collection update/save operations to store page
-        const originalFetch = window.fetch;
+        if (!window.originalFetch) {
+            window.originalFetch = window.fetch;
+        }
         window.fetch = function(...args) {
             const url = args[0];
             const options = args[1] || {};
             
             // Before PUT/POST to collection API, store current page
             if (typeof url === 'string' && url.includes('/api/collection') && (options.method === 'PUT' || options.method === 'POST')) {
+                const currentPage = getCurrentPage();
+                console.log(`💾 Storing current page ${currentPage} before save`);
                 updateStoredPage();
                 
-                // After successful save, restore page
-                return originalFetch.apply(this, args).then(response => {
+                // After successful save, restore page (with multiple attempts in case of reload)
+                return window.originalFetch.apply(this, args).then(response => {
                     if (response.ok) {
                         const storedPage = localStorage.getItem('collection_current_page');
+                        console.log(`✅ Save successful, restoring page ${storedPage}`);
                         if (storedPage) {
+                            const pageNum = parseInt(storedPage, 10);
+                            // Try immediately
                             setTimeout(() => {
-                                goToPage(parseInt(storedPage, 10));
-                            }, 300);
+                                console.log(`📄 Attempting to restore page ${pageNum} (immediate)`);
+                                goToPage(pageNum);
+                            }, 100);
+                            // Try after potential reload
+                            setTimeout(() => {
+                                console.log(`📄 Attempting to restore page ${pageNum} (delayed)`);
+                                goToPage(pageNum);
+                            }, 500);
+                            setTimeout(() => {
+                                console.log(`📄 Attempting to restore page ${pageNum} (delayed 2)`);
+                                goToPage(pageNum);
+                            }, 1500);
+                            setTimeout(() => {
+                                console.log(`📄 Attempting to restore page ${pageNum} (delayed 3)`);
+                                goToPage(pageNum);
+                            }, 3000);
                         }
                     }
                     return response;
                 });
             }
             
-            return originalFetch.apply(this, args);
+            return window.originalFetch.apply(this, args);
         };
         
         // Also intercept XMLHttpRequest
@@ -1166,7 +1797,7 @@ async def collection_page():
         XMLHttpRequest.prototype.open = function(method, url, ...rest) {
             this._url = url;
             this._method = method;
-            return originalXHROpen.apply(this, [method, url, ...rest]);
+            return originalXHROpenSort.apply(this, [method, url, ...rest]);
         };
         
         XMLHttpRequest.prototype.send = function(body) {
@@ -1188,7 +1819,7 @@ async def collection_page():
                     }
                 };
             }
-            return originalXHRSend.apply(this, [body]);
+            return originalXHRSendSort.apply(this, [body]);
         };
         
         // Initialize on page load
@@ -1208,6 +1839,7 @@ async def collection_page():
                     setTimeout(tryAddButton, 2000);
                     setTimeout(() => {
                         restorePage();
+                        setupPageNavigationTracking();
                         // Update stored page periodically
                         setInterval(updateStoredPage, 2000);
                     }, 1500);
@@ -1220,6 +1852,7 @@ async def collection_page():
                 setTimeout(tryAddButton, 2000);
                 setTimeout(() => {
                     restorePage();
+                    setupPageNavigationTracking();
                     setInterval(updateStoredPage, 2000);
                 }, 1500);
             }
@@ -1404,8 +2037,11 @@ async def collection_page():
                 }
                 
                 // Method 3: If nothing else works, reload the page
+                // BUT preserve the current page in localStorage before reloading
                 if (!reloadTriggered) {
                     console.log('🔄 No reload function found, reloading page...');
+                    // Store current page before reload
+                    updateStoredPage();
                     setTimeout(() => {
                         window.location.reload();
                     }, 100);
@@ -1589,7 +2225,9 @@ async def collection_page():
         
         // Intercept API calls to sort cards before they're displayed
         function interceptAndSortAPI() {
-            const originalFetch = window.fetch;
+            if (!window.originalFetch) {
+                window.originalFetch = window.fetch;
+            }
             
             window.fetch = function(...args) {
                 const url = args[0];
@@ -1600,7 +2238,7 @@ async def collection_page():
                     console.log(`🔄 Intercepting API call to: ${url}`);
                     console.log(`   Current sort: ${currentSort}`);
                     
-                    return originalFetch.apply(this, args).then(async response => {
+                    return window.originalFetch.apply(this, args).then(async response => {
                         if (!response.ok) {
                             console.log(`❌ Response not OK: ${response.status}`);
                             return response;
@@ -1649,19 +2287,19 @@ async def collection_page():
                         return response;
                     });
                 }
-                
-                return originalFetch.apply(this, args);
+
+                return window.originalFetch.apply(this, args);
             };
         }
-        
-        // Also intercept XMLHttpRequest
-        const originalXHROpen = XMLHttpRequest.prototype.open;
-        const originalXHRSend = XMLHttpRequest.prototype.send;
-        
+
+        // Also intercept XMLHttpRequest for sorting
+        const originalXHROpenSort = XMLHttpRequest.prototype.open;
+        const originalXHRSendSort = XMLHttpRequest.prototype.send;
+
         XMLHttpRequest.prototype.open = function(method, url, ...rest) {
             this._url = url;
             this._method = method;
-            return originalXHROpen.apply(this, [method, url, ...rest]);
+            return originalXHROpenSort.apply(this, [method, url, ...rest]);
         };
         
         XMLHttpRequest.prototype.send = function(body) {
@@ -1725,7 +2363,7 @@ async def collection_page():
                 };
             }
             
-            return originalXHRSend.apply(this, [body]);
+            return originalXHRSendSort.apply(this, [body]);
         };
         
         // Initialize
@@ -1809,6 +2447,15 @@ async def get_collection_cards():
     """Get collection expanded to cards (one per set). Automatically fetches missing images."""
     collection = load_collection()
     cards = expand_collection_to_cards(collection)
+    
+    # Debug: Count how many cards have market data
+    cards_with_market = [c for c in cards if c.get('market_value') is not None]
+    print(f"📊 API: Returning {len(cards)} cards, {len(cards_with_market)} have market data", flush=True)
+    if cards_with_market:
+        print(f"   Sample cards with market data:", flush=True)
+        for card in cards_with_market[:3]:
+            print(f"      - {card.get('name')} ({card.get('expansion')}): €{card.get('market_value')}", flush=True)
+    
     return JSONResponse({"cards": cards, "total": len(cards)})
 
 
@@ -2092,10 +2739,35 @@ async def get_archived_stats():
         sold_count = 0
         total_sold_amount = 0.0
         total_profit = 0.0
+        collection_count = 0  # Items not sold
+        
+        # Calculate total current market value from expanded cards
+        cards = expand_collection_to_cards(collection)
+        total_market_value = 0.0
+        for card in cards:
+            market_value = card.get('market_value')
+            if market_value is not None:
+                try:
+                    total_market_value += float(market_value)
+                except (ValueError, TypeError):
+                    pass
         
         for item in collection:
             buy_price = item.get('buy_price')
             sell_price = item.get('sell_price')
+            
+            # Count as collection item if not sold (sell_price is None or 0)
+            is_sold = False
+            if sell_price is not None:
+                try:
+                    sell_price_float = float(sell_price)
+                    if sell_price_float > 0:
+                        is_sold = True
+                except (ValueError, TypeError):
+                    pass
+            
+            if not is_sold:
+                collection_count += 1
             
             # Add buy_price to total cost if it exists
             if buy_price is not None:
@@ -2106,33 +2778,35 @@ async def get_archived_stats():
                     pass
             
             # Count items with sell_price > 0 as sold items and calculate profit
-            if sell_price is not None:
+            if is_sold:
+                sold_count += 1
                 try:
                     sell_price_float = float(sell_price)
-                    # Only count items with sell_price > 0 as sold items
-                    if sell_price_float > 0:
-                        sold_count += 1
-                        total_sold_amount += sell_price_float
-                        
-                        # Calculate profit only if buy_price also exists
-                        if buy_price is not None:
-                            try:
-                                buy_price_float = float(buy_price)
-                                total_profit += (sell_price_float - buy_price_float)
-                            except (ValueError, TypeError):
-                                pass
+                    total_sold_amount += sell_price_float
+                    
+                    # Calculate profit only if buy_price also exists
+                    if buy_price is not None:
+                        try:
+                            buy_price_float = float(buy_price)
+                            total_profit += (sell_price_float - buy_price_float)
+                        except (ValueError, TypeError):
+                            pass
                 except (ValueError, TypeError):
                     pass
         
         return JSONResponse({
+            "collection_count": collection_count,
             "total_cost": round(total_cost, 2),
+            "total_market_value": round(total_market_value, 2),
             "sold_count": sold_count,
             "total_sold_amount": round(total_sold_amount, 2),
             "total_profit": round(total_profit, 2)
         })
     except Exception as e:
         return JSONResponse({
+            "collection_count": 0,
             "total_cost": 0.0,
+            "total_market_value": 0.0,
             "sold_count": 0,
             "total_sold_amount": 0.0,
             "total_profit": 0.0,

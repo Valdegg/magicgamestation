@@ -167,23 +167,67 @@ def get_all_results_files() -> List[str]:
     return json_files
 
 
+def detect_source_type(filename: str) -> str:
+    """
+    Detect source type (wishlist or collection) from filename.
+    
+    Args:
+        filename: Name of the results file
+        
+    Returns:
+        'wishlist' or 'collection' based on filename pattern
+    """
+    filename_lower = filename.lower()
+    if filename_lower.startswith('collection'):
+        return 'collection'
+    elif filename_lower.startswith('wishlist'):
+        return 'wishlist'
+    else:
+        # Try to detect from the source field in the JSON
+        return 'wishlist'  # Default to wishlist
+
+
 @app.get("/", response_class=HTMLResponse)
 async def index():
-    """Main page."""
+    """Main page - wishlist market scan."""
     template = jinja_env.get_template("binder.html")
-    return HTMLResponse(content=template.render())
+    return HTMLResponse(content=template.render(source_type='wishlist'))
+
+
+@app.get("/collection", response_class=HTMLResponse)
+async def collection_market_scan():
+    """Collection market scan page."""
+    template = jinja_env.get_template("binder.html")
+    return HTMLResponse(content=template.render(source_type='collection'))
 
 
 @app.get("/api/results")
-async def api_results():
-    """Get all available result files."""
+async def api_results(source_type: Optional[str] = None):
+    """
+    Get all available result files, optionally filtered by source type.
+    
+    Args:
+        source_type: Filter by 'wishlist' or 'collection' (optional)
+    """
+    print(f"📊 API /results: Requested source_type='{source_type}'", flush=True)
     files = get_all_results_files()
+    print(f"📊 API /results: Found {len(files)} result files", flush=True)
     file_info = []
     
     for file_path in files:
         try:
             results = load_json_results(file_path)
             filename = os.path.basename(file_path)
+            
+            # Detect source type from filename
+            file_source_type = detect_source_type(filename)
+            
+            # Filter by source type if specified
+            if source_type and file_source_type != source_type:
+                print(f"   ⏭️  Skipping {filename} (detected: {file_source_type}, requested: {source_type})", flush=True)
+                continue
+            
+            print(f"   ✅ Including {filename} (detected: {file_source_type})", flush=True)
             
             # Count deals
             deals = normalize_deal_data(results)
@@ -192,6 +236,7 @@ async def api_results():
                 'filename': filename,
                 'path': file_path,
                 'timestamp': results.get('timestamp', ''),
+                'source_type': file_source_type,
                 'total_deals': len(deals),
                 'excellent': len([d for d in deals if d.get('category') == 'excellent']),
                 'good': len([d for d in deals if d.get('category') == 'good']),
@@ -208,6 +253,7 @@ async def api_results():
 @app.get("/api/deals")
 async def api_deals(
     file: Optional[str] = None,
+    source_type: Optional[str] = None,  # Filter by 'wishlist' or 'collection'
     category: Optional[str] = None,
     min_discount: Optional[float] = None,
     sort: str = 'discount',
@@ -218,23 +264,60 @@ async def api_deals(
     price_max: Optional[float] = None,
     min_available: Optional[int] = None  # Minimum number of available items (liquidity filter)
 ):
-    """Get deals from a specific result file."""
+    """Get deals from a specific result file, optionally filtered by source type."""
+    print(f"📊 API /deals: Called with file='{file}', source_type='{source_type}'", flush=True)
+    
+    # If file is provided but doesn't match source_type, ignore the file and select correct one
+    if file and source_type:
+        file_basename = os.path.basename(file) if '/' in file else file
+        detected_type = detect_source_type(file_basename)
+        if detected_type != source_type:
+            print(f"⚠️  API /deals: File '{file_basename}' (detected: {detected_type}) doesn't match requested source_type='{source_type}'", flush=True)
+            print(f"📊 API /deals: Ignoring file parameter and selecting correct file for source_type='{source_type}'", flush=True)
+            file = None  # Ignore the file and let the source_type filtering select the correct one
+    
     if not file:
-        # Use latest file if none specified
+        # Use latest file if none specified, optionally filtered by source_type
         files = get_all_results_files()
         if not files:
             return JSONResponse(content={'deals': [], 'error': 'No result files found'})
-        file = files[0]
+        
+        print(f"📊 API /deals: Requested source_type='{source_type}'", flush=True)
+        print(f"📊 API /deals: Found {len(files)} result files:", flush=True)
+        for f in files[:5]:  # Show first 5 files
+            fname = os.path.basename(f)
+            detected_type = detect_source_type(fname)
+            print(f"   - {fname} (detected: {detected_type})", flush=True)
+        
+        # Filter by source type if specified
+        if source_type:
+            filtered_files = [f for f in files if detect_source_type(os.path.basename(f)) == source_type]
+            print(f"📊 API /deals: Filtered to {len(filtered_files)} files matching source_type='{source_type}':", flush=True)
+            for f in filtered_files[:5]:  # Show first 5 filtered files
+                print(f"   - {os.path.basename(f)}", flush=True)
+            
+            if filtered_files:
+                file = filtered_files[0]  # Get latest file of the specified type
+                print(f"✅ API /deals: Selected file: {os.path.basename(file)}", flush=True)
+            else:
+                print(f"❌ API /deals: No files found matching source_type='{source_type}'", flush=True)
+                return JSONResponse(content={'deals': [], 'error': f'No {source_type} result files found'})
+        else:
+            file = files[0]  # Default to latest file regardless of type
+            print(f"📊 API /deals: No source_type specified, using latest file: {os.path.basename(file)}", flush=True)
     
     # Ensure file is in results directory (security)
     if not file.startswith(RESULTS_DIR):
         file = os.path.join(RESULTS_DIR, file)
     
     if not os.path.exists(file):
+        print(f"❌ API /deals: File not found: {file}", flush=True)
         return JSONResponse(content={'deals': [], 'error': f'File not found: {file}'})
     
+    print(f"📊 API /deals: Loading data from: {file}", flush=True)
     results = load_json_results(file)
     deals = normalize_deal_data(results)
+    print(f"📊 API /deals: Loaded {len(deals)} deals from {os.path.basename(file)}", flush=True)
     
     # Apply filters
     if category:
