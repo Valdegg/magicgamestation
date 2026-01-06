@@ -713,6 +713,230 @@ async def wishlist_page():
     })();
     </script>
 """
+                # Inject JavaScript to safely handle form submissions and fix null reference errors
+                if 'form-submission-fix' not in html_content:
+                    form_fix_script = """
+    <script id="form-submission-fix">
+    // Safely handle form submissions for adding cards to wishlist
+    // Fixes "Cannot read properties of null (reading 'value')" errors
+    (function() {
+        'use strict';
+        
+        // Intercept form submissions BEFORE they reach the original handler
+        // This prevents null reference errors by handling submission ourselves
+        document.addEventListener('submit', function(e) {
+            const form = e.target;
+            if (!form || form.tagName !== 'FORM') return;
+            
+            // Check if this is the add card form
+            const formId = form.id || '';
+            const formClass = form.className || '';
+            const formAction = form.action || '';
+            const formText = form.textContent || '';
+            
+            if (formText.includes('ADD CARD') || formText.includes('WISHLIST') || 
+                formId.includes('card') || formClass.includes('card') || 
+                formAction.includes('wishlist')) {
+                
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+                
+                try {
+                    // Find form fields with multiple possible selectors
+                    const cardNameSelectors = [
+                        '[name="name"]',
+                        '[name="card-name"]',
+                        '[id*="card-name"]',
+                        '[id*="name"]',
+                        'input[type="text"]:not([type="hidden"])',
+                        'input:first-of-type'
+                    ];
+                    
+                    let cardNameField = null;
+                    for (const selector of cardNameSelectors) {
+                        const fields = form.querySelectorAll(selector);
+                        for (const field of fields) {
+                            // Skip hidden fields and buttons
+                            if (field.type !== 'hidden' && field.type !== 'submit' && field.type !== 'button') {
+                                cardNameField = field;
+                                break;
+                            }
+                        }
+                        if (cardNameField) break;
+                    }
+                    
+                    if (!cardNameField) {
+                        console.error('❌ Card name field not found. Available fields:', 
+                            Array.from(form.querySelectorAll('input, select, textarea')).map(el => ({
+                                name: el.name || el.id || 'unnamed',
+                                type: el.type || el.tagName,
+                                value: el.value || '',
+                                visible: el.offsetParent !== null
+                            }))
+                        );
+                        alert('Error: Could not find card name field. Please check the form.');
+                        return false;
+                    }
+                    
+                    const cardName = cardNameField.value ? cardNameField.value.trim() : '';
+                    if (!cardName) {
+                        alert('Please enter a card name.');
+                        return false;
+                    }
+                    
+                    // Find sets field - look for select elements or hidden inputs with sets
+                    let sets = [];
+                    const setsSelectors = [
+                        'select[name="sets"]',
+                        'select[name="set"]',
+                        '[name="sets"]',
+                        '[name="set"]',
+                        'select',
+                        'input[type="hidden"][name*="set"]'
+                    ];
+                    
+                    let setsField = null;
+                    for (const selector of setsSelectors) {
+                        setsField = form.querySelector(selector);
+                        if (setsField) break;
+                    }
+                    
+                    if (setsField) {
+                        if (setsField.tagName === 'SELECT') {
+                            // Get selected options or all options if multiple select
+                            const selected = Array.from(setsField.selectedOptions || []);
+                            sets = selected.map(opt => opt.value || opt.textContent).filter(v => v);
+                            
+                            // If no selection, check for data attributes or tags
+                            if (sets.length === 0) {
+                                // Look for selected tags/chips
+                                const tags = form.querySelectorAll('[data-set], [data-expansion], .tag, .chip');
+                                sets = Array.from(tags).map(tag => {
+                                    return tag.dataset.set || tag.dataset.expansion || tag.textContent.trim();
+                                }).filter(v => v);
+                            }
+                        } else if (setsField.value) {
+                            // Try to parse as JSON or comma-separated
+                            try {
+                                sets = JSON.parse(setsField.value);
+                            } catch(e) {
+                                sets = setsField.value.split(',').map(s => s.trim()).filter(s => s);
+                            }
+                        }
+                    }
+                    
+                    // Also check for sets in tags/chips if not found yet
+                    if (sets.length === 0) {
+                        const tags = form.querySelectorAll('[data-set], [data-expansion], .tag, .chip, [class*="tag"]');
+                        sets = Array.from(tags).map(tag => {
+                            return tag.dataset.set || tag.dataset.expansion || tag.textContent.trim();
+                        }).filter(v => v);
+                    }
+                    
+                    console.log('✅ Form submission intercepted:', { cardName, sets });
+                    
+                    // Submit via fetch instead of form submission
+                    const apiUrl = '/wishlist/api/wishlist';
+                    fetch(apiUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            name: cardName,
+                            sets: sets
+                        })
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            return response.json().then(err => Promise.reject(err));
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('✅ Card added successfully:', data);
+                        // Close modal if it exists
+                        const modal = form.closest('.modal, [class*="modal"], [id*="modal"]');
+                        if (modal) {
+                            const closeBtn = modal.querySelector('[class*="close"], [aria-label*="close"], button:last-child');
+                            if (closeBtn) closeBtn.click();
+                        }
+                        // Reload page or refresh cards
+                        if (typeof window.loadCards === 'function') {
+                            window.loadCards();
+                        } else if (typeof window.location !== 'undefined') {
+                            window.location.reload();
+                        }
+                    })
+                    .catch(error => {
+                        console.error('❌ Error adding card:', error);
+                        alert('Error adding card: ' + (error.detail || error.message || 'Unknown error'));
+                    });
+                    
+                    return false;
+                } catch(error) {
+                    console.error('❌ Error in form submission handler:', error);
+                    console.error('   Stack:', error.stack);
+                    alert('Error processing form: ' + error.message);
+                    return false;
+                }
+            }
+        }, true); // Use capture phase to intercept before other handlers
+        
+        // Run immediately and after DOM loads
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initFormFix);
+        } else {
+            initFormFix();
+        }
+        
+        // Also watch for dynamically added forms
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                mutation.addedNodes.forEach(function(node) {
+                    if (node.nodeType === 1 && (node.tagName === 'FORM' || node.querySelector('form'))) {
+                        setTimeout(initFormFix, 100);
+                    }
+                });
+            });
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+        
+        // Global error handler to catch null reference errors
+        window.addEventListener('error', function(e) {
+            if (e.message && e.message.includes('Cannot read properties of null') && e.message.includes('value')) {
+                console.error('❌ Null reference error caught:', e.message);
+                console.error('   File:', e.filename, 'Line:', e.lineno);
+                console.error('   Stack:', e.error ? e.error.stack : 'No stack trace');
+                
+                // Try to find the problematic form
+                const forms = document.querySelectorAll('form');
+                forms.forEach((form, idx) => {
+                    console.log(`Form ${idx}:`, {
+                        id: form.id,
+                        className: form.className,
+                        action: form.action,
+                        fields: Array.from(form.querySelectorAll('input, select, textarea')).map(el => ({
+                            name: el.name || el.id || 'unnamed',
+                            type: el.type || el.tagName,
+                            value: el.value || '(empty)'
+                        }))
+                    });
+                });
+            }
+        }, true);
+    })();
+    </script>
+"""
+                    # Inject before closing body tag
+                    if '</body>' in html_content:
+                        html_content = html_content.replace('</body>', form_fix_script + '\n</body>')
+                    elif '</html>' in html_content:
+                        html_content = html_content.replace('</html>', form_fix_script + '\n</html>')
+                    else:
+                        html_content += form_fix_script
+                
                 # Inject before closing body tag
                 if '</body>' in html_content:
                     html_content = html_content.replace('</body>', move_script + '\n</body>')
