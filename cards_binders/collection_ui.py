@@ -1598,6 +1598,9 @@ async def collection_page():
             }
         }
         
+        // Make updateStoredPage globally accessible for sorting script
+        window.updateStoredPage = updateStoredPage;
+        
         // Also store page whenever user navigates pages
         function setupPageNavigationTracking() {
             // Track clicks on pagination buttons
@@ -1790,37 +1793,48 @@ async def collection_page():
             return window.originalFetch.apply(this, args);
         };
         
-        // Also intercept XMLHttpRequest
-        const originalXHROpen = XMLHttpRequest.prototype.open;
-        const originalXHRSend = XMLHttpRequest.prototype.send;
-        
-        XMLHttpRequest.prototype.open = function(method, url, ...rest) {
-            this._url = url;
-            this._method = method;
-            return originalXHROpenSort.apply(this, [method, url, ...rest]);
-        };
-        
-        XMLHttpRequest.prototype.send = function(body) {
-            if (this._url && this._url.includes('/api/collection') && (this._method === 'PUT' || this._method === 'POST')) {
-                updateStoredPage();
-                
-                const originalOnReadyStateChange = this.onreadystatechange;
-                this.onreadystatechange = function() {
-                    if (this.readyState === 4 && this.status >= 200 && this.status < 300) {
-                        const storedPage = localStorage.getItem('collection_current_page');
-                        if (storedPage) {
-                            setTimeout(() => {
-                                goToPage(parseInt(storedPage, 10));
-                            }, 300);
+        // Also intercept XMLHttpRequest for page restoration
+        // Only intercept PUT/POST requests, let sorting handle GET requests
+        // Note: This runs BEFORE sorting script, so we capture the real original
+        if (!window._xhrInterceptedForPageRestore) {
+            window._xhrInterceptedForPageRestore = true;
+            // Capture the REAL original (before any other overrides)
+            const realOriginalXHROpen = XMLHttpRequest.prototype.open;
+            const realOriginalXHRSend = XMLHttpRequest.prototype.send;
+            
+            // Override open to store url/method (needed for send to check)
+            XMLHttpRequest.prototype.open = function(method, url, ...rest) {
+                this._url = url;
+                this._method = method;
+                // Call through to real original (sorting script will wrap this later)
+                return realOriginalXHROpen.apply(this, [method, url, ...rest]);
+            };
+            
+            // Override send to add page restoration logic for PUT/POST
+            XMLHttpRequest.prototype.send = function(body) {
+                // Only handle PUT/POST for page restoration
+                if (this._url && this._url.includes('/api/collection') && (this._method === 'PUT' || this._method === 'POST')) {
+                    updateStoredPage();
+                    
+                    const originalOnReadyStateChange = this.onreadystatechange;
+                    this.onreadystatechange = function() {
+                        if (this.readyState === 4 && this.status >= 200 && this.status < 300) {
+                            const storedPage = localStorage.getItem('collection_current_page');
+                            if (storedPage) {
+                                setTimeout(() => {
+                                    goToPage(parseInt(storedPage, 10));
+                                }, 300);
+                            }
                         }
-                    }
-                    if (originalOnReadyStateChange) {
-                        originalOnReadyStateChange.apply(this, arguments);
-                    }
-                };
-            }
-            return originalXHRSendSort.apply(this, [body]);
-        };
+                        if (originalOnReadyStateChange) {
+                            originalOnReadyStateChange.apply(this, arguments);
+                        }
+                    };
+                }
+                // Call through to real original (sorting script will wrap this later for GET requests)
+                return realOriginalXHRSend.apply(this, [body]);
+            };
+        }
         
         // Initialize on page load
         function init() {
@@ -2040,8 +2054,22 @@ async def collection_page():
                 // BUT preserve the current page in localStorage before reloading
                 if (!reloadTriggered) {
                     console.log('🔄 No reload function found, reloading page...');
-                    // Store current page before reload
-                    updateStoredPage();
+                    // Store current page before reload (use global function if available, or fallback)
+                    if (typeof window.updateStoredPage === 'function') {
+                        window.updateStoredPage();
+                    } else {
+                        // Fallback: store page manually
+                        const pageIndicator = document.querySelector('[class*="page"], [id*="page"]');
+                        if (pageIndicator) {
+                            const text = pageIndicator.textContent || '';
+                            const match = text.match(/(\d+)\s+of\s+(\d+)/i) || text.match(/page\s+(\d+)/i);
+                            if (match) {
+                                const page = parseInt(match[1], 10);
+                                localStorage.setItem('collection_current_page', page.toString());
+                                console.log(`💾 Stored page ${page} (fallback)`);
+                            }
+                        }
+                    }
                     setTimeout(() => {
                         window.location.reload();
                     }, 100);
@@ -2293,8 +2321,11 @@ async def collection_page():
         }
 
         // Also intercept XMLHttpRequest for sorting
-        const originalXHROpenSort = XMLHttpRequest.prototype.open;
-        const originalXHRSendSort = XMLHttpRequest.prototype.send;
+        // Store originals globally so pagination script can use them
+        window.originalXHROpenSort = XMLHttpRequest.prototype.open;
+        window.originalXHRSendSort = XMLHttpRequest.prototype.send;
+        const originalXHROpenSort = window.originalXHROpenSort;
+        const originalXHRSendSort = window.originalXHRSendSort;
 
         XMLHttpRequest.prototype.open = function(method, url, ...rest) {
             this._url = url;
@@ -2306,7 +2337,8 @@ async def collection_page():
             const url = this._url;
             const method = this._method;
             
-            // Intercept collection-cards API (handle both /api/ and /collection/api/ paths)
+            // Intercept collection-cards API for GET requests (handle both /api/ and /collection/api/ paths)
+            // For PUT/POST, let pagination script handle it
             if (url && (url.includes('/api/collection-cards') || url.includes('/collection/api/collection-cards')) && method === 'GET') {
                 const originalOnReadyStateChange = this.onreadystatechange;
                 const originalOnLoad = this.onload;
