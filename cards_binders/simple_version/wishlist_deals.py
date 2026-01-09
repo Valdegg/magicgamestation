@@ -63,6 +63,7 @@ import time
 import random
 import os
 import sys
+import math
 from typing import List, Dict, Optional, Any
 from pathlib import Path
 from datetime import datetime
@@ -150,7 +151,12 @@ def load_wishlist_cards(wishlist_file: str = "wishlist.json", use_historical: bo
     for _, row in matched_cards.iterrows():
         card_dict = row.to_dict()
         card_name = card_dict.get('name', '').lower()
-        card_expansion = card_dict.get('expansionName', '')
+        card_expansion_raw = card_dict.get('expansionName', '')
+        # Convert to string, handling None/NaN/float cases
+        if card_expansion_raw is None or (isinstance(card_expansion_raw, float) and math.isnan(card_expansion_raw)):
+            card_expansion = ''
+        else:
+            card_expansion = str(card_expansion_raw)
         
         # Try to find matching wishlist item to preserve condition and alternative_name
         # Match by name first, then by expansion if available
