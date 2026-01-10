@@ -63,16 +63,23 @@ def normalize_deal_data(results: Dict[str, Any]) -> List[Dict[str, Any]]:
         deal_list = results.get('deals', []) or results.get('candidates', [])
         for deal in deal_list:
             card = deal.get('card', {})
-            live_data = deal.get('live_data', {})
+            live_data = deal.get('live_data')  # Can be None or {}
             discounts = deal.get('discounts', {})
+            
+            # Handle None live_data
+            if live_data is None:
+                live_data = {}
             
             # Get expansion - try multiple fields
             expansion = card.get('expansion') or card.get('expansionName') or ''
             if not expansion or expansion.strip() == '':
                 expansion = None  # Use None instead of 'Unknown'
             
-            # Get country
-            country = live_data.get('cheapest_good_details', {}).get('country', '')
+            # Get country - safely handle None live_data
+            country = ''
+            cheapest_details = live_data.get('cheapest_good_details') if live_data else None
+            if cheapest_details:
+                country = cheapest_details.get('country', '')
             if not country or country.strip() == '':
                 country = None  # Use None instead of 'Unknown'
             
@@ -80,16 +87,16 @@ def normalize_deal_data(results: Dict[str, Any]) -> List[Dict[str, Any]]:
                 'card_name': card.get('name', 'Unknown'),
                 'expansion': expansion,
                 'card_id': card.get('card_id') or card.get('idProduct'),
-                'price': live_data.get('cheapest_good_condition'),
-                'condition': live_data.get('cheapest_good_details', {}).get('condition', 'Unknown'),
-                'seller': live_data.get('cheapest_good_details', {}).get('seller', 'Unknown'),
+                'price': live_data.get('cheapest_good_condition') if live_data else None,
+                'condition': cheapest_details.get('condition', 'Unknown') if cheapest_details else 'Unknown',
+                'seller': cheapest_details.get('seller', 'Unknown') if cheapest_details else 'Unknown',
                 'seller_country': country,
-                'discount': discounts.get('discount_vs_market'),
-                'market_baseline': discounts.get('market_baseline'),
+                'discount': discounts.get('discount_vs_market') if discounts else None,
+                'market_baseline': discounts.get('market_baseline') if discounts else None,
                 'category': deal.get('category', 'unknown'),
-                'url': live_data.get('url', ''),
-                'total_listings': live_data.get('total_listings', 0),
-                'available_items_total': live_data.get('available_items_total'),  # Liquidity indicator
+                'url': live_data.get('url', '') if live_data else '',
+                'total_listings': live_data.get('total_listings', 0) if live_data else 0,
+                'available_items_total': live_data.get('available_items_total') if live_data else None,  # Liquidity indicator
                 'historical': card.get('historical', {}),
                 'source': results.get('wishlist_file', 'Unknown')
             }
@@ -229,13 +236,34 @@ async def api_results(source_type: Optional[str] = None):
             
             print(f"   ✅ Including {filename} (detected: {file_source_type})", flush=True)
             
-            # Count deals
-            deals = normalize_deal_data(results)
+            # Count deals - handle errors gracefully
+            deals = []
+            try:
+                deals = normalize_deal_data(results)
+            except Exception as e:
+                print(f"   ⚠️  Warning: Could not normalize deals for {filename}: {e}", flush=True)
+                # Still include the file, just with 0 deals counted
+                deals = []
+            
+            timestamp_str = results.get('timestamp', '')
+            # Parse timestamp for sorting (format: "2026-01-09 01:05:47")
+            timestamp_sort = None
+            if timestamp_str:
+                try:
+                    from datetime import datetime
+                    timestamp_sort = datetime.strptime(timestamp_str, "%Y-%m-%d %H:%M:%S")
+                except:
+                    # Fallback to file modification time if timestamp parsing fails
+                    timestamp_sort = datetime.fromtimestamp(os.path.getmtime(file_path))
+            else:
+                # Use file modification time if no timestamp in JSON
+                timestamp_sort = datetime.fromtimestamp(os.path.getmtime(file_path))
             
             file_info.append({
                 'filename': filename,
                 'path': file_path,
-                'timestamp': results.get('timestamp', ''),
+                'timestamp': timestamp_str,
+                'timestamp_sort': timestamp_sort.isoformat() if timestamp_sort else '',
                 'source_type': file_source_type,
                 'total_deals': len(deals),
                 'excellent': len([d for d in deals if d.get('category') == 'excellent']),
@@ -246,6 +274,13 @@ async def api_results(source_type: Optional[str] = None):
         except Exception as e:
             print(f"Error processing {file_path}: {e}")
             continue
+    
+    # Sort by timestamp (newest first) after filtering
+    file_info.sort(key=lambda x: x.get('timestamp_sort', ''), reverse=True)
+    
+    print(f"📊 API /results: Returning {len(file_info)} files (sorted newest first):", flush=True)
+    for f in file_info[:5]:
+        print(f"   - {f['filename']} (timestamp: {f['timestamp']})", flush=True)
     
     return JSONResponse(content=file_info)
 
@@ -267,14 +302,48 @@ async def api_deals(
     """Get deals from a specific result file, optionally filtered by source type."""
     print(f"📊 API /deals: Called with file='{file}', source_type='{source_type}'", flush=True)
     
-    # If file is provided but doesn't match source_type, ignore the file and select correct one
+    # If file is provided, check if it matches source_type and if it's the newest
     if file and source_type:
         file_basename = os.path.basename(file) if '/' in file else file
         detected_type = detect_source_type(file_basename)
+        
         if detected_type != source_type:
             print(f"⚠️  API /deals: File '{file_basename}' (detected: {detected_type}) doesn't match requested source_type='{source_type}'", flush=True)
             print(f"📊 API /deals: Ignoring file parameter and selecting correct file for source_type='{source_type}'", flush=True)
             file = None  # Ignore the file and let the source_type filtering select the correct one
+        else:
+            # File matches source_type, but check if there's a newer file available
+            files = get_all_results_files()
+            filtered_files = [f for f in files if detect_source_type(os.path.basename(f)) == source_type]
+            if filtered_files:
+                newest_file = filtered_files[0]  # Already sorted newest first
+                newest_basename = os.path.basename(newest_file)
+                requested_file_path = os.path.join(RESULTS_DIR, file_basename) if not file.startswith(RESULTS_DIR) else file
+                
+                # Normalize paths for comparison
+                newest_file_normalized = os.path.normpath(newest_file)
+                requested_file_normalized = os.path.normpath(requested_file_path)
+                
+                if newest_file_normalized != requested_file_normalized and os.path.exists(newest_file):
+                    # Check timestamps to see if newer file exists
+                    try:
+                        requested_results = load_json_results(requested_file_path)
+                        newest_results = load_json_results(newest_file)
+                        requested_ts = requested_results.get('timestamp', '')
+                        newest_ts = newest_results.get('timestamp', '')
+                        
+                        print(f"🔍 API /deals: Comparing files - Requested: '{file_basename}' (ts: {requested_ts}) vs Newest: '{newest_basename}' (ts: {newest_ts})", flush=True)
+                        
+                        if newest_ts > requested_ts:
+                            print(f"⚠️  API /deals: Requested file '{file_basename}' (timestamp: {requested_ts}) is older than newest file '{newest_basename}' (timestamp: {newest_ts})", flush=True)
+                            print(f"📊 API /deals: Using newest file instead: {newest_basename}", flush=True)
+                            file = None  # Use newest instead
+                        else:
+                            print(f"✅ API /deals: Requested file '{file_basename}' is current or newer, using it", flush=True)
+                    except Exception as e:
+                        print(f"⚠️  API /deals: Could not compare timestamps, using requested file: {e}", flush=True)
+                else:
+                    print(f"✅ API /deals: Requested file '{file_basename}' is already the newest file", flush=True)
     
     if not file:
         # Use latest file if none specified, optionally filtered by source_type
@@ -293,18 +362,35 @@ async def api_deals(
         if source_type:
             filtered_files = [f for f in files if detect_source_type(os.path.basename(f)) == source_type]
             print(f"📊 API /deals: Filtered to {len(filtered_files)} files matching source_type='{source_type}':", flush=True)
+            
+            # Show timestamps for filtered files
             for f in filtered_files[:5]:  # Show first 5 filtered files
-                print(f"   - {os.path.basename(f)}", flush=True)
+                try:
+                    results = load_json_results(f)
+                    timestamp = results.get('timestamp', 'N/A')
+                    print(f"   - {os.path.basename(f)} (timestamp: {timestamp})", flush=True)
+                except:
+                    print(f"   - {os.path.basename(f)}", flush=True)
             
             if filtered_files:
                 file = filtered_files[0]  # Get latest file of the specified type
-                print(f"✅ API /deals: Selected file: {os.path.basename(file)}", flush=True)
+                try:
+                    results = load_json_results(file)
+                    timestamp = results.get('timestamp', 'N/A')
+                    print(f"✅ API /deals: Selected file: {os.path.basename(file)} (timestamp: {timestamp})", flush=True)
+                except:
+                    print(f"✅ API /deals: Selected file: {os.path.basename(file)}", flush=True)
             else:
                 print(f"❌ API /deals: No files found matching source_type='{source_type}'", flush=True)
                 return JSONResponse(content={'deals': [], 'error': f'No {source_type} result files found'})
         else:
             file = files[0]  # Default to latest file regardless of type
-            print(f"📊 API /deals: No source_type specified, using latest file: {os.path.basename(file)}", flush=True)
+            try:
+                results = load_json_results(file)
+                timestamp = results.get('timestamp', 'N/A')
+                print(f"📊 API /deals: No source_type specified, using latest file: {os.path.basename(file)} (timestamp: {timestamp})", flush=True)
+            except:
+                print(f"📊 API /deals: No source_type specified, using latest file: {os.path.basename(file)}", flush=True)
     
     # Ensure file is in results directory (security)
     if not file.startswith(RESULTS_DIR):
@@ -371,10 +457,14 @@ async def api_deals(
     elif sort == 'expansion':
         deals.sort(key=lambda x: x.get('expansion', '').lower(), reverse=reverse)
     
+    # Get timestamp from results file
+    timestamp = results.get('timestamp', '')
+    
     return JSONResponse(content={
         'deals': deals,
         'total': len(deals),
-        'file': os.path.basename(file)
+        'file': os.path.basename(file),
+        'timestamp': timestamp  # Include timestamp so UI can show data age
     })
 
 

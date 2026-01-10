@@ -85,6 +85,24 @@ else
     fi
 fi
 
+# Check Caddy (required for domain routing)
+if command -v systemctl &> /dev/null && systemctl list-unit-files | grep -q caddy.service; then
+    if ! systemctl is-active --quiet caddy; then
+        log "Caddy reverse proxy is not running. Starting it..."
+        if systemctl start caddy 2>/dev/null; then
+            success "Caddy started successfully"
+        else
+            warn "Could not start Caddy. Domain access (playmagic.now) may not work."
+            warn "You can start it manually with: sudo systemctl start caddy"
+        fi
+    else
+        success "Caddy reverse proxy is running"
+    fi
+else
+    warn "Caddy not found or not configured as a systemd service."
+    warn "External domain access may not work. Website will be available on localhost only."
+fi
+
 # --- Cleanup existing processes ---
 log "Cleaning up any existing processes on ports 5010, 9000, 5173..."
 lsof -ti:5010 | xargs kill -9 2>/dev/null

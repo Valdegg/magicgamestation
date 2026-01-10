@@ -1347,28 +1347,154 @@ async def collection_page():
             const response = await fetch(apiPath);
             const stats = await response.json();
             
-            // Find existing stats container or create one
+            // Find or create stats container - always place at bottom after pagination
             let statsContainer = document.getElementById('archived-stats-container');
+            
+            // Function to find pagination controls (NEXT/PREVIOUS buttons)
+            function findPaginationContainer() {
+                // Method 1: Find by NEXT button text
+                const allButtons = Array.from(document.querySelectorAll('button, a, [role="button"]'));
+                const nextButton = allButtons.find(btn => {
+                    const text = (btn.textContent || '').trim().toUpperCase();
+                    return text.includes('NEXT') || text.includes('►');
+                });
+                
+                if (nextButton && nextButton.parentElement) {
+                    return nextButton.parentElement;
+                }
+                
+                // Method 2: Find by "PAGE X OF Y" text
+                const pageIndicators = Array.from(document.querySelectorAll('*')).filter(el => {
+                    const text = (el.textContent || '').toUpperCase();
+                    return text.match(/PAGE\s+\d+\s+OF\s+\d+/);
+                });
+                
+                if (pageIndicators.length > 0 && pageIndicators[0].parentElement) {
+                    return pageIndicators[0].parentElement;
+                }
+                
+                // Method 3: Search for common pagination container classes
+                const containers = document.querySelectorAll('[class*="pagination"], [class*="page-control"], [class*="page-nav"], [id*="pagination"], [id*="page-control"]');
+                if (containers.length > 0) {
+                    return containers[containers.length - 1]; // Get last one
+                }
+                
+                return null;
+            }
+            
+            // Hide "Total Cards" display and the "95" number
+            function hideTotalCardsDisplay() {
+                // Find elements containing "Total Cards" text that are NOT our stats
+                const allElements = Array.from(document.querySelectorAll('*'));
+                allElements.forEach(el => {
+                    const text = (el.textContent || '').trim();
+                    const isTotalCards = (text === 'Total Cards' || text.startsWith('Total Cards')) && 
+                                       !el.closest('#archived-stats-container') &&
+                                       el.textContent.length < 50;
+                    
+                    // Also hide elements that are just a number (like "95") and are likely total cards display
+                    const isJustNumber = /^\d+$/.test(text) && 
+                                        !el.closest('#archived-stats-container') &&
+                                        el.textContent.length < 10 &&
+                                        (el.classList.toString().includes('stat') || 
+                                         el.id.includes('stat') ||
+                                         el.parentElement?.classList.toString().includes('stat') ||
+                                         el.parentElement?.id.includes('stat') ||
+                                         el.nextElementSibling?.textContent?.includes('Total Cards') ||
+                                         el.previousElementSibling?.textContent?.includes('Total Cards'));
+                    
+                    if (isTotalCards || isJustNumber) {
+                        // Hide the parent container if it's a stat display
+                        let targetEl = el;
+                        let parent = el.parentElement;
+                        
+                        // Look up to 3 levels for the stat container
+                        for (let i = 0; i < 3 && parent; i++) {
+                            if (parent.classList.toString().includes('stat') || 
+                                parent.id.includes('stat') ||
+                                parent.querySelector('[class*="number"], [class*="value"]') ||
+                                parent.textContent.includes('Total Cards')) {
+                                targetEl = parent;
+                                break;
+                            }
+                            parent = parent.parentElement;
+                        }
+                        
+                        targetEl.style.display = 'none';
+                    }
+                });
+                
+                // Also look for elements positioned in bottom-left that might be the "95" display
+                // Check for elements with just numbers that are positioned absolutely or in a specific location
+                const numberElements = Array.from(document.querySelectorAll('*')).filter(el => {
+                    const text = (el.textContent || '').trim();
+                    return /^\d+$/.test(text) && 
+                           text.length <= 3 && 
+                           !el.closest('#archived-stats-container') &&
+                           !el.closest('[class*="pagination"]') &&
+                           !el.closest('[id*="pagination"]');
+                });
+                
+                numberElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    const isBottomLeft = rect.left < window.innerWidth * 0.3 && 
+                                      rect.bottom > window.innerHeight * 0.7;
+                    
+                    if (isBottomLeft || el.classList.toString().includes('stat') || el.id.includes('stat')) {
+                        let targetEl = el;
+                        let parent = el.parentElement;
+                        
+                        // Check if parent contains "Total Cards" text
+                        for (let i = 0; i < 2 && parent; i++) {
+                            if (parent.textContent.includes('Total Cards') || 
+                                parent.classList.toString().includes('stat') ||
+                                parent.id.includes('stat')) {
+                                targetEl = parent;
+                                break;
+                            }
+                            parent = parent.parentElement;
+                        }
+                        
+                        targetEl.style.display = 'none';
+                    }
+                });
+            }
+            
             if (!statsContainer) {
-                // Try to find existing stats section and add after it
-                const existingStats = document.querySelector('.stats-container, .stats-section, [class*="stat"]');
-                if (existingStats && existingStats.parentElement) {
-                    statsContainer = document.createElement('div');
-                    statsContainer.id = 'archived-stats-container';
-                    statsContainer.className = 'stats-container';
-                    statsContainer.style.cssText = 'display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 15px; margin: 15px 0;';
-                    existingStats.parentElement.insertBefore(statsContainer, existingStats.nextSibling);
-                } else {
-                    // Create at top of main content
-                    const mainContent = document.querySelector('main, .container, .content, body');
-                    if (mainContent) {
-                        statsContainer = document.createElement('div');
-                        statsContainer.id = 'archived-stats-container';
-                        statsContainer.className = 'stats-container';
-                        statsContainer.style.cssText = 'display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 15px; margin: 15px 0;';
-                        mainContent.insertBefore(statsContainer, mainContent.firstChild);
+                // Find pagination container
+                const paginationContainer = findPaginationContainer();
+                const mainContent = document.querySelector('main, .container, .content, body');
+                
+                statsContainer = document.createElement('div');
+                statsContainer.id = 'archived-stats-container';
+                statsContainer.className = 'stats-container';
+                statsContainer.style.cssText = 'display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 15px; margin: 15px 0;';
+                
+                if (paginationContainer && paginationContainer.parentElement) {
+                    // Insert after pagination container
+                    paginationContainer.parentElement.insertBefore(statsContainer, paginationContainer.nextSibling);
+                } else if (mainContent) {
+                    // Append at bottom of main content
+                    mainContent.appendChild(statsContainer);
+                }
+                
+                // Hide Total Cards display
+                setTimeout(hideTotalCardsDisplay, 100);
+            } else {
+                // Stats container already exists - move it after pagination if needed
+                const paginationContainer = findPaginationContainer();
+                if (paginationContainer && paginationContainer.parentElement && statsContainer.parentElement) {
+                    // Check if stats are before pagination
+                    const paginationIndex = Array.from(paginationContainer.parentElement.children).indexOf(paginationContainer);
+                    const statsIndex = Array.from(statsContainer.parentElement.children).indexOf(statsContainer);
+                    if (statsIndex <= paginationIndex || statsContainer.parentElement !== paginationContainer.parentElement) {
+                        // Move stats after pagination
+                        paginationContainer.parentElement.insertBefore(statsContainer, paginationContainer.nextSibling);
                     }
                 }
+                
+                // Hide Total Cards display
+                setTimeout(hideTotalCardsDisplay, 100);
             }
             
             if (statsContainer) {
@@ -1423,6 +1549,162 @@ async def collection_page():
         }
     }
     
+    // Move all stats sections to bottom after pagination
+    function moveStatsToBottom() {
+        // Find pagination container
+        function findPaginationContainer() {
+            const allButtons = Array.from(document.querySelectorAll('button, a, [role="button"]'));
+            const nextButton = allButtons.find(btn => {
+                const text = (btn.textContent || '').trim().toUpperCase();
+                return text.includes('NEXT') || text.includes('►');
+            });
+            
+            if (nextButton && nextButton.parentElement) {
+                return nextButton.parentElement;
+            }
+            
+            const pageIndicators = Array.from(document.querySelectorAll('*')).filter(el => {
+                const text = (el.textContent || '').toUpperCase();
+                return text.match(/PAGE\s+\d+\s+OF\s+\d+/);
+            });
+            
+            if (pageIndicators.length > 0 && pageIndicators[0].parentElement) {
+                return pageIndicators[0].parentElement;
+            }
+            
+            const containers = document.querySelectorAll('[class*="pagination"], [class*="page-control"], [class*="page-nav"], [id*="pagination"], [id*="page-control"]');
+            if (containers.length > 0) {
+                return containers[containers.length - 1];
+            }
+            
+            return null;
+        }
+        
+        // Hide "Total Cards" display and the "95" number
+        function hideTotalCardsDisplay() {
+            const allElements = Array.from(document.querySelectorAll('*'));
+            allElements.forEach(el => {
+                const text = (el.textContent || '').trim();
+                const isTotalCards = (text === 'Total Cards' || text.startsWith('Total Cards')) && 
+                                   !el.closest('#archived-stats-container') &&
+                                   el.textContent.length < 50;
+                
+                // Also hide elements that are just a number (like "95") and are likely total cards display
+                const isJustNumber = /^\d+$/.test(text) && 
+                                    !el.closest('#archived-stats-container') &&
+                                    el.textContent.length < 10 &&
+                                    (el.classList.toString().includes('stat') || 
+                                     el.id.includes('stat') ||
+                                     el.parentElement?.classList.toString().includes('stat') ||
+                                     el.parentElement?.id.includes('stat') ||
+                                     el.nextElementSibling?.textContent?.includes('Total Cards') ||
+                                     el.previousElementSibling?.textContent?.includes('Total Cards'));
+                
+                if (isTotalCards || isJustNumber) {
+                    let targetEl = el;
+                    let parent = el.parentElement;
+                    
+                    for (let i = 0; i < 3 && parent; i++) {
+                        if (parent.classList.toString().includes('stat') || 
+                            parent.id.includes('stat') ||
+                            parent.querySelector('[class*="number"], [class*="value"]') ||
+                            parent.textContent.includes('Total Cards')) {
+                            targetEl = parent;
+                            break;
+                        }
+                        parent = parent.parentElement;
+                    }
+                    
+                    targetEl.style.display = 'none';
+                }
+            });
+            
+            // Also look for elements positioned in bottom-left that might be the "95" display
+            const numberElements = Array.from(document.querySelectorAll('*')).filter(el => {
+                const text = (el.textContent || '').trim();
+                return /^\d+$/.test(text) && 
+                       text.length <= 3 && 
+                       !el.closest('#archived-stats-container') &&
+                       !el.closest('[class*="pagination"]') &&
+                       !el.closest('[id*="pagination"]');
+            });
+            
+            numberElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const isBottomLeft = rect.left < window.innerWidth * 0.3 && 
+                                  rect.bottom > window.innerHeight * 0.7;
+                
+                if (isBottomLeft || el.classList.toString().includes('stat') || el.id.includes('stat')) {
+                    let targetEl = el;
+                    let parent = el.parentElement;
+                    
+                    for (let i = 0; i < 2 && parent; i++) {
+                        if (parent.textContent.includes('Total Cards') || 
+                            parent.classList.toString().includes('stat') ||
+                            parent.id.includes('stat')) {
+                            targetEl = parent;
+                            break;
+                        }
+                        parent = parent.parentElement;
+                    }
+                    
+                    targetEl.style.display = 'none';
+                }
+            });
+        }
+        
+        const paginationContainer = findPaginationContainer();
+        if (!paginationContainer || !paginationContainer.parentElement) {
+            hideTotalCardsDisplay();
+            return;
+        }
+        
+        // Find all stats containers (excluding our archived-stats-container)
+        const allStatsContainers = document.querySelectorAll('.stats-container, .stats-section, [class*="stat"]:not(#archived-stats-container)');
+        
+        // Also look for elements containing "What We Have", etc. (but we'll handle "Total Cards" separately to hide it)
+        const statTexts = ['What We Have', 'What We Have Sold', 'Items', 'Total Cost', 'Current Value'];
+        const potentialStatsElements = Array.from(document.querySelectorAll('div, section')).filter(el => {
+            const text = el.textContent || '';
+            return statTexts.some(statText => text.includes(statText)) && 
+                   el.children.length > 0 &&
+                   !el.id.includes('archived-stats');
+        });
+        
+        // Combine all stats elements
+        const allStatsElements = Array.from(allStatsContainers).concat(potentialStatsElements);
+        
+        // Move each stats element to after pagination
+        allStatsElements.forEach(statsEl => {
+            if (statsEl.parentElement && statsEl !== paginationContainer && !paginationContainer.contains(statsEl)) {
+                // Check if it's already after pagination
+                const paginationIndex = Array.from(paginationContainer.parentElement.children).indexOf(paginationContainer);
+                const statsIndex = Array.from(statsEl.parentElement.children).indexOf(statsEl);
+                
+                if (statsIndex <= paginationIndex || statsEl.parentElement !== paginationContainer.parentElement) {
+                    // Move to after pagination
+                    paginationContainer.parentElement.insertBefore(statsEl, paginationContainer.nextSibling);
+                }
+            }
+        });
+        
+        // Also ensure archived-stats-container is after pagination
+        const archivedStats = document.getElementById('archived-stats-container');
+        if (archivedStats && archivedStats.parentElement === paginationContainer.parentElement) {
+            const paginationIndex = Array.from(paginationContainer.parentElement.children).indexOf(paginationContainer);
+            const statsIndex = Array.from(archivedStats.parentElement.children).indexOf(archivedStats);
+            if (statsIndex <= paginationIndex) {
+                paginationContainer.parentElement.insertBefore(archivedStats, paginationContainer.nextSibling);
+            }
+        } else if (archivedStats && paginationContainer.parentElement) {
+            // Move to after pagination
+            paginationContainer.parentElement.insertBefore(archivedStats, paginationContainer.nextSibling);
+        }
+        
+        // Hide Total Cards display
+        hideTotalCardsDisplay();
+    }
+    
     // Fix redundant stats display - remove duplicate "Collection Items" if it matches "Total Cards"
     function fixRedundantStats() {
         // Find all stat cards
@@ -1458,11 +1740,17 @@ async def collection_page():
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
             loadArchivedStats();
-            setTimeout(fixRedundantStats, 500); // Wait a bit for other scripts to load stats
+            setTimeout(() => {
+                moveStatsToBottom();
+                fixRedundantStats();
+            }, 800); // Wait a bit for other scripts to load stats and DOM to settle
         });
     } else {
         loadArchivedStats();
-        setTimeout(fixRedundantStats, 500);
+        setTimeout(() => {
+            moveStatsToBottom();
+            fixRedundantStats();
+        }, 800);
     }
     </script>
 """

@@ -40,7 +40,35 @@ os.makedirs(IMAGE_DIR_SETS, exist_ok=True)
 if os.path.exists(IMAGE_DIR):
     app.mount("/card_images", StaticFiles(directory=IMAGE_DIR), name="card_images")
 if os.path.exists(IMAGE_DIR_SETS):
-    app.mount("/card_images_sets", StaticFiles(directory=IMAGE_DIR_SETS), name="card_images_sets")
+    # Custom route handler for images with semicolons (URL-encoded)
+    # This must be defined BEFORE the StaticFiles mount to take precedence
+    @app.get("/card_images_sets/{filename:path}")
+    async def serve_card_image_sets(filename: str):
+        """Serve card images with URL-encoded filenames (handles semicolons)."""
+        from urllib.parse import unquote
+        from fastapi.responses import FileResponse
+        import os
+        
+        # Try decoded filename first (for URL-encoded paths)
+        decoded_filename = unquote(filename)
+        filepath = os.path.join(IMAGE_DIR_SETS, decoded_filename)
+        
+        # Security check
+        abs_filepath = os.path.abspath(filepath)
+        abs_dir = os.path.abspath(IMAGE_DIR_SETS)
+        if not abs_filepath.startswith(abs_dir):
+            return JSONResponse(content={'error': 'Invalid file path'}, status_code=400)
+        
+        # Try decoded filename
+        if os.path.exists(filepath) and os.path.isfile(filepath):
+            return FileResponse(filepath, media_type="image/jpeg")
+        
+        # Fallback: try original filename (for non-encoded paths)
+        original_filepath = os.path.join(IMAGE_DIR_SETS, filename)
+        if os.path.exists(original_filepath) and os.path.isfile(original_filepath):
+            return FileResponse(original_filepath, media_type="image/jpeg")
+        
+        return JSONResponse(content={'error': 'File not found'}, status_code=404)
 if os.path.exists('web_static'):
     app.mount("/static", StaticFiles(directory="web_static"), name="static")
 
@@ -428,7 +456,10 @@ async def market_route(request: Request):
             const originalFetch = window.fetch;
             window.fetch = function(...args) {
                 const url = args[0];
-                if (typeof url === 'string' && (url.includes('/market/api/deals') || url.includes('/market/api/results'))) {
+                if (typeof url === 'string' && (
+                    url.includes('/market/api/deals') || url.includes('/market/api/results') ||
+                    url.includes('/api/results') || url.includes('/api/deals')
+                )) {
                     // Add source_type if not already present
                     if (!url.includes('source_type=') && !url.includes('sourceType=')) {
                         const separator = url.includes('?') ? '&' : '?';
@@ -441,6 +472,69 @@ async def market_route(request: Request):
         }
         
         console.log('📊 Market Scanner: source_type set to', sourceType);
+    })();
+    
+    // Image fetch deduplication and retry prevention
+    (function() {
+        const imageFetchCache = new Map(); // Track pending requests
+        const failedImages = new Set(); // Track images that failed to prevent infinite retries
+        
+        // Override fetchMissingCardImage if it exists
+        window.fetchMissingCardImage = async function(imgElement, cardName, expansion) {
+            const cacheKey = `${cardName}|${expansion || ''}`;
+            
+            // Prevent infinite retries
+            if (failedImages.has(cacheKey)) {
+                return; // Already failed, don't retry
+            }
+            
+            // Prevent duplicate simultaneous requests
+            if (imageFetchCache.has(cacheKey)) {
+                const cachedPromise = imageFetchCache.get(cacheKey);
+                try {
+                    const data = await cachedPromise;
+                    if (data.success && data.image_path) {
+                        imgElement.src = data.image_path;
+                    }
+                } catch (e) {
+                    // Ignore errors from cached promise
+                }
+                return;
+            }
+            
+            // Show placeholder
+            const placeholderText = encodeURIComponent(cardName.substring(0,8));
+            imgElement.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 140%22%3E%3Crect fill=%22%23111%22 width=%22100%22 height=%22140%22/%3E%3Ctext fill=%22%23333%22 x=%2250%22 y=%2270%22 text-anchor=%22middle%22 font-size=%2212%22%3E' + placeholderText + '%3C/text%3E%3C/svg%3E';
+            
+            // Create and cache the fetch promise
+            const fetchPromise = (async () => {
+                try {
+                    const params = new URLSearchParams({ name: cardName });
+                    if (expansion) params.append('set', expansion);
+                    
+                    const response = await fetch(`/market/api/fetch-card-image?${params}`);
+                    const data = await response.json();
+                    
+                    if (data.success && data.image_path) {
+                        imgElement.src = data.image_path;
+                        return data;
+                    } else {
+                        failedImages.add(cacheKey); // Mark as failed
+                        return data;
+                    }
+                } catch (error) {
+                    failedImages.add(cacheKey); // Mark as failed
+                    console.error('Failed to fetch card image:', cardName, error);
+                    throw error;
+                } finally {
+                    // Remove from cache after 5 seconds
+                    setTimeout(() => imageFetchCache.delete(cacheKey), 5000);
+                }
+            })();
+            
+            imageFetchCache.set(cacheKey, fetchPromise);
+            await fetchPromise;
+        };
     })();
     </script>
 """
@@ -502,7 +596,10 @@ async def market_collection_route(request: Request):
             const originalFetch = window.fetch;
             window.fetch = function(...args) {
                 const url = args[0];
-                if (typeof url === 'string' && (url.includes('/market/api/deals') || url.includes('/market/api/results'))) {
+                if (typeof url === 'string' && (
+                    url.includes('/market/api/deals') || url.includes('/market/api/results') ||
+                    url.includes('/api/results') || url.includes('/api/deals')
+                )) {
                     // Add source_type if not already present
                     if (!url.includes('source_type=') && !url.includes('sourceType=')) {
                         const separator = url.includes('?') ? '&' : '?';
@@ -515,6 +612,69 @@ async def market_collection_route(request: Request):
         }
         
         console.log('📊 Market Scanner: source_type set to', sourceType);
+    })();
+    
+    // Image fetch deduplication and retry prevention
+    (function() {
+        const imageFetchCache = new Map(); // Track pending requests
+        const failedImages = new Set(); // Track images that failed to prevent infinite retries
+        
+        // Override fetchMissingCardImage if it exists
+        window.fetchMissingCardImage = async function(imgElement, cardName, expansion) {
+            const cacheKey = `${cardName}|${expansion || ''}`;
+            
+            // Prevent infinite retries
+            if (failedImages.has(cacheKey)) {
+                return; // Already failed, don't retry
+            }
+            
+            // Prevent duplicate simultaneous requests
+            if (imageFetchCache.has(cacheKey)) {
+                const cachedPromise = imageFetchCache.get(cacheKey);
+                try {
+                    const data = await cachedPromise;
+                    if (data.success && data.image_path) {
+                        imgElement.src = data.image_path;
+                    }
+                } catch (e) {
+                    // Ignore errors from cached promise
+                }
+                return;
+            }
+            
+            // Show placeholder
+            const placeholderText = encodeURIComponent(cardName.substring(0,8));
+            imgElement.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 140%22%3E%3Crect fill=%22%23111%22 width=%22100%22 height=%22140%22/%3E%3Ctext fill=%22%23333%22 x=%2250%22 y=%2270%22 text-anchor=%22middle%22 font-size=%2212%22%3E' + placeholderText + '%3C/text%3E%3C/svg%3E';
+            
+            // Create and cache the fetch promise
+            const fetchPromise = (async () => {
+                try {
+                    const params = new URLSearchParams({ name: cardName });
+                    if (expansion) params.append('set', expansion);
+                    
+                    const response = await fetch(`/market/api/fetch-card-image?${params}`);
+                    const data = await response.json();
+                    
+                    if (data.success && data.image_path) {
+                        imgElement.src = data.image_path;
+                        return data;
+                    } else {
+                        failedImages.add(cacheKey); // Mark as failed
+                        return data;
+                    }
+                } catch (error) {
+                    failedImages.add(cacheKey); // Mark as failed
+                    console.error('Failed to fetch card image:', cardName, error);
+                    throw error;
+                } finally {
+                    // Remove from cache after 5 seconds
+                    setTimeout(() => imageFetchCache.delete(cacheKey), 5000);
+                }
+            })();
+            
+            imageFetchCache.set(cacheKey, fetchPromise);
+            await fetchPromise;
+        };
     })();
     </script>
 """
@@ -599,7 +759,11 @@ async def market_api_fetch_card_image(name: str, set: str = None):
     """Fetch card image from Scryfall if it doesn't exist locally. Supports set-specific fetching."""
     # Import the fetch function from wishlist_ui (they share the same implementation)
     from wishlist_ui import fetch_card_image_from_scryfall, get_image_filename, IMAGE_DIR_SETS, IMAGE_DIR
+    from fastapi.responses import Response
     import os
+    
+    # Create cache key for request deduplication
+    cache_key = f"{name}|{set or ''}"
     
     try:
         # Generate filename with set if provided
@@ -609,34 +773,67 @@ async def market_api_fetch_card_image(name: str, set: str = None):
         
         # Check if image already exists
         if os.path.exists(filepath) and os.path.getsize(filepath) > 0:
-            return JSONResponse({
+            # Don't log cached responses - they're too frequent
+            # URL-encode the filename to handle semicolons and other special characters
+            from urllib.parse import quote
+            encoded_filename = quote(filename, safe='')
+            response = JSONResponse({
                 "success": True,
-                "image_path": f"/card_images_sets/{filename}" if set else f"/card_images/{filename}",
+                "image_path": f"/card_images_sets/{encoded_filename}" if set else f"/card_images/{encoded_filename}",
                 "message": "Image already exists"
             })
+            # Add caching headers - cache for 1 day
+            response.headers["Cache-Control"] = "public, max-age=86400"
+            response.headers["ETag"] = f'"{cache_key}-{os.path.getmtime(filepath)}"'
+            return response
+        
+        # Only log when actually fetching from Scryfall (not cached)
+        print(f"🖼️  Fetching card image from Scryfall: {name} ({set or 'no set'})", flush=True)
         
         # Fetch from Scryfall (with set if provided)
         image_path = fetch_card_image_from_scryfall(name, set)
         
         if image_path:
-            return JSONResponse({
+            print(f"✅ Successfully fetched image for {name}", flush=True)
+            # URL-encode the filename in the path to handle semicolons and other special characters
+            from urllib.parse import quote
+            # Extract filename from path and encode it
+            path_parts = image_path.split('/')
+            if path_parts:
+                filename = path_parts[-1]
+                encoded_filename = quote(filename, safe='')
+                path_parts[-1] = encoded_filename
+                image_path = '/'.join(path_parts)
+            
+            response = JSONResponse({
                 "success": True,
                 "image_path": image_path,
                 "message": "Image fetched successfully"
             })
+            # Add caching headers - cache for 1 day
+            response.headers["Cache-Control"] = "public, max-age=86400"
+            response.headers["ETag"] = f'"{cache_key}"'
+            return response
         else:
-            return JSONResponse({
+            print(f"❌ Could not fetch image for {name} from Scryfall", flush=True)
+            response = JSONResponse({
                 "success": False,
                 "message": "Could not fetch image from Scryfall"
             }, status_code=404)
+            # Cache 404s for 1 hour to prevent repeated failed requests
+            response.headers["Cache-Control"] = "public, max-age=3600"
+            return response
     except Exception as e:
         import traceback
-        print(f"Error in market_api_fetch_card_image: {e}", flush=True)
+        print(f"❌ Error in market_api_fetch_card_image for {name}: {e}", flush=True)
         traceback.print_exc()
-        return JSONResponse({
+        response = JSONResponse({
             "success": False,
             "message": str(e)
         }, status_code=500)
+        # Don't cache errors
+        response.headers["Cache-Control"] = "no-cache"
+        return response
 
 # Wishlist routes
 @app.get("/wishlist", response_class=HTMLResponse)

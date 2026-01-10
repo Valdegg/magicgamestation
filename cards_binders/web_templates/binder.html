@@ -1662,7 +1662,8 @@
         
         async function fetchMissingCardImage(imgElement, cardName, expansion) {
             // Show placeholder first
-            imgElement.src = 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 140\'%3E%3Crect fill=\'%23111\' width=\'100\' height=\'140\'/%3E%3Ctext fill=\'%23333\' x=\'50\' y=\'70\' text-anchor=\'middle\' font-size=\'12\'%3E' + cardName.substring(0,8) + '%3C/text%3E%3C/svg%3E';
+            const placeholderText = encodeURIComponent(cardName.substring(0,8));
+            imgElement.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 140%22%3E%3Crect fill=%22%23111%22 width=%22100%22 height=%22140%22/%3E%3Ctext fill=%22%23333%22 x=%2250%22 y=%2270%22 text-anchor=%22middle%22 font-size=%2212%22%3E' + placeholderText + '%3C/text%3E%3C/svg%3E';
             
             try {
                 const params = new URLSearchParams({ name: cardName });

@@ -140,7 +140,7 @@
       "Revised Edition"
     ],
     "buy_price": 212.5,
-    "sell_price": 0,
+    "sell_price": 254.5,
     "condition": "Excellent"
   },
   {
@@ -834,5 +834,45 @@
     "buy_price": 215,
     "condition": "Near Mint",
     "language": "Italian"
+  },
+  {
+    "name": "Swords to Plowshares",
+    "sets": [
+      "Unlimited Edition"
+    ],
+    "buy_price": 65,
+    "condition": "Lightly Played",
+    "source": "Cardmarket",
+    "foil": false
+  },
+  {
+    "name": "Fork",
+    "sets": [
+      "Unlimited Edition"
+    ],
+    "buy_price": 73,
+    "condition": "Moderately Played",
+    "source": "Ebay",
+    "foil": false
+  },
+  {
+    "name": "Plateau",
+    "sets": [
+      "Revised Edition"
+    ],
+    "condition": "Lightly Played",
+    "source": "Ebay",
+    "sell_price": 169,
+    "foil": false,
+    "buy_price": 169
+  },
+  {
+    "name": "City of Brass",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "buy_price": 369,
+    "condition": "Lightly Played",
+    "foil": false
   }
 ]

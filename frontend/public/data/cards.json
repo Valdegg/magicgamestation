@@ -6900,10 +6900,17 @@
       "B",
       "G"
     ]
-  }
-} this creature is dealt damage, sacrifice that many permanents.",
-    "colors": [
-      "B"
-    ]
+  },
+  "senseis_divining_top": {
+    "id": "senseis_divining_top",
+    "name": "Sensei's Divining Top",
+    "set": "CHK",
+    "set_name": "Champions of Kamigawa",
+    "image": "/card_images/senseis_divining_top.jpg",
+    "type": "Artifact",
+    "mana_cost": "{1}",
+    "cmc": 1.0,
+    "oracle_text": "{1}: Look at the top three cards of your library, then put them back in any order.\n{T}: Draw a card, then put this artifact on top of its owner's library.",
+    "colors": []
   }
 }

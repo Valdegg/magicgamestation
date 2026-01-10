@@ -316,12 +316,12 @@ class SimpleBrowserScraper:
                 if not html_content:
                     # Save raw content for debugging
                     raw_preview = response.content[:2000].decode('utf-8', errors='replace')
-                    self._save_debug_html(raw_preview, url, "decompression_failed_binary")
+                   # self._save_debug_html(raw_preview, url, "decompression_failed_binary")
                     print(f"   ❌ Could not decompress response (saved first 2000 bytes for debugging)")
                     return FetchResult(listings=[], available_items_total=None, expansion_name=None)
             
             # Save successful HTML
-            self._save_debug_html(html_content, url, "success")
+           # self._save_debug_html(html_content, url, "success")
                     
         except UnicodeDecodeError as e:
             # Try manual decompression
@@ -338,20 +338,20 @@ class SimpleBrowserScraper:
                 try:
                     # Last resort: try to decode raw content
                     html_content = response.content.decode('utf-8', errors='replace')
-                    self._save_debug_html(html_content[:5000], url, "fallback_decode", str(e))
+                   # self._save_debug_html(html_content[:5000], url, "fallback_decode", str(e))
                 except Exception as decode_error:
                     self._save_debug_info(url, "decode_failed", f"Decompression error: {e}, Decode error: {decode_error}", response)
                     return FetchResult(listings=[], available_items_total=None, expansion_name=None)
         
         # Check if we got the right page
         if 'cardmarket' not in html_content.lower():
-            self._save_debug_html(html_content, url, "not_cardmarket")
+           # self._save_debug_html(html_content, url, "not_cardmarket")
             return FetchResult(listings=[], available_items_total=None, expansion_name=None)
         
         # Check for blocked/forbidden ONLY if there are no article listings
         # (Words may appear in tooltips/UI even on valid pages)
         if ('blocked' in html_content.lower() or 'forbidden' in html_content.lower()) and 'article-row' not in html_content:
-            self._save_debug_html(html_content, url, "blocked")
+           # self._save_debug_html(html_content, url, "blocked")
             return FetchResult(listings=[], available_items_total=None, expansion_name=None)
         
         # Check if we landed on an expansion list instead of a card page
@@ -368,7 +368,7 @@ class SimpleBrowserScraper:
                     if not card_name_slug.endswith('-V-1'):
                         print(f"   🔄 Multiple versions detected, trying {card_name_slug}-V-1...")
                         new_url = url.replace(f'/{card_name_slug}?', f'/{card_name_slug}-V-1?')
-                        self._save_debug_html(html_content, url, "multiple_versions_retrying_v1")
+                       # self._save_debug_html(html_content, url, "multiple_versions_retrying_v1")
                         return self.fetch_listings(new_url, max_listings, retry_count + 1)
                 elif retry_count == 1:
                     # Second retry: Try collapsing internal hyphens (e.g., "Ifh-Biff-Efreet" → "IfhBiff-Efreet")
@@ -383,15 +383,15 @@ class SimpleBrowserScraper:
                             collapsed = ''.join(slug_parts[:-1]) + '-' + slug_parts[-1]
                             print(f"   🔄 Trying without internal hyphens: {collapsed}...")
                             new_url = url.replace(f'/{card_name_slug}?', f'/{collapsed}?')
-                            self._save_debug_html(html_content, url, "multiple_versions_retrying_collapsed")
+                           # self._save_debug_html(html_content, url, "multiple_versions_retrying_collapsed")
                             return self.fetch_listings(new_url, max_listings, retry_count + 1)
                 
                 # All retries exhausted
-                self._save_debug_html(html_content, url, "multiple_versions_failed")
+               # self._save_debug_html(html_content, url, "multiple_versions_failed")
                 print("   ❌ Could not determine correct version")
                 return FetchResult(listings=[], available_items_total=None, expansion_name=None)
             else:
-                self._save_debug_html(html_content, url, "multiple_versions")
+               # self._save_debug_html(html_content, url, "multiple_versions")
                 return FetchResult(listings=[], available_items_total=None, expansion_name=None)
         
         # Store response status before parsing
@@ -405,7 +405,7 @@ class SimpleBrowserScraper:
             
             # If no listings found, provide detailed diagnostics
             if len(listings) == 0:
-                self._save_debug_html(html_content, url, "no_listings_found")
+               # self._save_debug_html(html_content, url, "no_listings_found")
                 
                 # Check what we actually got
                 has_article_rows = 'article-row' in html_content
@@ -447,7 +447,7 @@ class SimpleBrowserScraper:
             
         except Exception as e:
             # Save HTML when parsing fails
-            self._save_debug_html(html_content, url, "parsing_failed", str(e))
+           # self._save_debug_html(html_content, url, "parsing_failed", str(e))
             print(f"   ❌ Parse error: {e}")
             return FetchResult(listings=[], available_items_total=None, expansion_name=None)
     
