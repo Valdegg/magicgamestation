@@ -52,6 +52,11 @@ frontend/public/data/cards.json
 
 # Data directories
 card_binders/data/
+cards_binders/data/
+cards_binders/card_images/
+cards_binders/card_images_sets/
+cards_binders/results/
+cards_binders/debug_html/
 results/
 debug_html/
 
