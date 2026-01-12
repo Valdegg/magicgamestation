@@ -850,6 +850,48 @@
             letter-spacing: 1px;
         }
 
+        /* Bottom Controls Bar */
+        .bottom-controls {
+            margin: 25px 0;
+            padding: 15px 0;
+        }
+
+        .bottom-controls-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .bottom-sort-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .bottom-sort-container label {
+            color: #d4af37;
+            font-weight: 500;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .bottom-sort-container select {
+            padding: 6px 10px;
+            border: 1px solid #444;
+            background: #222;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 13px;
+            cursor: pointer;
+            min-width: 160px;
+        }
+
+        .bottom-sort-container select:hover {
+            border-color: #d4af37;
+        }
+
         /* ============================================
            MODAL
            ============================================ */
@@ -1178,6 +1220,16 @@
             <span class="page-info" id="pageInfo">Page 1 of 1</span>
             <button class="page-btn" id="nextPage" onclick="flipPage(1)">Next ►</button>
         </div>
+        
+        <!-- Bottom Controls Bar -->
+        <div class="bottom-controls" id="bottomControls" style="display: none;">
+            <div class="bottom-controls-container">
+                <button class="page-btn" id="bottomAddCardsBtn" onclick="openAddModal()" title="Add a new card to your collection">
+                    ➕ Add Cards
+                </button>
+                <div id="bottom-sort-container" class="bottom-sort-container"></div>
+            </div>
+        </div>
     </div>
 
     <!-- Add/Edit Modal -->
@@ -1206,6 +1258,10 @@
                     <input type="number" id="buyPrice" step="0.01" min="0" placeholder="e.g. 25.50">
                 </div>
                 <div class="form-group">
+                    <label for="purchaseDate">Purchase Date</label>
+                    <input type="date" id="purchaseDate" placeholder="Date of purchase">
+                </div>
+                <div class="form-group">
                     <label for="condition">Condition</label>
                     <select id="condition">
                         <option value="">Select condition...</option>
@@ -1223,6 +1279,10 @@
                 <div class="form-group">
                     <label for="sellPrice">Sell Price (€)</label>
                     <input type="number" id="sellPrice" step="0.01" min="0" placeholder="e.g. 30.00">
+                </div>
+                <div class="form-group">
+                    <label for="saleDate">Sale Date</label>
+                    <input type="date" id="saleDate" placeholder="Date of sale">
                 </div>
                 <div class="form-group">
                     <label for="notes">Notes</label>
@@ -1416,6 +1476,12 @@
             document.getElementById('prevPage').disabled = !canGoPrev;
             document.getElementById('nextPage').disabled = !canGoNext;
             document.getElementById('pageNav').style.display = totalSpreads > 1 ? 'flex' : 'none';
+            
+            // Show bottom controls (always visible)
+            const bottomControls = document.getElementById('bottomControls');
+            if (bottomControls) {
+                bottomControls.style.display = 'block';
+            }
         }
 
         
@@ -1711,9 +1777,11 @@
             const expansion = card.expansion || null;
             const collectionIndex = card.collection_index !== undefined ? card.collection_index : -1;
             const buyPrice = card.buy_price;
+            const purchaseDate = card.purchase_date;
             const condition = card.condition;
             const source = card.source;
             const sellPrice = card.sell_price;
+            const saleDate = card.sale_date;
             
             // Calculate row (0-indexed, 0-2 for 3 rows)
             const row = Math.floor(cardIndex / 3);
@@ -1726,10 +1794,31 @@
                 : `/card_images/${imageName}`;
             // log image path in console
             const expansionHTML = expansion ? `<div class="card-expansion">${expansion}</div>` : '';
+            
+            // Format date for display (YYYY-MM-DD to readable format)
+            function formatDate(dateStr) {
+                if (!dateStr) return '';
+                try {
+                    const date = new Date(dateStr + 'T00:00:00'); // Add time to avoid timezone issues
+                    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                    return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+                } catch (e) {
+                    return dateStr; // Return original if parsing fails
+                }
+            }
+            
             // Only show buy price, condition, and sell price in hover overlay (not source)
-            const buyPriceHTML = buyPrice !== undefined && buyPrice !== null ? `<div class="card-buy-price">Bought: €${parseFloat(buyPrice).toFixed(2)}</div>` : '';
+            let buyPriceHTML = '';
+            if (buyPrice !== undefined && buyPrice !== null) {
+                const dateStr = purchaseDate ? ` <span style="color: #888; font-size: 0.9em;">(${formatDate(purchaseDate)})</span>` : '';
+                buyPriceHTML = `<div class="card-buy-price">Bought: €${parseFloat(buyPrice).toFixed(2)}${dateStr}</div>`;
+            }
             const conditionHTML = condition ? `<div class="card-condition">${condition}</div>` : '';
-            const sellPriceHTML = sellPrice !== undefined && sellPrice !== null ? `<div class="card-sell-price">Sold: €${parseFloat(sellPrice).toFixed(2)}</div>` : '';
+            let sellPriceHTML = '';
+            if (sellPrice !== undefined && sellPrice !== null) {
+                const dateStr = saleDate ? ` <span style="color: #888; font-size: 0.9em;">(${formatDate(saleDate)})</span>` : '';
+                sellPriceHTML = `<div class="card-sell-price">Sold: €${parseFloat(sellPrice).toFixed(2)}${dateStr}</div>`;
+            }
             
             return `
                 <div class="card-pocket" 
@@ -1999,9 +2088,13 @@
             document.getElementById('modalTitle').textContent = 'Add Card to Collection';
             document.getElementById('cardForm').reset();
             document.getElementById('buyPrice').value = '';
+            // Set default dates to current date for new cards
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('purchaseDate').value = today;
             document.getElementById('condition').value = '';
             document.getElementById('source').value = '';
             document.getElementById('sellPrice').value = '';
+            document.getElementById('saleDate').value = today;
             document.getElementById('notes').value = '';
             updateSelectedSetsDisplay();
             document.getElementById('cardSetsDropdown').classList.remove('show');
@@ -2021,9 +2114,14 @@
             document.getElementById('cardName').value = item.name || '';
             selectedSets = item.sets || [];
             document.getElementById('buyPrice').value = item.buy_price !== undefined ? item.buy_price : '';
+            // Use existing purchase_date if present, otherwise default to current date
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('purchaseDate').value = item.purchase_date || today;
             document.getElementById('condition').value = item.condition || '';
             document.getElementById('source').value = item.source || '';
             document.getElementById('sellPrice').value = item.sell_price !== undefined ? item.sell_price : '';
+            // Use existing sale_date if present, otherwise default to current date
+            document.getElementById('saleDate').value = item.sale_date || today;
             document.getElementById('notes').value = item.notes || '';
             updateSelectedSetsDisplay();
             document.getElementById('cardSetsDropdown').classList.remove('show');
@@ -2035,6 +2133,39 @@
             document.getElementById('cardModal').style.display = 'none';
             editingIndex = null;
         }
+
+        // Handle X key and Escape key to close modal
+        document.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('cardModal');
+            if (!modal || modal.style.display === 'none') {
+                return; // Modal is not open
+            }
+            
+            // Handle Escape key to close modal (works from anywhere)
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                closeModal();
+                return;
+            }
+            
+            // Handle X key to close modal (only when not typing in input fields)
+            if (e.key === 'x' || e.key === 'X') {
+                const activeElement = document.activeElement;
+                const isInputField = activeElement && (
+                    activeElement.tagName === 'INPUT' ||
+                    activeElement.tagName === 'TEXTAREA' ||
+                    activeElement.tagName === 'SELECT' ||
+                    activeElement.isContentEditable
+                );
+                
+                // Only close if user is NOT typing in an input field
+                // This prevents closing when user types 'x' in card name or other fields
+                if (!isInputField) {
+                    e.preventDefault();
+                    closeModal();
+                }
+            }
+        });
 
         // Setup card name autocomplete
         let autocompleteTimeout = null;
@@ -2068,12 +2199,28 @@
             if (e.key === 'Enter') {
                 const dropdown = document.getElementById('cardNameDropdown');
                 if (dropdown.classList.contains('show')) {
-                    e.preventDefault();
-                    const firstItem = dropdown.querySelector('.sets-dropdown-item');
+                    e.preventDefault(); // Prevent form submission
+                    
+                    // Find highlighted/selected item or first item
+                    const highlightedItem = dropdown.querySelector('.sets-dropdown-item.highlighted, .sets-dropdown-item:hover');
+                    const firstItem = highlightedItem || dropdown.querySelector('.sets-dropdown-item');
+                    
                     if (firstItem && !firstItem.textContent.includes('No cards found')) {
                         const cardName = firstItem.querySelector('.sets-dropdown-item-name').textContent;
                         selectCardName(cardName);
                     }
+                    
+                    // Close dropdown
+                    dropdown.classList.remove('show');
+                    
+                    // Move focus to next field (Sets input)
+                    setTimeout(() => {
+                        document.getElementById('cardSetsInput').focus();
+                    }, 10);
+                } else {
+                    // If dropdown is not visible, just move to next field
+                    e.preventDefault();
+                    document.getElementById('cardSetsInput').focus();
                 }
             }
         });
@@ -2108,6 +2255,8 @@
         function selectCardName(cardName) {
             document.getElementById('cardName').value = cardName;
             document.getElementById('cardNameDropdown').classList.remove('show');
+            // Optionally move focus to next field after selection
+            // (This will be handled by Enter key handler, but can also be called directly)
         }
 
         // Setup sets dropdown
@@ -2158,9 +2307,11 @@
             const name = document.getElementById('cardName').value.trim();
             const sets = [...selectedSets];
             const buyPrice = document.getElementById('buyPrice').value.trim();
+            const purchaseDate = document.getElementById('purchaseDate').value.trim();
             const condition = document.getElementById('condition').value.trim();
             const source = document.getElementById('source').value.trim();
             const sellPrice = document.getElementById('sellPrice').value.trim();
+            const saleDate = document.getElementById('saleDate').value.trim();
             const notes = document.getElementById('notes').value.trim();
             
             const data = {
@@ -2170,9 +2321,11 @@
             
             // Add optional fields if they have values
             if (buyPrice) data.buy_price = parseFloat(buyPrice);
+            if (purchaseDate) data.purchase_date = purchaseDate;
             if (condition) data.condition = condition;
             if (source) data.source = source;
             if (sellPrice) data.sell_price = parseFloat(sellPrice);
+            if (saleDate) data.sale_date = saleDate;
             if (notes) data.notes = notes;
             
             try {

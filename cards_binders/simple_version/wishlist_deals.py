@@ -120,7 +120,11 @@ def load_wishlist_cards(wishlist_file: str = "wishlist.json", use_historical: bo
                 'TREND': 0,
                 'AVG30': 0,
                 'AVG7': 0,
-                'idProduct': None  # Will need to be found via scraping
+                'idProduct': None,  # Will need to be found via scraping
+                'collection_condition': item.get('condition'),  # Preserve condition from collection
+                'alternative_name': item.get('alternative_name'),
+                'language': item.get('language'),
+                'foil': item.get('foil', False)
             }
             cards.append(card)
         print(f"✅ Loaded {len(cards)} wishlist items (no historical data)")
@@ -520,6 +524,56 @@ def categorize_deal(discounts: Dict[str, Any]) -> str:
         return 'fair'  # 0-3% below market average (still cheaper)
     else:
         return 'expensive'  # Above market average (not a deal)
+
+
+def scan_single_collection_card(collection_item: Dict[str, Any],
+                                use_historical: bool = True) -> List[Dict[str, Any]]:
+    """
+    Scan a single collection card for market deals.
+    
+    This function creates a temporary wishlist file with a single card and runs
+    the scan on it. Useful for auto-scanning newly added collection cards.
+    
+    Args:
+        collection_item: Collection item dictionary with 'name', 'sets', etc.
+        use_historical: If True, loads price guide for discount calculations.
+        
+    Returns:
+        List of deal dictionaries (usually one per set, or empty if scan fails)
+    """
+    import tempfile
+    
+    if not SCRAPER_AVAILABLE:
+        print("❌ Scraper not available. Cannot check live prices.", flush=True)
+        return []
+    
+    # Create temporary wishlist file with single card (wishlist format is an array)
+    temp_wishlist = [collection_item]
+    
+    # Create temporary file
+    with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False, encoding='utf-8') as f:
+        json.dump(temp_wishlist, f, indent=2, ensure_ascii=False)
+        temp_file = f.name
+    
+    try:
+        # Run scan on temporary file
+        deals = check_wishlist_deals(
+            wishlist_file=temp_file,
+            delay_between_cards=0.0,  # No delay needed for single card
+            use_historical=use_historical
+        )
+        return deals
+    except Exception as e:
+        print(f"❌ Error scanning single card: {e}", flush=True)
+        import traceback
+        traceback.print_exc()
+        return []
+    finally:
+        # Clean up temporary file
+        try:
+            os.unlink(temp_file)
+        except Exception:
+            pass
 
 
 def check_wishlist_deals(wishlist_file: str, 

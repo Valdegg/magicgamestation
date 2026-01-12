@@ -7,6 +7,7 @@ and filters the data to only show those cards when good deals are available.
 """
 
 import json
+import re
 import pandas as pd
 from typing import List, Dict, Any, Optional
 from pathlib import Path
@@ -67,6 +68,8 @@ def normalize_set_name_for_matching(name: str) -> str:
     name_str = str(name)
     # Remove parentheticals
     name_str = name_str.split('(')[0].strip()
+    # Normalize colons to spaces (e.g., "Fourth Edition: Black Bordered" -> "Fourth Edition Black Bordered")
+    name_str = name_str.replace(':', ' ')
     # Remove "Edition" for matching (but keep "International" distinct)
     if 'international' not in name_str.lower():
         name_str = name_str.replace('Edition', '').strip()
@@ -75,7 +78,6 @@ def normalize_set_name_for_matching(name: str) -> str:
     # Normalize spaces and hyphens
     name_str = name_str.replace('-', ' ').replace('_', ' ')
     # Collapse multiple spaces
-    import re
     name_str = re.sub(r'\s+', ' ', name_str).strip()
     return name_str.lower()
 
@@ -106,6 +108,24 @@ def get_cardmarket_set_name(set_name: str, language: str = None) -> str:
             mapped = 'Foreign Black Bordered'
             print(f"      🔄 Mapping set: '{set_name}' -> '{mapped}'")
             return mapped
+        # Check if "Black Bordered" is already in the name (avoid duplication)
+        # Handle both formats: "Set Name (Black Bordered)" and "Set Name: Black Bordered"
+        if set_lower.endswith('black bordered') or set_lower.endswith('black border'):
+            # Already has "Black Bordered" - normalize the format
+            # Remove parentheses, colons, and "Foreign" to get base set name
+            # Then normalize to "Set Name Black Bordered" format
+            base_set = set_name.split('(')[0].split(':')[0].strip()
+            # Remove "Foreign" if present
+            base_set = re.sub(r'\s+foreign\s+', ' ', base_set, flags=re.IGNORECASE).strip()
+            # Remove any trailing "Black Bordered" or "Black Border" to avoid duplication
+            base_set = re.sub(r'\s+black\s+bordered?$', '', base_set, flags=re.IGNORECASE).strip()
+            if base_set:
+                mapped = f'{base_set} Black Bordered'
+                if mapped != set_name:
+                    print(f"      🔄 Mapping set: '{set_name}' -> '{mapped}'")
+                return mapped
+            # Fallback: return normalized version
+            return set_name.replace(':', ' ').replace('(', '').replace(')', '').strip()
         # Otherwise, remove the parenthetical and add "Black Bordered"
         base_set = set_name.split('(')[0].strip()
         if base_set:

@@ -874,5 +874,16 @@
     "buy_price": 369,
     "condition": "Lightly Played",
     "foil": false
+  },
+  {
+    "name": "Tropical Island",
+    "sets": [
+      "Revised Edition"
+    ],
+    "buy_price": 272,
+    "purchase_date": "2026-01-12",
+    "condition": "Near Mint",
+    "source": "Cardmarket",
+    "foil": false
   }
 ]

@@ -1,0 +1,128 @@
+{
+  "timestamp": "2026-01-12 19:01:13",
+  "summary": {
+    "total_cards": 96,
+    "cards_with_market_price": 91,
+    "cards_without_market_price": 5,
+    "market_scan_entries": 75
+  },
+  "cards_without_market_price": [
+    {
+      "name": "Sengir Vampire",
+      "expansion": "Fourth Edition (Foreign Black Border)",
+      "language": "Spanish",
+      "foil": false,
+      "buy_price": 5.52,
+      "condition": "Excellent",
+      "collection_index": 29,
+      "sets": [
+        "Fourth Edition (Foreign Black Border)"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Fork",
+      "expansion": "Unlimited Edition",
+      "language": null,
+      "foil": false,
+      "buy_price": 73,
+      "condition": "Moderately Played",
+      "collection_index": 92,
+      "sets": [
+        "Unlimited Edition"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Plateau",
+      "expansion": "Revised Edition",
+      "language": null,
+      "foil": false,
+      "buy_price": 169,
+      "condition": "Lightly Played",
+      "collection_index": 93,
+      "sets": [
+        "Revised Edition"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "City of Brass",
+      "expansion": "Arabian Nights",
+      "language": null,
+      "foil": false,
+      "buy_price": 369,
+      "condition": "Lightly Played",
+      "collection_index": 94,
+      "sets": [
+        "Arabian Nights"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Tropical Island",
+      "expansion": "Revised Edition",
+      "language": null,
+      "foil": false,
+      "buy_price": 272,
+      "condition": "Near Mint",
+      "collection_index": 95,
+      "sets": [
+        "Revised Edition"
+      ],
+      "notes": ""
+    }
+  ],
+  "cards_with_market_price_sample": [
+    {
+      "name": "Nevinyrral's Disk",
+      "expansion": "Fourth Edition",
+      "market_value": 2.63
+    },
+    {
+      "name": "Counterspell",
+      "expansion": "Beta",
+      "market_value": 250.0
+    },
+    {
+      "name": "Ebon Stronghold",
+      "expansion": "Fallen Empires",
+      "market_value": 0.3
+    },
+    {
+      "name": "Counterspell",
+      "expansion": "Revised Edition",
+      "market_value": 5.99
+    },
+    {
+      "name": "Counterspell",
+      "expansion": "Revised Edition",
+      "market_value": 5.99
+    },
+    {
+      "name": "Tundra",
+      "expansion": "Revised Edition",
+      "market_value": 445.0
+    },
+    {
+      "name": "Underground Sea",
+      "expansion": "Revised Edition",
+      "market_value": 650.0
+    },
+    {
+      "name": "Icy Manipulator",
+      "expansion": "Unlimited Edition",
+      "market_value": 420.0
+    },
+    {
+      "name": "Mox Jet",
+      "expansion": "International Edition",
+      "market_value": 599.95
+    },
+    {
+      "name": "Hypnotic Specter",
+      "expansion": "Unlimited Edition",
+      "market_value": 74.95
+    }
+  ]
+}

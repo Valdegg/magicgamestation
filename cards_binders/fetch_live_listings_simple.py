@@ -167,9 +167,17 @@ class SimpleBrowserScraper:
                     print(f"   💡 Continuing anyway (will try direct requests)...")
                     self.session_initialized = True  # Mark as tried, continue anyway
                     self.rate_limited = True
+                elif response.status_code == 403:
+                    print(f"   ❌ Forbidden (403) - Cardmarket is blocking requests")
+                    print(f"   💡 This usually means:")
+                    print(f"      - Rate limiting / IP blocking")
+                    print(f"      - Bot detection")
+                    print(f"      - Authentication required")
+                    print(f"   ⚠️  Stopping to avoid further blocking")
+                    raise Exception(f"❌ FORBIDDEN (403): Cardmarket is blocking requests. Stop and wait before retrying.")
                 else:
                     print(f"   ⚠️  Unexpected response: {response.status_code}")
-                    print(f"   💡 Continuing anyway...")
+                    print(f"   💡 Continuing anyway (may fail later)...")
                     self.session_initialized = True  # Mark as tried
                 
             except Exception as e:

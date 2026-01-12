@@ -14,7 +14,7 @@ import os
 import sys
 import argparse
 import re
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, BackgroundTasks
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
@@ -944,8 +944,8 @@ async def collection_api_collection_cards():
     return await get_collection_cards()
 
 @app.post("/collection/api/collection")
-async def collection_api_add(request: Request):
-    return await add_collection_item(request)
+async def collection_api_add(request: Request, background_tasks: BackgroundTasks):
+    return await add_collection_item(request, background_tasks)
 
 @app.put("/collection/api/collection/{index}")
 async def collection_api_update(index: int, request: Request):

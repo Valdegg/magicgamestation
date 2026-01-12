@@ -1482,12 +1482,24 @@ async def move_wishlist_to_collection(index: int, request: Request):
         # Add optional collection fields if provided
         if 'buy_price' in data and data['buy_price']:
             collection_item['buy_price'] = data['buy_price']
+            # Automatically set purchase_date if buy_price is provided
+            if 'purchase_date' in data and data['purchase_date']:
+                collection_item['purchase_date'] = data['purchase_date']
+            else:
+                # Default to current date if buy_price is set but no date provided
+                collection_item['purchase_date'] = datetime.now().strftime('%Y-%m-%d')
         if 'condition' in data and data['condition']:
             collection_item['condition'] = data['condition']
         if 'source' in data and data['source']:
             collection_item['source'] = data['source']
         if 'sell_price' in data and data['sell_price']:
             collection_item['sell_price'] = data['sell_price']
+            # Automatically set sale_date if sell_price is provided
+            if 'sale_date' in data and data['sale_date']:
+                collection_item['sale_date'] = data['sale_date']
+            else:
+                # Default to current date if sell_price is set but no date provided
+                collection_item['sale_date'] = datetime.now().strftime('%Y-%m-%d')
         if 'notes' in data and data['notes']:
             collection_item['notes'] = data['notes']
         if 'language' in data and data['language']:

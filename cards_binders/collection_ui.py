@@ -14,12 +14,13 @@ import re
 import requests
 import glob
 from datetime import datetime
-from fastapi import FastAPI, Request, HTTPException
+from fastapi import FastAPI, Request, HTTPException, BackgroundTasks
 from fastapi.responses import HTMLResponse, JSONResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from typing import List, Dict, Any, Optional
 from pathlib import Path
+import threading
 
 # Import card autocomplete functionality
 try:
@@ -458,12 +459,128 @@ def normalize_expansion_for_lookup(exp: str) -> Optional[str]:
     """
     Normalize expansion name for lookup (remove apostrophes, lowercase).
     Handles variations like "Urza's Legacy" vs "Urzas Legacy".
+    Also handles "Revised" vs "Revised Edition" by normalizing both to "revised".
     """
     if not exp:
         return None
     # Remove apostrophes and normalize
     normalized = exp.replace("'", "").replace("'", "").replace("'", "").lower()
+    # Handle common expansion name variations
+    # "Revised Edition" -> "revised", "Revised" -> "revised"
+    if normalized.startswith('revised'):
+        return 'revised'
+    # "Unlimited Edition" -> "unlimited", "Unlimited" -> "unlimited"
+    if normalized.startswith('unlimited'):
+        return 'unlimited'
+    # "Fourth Edition" -> "fourth edition" (keep full name for this one)
     return normalized
+
+
+def find_or_create_latest_collection_deals_file() -> str:
+    """
+    Find the most recent collection_deals_*.json file, or create a new one if none exists.
+    
+    Returns:
+        Path to the collection_deals file (existing or newly created)
+    """
+    results_dir = 'results'
+    os.makedirs(results_dir, exist_ok=True)
+    
+    # Find all collection scan result files
+    json_files = glob.glob(os.path.join(results_dir, 'collection_deals_*.json'))
+    
+    if json_files:
+        # Sort by modification time, newest first
+        json_files.sort(key=os.path.getmtime, reverse=True)
+        latest_file = json_files[0]
+        print(f"📊 Auto-scan: Found existing collection_deals file: {latest_file}", flush=True)
+        return latest_file
+    else:
+        # Create new file with empty structure
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        new_file = os.path.join(results_dir, f'collection_deals_{timestamp}.json')
+        initial_data = {
+            'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            'wishlist_file': 'collection.json',
+            'config': {
+                'min_discount': 0.0,
+                'delay_between_cards': 0.0,
+                'use_historical_data': True
+            },
+            'summary': {
+                'total_deals': 0,
+                'excellent': 0,
+                'good': 0,
+                'fair': 0,
+                'expensive': 0,
+                'no_data': 0
+            },
+            'deals': []
+        }
+        with open(new_file, 'w', encoding='utf-8') as f:
+            json.dump(initial_data, f, indent=2, ensure_ascii=False)
+        print(f"📊 Auto-scan: Created new collection_deals file: {new_file}", flush=True)
+        return new_file
+
+
+def append_deals_to_collection_file(deals_file: str, new_deals: List[Dict[str, Any]]) -> bool:
+    """
+    Append new deals to an existing collection_deals file and update summary counts.
+    
+    Args:
+        deals_file: Path to the collection_deals JSON file
+        new_deals: List of new deal dictionaries to append
+        
+    Returns:
+        True if successful, False otherwise
+    """
+    if not new_deals:
+        print(f"📊 Auto-scan: No new deals to append", flush=True)
+        return True
+    
+    try:
+        # Load existing file
+        with open(deals_file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        
+        # Append new deals
+        existing_deals = data.get('deals', [])
+        existing_deals.extend(new_deals)
+        data['deals'] = existing_deals
+        
+        # Update summary counts
+        total_deals = len(existing_deals)
+        excellent = len([d for d in existing_deals if d.get('category') == 'excellent'])
+        good = len([d for d in existing_deals if d.get('category') == 'good'])
+        fair = len([d for d in existing_deals if d.get('category') == 'fair'])
+        expensive = len([d for d in existing_deals if d.get('category') == 'expensive'])
+        no_data = len([d for d in existing_deals if d.get('category') == 'no_data'])
+        
+        data['summary'] = {
+            'total_deals': total_deals,
+            'excellent': excellent,
+            'good': good,
+            'fair': fair,
+            'expensive': expensive,
+            'no_data': no_data
+        }
+        
+        # Update timestamp to current time (but keep original timestamp field)
+        # This ensures the file remains "latest" by modification time
+        data['last_updated'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        
+        # Save updated file
+        with open(deals_file, 'w', encoding='utf-8') as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
+        
+        print(f"✅ Auto-scan: Appended {len(new_deals)} deal(s) to {deals_file}", flush=True)
+        print(f"   Updated summary: {total_deals} total deals ({excellent} excellent, {good} good, {fair} fair, {expensive} expensive, {no_data} no_data)", flush=True)
+        return True
+    except Exception as e:
+        print(f"❌ Auto-scan: Error appending deals to file: {e}", flush=True)
+        import traceback
+        traceback.print_exc()
+        return False
 
 
 def load_latest_collection_scan_results() -> Dict[str, Dict[str, Any]]:
@@ -503,7 +620,12 @@ def load_latest_collection_scan_results() -> Dict[str, Dict[str, Any]]:
             print(f"📊 Market scan: Found {len(deal_list)} deals in scan results", flush=True)
             for deal in deal_list:
                 card = deal.get('card', {})
-                live_data = deal.get('live_data', {})
+                live_data = deal.get('live_data')
+                
+                # Skip deals without live_data (no_data category)
+                if live_data is None:
+                    continue
+                
                 url = live_data.get('url', '')
                 
                 # Extract language from URL if present (language=1,2,3,4,5)
@@ -604,7 +726,9 @@ def expand_collection_to_cards(collection: List[Dict[str, Any]]) -> List[Dict[st
             market_category = None
             market_url = None
             
-            lookup_key = (card_name.lower(), None)
+            # Lookup key format matches load_latest_collection_scan_results: (name, expansion, language)
+            collection_language = language if language and language.lower() not in ['', 'english'] else None
+            lookup_key = (card_name.lower(), None, collection_language)
             if lookup_key in market_data:
                 market_info = market_data[lookup_key]
                 market_value = market_info.get('price')
@@ -613,7 +737,19 @@ def expand_collection_to_cards(collection: List[Dict[str, Any]]) -> List[Dict[st
                 market_url = market_info.get('url')
                 matched_count += 1
                 if matched_count <= 3:  # Log first 3 matches
-                    print(f"   ✅ Matched: {card_name} (no expansion) -> €{market_value}", flush=True)
+                    print(f"   ✅ Matched: {card_name} (no expansion, lang: {collection_language}) -> €{market_value}", flush=True)
+            else:
+                # Try without language (fallback for English)
+                lookup_key_no_lang = (card_name.lower(), None, None)
+                if lookup_key_no_lang in market_data:
+                    market_info = market_data[lookup_key_no_lang]
+                    market_value = market_info.get('price')
+                    market_discount = market_info.get('discount')
+                    market_category = market_info.get('category')
+                    market_url = market_info.get('url')
+                    matched_count += 1
+                    if matched_count <= 3:  # Log first 3 matches
+                        print(f"   ✅ Matched: {card_name} (no expansion, no lang) -> €{market_value}", flush=True)
             
             cards.append({
                 'name': card_name,
@@ -2244,34 +2380,17 @@ async def collection_page():
             }
         };
         
-        // Add sort dropdown to UI
-        function addSortDropdown() {
-            // Check if dropdown already exists
-            if (document.getElementById('collection-sort-dropdown')) {
-                return;
-            }
-            
-            // Find stats container - try multiple selectors
-            let statsContainer = document.getElementById('archived-stats-container');
-            if (!statsContainer) {
-                // Try to find other stats containers
-                statsContainer = document.querySelector('.stats-container, .stats-section, [class*="stat"]');
-            }
-            
-            // Create sort container (compact, inline style)
-            const sortContainer = document.createElement('div');
-            sortContainer.id = 'collection-sort-container';
-            sortContainer.style.cssText = 'display: flex; align-items: center; gap: 8px; margin-left: auto;';
-            
+        // Create sort dropdown element (reusable function)
+        function createSortDropdown(id, containerId) {
             // Create label
             const label = document.createElement('label');
             label.textContent = 'Sort by:';
-            label.setAttribute('for', 'collection-sort-dropdown');
+            label.setAttribute('for', id);
             label.style.cssText = 'color: #d4af37; font-weight: 500; font-size: 13px; white-space: nowrap;';
             
             // Create dropdown
             const select = document.createElement('select');
-            select.id = 'collection-sort-dropdown';
+            select.id = id;
             select.style.cssText = 'padding: 6px 10px; border: 1px solid #444; background: #222; color: #fff; border-radius: 4px; font-size: 13px; cursor: pointer; min-width: 160px;';
             
             // Add options
@@ -2298,6 +2417,16 @@ async def collection_page():
                 currentSort = e.target.value;
                 localStorage.setItem('collection_sort', currentSort);
                 console.log(`🔄 Sort changed from "${oldSort}" to "${currentSort}"`);
+                
+                // Sync both dropdowns if they exist
+                const headerDropdown = document.getElementById('collection-sort-dropdown');
+                const bottomDropdown = document.getElementById('bottom-collection-sort-dropdown');
+                if (headerDropdown && headerDropdown !== e.target) {
+                    headerDropdown.value = currentSort;
+                }
+                if (bottomDropdown && bottomDropdown !== e.target) {
+                    bottomDropdown.value = currentSort;
+                }
                 
                 // Clear the original cards to force a re-fetch
                 originalCards = [];
@@ -2364,46 +2493,72 @@ async def collection_page():
                 }
             });
             
-            // Assemble container
-            sortContainer.appendChild(label);
-            sortContainer.appendChild(select);
+            return { label, select };
+        }
+        
+        // Add sort dropdown to UI (header and bottom)
+        function addSortDropdown() {
+            // Check if header dropdown already exists
+            const headerExists = document.getElementById('collection-sort-dropdown');
+            const bottomExists = document.getElementById('bottom-collection-sort-dropdown');
             
-            // Insert into stats container or create wrapper
-            if (statsContainer) {
-                // Ensure stats container has flex layout to accommodate sort dropdown
-                const currentStyle = statsContainer.style.cssText || '';
-                if (!currentStyle.includes('display: flex')) {
-                    statsContainer.style.cssText = (currentStyle ? currentStyle + ' ' : '') + 'display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 15px;';
-                } else if (!currentStyle.includes('align-items')) {
-                    statsContainer.style.cssText = currentStyle + ' align-items: center;';
+            // Add header dropdown if it doesn't exist
+            if (!headerExists) {
+                // Find stats container - try multiple selectors
+                let statsContainer = document.getElementById('archived-stats-container');
+                if (!statsContainer) {
+                    // Try to find other stats containers
+                    statsContainer = document.querySelector('.stats-container, .stats-section, [class*="stat"]');
                 }
                 
-                // Make stats more compact if they exist
-                const statCards = statsContainer.querySelectorAll('div[style*="background"]');
-                statCards.forEach(card => {
-                    const currentCardStyle = card.style.cssText || '';
-                    // Reduce padding and font sizes if not already compact
-                    if (currentCardStyle.includes('padding: 20px') || currentCardStyle.includes('font-size: 2em')) {
-                        card.style.cssText = currentCardStyle
-                            .replace(/padding:\s*20px/g, 'padding: 12px 16px')
-                            .replace(/font-size:\s*2em/g, 'font-size: 1.5em')
-                            .replace(/min-width:\s*150px/g, 'min-width: 120px');
+                // Create sort container (compact, inline style)
+                const sortContainer = document.createElement('div');
+                sortContainer.id = 'collection-sort-container';
+                sortContainer.style.cssText = 'display: flex; align-items: center; gap: 8px; margin-left: auto;';
+                
+                const { label, select } = createSortDropdown('collection-sort-dropdown', 'collection-sort-container');
+                
+                // Assemble container
+                sortContainer.appendChild(label);
+                sortContainer.appendChild(select);
+                
+                // Insert into stats container or create wrapper
+                if (statsContainer) {
+                    // Ensure stats container has flex layout to accommodate sort dropdown
+                    const currentStyle = statsContainer.style.cssText || '';
+                    if (!currentStyle.includes('display: flex')) {
+                        statsContainer.style.cssText = (currentStyle ? currentStyle + ' ' : '') + 'display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 15px;';
+                    } else if (!currentStyle.includes('align-items')) {
+                        statsContainer.style.cssText = currentStyle + ' align-items: center;';
                     }
-                });
-                
-                // Add sort dropdown to stats container (only if not already added)
-                if (!statsContainer.querySelector('#collection-sort-container')) {
-                    statsContainer.appendChild(sortContainer);
-                }
-            } else {
-                // If no stats container found, try to find main content and create a wrapper
-                const mainContent = document.querySelector('main, .container, .content, body');
-                if (mainContent) {
-                    // Create a wrapper for stats and sort
-                    const wrapper = document.createElement('div');
-                    wrapper.style.cssText = 'display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 15px; margin: 15px 0;';
-                    wrapper.appendChild(sortContainer);
-                    mainContent.insertBefore(wrapper, mainContent.firstChild);
+                    
+                    // Make stats more compact if they exist
+                    const statCards = statsContainer.querySelectorAll('div[style*="background"]');
+                    statCards.forEach(card => {
+                        const currentCardStyle = card.style.cssText || '';
+                        // Reduce padding and font sizes if not already compact
+                        if (currentCardStyle.includes('padding: 20px') || currentCardStyle.includes('font-size: 2em')) {
+                            card.style.cssText = currentCardStyle
+                                .replace(/padding:\s*20px/g, 'padding: 12px 16px')
+                                .replace(/font-size:\s*2em/g, 'font-size: 1.5em')
+                                .replace(/min-width:\s*150px/g, 'min-width: 120px');
+                        }
+                    });
+                    
+                    // Add sort dropdown to stats container (only if not already added)
+                    if (!statsContainer.querySelector('#collection-sort-container')) {
+                        statsContainer.appendChild(sortContainer);
+                    }
+                } else {
+                    // If no stats container found, try to find main content and create a wrapper
+                    const mainContent = document.querySelector('main, .container, .content, body');
+                    if (mainContent) {
+                        // Create a wrapper for stats and sort
+                        const wrapper = document.createElement('div');
+                        wrapper.style.cssText = 'display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 15px; margin: 15px 0;';
+                        wrapper.appendChild(sortContainer);
+                        mainContent.insertBefore(wrapper, mainContent.firstChild);
+                    }
                 }
             }
         }
@@ -2779,8 +2934,45 @@ async def get_collection_cards():
     return JSONResponse({"cards": cards, "total": len(cards)})
 
 
+def auto_scan_collection_card(collection_item: Dict[str, Any]):
+    """
+    Background task to automatically scan a newly added collection card.
+    Runs asynchronously to avoid blocking the API response.
+    """
+    try:
+        print(f"🔍 Auto-scan: Starting market scan for card: {collection_item.get('name', 'Unknown')}", flush=True)
+        
+        # Import here to avoid circular dependencies
+        # Add simple_version to path (wishlist_deals.py is in simple_version/)
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        simple_version_path = os.path.join(script_dir, 'simple_version')
+        if simple_version_path not in sys.path:
+            sys.path.insert(0, simple_version_path)
+        from wishlist_deals import scan_single_collection_card
+        
+        # Run scan for the single card
+        deals = scan_single_collection_card(collection_item, use_historical=True)
+        
+        if not deals:
+            print(f"⚠️  Auto-scan: No deals found for {collection_item.get('name', 'Unknown')}", flush=True)
+            return
+        
+        # Find or create latest collection_deals file
+        deals_file = find_or_create_latest_collection_deals_file()
+        
+        # Append deals to file
+        if append_deals_to_collection_file(deals_file, deals):
+            print(f"✅ Auto-scan: Successfully scanned and saved results for {collection_item.get('name', 'Unknown')}", flush=True)
+        else:
+            print(f"❌ Auto-scan: Failed to save results for {collection_item.get('name', 'Unknown')}", flush=True)
+    except Exception as e:
+        print(f"❌ Auto-scan: Error during auto-scan: {e}", flush=True)
+        import traceback
+        traceback.print_exc()
+
+
 @app.post("/api/collection")
-async def add_collection_item(request: Request):
+async def add_collection_item(request: Request, background_tasks: BackgroundTasks):
     """Add a new item to the collection."""
     try:
         data = await request.json()
@@ -2799,12 +2991,24 @@ async def add_collection_item(request: Request):
         # Add collection-specific fields if provided
         if 'buy_price' in data:
             new_item['buy_price'] = data['buy_price']
+            # Automatically set purchase_date if buy_price is provided
+            if 'purchase_date' in data and data['purchase_date']:
+                new_item['purchase_date'] = data['purchase_date']
+            else:
+                # Default to current date if buy_price is set but no date provided
+                new_item['purchase_date'] = datetime.now().strftime('%Y-%m-%d')
         if 'condition' in data:
             new_item['condition'] = data['condition']
         if 'source' in data:
             new_item['source'] = data['source']
         if 'sell_price' in data:
             new_item['sell_price'] = data['sell_price']
+            # Automatically set sale_date if sell_price is provided
+            if 'sale_date' in data and data['sale_date']:
+                new_item['sale_date'] = data['sale_date']
+            else:
+                # Default to current date if sell_price is set but no date provided
+                new_item['sale_date'] = datetime.now().strftime('%Y-%m-%d')
         if 'notes' in data:
             new_item['notes'] = data['notes']
         if 'language' in data:
@@ -2817,6 +3021,9 @@ async def add_collection_item(request: Request):
         collection.append(new_item)
         
         if save_collection(collection):
+            # Trigger auto-scan in background (non-blocking)
+            background_tasks.add_task(auto_scan_collection_card, new_item)
+            print(f"📊 Auto-scan: Scheduled background scan for {new_item.get('name', 'Unknown')}", flush=True)
             return JSONResponse({"success": True, "message": "Item added successfully"})
         else:
             raise HTTPException(status_code=500, detail="Failed to save collection")
@@ -2846,8 +3053,24 @@ async def update_collection_item(index: int, request: Request):
         if 'buy_price' in data:
             if data['buy_price'] is not None and data['buy_price'] != '':
                 collection[index]['buy_price'] = data['buy_price']
+                # Update purchase_date if buy_price is set
+                if 'purchase_date' in data and data['purchase_date']:
+                    collection[index]['purchase_date'] = data['purchase_date']
+                elif 'purchase_date' not in collection[index]:
+                    # Set default date if buy_price is set but no date exists
+                    collection[index]['purchase_date'] = datetime.now().strftime('%Y-%m-%d')
             elif 'buy_price' in collection[index]:
                 del collection[index]['buy_price']
+                # Remove purchase_date when buy_price is removed
+                if 'purchase_date' in collection[index]:
+                    del collection[index]['purchase_date']
+        # Handle purchase_date separately (in case user wants to update date without changing price)
+        if 'purchase_date' in data:
+            if data['purchase_date'] is not None and data['purchase_date'] != '':
+                collection[index]['purchase_date'] = data['purchase_date']
+            elif 'purchase_date' in collection[index] and 'buy_price' not in collection[index]:
+                # Only remove date if buy_price is also not present
+                del collection[index]['purchase_date']
         if 'condition' in data:
             if data['condition'] is not None and data['condition'] != '':
                 collection[index]['condition'] = data['condition']
@@ -2861,8 +3084,24 @@ async def update_collection_item(index: int, request: Request):
         if 'sell_price' in data:
             if data['sell_price'] is not None and data['sell_price'] != '':
                 collection[index]['sell_price'] = data['sell_price']
+                # Update sale_date if sell_price is set
+                if 'sale_date' in data and data['sale_date']:
+                    collection[index]['sale_date'] = data['sale_date']
+                elif 'sale_date' not in collection[index]:
+                    # Set default date if sell_price is set but no date exists
+                    collection[index]['sale_date'] = datetime.now().strftime('%Y-%m-%d')
             elif 'sell_price' in collection[index]:
                 del collection[index]['sell_price']
+                # Remove sale_date when sell_price is removed
+                if 'sale_date' in collection[index]:
+                    del collection[index]['sale_date']
+        # Handle sale_date separately (in case user wants to update date without changing price)
+        if 'sale_date' in data:
+            if data['sale_date'] is not None and data['sale_date'] != '':
+                collection[index]['sale_date'] = data['sale_date']
+            elif 'sale_date' in collection[index] and 'sell_price' not in collection[index]:
+                # Only remove date if sell_price is also not present
+                del collection[index]['sale_date']
         if 'language' in data:
             if data['language'] is not None and data['language'] != '':
                 collection[index]['language'] = data['language']
@@ -3061,16 +3300,40 @@ async def get_archived_stats():
         total_profit = 0.0
         collection_count = 0  # Items not sold
         
-        # Calculate total current market value from expanded cards
-        cards = expand_collection_to_cards(collection)
+        # Filter out sold items before calculating market value (same as total_cost)
+        active_collection = []
+        for item in collection:
+            sell_price = item.get('sell_price')
+            is_sold = False
+            if sell_price is not None:
+                try:
+                    sell_price_float = float(sell_price)
+                    if sell_price_float > 0:
+                        is_sold = True
+                except (ValueError, TypeError):
+                    pass
+            
+            if not is_sold:
+                active_collection.append(item)
+        
+        # Calculate total current market value from expanded cards (only active/unsold items)
+        cards = expand_collection_to_cards(active_collection)
         total_market_value = 0.0
+        cards_with_market = 0
+        cards_without_market = 0
         for card in cards:
             market_value = card.get('market_value')
             if market_value is not None:
                 try:
                     total_market_value += float(market_value)
+                    cards_with_market += 1
                 except (ValueError, TypeError):
-                    pass
+                    cards_without_market += 1
+            else:
+                cards_without_market += 1
+        
+        print(f"📊 Stats: {len(cards)} active cards (excluding sold), {cards_with_market} with market value, {cards_without_market} without", flush=True)
+        print(f"📊 Stats: Total market value = €{total_market_value:.2f}", flush=True)
         
         for item in collection:
             buy_price = item.get('buy_price')
@@ -3088,14 +3351,13 @@ async def get_archived_stats():
             
             if not is_sold:
                 collection_count += 1
-            
-            # Add buy_price to total cost if it exists
-            if buy_price is not None:
-                try:
-                    buy_price_float = float(buy_price)
-                    total_cost += buy_price_float
-                except (ValueError, TypeError):
-                    pass
+                # Add buy_price to total cost only for items still in collection (not sold)
+                if buy_price is not None:
+                    try:
+                        buy_price_float = float(buy_price)
+                        total_cost += buy_price_float
+                    except (ValueError, TypeError):
+                        pass
             
             # Count items with sell_price > 0 as sold items and calculate profit
             if is_sold:

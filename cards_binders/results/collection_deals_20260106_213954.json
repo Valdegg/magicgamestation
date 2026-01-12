@@ -7,12 +7,12 @@
     "use_historical_data": true
   },
   "summary": {
-    "total_deals": 86,
+    "total_deals": 90,
     "excellent": 61,
-    "good": 19,
+    "good": 20,
     "fair": 5,
     "expensive": 0,
-    "no_data": 0
+    "no_data": 3
   },
   "deals": [
     {
@@ -6602,5 +6602,6 @@
       },
       "category": "excellent"
     }
-  ]
+  ],
+  "last_updated": "2026-01-12 18:12:29"
 }
