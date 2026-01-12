@@ -129,6 +129,8 @@ def normalize_set_name(set_name: str) -> str:
         return ""
     name = set_name.lower()
     name = re.sub(r"[',]", "", name)
+    # Normalize "bordered" to "border" to match existing filenames
+    name = re.sub(r"\bbordered\b", "border", name)
     name = re.sub(r"[^a-z0-9]", "_", name)
     return re.sub(r"_+", "_", name).strip("_")
 
@@ -2330,6 +2332,109 @@ async def collection_page():
         
         let originalCards = [];
         let currentSort = 'original'; // Default: original JSON order
+        let showSoldOnly = false; // Default: show unsold cards (sell_price is 0 or null)
+        
+        // Filter function: filter cards based on sell_price
+        function filterCards(cards) {
+            if (showSoldOnly) {
+                // Show only sold cards (non-zero sell_price)
+                return cards.filter(card => {
+                    const sellPrice = parseFloat(card.sell_price) || 0;
+                    return sellPrice > 0;
+                });
+            } else {
+                // Show only unsold cards (zero or null sell_price)
+                return cards.filter(card => {
+                    const sellPrice = parseFloat(card.sell_price) || 0;
+                    return sellPrice === 0;
+                });
+            }
+        }
+        
+        // Expansion mapping: chronological order (key) -> set name (value)
+        // Lower numbers are older sets
+        const expansionChronologicalOrder = {
+            "1": "Alpha", "2": "Beta", "3": "Unlimited", "4": "Arabian Nights",
+            "5": "Antiquities", "6": "Revised", "7": "Legends", "8": "The Dark",
+            "9": "Fallen Empires", "10": "Fourth Edition", "11": "Ice Age",
+            "12": "Chronicles", "14": "Homelands", "15": "Alliances", "16": "Mirage",
+            "17": "Visions", "18": "Weatherlight", "19": "Tempest", "20": "Stronghold",
+            "21": "Exodus", "23": "Fifth Edition", "24": "Portal Second Age",
+            "25": "Portal", "26": "Urza's Saga", "27": "Urza's Legacy",
+            "28": "Urza's Destiny", "29": "Sixth Edition", "30": "Portal Three Kingdoms",
+            "31": "Mercadian Masques", "32": "Nemesis", "33": "Prophecy",
+            "34": "Invasion", "35": "Planeshift", "36": "Apocalypse",
+            "37": "Seventh Edition", "38": "Odyssey", "39": "Torment",
+            "40": "Judgment", "41": "Onslaught", "42": "Legions", "43": "Scourge",
+            "44": "Eighth Edition", "45": "Mirrodin", "46": "Darksteel",
+            "47": "Fifth Dawn", "48": "Champions of Kamigawa", "49": "Ninth Edition",
+            "50": "Saviors of Kamigawa", "51": "Betrayers of Kamigawa",
+            "53": "Dissension", "70": "Future Sight", "72": "International Edition",
+            "73": "European Unlimited", "74": "Tenth Edition", "81": "Euro Lands: Red",
+            "102": "Shards of Alara", "108": "Alara Reborn", "1206": "Scars of Mirrodin",
+            "1253": "Mirrodin Besieged Phyrexian Faction Pack", "1327": "Innistrad",
+            "1332": "Fourth Edition: Black Bordered", "1345": "Dark Ascension",
+            "1424": "Gatecrash", "1435": "Dragon's Maze", "1444": "Modern Masters",
+            "1449": "Magic 2014", "1457": "Theros", "1469": "Born of the Gods",
+            "1481": "Journey into Nyx", "1483": "Conspiracy", "1485": "Magic 2015",
+            "1495": "Khans of Tarkir", "1522": "Fate Reforged", "1587": "Ugin's Fate",
+            "1592": "Alara Block All-Foil", "1601": "Dragons of Tarkir",
+            "1641": "Modern Masters 2015", "1652": "Magic Origins",
+            "1676": "Oath of the Gatewatch", "1694": "Shadows over Innistrad",
+            "1695": "Eldritch Moon", "1696": "Eternal Masters",
+            "1702": "Conspiracy: Take the Crown", "1727": "Modern Masters 2017",
+            "1729": "Amonkhet", "1731": "Hour of Devastation",
+            "1803": "Amonkhet Standard Showdown", "1811": "Iconic Masters",
+            "1821": "Unstable", "1822": "Dominaria", "1847": "Ixalan Standard Showdown",
+            "2111": "Battlebond", "2397": "Ultimate Masters", "2398": "Ultimate Box Topper",
+            "2582": "Throne of Eldraine Theme Booster (Red)",
+            "2694": "Throne of Eldraine: Promo Pack", "2999": "Theros Beyond Death: Promo Pack",
+            "3048": "Core 2021", "3053": "Jumpstart", "3204": "Double Masters",
+            "3404": "Zendikar Rising Theme Booster (White)",
+            "3454": "Commander Legends Collector",
+            "3489": "Zendikar Rising Expeditions Box Topper",
+            "3500": "Zendikar Rising: Promos: Promo Pack"
+        };
+        
+        // Build reverse lookup: normalized set name -> chronological order
+        const setNameToOrder = {};
+        function normalizeSetName(name) {
+            if (!name) return '';
+            // Normalize: lowercase, remove "Edition" suffix, trim
+            return name.toLowerCase()
+                .replace(/\s+edition$/i, '')
+                .replace(/['']/g, "'")
+                .trim();
+        }
+        
+        // Build the reverse lookup
+        for (const [order, setName] of Object.entries(expansionChronologicalOrder)) {
+            const normalizedName = normalizeSetName(setName);
+            setNameToOrder[normalizedName] = parseInt(order, 10);
+            // Also store original for exact matches
+            setNameToOrder[setName.toLowerCase()] = parseInt(order, 10);
+        }
+        
+        // Function to get chronological order for a set name
+        function getSetChronologicalOrder(setName) {
+            if (!setName) return 999999; // Unknown sets go to end
+            const normalized = normalizeSetName(setName);
+            if (setNameToOrder[normalized] !== undefined) {
+                return setNameToOrder[normalized];
+            }
+            // Try lowercase exact match
+            const lower = setName.toLowerCase();
+            if (setNameToOrder[lower] !== undefined) {
+                return setNameToOrder[lower];
+            }
+            // Fuzzy match: check if any known set name is contained
+            for (const [knownName, order] of Object.entries(setNameToOrder)) {
+                if (normalized.includes(knownName) || knownName.includes(normalized)) {
+                    return order;
+                }
+            }
+            return 999999; // Unknown sets go to end
+        }
         
         // Sort functions
         const sortFunctions = {
@@ -2377,6 +2482,18 @@ async def collection_page():
                     const nameB = (b.name || '').toLowerCase();
                     return nameA.localeCompare(nameB);
                 });
+            },
+            'set_chrono': (cards) => {
+                return [...cards].sort((a, b) => {
+                    const orderA = getSetChronologicalOrder(a.expansion);
+                    const orderB = getSetChronologicalOrder(b.expansion);
+                    if (orderA < orderB) return -1;
+                    if (orderA > orderB) return 1;
+                    // If sets are same order, sort by card name
+                    const nameA = (a.name || '').toLowerCase();
+                    const nameB = (b.name || '').toLowerCase();
+                    return nameA.localeCompare(nameB);
+                });
             }
         };
         
@@ -2398,6 +2515,7 @@ async def collection_page():
                 { value: 'original', text: 'Original Order' },
                 { value: 'name', text: 'Card Name (A-Z)' },
                 { value: 'set', text: 'Set (A-Z)' },
+                { value: 'set_chrono', text: 'Set (Chronological)' },
                 { value: 'price', text: 'Price (High to Low)' }
             ];
             
@@ -2496,6 +2614,119 @@ async def collection_page():
             return { label, select };
         }
         
+        // Create filter checkbox element
+        function createFilterCheckbox(id) {
+            // Create container
+            const container = document.createElement('div');
+            container.style.cssText = 'display: flex; align-items: center; gap: 6px;';
+            
+            // Create checkbox
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.id = id;
+            checkbox.checked = showSoldOnly;
+            checkbox.style.cssText = 'width: 16px; height: 16px; cursor: pointer;';
+            
+            // Create label
+            const label = document.createElement('label');
+            label.setAttribute('for', id);
+            label.textContent = 'Show Sold Only';
+            label.style.cssText = 'color: #d4af37; font-weight: 500; font-size: 13px; cursor: pointer; white-space: nowrap;';
+            
+            // Add change handler
+            checkbox.addEventListener('change', function(e) {
+                const oldFilter = showSoldOnly;
+                showSoldOnly = e.target.checked;
+                localStorage.setItem('collection_show_sold_only', showSoldOnly.toString());
+                console.log(`🔄 Filter changed from "${oldFilter}" to "${showSoldOnly}"`);
+                
+                // Sync both checkboxes if they exist
+                const headerCheckbox = document.getElementById('collection-filter-checkbox');
+                const bottomCheckbox = document.getElementById('bottom-collection-filter-checkbox');
+                if (headerCheckbox && headerCheckbox !== e.target) {
+                    headerCheckbox.checked = showSoldOnly;
+                }
+                if (bottomCheckbox && bottomCheckbox !== e.target) {
+                    bottomCheckbox.checked = showSoldOnly;
+                }
+                
+                // Also sync sort dropdowns to ensure they stay in sync
+                const headerDropdown = document.getElementById('collection-sort-dropdown');
+                const bottomDropdown = document.getElementById('bottom-collection-sort-dropdown');
+                if (headerDropdown) {
+                    headerDropdown.value = currentSort;
+                }
+                if (bottomDropdown) {
+                    bottomDropdown.value = currentSort;
+                }
+                
+                // Clear the original cards to force a re-fetch
+                originalCards = [];
+                
+                // Try to find the current page number
+                let currentPage = 1;
+                const pageIndicator = document.querySelector('[class*="page"], [id*="page"]');
+                if (pageIndicator) {
+                    const text = pageIndicator.textContent || '';
+                    const match = text.match(/(\d+)\s+of\s+(\d+)/i) || text.match(/page\s+(\d+)/i);
+                    if (match) {
+                        currentPage = parseInt(match[1], 10);
+                    }
+                }
+                
+                // Try multiple approaches to trigger a reload
+                let reloadTriggered = false;
+                
+                // Method 1: Try to find and call page load function
+                const reloadFuncs = ['loadPage', 'showPage', 'goToPage', 'setPage', 'loadCards', 'refreshCards'];
+                for (const funcName of reloadFuncs) {
+                    if (typeof window[funcName] === 'function') {
+                        try {
+                            console.log(`🔄 Triggering reload via ${funcName}(${currentPage})`);
+                            window[funcName](currentPage);
+                            reloadTriggered = true;
+                            break;
+                        } catch(e) {
+                            console.warn(`Failed to call ${funcName}:`, e);
+                        }
+                    }
+                }
+                
+                // Method 2: Dispatch event
+                if (!reloadTriggered) {
+                    window.dispatchEvent(new CustomEvent('filterChanged', { 
+                        detail: { showSoldOnly: showSoldOnly, page: currentPage } 
+                    }));
+                }
+                
+                // Method 3: If nothing else works, reload the page
+                if (!reloadTriggered) {
+                    console.log('🔄 No reload function found, reloading page...');
+                    if (typeof window.updateStoredPage === 'function') {
+                        window.updateStoredPage();
+                    } else {
+                        const pageIndicator = document.querySelector('[class*="page"], [id*="page"]');
+                        if (pageIndicator) {
+                            const text = pageIndicator.textContent || '';
+                            const match = text.match(/(\d+)\s+of\s+(\d+)/i) || text.match(/page\s+(\d+)/i);
+                            if (match) {
+                                const page = parseInt(match[1], 10);
+                                localStorage.setItem('collection_current_page', page.toString());
+                            }
+                        }
+                    }
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 100);
+                }
+            });
+            
+            container.appendChild(checkbox);
+            container.appendChild(label);
+            
+            return container;
+        }
+        
         // Add sort dropdown to UI (header and bottom)
         function addSortDropdown() {
             // Check if header dropdown already exists
@@ -2514,13 +2745,15 @@ async def collection_page():
                 // Create sort container (compact, inline style)
                 const sortContainer = document.createElement('div');
                 sortContainer.id = 'collection-sort-container';
-                sortContainer.style.cssText = 'display: flex; align-items: center; gap: 8px; margin-left: auto;';
+                sortContainer.style.cssText = 'display: flex; align-items: center; gap: 12px; margin-left: auto; flex-wrap: wrap;';
                 
                 const { label, select } = createSortDropdown('collection-sort-dropdown', 'collection-sort-container');
+                const filterCheckbox = createFilterCheckbox('collection-filter-checkbox');
                 
                 // Assemble container
                 sortContainer.appendChild(label);
                 sortContainer.appendChild(select);
+                sortContainer.appendChild(filterCheckbox);
                 
                 // Insert into stats container or create wrapper
                 if (statsContainer) {
@@ -2724,8 +2957,12 @@ async def collection_page():
                                 originalCards = responseData.cards;
                                 console.log(`📦 Stored ${originalCards.length} original cards`);
                                 
+                                // Apply filter first
+                                const filteredCards = filterCards(responseData.cards);
+                                console.log(`🔍 Filtered to ${filteredCards.length} cards (showSoldOnly: ${showSoldOnly})`);
+                                
                                 // Apply current sort
-                                const sortedCards = sortFunctions[currentSort](responseData.cards);
+                                const sortedCards = sortFunctions[currentSort](filteredCards);
                                 console.log(`✅ Sorted ${sortedCards.length} cards using: ${currentSort}`);
                                 console.log(`   First 3 cards: ${sortedCards.slice(0, 3).map(c => c.name).join(', ')}`);
                                 
@@ -2796,8 +3033,11 @@ async def collection_page():
                                 // Store original cards
                                 originalCards = data.cards;
                                 
+                                // Apply filter first
+                                const filteredCards = filterCards(data.cards);
+                                
                                 // Apply current sort
-                                const sortedCards = sortFunctions[currentSort](data.cards);
+                                const sortedCards = sortFunctions[currentSort](filteredCards);
                                 
                                 // Update response
                                 const sortedData = {
@@ -2847,6 +3087,12 @@ async def collection_page():
             const savedSort = localStorage.getItem('collection_sort');
             if (savedSort && sortFunctions[savedSort]) {
                 currentSort = savedSort;
+            }
+            
+            // Load saved filter preference
+            const savedFilter = localStorage.getItem('collection_show_sold_only');
+            if (savedFilter !== null) {
+                showSoldOnly = savedFilter === 'true';
             }
             
             // Set up interceptors

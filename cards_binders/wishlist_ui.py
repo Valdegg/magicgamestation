@@ -120,6 +120,8 @@ def normalize_set_name(set_name: str) -> str:
         return ""
     name = set_name.lower()
     name = re.sub(r"[',]", "", name)
+    # Normalize "bordered" to "border" to match existing filenames
+    name = re.sub(r"\bbordered\b", "border", name)
     name = re.sub(r"[^a-z0-9]", "_", name)
     return re.sub(r"_+", "_", name).strip("_")
 
