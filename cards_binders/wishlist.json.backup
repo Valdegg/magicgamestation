@@ -819,12 +819,10 @@
       "Antiquities"
     ],
     "notes": "Artifact tutor",
-    "format_validity": "old_school_only",
+    "format_validity": "neither",
     "old_school_legal": true,
     "premodern_legal": false,
-    "old_school_sets": [
-      "atq"
-    ],
+    "old_school_sets": [],
     "premodern_sets": []
   },
   {
@@ -833,12 +831,10 @@
       "Antiquities"
     ],
     "notes": "Creature protection",
-    "format_validity": "old_school_only",
+    "format_validity": "neither",
     "old_school_legal": true,
     "premodern_legal": false,
-    "old_school_sets": [
-      "atq"
-    ],
+    "old_school_sets": [],
     "premodern_sets": []
   },
   {
@@ -847,12 +843,10 @@
       "Antiquities"
     ],
     "notes": "Artifact recursion",
-    "format_validity": "old_school_only",
+    "format_validity": "neither",
     "old_school_legal": true,
     "premodern_legal": false,
-    "old_school_sets": [
-      "atq"
-    ],
+    "old_school_sets": [],
     "premodern_sets": []
   },
   {
@@ -2556,14 +2550,13 @@
       "Fourth Edition"
     ],
     "notes": "Iconic manland - Antiquities version highly collectible",
-    "format_validity": "both",
+    "format_validity": "premodern_only",
     "old_school_legal": true,
     "premodern_legal": true,
-    "old_school_sets": [
-      "atq"
-    ],
+    "old_school_sets": [],
     "premodern_sets": [
-      "4ed"
+      "4ed",
+      "atq"
     ]
   },
   {
@@ -2633,7 +2626,7 @@
     "premodern_legal": true,
     "old_school_sets": [],
     "premodern_sets": [
-      "uds"
+      "usd"
     ]
   },
   {
@@ -2647,7 +2640,7 @@
     "premodern_legal": true,
     "old_school_sets": [],
     "premodern_sets": [
-      "uds"
+      "usd"
     ]
   },
   {
@@ -2675,7 +2668,7 @@
     "premodern_legal": true,
     "old_school_sets": [],
     "premodern_sets": [
-      "vis"
+      "mir"
     ]
   },
   {
@@ -2745,7 +2738,7 @@
     "premodern_legal": true,
     "old_school_sets": [],
     "premodern_sets": [
-      "scg"
+      "ons"
     ]
   },
   {
@@ -2759,7 +2752,7 @@
     "premodern_legal": true,
     "old_school_sets": [],
     "premodern_sets": [
-      "apc"
+      "ons"
     ]
   },
   {
@@ -2835,6 +2828,7 @@
     ],
     "premodern_sets": [
       "4ed",
+      "5ed",
       "ice"
     ]
   }

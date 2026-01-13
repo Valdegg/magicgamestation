@@ -50,6 +50,108 @@ def load_json_results(json_file: str) -> Dict[str, Any]:
         return {}
 
 
+# Cache for wishlist lookup
+_wishlist_lookup_cache = None
+
+
+def get_wishlist_format_lookup() -> Dict[str, Dict[str, bool]]:
+    """
+    Load wishlist.json and create a lookup map for format fields.
+    
+    Returns:
+        Dictionary mapping (card_name, expansion) -> {old_school_legal: bool, premodern_legal: bool}
+        Also includes fallback mapping by card_name only
+    """
+    global _wishlist_lookup_cache
+    
+    if _wishlist_lookup_cache is not None:
+        return _wishlist_lookup_cache
+    
+    lookup = {}
+    fallback_by_name = {}  # For when expansion doesn't match
+    
+    wishlist_file = 'wishlist.json'
+    if not os.path.exists(wishlist_file):
+        print(f"⚠️  Wishlist file {wishlist_file} not found, format fields will default to False")
+        _wishlist_lookup_cache = {}
+        return {}
+    
+    try:
+        with open(wishlist_file, 'r', encoding='utf-8') as f:
+            wishlist = json.load(f)
+        
+        for item in wishlist:
+            card_name = item.get('name', '').lower()
+            if not card_name:
+                continue
+            
+            old_school = item.get('old_school_legal', False)
+            premodern = item.get('premodern_legal', False)
+            sets = item.get('sets', [])
+            
+            # Create entry for each set
+            for set_name in sets:
+                if set_name:
+                    key = (card_name, set_name.lower())
+                    lookup[key] = {
+                        'old_school_legal': old_school,
+                        'premodern_legal': premodern
+                    }
+            
+            # Also create fallback by name only (use first occurrence)
+            if card_name not in fallback_by_name:
+                fallback_by_name[card_name] = {
+                    'old_school_legal': old_school,
+                    'premodern_legal': premodern
+                }
+        
+        # Combine lookup and fallback
+        _wishlist_lookup_cache = {
+            'by_name_and_set': lookup,
+            'by_name_only': fallback_by_name
+        }
+        
+        print(f"✅ Loaded format lookup from wishlist: {len(lookup)} entries by (name, set), {len(fallback_by_name)} by name")
+        return _wishlist_lookup_cache
+        
+    except Exception as e:
+        print(f"⚠️  Error loading wishlist for format lookup: {e}")
+        _wishlist_lookup_cache = {}
+        return {}
+
+
+def get_format_fields_from_wishlist(card_name: str, expansion: Optional[str] = None) -> Dict[str, bool]:
+    """
+    Look up format fields from wishlist based on card name and optionally expansion.
+    
+    Args:
+        card_name: Name of the card
+        expansion: Optional expansion/set name
+        
+    Returns:
+        Dictionary with old_school_legal and premodern_legal fields
+    """
+    lookup = get_wishlist_format_lookup()
+    if not lookup:
+        return {'old_school_legal': False, 'premodern_legal': False}
+    
+    card_name_lower = card_name.lower() if card_name else ''
+    
+    # Try exact match by name and expansion first
+    if expansion:
+        expansion_lower = expansion.lower()
+        key = (card_name_lower, expansion_lower)
+        if key in lookup['by_name_and_set']:
+            return lookup['by_name_and_set'][key]
+    
+    # Fallback to name-only lookup
+    if card_name_lower in lookup['by_name_only']:
+        return lookup['by_name_only'][card_name_lower]
+    
+    # Default to False if not found
+    return {'old_school_legal': False, 'premodern_legal': False}
+
+
 def normalize_deal_data(results: Dict[str, Any]) -> List[Dict[str, Any]]:
     """
     Normalize deal data from different JSON formats into a unified structure.
@@ -83,8 +185,25 @@ def normalize_deal_data(results: Dict[str, Any]) -> List[Dict[str, Any]]:
             if not country or country.strip() == '':
                 country = None  # Use None instead of 'Unknown'
             
+            # Get format fields from card data, or look up from wishlist if missing
+            card_name = card.get('name', 'Unknown')
+            old_school_legal = card.get('old_school_legal')
+            premodern_legal = card.get('premodern_legal')
+            
+            # If format fields are missing, look them up from wishlist
+            if old_school_legal is None or premodern_legal is None:
+                format_fields = get_format_fields_from_wishlist(card_name, expansion)
+                if old_school_legal is None:
+                    old_school_legal = format_fields['old_school_legal']
+                if premodern_legal is None:
+                    premodern_legal = format_fields['premodern_legal']
+            else:
+                # Convert to boolean if they're not already
+                old_school_legal = bool(old_school_legal)
+                premodern_legal = bool(premodern_legal)
+            
             normalized = {
-                'card_name': card.get('name', 'Unknown'),
+                'card_name': card_name,
                 'expansion': expansion,
                 'card_id': card.get('card_id') or card.get('idProduct'),
                 'price': live_data.get('cheapest_good_condition') if live_data else None,
@@ -98,7 +217,9 @@ def normalize_deal_data(results: Dict[str, Any]) -> List[Dict[str, Any]]:
                 'total_listings': live_data.get('total_listings', 0) if live_data else 0,
                 'available_items_total': live_data.get('available_items_total') if live_data else None,  # Liquidity indicator
                 'historical': card.get('historical', {}),
-                'source': results.get('wishlist_file', 'Unknown')
+                'source': results.get('wishlist_file', 'Unknown'),
+                'old_school_legal': old_school_legal,
+                'premodern_legal': premodern_legal
             }
             deals.append(normalized)
     
@@ -126,8 +247,25 @@ def normalize_deal_data(results: Dict[str, Any]) -> List[Dict[str, Any]]:
                 if not country or country.strip() == '':
                     country = None  # Use None instead of 'Unknown'
                 
+                # Get format fields from card_data, or look up from wishlist if missing
+                card_name = card_data.get('name', 'Unknown')
+                old_school_legal = card_data.get('old_school_legal')
+                premodern_legal = card_data.get('premodern_legal')
+                
+                # If format fields are missing, look them up from wishlist
+                if old_school_legal is None or premodern_legal is None:
+                    format_fields = get_format_fields_from_wishlist(card_name, expansion)
+                    if old_school_legal is None:
+                        old_school_legal = format_fields['old_school_legal']
+                    if premodern_legal is None:
+                        premodern_legal = format_fields['premodern_legal']
+                else:
+                    # Convert to boolean if they're not already
+                    old_school_legal = bool(old_school_legal)
+                    premodern_legal = bool(premodern_legal)
+                
                 normalized = {
-                    'card_name': card_data.get('name', 'Unknown'),
+                    'card_name': card_name,
                     'expansion': expansion,
                     'card_id': card_data.get('idProduct'),
                     'price': live_analysis.get('cheapest_good_condition'),
@@ -144,7 +282,9 @@ def normalize_deal_data(results: Dict[str, Any]) -> List[Dict[str, Any]]:
                         'avg30': card_data.get('AVG30', 0),
                         'avg7': card_data.get('AVG7', 0)
                     },
-                    'source': result.get('source', results.get('run_type', 'Unknown'))
+                    'source': result.get('source', results.get('run_type', 'Unknown')),
+                    'old_school_legal': old_school_legal,
+                    'premodern_legal': premodern_legal
                 }
                 
                 # Calculate discount if we have top sellers
@@ -312,38 +452,49 @@ async def api_deals(
             print(f"📊 API /deals: Ignoring file parameter and selecting correct file for source_type='{source_type}'", flush=True)
             file = None  # Ignore the file and let the source_type filtering select the correct one
         else:
-            # File matches source_type, but check if there's a newer file available
+            # File matches source_type, but check if there's a newer deal file available
+            # Only look for actual deal files (wishlist_deals_*.json or collection_deals_*.json)
             files = get_all_results_files()
-            filtered_files = [f for f in files if detect_source_type(os.path.basename(f)) == source_type]
-            if filtered_files:
-                newest_file = filtered_files[0]  # Already sorted newest first
+            deal_file_prefix = 'wishlist_deals' if source_type == 'wishlist' else 'collection_deals'
+            deal_files = [f for f in files if os.path.basename(f).startswith(deal_file_prefix)]
+            
+            if deal_files:
+                newest_file = deal_files[0]  # Already sorted newest first
                 newest_basename = os.path.basename(newest_file)
                 requested_file_path = os.path.join(RESULTS_DIR, file_basename) if not file.startswith(RESULTS_DIR) else file
                 
-                # Normalize paths for comparison
-                newest_file_normalized = os.path.normpath(newest_file)
-                requested_file_normalized = os.path.normpath(requested_file_path)
-                
-                if newest_file_normalized != requested_file_normalized and os.path.exists(newest_file):
-                    # Check timestamps to see if newer file exists
-                    try:
-                        requested_results = load_json_results(requested_file_path)
-                        newest_results = load_json_results(newest_file)
-                        requested_ts = requested_results.get('timestamp', '')
-                        newest_ts = newest_results.get('timestamp', '')
-                        
-                        print(f"🔍 API /deals: Comparing files - Requested: '{file_basename}' (ts: {requested_ts}) vs Newest: '{newest_basename}' (ts: {newest_ts})", flush=True)
-                        
-                        if newest_ts > requested_ts:
-                            print(f"⚠️  API /deals: Requested file '{file_basename}' (timestamp: {requested_ts}) is older than newest file '{newest_basename}' (timestamp: {newest_ts})", flush=True)
-                            print(f"📊 API /deals: Using newest file instead: {newest_basename}", flush=True)
-                            file = None  # Use newest instead
-                        else:
-                            print(f"✅ API /deals: Requested file '{file_basename}' is current or newer, using it", flush=True)
-                    except Exception as e:
-                        print(f"⚠️  API /deals: Could not compare timestamps, using requested file: {e}", flush=True)
+                # If requested file is not a deal file, always reject it
+                requested_is_deal_file = file_basename.startswith(deal_file_prefix)
+                if not requested_is_deal_file:
+                    print(f"🚫 API /deals: Requested file '{file_basename}' is not a deal file, using deal file instead: {newest_basename}", flush=True)
+                    file = None  # Force use of deal file instead
                 else:
-                    print(f"✅ API /deals: Requested file '{file_basename}' is already the newest file", flush=True)
+                    # Normalize paths for comparison
+                    newest_file_normalized = os.path.normpath(newest_file)
+                    requested_file_normalized = os.path.normpath(requested_file_path)
+                    
+                    if newest_file_normalized != requested_file_normalized and os.path.exists(newest_file):
+                        # Check timestamps to see if newer file exists
+                        try:
+                            requested_results = load_json_results(requested_file_path)
+                            newest_results = load_json_results(newest_file)
+                            requested_ts = requested_results.get('timestamp', '')
+                            newest_ts = newest_results.get('timestamp', '')
+                            
+                            print(f"🔍 API /deals: Comparing deal files - Requested: '{file_basename}' (ts: {requested_ts}) vs Newest: '{newest_basename}' (ts: {newest_ts})", flush=True)
+                            
+                            if newest_ts > requested_ts:
+                                print(f"⚠️  API /deals: Requested file '{file_basename}' (timestamp: {requested_ts}) is older than newest file '{newest_basename}' (timestamp: {newest_ts})", flush=True)
+                                print(f"📊 API /deals: Using newest file instead: {newest_basename}", flush=True)
+                                file = None  # Use newest instead
+                            else:
+                                print(f"✅ API /deals: Requested file '{file_basename}' is current or newer, using it", flush=True)
+                        except Exception as e:
+                            print(f"⚠️  API /deals: Could not compare timestamps, using requested file: {e}", flush=True)
+                    else:
+                        print(f"✅ API /deals: Requested file '{file_basename}' is already the newest deal file", flush=True)
+            else:
+                print(f"⚠️  API /deals: No {deal_file_prefix} files found, using requested file '{file_basename}'", flush=True)
     
     if not file:
         # Use latest file if none specified, optionally filtered by source_type
@@ -358,13 +509,14 @@ async def api_deals(
             detected_type = detect_source_type(fname)
             print(f"   - {fname} (detected: {detected_type})", flush=True)
         
-        # Filter by source type if specified
+        # Filter by source type if specified - only look for actual deal files
         if source_type:
-            filtered_files = [f for f in files if detect_source_type(os.path.basename(f)) == source_type]
-            print(f"📊 API /deals: Filtered to {len(filtered_files)} files matching source_type='{source_type}':", flush=True)
+            deal_file_prefix = 'wishlist_deals' if source_type == 'wishlist' else 'collection_deals'
+            deal_files = [f for f in files if os.path.basename(f).startswith(deal_file_prefix)]
+            print(f"📊 API /deals: Looking for {deal_file_prefix} files, found {len(deal_files)}:", flush=True)
             
-            # Show timestamps for filtered files
-            for f in filtered_files[:5]:  # Show first 5 filtered files
+            # Show timestamps for deal files
+            for f in deal_files[:5]:  # Show first 5 deal files
                 try:
                     results = load_json_results(f)
                     timestamp = results.get('timestamp', 'N/A')
@@ -372,8 +524,9 @@ async def api_deals(
                 except:
                     print(f"   - {os.path.basename(f)}", flush=True)
             
-            if filtered_files:
-                file = filtered_files[0]  # Get latest file of the specified type
+            if deal_files:
+                file = deal_files[0]  # Get latest deal file
+                print(f"📊 API /deals: Selected deal file: {os.path.basename(file)}", flush=True)
                 try:
                     results = load_json_results(file)
                     timestamp = results.get('timestamp', 'N/A')
@@ -381,8 +534,8 @@ async def api_deals(
                 except:
                     print(f"✅ API /deals: Selected file: {os.path.basename(file)}", flush=True)
             else:
-                print(f"❌ API /deals: No files found matching source_type='{source_type}'", flush=True)
-                return JSONResponse(content={'deals': [], 'error': f'No {source_type} result files found'})
+                print(f"❌ API /deals: No {deal_file_prefix} files found", flush=True)
+                return JSONResponse(content={'deals': [], 'error': f'No {deal_file_prefix} files found'})
         else:
             file = files[0]  # Default to latest file regardless of type
             try:

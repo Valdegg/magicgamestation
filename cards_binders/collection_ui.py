@@ -719,6 +719,8 @@ def expand_collection_to_cards(collection: List[Dict[str, Any]]) -> List[Dict[st
         sell_price = item.get('sell_price')
         language = item.get('language')
         foil = item.get('foil', False)
+        old_school_legal = item.get('old_school_legal', False)
+        premodern_legal = item.get('premodern_legal', False)
         
         # If no sets specified, create one entry with no set
         if not sets:
@@ -763,6 +765,8 @@ def expand_collection_to_cards(collection: List[Dict[str, Any]]) -> List[Dict[st
                 'sell_price': sell_price,
                 'language': language,
                 'foil': foil,
+                'old_school_legal': old_school_legal,
+                'premodern_legal': premodern_legal,
                 'market_value': market_value,
                 'market_discount': market_discount,
                 'market_category': market_category,
@@ -889,6 +893,8 @@ def expand_collection_to_cards(collection: List[Dict[str, Any]]) -> List[Dict[st
                     'sell_price': sell_price,
                     'language': language,
                     'foil': foil,
+                    'old_school_legal': old_school_legal,
+                    'premodern_legal': premodern_legal,
                     'market_value': market_value,
                     'market_discount': market_discount,
                     'market_category': market_category,
@@ -2333,22 +2339,43 @@ async def collection_page():
         let originalCards = [];
         let currentSort = 'original'; // Default: original JSON order
         let showSoldOnly = false; // Default: show unsold cards (sell_price is 0 or null)
+        let oldSchoolFilter = true; // Default: show Old School legal cards
+        let premodernFilter = true; // Default: show Premodern legal cards
         
-        // Filter function: filter cards based on sell_price
+        // Filter function: filter cards based on sell_price and format legality
         function filterCards(cards) {
+            let filtered = cards;
+            
+            // First filter by sold/unsold status
             if (showSoldOnly) {
                 // Show only sold cards (non-zero sell_price)
-                return cards.filter(card => {
+                filtered = filtered.filter(card => {
                     const sellPrice = parseFloat(card.sell_price) || 0;
                     return sellPrice > 0;
                 });
             } else {
                 // Show only unsold cards (zero or null sell_price)
-                return cards.filter(card => {
+                filtered = filtered.filter(card => {
                     const sellPrice = parseFloat(card.sell_price) || 0;
                     return sellPrice === 0;
                 });
             }
+            
+            // Then filter by format legality (OR operation: show if matches any checked format)
+            if (oldSchoolFilter || premodernFilter) {
+                filtered = filtered.filter(card => {
+                    const oldSchool = card.old_school_legal === true;
+                    const premodern = card.premodern_legal === true;
+                    
+                    // Show card if it matches at least one checked format
+                    return (oldSchoolFilter && oldSchool) || (premodernFilter && premodern);
+                });
+            } else {
+                // If neither checkbox is checked, show no cards (as per spec requirement)
+                filtered = [];
+            }
+            
+            return filtered;
         }
         
         // Expansion mapping: chronological order (key) -> set name (value)
@@ -2727,6 +2754,152 @@ async def collection_page():
             return container;
         }
         
+        // Create format filter checkbox element (Old School or Premodern)
+        function createFormatFilterCheckbox(id, labelText, filterType) {
+            // Create container
+            const container = document.createElement('div');
+            container.style.cssText = 'display: flex; align-items: center; gap: 6px;';
+            
+            // Create checkbox
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.id = id;
+            
+            // Set initial checked state based on filter type
+            if (filterType === 'old_school') {
+                checkbox.checked = oldSchoolFilter;
+            } else if (filterType === 'premodern') {
+                checkbox.checked = premodernFilter;
+            }
+            
+            checkbox.style.cssText = 'width: 16px; height: 16px; cursor: pointer;';
+            
+            // Create label
+            const label = document.createElement('label');
+            label.setAttribute('for', id);
+            label.textContent = labelText;
+            label.style.cssText = 'color: #d4af37; font-weight: 500; font-size: 13px; cursor: pointer; white-space: nowrap;';
+            
+            // Add change handler
+            checkbox.addEventListener('change', function(e) {
+                const oldOldSchool = oldSchoolFilter;
+                const oldPremodern = premodernFilter;
+                
+                // Update the appropriate filter variable
+                if (filterType === 'old_school') {
+                    oldSchoolFilter = e.target.checked;
+                    localStorage.setItem('collection_filter_old_school', oldSchoolFilter.toString());
+                    console.log(`🔄 Old School filter changed from "${oldOldSchool}" to "${oldSchoolFilter}"`);
+                } else if (filterType === 'premodern') {
+                    premodernFilter = e.target.checked;
+                    localStorage.setItem('collection_filter_premodern', premodernFilter.toString());
+                    console.log(`🔄 Premodern filter changed from "${oldPremodern}" to "${premodernFilter}"`);
+                }
+                
+                // Sync both checkboxes if they exist (header and bottom)
+                const headerCheckbox = document.getElementById(id);
+                const bottomCheckbox = document.getElementById('bottom-' + id);
+                if (headerCheckbox && headerCheckbox !== e.target) {
+                    headerCheckbox.checked = e.target.checked;
+                }
+                if (bottomCheckbox && bottomCheckbox !== e.target) {
+                    bottomCheckbox.checked = e.target.checked;
+                }
+                
+                // Also sync the other format checkbox
+                if (filterType === 'old_school') {
+                    const otherHeaderCheckbox = document.getElementById('collection-filter-premodern');
+                    const otherBottomCheckbox = document.getElementById('bottom-collection-filter-premodern');
+                    if (otherHeaderCheckbox) {
+                        otherHeaderCheckbox.checked = premodernFilter;
+                    }
+                    if (otherBottomCheckbox) {
+                        otherBottomCheckbox.checked = premodernFilter;
+                    }
+                } else if (filterType === 'premodern') {
+                    const otherHeaderCheckbox = document.getElementById('collection-filter-old-school');
+                    const otherBottomCheckbox = document.getElementById('bottom-collection-filter-old-school');
+                    if (otherHeaderCheckbox) {
+                        otherHeaderCheckbox.checked = oldSchoolFilter;
+                    }
+                    if (otherBottomCheckbox) {
+                        otherBottomCheckbox.checked = oldSchoolFilter;
+                    }
+                }
+                
+                // Clear the original cards to force a re-fetch
+                originalCards = [];
+                
+                // Try to find the current page number
+                let currentPage = 1;
+                const pageIndicator = document.querySelector('[class*="page"], [id*="page"]');
+                if (pageIndicator) {
+                    const text = pageIndicator.textContent || '';
+                    const match = text.match(/(\d+)\s+of\s+(\d+)/i) || text.match(/page\s+(\d+)/i);
+                    if (match) {
+                        currentPage = parseInt(match[1], 10);
+                    }
+                }
+                
+                // Try multiple approaches to trigger a reload
+                let reloadTriggered = false;
+                
+                // Method 1: Try to find and call page load function
+                const reloadFuncs = ['loadPage', 'showPage', 'goToPage', 'setPage', 'loadCards', 'refreshCards'];
+                for (const funcName of reloadFuncs) {
+                    if (typeof window[funcName] === 'function') {
+                        try {
+                            console.log(`🔄 Triggering reload via ${funcName}(${currentPage})`);
+                            window[funcName](currentPage);
+                            reloadTriggered = true;
+                            break;
+                        } catch(e) {
+                            console.warn(`Failed to call ${funcName}:`, e);
+                        }
+                    }
+                }
+                
+                // Method 2: Dispatch event
+                if (!reloadTriggered) {
+                    window.dispatchEvent(new CustomEvent('filterChanged', { 
+                        detail: { 
+                            showSoldOnly: showSoldOnly, 
+                            oldSchoolFilter: oldSchoolFilter,
+                            premodernFilter: premodernFilter,
+                            page: currentPage 
+                        } 
+                    }));
+                }
+                
+                // Method 3: If nothing else works, reload the page
+                if (!reloadTriggered) {
+                    console.log('🔄 No reload function found, reloading page...');
+                    if (typeof window.updateStoredPage === 'function') {
+                        window.updateStoredPage();
+                    } else {
+                        const pageIndicator = document.querySelector('[class*="page"], [id*="page"]');
+                        if (pageIndicator) {
+                            const text = pageIndicator.textContent || '';
+                            const match = text.match(/(\d+)\s+of\s+(\d+)/i) || text.match(/page\s+(\d+)/i);
+                            if (match) {
+                                const page = parseInt(match[1], 10);
+                                localStorage.setItem('collection_current_page', page.toString());
+                                console.log(`💾 Stored page ${page} (fallback)`);
+                            }
+                        }
+                    }
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 100);
+                }
+            });
+            
+            container.appendChild(checkbox);
+            container.appendChild(label);
+            
+            return container;
+        }
+        
         // Add sort dropdown to UI (header and bottom)
         function addSortDropdown() {
             // Check if header dropdown already exists
@@ -2749,11 +2922,15 @@ async def collection_page():
                 
                 const { label, select } = createSortDropdown('collection-sort-dropdown', 'collection-sort-container');
                 const filterCheckbox = createFilterCheckbox('collection-filter-checkbox');
+                const oldSchoolCheckbox = createFormatFilterCheckbox('collection-filter-old-school', 'Old School', 'old_school');
+                const premodernCheckbox = createFormatFilterCheckbox('collection-filter-premodern', 'Premodern', 'premodern');
                 
                 // Assemble container
                 sortContainer.appendChild(label);
                 sortContainer.appendChild(select);
                 sortContainer.appendChild(filterCheckbox);
+                sortContainer.appendChild(oldSchoolCheckbox);
+                sortContainer.appendChild(premodernCheckbox);
                 
                 // Insert into stats container or create wrapper
                 if (statsContainer) {
@@ -2959,7 +3136,7 @@ async def collection_page():
                                 
                                 // Apply filter first
                                 const filteredCards = filterCards(responseData.cards);
-                                console.log(`🔍 Filtered to ${filteredCards.length} cards (showSoldOnly: ${showSoldOnly})`);
+                                console.log(`🔍 Filtered to ${filteredCards.length} cards (showSoldOnly: ${showSoldOnly}, Old School: ${oldSchoolFilter}, Premodern: ${premodernFilter})`);
                                 
                                 // Apply current sort
                                 const sortedCards = sortFunctions[currentSort](filteredCards);
@@ -3035,6 +3212,7 @@ async def collection_page():
                                 
                                 // Apply filter first
                                 const filteredCards = filterCards(data.cards);
+                                console.log(`🔍 Filtered to ${filteredCards.length} cards (showSoldOnly: ${showSoldOnly}, Old School: ${oldSchoolFilter}, Premodern: ${premodernFilter})`);
                                 
                                 // Apply current sort
                                 const sortedCards = sortFunctions[currentSort](filteredCards);
@@ -3093,6 +3271,17 @@ async def collection_page():
             const savedFilter = localStorage.getItem('collection_show_sold_only');
             if (savedFilter !== null) {
                 showSoldOnly = savedFilter === 'true';
+            }
+            
+            // Load saved format filter preferences
+            const savedOldSchoolFilter = localStorage.getItem('collection_filter_old_school');
+            if (savedOldSchoolFilter !== null) {
+                oldSchoolFilter = savedOldSchoolFilter === 'true';
+            }
+            
+            const savedPremodernFilter = localStorage.getItem('collection_filter_premodern');
+            if (savedPremodernFilter !== null) {
+                premodernFilter = savedPremodernFilter === 'true';
             }
             
             // Set up interceptors

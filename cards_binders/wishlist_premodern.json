@@ -1,0 +1,1461 @@
+[
+  {
+    "name": "Lightning Bolt",
+    "sets": [
+      "Beta",
+      "Unlimited"
+    ],
+    "notes": "Iconic burn spell",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "2ed",
+      "3ed"
+    ],
+    "premodern_sets": [
+      "4ed"
+    ]
+  },
+  {
+    "name": "Counterspell",
+    "sets": [
+      "Alpha",
+      "Beta",
+      "Unlimited"
+    ],
+    "notes": "Blue staple",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "2ed",
+      "3ed"
+    ],
+    "premodern_sets": [
+      "4ed",
+      "5ed",
+      "6ed",
+      "7ed",
+      "ice",
+      "mmq",
+      "tmp"
+    ]
+  },
+  {
+    "name": "Vampiric Tutor",
+    "sets": [
+      "Visions",
+      "Sixth Edition"
+    ],
+    "notes": "Instant speed tutor",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "6ed",
+      "vis"
+    ]
+  },
+  {
+    "name": "Enlightened Tutor",
+    "sets": [
+      "Mirage",
+      "Sixth Edition"
+    ],
+    "notes": "Artifact/enchantment tutor",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "6ed",
+      "mir"
+    ]
+  },
+  {
+    "name": "Mystical Tutor",
+    "sets": [
+      "Mirage",
+      "Sixth Edition"
+    ],
+    "notes": "Instant tutor",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "6ed",
+      "mir"
+    ]
+  },
+  {
+    "name": "Worldly Tutor",
+    "sets": [
+      "Mirage",
+      "Sixth Edition"
+    ],
+    "notes": "Creature tutor",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "6ed",
+      "mir"
+    ]
+  },
+  {
+    "name": "Survival of the Fittest",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Creature toolbox engine",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "exo"
+    ]
+  },
+  {
+    "name": "Rhystic Study",
+    "sets": [
+      "Prophecy"
+    ],
+    "notes": "Card draw engine",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "pcy"
+    ]
+  },
+  {
+    "name": "Sylvan Library",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Card selection engine",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "leg"
+    ],
+    "premodern_sets": [
+      "4ed",
+      "5ed"
+    ]
+  },
+  {
+    "name": "Scroll Rack",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Library manipulation",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "tmp"
+    ]
+  },
+  {
+    "name": "Necropotence",
+    "sets": [
+      "Ice Age"
+    ],
+    "notes": "Powerful card draw",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "5ed",
+      "ice"
+    ]
+  },
+  {
+    "name": "Phyrexian Arena",
+    "sets": [
+      "Apocalypse"
+    ],
+    "notes": "Steady card draw",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "apc"
+    ]
+  },
+  {
+    "name": "Force of Will",
+    "sets": [
+      "Alliances"
+    ],
+    "notes": "Free counterspell",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "all"
+    ]
+  },
+  {
+    "name": "Wrath of God",
+    "sets": [
+      "Alpha",
+      "Beta",
+      "Unlimited",
+      "Revised"
+    ],
+    "notes": "Classic board wipe",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "2ed",
+      "3ed"
+    ],
+    "premodern_sets": [
+      "4ed",
+      "5ed",
+      "6ed",
+      "7ed"
+    ]
+  },
+  {
+    "name": "Exploration",
+    "sets": [
+      "Urza's Saga"
+    ],
+    "notes": "Extra land drops",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "usg"
+    ]
+  },
+  {
+    "name": "Burgeoning",
+    "sets": [
+      "Stronghold"
+    ],
+    "notes": "Ramp on opponents' turns",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "sth"
+    ]
+  },
+  {
+    "name": "Ancient Tomb",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Fast colorless mana",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "tmp"
+    ]
+  },
+  {
+    "name": "City of Traitors",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Explosive mana land",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "exo"
+    ]
+  },
+  {
+    "name": "Wasteland",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Nonbasic land hate",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "tmp"
+    ]
+  },
+  {
+    "name": "Yawgmoth's Will",
+    "sets": [
+      "Urza's Saga"
+    ],
+    "notes": "Graveyard storm",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "usg"
+    ]
+  },
+  {
+    "name": "Time Spiral",
+    "sets": [
+      "Urza's Saga"
+    ],
+    "notes": "Untap and draw",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "usg"
+    ]
+  },
+  {
+    "name": "Memory Jar",
+    "sets": [
+      "Urza's Legacy"
+    ],
+    "notes": "Temporary card draw",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "ulg"
+    ]
+  },
+  {
+    "name": "Intuition",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Graveyard setup",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "tmp"
+    ]
+  },
+  {
+    "name": "Reanimate",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Cheap reanimation",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "tmp"
+    ]
+  },
+  {
+    "name": "Animate Dead",
+    "sets": [
+      "Alpha",
+      "Beta",
+      "Unlimited"
+    ],
+    "notes": "Classic reanimation",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "2ed",
+      "3ed"
+    ],
+    "premodern_sets": [
+      "4ed",
+      "5ed"
+    ]
+  },
+  {
+    "name": "Dance of the Dead",
+    "sets": [
+      "Ice Age"
+    ],
+    "notes": "Reanimation enchantment",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "ice"
+    ]
+  },
+  {
+    "name": "Goblin Welder",
+    "sets": [
+      "Urza's Legacy"
+    ],
+    "notes": "Artifact recursion",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "ulg"
+    ]
+  },
+  {
+    "name": "Tinker",
+    "sets": [
+      "Urza's Legacy"
+    ],
+    "notes": "Artifact tutor",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "ulg"
+    ]
+  },
+  {
+    "name": "Tolarian Academy",
+    "sets": [
+      "Urza's Saga"
+    ],
+    "notes": "Artifact mana",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "usg"
+    ]
+  },
+  {
+    "name": "Cabal Coffers",
+    "sets": [
+      "Torment"
+    ],
+    "notes": "Swamp mana multiplier",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "tor"
+    ]
+  },
+  {
+    "name": "Rishadan Port",
+    "sets": [
+      "Mercadian Masques"
+    ],
+    "notes": "Land disruption",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "mmq"
+    ]
+  },
+  {
+    "name": "Dust Bowl",
+    "sets": [
+      "Mercadian Masques"
+    ],
+    "notes": "Land destruction",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "mmq"
+    ]
+  },
+  {
+    "name": "Winter Orb",
+    "sets": [
+      "Alpha",
+      "Beta",
+      "Unlimited"
+    ],
+    "notes": "Land lockdown",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "2ed",
+      "3ed"
+    ],
+    "premodern_sets": [
+      "4ed",
+      "5ed"
+    ]
+  },
+  {
+    "name": "Static Orb",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Permanent lockdown",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "7ed",
+      "tmp"
+    ]
+  },
+  {
+    "name": "Sphere of Resistance",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Spell tax",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "exo"
+    ]
+  },
+  {
+    "name": "Land Tax",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Land ramp enchantment",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "leg"
+    ],
+    "premodern_sets": [
+      "4ed"
+    ]
+  },
+  {
+    "name": "Erhnam Djinn",
+    "sets": [
+      "Arabian Nights",
+      "Judgment"
+    ],
+    "notes": "Efficient green beater",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "arn"
+    ],
+    "premodern_sets": [
+      "chr",
+      "jud"
+    ]
+  },
+  {
+    "name": "Aladdin",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "notes": "Artifact control",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "arn"
+    ],
+    "premodern_sets": [
+      "chr"
+    ]
+  },
+  {
+    "name": "City of Brass",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "notes": "Five-color mana",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "arn"
+    ],
+    "premodern_sets": [
+      "5ed",
+      "6ed",
+      "7ed",
+      "chr"
+    ]
+  },
+  {
+    "name": "Nicol Bolas",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Elder dragon legend",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "leg"
+    ],
+    "premodern_sets": [
+      "chr"
+    ]
+  },
+  {
+    "name": "Chromium",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Elder dragon legend",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "leg"
+    ],
+    "premodern_sets": [
+      "chr"
+    ]
+  },
+  {
+    "name": "Arcades Sabboth",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Elder dragon legend",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "leg"
+    ],
+    "premodern_sets": [
+      "chr"
+    ]
+  },
+  {
+    "name": "Palladia-Mors",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Elder dragon legend",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "leg"
+    ],
+    "premodern_sets": [
+      "chr"
+    ]
+  },
+  {
+    "name": "Vaevictis Asmadi",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Elder dragon legend",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "leg"
+    ],
+    "premodern_sets": [
+      "chr"
+    ]
+  },
+  {
+    "name": "Concordant Crossroads",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Universal haste",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "leg"
+    ],
+    "premodern_sets": [
+      "chr"
+    ]
+  },
+  {
+    "name": "Adarkar Wastes",
+    "sets": [
+      "Ice Age"
+    ],
+    "notes": "White/Blue pain land",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "5ed",
+      "6ed",
+      "7ed",
+      "ice"
+    ]
+  },
+  {
+    "name": "Underground River",
+    "sets": [
+      "Ice Age"
+    ],
+    "notes": "Blue/Black pain land",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "5ed",
+      "6ed",
+      "7ed",
+      "ice"
+    ]
+  },
+  {
+    "name": "Sulfurous Springs",
+    "sets": [
+      "Ice Age"
+    ],
+    "notes": "Black/Red pain land",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "5ed",
+      "6ed",
+      "7ed",
+      "ice"
+    ]
+  },
+  {
+    "name": "Karplusan Forest",
+    "sets": [
+      "Ice Age"
+    ],
+    "notes": "Red/Green pain land",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "5ed",
+      "6ed",
+      "7ed",
+      "ice"
+    ]
+  },
+  {
+    "name": "Brushland",
+    "sets": [
+      "Ice Age"
+    ],
+    "notes": "Green/White pain land",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "5ed",
+      "6ed",
+      "7ed",
+      "ice"
+    ]
+  },
+  {
+    "name": "Caves of Koilos",
+    "sets": [
+      "Apocalypse"
+    ],
+    "notes": "White/Black pain land",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "apc"
+    ]
+  },
+  {
+    "name": "Shivan Reef",
+    "sets": [
+      "Apocalypse"
+    ],
+    "notes": "Blue/Red pain land",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "apc"
+    ]
+  },
+  {
+    "name": "Llanowar Wastes",
+    "sets": [
+      "Apocalypse"
+    ],
+    "notes": "Black/Green pain land",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "apc"
+    ]
+  },
+  {
+    "name": "Yavimaya Coast",
+    "sets": [
+      "Apocalypse"
+    ],
+    "notes": "Green/Blue pain land",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "apc"
+    ]
+  },
+  {
+    "name": "Battlefield Forge",
+    "sets": [
+      "Apocalypse"
+    ],
+    "notes": "Red/White pain land",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "apc"
+    ]
+  },
+  {
+    "name": "Jester's Cap",
+    "sets": [
+      "Ice Age"
+    ],
+    "notes": "Exile from library",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "5ed",
+      "ice"
+    ]
+  },
+  {
+    "name": "Jokulhaups",
+    "sets": [
+      "Ice Age"
+    ],
+    "notes": "Mass land destruction",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "5ed",
+      "6ed",
+      "ice"
+    ]
+  },
+  {
+    "name": "Lake of the Dead",
+    "sets": [
+      "Alliances"
+    ],
+    "notes": "Black mana acceleration",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "all"
+    ]
+  },
+  {
+    "name": "Thawing Glaciers",
+    "sets": [
+      "Alliances"
+    ],
+    "notes": "Repeatable land search",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "all"
+    ]
+  },
+  {
+    "name": "Kjeldoran Outpost",
+    "sets": [
+      "Alliances"
+    ],
+    "notes": "Token generation land",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "all"
+    ]
+  },
+  {
+    "name": "Phelddagrif",
+    "sets": [
+      "Alliances"
+    ],
+    "notes": "Group hug creature",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "all"
+    ]
+  },
+  {
+    "name": "Lim-Dûl's Vault",
+    "sets": [
+      "Alliances"
+    ],
+    "notes": "Library manipulation",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "all"
+    ]
+  },
+  {
+    "name": "Phyrexian Dreadnought",
+    "sets": [
+      "Mirage"
+    ],
+    "notes": "Efficient threat",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "mir"
+    ]
+  },
+  {
+    "name": "Lion's Eye Diamond",
+    "sets": [
+      "Mirage"
+    ],
+    "notes": "Fast mana artifact",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "mir"
+    ]
+  },
+  {
+    "name": "Bazaar of Wonders",
+    "sets": [
+      "Mirage"
+    ],
+    "notes": "Spell restriction",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "mir"
+    ]
+  },
+  {
+    "name": "Cadaverous Bloom",
+    "sets": [
+      "Mirage"
+    ],
+    "notes": "Card to mana conversion",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "mir"
+    ]
+  },
+  {
+    "name": "Shallow Grave",
+    "sets": [
+      "Mirage"
+    ],
+    "notes": "Temporary reanimation",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "mir"
+    ]
+  },
+  {
+    "name": "Meditate",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Skip turn for cards",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "tmp"
+    ]
+  },
+  {
+    "name": "Cursed Scroll",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Repeatable damage",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "tmp"
+    ]
+  },
+  {
+    "name": "Earthcraft",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Creature-based mana",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "tmp"
+    ]
+  },
+  {
+    "name": "Aluren",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Free small creatures",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "tmp"
+    ]
+  },
+  {
+    "name": "Humility",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Creature nullification",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "tmp"
+    ]
+  },
+  {
+    "name": "Recurring Nightmare",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Reanimation engine",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "exo"
+    ]
+  },
+  {
+    "name": "Oath of Druids",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Creature cheating",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "exo"
+    ]
+  },
+  {
+    "name": "Price of Progress",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Nonbasic land punishment",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "exo"
+    ]
+  },
+  {
+    "name": "Volrath's Stronghold",
+    "sets": [
+      "Stronghold"
+    ],
+    "notes": "Creature recursion land",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "sth"
+    ]
+  },
+  {
+    "name": "Sliver Queen",
+    "sets": [
+      "Stronghold"
+    ],
+    "notes": "Sliver tribal commander",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "sth"
+    ]
+  },
+  {
+    "name": "Horn of Greed",
+    "sets": [
+      "Stronghold"
+    ],
+    "notes": "Land-based card draw",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "sth"
+    ]
+  },
+  {
+    "name": "Hermit Druid",
+    "sets": [
+      "Stronghold"
+    ],
+    "notes": "Library mill engine",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "sth"
+    ]
+  },
+  {
+    "name": "Ensnaring Bridge",
+    "sets": [
+      "Stronghold"
+    ],
+    "notes": "Attack prevention",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "7ed",
+      "sth"
+    ]
+  },
+  {
+    "name": "Crystalline Sliver",
+    "sets": [
+      "Stronghold"
+    ],
+    "notes": "Sliver protection",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "sth"
+    ]
+  },
+  {
+    "name": "Corpse Dance",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Buyback reanimation",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "tmp"
+    ]
+  },
+  {
+    "name": "Tradewind Rider",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Bounce engine",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "tmp"
+    ]
+  },
+  {
+    "name": "Capsize",
+    "sets": [
+      "Tempest"
+    ],
+    "notes": "Buyback bounce",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "tmp"
+    ]
+  },
+  {
+    "name": "Shattering Pulse",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Buyback artifact destruction",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "exo"
+    ]
+  },
+  {
+    "name": "Erratic Portal",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Creature bounce artifact",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "exo"
+    ]
+  },
+  {
+    "name": "Oath of Ghouls",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Graveyard recursion",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "exo"
+    ]
+  },
+  {
+    "name": "Pandemonium",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Creature damage engine",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "exo"
+    ]
+  },
+  {
+    "name": "Exalted Dragon",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Expensive flying threat",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "exo"
+    ]
+  },
+  {
+    "name": "Hatred",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Life for damage",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "exo"
+    ]
+  },
+  {
+    "name": "Cataclysm",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Mass permanent reduction",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "exo"
+    ]
+  },
+  {
+    "name": "Coat of Arms",
+    "sets": [
+      "Exodus"
+    ],
+    "notes": "Tribal pump artifact",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "7ed",
+      "exo"
+    ]
+  },
+  {
+    "name": "Doomsday",
+    "sets": [
+      "Weatherlight"
+    ],
+    "notes": "Library manipulation",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "6ed",
+      "wth"
+    ]
+  },
+  {
+    "name": "Null Rod",
+    "sets": [
+      "Weatherlight"
+    ],
+    "notes": "Artifact shutdown",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "wth"
+    ]
+  },
+  {
+    "name": "Abeyance",
+    "sets": [
+      "Weatherlight"
+    ],
+    "notes": "Instant/sorcery prevention",
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "wth"
+    ]
+  },
+  {
+    "name": "Nevinyrral's Disk",
+    "sets": [
+      "Unlimited Edition"
+    ],
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "2ed",
+      "3ed"
+    ],
+    "premodern_sets": [
+      "4ed",
+      "5ed"
+    ]
+  },
+  {
+    "name": "Erg Raiders",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "3ed",
+      "arn"
+    ],
+    "premodern_sets": [
+      "4ed",
+      "5ed"
+    ]
+  }
+]

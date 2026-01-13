@@ -1230,6 +1230,20 @@
                         <input type="number" id="minAvailable" min="0" step="1" placeholder="e.g. 5" class="price-input" style="width: 100px;">
                         <span style="font-size: 0.85em; color: rgba(255,255,255,0.6); margin-left: 8px;">(liquidity filter)</span>
                     </div>
+                    
+                    <div class="filter-group">
+                        <label>🎯 Formats:</label>
+                        <div style="display: flex; gap: 15px; align-items: center; margin-top: 5px;">
+                            <label style="display: flex; align-items: center; gap: 6px; font-weight: normal; cursor: pointer;">
+                                <input type="checkbox" id="formatOldSchool" checked style="width: 16px; height: 16px; cursor: pointer;">
+                                <span>Old School</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 6px; font-weight: normal; cursor: pointer;">
+                                <input type="checkbox" id="formatPremodern" checked style="width: 16px; height: 16px; cursor: pointer;">
+                                <span>Premodern</span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -1280,6 +1294,10 @@
         let currentFile = '';
         let availableSets = [];
         let availableCountries = [];
+        
+        // Format filter state (default: both checked)
+        let oldSchoolFilter = true;
+        let premodernFilter = true;
 
         // Load newest file automatically
         async function loadNewestFile() {
@@ -1427,7 +1445,23 @@
             const response = await fetch(`/api/deals?${params}`);
             const data = await response.json();
             
-            allDeals = data.deals || [];
+            let deals = data.deals || [];
+            
+            // Apply format filtering client-side (OR operation)
+            if (oldSchoolFilter || premodernFilter) {
+                deals = deals.filter(deal => {
+                    const oldSchool = deal.old_school_legal === true;
+                    const premodern = deal.premodern_legal === true;
+                    
+                    // Show card if it matches at least one checked format
+                    return (oldSchoolFilter && oldSchool) || (premodernFilter && premodern);
+                });
+            } else {
+                // If neither checkbox is checked, show no cards
+                deals = [];
+            }
+            
+            allDeals = deals;
             currentPage = 1;
             
             updateStats();
@@ -2088,6 +2122,36 @@
         document.getElementById('priceMin').addEventListener('input', applyFilters);
         document.getElementById('priceMax').addEventListener('input', applyFilters);
         document.getElementById('minAvailable').addEventListener('input', applyFilters);
+        
+        // Format filter checkboxes
+        const formatOldSchoolCheckbox = document.getElementById('formatOldSchool');
+        const formatPremodernCheckbox = document.getElementById('formatPremodern');
+        
+        // Load saved format filter preferences
+        const savedOldSchoolFilter = localStorage.getItem('scanner_filter_old_school');
+        if (savedOldSchoolFilter !== null) {
+            oldSchoolFilter = savedOldSchoolFilter === 'true';
+            formatOldSchoolCheckbox.checked = oldSchoolFilter;
+        }
+        
+        const savedPremodernFilter = localStorage.getItem('scanner_filter_premodern');
+        if (savedPremodernFilter !== null) {
+            premodernFilter = savedPremodernFilter === 'true';
+            formatPremodernCheckbox.checked = premodernFilter;
+        }
+        
+        // Add change handlers for format filters
+        formatOldSchoolCheckbox.addEventListener('change', function(e) {
+            oldSchoolFilter = e.target.checked;
+            localStorage.setItem('scanner_filter_old_school', oldSchoolFilter.toString());
+            applyFilters();
+        });
+        
+        formatPremodernCheckbox.addEventListener('change', function(e) {
+            premodernFilter = e.target.checked;
+            localStorage.setItem('scanner_filter_premodern', premodernFilter.toString());
+            applyFilters();
+        });
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {

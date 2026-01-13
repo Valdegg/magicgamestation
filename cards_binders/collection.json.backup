@@ -64,6 +64,25 @@
     ]
   },
   {
+    "name": "Control Magic",
+    "sets": [
+      "Unlimited Edition"
+    ],
+    "buy_price": 19.55,
+    "sell_price": 0,
+    "condition": "Near Mint",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "2ed",
+      "3ed"
+    ],
+    "premodern_sets": [
+      "4ed"
+    ]
+  },
+  {
     "name": "Counterspell",
     "sets": [
       "Revised Edition"
@@ -86,6 +105,25 @@
       "ice",
       "mmq",
       "tmp"
+    ]
+  },
+  {
+    "name": "Control Magic",
+    "sets": [
+      "Unlimited Edition"
+    ],
+    "buy_price": 19.55,
+    "sell_price": 0,
+    "condition": "Near Mint",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "2ed",
+      "3ed"
+    ],
+    "premodern_sets": [
+      "4ed"
     ]
   },
   {
@@ -166,22 +204,6 @@
     ]
   },
   {
-    "name": "Mox Jet",
-    "sets": [
-      "International Edition"
-    ],
-    "buy_price": 549.1,
-    "sell_price": 0,
-    "condition": "Near Mint",
-    "format_validity": "old_school_only",
-    "old_school_legal": true,
-    "premodern_legal": false,
-    "old_school_sets": [
-      "2ed"
-    ],
-    "premodern_sets": []
-  },
-  {
     "name": "Hypnotic Specter",
     "sets": [
       "Unlimited Edition"
@@ -218,6 +240,22 @@
     "premodern_sets": [
       "4ed"
     ]
+  },
+  {
+    "name": "Mox Jet",
+    "sets": [
+      "International Edition"
+    ],
+    "buy_price": 549.1,
+    "sell_price": 0,
+    "condition": "Near Mint",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "2ed"
+    ],
+    "premodern_sets": []
   },
   {
     "name": "Hypnotic Specter",
@@ -548,12 +586,10 @@
     "buy_price": 49.13,
     "sell_price": 0,
     "condition": "Near Mint",
-    "format_validity": "both",
-    "old_school_legal": true,
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
     "premodern_legal": true,
-    "old_school_sets": [
-      "atq"
-    ],
+    "old_school_sets": [],
     "premodern_sets": [
       "4ed"
     ]
@@ -643,12 +679,10 @@
     "buy_price": 16.57,
     "sell_price": 0,
     "condition": "Excellent",
-    "format_validity": "both",
-    "old_school_legal": true,
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
     "premodern_legal": true,
-    "old_school_sets": [
-      "atq"
-    ],
+    "old_school_sets": [],
     "premodern_sets": [
       "4ed"
     ]
@@ -662,12 +696,10 @@
     "buy_price": 16.57,
     "sell_price": 0,
     "condition": "Near Mint",
-    "format_validity": "both",
-    "old_school_legal": true,
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
     "premodern_legal": true,
-    "old_school_sets": [
-      "atq"
-    ],
+    "old_school_sets": [],
     "premodern_sets": [
       "4ed"
     ]
@@ -681,12 +713,10 @@
     "buy_price": 16.57,
     "sell_price": 0,
     "condition": "Near Mint",
-    "format_validity": "both",
-    "old_school_legal": true,
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
     "premodern_legal": true,
-    "old_school_sets": [
-      "atq"
-    ],
+    "old_school_sets": [],
     "premodern_sets": [
       "4ed"
     ]
@@ -700,12 +730,10 @@
     "buy_price": 16.57,
     "sell_price": 0,
     "condition": "Near Mint",
-    "format_validity": "both",
-    "old_school_legal": true,
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
     "premodern_legal": true,
-    "old_school_sets": [
-      "atq"
-    ],
+    "old_school_sets": [],
     "premodern_sets": [
       "4ed"
     ]
@@ -769,25 +797,6 @@
     "premodern_sets": []
   },
   {
-    "name": "Control Magic",
-    "sets": [
-      "Unlimited Edition"
-    ],
-    "buy_price": 19.55,
-    "sell_price": 0,
-    "condition": "Near Mint",
-    "format_validity": "both",
-    "old_school_legal": true,
-    "premodern_legal": true,
-    "old_school_sets": [
-      "2ed",
-      "3ed"
-    ],
-    "premodern_sets": [
-      "4ed"
-    ]
-  },
-  {
     "name": "Sinkhole",
     "sets": [
       "Unlimited Edition"
@@ -831,12 +840,10 @@
     "buy_price": 9.86,
     "sell_price": 0,
     "condition": "Near Mint",
-    "format_validity": "both",
-    "old_school_legal": true,
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
     "premodern_legal": true,
-    "old_school_sets": [
-      "atq"
-    ],
+    "old_school_sets": [],
     "premodern_sets": [
       "5ed",
       "6ed",
@@ -912,25 +919,6 @@
     "premodern_sets": []
   },
   {
-    "name": "Control Magic",
-    "sets": [
-      "Unlimited Edition"
-    ],
-    "buy_price": 19.55,
-    "sell_price": 0,
-    "condition": "Near Mint",
-    "format_validity": "both",
-    "old_school_legal": true,
-    "premodern_legal": true,
-    "old_school_sets": [
-      "2ed",
-      "3ed"
-    ],
-    "premodern_sets": [
-      "4ed"
-    ]
-  },
-  {
     "name": "Triskelion",
     "sets": [
       "Antiquities"
@@ -938,12 +926,10 @@
     "buy_price": 137.7,
     "sell_price": 0,
     "condition": "Near Mint",
-    "format_validity": "both",
-    "old_school_legal": true,
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
     "premodern_legal": true,
-    "old_school_sets": [
-      "atq"
-    ],
+    "old_school_sets": [],
     "premodern_sets": [
       "4ed"
     ]

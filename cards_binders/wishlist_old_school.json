@@ -1,0 +1,793 @@
+[
+  {
+    "name": "Demonic Tutor",
+    "sets": [
+      "Alpha",
+      "Beta",
+      "Unlimited"
+    ],
+    "notes": "Classic staple",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "2ed",
+      "3ed"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Lightning Bolt",
+    "sets": [
+      "Beta",
+      "Unlimited"
+    ],
+    "notes": "Iconic burn spell",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "2ed",
+      "3ed"
+    ],
+    "premodern_sets": [
+      "4ed"
+    ]
+  },
+  {
+    "name": "Counterspell",
+    "sets": [
+      "Alpha",
+      "Beta",
+      "Unlimited"
+    ],
+    "notes": "Blue staple",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "2ed",
+      "3ed"
+    ],
+    "premodern_sets": [
+      "4ed",
+      "5ed",
+      "6ed",
+      "7ed",
+      "ice",
+      "mmq",
+      "tmp"
+    ]
+  },
+  {
+    "name": "Sylvan Library",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Card selection engine",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "leg"
+    ],
+    "premodern_sets": [
+      "4ed",
+      "5ed"
+    ]
+  },
+  {
+    "name": "Mana Drain",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Powerful counterspell",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "leg"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Wrath of God",
+    "sets": [
+      "Alpha",
+      "Beta",
+      "Unlimited",
+      "Revised"
+    ],
+    "notes": "Classic board wipe",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "2ed",
+      "3ed"
+    ],
+    "premodern_sets": [
+      "4ed",
+      "5ed",
+      "6ed",
+      "7ed"
+    ]
+  },
+  {
+    "name": "Animate Dead",
+    "sets": [
+      "Alpha",
+      "Beta",
+      "Unlimited"
+    ],
+    "notes": "Classic reanimation",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "2ed",
+      "3ed"
+    ],
+    "premodern_sets": [
+      "4ed",
+      "5ed"
+    ]
+  },
+  {
+    "name": "Maze of Ith",
+    "sets": [
+      "The Dark"
+    ],
+    "notes": "Creature control",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "drk"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "High Tide",
+    "sets": [
+      "Fallen Empires"
+    ],
+    "notes": "Island mana doubler",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "fem"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Winter Orb",
+    "sets": [
+      "Alpha",
+      "Beta",
+      "Unlimited"
+    ],
+    "notes": "Land lockdown",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "2ed",
+      "3ed"
+    ],
+    "premodern_sets": [
+      "4ed",
+      "5ed"
+    ]
+  },
+  {
+    "name": "Library of Alexandria",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "notes": "Legendary card draw land",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "arn"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Bazaar of Baghdad",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "notes": "Graveyard filling land",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "arn"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Diamond Valley",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "notes": "Creature sacrifice for life",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "arn"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Juzám Djinn",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "notes": "Iconic black creature",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "arn"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "The Abyss",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Creature control enchantment",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "leg"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Moat",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Flying creature protection",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "leg"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Karakas",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Legend bounce land",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "leg"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Land Tax",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Land ramp enchantment",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "leg"
+    ],
+    "premodern_sets": [
+      "4ed"
+    ]
+  },
+  {
+    "name": "Mirror Universe",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Life total swap",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "leg"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "All Hallow's Eve",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Mass reanimation",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "leg"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Eureka",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Free permanent spell",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "leg"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Erhnam Djinn",
+    "sets": [
+      "Arabian Nights",
+      "Judgment"
+    ],
+    "notes": "Efficient green beater",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "arn"
+    ],
+    "premodern_sets": [
+      "chr",
+      "jud"
+    ]
+  },
+  {
+    "name": "Drop of Honey",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "notes": "Creature removal",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "arn"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "City in a Bottle",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "notes": "Arabian Nights hoser",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "arn"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Ifh-Bíff Efreet",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "notes": "Flying trampler",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "arn"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Aladdin",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "notes": "Artifact control",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "arn"
+    ],
+    "premodern_sets": [
+      "chr"
+    ]
+  },
+  {
+    "name": "Guardian Beast",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "notes": "Artifact protection",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "arn"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Ring of Ma'rûf",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "notes": "Sideboard tutor",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "arn"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "City of Brass",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "notes": "Five-color mana",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "arn"
+    ],
+    "premodern_sets": [
+      "5ed",
+      "6ed",
+      "7ed",
+      "chr"
+    ]
+  },
+  {
+    "name": "Nicol Bolas",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Elder dragon legend",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "leg"
+    ],
+    "premodern_sets": [
+      "chr"
+    ]
+  },
+  {
+    "name": "Chromium",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Elder dragon legend",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "leg"
+    ],
+    "premodern_sets": [
+      "chr"
+    ]
+  },
+  {
+    "name": "Arcades Sabboth",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Elder dragon legend",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "leg"
+    ],
+    "premodern_sets": [
+      "chr"
+    ]
+  },
+  {
+    "name": "Palladia-Mors",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Elder dragon legend",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "leg"
+    ],
+    "premodern_sets": [
+      "chr"
+    ]
+  },
+  {
+    "name": "Vaevictis Asmadi",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Elder dragon legend",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "leg"
+    ],
+    "premodern_sets": [
+      "chr"
+    ]
+  },
+  {
+    "name": "Underworld Dreams",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Card draw punishment",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "leg"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Concordant Crossroads",
+    "sets": [
+      "Legends"
+    ],
+    "notes": "Universal haste",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "leg"
+    ],
+    "premodern_sets": [
+      "chr"
+    ]
+  },
+  {
+    "name": "Tundra",
+    "sets": [
+      "Revised",
+      "Foreign White Bordered"
+    ],
+    "notes": "Original Dual Land - White/Blue",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "2ed",
+      "3ed"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Underground Sea",
+    "sets": [
+      "Revised",
+      "Foreign White Bordered"
+    ],
+    "notes": "Original Dual Land - Blue/Black",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "2ed",
+      "3ed"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Badlands",
+    "sets": [
+      "Revised",
+      "Foreign White Bordered"
+    ],
+    "notes": "Original Dual Land - Black/Red",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "2ed",
+      "3ed"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Taiga",
+    "sets": [
+      "Revised",
+      "Foreign White Bordered"
+    ],
+    "notes": "Original Dual Land - Red/Green",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "2ed",
+      "3ed"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Savannah",
+    "sets": [
+      "Revised",
+      "Foreign White Bordered"
+    ],
+    "notes": "Original Dual Land - Green/White",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "2ed",
+      "3ed"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Scrubland",
+    "sets": [
+      "Revised",
+      "Foreign White Bordered"
+    ],
+    "notes": "Original Dual Land - White/Black",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "2ed",
+      "3ed"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Volcanic Island",
+    "sets": [
+      "Revised",
+      "Foreign White Bordered"
+    ],
+    "notes": "Original Dual Land - Blue/Red",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "2ed",
+      "3ed"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Bayou",
+    "sets": [
+      "Revised",
+      "Foreign White Bordered"
+    ],
+    "notes": "Original Dual Land - Black/Green",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "2ed",
+      "3ed"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Plateau",
+    "sets": [
+      "Revised",
+      "Foreign White Bordered"
+    ],
+    "notes": "Original Dual Land - Red/White",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "2ed",
+      "3ed"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Tropical Island",
+    "sets": [
+      "Revised",
+      "Foreign White Bordered"
+    ],
+    "notes": "Original Dual Land - Green/Blue",
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "2ed",
+      "3ed"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Black Lotus",
+    "sets": [
+      "Unlimited Edition"
+    ],
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "2ed"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Nevinyrral's Disk",
+    "sets": [
+      "Unlimited Edition"
+    ],
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "2ed",
+      "3ed"
+    ],
+    "premodern_sets": [
+      "4ed",
+      "5ed"
+    ]
+  },
+  {
+    "name": "Erg Raiders",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "3ed",
+      "arn"
+    ],
+    "premodern_sets": [
+      "4ed",
+      "5ed"
+    ]
+  },
+  {
+    "name": "Black Lotus",
+    "sets": [
+      "Alpha (Limited Edition)\n                    ×"
+    ],
+    "format_validity": "old_school_only",
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "old_school_sets": [
+      "2ed"
+    ],
+    "premodern_sets": []
+  }
+]

@@ -219,3 +219,187 @@
 - `web_templates/collection_binder.html` - Update modal initialization/reset logic to set default dates
 - May need to update autocomplete selection logic to handle Enter key properly
 
+## Format Filter Checkboxes (Old School / Premodern)
+
+**Feature:** Add filter checkboxes for Old School and Premodern formats to filter collection cards
+
+**Specification:**
+
+### Trigger
+- When: Page loads and collection is displayed
+- Location: Filter controls area (header stats section or bottom controls area)
+- Placement: Next to existing "Show Sold Only" checkbox filter
+- Default state: Both checkboxes checked (show cards that are Old School legal OR Premodern legal)
+
+### Behavior
+1. **Format Filter Checkboxes**
+   - Create two checkboxes: "Old School" and "Premodern"
+   - Both checkboxes should be checked by default
+   - Position checkboxes next to existing "Show Sold Only" filter checkbox
+   - Style should match existing filter checkbox (consistent colors, sizing, spacing)
+   - Labels should be clear: "Old School" and "Premodern"
+
+2. **Filtering Logic**
+   - Cards are filtered based on `old_school_legal` and `premodern_legal` boolean fields in collection data
+   - Filtering should work as an OR operation: show cards if EITHER checkbox is checked AND the card matches that format
+   - Examples:
+     - Both checked (default): Show all cards where `old_school_legal === true` OR `premodern_legal === true`
+     - Only "Old School" checked: Show only cards where `old_school_legal === true`
+     - Only "Premodern" checked: Show only cards where `premodern_legal === true`
+     - Neither checked: Show no cards (or show all cards - clarify requirement)
+   - Filter should work in combination with existing "Show Sold Only" filter (AND operation)
+
+3. **State Persistence**
+   - Store filter state in localStorage (similar to existing sort and filter state)
+   - Keys: `collection_filter_old_school` and `collection_filter_premodern`
+   - Restore filter state on page load
+   - Default to both checked if no saved state exists
+
+4. **Filter Application**
+   - Filter should be applied client-side in JavaScript (similar to existing `filterCards()` function)
+   - Filter should be applied after cards are loaded from API
+   - Filter should work with pagination (filtered cards should be paginated)
+   - Filter should work with sorting (sort should be applied to filtered results)
+   - When filter changes, reset to page 1 and reload cards
+
+5. **UI Updates**
+   - Update card count display to reflect filtered count
+   - Ensure filter checkboxes are visible in both header and bottom control areas (if bottom controls exist)
+   - Sync checkbox state between header and bottom locations if both exist
+   - Add visual feedback when filters are active (e.g., highlight active filters)
+
+### Implementation Notes
+- Cards in `collection.json` have `old_school_legal` and `premodern_legal` boolean fields
+- Cards also have `format_validity` field which can be: "both", "old_school_only", "premodern_only", or "neither"
+- Filter should check the boolean fields (`old_school_legal`, `premodern_legal`) rather than parsing `format_validity` string
+- Handle edge cases:
+  - Cards without format fields → treat as not matching any format (or show all - clarify requirement)
+  - Cards with `old_school_legal: false` and `premodern_legal: false` → should be hidden when filters are active
+  - Both checkboxes unchecked → decide behavior: show no cards OR show all cards regardless of format
+- Filter should integrate with existing `filterCards()` function in `collection_ui.py`
+- Filter state should sync with existing localStorage pattern used for sort and "Show Sold Only" filter
+- When filter changes, trigger same reload mechanism as existing filter (clear `originalCards`, reload page, etc.)
+
+### Data Structure
+- Collection items have the following format fields:
+  ```json
+  {
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "format_validity": "both",
+    "old_school_sets": ["2ed", "3ed"],
+    "premodern_sets": ["4ed", "5ed"]
+  }
+  ```
+
+### Files to Modify
+- `cards_binders/collection_ui.py` - Add format filter checkboxes to filter controls area
+- `cards_binders/collection_ui.py` - Update `filterCards()` function to include format filtering logic
+- `cards_binders/collection_ui.py` - Add localStorage persistence for format filter state
+- `cards_binders/collection_ui.py` - Sync format filter checkboxes between header and bottom locations
+- May need to update `web_templates/collection_binder.html` if filter UI elements need HTML structure changes
+
+## Format Filter Checkboxes for MTG Scanner (Old School / Premodern)
+
+**Feature:** Add filter checkboxes for Old School and Premodern formats to filter wishlist deals in the MTG Scanner interface
+
+**Specification:**
+
+### Trigger
+- When: Page loads and wishlist deals are displayed in MTG Scanner
+- Location: FILTERS section in `web_templates/binder.html`
+- Placement: Add as a new filter group in the filter row, positioned after "Min Available Items" filter
+- Default state: Both checkboxes checked (show cards that are Old School legal OR Premodern legal)
+
+### Behavior
+1. **Format Filter Checkboxes**
+   - Create a new filter group labeled "🎯 Formats:" (or similar icon)
+   - Add two checkboxes: "Old School" and "Premodern"
+   - Both checkboxes should be checked by default
+   - Position in the FILTERS section alongside existing filters (Sets, Countries, Price Range, Min Available Items)
+   - Style should match existing filter groups (consistent colors, spacing, layout)
+   - Checkboxes should be arranged horizontally: [☑ Old School] [☑ Premodern]
+
+2. **Filtering Logic**
+   - Cards are filtered based on `old_school_legal` and `premodern_legal` boolean fields in deal data
+   - Filtering should work as an OR operation: show cards if EITHER checkbox is checked AND the card matches that format
+   - Examples:
+     - Both checked (default): Show all cards where `old_school_legal === true` OR `premodern_legal === true`
+     - Only "Old School" checked: Show only cards where `old_school_legal === true`
+     - Only "Premodern" checked: Show only cards where `premodern_legal === true`
+     - Neither checked: Show no cards (or show all cards regardless of format - clarify requirement)
+   - Filter should work in combination with all existing filters (Sets, Countries, Price Range, Category, etc.) - all filters use AND operation
+
+3. **Data Flow**
+   - Format information (`old_school_legal`, `premodern_legal`) must be present in wishlist.json items
+   - When wishlist deals are processed, format fields should be preserved from wishlist items
+   - Format fields should be included in the normalized deal data structure
+   - Format fields should be passed through the API response to the frontend
+
+4. **State Persistence**
+   - Store filter state in localStorage (similar to existing filter state)
+   - Keys: `scanner_filter_old_school` and `scanner_filter_premodern`
+   - Restore filter state on page load
+   - Default to both checked if no saved state exists
+
+5. **Filter Application**
+   - Filter should be applied client-side in JavaScript in the `applyFilters()` function
+   - Filter should be applied after deals are loaded from API
+   - Filter should work with all existing filters (Sets, Countries, Price Range, Category, Min Discount, etc.)
+   - Filter should work with sorting
+   - When filter changes, update displayed cards and summary counts immediately
+   - Update card count display to reflect filtered count
+
+6. **UI Updates**
+   - Add format filter group to FILTERS section HTML structure
+   - Update `applyFilters()` function to include format filtering logic
+   - Update summary counts (Total Cards, Excellent, Good, Fair) to reflect filtered results
+   - Ensure filter checkboxes are visible and accessible
+   - Add visual feedback when filters are active (e.g., highlight active filters)
+
+### Implementation Notes
+- Wishlist items in `wishlist.json` should have `old_school_legal` and `premodern_legal` boolean fields (assumed to be present)
+- Format fields should be preserved when wishlist items are loaded in `simple_version/wishlist_deals.py`
+- Format fields should be included in the deal structure when deals are created
+- Format fields should be included in normalized deal data in `web_ui.py` `normalize_deal_data()` function
+- Format fields should be passed through API response (`/api/deals` endpoint)
+- Handle edge cases:
+  - Cards without format fields → treat as not matching any format (or show all - clarify requirement)
+  - Cards with `old_school_legal: false` and `premodern_legal: false` → should be hidden when filters are active
+  - Both checkboxes unchecked → decide behavior: show no cards OR show all cards regardless of format
+- Filter should integrate with existing filter system in `binder.html`
+- Filter state should sync with existing localStorage pattern used for other filters
+- When filter changes, trigger same update mechanism as existing filters (call `applyFilters()`, update counts, etc.)
+
+### Data Structure
+- Wishlist items should have format fields:
+  ```json
+  {
+    "name": "Lightning Bolt",
+    "sets": ["Beta", "Unlimited"],
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "format_validity": "both"
+  }
+  ```
+- Normalized deal data should include format fields:
+  ```json
+  {
+    "card_name": "Lightning Bolt",
+    "expansion": "Beta",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "format_validity": "both",
+    ...
+  }
+  ```
+
+### Files to Modify
+- `web_templates/binder.html` - Add format filter group HTML structure in FILTERS section
+- `web_templates/binder.html` - Update `applyFilters()` function to include format filtering logic
+- `web_templates/binder.html` - Add localStorage persistence for format filter state
+- `web_templates/binder.html` - Update filter initialization to set default format filter state
+- `cards_binders/web_ui.py` - Update `normalize_deal_data()` function to include format fields from card data
+- `cards_binders/simple_version/wishlist_deals.py` - Preserve format fields from wishlist items when creating deals
+- May need to update `cards_binders/web_ui.py` `/api/deals` endpoint if server-side filtering is preferred (currently filters are client-side)
+

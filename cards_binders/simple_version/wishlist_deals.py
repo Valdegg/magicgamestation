@@ -124,7 +124,9 @@ def load_wishlist_cards(wishlist_file: str = "wishlist.json", use_historical: bo
                 'collection_condition': item.get('condition'),  # Preserve condition from collection
                 'alternative_name': item.get('alternative_name'),
                 'language': item.get('language'),
-                'foil': item.get('foil', False)
+                'foil': item.get('foil', False),
+                'old_school_legal': item.get('old_school_legal', False),
+                'premodern_legal': item.get('premodern_legal', False)
             }
             cards.append(card)
         print(f"✅ Loaded {len(cards)} wishlist items (no historical data)")
@@ -177,7 +179,7 @@ def load_wishlist_cards(wishlist_file: str = "wishlist.json", use_historical: bo
                     matched_wishlist_items.add(item.get('name'))
                     break
         
-        # Preserve condition, alternative_name, and foil if found in wishlist/collection item
+        # Preserve condition, alternative_name, foil, and format fields if found in wishlist/collection item
         if matching_item:
             if 'condition' in matching_item:
                 card_dict['collection_condition'] = matching_item['condition']
@@ -187,6 +189,10 @@ def load_wishlist_cards(wishlist_file: str = "wishlist.json", use_historical: bo
                 card_dict['collection_language'] = matching_item['language']
             if 'foil' in matching_item:
                 card_dict['foil'] = matching_item['foil']
+            if 'old_school_legal' in matching_item:
+                card_dict['old_school_legal'] = matching_item['old_school_legal']
+            if 'premodern_legal' in matching_item:
+                card_dict['premodern_legal'] = matching_item['premodern_legal']
         
         cards.append(card_dict)
     
@@ -231,6 +237,8 @@ def load_wishlist_cards(wishlist_file: str = "wishlist.json", use_historical: bo
                     'language': language,
                     'foil': item.get('foil', False),
                     'collection_condition': item.get('condition'),
+                    'old_school_legal': item.get('old_school_legal', False),
+                    'premodern_legal': item.get('premodern_legal', False),
                     'TREND': 0,
                     'AVG30': 0,
                     'AVG7': 0,
@@ -624,6 +632,8 @@ def check_wishlist_deals(wishlist_file: str,
                     'name': card_name,
                     'expansion': expansion,
                     'card_id': None,
+                    'old_school_legal': card.get('old_school_legal', False),
+                    'premodern_legal': card.get('premodern_legal', False),
                     'historical': {
                         'trend': 0,
                         'avg30': 0,
@@ -652,6 +662,8 @@ def check_wishlist_deals(wishlist_file: str,
                     'name': card_name,
                     'expansion': expansion,
                     'card_id': card.get('idProduct'),
+                    'old_school_legal': card.get('old_school_legal', False),
+                    'premodern_legal': card.get('premodern_legal', False),
                     'historical': {
                         'trend': card.get('TREND', 0) if use_historical else 0,
                         'avg30': card.get('AVG30', 0) if use_historical else 0,
@@ -702,6 +714,8 @@ def check_wishlist_deals(wishlist_file: str,
                 'name': card_name,
                 'expansion': final_expansion,
                 'card_id': card.get('idProduct'),
+                'old_school_legal': card.get('old_school_legal', False),
+                'premodern_legal': card.get('premodern_legal', False),
                 'historical': {
                     'trend': card.get('TREND', 0) if use_historical else 0,
                     'avg30': card.get('AVG30', 0) if use_historical else 0,
