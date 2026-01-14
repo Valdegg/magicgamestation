@@ -220,25 +220,6 @@
     ]
   },
   {
-    "name": "Hypnotic Specter",
-    "sets": [
-      "Unlimited Edition"
-    ],
-    "buy_price": 59.33,
-    "sell_price": 0,
-    "condition": "Excellent",
-    "format_validity": "both",
-    "old_school_legal": true,
-    "premodern_legal": true,
-    "old_school_sets": [
-      "2ed",
-      "3ed"
-    ],
-    "premodern_sets": [
-      "4ed"
-    ]
-  },
-  {
     "name": "Swords to Plowshares",
     "sets": [
       "Unlimited Edition"
@@ -1120,7 +1101,9 @@
     "premodern_sets": [
       "4ed",
       "7ed"
-    ]
+    ],
+    "purchase_date": "2026-01-14",
+    "sale_date": "2026-01-14"
   },
   {
     "name": "Howling Mine",
@@ -1756,7 +1739,7 @@
       "Unlimited Edition"
     ],
     "buy_price": 73,
-    "condition": "Moderately Played",
+    "condition": "Good",
     "source": "Ebay",
     "foil": false,
     "format_validity": "old_school_only",
@@ -1766,7 +1749,9 @@
       "2ed",
       "3ed"
     ],
-    "premodern_sets": []
+    "premodern_sets": [],
+    "purchase_date": "2026-01-13",
+    "sale_date": "2026-01-13"
   },
   {
     "name": "Plateau",

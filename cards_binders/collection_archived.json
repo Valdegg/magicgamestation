@@ -77,5 +77,25 @@
     "sell_price": 0,
     "condition": "Excellent",
     "archived_at": "2026-01-06T19:32:53.005589"
+  },
+  {
+    "name": "Hypnotic Specter",
+    "sets": [
+      "Unlimited Edition"
+    ],
+    "buy_price": 59.33,
+    "sell_price": 0,
+    "condition": "Excellent",
+    "format_validity": "both",
+    "old_school_legal": true,
+    "premodern_legal": true,
+    "old_school_sets": [
+      "2ed",
+      "3ed"
+    ],
+    "premodern_sets": [
+      "4ed"
+    ],
+    "archived_at": "2026-01-13T22:22:14.824183"
   }
 ]
