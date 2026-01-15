@@ -1374,14 +1374,7 @@
                 cardGrids.forEach((grid, gridIdx) => {
                     const gridRect = grid.getBoundingClientRect();
                     const gridComputed = window.getComputedStyle(grid);
-                    console.log(`Card Grid ${gridIdx}:`, {
-                        height: gridComputed.height,
-                        minHeight: gridComputed.minHeight,
-                        maxHeight: gridComputed.maxHeight,
-                        rect: { top: gridRect.top, bottom: gridRect.bottom, height: gridRect.height },
-                        overflow: gridComputed.overflow,
-                        pointerEvents: gridComputed.pointerEvents
-                    });
+                    
                 });
                 
                 // Check binder-page dimensions
@@ -1389,13 +1382,7 @@
                 binderPages.forEach((page, pageIdx) => {
                     const pageRect = page.getBoundingClientRect();
                     const pageComputed = window.getComputedStyle(page);
-                    console.log(`Binder Page ${pageIdx}:`, {
-                        height: pageComputed.height,
-                        minHeight: pageComputed.minHeight,
-                        rect: { top: pageRect.top, bottom: pageRect.bottom, height: pageRect.height },
-                        overflow: pageComputed.overflow,
-                        pointerEvents: pageComputed.pointerEvents
-                    });
+               
                 });
                 
                 const allCards = document.querySelectorAll('.card-pocket:not(.empty)');

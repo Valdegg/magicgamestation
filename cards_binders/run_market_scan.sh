@@ -2,19 +2,53 @@
 
 # Market Scanner Daily Update Script
 # Runs a market scan and saves results without starting the web server
-# Usage: ./run_market_scan.sh [wishlist|collection] [delay]
+# Usage: ./run_market_scan.sh [wishlist|collection] [delay] [--source json|db|all]
 #   Examples:
-#     ./run_market_scan.sh                    # Scan wishlist.json with 10s delay
-#     ./run_market_scan.sh collection         # Scan collection.json with 10s delay
-#     ./run_market_scan.sh wishlist 5.0       # Scan wishlist.json with 5s delay
+#     ./run_market_scan.sh                         # Scan wishlist.json with 10s delay (source=json)
+#     ./run_market_scan.sh collection              # Scan collection.json with 10s delay
+#     ./run_market_scan.sh wishlist 5.0            # Scan wishlist.json with 5s delay
+#     ./run_market_scan.sh --source db             # Scan all users' wishlists from database
+#     ./run_market_scan.sh --source all            # Scan JSON + all database wishlists combined
+#     ./run_market_scan.sh wishlist 10 --source db # Scan database with custom settings
 
 # Get script directory
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$SCRIPT_DIR"
 
-# Configuration
-SOURCE_TYPE=${1:-"wishlist"}  # Default: wishlist (or can be "collection")
-DELAY=${2:-10.0}  # Default delay: 10 seconds between cards
+# Parse arguments
+SOURCE_TYPE="wishlist"
+DELAY=10.0
+DATA_SOURCE="json"  # Default: json (or can be "db" or "all")
+
+# Parse positional and named arguments
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --source)
+            DATA_SOURCE="$2"
+            shift 2
+            ;;
+        --source=*)
+            DATA_SOURCE="${1#*=}"
+            shift
+            ;;
+        *)
+            # Positional arguments
+            if [[ -z "$POSITIONAL_SET" ]]; then
+                SOURCE_TYPE="$1"
+                POSITIONAL_SET=1
+            else
+                DELAY="$1"
+            fi
+            shift
+            ;;
+    esac
+done
+
+# Validate DATA_SOURCE
+if [[ "$DATA_SOURCE" != "json" && "$DATA_SOURCE" != "db" && "$DATA_SOURCE" != "all" ]]; then
+    echo "Error: Invalid --source value '$DATA_SOURCE'. Must be 'json', 'db', or 'all'."
+    exit 1
+fi
 
 # Determine the file to scan based on source type
 if [[ "$SOURCE_TYPE" == "collection" ]]; then
@@ -52,16 +86,27 @@ else
     source venv/bin/activate
 fi
 
-# Check if source file exists
-if [ ! -f "$WISHLIST_FILE" ]; then
-    error "Source file not found: $WISHLIST_FILE"
-    error "Please create the file or specify a different source type (wishlist/collection)."
-    exit 1
+# Check if source file exists (only required for source=json or source=all)
+if [[ "$DATA_SOURCE" == "json" || "$DATA_SOURCE" == "all" ]]; then
+    if [ ! -f "$WISHLIST_FILE" ]; then
+        error "Source file not found: $WISHLIST_FILE"
+        error "Please create the file or specify a different source type (wishlist/collection)."
+        if [[ "$DATA_SOURCE" == "json" ]]; then
+            error "Or use --source db to scan all users' wishlists from database."
+        fi
+        exit 1
+    fi
 fi
 
 log "Starting market scan..."
 log "Source type: $SOURCE_TYPE"
-log "Source file: $WISHLIST_FILE"
+log "Data source: $DATA_SOURCE"
+if [[ "$DATA_SOURCE" == "json" || "$DATA_SOURCE" == "all" ]]; then
+    log "Source file: $WISHLIST_FILE"
+fi
+if [[ "$DATA_SOURCE" == "db" || "$DATA_SOURCE" == "all" ]]; then
+    log "Database: All users' wishlists"
+fi
 log "Delay between cards: ${DELAY}s"
 echo ""
 
@@ -82,14 +127,26 @@ os.chdir(SCRIPT_DIR)
 
 from wishlist_deals import check_wishlist_deals, save_results
 
+# Configuration from shell script
+wishlist_file = '$WISHLIST_FILE'
+delay = $DELAY
+source = '$DATA_SOURCE'
+
+print(f'📋 Data source: {source}')
+if source in ('json', 'all'):
+    print(f'📄 JSON file: {wishlist_file}')
+if source in ('db', 'all'):
+    print(f'🗄️  Database: all users')
+
 deals = check_wishlist_deals(
-    wishlist_file='$WISHLIST_FILE',
-    delay_between_cards=$DELAY,
-    use_historical=True
+    wishlist_file=wishlist_file,
+    delay_between_cards=delay,
+    use_historical=True,
+    source=source
 )
 
 if deals:
-    output_file = save_results(deals, None, '$WISHLIST_FILE')  # Auto-generate filename based on source file
+    output_file = save_results(deals, None, wishlist_file, source=source)  # Save based on source
     print(f'\n✅ Scan complete! Results saved to: {output_file}')
     print(f'📊 Found {len(deals)} deals')
     

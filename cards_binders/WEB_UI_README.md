@@ -124,7 +124,7 @@ pip install -r requirements.txt
 mtgcards/
 ├── web_ui.py              # Flask backend server
 ├── web_templates/
-│   └── binder.html        # Frontend HTML/CSS/JS
+│   └── marketscan_binder.html  # Frontend HTML/CSS/JS
 ├── web_static/            # Static assets (if needed)
 └── results/               # JSON result files
     ├── wishlist_*.json

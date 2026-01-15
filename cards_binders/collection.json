@@ -1930,5 +1930,73 @@
     "premodern_sets": [
       "mmq"
     ]
+  },
+  {
+    "name": "Wonder",
+    "sets": [
+      "Judgment"
+    ],
+    "buy_price": 3,
+    "purchase_date": "2026-01-14",
+    "condition": "Near Mint",
+    "foil": false,
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "Judgment"
+    ]
+  },
+  {
+    "name": "Wonder",
+    "sets": [
+      "Judgment"
+    ],
+    "buy_price": 3,
+    "purchase_date": "2026-01-14",
+    "condition": "Near Mint",
+    "foil": false,
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "Judgment"
+    ]
+  },
+  {
+    "name": "Shock",
+    "sets": [
+      "Seventh Edition"
+    ],
+    "buy_price": 1,
+    "purchase_date": "2026-01-14",
+    "condition": "Near Mint",
+    "foil": false,
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "format_validity": "premodern_only",
+    "old_school_sets": [],
+    "premodern_sets": [
+      "Seventh Edition"
+    ]
+  },
+  {
+    "name": "Mogg Fanatic",
+    "sets": [
+      "Tempest"
+    ],
+    "buy_price": 1,
+    "purchase_date": "2026-01-14",
+    "condition": "Near Mint",
+    "foil": false,
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "format_validity": "premodern_only",
+    "old_school_sets": [],
+    "premodern_sets": [
+      "Tempest"
+    ]
   }
 ]

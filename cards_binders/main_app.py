@@ -379,6 +379,7 @@ if _current_dir not in sys.path:
 import web_ui
 import wishlist_ui
 import collection_ui
+import auth
 
 # Get route handlers from each module
 market_index = web_ui.index
@@ -397,6 +398,11 @@ archive_wishlist_item = wishlist_ui.archive_wishlist_item
 move_wishlist_to_collection = wishlist_ui.move_wishlist_to_collection
 wishlist_autocomplete = wishlist_ui.autocomplete_card_name
 wishlist_fetch_image = wishlist_ui.fetch_card_image
+# Wishlist auth endpoints
+wishlist_register = wishlist_ui.register
+wishlist_login = wishlist_ui.login
+wishlist_logout = wishlist_ui.logout
+wishlist_get_current_user_info = wishlist_ui.get_current_user_info
 
 collection_index = collection_ui.collection_page
 get_collection = collection_ui.get_collection
@@ -724,6 +730,7 @@ async def market_api_results(source_type: str = None):
 
 @app.get("/market/api/deals")
 async def market_api_deals(
+    request: Request,
     file: str = None,
     source_type: str = None,
     category: str = None,
@@ -736,6 +743,9 @@ async def market_api_deals(
     price_max: float = None,
     min_available: int = None
 ):
+    # Get current user for per-user wishlist filtering
+    user_id = auth.get_current_user(request)
+    
     return await api_deals(
         file=file,
         source_type=source_type,
@@ -747,7 +757,8 @@ async def market_api_deals(
         countries=countries,
         price_min=price_min,
         price_max=price_max,
-        min_available=min_available
+        min_available=min_available,
+        user_id=user_id
     )
 
 @app.get("/market/api/filter-options")
@@ -835,6 +846,23 @@ async def market_api_fetch_card_image(name: str, set: str = None):
         response.headers["Cache-Control"] = "no-cache"
         return response
 
+# Market auth endpoints (shared with wishlist/collection auth system)
+@app.post("/market/api/auth/register")
+async def market_api_register(request: Request):
+    return await wishlist_register(request)
+
+@app.post("/market/api/auth/login")
+async def market_api_login(request: Request):
+    return await wishlist_login(request)
+
+@app.post("/market/api/auth/logout")
+async def market_api_logout():
+    return await wishlist_logout()
+
+@app.get("/market/api/auth/me")
+async def market_api_auth_me(request: Request):
+    return await wishlist_get_current_user_info(request)
+
 # Wishlist routes
 @app.get("/wishlist", response_class=HTMLResponse)
 async def wishlist_route(request: Request):
@@ -866,16 +894,16 @@ async def wishlist_route(request: Request):
         return HTMLResponse(content=error_msg, status_code=500)
 
 @app.get("/wishlist/api/wishlist")
-async def wishlist_api_wishlist():
-    return await get_wishlist()
+async def wishlist_api_wishlist(request: Request):
+    return await get_wishlist(request)
 
 @app.get("/wishlist/api/sets")
 async def wishlist_api_sets():
     return await get_sets()
 
 @app.get("/wishlist/api/wishlist-cards")
-async def wishlist_api_wishlist_cards():
-    return await get_wishlist_cards()
+async def wishlist_api_wishlist_cards(request: Request):
+    return await get_wishlist_cards(request)
 
 @app.post("/wishlist/api/wishlist")
 async def wishlist_api_add(request: Request):
@@ -886,8 +914,8 @@ async def wishlist_api_update(index: int, request: Request):
     return await update_wishlist_item(index, request)
 
 @app.delete("/wishlist/api/wishlist/{index}")
-async def wishlist_api_delete(index: int):
-    return await archive_wishlist_item(index)
+async def wishlist_api_delete(index: int, request: Request):
+    return await archive_wishlist_item(index, request)
 
 @app.post("/wishlist/api/wishlist/{index}/move-to-collection")
 async def wishlist_api_move_to_collection(index: int, request: Request):
@@ -900,6 +928,23 @@ async def wishlist_api_autocomplete(q: str = ""):
 @app.get("/wishlist/api/fetch-card-image")
 async def wishlist_api_fetch_image(name: str, set: str = None):
     return await wishlist_fetch_image(name=name, set=set)
+
+# Wishlist auth endpoints
+@app.post("/wishlist/api/auth/register")
+async def wishlist_api_register(request: Request):
+    return await wishlist_register(request)
+
+@app.post("/wishlist/api/auth/login")
+async def wishlist_api_login(request: Request):
+    return await wishlist_login(request)
+
+@app.post("/wishlist/api/auth/logout")
+async def wishlist_api_logout():
+    return await wishlist_logout()
+
+@app.get("/wishlist/api/auth/me")
+async def wishlist_api_auth_me(request: Request):
+    return await wishlist_get_current_user_info(request)
 
 # Collection routes
 @app.get("/collection", response_class=HTMLResponse)
@@ -931,17 +976,34 @@ async def collection_route(request: Request):
         traceback.print_exc()
         return HTMLResponse(content=error_msg, status_code=500)
 
+# Auth endpoints
+@app.post("/collection/api/auth/register")
+async def collection_api_register(request: Request):
+    return await collection_ui.register(request)
+
+@app.post("/collection/api/auth/login")
+async def collection_api_login(request: Request):
+    return await collection_ui.login(request)
+
+@app.post("/collection/api/auth/logout")
+async def collection_api_logout():
+    return await collection_ui.logout()
+
+@app.get("/collection/api/auth/me")
+async def collection_api_me(request: Request):
+    return await collection_ui.get_current_user_info(request)
+
 @app.get("/collection/api/collection")
-async def collection_api_collection():
-    return await get_collection()
+async def collection_api_collection(request: Request):
+    return await get_collection(request)
 
 @app.get("/collection/api/sets")
 async def collection_api_sets():
     return await collection_get_sets()
 
 @app.get("/collection/api/collection-cards")
-async def collection_api_collection_cards():
-    return await get_collection_cards()
+async def collection_api_collection_cards(request: Request):
+    return await get_collection_cards(request)
 
 @app.post("/collection/api/collection")
 async def collection_api_add(request: Request, background_tasks: BackgroundTasks):
@@ -952,8 +1014,8 @@ async def collection_api_update(index: int, request: Request):
     return await update_collection_item(index, request)
 
 @app.delete("/collection/api/collection/{index}")
-async def collection_api_delete(index: int):
-    return await archive_collection_item(index)
+async def collection_api_delete(index: int, request: Request):
+    return await archive_collection_item(index, request)
 
 @app.post("/collection/api/collection/reorder")
 async def collection_api_reorder(request: Request):
@@ -968,8 +1030,8 @@ async def collection_api_fetch_image(name: str, set: str = None):
     return await collection_fetch_image(name=name, set=set)
 
 @app.get("/collection/api/archived-stats")
-async def collection_api_archived_stats():
-    return await get_archived_stats()
+async def collection_api_archived_stats(request: Request):
+    return await get_archived_stats(request)
 
 # Games routes
 @app.get("/games")
@@ -980,11 +1042,29 @@ async def games_route(request: Request):
     return RedirectResponse(url=game_frontend_url)
 
 
-def run_wishlist_analysis(wishlist_file: str = "wishlist.json", delay: float = 10.0):
-    """Run wishlist deals analysis."""
+def run_wishlist_analysis(wishlist_file: str = "wishlist.json", delay: float = 10.0, source: str = "json"):
+    """
+    Run wishlist deals analysis.
+    
+    Args:
+        wishlist_file: Path to wishlist JSON file (used when source="json")
+        delay: Delay between cards when scraping
+        source: Where to load wishlists from:
+            - "json": Load from wishlist_file only (original behavior)
+            - "db": Load union of all users' wishlists from database
+            - "all": Load both JSON + all database wishlists combined
+    """
     print("\n" + "=" * 60)
     print("🔍 Running Wishlist Deals Analysis")
     print("=" * 60)
+    print(f"📋 Source: {source}")
+    if source == "json":
+        print(f"📄 Wishlist file: {wishlist_file}")
+    elif source == "db":
+        print(f"🗄️  Loading from database (all users)")
+    else:  # "all"
+        print(f"📄 JSON file: {wishlist_file}")
+        print(f"🗄️  + Database (all users)")
     
     # Add simple_version to path
     sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'simple_version'))
@@ -995,11 +1075,12 @@ def run_wishlist_analysis(wishlist_file: str = "wishlist.json", delay: float = 1
         deals = check_wishlist_deals(
             wishlist_file=wishlist_file,
             delay_between_cards=delay,
-            use_historical=True
+            use_historical=True,
+            source=source
         )
         
         if deals:
-            output_file = save_results(deals, None)  # Auto-generate filename
+            output_file = save_results(deals, None, wishlist_file, source=source)  # Auto-generate filename
             print(f"\n✅ Analysis complete! Results saved to: {output_file}")
             return output_file
         else:
@@ -1019,10 +1100,12 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python main_app.py                    # Start server without scanning (default)
-  python main_app.py --scan             # Run market scan, then start server
-  python main_app.py --scan --delay 15  # Run scan with custom delay
-  python main_app.py --port 6000        # Start server on custom port
+  python main_app.py                         # Start server without scanning (default)
+  python main_app.py --scan                  # Run market scan, then start server
+  python main_app.py --scan --delay 15       # Run scan with custom delay
+  python main_app.py --scan --source db      # Scan all users' wishlists from database
+  python main_app.py --scan --source all     # Scan JSON + all database wishlists
+  python main_app.py --port 6000             # Start server on custom port
         """
     )
     parser.add_argument(
@@ -1056,6 +1139,13 @@ Examples:
         default=10.0,
         help='Delay between cards when scanning (default: 10.0 seconds)'
     )
+    parser.add_argument(
+        '--source',
+        type=str,
+        choices=['json', 'db', 'all'],
+        default='json',
+        help='Wishlist source: json=wishlist.json only, db=all users from database, all=both (default: json)'
+    )
     
     args = parser.parse_args()
     
@@ -1065,12 +1155,16 @@ Examples:
         print("🃏 MTG Cards Unified Manager - Running Market Scan")
         print("=" * 60)
         
-        if not os.path.exists(args.wishlist_file):
+        # For source=json, require the wishlist file to exist
+        # For source=db or all, we can scan even without a JSON file
+        if args.source == "json" and not os.path.exists(args.wishlist_file):
             print(f"\n⚠️  Warning: Wishlist file '{args.wishlist_file}' not found.")
             print("   Skipping market scan. Server will start with existing results.")
         else:
-            print(f"📋 Scanning market for wishlist: {args.wishlist_file}")
-            run_wishlist_analysis(args.wishlist_file, args.delay)
+            print(f"📋 Scanning market with source: {args.source}")
+            if args.source in ("json", "all"):
+                print(f"   JSON file: {args.wishlist_file}")
+            run_wishlist_analysis(args.wishlist_file, args.delay, args.source)
             print("\n" + "=" * 60)
     
     import uvicorn

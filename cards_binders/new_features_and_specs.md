@@ -307,7 +307,7 @@
 
 ### Trigger
 - When: Page loads and wishlist deals are displayed in MTG Scanner
-- Location: FILTERS section in `web_templates/binder.html`
+- Location: FILTERS section in `web_templates/marketscan_binder.html`
 - Placement: Add as a new filter group in the filter row, positioned after "Min Available Items" filter
 - Default state: Both checkboxes checked (show cards that are Old School legal OR Premodern legal)
 
@@ -367,7 +367,7 @@
   - Cards without format fields → treat as not matching any format (or show all - clarify requirement)
   - Cards with `old_school_legal: false` and `premodern_legal: false` → should be hidden when filters are active
   - Both checkboxes unchecked → decide behavior: show no cards OR show all cards regardless of format
-- Filter should integrate with existing filter system in `binder.html`
+- Filter should integrate with existing filter system in `marketscan_binder.html`
 - Filter state should sync with existing localStorage pattern used for other filters
 - When filter changes, trigger same update mechanism as existing filters (call `applyFilters()`, update counts, etc.)
 
@@ -395,10 +395,10 @@
   ```
 
 ### Files to Modify
-- `web_templates/binder.html` - Add format filter group HTML structure in FILTERS section
-- `web_templates/binder.html` - Update `applyFilters()` function to include format filtering logic
-- `web_templates/binder.html` - Add localStorage persistence for format filter state
-- `web_templates/binder.html` - Update filter initialization to set default format filter state
+- `web_templates/marketscan_binder.html` - Add format filter group HTML structure in FILTERS section
+- `web_templates/marketscan_binder.html` - Update `applyFilters()` function to include format filtering logic
+- `web_templates/marketscan_binder.html` - Add localStorage persistence for format filter state
+- `web_templates/marketscan_binder.html` - Update filter initialization to set default format filter state
 - `cards_binders/web_ui.py` - Update `normalize_deal_data()` function to include format fields from card data
 - `cards_binders/simple_version/wishlist_deals.py` - Preserve format fields from wishlist items when creating deals
 - May need to update `cards_binders/web_ui.py` `/api/deals` endpoint if server-side filtering is preferred (currently filters are client-side)

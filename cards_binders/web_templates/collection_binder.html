@@ -1411,8 +1411,25 @@
                 <div class="swipe-hint">← Swipe or click edges to flip pages →</div>
             `;
             
-            document.getElementById('binderWrapper').innerHTML = binderHTML;
+            const oldWrapper = document.getElementById('binderWrapper');
+            const parent = oldWrapper.parentNode;
             
+            // Remove old element completely first
+            oldWrapper.remove();
+            
+            // Create new wrapper
+            const newWrapper = document.createElement('div');
+            newWrapper.id = 'binderWrapper';
+            newWrapper.className = 'binder-wrapper';
+            newWrapper.innerHTML = binderHTML;
+            
+            // Insert at the correct position (after header, before page-nav)
+            const pageNav = document.getElementById('pageNav');
+            parent.insertBefore(newWrapper, pageNav);
+            
+            // Force complete reflow by reading computed style
+            void newWrapper.offsetHeight;
+            void document.body.offsetHeight;
             // Debug: Check bottom row cards after render
             setTimeout(() => {
                 console.log('=== DEBUG: Bottom row cards analysis ===');
@@ -1422,14 +1439,7 @@
                 cardGrids.forEach((grid, gridIdx) => {
                     const gridRect = grid.getBoundingClientRect();
                     const gridComputed = window.getComputedStyle(grid);
-                    console.log(`Card Grid ${gridIdx}:`, {
-                        height: gridComputed.height,
-                        minHeight: gridComputed.minHeight,
-                        maxHeight: gridComputed.maxHeight,
-                        rect: { top: gridRect.top, bottom: gridRect.bottom, height: gridRect.height },
-                        overflow: gridComputed.overflow,
-                        pointerEvents: gridComputed.pointerEvents
-                    });
+                    
                 });
                 
                 // Check binder-page dimensions
@@ -1437,13 +1447,7 @@
                 binderPages.forEach((page, pageIdx) => {
                     const pageRect = page.getBoundingClientRect();
                     const pageComputed = window.getComputedStyle(page);
-                    console.log(`Binder Page ${pageIdx}:`, {
-                        height: pageComputed.height,
-                        minHeight: pageComputed.minHeight,
-                        rect: { top: pageRect.top, bottom: pageRect.bottom, height: pageRect.height },
-                        overflow: pageComputed.overflow,
-                        pointerEvents: pageComputed.pointerEvents
-                    });
+                    
                 });
                 
                 const allCards = document.querySelectorAll('.card-pocket:not(.empty)');

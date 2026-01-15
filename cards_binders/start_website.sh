@@ -52,6 +52,14 @@ cleanup() {
     lsof -ti:9000 | xargs kill -9 2>/dev/null
     lsof -ti:5173 | xargs kill -9 2>/dev/null
     
+    # Kill processes by name/pattern
+    pkill -f "main_app.py" 2>/dev/null
+    pkill -f "python.*main_app" 2>/dev/null
+    pkill -f "python.*cards_binders.*main_app" 2>/dev/null
+    
+    # Kill any Python processes running from this directory
+    ps aux | grep -E "python.*$SCRIPT_DIR.*main_app" | grep -v grep | awk '{print $2}' | xargs kill -9 2>/dev/null
+    
     success "Cleanup complete."
     exit
 }
@@ -104,11 +112,25 @@ else
 fi
 
 # --- Cleanup existing processes ---
-log "Cleaning up any existing processes on ports 5010, 9000, 5173..."
+log "Cleaning up any existing processes..."
+
+# Kill processes by port
 lsof -ti:5010 | xargs kill -9 2>/dev/null
 lsof -ti:9000 | xargs kill -9 2>/dev/null
 lsof -ti:5173 | xargs kill -9 2>/dev/null
-sleep 1
+
+# Kill processes by name/pattern
+pkill -f "main_app.py" 2>/dev/null
+pkill -f "python.*main_app" 2>/dev/null
+pkill -f "python.*cards_binders.*main_app" 2>/dev/null
+
+# Kill any Python processes running from this directory
+ps aux | grep -E "python.*$SCRIPT_DIR.*main_app" | grep -v grep | awk '{print $2}' | xargs kill -9 2>/dev/null
+
+# Wait a moment for processes to fully terminate
+sleep 2
+
+success "Cleanup complete."
 
 # --- Start Game Backend ---
 if [ ! -d "$PROJECT_ROOT/backend" ]; then

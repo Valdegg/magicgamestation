@@ -13,6 +13,7 @@ import argparse
 import re
 import requests
 import glob
+import sqlite3
 from datetime import datetime
 from fastapi import FastAPI, Request, HTTPException, BackgroundTasks
 from fastapi.responses import HTMLResponse, JSONResponse, FileResponse
@@ -28,6 +29,95 @@ try:
 except ImportError:
     autocomplete_cards = None
     print("Warning: card_autocomplete module not available", flush=True)
+
+# Import database and authentication modules
+import database
+import auth
+
+# Format legality sets (from determine_format_validity.py)
+OLD_SCHOOL_SET_NAMES = [
+    "Alpha", "Beta", "Unlimited Edition", "Revised Edition", "Arabian Nights",
+    "Legends", "The Dark", "Fallen Empires", "Antiquities"
+]
+
+PREMODERN_SET_NAMES = [
+    "Fourth Edition", "Ice Age", "Chronicles", "Homelands", "Alliances",
+    "Mirage", "Visions", "Fifth Edition", "Weatherlight", "Tempest",
+    "Stronghold", "Exodus", "Urza's Saga", "Urza's Legacy", "Classic Sixth Edition",
+    "Urza's Destiny", "Mercadian Masques", "Nemesis", "Prophecy", "Invasion",
+    "Planeshift", "Seventh Edition", "Apocalypse", "Odyssey", "Torment",
+    "Judgment", "Onslaught", "Legions", "Scourge"
+]
+
+SET_NAME_ALIASES = {
+    "Unlimited": "Unlimited Edition",
+    "Revised": "Revised Edition",
+    "Sixth Edition": "Classic Sixth Edition",
+    "Classic Sixth Edition": "Classic Sixth Edition",
+}
+
+def normalize_set_name_for_format(set_name: str) -> str:
+    """Normalize set name for format legality comparison."""
+    if not set_name:
+        return ""
+    # Remove parenthetical suffixes like "(Foreign Black Bordered)"
+    normalized = re.sub(r'\s*\([^)]*\)', '', set_name).strip()
+    # Use alias if available
+    return SET_NAME_ALIASES.get(normalized, normalized)
+
+def determine_format_legality_from_sets(sets: List[str]) -> Dict[str, Any]:
+    """
+    Determine format legality based on set names.
+    Returns dict with old_school_legal, premodern_legal, format_validity, etc.
+    """
+    if not sets:
+        return {
+            'old_school_legal': False,
+            'premodern_legal': False,
+            'format_validity': 'neither',
+            'old_school_sets': [],
+            'premodern_sets': []
+        }
+    
+    old_school_sets = []
+    premodern_sets = []
+    
+    for set_name in sets:
+        normalized = normalize_set_name_for_format(set_name)
+        
+        # Check against Old School sets
+        if normalized in OLD_SCHOOL_SET_NAMES:
+            old_school_sets.append(set_name)
+        # Also check original name
+        elif set_name in OLD_SCHOOL_SET_NAMES:
+            old_school_sets.append(set_name)
+        
+        # Check against Premodern sets
+        if normalized in PREMODERN_SET_NAMES:
+            premodern_sets.append(set_name)
+        # Also check original name
+        elif set_name in PREMODERN_SET_NAMES:
+            premodern_sets.append(set_name)
+    
+    old_school_legal = len(old_school_sets) > 0
+    premodern_legal = len(premodern_sets) > 0
+    
+    if old_school_legal and premodern_legal:
+        format_validity = 'both'
+    elif old_school_legal:
+        format_validity = 'old_school_only'
+    elif premodern_legal:
+        format_validity = 'premodern_only'
+    else:
+        format_validity = 'neither'
+    
+    return {
+        'old_school_legal': old_school_legal,
+        'premodern_legal': premodern_legal,
+        'format_validity': format_validity,
+        'old_school_sets': old_school_sets,
+        'premodern_sets': premodern_sets
+    }
 
 app = FastAPI(title="MTG Collection Manager", description="Collection Management Interface")
 
@@ -58,29 +148,45 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Initialize database on startup
+@app.on_event("startup")
+async def startup_event():
+    database.init_db()
+    print("✅ Database initialized", flush=True)
 
-def load_collection(filepath: str = COLLECTION_FILE) -> List[Dict[str, Any]]:
-    """Load collection from JSON file."""
-    try:
-        if not os.path.exists(filepath):
+
+def load_collection(filepath: str = COLLECTION_FILE, user_id: Optional[int] = None) -> List[Dict[str, Any]]:
+    """Load collection from database (if user_id provided) or JSON file (if None)."""
+    if user_id is not None:
+        # Load from database
+        return database.get_user_collection(user_id)
+    else:
+        # Load from JSON file (backward compatibility for non-logged-in users)
+        try:
+            if not os.path.exists(filepath):
+                return []
+            with open(filepath, 'r', encoding='utf-8') as f:
+                collection = json.load(f)
+            return collection
+        except Exception as e:
+            print(f"Error loading collection: {e}")
             return []
-        with open(filepath, 'r', encoding='utf-8') as f:
-            collection = json.load(f)
-        return collection
-    except Exception as e:
-        print(f"Error loading collection: {e}")
-        return []
 
 
-def save_collection(collection: List[Dict[str, Any]], filepath: str = COLLECTION_FILE) -> bool:
-    """Save collection to JSON file."""
-    try:
-        with open(filepath, 'w', encoding='utf-8') as f:
-            json.dump(collection, f, indent=2, ensure_ascii=False)
-        return True
-    except Exception as e:
-        print(f"Error saving collection: {e}")
-        return False
+def save_collection(collection: List[Dict[str, Any]], filepath: str = COLLECTION_FILE, user_id: Optional[int] = None) -> bool:
+    """Save collection to database (if user_id provided) or JSON file (if None)."""
+    if user_id is not None:
+        # Save to database
+        return database.save_user_collection(user_id, collection)
+    else:
+        # Save to JSON file (backward compatibility for non-logged-in users)
+        try:
+            with open(filepath, 'w', encoding='utf-8') as f:
+                json.dump(collection, f, indent=2, ensure_ascii=False)
+            return True
+        except Exception as e:
+            print(f"Error saving collection: {e}")
+            return False
 
 
 def load_archived_collection(filepath: str = "collection_archived.json") -> List[Dict[str, Any]]:
@@ -1478,6 +1584,221 @@ async def collection_page():
                 else:
                     html_content += language_script
             
+            # Inject JavaScript for Enter key navigation in set autocomplete
+            if 'set-autocomplete-enter-navigation' not in html_content:
+                set_navigation_script = """
+    <script id="set-autocomplete-enter-navigation">
+    // Enter key navigation for set autocomplete - move to buy price field after selection
+    (function() {
+        'use strict';
+        
+        function setupSetEnterNavigation() {
+            // Find set input field - look for various possible selectors
+            const setInputSelectors = [
+                'input[placeholder*="search sets" i]',
+                'input[placeholder*="Type to search sets" i]',
+                'input[id*="set"]',
+                'input[name*="set"]',
+                'input[type="text"]'
+            ];
+            
+            let setInput = null;
+            for (const selector of setInputSelectors) {
+                const inputs = document.querySelectorAll(selector);
+                for (const input of inputs) {
+                    // Skip if it's the card name input
+                    if (input.placeholder && input.placeholder.toLowerCase().includes('card name')) {
+                        continue;
+                    }
+                    // Check if it's related to sets (has "set" in placeholder, id, name, or nearby label)
+                    const label = input.closest('form, div, fieldset')?.querySelector('label');
+                    if (label && (label.textContent.toLowerCase().includes('set') || 
+                        input.placeholder.toLowerCase().includes('set'))) {
+                        setInput = input;
+                        break;
+                    }
+                }
+                if (setInput) break;
+            }
+            
+            if (!setInput) {
+                // Try to find by looking for input near a "Sets" label
+                const labels = document.querySelectorAll('label');
+                for (const label of labels) {
+                    if (label.textContent.toLowerCase().includes('sets')) {
+                        const input = label.nextElementSibling || 
+                                     label.parentElement?.querySelector('input[type="text"]');
+                        if (input && input.type === 'text') {
+                            setInput = input;
+                            break;
+                        }
+                    }
+                }
+            }
+            
+            if (!setInput) return; // Can't find set input, skip
+            
+            // Check if we've already added a listener to this input
+            if (setInput.dataset.enterNavigationAdded === 'true') return;
+            setInput.dataset.enterNavigationAdded = 'true';
+            
+            // Find buy price field - look for various possible selectors
+            function findBuyPriceField() {
+                const buyPriceSelectors = [
+                    'input[placeholder*="buy price" i]',
+                    'input[placeholder*="e.g. 25.50" i]',
+                    'input[id*="buy"]',
+                    'input[name*="buy"]',
+                    'input[type="number"]',
+                    'input[type="text"]'
+                ];
+                
+                // Get all inputs in the form/modal
+                const form = setInput.closest('form, div[class*="modal"], div[id*="modal"]');
+                if (!form) return null;
+                
+                const allInputs = Array.from(form.querySelectorAll('input[type="text"], input[type="number"]'));
+                
+                // Find buy price field by checking labels or placeholders
+                for (const input of allInputs) {
+                    // Skip the set input itself
+                    if (input === setInput) continue;
+                    
+                    const label = input.closest('form, div, fieldset')?.querySelector('label');
+                    const hasBuyPriceLabel = label && label.textContent.toLowerCase().includes('buy price');
+                    const hasBuyPricePlaceholder = input.placeholder && input.placeholder.toLowerCase().includes('buy price');
+                    const hasBuyPriceId = input.id && input.id.toLowerCase().includes('buy');
+                    const hasBuyPriceName = input.name && input.name.toLowerCase().includes('buy');
+                    
+                    if (hasBuyPriceLabel || hasBuyPricePlaceholder || hasBuyPriceId || hasBuyPriceName) {
+                        return input;
+                    }
+                }
+                
+                // Fallback: find input after set input in DOM order
+                let foundSetInput = false;
+                for (const input of allInputs) {
+                    if (input === setInput) {
+                        foundSetInput = true;
+                        continue;
+                    }
+                    if (foundSetInput && input.type !== 'hidden' && input.type !== 'submit' && input.type !== 'button') {
+                        return input;
+                    }
+                }
+                
+                return null;
+            }
+            
+            // Handle Enter key on set input
+            setInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.keyCode === 13) {
+                    // Check if autocomplete dropdown is visible
+                    const dropdown = document.querySelector('[class*="dropdown"], [class*="autocomplete"], [class*="suggestions"]');
+                    const isDropdownVisible = dropdown && dropdown.style.display !== 'none' && dropdown.offsetParent !== null;
+                    
+                    // If dropdown is visible, wait a moment for selection to complete
+                    if (isDropdownVisible) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Wait a bit for the selection to be processed
+                        setTimeout(() => {
+                            const buyPriceField = findBuyPriceField();
+                            if (buyPriceField) {
+                                buyPriceField.focus();
+                                buyPriceField.select(); // Select text for easy replacement
+                            }
+                        }, 100);
+                    } else {
+                        // No dropdown visible, just move to next field
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        const buyPriceField = findBuyPriceField();
+                        if (buyPriceField) {
+                            buyPriceField.focus();
+                            buyPriceField.select();
+                        }
+                    }
+                }
+            });
+            
+            // Also handle when a set chip/tag is clicked (selection completed)
+            // Watch for set chips being added
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    mutation.addedNodes.forEach((node) => {
+                        if (node.nodeType === 1) {
+                            // Check if it's a set chip/tag
+                            const isSetChip = node.classList && (
+                                Array.from(node.classList).some(c => c.toLowerCase().includes('chip') || 
+                                                                   c.toLowerCase().includes('tag')) ||
+                                node.getAttribute('data-set') ||
+                                node.textContent && node.textContent.trim().length > 0
+                            );
+                            
+                            if (isSetChip && setInput.value) {
+                                // Set was just selected, move focus to buy price
+                                setTimeout(() => {
+                                    const buyPriceField = findBuyPriceField();
+                                    if (buyPriceField && document.activeElement === setInput) {
+                                        buyPriceField.focus();
+                                        buyPriceField.select();
+                                    }
+                                }, 50);
+                            }
+                        }
+                    });
+                });
+            });
+            
+            // Observe the form/modal for changes
+            const form = setInput.closest('form, div[class*="modal"], div[id*="modal"]');
+            if (form) {
+                observer.observe(form, { childList: true, subtree: true });
+            }
+        }
+        
+        // Setup when DOM is ready
+        function initSetNavigation() {
+            setupSetEnterNavigation();
+        }
+        
+        // Run immediately and on DOM changes
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initSetNavigation);
+        } else {
+            initSetNavigation();
+        }
+        
+        // Watch for dynamically added modals/forms
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                mutation.addedNodes.forEach((node) => {
+                    if (node.nodeType === 1 && (
+                        node.tagName === 'FORM' || 
+                        node.classList?.contains('modal') ||
+                        node.querySelector('form, input[placeholder*="set" i]')
+                    )) {
+                        setTimeout(setupSetEnterNavigation, 100);
+                    }
+                });
+            });
+        });
+        
+        observer.observe(document.body, { childList: true, subtree: true });
+    })();
+    </script>
+"""
+                # Inject set navigation script
+                if '</body>' in html_content:
+                    html_content = html_content.replace('</body>', set_navigation_script + '\n</body>')
+                elif '</html>' in html_content:
+                    html_content = html_content.replace('</html>', set_navigation_script + '\n</html>')
+                else:
+                    html_content += set_navigation_script
+            
             # Inject JavaScript to load archived stats if not already present
             if 'archived-stats' not in html_content:
                 # Find </body> or </script> tag to inject before
@@ -1488,7 +1809,9 @@ async def collection_page():
         try {
             // Use current path to determine API prefix
             const apiPath = window.location.pathname.includes('/collection') ? '/collection/api/archived-stats' : '/api/archived-stats';
-            const response = await fetch(apiPath);
+            const response = await fetch(apiPath, {
+                credentials: 'include'  // Include session cookie for authentication
+            });
             const stats = await response.json();
             
             // Find or create stats container - always place at bottom after pagination
@@ -2342,6 +2665,77 @@ async def collection_page():
         let oldSchoolFilter = true; // Default: show Old School legal cards
         let premodernFilter = true; // Default: show Premodern legal cards
         
+        // Function to update "No Cards" message based on filter state
+        function updateNoCardsMessage(filtersActive, totalCards) {
+            // Check if any filters are actually active
+            const hasActiveFilters = showSoldOnly || oldSchoolFilter || premodernFilter;
+            
+            // Find all elements containing "NO CARDS" or "No Cards" messages
+            const allElements = Array.from(document.querySelectorAll('*'));
+            const noCardsElements = allElements.filter(el => {
+                const text = (el.textContent || '').trim().toUpperCase();
+                return (text.includes('NO CARDS') || text.includes('NO CARDS IN COLLECTION')) &&
+                       !el.closest('#archived-stats-container') &&
+                       !el.closest('[class*="stat"]') &&
+                       el.textContent.length < 200; // Avoid matching large blocks
+            });
+            
+            noCardsElements.forEach(el => {
+                const originalText = el.textContent || '';
+                const isCurrentlyFiltered = originalText.includes('MATCH') || originalText.includes('filter') || originalText.includes('Filter');
+                
+                // Only show filtered message if filters are active AND there are cards but none match
+                if (filtersActive && totalCards > 0 && hasActiveFilters) {
+                    // Build filter description
+                    const activeFilters = [];
+                    if (showSoldOnly) {
+                        activeFilters.push('Show Sold Only');
+                    }
+                    if (oldSchoolFilter && !premodernFilter) {
+                        activeFilters.push('Old School');
+                    } else if (premodernFilter && !oldSchoolFilter) {
+                        activeFilters.push('Premodern');
+                    } else if (oldSchoolFilter && premodernFilter) {
+                        activeFilters.push('Old School or Premodern');
+                    }
+                    
+                    // Update message
+                    const newText = `NO CARDS MATCH THE CURRENT FILTERS`;
+                    const subText = `You have ${totalCards} card${totalCards !== 1 ? 's' : ''} in your collection, but none match the selected filters.`;
+                    
+                    // Update the main message
+                    if (el.textContent.toUpperCase().includes('NO CARDS')) {
+                        el.textContent = newText;
+                        el.style.color = '#d4af37';
+                        el.style.fontSize = el.style.fontSize || '2em';
+                        el.style.fontWeight = 'bold';
+                        
+                        // Find or create subtitle
+                        let subtitle = el.nextElementSibling;
+                        if (!subtitle || (!subtitle.textContent.includes('You have') && !subtitle.textContent.includes('Click'))) {
+                            subtitle = document.createElement('div');
+                            subtitle.style.cssText = 'color: #999; font-size: 1em; margin-top: 10px;';
+                            el.parentNode.insertBefore(subtitle, el.nextSibling);
+                        }
+                        subtitle.textContent = subText;
+                    }
+                } else {
+                    // Reset to original message if no filters active or no cards at all
+                    if (isCurrentlyFiltered) {
+                        el.textContent = 'NO CARDS IN COLLECTION';
+                        el.style.color = el.style.color || '#d4af37';
+                        el.style.fontSize = el.style.fontSize || '2em';
+                        el.style.fontWeight = 'bold';
+                        
+                        const subtitle = el.nextElementSibling;
+                        if (subtitle && subtitle.textContent.includes('You have')) {
+                            subtitle.textContent = 'Click "Add Card" to start building your collection!';
+                        }
+                    }
+                }
+            });
+        }
+        
         // Filter function: filter cards based on sell_price and format legality
         function filterCards(cards) {
             let filtered = cards;
@@ -2364,15 +2758,30 @@ async def collection_page():
             // Then filter by format legality (OR operation: show if matches any checked format)
             if (oldSchoolFilter || premodernFilter) {
                 filtered = filtered.filter(card => {
+                    // Check if card has format info (not undefined/null)
+                    const hasOldSchoolInfo = card.old_school_legal !== undefined && card.old_school_legal !== null;
+                    const hasPremodernInfo = card.premodern_legal !== undefined && card.premodern_legal !== null;
+                    
+                    // If card has no format info at all, show it (fallback for cards without format fields)
+                    if (!hasOldSchoolInfo && !hasPremodernInfo) {
+                        return true;
+                    }
+                    
                     const oldSchool = card.old_school_legal === true;
                     const premodern = card.premodern_legal === true;
                     
                     // Show card if it matches at least one checked format
-                    return (oldSchoolFilter && oldSchool) || (premodernFilter && premodern);
+                    const matchesFilter = (oldSchoolFilter && oldSchool) || (premodernFilter && premodern);
+                    
+                    // Also show cards that have format info set to false for all formats
+                    // (e.g., Black Lotus with both false - user's card should still be visible)
+                    const allFormatsFalse = hasOldSchoolInfo && hasPremodernInfo && !oldSchool && !premodern;
+                    
+                    return matchesFilter || allFormatsFalse;
                 });
             } else {
-                // If neither checkbox is checked, show no cards (as per spec requirement)
-                filtered = [];
+                // If neither checkbox is checked, show all cards (user wants to see everything)
+                // Don't filter by format when no format filters are active
             }
             
             return filtered;
@@ -2687,6 +3096,14 @@ async def collection_page():
                     bottomDropdown.value = currentSort;
                 }
                 
+                // Update "No Cards" message after filter change
+                if (originalCards && originalCards.length > 0) {
+                    const filtered = filterCards(originalCards);
+                    setTimeout(() => {
+                        updateNoCardsMessage(filtered.length === 0 && originalCards.length > 0, originalCards.length);
+                    }, 100);
+                }
+                
                 // Clear the original cards to force a re-fetch
                 originalCards = [];
                 
@@ -2804,6 +3221,14 @@ async def collection_page():
                 }
                 if (bottomCheckbox && bottomCheckbox !== e.target) {
                     bottomCheckbox.checked = e.target.checked;
+                }
+                
+                // Update "No Cards" message after filter change
+                if (originalCards && originalCards.length > 0) {
+                    const filtered = filterCards(originalCards);
+                    setTimeout(() => {
+                        updateNoCardsMessage(filtered.length === 0 && originalCards.length > 0, originalCards.length);
+                    }, 100);
                 }
                 
                 // Also sync the other format checkbox
@@ -3138,6 +3563,21 @@ async def collection_page():
                                 const filteredCards = filterCards(responseData.cards);
                                 console.log(`🔍 Filtered to ${filteredCards.length} cards (showSoldOnly: ${showSoldOnly}, Old School: ${oldSchoolFilter}, Premodern: ${premodernFilter})`);
                                 
+                                // Update "No Cards" message if filters are active and no cards match
+                                if (filteredCards.length === 0 && responseData.cards.length > 0) {
+                                    setTimeout(() => {
+                                        updateNoCardsMessage(true, responseData.cards.length);
+                                    }, 100);
+                                } else if (filteredCards.length === 0 && responseData.cards.length === 0) {
+                                    setTimeout(() => {
+                                        updateNoCardsMessage(false, 0);
+                                    }, 100);
+                                } else {
+                                    setTimeout(() => {
+                                        updateNoCardsMessage(false, 0);
+                                    }, 100);
+                                }
+                                
                                 // Apply current sort
                                 const sortedCards = sortFunctions[currentSort](filteredCards);
                                 console.log(`✅ Sorted ${sortedCards.length} cards using: ${currentSort}`);
@@ -3214,6 +3654,21 @@ async def collection_page():
                                 const filteredCards = filterCards(data.cards);
                                 console.log(`🔍 Filtered to ${filteredCards.length} cards (showSoldOnly: ${showSoldOnly}, Old School: ${oldSchoolFilter}, Premodern: ${premodernFilter})`);
                                 
+                                // Update "No Cards" message if filters are active and no cards match
+                                if (filteredCards.length === 0 && data.cards.length > 0) {
+                                    setTimeout(() => {
+                                        updateNoCardsMessage(true, data.cards.length);
+                                    }, 100);
+                                } else if (filteredCards.length === 0 && data.cards.length === 0) {
+                                    setTimeout(() => {
+                                        updateNoCardsMessage(false, 0);
+                                    }, 100);
+                                } else {
+                                    setTimeout(() => {
+                                        updateNoCardsMessage(false, 0);
+                                    }, 100);
+                                }
+                                
                                 // Apply current sort
                                 const sortedCards = sortFunctions[currentSort](filteredCards);
                                 
@@ -3287,6 +3742,14 @@ async def collection_page():
             // Set up interceptors
             interceptAndSortAPI();
             
+            // Check and update "No Cards" message after page loads
+            setTimeout(() => {
+                if (originalCards && originalCards.length > 0) {
+                    const filtered = filterCards(originalCards);
+                    updateNoCardsMessage(filtered.length === 0 && originalCards.length > 0, originalCards.length);
+                }
+            }, 1000);
+            
             // Add dropdown after a delay to ensure DOM is ready
             function tryAddDropdown() {
                 addSortDropdown();
@@ -3325,15 +3788,523 @@ async def collection_page():
                 else:
                     html_content += sorting_script
             
+            # Inject CSS for header flexbox layout
+            if 'id="auth-section-style"' not in html_content:
+                header_css = """
+    <style id="auth-section-style">
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #authModal {
+            display: none;
+        }
+        #authModal[style*="flex"] {
+            display: flex !important;
+        }
+    </style>
+"""
+                if '<head>' in html_content:
+                    html_content = html_content.replace('<head>', '<head>' + header_css)
+                elif '</head>' in html_content:
+                    html_content = html_content.replace('</head>', header_css + '</head>')
+            
+            # Inject authentication UI into header
+            if 'id="authSection"' not in html_content:
+                print("🔐 Injecting authentication UI into HTML template", flush=True)
+                auth_ui = """
+            <div class="auth-section" id="authSection" style="margin-left: auto; display: flex; align-items: center;">
+                <div id="authButtons" style="display: none;">
+                    <button onclick="showLoginModal()" style="padding: 8px 16px; margin: 0 5px; background: #4a5568; color: white; border: none; border-radius: 4px; cursor: pointer;">Login</button>
+                    <button onclick="showRegisterModal()" style="padding: 8px 16px; margin: 0 5px; background: #2d3748; color: white; border: none; border-radius: 4px; cursor: pointer;">Register</button>
+                </div>
+                <div id="userInfo" style="display: none;">
+                    <span id="usernameDisplay" style="color: #d4af37; margin-right: 10px;"></span>
+                    <button onclick="logout()" style="padding: 8px 16px; background: #c53030; color: white; border: none; border-radius: 4px; cursor: pointer;">Logout</button>
+                </div>
+            </div>
+"""
+                # Insert auth UI before closing </header> tag
+                if '</header>' in html_content:
+                    html_content = html_content.replace('</header>', auth_ui + '\n        </header>')
+                    print("✅ Authentication UI injected into header", flush=True)
+                else:
+                    print("⚠️  Warning: </header> tag not found, auth UI not injected", flush=True)
+                
+                # Add authentication modal before </body>
+                auth_modal = """
+        <!-- Login/Register Modal -->
+        <div id="authModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; justify-content: center; align-items: center;">
+            <div style="background: #1a202c; padding: 30px; border-radius: 8px; max-width: 400px; width: 90%;">
+                <h2 id="authModalTitle" style="color: #d4af37; margin-top: 0;">Login</h2>
+                <form id="authForm" onsubmit="handleAuth(event)">
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; color: #e2e8f0; margin-bottom: 5px;">Username:</label>
+                        <input type="text" id="authUsername" required style="width: 100%; padding: 8px; background: #2d3748; color: white; border: 1px solid #4a5568; border-radius: 4px; box-sizing: border-box;">
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; color: #e2e8f0; margin-bottom: 5px;">Password:</label>
+                        <input type="password" id="authPassword" required style="width: 100%; padding: 8px; background: #2d3748; color: white; border: 1px solid #4a5568; border-radius: 4px; box-sizing: border-box;">
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <button type="submit" style="flex: 1; padding: 10px; background: #4a5568; color: white; border: none; border-radius: 4px; cursor: pointer;">Submit</button>
+                        <button type="button" onclick="hideAuthModal()" style="flex: 1; padding: 10px; background: #718096; color: white; border: none; border-radius: 4px; cursor: pointer;">Cancel</button>
+                    </div>
+                    <div id="authError" style="color: #fc8181; margin-top: 10px; display: none;"></div>
+                </form>
+            </div>
+        </div>
+"""
+                if '</body>' in html_content:
+                    html_content = html_content.replace('</body>', auth_modal + '\n    </body>')
+            
+            # Inject authentication JavaScript
+            if 'id="auth-script"' not in html_content:
+                print("🔐 Injecting authentication JavaScript", flush=True)
+                auth_script = """
+    <script id="auth-script">
+        // Authentication functions
+        let isLoginMode = true;
+        let isCheckingAuth = false;  // Prevent duplicate auth checks
+        let collectionReloadScheduled = false;  // Prevent duplicate collection reloads
+
+        async function checkAuthStatus() {
+            // Prevent duplicate calls
+            if (isCheckingAuth) {
+                console.log('Auth check already in progress, skipping...');
+                return;
+            }
+            isCheckingAuth = true;
+            try {
+                const apiPath = window.location.pathname.includes('/collection') ? '/collection/api/auth/me' : '/api/auth/me';
+                console.log('Checking auth status at:', apiPath);
+                const response = await fetch(apiPath, { 
+                    credentials: 'include',
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                const data = await response.json();
+                console.log('Auth status response:', data);
+                
+                const authButtons = document.getElementById('authButtons');
+                const userInfo = document.getElementById('userInfo');
+                const usernameDisplay = document.getElementById('usernameDisplay');
+                const modal = document.getElementById('authModal');
+                
+                if (data.authenticated) {
+                    if (authButtons) authButtons.style.display = 'none';
+                    if (userInfo) userInfo.style.display = 'block';
+                    if (usernameDisplay) usernameDisplay.textContent = data.username;
+                    // Close modal if it's open
+                    if (modal) {
+                        modal.style.display = 'none';
+                    }
+                    console.log('User authenticated:', data.username);
+                    
+                    // Ensure "Add Card" button is visible when logged in
+                    // Look for various possible selectors for the Add Card button
+                    const addCardSelectors = [
+                        'button[onclick*="add"]',
+                        'button[onclick*="Add"]',
+                        'button:contains("Add Card")',
+                        '[id*="add-card"]',
+                        '[id*="addCard"]',
+                        '[class*="add-card"]',
+                        'button[title*="Add"]',
+                        'a[onclick*="add"]'
+                    ];
+                    
+                    // Also check for buttons with text content
+                    const allButtons = document.querySelectorAll('button, a, [role="button"]');
+                    allButtons.forEach(btn => {
+                        const text = (btn.textContent || '').toLowerCase();
+                        if (text.includes('add card') || text.includes('add new') || text.includes('➕')) {
+                            btn.style.display = '';
+                            btn.style.visibility = 'visible';
+                            btn.removeAttribute('hidden');
+                            console.log('✅ Made Add Card button visible:', btn);
+                        }
+                    });
+                    
+                    // Try to find and show Add Card button by common patterns
+                    setTimeout(() => {
+                        const addCardBtn = document.querySelector('[onclick*="showAdd"], [onclick*="addCard"], [onclick*="openAdd"], button:contains("Add"), a:contains("Add")');
+                        if (addCardBtn) {
+                            addCardBtn.style.display = '';
+                            addCardBtn.style.visibility = 'visible';
+                            addCardBtn.removeAttribute('hidden');
+                            console.log('✅ Found and made Add Card button visible');
+                        }
+                    }, 500);
+                } else {
+                    if (authButtons) authButtons.style.display = 'block';
+                    if (userInfo) userInfo.style.display = 'none';
+                    console.log('User not authenticated');
+                }
+            } catch (error) {
+                console.error('Error checking auth status:', error);
+                const authButtons = document.getElementById('authButtons');
+                const userInfo = document.getElementById('userInfo');
+                if (authButtons) authButtons.style.display = 'block';
+                if (userInfo) userInfo.style.display = 'none';
+            } finally {
+                isCheckingAuth = false;
+            }
+        }
+
+        function showLoginModal() {
+            isLoginMode = true;
+            document.getElementById('authModalTitle').textContent = 'Login';
+            document.getElementById('authModal').style.display = 'flex';
+            document.getElementById('authError').style.display = 'none';
+            document.getElementById('authUsername').value = '';
+            document.getElementById('authPassword').value = '';
+        }
+
+        function showRegisterModal() {
+            isLoginMode = false;
+            document.getElementById('authModalTitle').textContent = 'Register';
+            document.getElementById('authModal').style.display = 'flex';
+            document.getElementById('authError').style.display = 'none';
+            document.getElementById('authUsername').value = '';
+            document.getElementById('authPassword').value = '';
+        }
+
+        function hideAuthModal() {
+            document.getElementById('authModal').style.display = 'none';
+            document.getElementById('authError').style.display = 'none';
+        }
+
+        async function handleAuth(event) {
+            event.preventDefault();
+            const username = document.getElementById('authUsername').value;
+            const password = document.getElementById('authPassword').value;
+            const errorDiv = document.getElementById('authError');
+            
+            try {
+                const endpoint = isLoginMode ? 'login' : 'register';
+                const apiPath = window.location.pathname.includes('/collection') 
+                    ? `/collection/api/auth/${endpoint}` 
+                    : `/api/auth/${endpoint}`;
+                
+                const response = await fetch(apiPath, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username, password }),
+                    credentials: 'include'
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    hideAuthModal();
+                    await checkAuthStatus();
+                    // Reload the page to show user's collection
+                    // This ensures all data and rendering is properly refreshed
+                    console.log('Login successful, reloading page...');
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 100);
+                    return; // Early return to prevent further processing
+                    
+                    // OLD CODE - kept for reference but not executed
+                    if (false && typeof loadCollection === 'function' && document.readyState === 'complete' && !collectionReloadScheduled) {
+                        collectionReloadScheduled = true;
+                        setTimeout(() => {
+                            console.log('Reloading collection after login...');
+                            loadCollection();
+                            // Also reload statistics to show user's collection stats
+                            if (typeof loadArchivedStats === 'function') {
+                                loadArchivedStats();
+                            }
+                            collectionReloadScheduled = false;
+                        }, 300);
+                    }
+                } else {
+                    errorDiv.textContent = data.detail || 'Authentication failed';
+                    errorDiv.style.display = 'block';
+                }
+            } catch (error) {
+                errorDiv.textContent = 'Error: ' + error.message;
+                errorDiv.style.display = 'block';
+            }
+        }
+
+        async function logout() {
+            try {
+                const apiPath = window.location.pathname.includes('/collection') 
+                    ? '/collection/api/auth/logout' 
+                    : '/api/auth/logout';
+                
+                await fetch(apiPath, {
+                    method: 'POST',
+                    credentials: 'include'
+                });
+                
+                // Reload the page to show shared collection
+                // This ensures all data and rendering is properly refreshed  
+                console.log('Logout successful, reloading page...');
+                setTimeout(() => {
+                    window.location.reload();
+                }, 100);
+            } catch (error) {
+                console.error('Error logging out:', error);
+            }
+        }
+
+        // Intercept fetch requests to reload collection after adding/updating/deleting cards
+        if (!window._collectionReloadIntercepted) {
+            window._collectionReloadIntercepted = true;
+            const originalFetch = window.fetch;
+            window.fetch = function(...args) {
+                const url = args[0];
+                const options = args[1] || {};
+                
+                // Intercept POST/PUT/DELETE to /api/collection
+                if (typeof url === 'string' && 
+                    (url.includes('/api/collection') || url.includes('/collection/api/collection')) &&
+                    (options.method === 'POST' || options.method === 'PUT' || options.method === 'DELETE')) {
+                    
+                    return originalFetch.apply(this, args).then(async response => {
+                        // Check if request was successful
+                        if (response.ok) {
+                            try {
+                                const data = await response.clone().json();
+                                if (data.success) {
+                                    console.log('✅ Card operation successful, reloading collection...');
+                                    // Reload collection after a short delay
+                                    setTimeout(() => {
+                                        if (typeof loadCollection === 'function' && document.readyState === 'complete' && !collectionReloadScheduled) {
+                                            collectionReloadScheduled = true;
+                                            console.log('🔄 Reloading collection after card operation...');
+                                            loadCollection();
+                                            // Also reload statistics to reflect updated collection
+                                            if (typeof loadArchivedStats === 'function') {
+                                                setTimeout(() => {
+                                                    loadArchivedStats();
+                                                }, 500);
+                                            }
+                                            setTimeout(() => {
+                                                collectionReloadScheduled = false;
+                                            }, 1000);
+                                        } else if (typeof window.location !== 'undefined') {
+                                            // Fallback: reload page if loadCollection function not available
+                                            console.log('🔄 Page reload (loadCollection not available)...');
+                                            window.location.reload();
+                                        }
+                                    }, 300);
+                                }
+                            } catch(e) {
+                                // Response might not be JSON, ignore
+                            }
+                        }
+                        return response;
+                    });
+                }
+                
+                return originalFetch.apply(this, args);
+            };
+        }
+        
+        // Check auth status on page load
+        // Use multiple methods to ensure it runs, but only once
+        let authInitialized = false;
+        function initAuth() {
+            if (authInitialized) return;
+            authInitialized = true;
+            
+            // First, ensure modal is hidden
+            const modal = document.getElementById('authModal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+            // Small delay to ensure cookies are available, then check auth
+            setTimeout(checkAuthStatus, 100);
+        }
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initAuth);
+        } else {
+            // DOM already loaded
+            initAuth();
+        }
+        
+        // Also check on window load (after all resources loaded)
+        // Only check once to avoid duplicate calls
+        let authCheckedOnLoad = false;
+        window.addEventListener('load', function() {
+            if (authCheckedOnLoad) return;
+            authCheckedOnLoad = true;
+            
+            setTimeout(function() {
+                checkAuthStatus();
+                // Ensure modal is closed if user is authenticated
+                const modal = document.getElementById('authModal');
+                if (modal && modal.style.display === 'flex') {
+                    // Double-check auth status before closing
+                    fetch(window.location.pathname.includes('/collection') ? '/collection/api/auth/me' : '/api/auth/me', { 
+                        credentials: 'include' 
+                    })
+                    .then(r => r.json())
+                    .then(data => {
+                        if (data.authenticated && modal) {
+                            modal.style.display = 'none';
+                        }
+                    });
+                }
+            }, 200);
+        });
+        
+        // Close auth modal with ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const authModal = document.getElementById('authModal');
+                if (authModal && authModal.style.display === 'flex') {
+                    hideAuthModal();
+                }
+            }
+        });
+        
+        // Close auth modal when clicking outside (on backdrop)
+        document.addEventListener('click', function(event) {
+            const authModal = document.getElementById('authModal');
+            if (event.target === authModal) {
+                hideAuthModal();
+            }
+        });
+    </script>
+"""
+                if '</body>' in html_content:
+                    html_content = html_content.replace('</body>', auth_script + '\n    </body>')
+                elif '</script>' in html_content:
+                    # Insert before last </script> tag
+                    html_content = html_content.rsplit('</script>', 1)[0] + auth_script + '\n    </script>' + html_content.rsplit('</script>', 1)[1]
+            
             return HTMLResponse(content=html_content)
     else:
         return HTMLResponse(content="<h1>Collection Binder Template Not Found</h1>", status_code=404)
 
 
+# Authentication endpoints
+@app.post("/api/auth/register")
+async def register(request: Request):
+    """Register a new user."""
+    try:
+        data = await request.json()
+        username = data.get("username", "").strip()
+        password = data.get("password", "")
+        
+        if not username or not password:
+            raise HTTPException(status_code=400, detail="Username and password are required")
+        
+        if len(username) < 3:
+            raise HTTPException(status_code=400, detail="Username must be at least 3 characters")
+        
+        if len(password) < 6:
+            raise HTTPException(status_code=400, detail="Password must be at least 6 characters")
+        
+        password_hash = auth.hash_password(password)
+        try:
+            user_id = database.create_user(username, password_hash)
+        except sqlite3.OperationalError as e:
+            # Database/table doesn't exist
+            error_msg = str(e).lower()
+            if "no such table" in error_msg:
+                raise HTTPException(status_code=500, detail="Database not initialized. Please contact administrator.")
+            else:
+                raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Error creating user: {str(e)}")
+        
+        if user_id is None:
+            raise HTTPException(status_code=400, detail="Username already exists")
+        
+        # Create session token
+        token = auth.create_session_token(user_id)
+        response = JSONResponse({"success": True, "message": "User registered successfully", "username": username})
+        response.set_cookie(
+            key=auth.SESSION_COOKIE_NAME,
+            value=token,
+            max_age=auth.SESSION_MAX_AGE,
+            httponly=True,
+            samesite="lax",
+            path="/"  # Make cookie available site-wide
+        )
+        return response
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/api/auth/login")
+async def login(request: Request):
+    """Login a user."""
+    try:
+        data = await request.json()
+        username = data.get("username", "").strip()
+        password = data.get("password", "")
+        
+        if not username or not password:
+            raise HTTPException(status_code=400, detail="Username and password are required")
+        
+        user = database.get_user_by_username(username)
+        if not user:
+            raise HTTPException(status_code=401, detail="Invalid username or password")
+        
+        if not auth.verify_password(password, user["password_hash"]):
+            raise HTTPException(status_code=401, detail="Invalid username or password")
+        
+        # Create session token
+        token = auth.create_session_token(user["id"])
+        response = JSONResponse({"success": True, "message": "Login successful", "username": username})
+        response.set_cookie(
+            key=auth.SESSION_COOKIE_NAME,
+            value=token,
+            max_age=auth.SESSION_MAX_AGE,
+            httponly=True,
+            samesite="lax",
+            path="/"  # Make cookie available site-wide
+        )
+        return response
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/api/auth/logout")
+async def logout():
+    """Logout the current user."""
+    response = JSONResponse({"success": True, "message": "Logout successful"})
+    response.delete_cookie(key=auth.SESSION_COOKIE_NAME, path="/")
+    return response
+
+
+@app.get("/api/auth/me")
+async def get_current_user_info(request: Request):
+    """Get current user information."""
+    user_id = auth.get_current_user(request)
+    if user_id is None:
+        return JSONResponse({"authenticated": False})
+    
+    user = database.get_user_by_id(user_id)
+    if not user:
+        return JSONResponse({"authenticated": False})
+    
+    return JSONResponse({"authenticated": True, "username": user["username"], "user_id": user["id"]})
+
+
 @app.get("/api/collection")
-async def get_collection():
+async def get_collection(request: Request):
     """Get the full collection."""
-    collection = load_collection()
+    user_id = auth.get_current_user(request)
+    collection = load_collection(user_id=user_id)
     return JSONResponse({"collection": collection})
 
 
@@ -3353,9 +4324,10 @@ async def get_sets():
 
 
 @app.get("/api/collection-cards")
-async def get_collection_cards():
+async def get_collection_cards(request: Request):
     """Get collection expanded to cards (one per set). Automatically fetches missing images."""
-    collection = load_collection()
+    user_id = auth.get_current_user(request)
+    collection = load_collection(user_id=user_id)
     cards = expand_collection_to_cards(collection)
     
     # Debug: Count how many cards have market data
@@ -3411,16 +4383,45 @@ async def add_collection_item(request: Request, background_tasks: BackgroundTask
     """Add a new item to the collection."""
     try:
         data = await request.json()
-        collection = load_collection()
+        user_id = auth.get_current_user(request)
         
         # Validate required fields
         if 'name' not in data:
             raise HTTPException(status_code=400, detail="Missing 'name' field")
         
+        # Auto-populate format legality fields if not provided
+        sets = data.get('sets', [])
+        if sets and ('old_school_legal' not in data or 'premodern_legal' not in data):
+            format_info = determine_format_legality_from_sets(sets)
+            # Only populate if not already provided
+            if 'old_school_legal' not in data:
+                data['old_school_legal'] = format_info['old_school_legal']
+            if 'premodern_legal' not in data:
+                data['premodern_legal'] = format_info['premodern_legal']
+            if 'format_validity' not in data:
+                data['format_validity'] = format_info['format_validity']
+            if 'old_school_sets' not in data:
+                data['old_school_sets'] = format_info['old_school_sets']
+            if 'premodern_sets' not in data:
+                data['premodern_sets'] = format_info['premodern_sets']
+        
+        # If logged in, add directly to database
+        if user_id is not None:
+            item_id = database.add_collection_item(user_id, data)
+            if item_id is None:
+                raise HTTPException(status_code=500, detail="Failed to add item to collection")
+            # Trigger auto-scan in background
+            background_tasks.add_task(auto_scan_collection_card, data)
+            print(f"📊 Auto-scan: Scheduled background scan for {data.get('name', 'Unknown')}", flush=True)
+            return JSONResponse({"success": True, "message": "Item added successfully"})
+        
+        # If not logged in, use JSON file (backward compatibility)
+        collection = load_collection(user_id=user_id)
+        
         # Create new item
         new_item = {
             'name': data['name'],
-            'sets': data.get('sets', []),
+            'sets': sets,
         }
         
         # Add collection-specific fields if provided
@@ -3453,9 +4454,21 @@ async def add_collection_item(request: Request, background_tasks: BackgroundTask
         else:
             new_item['foil'] = False
         
+        # Add format legality fields (auto-populated above if sets were provided)
+        if 'old_school_legal' in data:
+            new_item['old_school_legal'] = data['old_school_legal']
+        if 'premodern_legal' in data:
+            new_item['premodern_legal'] = data['premodern_legal']
+        if 'format_validity' in data:
+            new_item['format_validity'] = data['format_validity']
+        if 'old_school_sets' in data:
+            new_item['old_school_sets'] = data['old_school_sets']
+        if 'premodern_sets' in data:
+            new_item['premodern_sets'] = data['premodern_sets']
+        
         collection.append(new_item)
         
-        if save_collection(collection):
+        if save_collection(collection, user_id=user_id):
             # Trigger auto-scan in background (non-blocking)
             background_tasks.add_task(auto_scan_collection_card, new_item)
             print(f"📊 Auto-scan: Scheduled background scan for {new_item.get('name', 'Unknown')}", flush=True)
@@ -3471,10 +4484,26 @@ async def update_collection_item(index: int, request: Request):
     """Update a collection item by index."""
     try:
         data = await request.json()
-        collection = load_collection()
+        user_id = auth.get_current_user(request)
+        collection = load_collection(user_id=user_id)
         
         if index < 0 or index >= len(collection):
             raise HTTPException(status_code=404, detail="Item not found")
+        
+        # If logged in, update in database using item ID
+        if user_id is not None:
+            item = collection[index]
+            item_id = item.get("id")
+            if item_id is None:
+                raise HTTPException(status_code=404, detail="Item ID not found")
+            
+            # Update item in database
+            if database.update_collection_item(user_id, item_id, data):
+                return JSONResponse({"success": True, "message": "Item updated successfully"})
+            else:
+                raise HTTPException(status_code=500, detail="Failed to update collection item")
+        
+        # If not logged in, update in JSON (backward compatibility)
         
         # Update item
         if 'name' in data:
@@ -3545,7 +4574,7 @@ async def update_collection_item(index: int, request: Request):
         if 'foil' in data:
             collection[index]['foil'] = bool(data['foil'])
         
-        if save_collection(collection):
+        if save_collection(collection, user_id=user_id):
             return JSONResponse({"success": True, "message": "Item updated successfully"})
         else:
             raise HTTPException(status_code=500, detail="Failed to save collection")
@@ -3554,16 +4583,35 @@ async def update_collection_item(index: int, request: Request):
 
 
 @app.delete("/api/collection/{index}")
-async def archive_collection_item(index: int):
+async def archive_collection_item(index: int, request: Request):
     """Archive a collection item by moving it to collection_archived.json."""
     try:
-        collection = load_collection()
+        user_id = auth.get_current_user(request)
+        collection = load_collection(user_id=user_id)
         
         if index < 0 or index >= len(collection):
             raise HTTPException(status_code=404, detail="Item not found")
         
         # Get the item to archive
         item_to_archive = collection.pop(index)
+        
+        # If logged in, delete from database
+        if user_id is not None:
+            item_id = item_to_archive.get("id")
+            if item_id is not None:
+                database.delete_collection_item(user_id, item_id)
+            # Also save updated collection (without the deleted item)
+            if save_collection(collection, user_id=user_id):
+                # Archive functionality for logged-in users could be added later
+                return JSONResponse({
+                    "success": True, 
+                    "message": "Item deleted successfully",
+                    "archived_item": item_to_archive
+                })
+            else:
+                raise HTTPException(status_code=500, detail="Failed to save collection")
+        
+        # If not logged in, use JSON archive (backward compatibility)
         
         # Add timestamp to archived item
         item_to_archive['archived_at'] = datetime.now().isoformat()
@@ -3573,7 +4621,7 @@ async def archive_collection_item(index: int):
         archived.append(item_to_archive)
         
         # Save both files
-        if save_collection(collection) and save_archived_collection(archived):
+        if save_collection(collection, user_id=user_id) and save_archived_collection(archived):
             return JSONResponse({
                 "success": True, 
                 "message": "Item archived successfully",
@@ -3591,8 +4639,8 @@ async def reorder_collection(request: Request):
     try:
         data = await request.json()
         order = data.get('order', [])
-        
-        collection = load_collection()
+        user_id = auth.get_current_user(request)
+        collection = load_collection(user_id=user_id)
         
         # Validate order array
         if len(order) != len(collection):
@@ -3611,7 +4659,7 @@ async def reorder_collection(request: Request):
         # Reorder collection based on the provided order
         reordered_collection = [collection[i] for i in order]
         
-        if save_collection(reordered_collection):
+        if save_collection(reordered_collection, user_id=user_id):
             return JSONResponse({
                 "success": True, 
                 "message": "Collection reordered successfully"
@@ -3723,11 +4771,12 @@ async def fetch_card_image(name: str, set: Optional[str] = None, language: Optio
 
 
 @app.get("/api/archived-stats")
-async def get_archived_stats():
+async def get_archived_stats(request: Request):
     """Get statistics for active collection items only (not archived)."""
     try:
-        # Load only active collection
-        collection = load_collection()
+        # Load collection for the current user (or collection.json if not logged in)
+        user_id = auth.get_current_user(request)
+        collection = load_collection(user_id=user_id)
         
         total_cost = 0.0
         sold_count = 0

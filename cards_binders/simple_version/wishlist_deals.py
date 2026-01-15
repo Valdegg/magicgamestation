@@ -77,6 +77,14 @@ from mtg_arbitrage.wishlist import load_wishlist, filter_by_wishlist
 from mtg_arbitrage.utils import get_cardmarket_url, map_condition_to_cardmarket_code
 from mtg_arbitrage.config import get_config
 
+# Import database module for per-user wishlist support
+try:
+    import database
+    DATABASE_AVAILABLE = True
+except ImportError:
+    DATABASE_AVAILABLE = False
+    print("⚠️  Database module not available. Per-user wishlists will not work.")
+
 # Import scraper
 try:
     from fetch_live_listings_simple import SimpleBrowserScraper
@@ -86,20 +94,120 @@ except ImportError:
     print("⚠️  Scraper not available. Install dependencies.")
 
 
-def load_wishlist_cards(wishlist_file: str = "wishlist.json", use_historical: bool = True) -> List[Dict[str, Any]]:
+def load_all_wishlists(source: str = "json") -> List[Dict[str, Any]]:
+    """
+    Load wishlists from different sources based on the source parameter.
+    
+    Args:
+        source: Where to load wishlists from:
+            - "json": Load from wishlist.json only (original behavior)
+            - "db": Load union of all users' wishlists from database (non-archived)
+            - "all": Load both JSON + all database wishlists combined
+            
+    Returns:
+        List of wishlist item dictionaries, deduplicated by (card name, expansion)
+    """
+    print(f"📋 Loading wishlists from source: {source}")
+    
+    all_items = []
+    seen_keys = set()  # Track (card_name_lower, expansion) to deduplicate
+    
+    def add_item(item: Dict[str, Any], source_label: str = ""):
+        """Add item to list if not a duplicate."""
+        name = item.get('name', '').lower().strip()
+        if not name:
+            return False
+            
+        # Create key from name and sets (first set if available)
+        sets = item.get('sets', [])
+        expansion = sets[0].lower().strip() if sets else ''
+        key = (name, expansion)
+        
+        if key not in seen_keys:
+            seen_keys.add(key)
+            all_items.append(item)
+            return True
+        return False
+    
+    # Load from JSON file if source is "json" or "all"
+    if source in ("json", "all"):
+        if os.path.exists(WISHLIST_FILE):
+            try:
+                json_wishlist = load_wishlist(WISHLIST_FILE)
+                added_count = 0
+                for item in json_wishlist:
+                    if add_item(item, "json"):
+                        added_count += 1
+                print(f"   📄 Loaded {added_count} items from {WISHLIST_FILE}")
+            except Exception as e:
+                print(f"   ⚠️  Error loading {WISHLIST_FILE}: {e}")
+        else:
+            print(f"   ⚠️  JSON file {WISHLIST_FILE} not found")
+    
+    # Load from database if source is "db" or "all"
+    if source in ("db", "all"):
+        if not DATABASE_AVAILABLE:
+            print(f"   ⚠️  Database not available, skipping database wishlists")
+        else:
+            try:
+                # Get all users from database
+                conn = database.get_db_connection()
+                cursor = conn.cursor()
+                cursor.execute("SELECT id, username FROM users")
+                users = cursor.fetchall()
+                conn.close()
+                
+                total_db_items = 0
+                for user in users:
+                    user_id = user["id"]
+                    username = user["username"]
+                    
+                    # Get non-archived wishlist items for this user
+                    user_wishlist = database.get_user_wishlist(user_id, include_archived=False)
+                    
+                    added_count = 0
+                    for item in user_wishlist:
+                        if add_item(item, f"db:{username}"):
+                            added_count += 1
+                    
+                    if added_count > 0:
+                        print(f"   👤 User '{username}': added {added_count} unique items")
+                    total_db_items += added_count
+                
+                print(f"   🗄️  Total from database: {total_db_items} unique items from {len(users)} users")
+                
+            except Exception as e:
+                print(f"   ⚠️  Error loading from database: {e}")
+                import traceback
+                traceback.print_exc()
+    
+    print(f"   ✅ Total unique wishlist items: {len(all_items)}")
+    return all_items
+
+
+def load_wishlist_cards(wishlist_file: str = "wishlist.json", use_historical: bool = True, source: str = "json") -> List[Dict[str, Any]]:
     """
     Load wishlist and optionally match cards from price guide data.
     
     Args:
-        wishlist_file: Path to wishlist JSON file
+        wishlist_file: Path to wishlist JSON file (used when source="json")
         use_historical: If True, loads price guide to get historical data and match cards.
                        If False, returns wishlist items directly (no historical data).
+        source: Where to load wishlists from:
+            - "json": Load from wishlist_file only (original behavior)
+            - "db": Load union of all users' wishlists from database
+            - "all": Load both JSON + all database wishlists combined
         
     Returns:
         List of card data dictionaries
     """
-    print(f"📋 Loading wishlist from {wishlist_file}...")
-    wishlist = load_wishlist(wishlist_file)
+    # Use configurable loading based on source
+    if source in ("db", "all"):
+        print(f"📋 Loading wishlists from source: {source}...")
+        wishlist = load_all_wishlists(source)
+    else:
+        print(f"📋 Loading wishlist from {wishlist_file}...")
+        wishlist = load_wishlist(wishlist_file)
     
     if not wishlist:
         print("❌ No wishlist items found")
@@ -586,15 +694,20 @@ def scan_single_collection_card(collection_item: Dict[str, Any],
 
 def check_wishlist_deals(wishlist_file: str, 
                         delay_between_cards: float = 10.0,
-                        use_historical: bool = True) -> List[Dict[str, Any]]:
+                        use_historical: bool = True,
+                        source: str = "json") -> List[Dict[str, Any]]:
     """
     Main function: Check wishlist cards for deals.
     
     Args:
-        wishlist_file: Path to wishlist JSON file
+        wishlist_file: Path to wishlist JSON file (used when source="json")
         delay_between_cards: Seconds to wait between scraping cards
         use_historical: If True, loads price guide for discount calculations.
                        If False, skips catalogue download and only shows live prices.
+        source: Where to load wishlists from:
+            - "json": Load from wishlist_file only (original behavior)
+            - "db": Load union of all users' wishlists from database
+            - "all": Load both JSON + all database wishlists combined
         
     Returns:
         List of deal dictionaries with card info, live prices, and discounts
@@ -604,7 +717,7 @@ def check_wishlist_deals(wishlist_file: str,
         return []
     
     # Load and match cards
-    cards = load_wishlist_cards(wishlist_file, use_historical=use_historical)
+    cards = load_wishlist_cards(wishlist_file, use_historical=use_historical, source=source)
     
     if not cards:
         return []
@@ -818,60 +931,90 @@ def print_summary(deals: List[Dict[str, Any]]) -> None:
                     print(f"   Seller: {details.get('seller')} ({details.get('country')})")
 
 
-def save_results(deals: List[Dict[str, Any]], output_file: Optional[str] = None, wishlist_file: Optional[str] = None) -> str:
+def save_results(deals: List[Dict[str, Any]], output_file: Optional[str] = None, wishlist_file: Optional[str] = None, source: str = "json") -> str:
     """
-    Save deals to JSON file.
+    Save deals to JSON file and/or database.
     
     Args:
         deals: List of deal dictionaries
         output_file: Path to output file (None = auto-generate)
         wishlist_file: Source wishlist file (for generating filename, defaults to WISHLIST_FILE)
+        source: Where wishlist was loaded from:
+            - "json": Save to JSON file only (original behavior, backward compatible)
+            - "db" or "all": Save to database via save_scan_deals()
         
     Returns:
-        Path to saved file
+        Path to saved file (or "database" if saved to DB only)
     """
-    # Create results directory if it doesn't exist
-    os.makedirs('results', exist_ok=True)
+    saved_to = []
     
-    # Generate filename if not provided
-    if not output_file:
-        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        # Use provided wishlist_file or fall back to global WISHLIST_FILE
+    # Always save to JSON file for source="json" (backward compatible)
+    # Also save to JSON for "db" and "all" modes to maintain history
+    if True:  # Always save to JSON for now - keeps file-based history
+        # Create results directory if it doesn't exist
+        os.makedirs('results', exist_ok=True)
+        
+        # Generate filename if not provided
+        if not output_file:
+            timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+            # Use provided wishlist_file or fall back to global WISHLIST_FILE
+            source_file = wishlist_file if wishlist_file else WISHLIST_FILE
+            wishlist_name = os.path.splitext(os.path.basename(source_file))[0]
+            output_file = f"results/{wishlist_name}_deals_{timestamp}.json"
+        
+        # Ensure output_file is in results directory if relative path
+        if not os.path.isabs(output_file) and not output_file.startswith('results/'):
+            output_file = f"results/{output_file}"
+        
+        # Prepare output data
         source_file = wishlist_file if wishlist_file else WISHLIST_FILE
-        wishlist_name = os.path.splitext(os.path.basename(source_file))[0]
-        output_file = f"results/{wishlist_name}_deals_{timestamp}.json"
+        output_data = {
+            'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            'wishlist_file': source_file,
+            'source': source,  # Track which source was used
+            'config': {
+                'min_discount': MIN_DISCOUNT,
+                'delay_between_cards': DELAY_BETWEEN_CARDS,
+                'use_historical_data': USE_HISTORICAL_DATA
+            },
+            'summary': {
+                'total_deals': len(deals),
+                'excellent': len([d for d in deals if d.get('category') == 'excellent']),
+                'good': len([d for d in deals if d.get('category') == 'good']),
+                'fair': len([d for d in deals if d.get('category') == 'fair']),
+                'expensive': len([d for d in deals if d.get('category') == 'expensive']),
+                'no_data': len([d for d in deals if d.get('category') == 'no_data'])
+            },
+            'deals': deals
+        }
+        
+        # Save to file
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(output_data, f, indent=2, ensure_ascii=False)
+        
+        print(f"\n💾 Results saved to JSON: {output_file}")
+        saved_to.append(f"JSON: {output_file}")
     
-    # Ensure output_file is in results directory if relative path
-    if not os.path.isabs(output_file) and not output_file.startswith('results/'):
-        output_file = f"results/{output_file}"
+    # Save to database if source is "db" or "all"
+    if source in ("db", "all"):
+        if not DATABASE_AVAILABLE:
+            print(f"⚠️  Database not available, skipping database save")
+        else:
+            try:
+                # Use the save_scan_deals function from database module
+                success = database.save_scan_deals(deals)
+                if success:
+                    print(f"💾 Results saved to database ({len(deals)} deals)")
+                    saved_to.append("Database")
+                else:
+                    print(f"⚠️  Failed to save results to database")
+            except Exception as e:
+                print(f"⚠️  Error saving to database: {e}")
+                import traceback
+                traceback.print_exc()
     
-    # Prepare output data
-    source_file = wishlist_file if wishlist_file else WISHLIST_FILE
-    output_data = {
-        'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-        'wishlist_file': source_file,
-        'config': {
-            'min_discount': MIN_DISCOUNT,
-            'delay_between_cards': DELAY_BETWEEN_CARDS,
-            'use_historical_data': USE_HISTORICAL_DATA
-        },
-        'summary': {
-            'total_deals': len(deals),
-            'excellent': len([d for d in deals if d.get('category') == 'excellent']),
-            'good': len([d for d in deals if d.get('category') == 'good']),
-            'fair': len([d for d in deals if d.get('category') == 'fair']),
-            'expensive': len([d for d in deals if d.get('category') == 'expensive']),
-            'no_data': len([d for d in deals if d.get('category') == 'no_data'])
-        },
-        'deals': deals
-    }
-    
-    # Save to file
-    with open(output_file, 'w', encoding='utf-8') as f:
-        json.dump(output_data, f, indent=2, ensure_ascii=False)
-    
-    print(f"\n💾 Results saved to: {output_file}")
-    return output_file
+    print(f"\n💾 Saved to: {', '.join(saved_to)}")
+    return output_file if output_file else "database"
 
 
 def main():

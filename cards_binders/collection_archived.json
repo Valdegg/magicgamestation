@@ -97,5 +97,23 @@
       "4ed"
     ],
     "archived_at": "2026-01-13T22:22:14.824183"
+  },
+  {
+    "name": "Mogg Fanatic",
+    "sets": [
+      "Tempest"
+    ],
+    "source": "Cardmarket",
+    "sell_price": 50,
+    "sale_date": "2026-01-14",
+    "foil": false,
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "format_validity": "premodern_only",
+    "old_school_sets": [],
+    "premodern_sets": [
+      "Tempest"
+    ],
+    "archived_at": "2026-01-14T18:55:50.141690"
   }
 ]

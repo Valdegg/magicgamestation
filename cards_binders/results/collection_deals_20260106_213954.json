@@ -7,12 +7,12 @@
     "use_historical_data": true
   },
   "summary": {
-    "total_deals": 94,
+    "total_deals": 102,
     "excellent": 64,
     "good": 20,
     "fair": 7,
     "expensive": 0,
-    "no_data": 2
+    "no_data": 10
   },
   "deals": [
     {
@@ -7016,7 +7016,143 @@
       "live_data": null,
       "discounts": null,
       "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Black Lotus",
+        "expansion": "Unknown",
+        "card_id": 5093,
+        "old_school_legal": false,
+        "premodern_legal": false,
+        "historical": {
+          "trend": 12833.62,
+          "avg30": 14629.58,
+          "avg7": 14555.63
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Wonder",
+        "expansion": "Unknown",
+        "card_id": 2180,
+        "old_school_legal": false,
+        "premodern_legal": false,
+        "historical": {
+          "trend": 2.59,
+          "avg30": 2.77,
+          "avg7": 2.57
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Wonder",
+        "expansion": "Unknown",
+        "card_id": 2180,
+        "old_school_legal": false,
+        "premodern_legal": false,
+        "historical": {
+          "trend": 2.59,
+          "avg30": 2.77,
+          "avg7": 2.57
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Shock",
+        "expansion": "Unknown",
+        "card_id": 2981,
+        "old_school_legal": false,
+        "premodern_legal": true,
+        "historical": {
+          "trend": 0.14,
+          "avg30": 0.11,
+          "avg7": 0.13
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Mogg Fanatic",
+        "expansion": "Unknown",
+        "card_id": 8925,
+        "old_school_legal": false,
+        "premodern_legal": true,
+        "historical": {
+          "trend": 1.14,
+          "avg30": 1.1,
+          "avg7": 0.93
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Mogg Fanatic",
+        "expansion": "Unknown",
+        "card_id": 8925,
+        "old_school_legal": false,
+        "premodern_legal": true,
+        "historical": {
+          "trend": 1.14,
+          "avg30": 1.1,
+          "avg7": 0.93
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Lightning Bolt",
+        "expansion": "Unknown",
+        "card_id": 5395,
+        "old_school_legal": true,
+        "premodern_legal": false,
+        "historical": {
+          "trend": 411.85,
+          "avg30": 386.77,
+          "avg7": 412.27
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Counterspell",
+        "expansion": "Unknown",
+        "card_id": 11442,
+        "old_school_legal": false,
+        "premodern_legal": true,
+        "historical": {
+          "trend": 1.86,
+          "avg30": 2.07,
+          "avg7": 2.21
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
     }
   ],
-  "last_updated": "2026-01-12 20:07:45"
+  "last_updated": "2026-01-14 18:40:48"
 }

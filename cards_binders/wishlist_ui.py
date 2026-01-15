@@ -12,6 +12,7 @@ import sys
 import argparse
 import re
 import requests
+import sqlite3
 from datetime import datetime
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.responses import HTMLResponse, JSONResponse, FileResponse
@@ -19,6 +20,10 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from typing import List, Dict, Any, Optional
 from pathlib import Path
+
+# Import authentication and database modules
+import database
+import auth
 
 # Import card autocomplete functionality
 try:
@@ -57,52 +62,73 @@ app.add_middleware(
 )
 
 
-def load_wishlist(filepath: str = WISHLIST_FILE) -> List[Dict[str, Any]]:
-    """Load wishlist from JSON file."""
-    try:
-        if not os.path.exists(filepath):
+def load_wishlist(filepath: str = WISHLIST_FILE, user_id: Optional[int] = None) -> List[Dict[str, Any]]:
+    """Load wishlist from database (if user_id provided) or JSON file (if None)."""
+    if user_id is not None:
+        # Load from database
+        return database.get_user_wishlist(user_id)
+    else:
+        # Load from JSON file (backward compatibility for non-logged-in users)
+        try:
+            if not os.path.exists(filepath):
+                return []
+            with open(filepath, 'r', encoding='utf-8') as f:
+                wishlist = json.load(f)
+            return wishlist
+        except Exception as e:
+            print(f"Error loading wishlist: {e}")
             return []
-        with open(filepath, 'r', encoding='utf-8') as f:
-            wishlist = json.load(f)
-        return wishlist
-    except Exception as e:
-        print(f"Error loading wishlist: {e}")
-        return []
 
 
-def save_wishlist(wishlist: List[Dict[str, Any]], filepath: str = WISHLIST_FILE) -> bool:
-    """Save wishlist to JSON file."""
-    try:
-        with open(filepath, 'w', encoding='utf-8') as f:
-            json.dump(wishlist, f, indent=2, ensure_ascii=False)
-        return True
-    except Exception as e:
-        print(f"Error saving wishlist: {e}")
-        return False
+def save_wishlist(wishlist: List[Dict[str, Any]], filepath: str = WISHLIST_FILE, user_id: Optional[int] = None) -> bool:
+    """Save wishlist to database (if user_id provided) or JSON file (if None)."""
+    if user_id is not None:
+        # Save to database
+        return database.save_user_wishlist(user_id, wishlist)
+    else:
+        # Save to JSON file (backward compatibility for non-logged-in users)
+        try:
+            with open(filepath, 'w', encoding='utf-8') as f:
+                json.dump(wishlist, f, indent=2, ensure_ascii=False)
+            return True
+        except Exception as e:
+            print(f"Error saving wishlist: {e}")
+            return False
 
 
-def load_archived_wishlist(filepath: str = "wishlist_archived.json") -> List[Dict[str, Any]]:
-    """Load archived wishlist from JSON file."""
-    try:
-        if not os.path.exists(filepath):
+def load_archived_wishlist(filepath: str = "wishlist_archived.json", user_id: Optional[int] = None) -> List[Dict[str, Any]]:
+    """Load archived wishlist from database (if user_id provided) or JSON file (if None)."""
+    if user_id is not None:
+        # Load archived items from database
+        return database.get_archived_wishlist(user_id)
+    else:
+        # Load from JSON file (backward compatibility)
+        try:
+            if not os.path.exists(filepath):
+                return []
+            with open(filepath, 'r', encoding='utf-8') as f:
+                archived = json.load(f)
+            return archived
+        except Exception as e:
+            print(f"Error loading archived wishlist: {e}")
             return []
-        with open(filepath, 'r', encoding='utf-8') as f:
-            archived = json.load(f)
-        return archived
-    except Exception as e:
-        print(f"Error loading archived wishlist: {e}")
-        return []
 
 
-def save_archived_wishlist(archived: List[Dict[str, Any]], filepath: str = "wishlist_archived.json") -> bool:
-    """Save archived wishlist to JSON file."""
-    try:
-        with open(filepath, 'w', encoding='utf-8') as f:
-            json.dump(archived, f, indent=2, ensure_ascii=False)
+def save_archived_wishlist(archived: List[Dict[str, Any]], filepath: str = "wishlist_archived.json", user_id: Optional[int] = None) -> bool:
+    """Save archived wishlist to JSON file. Note: For database users, archiving is handled directly by database.archive_wishlist_item()."""
+    if user_id is not None:
+        # For database users, archiving is handled by database.archive_wishlist_item()
+        # This function is only used for JSON file fallback
         return True
-    except Exception as e:
-        print(f"Error saving archived wishlist: {e}")
-        return False
+    else:
+        # Save to JSON file (backward compatibility)
+        try:
+            with open(filepath, 'w', encoding='utf-8') as f:
+                json.dump(archived, f, indent=2, ensure_ascii=False)
+            return True
+        except Exception as e:
+            print(f"Error saving archived wishlist: {e}")
+            return False
 
 
 def normalize_filename(name: str) -> str:
@@ -736,9 +762,14 @@ async def wishlist_page():
             const formAction = form.action || '';
             const formText = form.textContent || '';
             
-            if (formText.includes('ADD CARD') || formText.includes('WISHLIST') || 
-                formId.includes('card') || formClass.includes('card') || 
-                formAction.includes('wishlist')) {
+                    // Skip auth forms - they have their own handler
+                    if (formId === 'authForm' || formClass.includes('auth')) {
+                        return; // Let auth form handle itself
+                    }
+                    
+                    if (formText.includes('ADD CARD') || formText.includes('WISHLIST') || 
+                        formId.includes('card') || formClass.includes('card') || 
+                        (formAction.includes('wishlist') && !formAction.includes('/api/auth'))) {
                 
                 e.preventDefault();
                 e.stopPropagation();
@@ -946,6 +977,350 @@ async def wishlist_page():
                     html_content = html_content.replace('</html>', move_script + '\n</html>')
                 else:
                     html_content += move_script
+            
+            # Inject CSS for header flexbox layout (for auth section)
+            if 'id="auth-section-style"' not in html_content:
+                header_css = """
+    <style id="auth-section-style">
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #authModal {
+            display: none;
+        }
+        #authModal[style*="flex"] {
+            display: flex !important;
+        }
+    </style>
+"""
+                if '<head>' in html_content:
+                    html_content = html_content.replace('<head>', '<head>' + header_css)
+                elif '</head>' in html_content:
+                    html_content = html_content.replace('</head>', header_css + '</head>')
+            
+            # Inject authentication UI into header
+            if 'id="authSection"' not in html_content:
+                print("🔐 Injecting authentication UI into wishlist HTML template", flush=True)
+                auth_ui = """
+            <div class="auth-section" id="authSection" style="margin-left: auto; display: flex; align-items: center;">
+                <div id="authButtons" style="display: none;">
+                    <button onclick="showLoginModal()" style="padding: 8px 16px; margin: 0 5px; background: #4a5568; color: white; border: none; border-radius: 4px; cursor: pointer;">Login</button>
+                    <button onclick="showRegisterModal()" style="padding: 8px 16px; margin: 0 5px; background: #2d3748; color: white; border: none; border-radius: 4px; cursor: pointer;">Register</button>
+                </div>
+                <div id="userInfo" style="display: none;">
+                    <span id="usernameDisplay" style="color: #d4af37; margin-right: 10px;"></span>
+                    <button onclick="logout()" style="padding: 8px 16px; background: #c53030; color: white; border: none; border-radius: 4px; cursor: pointer;">Logout</button>
+                </div>
+            </div>
+"""
+                # Insert auth UI before closing </header> tag
+                if '</header>' in html_content:
+                    html_content = html_content.replace('</header>', auth_ui + '\n        </header>')
+                    print("✅ Authentication UI injected into wishlist header", flush=True)
+                else:
+                    print("⚠️  Warning: </header> tag not found, auth UI not injected", flush=True)
+                
+                # Add authentication modal before </body>
+                auth_modal = """
+        <!-- Login/Register Modal -->
+        <div id="authModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; justify-content: center; align-items: center;">
+            <div style="background: #1a202c; padding: 30px; border-radius: 8px; max-width: 400px; width: 90%;">
+                <h2 id="authModalTitle" style="color: #d4af37; margin-top: 0;">Login</h2>
+                <form id="authForm" onsubmit="handleAuth(event)">
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; color: #e2e8f0; margin-bottom: 5px;">Username:</label>
+                        <input type="text" id="authUsername" required style="width: 100%; padding: 8px; background: #2d3748; color: white; border: 1px solid #4a5568; border-radius: 4px; box-sizing: border-box;">
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; color: #e2e8f0; margin-bottom: 5px;">Password:</label>
+                        <input type="password" id="authPassword" required style="width: 100%; padding: 8px; background: #2d3748; color: white; border: 1px solid #4a5568; border-radius: 4px; box-sizing: border-box;">
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <button type="submit" style="flex: 1; padding: 10px; background: #4a5568; color: white; border: none; border-radius: 4px; cursor: pointer;">Submit</button>
+                        <button type="button" onclick="hideAuthModal()" style="flex: 1; padding: 10px; background: #718096; color: white; border: none; border-radius: 4px; cursor: pointer;">Cancel</button>
+                    </div>
+                    <div id="authError" style="color: #fc8181; margin-top: 10px; display: none;"></div>
+                </form>
+            </div>
+        </div>
+"""
+                if '</body>' in html_content:
+                    html_content = html_content.replace('</body>', auth_modal + '\n    </body>')
+            
+            # Inject authentication JavaScript
+            if 'id="auth-script"' not in html_content:
+                print("🔐 Injecting authentication JavaScript into wishlist", flush=True)
+                auth_script = """
+    <script id="auth-script">
+        // Authentication functions for wishlist
+        let isLoginMode = true;
+        let isCheckingAuth = false;  // Prevent duplicate auth checks
+        let wishlistReloadScheduled = false;  // Prevent duplicate wishlist reloads
+
+        async function checkAuthStatus() {
+            // Prevent duplicate calls
+            if (isCheckingAuth) {
+                console.log('Auth check already in progress, skipping...');
+                return;
+            }
+            isCheckingAuth = true;
+            try {
+                const apiPath = window.location.pathname.includes('/wishlist') ? '/wishlist/api/auth/me' : '/api/auth/me';
+                console.log('Checking auth status at:', apiPath);
+                const response = await fetch(apiPath, { 
+                    credentials: 'include',
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                const data = await response.json();
+                console.log('Auth status response:', data);
+                
+                const authButtons = document.getElementById('authButtons');
+                const userInfo = document.getElementById('userInfo');
+                const usernameDisplay = document.getElementById('usernameDisplay');
+                const modal = document.getElementById('authModal');
+                
+                if (data.authenticated) {
+                    if (authButtons) authButtons.style.display = 'none';
+                    if (userInfo) userInfo.style.display = 'block';
+                    if (usernameDisplay) usernameDisplay.textContent = data.username;
+                    // Close modal if it's open
+                    if (modal) {
+                        modal.style.display = 'none';
+                    }
+                    console.log('User authenticated:', data.username);
+                    
+                    // Ensure "Add Card" button is visible when logged in
+                    const allButtons = document.querySelectorAll('button, a, [role="button"]');
+                    allButtons.forEach(btn => {
+                        const text = (btn.textContent || '').toLowerCase();
+                        if (text.includes('add card') || text.includes('add new') || text.includes('➕')) {
+                            btn.style.display = '';
+                            btn.style.visibility = 'visible';
+                            btn.removeAttribute('hidden');
+                            console.log('✅ Made Add Card button visible:', btn);
+                        }
+                    });
+                } else {
+                    if (authButtons) authButtons.style.display = 'block';
+                    if (userInfo) userInfo.style.display = 'none';
+                    console.log('User not authenticated');
+                }
+            } catch (error) {
+                console.error('Error checking auth status:', error);
+                const authButtons = document.getElementById('authButtons');
+                const userInfo = document.getElementById('userInfo');
+                if (authButtons) authButtons.style.display = 'block';
+                if (userInfo) userInfo.style.display = 'none';
+            } finally {
+                isCheckingAuth = false;
+            }
+        }
+
+        function showLoginModal() {
+            isLoginMode = true;
+            document.getElementById('authModalTitle').textContent = 'Login';
+            document.getElementById('authModal').style.display = 'flex';
+            document.getElementById('authError').style.display = 'none';
+            document.getElementById('authUsername').value = '';
+            document.getElementById('authPassword').value = '';
+        }
+
+        function showRegisterModal() {
+            isLoginMode = false;
+            document.getElementById('authModalTitle').textContent = 'Register';
+            document.getElementById('authModal').style.display = 'flex';
+            document.getElementById('authError').style.display = 'none';
+            document.getElementById('authUsername').value = '';
+            document.getElementById('authPassword').value = '';
+        }
+
+        function hideAuthModal() {
+            document.getElementById('authModal').style.display = 'none';
+            document.getElementById('authError').style.display = 'none';
+        }
+
+        async function handleAuth(event) {
+            event.preventDefault();
+            const username = document.getElementById('authUsername').value;
+            const password = document.getElementById('authPassword').value;
+            const errorDiv = document.getElementById('authError');
+            
+            try {
+                const endpoint = isLoginMode ? 'login' : 'register';
+                const apiPath = window.location.pathname.includes('/wishlist') 
+                    ? `/wishlist/api/auth/${endpoint}` 
+                    : `/api/auth/${endpoint}`;
+                
+                const response = await fetch(apiPath, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username, password }),
+                    credentials: 'include'
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    hideAuthModal();
+                    await checkAuthStatus();
+                    // Reload the page to show user's wishlist
+                    console.log('Login successful, reloading page...');
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 100);
+                    return;
+                } else {
+                    errorDiv.textContent = data.detail || 'Authentication failed';
+                    errorDiv.style.display = 'block';
+                }
+            } catch (error) {
+                errorDiv.textContent = 'Error: ' + error.message;
+                errorDiv.style.display = 'block';
+            }
+        }
+
+        async function logout() {
+            try {
+                const apiPath = window.location.pathname.includes('/wishlist') 
+                    ? '/wishlist/api/auth/logout' 
+                    : '/api/auth/logout';
+                
+                await fetch(apiPath, {
+                    method: 'POST',
+                    credentials: 'include'
+                });
+                
+                // Reload the page to show shared wishlist
+                console.log('Logout successful, reloading page...');
+                setTimeout(() => {
+                    window.location.reload();
+                }, 100);
+            } catch (error) {
+                console.error('Error logging out:', error);
+            }
+        }
+
+        // Intercept fetch requests to reload wishlist after adding/updating/deleting cards
+        if (!window._wishlistReloadIntercepted) {
+            window._wishlistReloadIntercepted = true;
+            const originalFetch = window.fetch;
+            window.fetch = function(...args) {
+                const url = args[0];
+                const options = args[1] || {};
+                
+                // Intercept POST/PUT/DELETE to /api/wishlist
+                if (typeof url === 'string' && 
+                    (url.includes('/api/wishlist') || url.includes('/wishlist/api/wishlist')) &&
+                    (options.method === 'POST' || options.method === 'PUT' || options.method === 'DELETE')) {
+                    
+                    return originalFetch.apply(this, args).then(async response => {
+                        // Check if request was successful
+                        if (response.ok) {
+                            try {
+                                const data = await response.clone().json();
+                                if (data.success) {
+                                    console.log('✅ Wishlist operation successful, reloading...');
+                                    // Reload wishlist after a short delay
+                                    setTimeout(() => {
+                                        if (typeof loadCards === 'function' && document.readyState === 'complete' && !wishlistReloadScheduled) {
+                                            wishlistReloadScheduled = true;
+                                            console.log('🔄 Reloading wishlist after card operation...');
+                                            loadCards();
+                                            setTimeout(() => {
+                                                wishlistReloadScheduled = false;
+                                            }, 1000);
+                                        }
+                                    }, 300);
+                                }
+                            } catch(e) {
+                                // Response might not be JSON, ignore
+                            }
+                        }
+                        return response;
+                    });
+                }
+                
+                return originalFetch.apply(this, args);
+            };
+        }
+        
+        // Check auth status on page load
+        let authInitialized = false;
+        function initAuth() {
+            if (authInitialized) return;
+            authInitialized = true;
+            
+            // First, ensure modal is hidden
+            const modal = document.getElementById('authModal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+            // Small delay to ensure cookies are available, then check auth
+            setTimeout(checkAuthStatus, 100);
+        }
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initAuth);
+        } else {
+            // DOM already loaded
+            initAuth();
+        }
+        
+        // Also check on window load
+        let authCheckedOnLoad = false;
+        window.addEventListener('load', function() {
+            if (authCheckedOnLoad) return;
+            authCheckedOnLoad = true;
+            
+            setTimeout(function() {
+                checkAuthStatus();
+                // Ensure modal is closed if user is authenticated
+                const modal = document.getElementById('authModal');
+                if (modal && modal.style.display === 'flex') {
+                    fetch(window.location.pathname.includes('/wishlist') ? '/wishlist/api/auth/me' : '/api/auth/me', { 
+                        credentials: 'include' 
+                    })
+                    .then(r => r.json())
+                    .then(data => {
+                        if (data.authenticated && modal) {
+                            modal.style.display = 'none';
+                        }
+                    });
+                }
+            }, 200);
+        });
+        
+        // Close auth modal with ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const authModal = document.getElementById('authModal');
+                if (authModal && authModal.style.display === 'flex') {
+                    hideAuthModal();
+                }
+            }
+        });
+        
+        // Close auth modal when clicking outside (on backdrop)
+        document.addEventListener('click', function(event) {
+            const authModal = document.getElementById('authModal');
+            if (event.target === authModal) {
+                hideAuthModal();
+            }
+        });
+    </script>
+"""
+                if '</body>' in html_content:
+                    html_content = html_content.replace('</body>', auth_script + '\n    </body>')
+                elif '</script>' in html_content:
+                    # Insert before last </script> tag
+                    html_content = html_content.rsplit('</script>', 1)[0] + auth_script + '\n    </script>' + html_content.rsplit('</script>', 1)[1]
             
             # Inject JavaScript for pagination support (remember page after edit, add Last Page button)
             if 'pagination-support' not in html_content:
@@ -1301,9 +1676,10 @@ async def wishlist_page():
 
 
 @app.get("/api/wishlist")
-async def get_wishlist():
+async def get_wishlist(request: Request):
     """Get the full wishlist."""
-    wishlist = load_wishlist()
+    user_id = auth.get_current_user(request)
+    wishlist = load_wishlist(user_id=user_id)
     return JSONResponse({"wishlist": wishlist})
 
 
@@ -1323,9 +1699,10 @@ async def get_sets():
 
 
 @app.get("/api/wishlist-cards")
-async def get_wishlist_cards():
+async def get_wishlist_cards(request: Request):
     """Get wishlist expanded to cards (one per set). Automatically fetches missing images."""
-    wishlist = load_wishlist()
+    user_id = auth.get_current_user(request)
+    wishlist = load_wishlist(user_id=user_id)
     cards = expand_wishlist_to_cards(wishlist)
     return JSONResponse({"cards": cards, "total": len(cards)})
 
@@ -1335,7 +1712,7 @@ async def add_wishlist_item(request: Request):
     """Add a new item to the wishlist."""
     try:
         data = await request.json()
-        wishlist = load_wishlist()
+        user_id = auth.get_current_user(request)
         
         # Validate required fields
         if 'name' not in data:
@@ -1345,11 +1722,21 @@ async def add_wishlist_item(request: Request):
         new_item = {
             'name': data['name'],
             'sets': data.get('sets', []),
+            'notes': data.get('notes', ''),
         }
         
+        # If logged in, add directly to database
+        if user_id is not None:
+            item_id = database.add_wishlist_item(user_id, new_item)
+            if item_id is None:
+                raise HTTPException(status_code=500, detail="Failed to add item to wishlist")
+            return JSONResponse({"success": True, "message": "Item added successfully"})
+        
+        # If not logged in, use JSON file (backward compatibility)
+        wishlist = load_wishlist(user_id=user_id)
         wishlist.append(new_item)
         
-        if save_wishlist(wishlist):
+        if save_wishlist(wishlist, user_id=user_id):
             return JSONResponse({"success": True, "message": "Item added successfully"})
         else:
             raise HTTPException(status_code=500, detail="Failed to save wishlist")
@@ -1362,12 +1749,33 @@ async def update_wishlist_item(index: int, request: Request):
     """Update a wishlist item by index."""
     try:
         data = await request.json()
-        wishlist = load_wishlist()
+        user_id = auth.get_current_user(request)
+        wishlist = load_wishlist(user_id=user_id)
         
         if index < 0 or index >= len(wishlist):
             raise HTTPException(status_code=404, detail="Item not found")
         
-        # Update item
+        # If logged in, update in database using item ID
+        if user_id is not None:
+            item = wishlist[index]
+            item_id = item.get("id")
+            if item_id is None:
+                raise HTTPException(status_code=404, detail="Item ID not found")
+            
+            # Build update data
+            update_data = {}
+            if 'name' in data:
+                update_data['name'] = data['name']
+            if 'sets' in data:
+                update_data['sets'] = data['sets']
+            if 'notes' in data:
+                update_data['notes'] = data['notes']
+            
+            if not database.update_wishlist_item(user_id, item_id, update_data):
+                raise HTTPException(status_code=500, detail="Failed to update item in database")
+            return JSONResponse({"success": True, "message": "Item updated successfully"})
+        
+        # If not logged in, use JSON file (backward compatibility)
         if 'name' in data:
             wishlist[index]['name'] = data['name']
         if 'sets' in data:
@@ -1379,7 +1787,7 @@ async def update_wishlist_item(index: int, request: Request):
         elif 'max_price' in wishlist[index] and data.get('max_price') is None:
             del wishlist[index]['max_price']
         
-        if save_wishlist(wishlist):
+        if save_wishlist(wishlist, user_id=user_id):
             return JSONResponse({"success": True, "message": "Item updated successfully"})
         else:
             raise HTTPException(status_code=500, detail="Failed to save wishlist")
@@ -1388,14 +1796,32 @@ async def update_wishlist_item(index: int, request: Request):
 
 
 @app.delete("/api/wishlist/{index}")
-async def archive_wishlist_item(index: int):
-    """Archive a wishlist item by moving it to wishlist_archived.json."""
+async def archive_wishlist_item(index: int, request: Request):
+    """Archive a wishlist item by setting archived=1 in database or moving to wishlist_archived.json."""
     try:
-        wishlist = load_wishlist()
+        user_id = auth.get_current_user(request)
+        wishlist = load_wishlist(user_id=user_id)
         
         if index < 0 or index >= len(wishlist):
             raise HTTPException(status_code=404, detail="Item not found")
         
+        # If logged in, archive in database using item ID
+        if user_id is not None:
+            item = wishlist[index]
+            item_id = item.get("id")
+            if item_id is None:
+                raise HTTPException(status_code=404, detail="Item ID not found")
+            
+            if not database.archive_wishlist_item(user_id, item_id):
+                raise HTTPException(status_code=500, detail="Failed to archive item in database")
+            
+            return JSONResponse({
+                "success": True, 
+                "message": "Item archived successfully",
+                "archived_item": item
+            })
+        
+        # If not logged in, use JSON file (backward compatibility)
         # Get the item to archive
         item_to_archive = wishlist.pop(index)
         
@@ -1403,11 +1829,11 @@ async def archive_wishlist_item(index: int):
         item_to_archive['archived_at'] = datetime.now().isoformat()
         
         # Load existing archived items
-        archived = load_archived_wishlist()
+        archived = load_archived_wishlist(user_id=user_id)
         archived.append(item_to_archive)
         
         # Save both files
-        if save_wishlist(wishlist) and save_archived_wishlist(archived):
+        if save_wishlist(wishlist, user_id=user_id) and save_archived_wishlist(archived, user_id=user_id):
             return JSONResponse({
                 "success": True, 
                 "message": "Item archived successfully",
@@ -1424,9 +1850,10 @@ async def move_wishlist_to_collection(index: int, request: Request):
     """Move a wishlist item (or specific set from a wishlist item) to collection (when buying it)."""
     try:
         data = await request.json()
+        user_id = auth.get_current_user(request)
         
         # Load wishlist
-        wishlist = load_wishlist()
+        wishlist = load_wishlist(user_id=user_id)
         
         if index < 0 or index >= len(wishlist):
             raise HTTPException(status_code=404, detail="Wishlist item not found")
@@ -1444,38 +1871,18 @@ async def move_wishlist_to_collection(index: int, request: Request):
         print(f"      All sets in wishlist item: {all_sets}", flush=True)
         print(f"      Selected expansion from request: {selected_expansion}", flush=True)
         print(f"      Request data keys: {list(data.keys())}", flush=True)
+        print(f"      User ID: {user_id}", flush=True)
         
-        # Determine which set(s) to move
+        # Create collection item with only the selected set(s)
         if selected_expansion:
             # Move only the selected set
             if selected_expansion not in all_sets:
                 raise HTTPException(status_code=400, detail=f"Set '{selected_expansion}' not found in wishlist item")
             sets_to_move = [selected_expansion]
-            
-            # Remove the selected set from wishlist item
-            remaining_sets = [s for s in all_sets if s != selected_expansion]
-            
-            # If there are remaining sets, update the wishlist item; otherwise remove it
-            if remaining_sets:
-                wishlist[index]['sets'] = remaining_sets
-                item_to_archive = wishlist_item.copy()
-                item_to_archive['sets'] = [selected_expansion]  # Archive only the moved set
-            else:
-                # No remaining sets, remove the entire item from wishlist
-                item_to_archive = wishlist.pop(index)
         else:
             # No specific set selected, move all sets (original behavior)
             sets_to_move = all_sets
-            item_to_archive = wishlist.pop(index)
         
-        # Load collection
-        collection_file = "collection.json"
-        collection = []
-        if os.path.exists(collection_file):
-            with open(collection_file, 'r', encoding='utf-8') as f:
-                collection = json.load(f)
-        
-        # Create collection item with only the selected set(s)
         collection_item = {
             'name': wishlist_item.get('name'),
             'sets': sets_to_move
@@ -1513,20 +1920,73 @@ async def move_wishlist_to_collection(index: int, request: Request):
         collection_item['added_at'] = datetime.now().isoformat()
         collection_item['moved_from_wishlist'] = True
         
+        # Handle database vs JSON file operations
+        if user_id is not None:
+            # Database operations for logged-in users
+            wishlist_item_id = wishlist_item.get("id")
+            if wishlist_item_id is None:
+                raise HTTPException(status_code=404, detail="Wishlist item ID not found")
+            
+            if selected_expansion and len(all_sets) > 1:
+                # Remove the selected set from wishlist item, keep others
+                remaining_sets = [s for s in all_sets if s != selected_expansion]
+                if not database.update_wishlist_item(user_id, wishlist_item_id, {"sets": remaining_sets}):
+                    raise HTTPException(status_code=500, detail="Failed to update wishlist item")
+            else:
+                # Archive the entire wishlist item
+                if not database.archive_wishlist_item(user_id, wishlist_item_id):
+                    raise HTTPException(status_code=500, detail="Failed to archive wishlist item")
+            
+            # Add to collection in database
+            collection_item_id = database.add_collection_item(user_id, collection_item)
+            if collection_item_id is None:
+                raise HTTPException(status_code=500, detail="Failed to add item to collection")
+            
+            return JSONResponse({
+                "success": True,
+                "message": "Card moved to collection successfully",
+                "collection_item": collection_item
+            })
+        
+        # JSON file operations for non-logged-in users (backward compatibility)
+        # Determine which set(s) to move
+        if selected_expansion:
+            # Remove the selected set from wishlist item
+            remaining_sets = [s for s in all_sets if s != selected_expansion]
+            
+            # If there are remaining sets, update the wishlist item; otherwise remove it
+            if remaining_sets:
+                wishlist[index]['sets'] = remaining_sets
+                item_to_archive = wishlist_item.copy()
+                item_to_archive['sets'] = [selected_expansion]  # Archive only the moved set
+            else:
+                # No remaining sets, remove the entire item from wishlist
+                item_to_archive = wishlist.pop(index)
+        else:
+            # No specific set selected, move all sets (original behavior)
+            item_to_archive = wishlist.pop(index)
+        
+        # Load collection
+        collection_file = "collection.json"
+        collection = []
+        if os.path.exists(collection_file):
+            with open(collection_file, 'r', encoding='utf-8') as f:
+                collection = json.load(f)
+        
         # Add to collection
         collection.append(collection_item)
         
         # Archive the moved wishlist item (or part of it)
-        archived = load_archived_wishlist()
+        archived = load_archived_wishlist(user_id=user_id)
         item_to_archive['archived_at'] = datetime.now().isoformat()
         item_to_archive['moved_to_collection'] = True
         archived.append(item_to_archive)
         
         # Save all files
-        if not save_wishlist(wishlist):
+        if not save_wishlist(wishlist, user_id=user_id):
             raise HTTPException(status_code=500, detail="Failed to save wishlist")
         
-        if not save_archived_wishlist(archived):
+        if not save_archived_wishlist(archived, user_id=user_id):
             raise HTTPException(status_code=500, detail="Failed to save archived wishlist")
         
         with open(collection_file, 'w', encoding='utf-8') as f:
@@ -1625,6 +2085,113 @@ async def fetch_card_image(name: str, set: Optional[str] = None):
             "success": False,
             "message": str(e)
         }, status_code=500)
+
+
+# Authentication endpoints
+@app.post("/api/auth/register")
+async def register(request: Request):
+    """Register a new user."""
+    try:
+        data = await request.json()
+        username = data.get("username", "").strip()
+        password = data.get("password", "")
+        
+        if not username or not password:
+            raise HTTPException(status_code=400, detail="Username and password are required")
+        
+        if len(username) < 3:
+            raise HTTPException(status_code=400, detail="Username must be at least 3 characters")
+        
+        if len(password) < 6:
+            raise HTTPException(status_code=400, detail="Password must be at least 6 characters")
+        
+        password_hash = auth.hash_password(password)
+        try:
+            user_id = database.create_user(username, password_hash)
+        except sqlite3.OperationalError as e:
+            error_msg = str(e).lower()
+            if "no such table" in error_msg:
+                raise HTTPException(status_code=500, detail="Database not initialized. Please restart the server.")
+            else:
+                raise HTTPException(status_code=500, detail=f"Database error: {e}")
+        
+        if user_id is None:
+            raise HTTPException(status_code=400, detail="Username already exists")
+        
+        # Create session token
+        token = auth.create_session_token(user_id)
+        response = JSONResponse({"success": True, "message": "Registration successful", "username": username})
+        response.set_cookie(
+            key=auth.SESSION_COOKIE_NAME,
+            value=token,
+            max_age=auth.SESSION_MAX_AGE,
+            httponly=True,
+            samesite="lax",
+            path="/"
+        )
+        return response
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+
+@app.post("/api/auth/login")
+async def login(request: Request):
+    """Login a user."""
+    try:
+        data = await request.json()
+        username = data.get("username", "").strip()
+        password = data.get("password", "")
+        
+        if not username or not password:
+            raise HTTPException(status_code=400, detail="Username and password are required")
+        
+        user = database.get_user_by_username(username)
+        if not user:
+            raise HTTPException(status_code=401, detail="Invalid username or password")
+        
+        if not auth.verify_password(password, user["password_hash"]):
+            raise HTTPException(status_code=401, detail="Invalid username or password")
+        
+        # Create session token
+        token = auth.create_session_token(user["id"])
+        response = JSONResponse({"success": True, "message": "Login successful", "username": username})
+        response.set_cookie(
+            key=auth.SESSION_COOKIE_NAME,
+            value=token,
+            max_age=auth.SESSION_MAX_AGE,
+            httponly=True,
+            samesite="lax",
+            path="/"
+        )
+        return response
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+
+@app.post("/api/auth/logout")
+async def logout():
+    """Logout the current user."""
+    response = JSONResponse({"success": True, "message": "Logout successful"})
+    response.delete_cookie(key=auth.SESSION_COOKIE_NAME, path="/")
+    return response
+
+
+@app.get("/api/auth/me")
+async def get_current_user_info(request: Request):
+    """Get current user information."""
+    user_id = auth.get_current_user(request)
+    if user_id is None:
+        return JSONResponse({"authenticated": False})
+    
+    user = database.get_user_by_id(user_id)
+    if not user:
+        return JSONResponse({"authenticated": False})
+    
+    return JSONResponse({"authenticated": True, "username": user["username"], "user_id": user["id"]})
 
 
 def main():

@@ -19,9 +19,16 @@ from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse, JSONResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from jinja2 import Environment, FileSystemLoader
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any, Optional, Set
 from pathlib import Path
 from datetime import datetime
+
+# Import database for per-user wishlist filtering
+try:
+    import database
+    DATABASE_AVAILABLE = True
+except ImportError:
+    DATABASE_AVAILABLE = False
 
 app = FastAPI(title="MTG Card Binder", description="MTG Card Deal Binder Interface")
 
@@ -334,17 +341,122 @@ def detect_source_type(filename: str) -> str:
         return 'wishlist'  # Default to wishlist
 
 
+def get_user_wishlist_card_names(user_id: int) -> Set[str]:
+    """
+    Get set of card names from a user's wishlist for filtering deals.
+    
+    Args:
+        user_id: Database user ID
+        
+    Returns:
+        Set of card names (lowercase) from user's wishlist
+    """
+    if not DATABASE_AVAILABLE:
+        return set()
+    
+    try:
+        wishlist = database.get_user_wishlist(user_id, include_archived=False)
+        card_names = set()
+        for item in wishlist:
+            name = item.get('name', '').lower().strip()
+            if name:
+                card_names.add(name)
+        return card_names
+    except Exception as e:
+        print(f"Error getting user wishlist card names: {e}")
+        return set()
+
+
+def filter_deals_by_card_names(deals: List[Dict[str, Any]], card_names: Set[str]) -> List[Dict[str, Any]]:
+    """
+    Filter deals to only include cards that are in the given set of card names.
+    
+    Args:
+        deals: List of normalized deal dictionaries
+        card_names: Set of card names (lowercase) to filter by
+        
+    Returns:
+        Filtered list of deals
+    """
+    if not card_names:
+        return deals
+    
+    return [
+        deal for deal in deals 
+        if deal.get('card_name', '').lower().strip() in card_names
+    ]
+
+
+def get_deals_from_database(card_names: Optional[List[str]] = None) -> List[Dict[str, Any]]:
+    """
+    Get deals from database, optionally filtered by card names.
+    
+    Args:
+        card_names: Optional list of card names to filter by
+        
+    Returns:
+        List of deal dictionaries from database, converted to normalized format
+    """
+    if not DATABASE_AVAILABLE:
+        return []
+    
+    try:
+        deals = database.get_scan_deals(card_names)
+        
+        # Convert database format to normalized format for web_ui
+        normalized_deals = []
+        for deal in deals:
+            card = deal.get('card', {})
+            live_data = deal.get('live_data', {})
+            discounts = deal.get('discounts', {})
+            
+            # Get country from cheapest_good_details
+            country = None
+            cheapest_details = live_data.get('cheapest_good_details', {})
+            if cheapest_details:
+                country = cheapest_details.get('country')
+            
+            normalized = {
+                'card_name': card.get('name', 'Unknown'),
+                'expansion': card.get('expansion'),
+                'card_id': card.get('card_id'),
+                'price': live_data.get('cheapest_good_condition'),
+                'condition': cheapest_details.get('condition', 'Unknown') if cheapest_details else 'Unknown',
+                'seller': cheapest_details.get('seller', 'Unknown') if cheapest_details else 'Unknown',
+                'seller_country': country,
+                'discount': discounts.get('discount_vs_market'),
+                'market_baseline': discounts.get('market_baseline'),
+                'category': deal.get('category', 'unknown'),
+                'url': live_data.get('url', ''),
+                'total_listings': live_data.get('total_listings', 0),
+                'available_items_total': live_data.get('available_items_total'),
+                'historical': card.get('historical', {}),
+                'source': 'database',
+                'old_school_legal': card.get('old_school_legal', False),
+                'premodern_legal': card.get('premodern_legal', False),
+                'scanned_at': deal.get('scanned_at'),
+            }
+            normalized_deals.append(normalized)
+        
+        return normalized_deals
+    except Exception as e:
+        print(f"Error getting deals from database: {e}")
+        import traceback
+        traceback.print_exc()
+        return []
+
+
 @app.get("/", response_class=HTMLResponse)
 async def index():
     """Main page - wishlist market scan."""
-    template = jinja_env.get_template("binder.html")
+    template = jinja_env.get_template("marketscan_binder.html")
     return HTMLResponse(content=template.render(source_type='wishlist'))
 
 
 @app.get("/collection", response_class=HTMLResponse)
 async def collection_market_scan():
     """Collection market scan page."""
-    template = jinja_env.get_template("binder.html")
+    template = jinja_env.get_template("marketscan_binder.html")
     return HTMLResponse(content=template.render(source_type='collection'))
 
 
@@ -437,10 +549,100 @@ async def api_deals(
     countries: Optional[str] = None,  # Comma-separated list of countries
     price_min: Optional[float] = None,
     price_max: Optional[float] = None,
-    min_available: Optional[int] = None  # Minimum number of available items (liquidity filter)
+    min_available: Optional[int] = None,  # Minimum number of available items (liquidity filter)
+    user_id: Optional[int] = None  # Optional user ID to filter deals by user's wishlist
 ):
-    """Get deals from a specific result file, optionally filtered by source type."""
-    print(f"📊 API /deals: Called with file='{file}', source_type='{source_type}'", flush=True)
+    """
+    Get deals from a specific result file or database, optionally filtered by source type.
+    
+    When user_id is provided:
+    - Tries to load deals from database first
+    - Filters deals to only show cards in that user's wishlist
+    
+    When user_id is not provided:
+    - Uses original behavior (load from JSON files)
+    """
+    print(f"📊 API /deals: Called with file='{file}', source_type='{source_type}', user_id={user_id}", flush=True)
+    
+    # If user_id is provided, try to load from database with user's wishlist filtering
+    user_card_names = None
+    if user_id is not None:
+        user_card_names = get_user_wishlist_card_names(user_id)
+        print(f"📊 API /deals: User {user_id} has {len(user_card_names)} cards in wishlist", flush=True)
+        
+        if user_card_names and DATABASE_AVAILABLE:
+            # Try to get deals from database first
+            db_metadata = database.get_scan_metadata()
+            if db_metadata.get('total_deals', 0) > 0:
+                print(f"📊 API /deals: Loading from database (last scan: {db_metadata.get('last_scan')}, total: {db_metadata.get('total_deals')})", flush=True)
+                
+                # Load deals from database, filtered by user's wishlist
+                deals = get_deals_from_database(list(user_card_names))
+                print(f"📊 API /deals: Got {len(deals)} deals from database matching user's wishlist", flush=True)
+                
+                if deals:
+                    # Apply all the same filters as JSON-based flow
+                    # Apply filters
+                    if category:
+                        deals = [d for d in deals if d.get('category') == category]
+                    
+                    if min_discount is not None:
+                        deals = [d for d in deals if d.get('discount') and d.get('discount') >= min_discount]
+                    
+                    # Filter by sets (expansions)
+                    if sets:
+                        allowed_sets = [s.strip().lower() for s in sets.split(',') if s.strip()]
+                        if allowed_sets:
+                            deals = [d for d in deals if d.get('expansion') and str(d.get('expansion', '')).lower() in allowed_sets]
+                    
+                    # Filter by countries
+                    if countries:
+                        allowed_countries = [c.strip().lower() for c in countries.split(',') if c.strip()]
+                        if allowed_countries:
+                            deals = [d for d in deals if d.get('seller_country') and str(d.get('seller_country', '')).lower() in allowed_countries]
+                    
+                    # Filter by price range
+                    if price_min is not None:
+                        deals = [d for d in deals if d.get('price') and d.get('price') >= price_min]
+                    
+                    if price_max is not None:
+                        deals = [d for d in deals if d.get('price') and d.get('price') <= price_max]
+                    
+                    # Filter by minimum available items (liquidity)
+                    if min_available is not None:
+                        deals = [d for d in deals if d.get('available_items_total') is not None and d.get('available_items_total') >= min_available]
+                    
+                    # Apply sorting
+                    reverse = order == 'desc'
+                    
+                    if sort == 'discount':
+                        deals.sort(key=lambda x: x.get('discount') or -999, reverse=reverse)
+                    elif sort == 'discount_vs_avg30':
+                        def calc_discount_vs_avg30(deal):
+                            historical = deal.get('historical', {})
+                            avg30 = historical.get('avg30') or historical.get('AVG30') or 0
+                            price = deal.get('price')
+                            if avg30 and price and avg30 > 0:
+                                return ((avg30 - price) / avg30) * 100
+                            return -999
+                        deals.sort(key=calc_discount_vs_avg30, reverse=reverse)
+                    elif sort == 'price':
+                        deals.sort(key=lambda x: x.get('price') or 999999, reverse=reverse)
+                    elif sort == 'name':
+                        deals.sort(key=lambda x: x.get('card_name', '').lower(), reverse=reverse)
+                    elif sort == 'expansion':
+                        deals.sort(key=lambda x: x.get('expansion', '').lower(), reverse=reverse)
+                    
+                    # Return deals from database
+                    return JSONResponse(content={
+                        'deals': deals,
+                        'total': len(deals),
+                        'file': 'database',
+                        'timestamp': db_metadata.get('last_scan', ''),
+                        'source': 'database',
+                        'user_filtered': True,
+                        'user_wishlist_size': len(user_card_names)
+                    })
     
     # If file is provided, check if it matches source_type and if it's the newest
     if file and source_type:
@@ -557,6 +759,12 @@ async def api_deals(
     results = load_json_results(file)
     deals = normalize_deal_data(results)
     print(f"📊 API /deals: Loaded {len(deals)} deals from {os.path.basename(file)}", flush=True)
+    
+    # Filter by user's wishlist if user_id was provided (and we didn't already return from database)
+    if user_card_names:
+        original_count = len(deals)
+        deals = filter_deals_by_card_names(deals, user_card_names)
+        print(f"📊 API /deals: Filtered to {len(deals)} deals matching user's wishlist (from {original_count})", flush=True)
     
     # Apply filters
     if category:

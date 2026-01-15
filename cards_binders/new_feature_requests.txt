@@ -1,0 +1,7 @@
+- Register / Log in modals should be closeable with ESC
+
+- Rename binder.html as marketscan_binder.html, consistently everywhere
+
+- Wishlist should be per user (i.e. in database like the collection). so user can log in and see their wishlist. by default, it shows just ours (the json, default one)
+
+- ./run_market_scan.sh should have an option where it runs for all cards in user's collections in the database

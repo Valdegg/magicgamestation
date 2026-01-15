@@ -310,7 +310,7 @@ mtgcards/
 │   ├── wishlist_deals.py   # Market scanning script
 │   └── discovery.py        # Discovery analysis script
 ├── web_templates/
-│   ├── binder.html         # Market scanner UI template
+│   ├── marketscan_binder.html  # Market scanner UI template
 │   ├── wishlist_binder.html # Wishlist UI template
 │   └── collection_binder.html # Collection UI template
 ├── card_images/            # Generic card images
