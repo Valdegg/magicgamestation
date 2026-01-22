@@ -2870,5 +2870,26 @@
     "name": "Test",
     "sets": [],
     "notes": ""
+  },
+  {
+    "name": "Order of the Ebon Hand",
+    "sets": [
+      "Fallen Empires\n                    ×"
+    ],
+    "notes": ""
+  },
+  {
+    "name": "Giant Growth",
+    "sets": [
+      "Limited Edition Alpha"
+    ],
+    "notes": ""
+  },
+  {
+    "name": "Test Card",
+    "sets": [
+      "Alpha"
+    ],
+    "notes": ""
   }
 ]

@@ -1,0 +1,300 @@
+{
+  "order of the ebon hand": [
+    {
+      "name": "Masters Edition",
+      "code": "ME1",
+      "released": "2007-09",
+      "type": "Masters"
+    },
+    {
+      "name": "Pro Tour Collector Set",
+      "code": "PTC",
+      "released": "1996-05",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Fallen Empires",
+      "code": "FEM",
+      "released": "1994-11",
+      "type": "Expansion"
+    }
+  ],
+  "divine offering": [
+    {
+      "name": "Mirrodin Besieged",
+      "code": "MBS",
+      "released": "2011-02",
+      "type": "Expansion"
+    },
+    {
+      "name": "Masters Edition IV",
+      "code": "ME4",
+      "released": "2011-01",
+      "type": "Masters"
+    },
+    {
+      "name": "Fifth Edition",
+      "code": "5ED",
+      "released": "1997-03",
+      "type": "Core"
+    },
+    {
+      "name": "Mirage",
+      "code": "MIR",
+      "released": "1996-10",
+      "type": "Expansion"
+    },
+    {
+      "name": "Pro Tour Collector Set",
+      "code": "PTC",
+      "released": "1996-05",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Chronicles",
+      "code": "CHR",
+      "released": "1995-07",
+      "type": "Masters"
+    },
+    {
+      "name": "Chronicles Foreign Black Border",
+      "code": "BCHR",
+      "released": "1995-07",
+      "type": "Masters"
+    },
+    {
+      "name": "Legends",
+      "code": "LEG",
+      "released": "1994-06",
+      "type": "Expansion"
+    }
+  ],
+  "serendib djinn": [
+    {
+      "name": "Masters Edition IV",
+      "code": "ME4",
+      "released": "2011-01",
+      "type": "Masters"
+    },
+    {
+      "name": "Arabian Nights",
+      "code": "ARN",
+      "released": "1993-12",
+      "type": "Expansion"
+    }
+  ],
+  "blacker lotus": [
+    {
+      "name": "Secret Lair Drop",
+      "code": "SLD",
+      "released": "2025-04",
+      "type": "Box"
+    },
+    {
+      "name": "Unglued",
+      "code": "UGL",
+      "released": "1998-08",
+      "type": "Funny"
+    },
+    {
+      "name": "Oversized League Prizes",
+      "code": "OLEP",
+      "released": "1998-07",
+      "type": "Memorabilia"
+    }
+  ],
+  "akroma, angel of wrath": [
+    {
+      "name": "The List",
+      "code": "PLST",
+      "released": "2024-08",
+      "type": "Masters"
+    },
+    {
+      "name": "Secret Lair Drop",
+      "code": "SLD",
+      "released": "2022-06",
+      "type": "Box"
+    },
+    {
+      "name": "Commander 2020",
+      "code": "C20",
+      "released": "2020-04",
+      "type": "Commander"
+    },
+    {
+      "name": "Masters 25",
+      "code": "A25",
+      "released": "2018-03",
+      "type": "Masters"
+    },
+    {
+      "name": "From the Vault: Angels",
+      "code": "V15",
+      "released": "2015-08",
+      "type": "From The Vault"
+    },
+    {
+      "name": "Duel Decks Anthology: Divine vs. Demonic",
+      "code": "DVD",
+      "released": "2014-12",
+      "type": "Duel Deck"
+    },
+    {
+      "name": "Duel Decks: Divine vs. Demonic",
+      "code": "DDC",
+      "released": "2009-04",
+      "type": "Duel Deck"
+    },
+    {
+      "name": "Time Spiral Timeshifted",
+      "code": "TSB",
+      "released": "2006-10",
+      "type": "Expansion"
+    },
+    {
+      "name": "Legions",
+      "code": "LGN",
+      "released": "2003-02",
+      "type": "Expansion"
+    }
+  ],
+  "scroll rack": [
+    {
+      "name": "Magic Online Promos",
+      "code": "PRM",
+      "released": "2020-12",
+      "type": "Promo"
+    },
+    {
+      "name": "Commander Legends",
+      "code": "CMR",
+      "released": "2020-11",
+      "type": "Draft Innovation"
+    },
+    {
+      "name": "The List",
+      "code": "PLST",
+      "released": "2020-09",
+      "type": "Masters"
+    },
+    {
+      "name": "Kaladesh Inventions",
+      "code": "MPS",
+      "released": "2016-09",
+      "type": "Masterpiece"
+    },
+    {
+      "name": "Legendary Cube Prize Pack",
+      "code": "PZ1",
+      "released": "2015-11",
+      "type": "Treasure Chest"
+    },
+    {
+      "name": "Commander's Arsenal",
+      "code": "CM1",
+      "released": "2012-11",
+      "type": "Arsenal"
+    },
+    {
+      "name": "World Championship Decks 1998",
+      "code": "WC98",
+      "released": "1998-08",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Tempest",
+      "code": "TMP",
+      "released": "1997-10",
+      "type": "Expansion"
+    }
+  ],
+  "enlightened tutor": [
+    {
+      "name": "Avatar: The Last Airbender Eternal",
+      "code": "TLE",
+      "released": "2025-11",
+      "type": "Eternal"
+    },
+    {
+      "name": "Dominaria Remastered",
+      "code": "DMR",
+      "released": "2023-01",
+      "type": "Masters"
+    },
+    {
+      "name": "The List",
+      "code": "PLST",
+      "released": "2020-09",
+      "type": "Masters"
+    },
+    {
+      "name": "Judge Gift Cards 2020",
+      "code": "J20",
+      "released": "2020-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Eternal Masters",
+      "code": "EMA",
+      "released": "2016-06",
+      "type": "Masters"
+    },
+    {
+      "name": "Magic Online Promos",
+      "code": "PRM",
+      "released": "2014-10",
+      "type": "Promo"
+    },
+    {
+      "name": "Magic Online Theme Decks",
+      "code": "TD0",
+      "released": "2010-11",
+      "type": "Box"
+    },
+    {
+      "name": "World Championship Decks 2000",
+      "code": "WC00",
+      "released": "2000-08",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Arena League 2000",
+      "code": "PAL00",
+      "released": "2000-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Classic Sixth Edition",
+      "code": "6ED",
+      "released": "1999-04",
+      "type": "Core"
+    },
+    {
+      "name": "Mirage",
+      "code": "MIR",
+      "released": "1996-10",
+      "type": "Expansion"
+    }
+  ],
+  "ifh-bíff efreet": [
+    {
+      "name": "Magic Online Promos",
+      "code": "PRM",
+      "released": "2012-06",
+      "type": "Promo"
+    },
+    {
+      "name": "Masters Edition",
+      "code": "ME1",
+      "released": "2007-09",
+      "type": "Masters"
+    },
+    {
+      "name": "Arabian Nights",
+      "code": "ARN",
+      "released": "1993-12",
+      "type": "Expansion"
+    }
+  ]
+}

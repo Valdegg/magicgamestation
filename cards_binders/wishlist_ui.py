@@ -917,6 +917,13 @@ async def wishlist_page():
             }
         }, true); // Use capture phase to intercept before other handlers
         
+        // Form fix function - no-op since form handling is done via event listener above
+        function initFormFix() {
+            // Form submission is handled by the 'submit' event listener above
+            // This function exists for compatibility with the MutationObserver calls
+            console.log('Form fix initialized');
+        }
+        
         // Run immediately and after DOM loads
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', initFormFix);
@@ -1000,8 +1007,10 @@ async def wishlist_page():
                 elif '</head>' in html_content:
                     html_content = html_content.replace('</head>', header_css + '</head>')
             
-            # Inject authentication UI into header
-            if 'id="authSection"' not in html_content:
+            # NOTE: Authentication UI is now injected globally via main_app.py navigation
+            # The global auth is accessible from all pages including Home
+            
+            if False:  # Old per-page auth injection - disabled, now handled globally
                 print("🔐 Injecting authentication UI into wishlist HTML template", flush=True)
                 auth_ui = """
             <div class="auth-section" id="authSection" style="margin-left: auto; display: flex; align-items: center;">
@@ -1049,8 +1058,9 @@ async def wishlist_page():
                 if '</body>' in html_content:
                     html_content = html_content.replace('</body>', auth_modal + '\n    </body>')
             
-            # Inject authentication JavaScript
-            if 'id="auth-script"' not in html_content:
+            # NOTE: Authentication JavaScript is now injected globally via main_app.py
+            # The global auth is accessible from all pages including Home
+            if False:  # Old per-page auth script injection - disabled
                 print("🔐 Injecting authentication JavaScript into wishlist", flush=True)
                 auth_script = """
     <script id="auth-script">
@@ -1696,6 +1706,161 @@ async def get_sets():
             return JSONResponse({"sets": []})
     except Exception as e:
         return JSONResponse({"sets": [], "error": str(e)})
+
+
+# Cache file for card printings
+CARD_PRINTINGS_CACHE_FILE = "card_printings_cache.json"
+SCRYFALL_DELAY = 0.1  # Rate limiting for Scryfall API
+
+
+def load_printings_cache() -> Dict[str, List[Dict]]:
+    """Load the card printings cache from file."""
+    try:
+        if os.path.exists(CARD_PRINTINGS_CACHE_FILE):
+            with open(CARD_PRINTINGS_CACHE_FILE, 'r', encoding='utf-8') as f:
+                return json.load(f)
+    except Exception as e:
+        print(f"Error loading printings cache: {e}", flush=True)
+    return {}
+
+
+def save_printings_cache(cache: Dict[str, List[Dict]]):
+    """Save the card printings cache to file."""
+    try:
+        with open(CARD_PRINTINGS_CACHE_FILE, 'w', encoding='utf-8') as f:
+            json.dump(cache, f, indent=2, ensure_ascii=False)
+    except Exception as e:
+        print(f"Error saving printings cache: {e}", flush=True)
+
+
+def resolve_card_to_oracle_id(card_name: str) -> Optional[str]:
+    """Resolve a card name to its Oracle card ID using Scryfall."""
+    import time
+    time.sleep(SCRYFALL_DELAY)
+    
+    try:
+        # Use exact name search first
+        url = "https://api.scryfall.com/cards/named"
+        params = {"exact": card_name}
+        response = requests.get(url, params=params, timeout=10)
+        
+        if response.status_code == 404:
+            # Try fuzzy search as fallback
+            params = {"fuzzy": card_name}
+            response = requests.get(url, params=params, timeout=10)
+        
+        if response.status_code != 200:
+            return None
+        
+        data = response.json()
+        if data.get("object") == "error":
+            return None
+        
+        return data.get("oracle_id")
+    except Exception as e:
+        print(f"Error resolving card '{card_name}': {e}", flush=True)
+        return None
+
+
+def fetch_card_printings_from_scryfall(oracle_id: str) -> List[Dict]:
+    """Fetch all printings for an Oracle card from Scryfall."""
+    import time
+    time.sleep(SCRYFALL_DELAY)
+    
+    all_printings = []
+    url = "https://api.scryfall.com/cards/search"
+    params = {"q": f"oracleid:{oracle_id}", "unique": "prints"}
+    
+    try:
+        while url:
+            response = requests.get(url, params=params, timeout=10)
+            
+            if response.status_code != 200:
+                break
+            
+            data = response.json()
+            if data.get("object") == "error":
+                break
+            
+            printings = data.get("data", [])
+            all_printings.extend(printings)
+            
+            # Check for pagination
+            if data.get("has_more"):
+                url = data.get("next_page")
+                params = None  # next_page is a full URL
+                time.sleep(SCRYFALL_DELAY)  # Rate limit between pages
+            else:
+                url = None
+        
+        return all_printings
+    except Exception as e:
+        print(f"Error fetching printings for oracle_id '{oracle_id}': {e}", flush=True)
+        return []
+
+
+@app.get("/api/card-printings")
+async def get_card_printings(name: str):
+    """
+    Get all valid printings (sets) for a specific card name.
+    Results are cached to avoid repeated API calls.
+    
+    Returns:
+        JSON with sets array containing valid printings for the card.
+    """
+    if not name or not name.strip():
+        return JSONResponse({"sets": [], "error": "Card name is required"})
+    
+    card_name = name.strip()
+    cache_key = card_name.lower()
+    
+    # Check cache first
+    cache = load_printings_cache()
+    if cache_key in cache:
+        print(f"Cache hit for card printings: {card_name}", flush=True)
+        return JSONResponse({"sets": cache[cache_key], "cached": True})
+    
+    print(f"Cache miss for card printings: {card_name}, fetching from Scryfall...", flush=True)
+    
+    # Resolve card name to Oracle ID
+    oracle_id = resolve_card_to_oracle_id(card_name)
+    if not oracle_id:
+        return JSONResponse({"sets": [], "error": f"Card '{card_name}' not found"})
+    
+    # Fetch all printings
+    printings = fetch_card_printings_from_scryfall(oracle_id)
+    if not printings:
+        return JSONResponse({"sets": [], "error": f"No printings found for '{card_name}'"})
+    
+    # Extract unique sets from printings
+    # Format: [{name: "Set Name", code: "ABC", released: "YYYY-MM-DD"}, ...]
+    sets_dict = {}
+    for printing in printings:
+        set_name = printing.get("set_name", "")
+        set_code = printing.get("set", "").upper()
+        released = printing.get("released_at", "")
+        
+        if set_name and set_code and set_code not in sets_dict:
+            sets_dict[set_code] = {
+                "name": set_name,
+                "code": set_code,
+                "released": released[:7] if released else "",  # YYYY-MM format
+                "type": printing.get("set_type", "").replace("_", " ").title()
+            }
+    
+    # Convert to list and sort by release date (newest first)
+    sets_list = sorted(
+        sets_dict.values(),
+        key=lambda x: x.get("released", ""),
+        reverse=True
+    )
+    
+    # Cache the result
+    cache[cache_key] = sets_list
+    save_printings_cache(cache)
+    print(f"Cached {len(sets_list)} printings for: {card_name}", flush=True)
+    
+    return JSONResponse({"sets": sets_list, "cached": False})
 
 
 @app.get("/api/wishlist-cards")

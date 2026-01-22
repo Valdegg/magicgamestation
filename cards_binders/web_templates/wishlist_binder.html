@@ -1248,6 +1248,13 @@
     </div>
 
     <script>
+        // Debug: Global image error observer
+        window.addEventListener('error', function(e) {
+            if (e.target && e.target.tagName === 'IMG') {
+                console.log('🟡 Global IMG error caught:', e.target.src, e.target);
+            }
+        }, true);
+        
         const CARDS_PER_PAGE = 9;
         const CARDS_PER_SPREAD = 18;
         
@@ -1737,8 +1744,7 @@
                          onclick="console.log('Move button clicked:', '${cardName.replace(/'/g, "\\'")}', 'row:', ${row}, 'col:', ${col}); event.stopPropagation(); openMoveToCollectionModal(${wishlistIndex})" 
                          title="Move to Collection">←</div>
                     <div class="card-sleeve">
-                        <img src="${imagePath}" alt="${cardName}" class="card-image" 
-                             onerror="handleImageError(this, '${cardName.replace(/'/g, "\\'")}', ${expansion ? `'${expansion.replace(/'/g, "\\'")}'` : 'null'})">
+                        <img src="${imagePath}" alt="${cardName}" class="card-image" onerror="handleImageError(this, '${cardName.replace(/'/g, "\\'")}', '${(expansion || '').replace(/'/g, "\\'")}')">
                         <div class="card-info-overlay">
                             <div class="card-name">${cardName}</div>
                             ${expansionHTML}
@@ -1750,11 +1756,24 @@
         }
 
         async function handleImageError(img, cardName, expansion) {
+            // Prevent infinite loops by checking if we've already handled this image
+            if (img.dataset.errorHandled) {
+                console.log('🟠 handleImageError already handled for:', cardName);
+                return;
+            }
+            img.dataset.errorHandled = 'true';
+            
+            // Remove the onerror handler to prevent further triggers
+            img.onerror = null;
+            
+            // Debug: Log that the function was called
+            console.log('🔴 handleImageError CALLED:', { img: img.src, cardName, expansion });
+            
             // Try to fetch image from Scryfall via backend
             const setInfo = expansion ? ` (set: ${expansion})` : '';
             console.log(`Image not found for ${cardName}${setInfo}, attempting to fetch from Scryfall...`);
             
-            // Show loading placeholder
+            // Show loading placeholder first
             img.src = 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 140\'%3E%3Crect fill=\'%23111\' width=\'100\' height=\'140\'/%3E%3Ctext fill=\'%23444\' x=\'50\' y=\'70\' text-anchor=\'middle\' font-size=\'10\'%3ELoading...%3C/text%3E%3C/svg%3E';
             
             try {
@@ -2049,15 +2068,17 @@
         function openAddModal() {
             editingIndex = null;
             selectedSets = [];
+            cardPrintings = [];  // Reset card-specific printings
             document.getElementById('modalTitle').textContent = 'Add Card to Wishlist';
             document.getElementById('cardForm').reset();
             updateSelectedSetsDisplay();
             document.getElementById('cardSetsDropdown').classList.remove('show');
             document.getElementById('cardNameDropdown').classList.remove('show');
+            document.getElementById('cardSetsInput').placeholder = 'Type to search sets...';
             document.getElementById('cardModal').style.display = 'block';
         }
 
-        function editCard(wishlistIndex) {
+        async function editCard(wishlistIndex) {
             if (wishlistIndex < 0 || wishlistIndex >= wishlistItems.length) {
                 alert('Invalid card index');
                 return;
@@ -2072,6 +2093,15 @@
             document.getElementById('cardSetsDropdown').classList.remove('show');
             document.getElementById('cardNameDropdown').classList.remove('show');
             document.getElementById('cardModal').style.display = 'block';
+            
+            // Fetch printings for the card being edited
+            if (item.name) {
+                cardPrintings = await fetchCardPrintings(item.name);
+                const setsInput = document.getElementById('cardSetsInput');
+                if (cardPrintings.length > 0) {
+                    setsInput.placeholder = `${cardPrintings.length} valid sets for this card...`;
+                }
+            }
         }
 
         function closeModal() {
@@ -2150,21 +2180,91 @@
             dropdown.classList.add('show');
         }
 
-        function selectCardName(cardName) {
-            document.getElementById('cardName').value = cardName;
-            document.getElementById('cardNameDropdown').classList.remove('show');
+        // Stores the valid printings for the currently selected card
+        let cardPrintings = [];
+        let isLoadingPrintings = false;
+
+        async function fetchCardPrintings(cardName) {
+            // Fetch valid printings for a card name from the backend
+            if (!cardName || cardName.trim() === '') {
+                return [];
+            }
+            
+            isLoadingPrintings = true;
+            const setsInput = document.getElementById('cardSetsInput');
+            setsInput.placeholder = 'Loading sets...';
+            
+            try {
+                const response = await fetch(`/api/card-printings?name=${encodeURIComponent(cardName)}`);
+                const data = await response.json();
+                
+                if (data.error) {
+                    console.warn('Error fetching printings:', data.error);
+                    return [];
+                }
+                
+                console.log(`Fetched ${data.sets?.length || 0} printings for "${cardName}"${data.cached ? ' (cached)' : ''}`);
+                return data.sets || [];
+            } catch (error) {
+                console.error('Error fetching card printings:', error);
+                return [];
+            } finally {
+                isLoadingPrintings = false;
+                setsInput.placeholder = 'Type to search sets...';
+            }
         }
 
-        // Setup sets dropdown
+        function filterCardPrintings(query) {
+            // Filter card-specific printings by query, or fall back to all sets if no printings loaded
+            const setsToFilter = cardPrintings.length > 0 ? cardPrintings : allSets;
+            
+            if (!query) {
+                return setsToFilter;
+            }
+            const lowerQuery = query.toLowerCase();
+            return setsToFilter.filter(set => 
+                set.name.toLowerCase().includes(lowerQuery) ||
+                set.code.toLowerCase().includes(lowerQuery)
+            );
+        }
+
+        async function selectCardName(cardName) {
+            document.getElementById('cardName').value = cardName;
+            document.getElementById('cardNameDropdown').classList.remove('show');
+            
+            // Clear previous printings and selected sets
+            cardPrintings = [];
+            selectedSets = [];
+            updateSelectedSetsDisplay();
+            
+            // Fetch valid printings for this card
+            cardPrintings = await fetchCardPrintings(cardName);
+            
+            // Update the placeholder to indicate we have card-specific sets
+            const setsInput = document.getElementById('cardSetsInput');
+            if (cardPrintings.length > 0) {
+                setsInput.placeholder = `${cardPrintings.length} valid sets for this card...`;
+            } else {
+                setsInput.placeholder = 'Type to search sets...';
+            }
+            
+            // Focus the sets input to help the user continue
+            setsInput.focus();
+        }
+
+        // Setup sets dropdown - uses card-specific printings when available
         document.getElementById('cardSetsInput').addEventListener('input', (e) => {
             const query = e.target.value.trim();
-            const filtered = filterSets(query);
+            // Use card-specific printings if available, otherwise fall back to all sets
+            const filtered = cardPrintings.length > 0 ? filterCardPrintings(query) : filterSets(query);
             renderSetsDropdown(filtered);
         });
 
         document.getElementById('cardSetsInput').addEventListener('focus', (e) => {
+            if (isLoadingPrintings) return; // Don't show dropdown while loading
             const query = e.target.value.trim();
-            const filtered = filterSets(query);
+            // Use card-specific printings if available, otherwise fall back to all sets
+            const filtered = cardPrintings.length > 0 ? filterCardPrintings(query) : filterSets(query);
             renderSetsDropdown(filtered);
         });
 

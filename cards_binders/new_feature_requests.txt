@@ -1,3 +1,4 @@
+Done:
 - Register / Log in modals should be closeable with ESC
 
 - Rename binder.html as marketscan_binder.html, consistently everywhere

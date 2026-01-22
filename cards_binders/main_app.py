@@ -85,13 +85,23 @@ app.add_middleware(
 NAVIGATION_HTML = """
 <nav class="main-navigation">
     <div class="nav-container">
-        <a href="/" class="nav-logo">🎴 MTG Cards</a>
+        <a href="/" class="nav-logo">📖 Spellbook</a>
         <div class="nav-links">
             <a href="/" class="nav-link">Home</a>
             <a href="/collection" class="nav-link">Collection</a>
             <a href="/wishlist" class="nav-link">Wishlist</a>
             <a href="/market" class="nav-link">Market Scanner</a>
-            <a href="/games" class="nav-link">Games</a>
+            <a href="/games" class="nav-link">Duel</a>
+        </div>
+        <div class="nav-auth" id="navAuthSection">
+            <div id="navAuthButtons" style="display: none;">
+                <button onclick="showLoginModal()" class="nav-auth-btn nav-auth-login">Login</button>
+                <button onclick="showRegisterModal()" class="nav-auth-btn nav-auth-register">Register</button>
+            </div>
+            <div id="navUserInfo" style="display: none;">
+                <span id="navUsernameDisplay" class="nav-username"></span>
+                <button onclick="logout()" class="nav-auth-btn nav-auth-logout">Logout</button>
+            </div>
         </div>
     </div>
 </nav>
@@ -158,6 +168,59 @@ NAVIGATION_CSS = """
     border-bottom: 2px solid #d4af37;
 }
 
+.nav-auth {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+.nav-auth-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9em;
+    transition: all 0.2s;
+}
+
+.nav-auth-login {
+    background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+    color: #1a1a1a;
+}
+
+.nav-auth-login:hover {
+    background: linear-gradient(135deg, #f4d03f 0%, #d4af37 100%);
+    transform: scale(1.02);
+}
+
+.nav-auth-register {
+    background: #3a3a3a;
+    color: #e0e0e0;
+    border: 1px solid #555;
+}
+
+.nav-auth-register:hover {
+    background: #4a4a4a;
+    border-color: #d4af37;
+}
+
+.nav-auth-logout {
+    background: #c53030;
+    color: white;
+}
+
+.nav-auth-logout:hover {
+    background: #e53e3e;
+}
+
+.nav-username {
+    color: #d4af37;
+    font-weight: 500;
+    margin-right: 10px;
+}
+
 @media (max-width: 768px) {
     .nav-container {
         flex-direction: column;
@@ -174,8 +237,184 @@ NAVIGATION_CSS = """
         padding: 6px 12px;
         font-size: 0.85em;
     }
+    
+    .nav-auth {
+        margin-left: 0;
+    }
+    
+    .nav-auth-btn {
+        padding: 6px 12px;
+        font-size: 0.85em;
+    }
 }
 </style>
+"""
+
+# Auth modal HTML (injected before </body>)
+AUTH_MODAL_HTML = """
+<!-- Global Login/Register Modal -->
+<div id="authModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; justify-content: center; align-items: center;">
+    <div style="background: #1a202c; padding: 30px; border-radius: 8px; max-width: 400px; width: 90%; border: 2px solid #d4af37;">
+        <h2 id="authModalTitle" style="color: #d4af37; margin-top: 0; font-family: 'Cinzel', serif;">Login</h2>
+        <form id="authForm" onsubmit="handleAuth(event)">
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; color: #e0e0e0; margin-bottom: 5px;">Username</label>
+                <input type="text" id="authUsername" required style="width: 100%; padding: 10px; border: 1px solid #4a5568; background: #2d3748; color: white; border-radius: 4px; box-sizing: border-box;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; color: #e0e0e0; margin-bottom: 5px;">Password</label>
+                <input type="password" id="authPassword" required style="width: 100%; padding: 10px; border: 1px solid #4a5568; background: #2d3748; color: white; border-radius: 4px; box-sizing: border-box;">
+            </div>
+            <div id="authError" style="color: #fc8181; margin-bottom: 15px; display: none;"></div>
+            <div style="display: flex; gap: 10px;">
+                <button type="submit" style="flex: 1; padding: 10px; background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%); color: #1a1a1a; border: none; border-radius: 4px; cursor: pointer; font-weight: 600;">Submit</button>
+                <button type="button" onclick="closeAuthModal()" style="flex: 1; padding: 10px; background: #4a5568; color: white; border: none; border-radius: 4px; cursor: pointer;">Cancel</button>
+            </div>
+        </form>
+        <p id="authSwitchText" style="text-align: center; margin-top: 15px; color: #a0aec0;">
+            Don't have an account? <a href="#" onclick="switchAuthMode()" style="color: #d4af37;">Register</a>
+        </p>
+    </div>
+</div>
+"""
+
+# Auth JavaScript (injected before </body>)
+AUTH_JS = """
+<script>
+// Global auth state
+let isLoginMode = true;
+let isCheckingAuth = false;
+
+// Check authentication status on page load
+document.addEventListener('DOMContentLoaded', function() {
+    checkAuthStatus();
+});
+
+async function checkAuthStatus() {
+    if (isCheckingAuth) return;
+    isCheckingAuth = true;
+    
+    try {
+        const response = await fetch('/api/auth/me', { credentials: 'include' });
+        const data = await response.json();
+        
+        const authButtons = document.getElementById('navAuthButtons');
+        const userInfo = document.getElementById('navUserInfo');
+        const usernameDisplay = document.getElementById('navUsernameDisplay');
+        
+        if (data.authenticated && data.username) {
+            // User is logged in
+            if (authButtons) authButtons.style.display = 'none';
+            if (userInfo) userInfo.style.display = 'flex';
+            if (usernameDisplay) usernameDisplay.textContent = data.username;
+            // Sync username to localStorage for Games/Duel feature
+            localStorage.setItem('mtg_user_name', data.username);
+        } else {
+            // User is not logged in
+            if (authButtons) authButtons.style.display = 'flex';
+            if (userInfo) userInfo.style.display = 'none';
+        }
+    } catch (error) {
+        console.error('Error checking auth status:', error);
+        // Show login buttons on error
+        const authButtons = document.getElementById('navAuthButtons');
+        if (authButtons) authButtons.style.display = 'flex';
+    } finally {
+        isCheckingAuth = false;
+    }
+}
+
+function showLoginModal() {
+    isLoginMode = true;
+    document.getElementById('authModalTitle').textContent = 'Login';
+    document.getElementById('authModal').style.display = 'flex';
+    document.getElementById('authError').style.display = 'none';
+    document.getElementById('authUsername').value = '';
+    document.getElementById('authPassword').value = '';
+    document.getElementById('authSwitchText').innerHTML = "Don't have an account? <a href='#' onclick='switchAuthMode()' style='color: #d4af37;'>Register</a>";
+}
+
+function showRegisterModal() {
+    isLoginMode = false;
+    document.getElementById('authModalTitle').textContent = 'Register';
+    document.getElementById('authModal').style.display = 'flex';
+    document.getElementById('authError').style.display = 'none';
+    document.getElementById('authUsername').value = '';
+    document.getElementById('authPassword').value = '';
+    document.getElementById('authSwitchText').innerHTML = "Already have an account? <a href='#' onclick='switchAuthMode()' style='color: #d4af37;'>Login</a>";
+}
+
+function switchAuthMode() {
+    if (isLoginMode) {
+        showRegisterModal();
+    } else {
+        showLoginModal();
+    }
+}
+
+function closeAuthModal() {
+    document.getElementById('authModal').style.display = 'none';
+}
+
+async function handleAuth(event) {
+    event.preventDefault();
+    
+    const username = document.getElementById('authUsername').value;
+    const password = document.getElementById('authPassword').value;
+    const errorDiv = document.getElementById('authError');
+    
+    try {
+        const endpoint = isLoginMode ? 'login' : 'register';
+        
+        const response = await fetch(`/api/auth/${endpoint}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password }),
+            credentials: 'include'
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok) {
+            // Sync username to localStorage for Games/Duel feature
+            localStorage.setItem('mtg_user_name', username);
+            closeAuthModal();
+            // Refresh the page to update UI state
+            window.location.reload();
+        } else {
+            errorDiv.textContent = data.detail || 'Authentication failed';
+            errorDiv.style.display = 'block';
+        }
+    } catch (error) {
+        console.error('Auth error:', error);
+        errorDiv.textContent = 'An error occurred. Please try again.';
+        errorDiv.style.display = 'block';
+    }
+}
+
+async function logout() {
+    try {
+        await fetch('/api/auth/logout', {
+            method: 'POST',
+            credentials: 'include'
+        });
+        // Clear synced username from localStorage
+        localStorage.removeItem('mtg_user_name');
+        // Refresh the page to update UI state
+        window.location.reload();
+    } catch (error) {
+        console.error('Logout error:', error);
+    }
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('authModal');
+    if (event.target === modal) {
+        closeAuthModal();
+    }
+});
+</script>
 """
 
 
@@ -209,6 +448,10 @@ def inject_navigation(html_content: str, current_section: str = "") -> str:
     elif "<head>" in html_content and "</head>" not in html_content:
         html_content = html_content.replace("<head>", "<head>" + NAVIGATION_CSS, 1)
     
+    # Inject auth modal and JavaScript before </body>
+    if "</body>" in html_content:
+        html_content = html_content.replace("</body>", AUTH_MODAL_HTML + AUTH_JS + "\n</body>", 1)
+    
     return html_content
 
 
@@ -222,142 +465,283 @@ async def home_page():
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>MTG Cards Manager - Home</title>
-        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Uncial+Antiqua&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
         {NAVIGATION_CSS}
         <style>
+            :root {{
+                --parchment: #f4e4bc;
+                --parchment-dark: #d4c4a0;
+                --ink: #1a0f00;
+                --gold: #c9a227;
+                --gold-light: #e8d48b;
+                --blood: #8b1a1a;
+                --forest: #1a472a;
+                --midnight: #0f0a1a;
+                --mystic: #2a1a3a;
+            }}
+            
+            * {{
+                box-sizing: border-box;
+            }}
+            
             body {{
-                font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif;
-                background: radial-gradient(ellipse at center, #3d3020 0%, #1a1510 50%, #0d0a08 100%);
+                font-family: 'Crimson Text', Georgia, serif;
+                background: var(--midnight);
+                background-image: 
+                    radial-gradient(ellipse at 20% 30%, rgba(75, 0, 130, 0.15) 0%, transparent 50%),
+                    radial-gradient(ellipse at 80% 70%, rgba(139, 26, 26, 0.1) 0%, transparent 50%),
+                    radial-gradient(ellipse at 50% 50%, rgba(42, 26, 58, 0.8) 0%, transparent 70%),
+                    repeating-linear-gradient(
+                        0deg,
+                        transparent,
+                        transparent 2px,
+                        rgba(201, 162, 39, 0.03) 2px,
+                        rgba(201, 162, 39, 0.03) 4px
+                    ),
+                    linear-gradient(180deg, #0a0510 0%, #1a0f20 50%, #0f0a15 100%);
                 background-attachment: fixed;
                 min-height: 100vh;
                 margin: 0;
                 padding: 0;
-                color: #e0e0e0;
+                color: var(--parchment);
             }}
             
             .home-container {{
-                max-width: 1200px;
+                max-width: 1100px;
                 margin: 0 auto;
-                padding: 60px 20px;
+                padding: 50px 20px 80px;
             }}
             
             .home-header {{
                 text-align: center;
-                margin-bottom: 60px;
+                margin-bottom: 50px;
+                position: relative;
             }}
             
-            .home-header h1 {{
-                font-family: 'Cinzel', serif;
-                font-size: 3em;
-                color: #d4af37;
-                margin-bottom: 10px;
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            .home-header p.tagline {{
+                font-size: 1.15em;
+                color: var(--parchment-dark);
+                margin: 0 auto;
+                max-width: 600px;
+                line-height: 1.6;
             }}
             
-            .home-header p {{
-                font-size: 1.2em;
-                color: #b0b0b0;
+            .home-header::after {{
+                content: "";
+                display: block;
+                width: 300px;
+                height: 2px;
+                background: linear-gradient(90deg, transparent, var(--gold), transparent);
+                margin: 30px auto 0;
             }}
             
             .sections-grid {{
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 30px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
                 margin-top: 40px;
             }}
             
+            @media (max-width: 768px) {{
+                .sections-grid {{
+                    grid-template-columns: 1fr;
+                }}
+                .home-header h1 {{
+                    font-size: 2.2em;
+                }}
+            }}
+            
             .section-card {{
-                background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
-                border: 2px solid #3a3a3a;
+                position: relative;
+                background: linear-gradient(145deg, #1e1e2a 0%, #141420 100%);
+                border: 1px solid rgba(201, 162, 39, 0.3);
                 border-radius: 12px;
-                padding: 30px;
+                padding: 0;
                 text-align: center;
-                transition: all 0.3s;
+                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
                 cursor: pointer;
                 text-decoration: none;
-                color: inherit;
+                color: var(--parchment);
                 display: block;
+                overflow: hidden;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            }}
+            
+            .section-card::before {{
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 3px;
+                background: var(--card-accent, var(--gold));
+                opacity: 0.8;
+            }}
+            
+            .card-inner {{
+                position: relative;
+                z-index: 1;
+                padding: 24px 20px 20px;
             }}
             
             .section-card:hover {{
-                transform: translateY(-5px);
-                border-color: #d4af37;
-                box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+                transform: translateY(-6px);
+                border-color: var(--card-accent, var(--gold));
+                box-shadow: 
+                    0 12px 30px rgba(0, 0, 0, 0.5),
+                    0 0 20px var(--card-glow, rgba(201, 162, 39, 0.2));
             }}
             
             .section-card h2 {{
-                font-family: 'Cinzel', serif;
-                color: #d4af37;
-                font-size: 1.8em;
-                margin-bottom: 15px;
+                font-family: 'MedievalSharp', 'Uncial Antiqua', cursive;
+                color: var(--gold);
+                font-size: 1.5em;
+                margin: 0 0 10px 0;
             }}
             
             .section-card p {{
-                color: #b0b0b0;
-                line-height: 1.6;
-                margin-bottom: 20px;
+                color: #a0a0a0;
+                line-height: 1.5;
+                margin: 0 0 16px 0;
+                font-size: 0.95em;
             }}
             
             .section-icon {{
-                font-size: 3em;
-                margin-bottom: 15px;
+                width: 52px;
+                height: 52px;
+                margin: 0 auto 14px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 12px;
+                font-size: 1.5em;
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }}
+            
+            /* Card accent colors */
+            .section-card.card-amber {{
+                --card-accent: #d4a634;
+                --card-glow: rgba(212, 166, 52, 0.3);
+            }}
+            .section-card.card-crimson {{
+                --card-accent: #c44040;
+                --card-glow: rgba(196, 64, 64, 0.3);
+            }}
+            .section-card.card-azure {{
+                --card-accent: #4080c4;
+                --card-glow: rgba(64, 128, 196, 0.3);
+            }}
+            .section-card.card-emerald {{
+                --card-accent: #40a050;
+                --card-glow: rgba(64, 160, 80, 0.3);
             }}
             
             .section-link {{
                 display: inline-block;
-                padding: 10px 24px;
-                background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
-                color: #1a1a1a;
+                padding: 10px 20px;
+                background: transparent;
+                color: var(--gold);
                 text-decoration: none;
                 border-radius: 6px;
                 font-weight: 600;
-                transition: all 0.2s;
+                font-size: 0.9em;
+                transition: all 0.3s;
+                border: 1px solid var(--gold);
+                font-family: 'Crimson Text', serif;
             }}
             
             .section-link:hover {{
-                background: linear-gradient(135deg, #f4d03f 0%, #d4af37 100%);
-                transform: scale(1.05);
+                background: var(--gold);
+                color: #1a1a1a;
+            }}
+            
+            /* Floating particles animation */
+            @keyframes float {{
+                0%, 100% {{ transform: translateY(0) rotate(0deg); opacity: 0; }}
+                10% {{ opacity: 0.8; }}
+                90% {{ opacity: 0.8; }}
+                100% {{ transform: translateY(-100vh) rotate(720deg); opacity: 0; }}
+            }}
+            
+            .particles {{
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                overflow: hidden;
+                z-index: 0;
+            }}
+            
+            .particle {{
+                position: absolute;
+                width: 4px;
+                height: 4px;
+                background: var(--gold);
+                border-radius: 50%;
+                bottom: -10px;
+                animation: float linear infinite;
+                box-shadow: 0 0 6px var(--gold);
             }}
         </style>
     </head>
     <body>
+        <div class="particles">
+            <div class="particle" style="left: 10%; animation-duration: 15s; animation-delay: 0s;"></div>
+            <div class="particle" style="left: 25%; animation-duration: 20s; animation-delay: 2s;"></div>
+            <div class="particle" style="left: 40%; animation-duration: 18s; animation-delay: 4s;"></div>
+            <div class="particle" style="left: 55%; animation-duration: 22s; animation-delay: 1s;"></div>
+            <div class="particle" style="left: 70%; animation-duration: 17s; animation-delay: 3s;"></div>
+            <div class="particle" style="left: 85%; animation-duration: 19s; animation-delay: 5s;"></div>
+        </div>
         {NAVIGATION_HTML.replace('href="/" class="nav-link"', 'href="/" class="nav-link active"')}
         <div class="home-container">
             <div class="home-header">
-                <h1>🎴 MTG Cards Manager</h1>
-                <p>Your complete Magic: The Gathering card management system</p>
+                <p class="tagline">Track your Magic: The Gathering cards, manage your wishlist, find the best deals, and play against friends — all in one place.</p>
             </div>
             
             <div class="sections-grid">
-                <a href="/collection" class="section-card">
-                    <div class="section-icon">🗂️</div>
-                    <h2>Collection</h2>
-                    <p>Track your card collection. Record buy prices, condition, source, and sell prices for cards you own.</p>
-                    <span class="section-link">Manage Collection →</span>
+                <a href="/collection" class="section-card card-amber">
+                    <div class="card-inner">
+                        <div class="section-icon">📚</div>
+                        <h2>Collection</h2>
+                        <p>Your card binder. Track what you own, what you paid, condition, and current market value.</p>
+                        <span class="section-link">Open Collection</span>
+                    </div>
                 </a>
                 
-                <a href="/wishlist" class="section-card">
-                    <div class="section-icon">📋</div>
-                    <h2>Wishlist</h2>
-                    <p>Manage your card wishlist. Add cards you want to buy, specify sets, and track what you're looking for.</p>
-                    <span class="section-link">Manage Wishlist →</span>
+                <a href="/games" class="section-card card-crimson">
+                    <div class="card-inner">
+                        <div class="section-icon">⚔️</div>
+                        <h2>Duel</h2>
+                        <p>Play Magic online with friends. Build decks, cast spells, and battle in real-time.</p>
+                        <span class="section-link">Start Duel</span>
+                    </div>
                 </a>
                 
-                <a href="/market" class="section-card">
-                    <div class="section-icon">📊</div>
-                    <h2>Market Scanner</h2>
-                    <p>Scan the market for deals on cards in your wishlist. View prices, discounts, and find the best opportunities to buy.</p>
-                    <span class="section-link">View Market →</span>
+                <a href="/wishlist" class="section-card card-azure">
+                    <div class="card-inner">
+                        <div class="section-icon">📋</div>
+                        <h2>Wishlist</h2>
+                        <p>Cards you want to buy. Keep notes on preferred sets, editions, and priorities.</p>
+                        <span class="section-link">View Wishlist</span>
+                    </div>
                 </a>
                 
-                <a href="/games" class="section-card">
-                    <div class="section-icon">🎮</div>
-                    <h2>Games</h2>
-                    <p>Play Magic: The Gathering online. Create or join games, manage decks, and play with friends in real-time.</p>
-                    <span class="section-link">Play Games →</span>
+                <a href="/market" class="section-card card-emerald">
+                    <div class="card-inner">
+                        <div class="section-icon">📊</div>
+                        <h2>Market Scanner</h2>
+                        <p>Find deals on your wishlist cards. Compares prices across Cardmarket sellers.</p>
+                        <span class="section-link">Scan Prices</span>
+                    </div>
                 </a>
             </div>
         </div>
+        {AUTH_MODAL_HTML}
+        {AUTH_JS}
     </body>
     </html>
     """
@@ -391,6 +775,7 @@ api_filter_options = web_ui.api_filter_options
 wishlist_index = wishlist_ui.wishlist_page
 get_wishlist = wishlist_ui.get_wishlist
 get_sets = wishlist_ui.get_sets
+get_card_printings = wishlist_ui.get_card_printings
 get_wishlist_cards = wishlist_ui.get_wishlist_cards
 add_wishlist_item = wishlist_ui.add_wishlist_item
 update_wishlist_item = wishlist_ui.update_wishlist_item
@@ -407,6 +792,7 @@ wishlist_get_current_user_info = wishlist_ui.get_current_user_info
 collection_index = collection_ui.collection_page
 get_collection = collection_ui.get_collection
 collection_get_sets = collection_ui.get_sets
+collection_get_card_printings = collection_ui.get_card_printings
 get_collection_cards = collection_ui.get_collection_cards
 add_collection_item = collection_ui.add_collection_item
 update_collection_item = collection_ui.update_collection_item
@@ -414,6 +800,31 @@ archive_collection_item = collection_ui.archive_collection_item
 collection_autocomplete = collection_ui.autocomplete_card_name
 collection_fetch_image = collection_ui.fetch_card_image
 get_archived_stats = collection_ui.get_archived_stats
+
+# ==================== GLOBAL AUTH ENDPOINTS ====================
+# These endpoints are accessible from any page (Home, Collection, Wishlist, etc.)
+
+@app.post("/api/auth/register")
+async def global_auth_register(request: Request):
+    """Global registration endpoint."""
+    return await wishlist_register(request)
+
+@app.post("/api/auth/login")
+async def global_auth_login(request: Request):
+    """Global login endpoint."""
+    return await wishlist_login(request)
+
+@app.post("/api/auth/logout")
+async def global_auth_logout():
+    """Global logout endpoint."""
+    return await wishlist_logout()
+
+@app.get("/api/auth/me")
+async def global_auth_me(request: Request):
+    """Get current user info from any page."""
+    return await wishlist_get_current_user_info(request)
+
+# ==================== END GLOBAL AUTH ENDPOINTS ====================
 
 # Market Scanner routes
 @app.get("/market", response_class=HTMLResponse)
@@ -901,6 +1312,10 @@ async def wishlist_api_wishlist(request: Request):
 async def wishlist_api_sets():
     return await get_sets()
 
+@app.get("/wishlist/api/card-printings")
+async def wishlist_api_card_printings(name: str):
+    return await get_card_printings(name=name)
+
 @app.get("/wishlist/api/wishlist-cards")
 async def wishlist_api_wishlist_cards(request: Request):
     return await get_wishlist_cards(request)
@@ -1001,6 +1416,10 @@ async def collection_api_collection(request: Request):
 async def collection_api_sets():
     return await collection_get_sets()
 
+@app.get("/collection/api/card-printings")
+async def collection_api_card_printings(name: str):
+    return await collection_get_card_printings(name=name)
+
 @app.get("/collection/api/collection-cards")
 async def collection_api_collection_cards(request: Request):
     return await get_collection_cards(request)
@@ -1038,6 +1457,19 @@ async def collection_api_archived_stats(request: Request):
 async def games_route(request: Request):
     """Games lobby page - redirects to full screen game frontend."""
     game_frontend_url = os.getenv("GAME_FRONTEND_URL", "http://localhost:5173")
+    
+    # Check if user is logged in and pass their username to the game frontend
+    try:
+        user_info = await wishlist_get_current_user_info(request)
+        data = user_info.body.decode('utf-8') if hasattr(user_info, 'body') else '{}'
+        import json
+        user_data = json.loads(data)
+        if user_data.get('authenticated') and user_data.get('username'):
+            from urllib.parse import urlencode
+            game_frontend_url = f"{game_frontend_url}?{urlencode({'user': user_data['username']})}"
+    except Exception:
+        pass  # If auth check fails, just redirect without username
+    
     # Redirect directly to the game frontend for full screen experience
     return RedirectResponse(url=game_frontend_url)
 

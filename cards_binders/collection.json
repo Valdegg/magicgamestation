@@ -1998,5 +1998,58 @@
     "premodern_sets": [
       "Tempest"
     ]
+  },
+  {
+    "name": "Scroll Rack",
+    "sets": [
+      "Tempest"
+    ],
+    "buy_price": 23,
+    "purchase_date": "2026-01-18",
+    "condition": "Excellent",
+    "source": "Cardmarket",
+    "foil": false,
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "format_validity": "premodern_only",
+    "old_school_sets": [],
+    "premodern_sets": [
+      "Tempest"
+    ]
+  },
+  {
+    "name": "Enlightened Tutor",
+    "sets": [
+      "Mirage"
+    ],
+    "buy_price": 23,
+    "purchase_date": "2026-01-18",
+    "condition": "Near Mint",
+    "foil": false,
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "format_validity": "premodern_only",
+    "old_school_sets": [],
+    "premodern_sets": [
+      "Mirage"
+    ]
+  },
+  {
+    "name": "Ifh-Bíff Efreet",
+    "sets": [
+      "Arabian Nights"
+    ],
+    "buy_price": 132,
+    "purchase_date": "2026-01-18",
+    "condition": "Excellent",
+    "source": "Cardmarket",
+    "foil": false,
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "format_validity": "old_school_only",
+    "old_school_sets": [
+      "Arabian Nights"
+    ],
+    "premodern_sets": []
   }
 ]
