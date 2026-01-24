@@ -7,12 +7,12 @@
     "use_historical_data": true
   },
   "summary": {
-    "total_deals": 108,
+    "total_deals": 123,
     "excellent": 64,
     "good": 20,
     "fair": 7,
     "expensive": 0,
-    "no_data": 16
+    "no_data": 31
   },
   "deals": [
     {
@@ -7254,7 +7254,262 @@
       "live_data": null,
       "discounts": null,
       "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Mana Drain",
+        "expansion": "Unknown",
+        "card_id": 7036,
+        "old_school_legal": true,
+        "premodern_legal": false,
+        "historical": {
+          "trend": 145.84,
+          "avg30": 146.21,
+          "avg7": 142.93
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Mana Drain",
+        "expansion": "Unknown",
+        "card_id": 7036,
+        "old_school_legal": true,
+        "premodern_legal": false,
+        "historical": {
+          "trend": 145.84,
+          "avg30": 146.21,
+          "avg7": 142.93
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Time Spiral",
+        "expansion": "Unknown",
+        "card_id": 10310,
+        "old_school_legal": false,
+        "premodern_legal": true,
+        "historical": {
+          "trend": 58.25,
+          "avg30": 59.09,
+          "avg7": 55.52
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Strip Mine",
+        "expansion": "Unknown",
+        "card_id": 6942,
+        "old_school_legal": true,
+        "premodern_legal": false,
+        "historical": {
+          "trend": 39.32,
+          "avg30": 51.1,
+          "avg7": 44.06
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Strip Mine",
+        "expansion": "Unknown",
+        "card_id": 6943,
+        "old_school_legal": true,
+        "premodern_legal": false,
+        "historical": {
+          "trend": 37.95,
+          "avg30": 41.79,
+          "avg7": 44.93
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Strip Mine",
+        "expansion": "Unknown",
+        "card_id": 6944,
+        "old_school_legal": true,
+        "premodern_legal": false,
+        "historical": {
+          "trend": 29.08,
+          "avg30": 26.1,
+          "avg7": 31.09
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Strip Mine",
+        "expansion": "Unknown",
+        "card_id": 6945,
+        "old_school_legal": true,
+        "premodern_legal": false,
+        "historical": {
+          "trend": 44.04,
+          "avg30": 60.19,
+          "avg7": 56.36
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Lightning Bolt",
+        "expansion": "Unknown",
+        "card_id": 5689,
+        "old_school_legal": true,
+        "premodern_legal": false,
+        "historical": {
+          "trend": 2.53,
+          "avg30": 2.34,
+          "avg7": 2.5
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Lightning Bolt",
+        "expansion": "Unknown",
+        "card_id": 5689,
+        "old_school_legal": true,
+        "premodern_legal": false,
+        "historical": {
+          "trend": 2.53,
+          "avg30": 2.34,
+          "avg7": 2.5
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Dark Ritual",
+        "expansion": "Unknown",
+        "card_id": 5535,
+        "old_school_legal": true,
+        "premodern_legal": false,
+        "historical": {
+          "trend": 2.05,
+          "avg30": 1.93,
+          "avg7": 2.13
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Dark Ritual",
+        "expansion": "Unknown",
+        "card_id": 5535,
+        "old_school_legal": true,
+        "premodern_legal": false,
+        "historical": {
+          "trend": 2.05,
+          "avg30": 1.93,
+          "avg7": 2.13
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Dark Ritual",
+        "expansion": "Unknown",
+        "card_id": 5535,
+        "old_school_legal": true,
+        "premodern_legal": false,
+        "historical": {
+          "trend": 2.05,
+          "avg30": 1.93,
+          "avg7": 2.13
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Dark Ritual",
+        "expansion": "Unknown",
+        "card_id": 4641,
+        "old_school_legal": true,
+        "premodern_legal": false,
+        "historical": {
+          "trend": 11.11,
+          "avg30": 9.05,
+          "avg7": 11.09
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Necropotence",
+        "expansion": "Unknown",
+        "card_id": 6254,
+        "old_school_legal": false,
+        "premodern_legal": true,
+        "historical": {
+          "trend": 21.81,
+          "avg30": 20.92,
+          "avg7": 21.09
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Mox Jet",
+        "expansion": "Unknown",
+        "card_id": 5155,
+        "old_school_legal": true,
+        "premodern_legal": false,
+        "historical": {
+          "trend": 2567.32,
+          "avg30": 2647.36,
+          "avg7": 2719.14
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
     }
   ],
-  "last_updated": "2026-01-18 21:28:18"
+  "last_updated": "2026-01-24 20:24:16"
 }

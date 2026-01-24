@@ -2051,5 +2051,227 @@
       "Arabian Nights"
     ],
     "premodern_sets": []
+  },
+  {
+    "name": "Mana Drain",
+    "sets": [
+      "Legends"
+    ],
+    "buy_price": 140,
+    "purchase_date": "2026-01-24",
+    "condition": "Excellent",
+    "source": "Cardmarket",
+    "foil": false,
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "format_validity": "old_school_only",
+    "old_school_sets": [
+      "Legends"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Mana Drain",
+    "sets": [
+      "Legends"
+    ],
+    "buy_price": 140,
+    "purchase_date": "2026-01-24",
+    "source": "Cardmarket",
+    "foil": false,
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "format_validity": "old_school_only",
+    "old_school_sets": [
+      "Legends"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Time Spiral",
+    "sets": [
+      "Urza's Saga"
+    ],
+    "buy_price": 60,
+    "purchase_date": "2026-01-24",
+    "condition": "Near Mint",
+    "source": "Cardmarket",
+    "foil": false,
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "format_validity": "premodern_only",
+    "old_school_sets": [],
+    "premodern_sets": [
+      "Urza's Saga"
+    ]
+  },
+  {
+    "name": "Strip Mine",
+    "sets": [
+      "Antiquities"
+    ],
+    "buy_price": 32,
+    "purchase_date": "2026-01-24",
+    "condition": "Excellent",
+    "source": "Cardmarket",
+    "foil": false,
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "format_validity": "old_school_only",
+    "old_school_sets": [
+      "Antiquities"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Lightning Bolt",
+    "sets": [
+      "Revised Edition"
+    ],
+    "buy_price": 30,
+    "purchase_date": "2026-01-24",
+    "condition": "Near Mint",
+    "source": "Cardmarket",
+    "foil": false,
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "format_validity": "old_school_only",
+    "old_school_sets": [
+      "Revised Edition"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Lightning Bolt",
+    "sets": [
+      "Revised Edition"
+    ],
+    "buy_price": 30,
+    "purchase_date": "2026-01-24",
+    "foil": false,
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "format_validity": "old_school_only",
+    "old_school_sets": [
+      "Revised Edition"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Dark Ritual",
+    "sets": [
+      "Revised Edition"
+    ],
+    "buy_price": 14.5,
+    "purchase_date": "2026-01-24",
+    "condition": "Near Mint",
+    "foil": false,
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "format_validity": "old_school_only",
+    "old_school_sets": [
+      "Revised Edition"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Dark Ritual",
+    "sets": [
+      "Revised Edition"
+    ],
+    "buy_price": 14.5,
+    "purchase_date": "2026-01-24",
+    "condition": "Near Mint",
+    "source": "Cardmarket",
+    "foil": false,
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "format_validity": "old_school_only",
+    "old_school_sets": [
+      "Revised Edition"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Dark Ritual",
+    "sets": [
+      "Revised Edition"
+    ],
+    "buy_price": 14.5,
+    "purchase_date": "2026-01-24",
+    "condition": "Near Mint",
+    "source": "Cardmarket",
+    "foil": false,
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "format_validity": "old_school_only",
+    "old_school_sets": [
+      "Revised Edition"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Mishra's Factory",
+    "sets": [
+      "Rinascimento"
+    ],
+    "buy_price": 20,
+    "purchase_date": "2026-01-24",
+    "foil": false,
+    "old_school_legal": false,
+    "premodern_legal": false,
+    "format_validity": "neither",
+    "old_school_sets": [],
+    "premodern_sets": []
+  },
+  {
+    "name": "Dark Ritual",
+    "sets": [
+      "Unlimited Edition"
+    ],
+    "buy_price": 12,
+    "purchase_date": "2026-01-24",
+    "condition": "Excellent",
+    "foil": false,
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "format_validity": "old_school_only",
+    "old_school_sets": [
+      "Unlimited Edition"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Necropotence",
+    "sets": [
+      "Ice Age"
+    ],
+    "buy_price": 20,
+    "purchase_date": "2026-01-24",
+    "condition": "Excellent",
+    "foil": false,
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "format_validity": "premodern_only",
+    "old_school_sets": [],
+    "premodern_sets": [
+      "Ice Age"
+    ]
+  },
+  {
+    "name": "Mox Jet",
+    "sets": [
+      "Unlimited Edition"
+    ],
+    "buy_price": 55,
+    "purchase_date": "2026-01-24",
+    "foil": false,
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "format_validity": "old_school_only",
+    "old_school_sets": [
+      "Unlimited Edition"
+    ],
+    "premodern_sets": []
   }
 ]

@@ -1978,7 +1978,14 @@ async def collection_page():
                 // Profit color: green if positive, red if negative
                 const profitColor = stats.total_profit >= 0 ? '#4ade80' : '#f87171';
                 
+                const addButtonStyle = 'background: linear-gradient(135deg, #d4af37 0%, #b8963a 100%); color: #1a1a1a; border: none; border-radius: 8px; padding: 12px 24px; font-size: 1em; font-weight: 600; cursor: pointer; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); transition: transform 0.2s, box-shadow 0.2s; margin-bottom: 15px;';
+                
                 statsContainer.innerHTML = `
+                    <div style="text-align: center; width: 100%; margin-bottom: 10px;">
+                        <button onclick="openAddModal()" style="${addButtonStyle}" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 12px rgba(0, 0, 0, 0.4)';" onmouseout="this.style.transform=''; this.style.boxShadow='';">
+                            ➕ Add Cards
+                        </button>
+                    </div>
                     <div style="${rowStyle}">
                         <div style="${rowTitleStyle}">What We Have</div>
                         <div style="${statCardStyle}" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 12px rgba(0, 0, 0, 0.4)';" onmouseout="this.style.transform=''; this.style.boxShadow='';">

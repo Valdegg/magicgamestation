@@ -1199,13 +1199,7 @@
     <div class="container">
         <header>
             <h1>✦ MTG Collection Manager ✦</h1>
-            <div class="stats">
-                <div class="stat">
-                    <span class="stat-number" id="totalCards">0</span>
-                    <span>Total Cards</span>
-                </div>
-
-            </div>
+            <!-- Total Cards stat removed -->
         </header>
 
         <div class="binder-wrapper" id="binderWrapper">
@@ -1224,9 +1218,7 @@
         <!-- Bottom Controls Bar -->
         <div class="bottom-controls" id="bottomControls" style="display: none;">
             <div class="bottom-controls-container">
-                <button class="page-btn" id="bottomAddCardsBtn" onclick="openAddModal()" title="Add a new card to your collection">
-                    ➕ Add Cards
-                </button>
+                <!-- Add Cards button removed - using top button above stats instead -->
                 <div id="bottom-sort-container" class="bottom-sort-container"></div>
             </div>
         </div>
@@ -1244,6 +1236,10 @@
                         <input type="text" id="cardName" required placeholder="e.g. Black Lotus" autocomplete="off">
                         <div id="cardNameDropdown" class="card-name-dropdown"></div>
                     </div>
+                </div>
+                <div class="form-group">
+                    <label for="numCopies">Number of Copies</label>
+                    <input type="number" id="numCopies" min="1" value="1" placeholder="1">
                 </div>
                 <div class="form-group">
                     <label for="cardSets">Sets</label>
@@ -1342,7 +1338,7 @@
                     currentPage = totalSpreads;
                 }
                 
-                document.getElementById('totalCards').textContent = allCards.length;
+                // document.getElementById('totalCards').textContent = allCards.length; // Removed - element no longer exists
                 
                 renderBinder();
             } catch (error) {
@@ -2113,6 +2109,9 @@
             document.getElementById('sellPrice').value = '';
             document.getElementById('saleDate').value = today;
             document.getElementById('notes').value = '';
+            document.getElementById('numCopies').value = '1';
+            // Show copies field when adding
+            document.getElementById('numCopies').parentElement.style.display = 'block';
             updateSelectedSetsDisplay();
             document.getElementById('cardSetsDropdown').classList.remove('show');
             document.getElementById('cardNameDropdown').classList.remove('show');
@@ -2129,6 +2128,8 @@
             const item = collectionItems[collectionIndex];
             editingIndex = collectionIndex;
             document.getElementById('modalTitle').textContent = 'Edit Card';
+            // Hide copies field when editing (only used for adding)
+            document.getElementById('numCopies').parentElement.style.display = 'none';
             document.getElementById('cardName').value = item.name || '';
             selectedSets = item.sets || [];
             document.getElementById('buyPrice').value = item.buy_price !== undefined ? item.buy_price : '';
@@ -2377,6 +2378,10 @@
                     if (firstItem && !firstItem.textContent.includes('No sets found')) {
                         const setName = firstItem.querySelector('.sets-dropdown-item-name').textContent;
                         selectSet(setName);
+                        // Move focus to buy price field after selecting set
+                        setTimeout(() => {
+                            document.getElementById('buyPrice').focus();
+                        }, 10);
                     }
                 }
             }
@@ -2400,6 +2405,7 @@
             e.preventDefault();
             
             const name = document.getElementById('cardName').value.trim();
+            const numCopies = parseInt(document.getElementById('numCopies').value) || 1;
             const sets = [...selectedSets];
             const buyPrice = document.getElementById('buyPrice').value.trim();
             const purchaseDate = document.getElementById('purchaseDate').value.trim();
@@ -2439,18 +2445,26 @@
                         alert('Error: ' + (error.detail || 'Failed to update card'));
                     }
                 } else {
-                    const response = await fetch('/api/collection', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(data)
-                    });
+                    // Add multiple copies if specified
+                    let allSuccess = true;
+                    for (let i = 0; i < numCopies; i++) {
+                        const response = await fetch('/api/collection', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(data)
+                        });
+                        
+                        if (!response.ok) {
+                            const error = await response.json();
+                            alert('Error adding copy ' + (i + 1) + ': ' + (error.detail || 'Failed to add card'));
+                            allSuccess = false;
+                            break;
+                        }
+                    }
                     
-                    if (response.ok) {
+                    if (allSuccess) {
                         closeModal();
                         loadCollection();
-                    } else {
-                        const error = await response.json();
-                        alert('Error: ' + (error.detail || 'Failed to add card'));
                     }
                 }
             } catch (error) {
