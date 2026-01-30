@@ -1424,6 +1424,10 @@ async def collection_api_card_printings(name: str):
 async def collection_api_collection_cards(request: Request):
     return await get_collection_cards(request)
 
+@app.get("/collection/api/market-prices")
+async def collection_api_market_prices():
+    return await collection_ui.get_market_prices()
+
 @app.post("/collection/api/collection")
 async def collection_api_add(request: Request, background_tasks: BackgroundTasks):
     return await add_collection_item(request, background_tasks)

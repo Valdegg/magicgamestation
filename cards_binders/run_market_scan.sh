@@ -4,11 +4,13 @@
 # Runs a market scan and saves results without starting the web server
 # Usage: ./run_market_scan.sh [wishlist|collection] [delay] [--source json|db|all]
 #   Examples:
-#     ./run_market_scan.sh                         # Scan wishlist.json with 10s delay (source=json)
-#     ./run_market_scan.sh collection              # Scan collection.json with 10s delay
-#     ./run_market_scan.sh wishlist 5.0            # Scan wishlist.json with 5s delay
-#     ./run_market_scan.sh --source db             # Scan all users' wishlists from database
-#     ./run_market_scan.sh --source all            # Scan JSON + all database wishlists combined
+#     ./run_market_scan.sh                         # Scan wishlist.json with 10s delay (default: source=all)
+#     ./run_market_scan.sh 15                      # Scan wishlist.json with 15s delay (default: source=all)
+#     ./run_market_scan.sh collection              # Scan collection.json with 10s delay (default: source=all)
+#     ./run_market_scan.sh wishlist 5.0            # Scan wishlist.json with 5s delay (default: source=all)
+#     ./run_market_scan.sh --source json           # Scan only JSON files (wishlist.json or collection.json)
+#     ./run_market_scan.sh --source db             # Scan all users' wishlists from database only
+#     ./run_market_scan.sh --source all            # Scan JSON + all database wishlists combined (default)
 #     ./run_market_scan.sh wishlist 10 --source db # Scan database with custom settings
 
 # Get script directory
@@ -17,8 +19,8 @@ cd "$SCRIPT_DIR"
 
 # Parse arguments
 SOURCE_TYPE="wishlist"
-DELAY=10.0
-DATA_SOURCE="json"  # Default: json (or can be "db" or "all")
+DELAY=15.0
+DATA_SOURCE="all"  # Default: all (or can be "json" or "db")
 
 # Parse positional and named arguments
 while [[ $# -gt 0 ]]; do
@@ -33,10 +35,16 @@ while [[ $# -gt 0 ]]; do
             ;;
         *)
             # Positional arguments
-            if [[ -z "$POSITIONAL_SET" ]]; then
+            # Check if argument is numeric (delay) or string (source type)
+            if [[ "$1" =~ ^[0-9]+\.?[0-9]*$ ]]; then
+                # Numeric argument = delay
+                DELAY="$1"
+            elif [[ -z "$POSITIONAL_SET" ]]; then
+                # First non-numeric argument = source type
                 SOURCE_TYPE="$1"
                 POSITIONAL_SET=1
             else
+                # Second non-numeric argument = delay (fallback)
                 DELAY="$1"
             fi
             shift

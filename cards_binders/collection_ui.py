@@ -830,36 +830,38 @@ def expand_collection_to_cards(collection: List[Dict[str, Any]]) -> List[Dict[st
         
         # If no sets specified, create one entry with no set
         if not sets:
-            # Try to find market data
-            market_value = None
+            # First check if card has stored market_price
+            market_value = item.get('market_price')
             market_discount = None
             market_category = None
             market_url = None
             
-            # Lookup key format matches load_latest_collection_scan_results: (name, expansion, language)
-            collection_language = language if language and language.lower() not in ['', 'english'] else None
-            lookup_key = (card_name.lower(), None, collection_language)
-            if lookup_key in market_data:
-                market_info = market_data[lookup_key]
-                market_value = market_info.get('price')
-                market_discount = market_info.get('discount')
-                market_category = market_info.get('category')
-                market_url = market_info.get('url')
-                matched_count += 1
-                if matched_count <= 3:  # Log first 3 matches
-                    print(f"   ✅ Matched: {card_name} (no expansion, lang: {collection_language}) -> €{market_value}", flush=True)
-            else:
-                # Try without language (fallback for English)
-                lookup_key_no_lang = (card_name.lower(), None, None)
-                if lookup_key_no_lang in market_data:
-                    market_info = market_data[lookup_key_no_lang]
+            # If no stored market_price, try to find market data from scan
+            if market_value is None:
+                # Lookup key format matches load_latest_collection_scan_results: (name, expansion, language)
+                collection_language = language if language and language.lower() not in ['', 'english'] else None
+                lookup_key = (card_name.lower(), None, collection_language)
+                if lookup_key in market_data:
+                    market_info = market_data[lookup_key]
                     market_value = market_info.get('price')
                     market_discount = market_info.get('discount')
                     market_category = market_info.get('category')
                     market_url = market_info.get('url')
                     matched_count += 1
                     if matched_count <= 3:  # Log first 3 matches
-                        print(f"   ✅ Matched: {card_name} (no expansion, no lang) -> €{market_value}", flush=True)
+                        print(f"   ✅ Matched: {card_name} (no expansion, lang: {collection_language}) -> €{market_value}", flush=True)
+                else:
+                    # Try without language (fallback for English)
+                    lookup_key_no_lang = (card_name.lower(), None, None)
+                    if lookup_key_no_lang in market_data:
+                        market_info = market_data[lookup_key_no_lang]
+                        market_value = market_info.get('price')
+                        market_discount = market_info.get('discount')
+                        market_category = market_info.get('category')
+                        market_url = market_info.get('url')
+                        matched_count += 1
+                        if matched_count <= 3:  # Log first 3 matches
+                            print(f"   ✅ Matched: {card_name} (no expansion, no lang) -> €{market_value}", flush=True)
             
             cards.append({
                 'name': card_name,
@@ -882,112 +884,114 @@ def expand_collection_to_cards(collection: List[Dict[str, Any]]) -> List[Dict[st
         else:
             # Create one card per set
             for expansion in sets:
-                # Try to find market data for this specific card+expansion
-                market_value = None
+                # First check if card has stored market_price
+                market_value = item.get('market_price')
                 market_discount = None
                 market_category = None
                 market_url = None
                 
-                # Map expansion name using same logic as scanning (e.g., Revised + Italian -> Foreign White Bordered)
-                mapped_expansion = expansion
-                if expansion and language:
-                    try:
-                        from mtg_arbitrage.wishlist import get_cardmarket_set_name
-                        mapped_expansion = get_cardmarket_set_name(expansion, language)
-                        if mapped_expansion != expansion:
-                            print(f"   🔄 Matching: Mapped '{expansion}' -> '{mapped_expansion}' for {card_name}", flush=True)
-                    except Exception as e:
-                        print(f"   ⚠️  Error mapping expansion '{expansion}': {e}", flush=True)
-                
-                # Try exact match first with mapped expansion (normalized to handle apostrophes)
-                # Include language in lookup key
-                mapped_exp_normalized = normalize_expansion_for_lookup(mapped_expansion) if mapped_expansion else None
-                collection_language = language if language and language.lower() not in ['', 'english'] else None
-                
-                # Try with language first (if collection item has language)
-                lookup_key = (card_name.lower(), mapped_exp_normalized, collection_language)
-                if lookup_key in market_data:
-                    market_info = market_data[lookup_key]
-                    market_value = market_info.get('price')
-                    market_discount = market_info.get('discount')
-                    market_category = market_info.get('category')
-                    market_url = market_info.get('url')
-                    matched_count += 1
-                    if matched_count <= 3:  # Log first 3 matches
-                        print(f"   ✅ Matched: {card_name} ({expansion} -> {mapped_expansion}, lang: {collection_language}) -> €{market_value}", flush=True)
-                else:
-                    # Try without language (fallback for English or if no language match)
-                    lookup_key_no_lang = (card_name.lower(), mapped_exp_normalized, None)
-                    if lookup_key_no_lang in market_data:
-                        market_info = market_data[lookup_key_no_lang]
+                # If no stored market_price, try to find market data from scan
+                if market_value is None:
+                    # Map expansion name using same logic as scanning (e.g., Revised + Italian -> Foreign White Bordered)
+                    mapped_expansion = expansion
+                    if expansion and language:
+                        try:
+                            from mtg_arbitrage.wishlist import get_cardmarket_set_name
+                            mapped_expansion = get_cardmarket_set_name(expansion, language)
+                            if mapped_expansion != expansion:
+                                print(f"   🔄 Matching: Mapped '{expansion}' -> '{mapped_expansion}' for {card_name}", flush=True)
+                        except Exception as e:
+                            print(f"   ⚠️  Error mapping expansion '{expansion}': {e}", flush=True)
+                    
+                    # Try exact match first with mapped expansion (normalized to handle apostrophes)
+                    # Include language in lookup key
+                    mapped_exp_normalized = normalize_expansion_for_lookup(mapped_expansion) if mapped_expansion else None
+                    collection_language = language if language and language.lower() not in ['', 'english'] else None
+                    
+                    # Try with language first (if collection item has language)
+                    lookup_key = (card_name.lower(), mapped_exp_normalized, collection_language)
+                    if lookup_key in market_data:
+                        market_info = market_data[lookup_key]
                         market_value = market_info.get('price')
                         market_discount = market_info.get('discount')
                         market_category = market_info.get('category')
                         market_url = market_info.get('url')
                         matched_count += 1
                         if matched_count <= 3:  # Log first 3 matches
-                            print(f"   ✅ Matched (no lang): {card_name} ({expansion} -> {mapped_expansion}) -> €{market_value}", flush=True)
+                            print(f"   ✅ Matched: {card_name} ({expansion} -> {mapped_expansion}, lang: {collection_language}) -> €{market_value}", flush=True)
                     else:
-                        # Try with 'English' as fallback (for old scan results that might have stored 'English' instead of None)
-                        if collection_language is None:
-                            lookup_key_english = (card_name.lower(), mapped_exp_normalized, 'English')
-                            if lookup_key_english in market_data:
-                                market_info = market_data[lookup_key_english]
-                                market_value = market_info.get('price')
-                                market_discount = market_info.get('discount')
-                                market_category = market_info.get('category')
-                                market_url = market_info.get('url')
-                                matched_count += 1
-                                if matched_count <= 3:  # Log first 3 matches
-                                    print(f"   ✅ Matched (English fallback): {card_name} ({expansion} -> {mapped_expansion}) -> €{market_value}", flush=True)
-                        # If still no match, try with original expansion name (normalized, fallback)
-                        if market_value is None:
-                            exp_normalized = normalize_expansion_for_lookup(expansion) if expansion else None
-                            lookup_key_original = (card_name.lower(), exp_normalized, collection_language)
-                            if lookup_key_original in market_data:
-                                market_info = market_data[lookup_key_original]
-                                market_value = market_info.get('price')
-                                market_discount = market_info.get('discount')
-                                market_category = market_info.get('category')
-                                market_url = market_info.get('url')
-                                matched_count += 1
-                                if matched_count <= 3:  # Log first 3 matches
-                                    print(f"   ✅ Matched (original normalized): {card_name} ({expansion}) -> €{market_value}", flush=True)
-                            else:
-                                # Try fuzzy match - check if expansion name contains or is contained (normalized)
-                                # Also check language matches
-                                for (name_key, exp_key, lang_key), market_info in market_data.items():
-                                    if name_key == card_name.lower():
-                                        # Check language match:
-                                        # - Exact match: same language (including both None for English)
-                                        # - English fallback: if collection item has no language (None), also match 'English' or None
-                                        if collection_language is None:
-                                            lang_matches = (lang_key is None) or (lang_key == 'English')
-                                        else:
-                                            lang_matches = (collection_language == lang_key)
-                                        
-                                        # Check if expansions match (fuzzy) - try mapped expansion first (normalized)
-                                        if exp_key and mapped_exp_normalized and lang_matches:
-                                            if exp_key in mapped_exp_normalized or mapped_exp_normalized in exp_key:
-                                                market_value = market_info.get('price')
-                                                market_discount = market_info.get('discount')
-                                                market_category = market_info.get('category')
-                                                market_url = market_info.get('url')
-                                                matched_count += 1
-                                                if matched_count <= 3:  # Log first 3 matches
-                                                    print(f"   ✅ Fuzzy matched: {card_name} ({expansion} -> {mapped_expansion}, lang: {collection_language}) -> €{market_value} (matched {exp_key}, scan lang: {lang_key})", flush=True)
-                                                break
-                                        # Fallback to original expansion for fuzzy matching (normalized)
-                                        elif exp_key and exp_normalized and lang_matches:
-                                            if exp_key in exp_normalized or exp_normalized in exp_key:
-                                                market_value = market_info.get('price')
-                                                market_discount = market_info.get('discount')
-                                                market_category = market_info.get('category')
-                                                market_url = market_info.get('url')
-                                                matched_count += 1
-                                                if matched_count <= 3:  # Log first 3 matches
-                                                    print(f"   ✅ Fuzzy matched: {card_name} ({expansion}, lang: {collection_language}) -> €{market_value} (matched {exp_key}, scan lang: {lang_key})", flush=True)
-                                                break
+                        # Try without language (fallback for English or if no language match)
+                        lookup_key_no_lang = (card_name.lower(), mapped_exp_normalized, None)
+                        if lookup_key_no_lang in market_data:
+                            market_info = market_data[lookup_key_no_lang]
+                            market_value = market_info.get('price')
+                            market_discount = market_info.get('discount')
+                            market_category = market_info.get('category')
+                            market_url = market_info.get('url')
+                            matched_count += 1
+                            if matched_count <= 3:  # Log first 3 matches
+                                print(f"   ✅ Matched (no lang): {card_name} ({expansion} -> {mapped_expansion}) -> €{market_value}", flush=True)
+                        else:
+                            # Try with 'English' as fallback (for old scan results that might have stored 'English' instead of None)
+                            if collection_language is None:
+                                lookup_key_english = (card_name.lower(), mapped_exp_normalized, 'English')
+                                if lookup_key_english in market_data:
+                                    market_info = market_data[lookup_key_english]
+                                    market_value = market_info.get('price')
+                                    market_discount = market_info.get('discount')
+                                    market_category = market_info.get('category')
+                                    market_url = market_info.get('url')
+                                    matched_count += 1
+                                    if matched_count <= 3:  # Log first 3 matches
+                                        print(f"   ✅ Matched (English fallback): {card_name} ({expansion} -> {mapped_expansion}) -> €{market_value}", flush=True)
+                            # If still no match, try with original expansion name (normalized, fallback)
+                            if market_value is None:
+                                exp_normalized = normalize_expansion_for_lookup(expansion) if expansion else None
+                                lookup_key_original = (card_name.lower(), exp_normalized, collection_language)
+                                if lookup_key_original in market_data:
+                                    market_info = market_data[lookup_key_original]
+                                    market_value = market_info.get('price')
+                                    market_discount = market_info.get('discount')
+                                    market_category = market_info.get('category')
+                                    market_url = market_info.get('url')
+                                    matched_count += 1
+                                    if matched_count <= 3:  # Log first 3 matches
+                                        print(f"   ✅ Matched (original normalized): {card_name} ({expansion}) -> €{market_value}", flush=True)
+                                else:
+                                    # Try fuzzy match - check if expansion name contains or is contained (normalized)
+                                    # Also check language matches
+                                    for (name_key, exp_key, lang_key), market_info in market_data.items():
+                                        if name_key == card_name.lower():
+                                            # Check language match:
+                                            # - Exact match: same language (including both None for English)
+                                            # - English fallback: if collection item has no language (None), also match 'English' or None
+                                            if collection_language is None:
+                                                lang_matches = (lang_key is None) or (lang_key == 'English')
+                                            else:
+                                                lang_matches = (collection_language == lang_key)
+                                            
+                                            # Check if expansions match (fuzzy) - try mapped expansion first (normalized)
+                                            if exp_key and mapped_exp_normalized and lang_matches:
+                                                if exp_key in mapped_exp_normalized or mapped_exp_normalized in exp_key:
+                                                    market_value = market_info.get('price')
+                                                    market_discount = market_info.get('discount')
+                                                    market_category = market_info.get('category')
+                                                    market_url = market_info.get('url')
+                                                    matched_count += 1
+                                                    if matched_count <= 3:  # Log first 3 matches
+                                                        print(f"   ✅ Fuzzy matched: {card_name} ({expansion} -> {mapped_expansion}, lang: {collection_language}) -> €{market_value} (matched {exp_key}, scan lang: {lang_key})", flush=True)
+                                                    break
+                                            # Fallback to original expansion for fuzzy matching (normalized)
+                                            elif exp_key and exp_normalized and lang_matches:
+                                                if exp_key in exp_normalized or exp_normalized in exp_key:
+                                                    market_value = market_info.get('price')
+                                                    market_discount = market_info.get('discount')
+                                                    market_category = market_info.get('category')
+                                                    market_url = market_info.get('url')
+                                                    matched_count += 1
+                                                    if matched_count <= 3:  # Log first 3 matches
+                                                        print(f"   ✅ Fuzzy matched: {card_name} ({expansion}, lang: {collection_language}) -> €{market_value} (matched {exp_key}, scan lang: {lang_key})", flush=True)
+                                                    break
                 
                 cards.append({
                     'name': card_name,
@@ -1088,6 +1092,127 @@ async def collection_page():
             notesField.parentElement.insertBefore(foilContainer, foilLabel.nextSibling);
         }
         
+        // Add Market Price field right below Market Price label
+        function addMarketPriceField() {
+            // First, check if Market Price field already exists
+            const existingMarketPrice = document.querySelector('[name="market_price"]');
+            if (existingMarketPrice) return; // Already added
+            
+            // Find the existing Market Price label - try multiple patterns
+            const labels = document.querySelectorAll('label');
+            let marketPriceLabel = null;
+            
+            for (const label of labels) {
+                const labelText = label.textContent.toLowerCase().trim();
+                // Try various patterns to find Market Price label
+                if ((labelText.includes('market price') || labelText.includes('marketprice')) && 
+                    (labelText.includes('€') || labelText.includes('euro') || labelText.includes('eur'))) {
+                    marketPriceLabel = label;
+                    break;
+                }
+            }
+            
+            // If still not found, try finding by position (before Sell Price)
+            if (!marketPriceLabel) {
+                const sellPriceLabels = Array.from(labels).filter(l => {
+                    const text = l.textContent.toLowerCase().trim();
+                    return text.includes('sell price');
+                });
+                
+                if (sellPriceLabels.length > 0) {
+                    const sellPriceLabel = sellPriceLabels[0];
+                    // Look for Market Price label before Sell Price
+                    let current = sellPriceLabel.previousElementSibling;
+                    while (current) {
+                        if (current.tagName === 'LABEL') {
+                            const text = current.textContent.toLowerCase().trim();
+                            if (text.includes('market') || text.includes('price')) {
+                                marketPriceLabel = current;
+                                break;
+                            }
+                        }
+                        current = current.previousElementSibling;
+                    }
+                }
+            }
+            
+            // If still not found, create the label before Sell Price
+            if (!marketPriceLabel) {
+                // Find Sell Price label to insert before it
+                const sellPriceLabels = Array.from(labels).filter(l => {
+                    const text = l.textContent.toLowerCase().trim();
+                    return text.includes('sell price');
+                });
+                
+                if (sellPriceLabels.length > 0) {
+                    const sellPriceLabel = sellPriceLabels[0];
+                    // Create Market Price label
+                    marketPriceLabel = document.createElement('label');
+                    marketPriceLabel.textContent = 'Market Price (€):';
+                    marketPriceLabel.setAttribute('for', 'card-market-price');
+                    marketPriceLabel.style.cssText = 'display: block; margin-top: 10px; margin-bottom: 5px; color: #d4af37; font-weight: 500;';
+                    sellPriceLabel.parentElement.insertBefore(marketPriceLabel, sellPriceLabel);
+                } else {
+                    console.warn('Could not find Market Price or Sell Price label');
+                    return;
+                }
+            }
+            
+            // Check if input field already exists right after the label
+            let nextSibling = marketPriceLabel.nextElementSibling;
+            while (nextSibling) {
+                if (nextSibling.tagName === 'INPUT' && nextSibling.name === 'market_price') {
+                    return; // Already exists
+                }
+                // Stop if we hit another label (like Sell Price)
+                if (nextSibling.tagName === 'LABEL') {
+                    break;
+                }
+                nextSibling = nextSibling.nextElementSibling;
+            }
+            
+            // Create Market Price input field
+            const marketPriceInput = document.createElement('input');
+            marketPriceInput.type = 'number';
+            marketPriceInput.step = '0.01';
+            marketPriceInput.min = '0';
+            marketPriceInput.name = 'market_price';
+            marketPriceInput.id = 'card-market-price';
+            marketPriceInput.placeholder = 'e.g. 25.50';
+            marketPriceInput.style.cssText = 'width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #444; background: #222; color: #fff; border-radius: 4px; font-size: 14px;';
+            
+            // Insert the input field right after the Market Price label
+            // Find where to insert (before the next label or before Sell Price field)
+            let insertBefore = null;
+            let current = marketPriceLabel.nextElementSibling;
+            while (current) {
+                // Stop if we hit another label (like Sell Price)
+                if (current.tagName === 'LABEL') {
+                    insertBefore = current;
+                    break;
+                }
+                // Stop if we hit Sell Price input field
+                if (current.tagName === 'INPUT') {
+                    const placeholder = current.placeholder?.toLowerCase() || '';
+                    const name = current.name?.toLowerCase() || '';
+                    const id = current.id?.toLowerCase() || '';
+                    if (placeholder.includes('sell') || name.includes('sell') || id.includes('sell')) {
+                        insertBefore = current;
+                        break;
+                    }
+                }
+                current = current.nextElementSibling;
+            }
+            
+            // Insert the input field
+            if (insertBefore) {
+                marketPriceLabel.parentElement.insertBefore(marketPriceInput, insertBefore);
+            } else {
+                // If no insert point found, just append after the label
+                marketPriceLabel.parentElement.insertBefore(marketPriceInput, marketPriceLabel.nextSibling);
+            }
+        }
+        
         // Intercept fetch calls to add language to API requests
         if (!window.originalFetch) {
             window.originalFetch = window.fetch;
@@ -1110,7 +1235,16 @@ async def collection_page():
                         if (foilField) {
                             body.foil = foilField.checked;
                         }
-                        if (langField || foilField) {
+                        const marketPriceField = document.querySelector('[name="market_price"]');
+                        if (marketPriceField) {
+                            const marketPriceValue = marketPriceField.value;
+                            if (marketPriceValue && marketPriceValue.trim() !== '') {
+                                body.market_price = parseFloat(marketPriceValue);
+                            } else {
+                                body.market_price = null;
+                            }
+                        }
+                        if (langField || foilField || marketPriceField) {
                             options.body = JSON.stringify(body);
                             args[1] = options;
                         }
@@ -1452,6 +1586,7 @@ async def collection_page():
         function init() {
             const checkAndAdd = () => {
                 addLanguageField();
+                addMarketPriceField();
                 updateCardDisplays();
             };
             
@@ -1465,37 +1600,101 @@ async def collection_page():
                 setInterval(checkAndAdd, 1000);
             }
             
-            // Watch for modal opens and populate foil field when editing
+            // Watch for modal opens and populate fields when editing
             const observer = new MutationObserver((mutations) => {
                 checkAndAdd();
                 // Try to populate foil checkbox when modal opens with existing card data
                 const foilCheckbox = document.querySelector('[name="foil"]');
-                if (foilCheckbox) {
-                    // Check if we're editing - look for card data in the modal or form
-                    const form = foilCheckbox.closest('form');
-                    if (form) {
-                        // Try to get card data from various possible sources
-                        const cardDataAttr = form.getAttribute('data-card-data');
-                        if (cardDataAttr) {
-                            try {
-                                const cardData = JSON.parse(cardDataAttr);
-                                if (cardData.foil !== undefined) {
-                                    foilCheckbox.checked = Boolean(cardData.foil);
-                                }
-                            } catch(e) {}
-                        }
-                        // Also check if card data is stored elsewhere in the form
+                const marketPriceField = document.querySelector('[name="market_price"]');
+                const form = (foilCheckbox || marketPriceField)?.closest('form');
+                
+                if (form) {
+                    // Try to get card data from various possible sources
+                    const cardDataAttr = form.getAttribute('data-card-data');
+                    let cardData = null;
+                    
+                    if (cardDataAttr) {
+                        try {
+                            cardData = JSON.parse(cardDataAttr);
+                        } catch(e) {}
+                    }
+                    
+                    // Also check if card data is stored elsewhere in the form
+                    if (!cardData) {
                         const hiddenInputs = form.querySelectorAll('input[type="hidden"]');
-                        hiddenInputs.forEach(input => {
+                        for (const input of hiddenInputs) {
                             if (input.name === 'card_data' || input.name === 'original_card') {
                                 try {
-                                    const cardData = JSON.parse(input.value);
-                                    if (cardData.foil !== undefined) {
-                                        foilCheckbox.checked = Boolean(cardData.foil);
-                                    }
+                                    cardData = JSON.parse(input.value);
+                                    break;
                                 } catch(e) {}
                             }
-                        });
+                        }
+                    }
+                    
+                    // Populate foil checkbox
+                    if (foilCheckbox && cardData && cardData.foil !== undefined) {
+                        foilCheckbox.checked = Boolean(cardData.foil);
+                    }
+                    
+                    // Populate market price field
+                    if (marketPriceField && cardData) {
+                        // First check if card has stored market_price
+                        if (cardData.market_price !== undefined && cardData.market_price !== null && cardData.market_price !== '') {
+                            marketPriceField.value = cardData.market_price;
+                        } else {
+                            // Try to look up from market scan results
+                            const cardName = cardData.name || form.querySelector('[name="name"]')?.value;
+                            const cardSets = cardData.sets || [];
+                            const cardExpansion = cardSets.length > 0 ? cardSets[0] : null;
+                            const cardLanguage = cardData.language || null;
+                            
+                            if (cardName) {
+                                // Fetch market prices and look up
+                                fetch('/collection/api/market-prices')
+                                    .then(res => res.json())
+                                    .then(data => {
+                                        if (data.market_prices && Object.keys(data.market_prices).length > 0) {
+                                            // Normalize lookup key (same as backend normalize_expansion_for_lookup)
+                                            const nameLower = cardName.toLowerCase().trim();
+                                            
+                                            // Normalize expansion (match Python normalize_expansion_for_lookup)
+                                            let expansionNormalized = null;
+                                            if (cardExpansion) {
+                                                let normalized = cardExpansion.replace(/'/g, '').replace(/'/g, '').replace(/'/g, '').toLowerCase().trim();
+                                                // Handle special cases like Python function
+                                                if (normalized.startsWith('revised')) {
+                                                    normalized = 'revised';
+                                                } else if (normalized.startsWith('unlimited')) {
+                                                    normalized = 'unlimited';
+                                                }
+                                                expansionNormalized = normalized;
+                                            }
+                                            
+                                            const language = cardLanguage && cardLanguage.toLowerCase() !== 'english' && cardLanguage.toLowerCase() !== '' ? cardLanguage : null;
+                                            const lookupKey = [nameLower, expansionNormalized, language];
+                                            
+                                            // Try exact match first
+                                            let marketInfo = data.market_prices[JSON.stringify(lookupKey)];
+                                            
+                                            // Try without language if not found
+                                            if (!marketInfo && language) {
+                                                marketInfo = data.market_prices[JSON.stringify([nameLower, expansionNormalized, null])];
+                                            }
+                                            
+                                            // Try without expansion if still not found
+                                            if (!marketInfo && expansionNormalized) {
+                                                marketInfo = data.market_prices[JSON.stringify([nameLower, null, language])];
+                                            }
+                                            
+                                            if (marketInfo && marketInfo.price) {
+                                                marketPriceField.value = marketInfo.price;
+                                            }
+                                        }
+                                    })
+                                    .catch(err => console.error('Error fetching market prices:', err));
+                            }
+                        }
                     }
                 }
             });
@@ -4605,6 +4804,8 @@ async def add_collection_item(request: Request, background_tasks: BackgroundTask
             else:
                 # Default to current date if sell_price is set but no date provided
                 new_item['sale_date'] = datetime.now().strftime('%Y-%m-%d')
+        if 'market_price' in data:
+            new_item['market_price'] = data['market_price']
         if 'notes' in data:
             new_item['notes'] = data['notes']
         if 'language' in data:
@@ -4719,6 +4920,15 @@ async def update_collection_item(index: int, request: Request):
                 # Remove sale_date when sell_price is removed
                 if 'sale_date' in collection[index]:
                     del collection[index]['sale_date']
+        # Handle market_price separately
+        if 'market_price' in data:
+            if data['market_price'] is not None and data['market_price'] != '':
+                try:
+                    collection[index]['market_price'] = float(data['market_price'])
+                except (ValueError, TypeError):
+                    pass  # Invalid value, skip
+            elif 'market_price' in collection[index]:
+                del collection[index]['market_price']
         # Handle sale_date separately (in case user wants to update date without changing price)
         if 'sale_date' in data:
             if data['sale_date'] is not None and data['sale_date'] != '':
@@ -5036,6 +5246,25 @@ async def get_archived_stats(request: Request):
             "sold_count": 0,
             "total_sold_amount": 0.0,
             "total_profit": 0.0,
+            "error": str(e)
+        }, status_code=500)
+
+
+@app.get("/api/market-prices")
+async def get_market_prices():
+    """Get market price lookup data from latest market scan results."""
+    try:
+        market_data = load_latest_collection_scan_results()
+        # Convert tuple keys to JSON-serializable string keys
+        serializable_data = {}
+        for key, value in market_data.items():
+            # Key is a tuple (name, expansion, language), convert to JSON string
+            key_str = json.dumps(list(key))
+            serializable_data[key_str] = value
+        return JSONResponse({"market_prices": serializable_data})
+    except Exception as e:
+        return JSONResponse({
+            "market_prices": {},
             "error": str(e)
         }, status_code=500)
 

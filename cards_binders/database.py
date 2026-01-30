@@ -45,6 +45,7 @@ def init_db():
                 sets TEXT,
                 buy_price REAL,
                 sell_price REAL,
+                market_price REAL,
                 condition TEXT,
                 source TEXT,
                 notes TEXT,
@@ -62,6 +63,13 @@ def init_db():
                 FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
             )
         """)
+        
+        # Check if market_price column exists, add if not (migration for existing databases)
+        cursor.execute("PRAGMA table_info(collection)")
+        columns = [row[1] for row in cursor.fetchall()]
+        if 'market_price' not in columns:
+            cursor.execute("ALTER TABLE collection ADD COLUMN market_price REAL")
+            print(f"✅ Added market_price column to existing collection table", flush=True)
         
         # Create index on user_id for faster queries
         cursor.execute("""
@@ -126,7 +134,9 @@ def init_db():
                 baseline_count INTEGER,
                 category TEXT,
                 -- Metadata
-                scanned_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                scan_date DATE NOT NULL DEFAULT (DATE('now')),
+                scanned_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                UNIQUE(card_name, expansion, scan_date)
             )
         """)
         
@@ -137,6 +147,24 @@ def init_db():
         
         cursor.execute("""
             CREATE INDEX IF NOT EXISTS idx_market_scan_category ON market_scan_deal(category)
+        """)
+        
+        # Add scan_date column if it doesn't exist (migration for existing databases)
+        # MUST be done before creating indexes that reference scan_date
+        cursor.execute("PRAGMA table_info(market_scan_deal)")
+        columns = [row[1] for row in cursor.fetchall()]
+        if 'scan_date' not in columns:
+            cursor.execute("ALTER TABLE market_scan_deal ADD COLUMN scan_date DATE DEFAULT (DATE('now'))")
+            cursor.execute("UPDATE market_scan_deal SET scan_date = DATE(scanned_at) WHERE scan_date IS NULL")
+            print(f"✅ Added scan_date column to existing market_scan_deal table", flush=True)
+        
+        # Create indexes that reference scan_date (only after column exists)
+        cursor.execute("""
+            CREATE INDEX IF NOT EXISTS idx_market_scan_date ON market_scan_deal(scan_date)
+        """)
+        
+        cursor.execute("""
+            CREATE UNIQUE INDEX IF NOT EXISTS idx_market_scan_unique ON market_scan_deal(card_name, expansion, scan_date)
         """)
         
         conn.commit()
@@ -249,6 +277,7 @@ def get_user_collection(user_id: int) -> List[Dict[str, Any]]:
                 "sets": json.loads(row["sets"]) if row["sets"] else [],
                 "buy_price": row["buy_price"],
                 "sell_price": row["sell_price"],
+                "market_price": row.get("market_price"),  # Use .get() for backward compatibility
                 "condition": row["condition"],
                 "source": row["source"],
                 "notes": row["notes"],
@@ -284,16 +313,17 @@ def add_collection_item(user_id: int, item: Dict[str, Any]) -> Optional[int]:
         
         cursor.execute("""
             INSERT INTO collection (
-                user_id, name, sets, buy_price, sell_price, condition, source,
+                user_id, name, sets, buy_price, sell_price, market_price, condition, source,
                 notes, language, foil, purchase_date, sale_date, format_validity,
                 old_school_legal, premodern_legal, old_school_sets, premodern_sets
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (
             user_id,
             item.get("name"),
             json.dumps(item.get("sets", [])),
             item.get("buy_price"),
             item.get("sell_price"),
+            item.get("market_price"),
             item.get("condition"),
             item.get("source"),
             item.get("notes"),
@@ -347,6 +377,9 @@ def update_collection_item(user_id: int, item_id: int, item: Dict[str, Any]) -> 
         if "sell_price" in item:
             updates.append("sell_price = ?")
             values.append(item["sell_price"])
+        if "market_price" in item:
+            updates.append("market_price = ?")
+            values.append(item["market_price"])
         if "condition" in item:
             updates.append("condition = ?")
             values.append(item["condition"])
@@ -793,6 +826,9 @@ def save_scan_deals(deals: List[Dict[str, Any]]) -> bool:
             top_sellers = live_data.get("top_sellers")
             top_sellers_json = json.dumps(top_sellers) if top_sellers else None
             
+            # Use today's date for scan_date
+            scan_date = datetime.now().strftime('%Y-%m-%d')
+            
             cursor.execute("""
                 INSERT INTO market_scan_deal (
                     card_name, expansion, card_id, old_school_legal, premodern_legal,
@@ -801,8 +837,8 @@ def save_scan_deals(deals: List[Dict[str, Any]]) -> bool:
                     cheapest_good_price, cheapest_condition, cheapest_seller,
                     cheapest_quantity, cheapest_country, cheapest_price, top_sellers,
                     has_discount, discount_vs_market, market_baseline, baseline_count,
-                    category
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    category, scan_date
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, (
                 card.get("name"),
                 card.get("expansion"),
@@ -828,6 +864,7 @@ def save_scan_deals(deals: List[Dict[str, Any]]) -> bool:
                 discounts.get("market_baseline"),
                 discounts.get("baseline_count"),
                 deal.get("category"),
+                scan_date,
             ))
         
         conn.commit()  # Only commits if ALL inserts succeed
@@ -845,12 +882,133 @@ def save_scan_deals(deals: List[Dict[str, Any]]) -> bool:
             conn.close()
 
 
-def get_scan_deals(card_names: Optional[List[str]] = None) -> List[Dict[str, Any]]:
+def save_single_scan_deal(deal: Dict[str, Any], scan_date: Optional[str] = None) -> bool:
     """
-    Get scan deals, optionally filtered by card names.
+    Save a single scan deal incrementally to the database.
+    
+    Uses INSERT OR REPLACE to update if the card+expansion+date already exists.
+    This allows incremental saving during scans and resuming interrupted scans.
+    
+    Args:
+        deal: Single deal dictionary with nested structure (same as save_scan_deals)
+        scan_date: Date string (YYYY-MM-DD). If None, uses today's date.
+    
+    Returns:
+        True on success, False on failure.
+    """
+    if scan_date is None:
+        scan_date = datetime.now().strftime('%Y-%m-%d')
+    
+    conn = None
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        
+        # Extract nested values with safe defaults
+        card = deal.get("card", {})
+        historical = card.get("historical", {})
+        live_data = deal.get("live_data", {})
+        cheapest_details = live_data.get("cheapest_good_details", {})
+        discounts = deal.get("discounts", {})
+        
+        # Serialize top_sellers as JSON text
+        top_sellers = live_data.get("top_sellers")
+        top_sellers_json = json.dumps(top_sellers) if top_sellers else None
+        
+        # Use INSERT OR REPLACE to update if card+expansion+date already exists
+        cursor.execute("""
+            INSERT OR REPLACE INTO market_scan_deal (
+                card_name, expansion, card_id, old_school_legal, premodern_legal,
+                trend_price, avg30_price, avg7_price,
+                url, total_listings, available_items_total, expansion_name,
+                cheapest_good_price, cheapest_condition, cheapest_seller,
+                cheapest_quantity, cheapest_country, cheapest_price, top_sellers,
+                has_discount, discount_vs_market, market_baseline, baseline_count,
+                category, scan_date
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (
+            card.get("name"),
+            card.get("expansion"),
+            card.get("card_id"),
+            1 if card.get("old_school_legal") else 0,
+            1 if card.get("premodern_legal") else 0,
+            historical.get("trend"),
+            historical.get("avg30"),
+            historical.get("avg7"),
+            live_data.get("url"),
+            live_data.get("total_listings"),
+            live_data.get("available_items_total"),
+            live_data.get("expansion_name"),
+            live_data.get("cheapest_good_condition"),
+            cheapest_details.get("condition"),
+            cheapest_details.get("seller"),
+            cheapest_details.get("quantity"),
+            cheapest_details.get("country"),
+            cheapest_details.get("price"),
+            top_sellers_json,
+            1 if discounts.get("has_discount") else 0,
+            discounts.get("discount_vs_market"),
+            discounts.get("market_baseline"),
+            discounts.get("baseline_count"),
+            deal.get("category"),
+            scan_date,
+        ))
+        
+        conn.commit()
+        return True
+    except Exception as e:
+        if conn:
+            conn.rollback()
+        print(f"❌ Error saving single scan deal: {e}", flush=True)
+        return False
+    finally:
+        if conn:
+            conn.close()
+
+
+def get_cards_with_scan_date(scan_date: Optional[str] = None) -> set:
+    """
+    Get set of (card_name, expansion) tuples that already have scan data for the given date.
+    
+    Args:
+        scan_date: Date string (YYYY-MM-DD). If None, uses today's date.
+    
+    Returns:
+        Set of tuples: {(card_name, expansion), ...}
+    """
+    if scan_date is None:
+        scan_date = datetime.now().strftime('%Y-%m-%d')
+    
+    conn = None
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        
+        cursor.execute("""
+            SELECT DISTINCT card_name, expansion
+            FROM market_scan_deal
+            WHERE scan_date = ?
+        """, (scan_date,))
+        
+        rows = cursor.fetchall()
+        # Return set of tuples for fast lookup
+        return {(row[0], row[1]) for row in rows}
+    except Exception as e:
+        print(f"❌ Error getting cards with scan date: {e}", flush=True)
+        return set()
+    finally:
+        if conn:
+            conn.close()
+
+
+def get_scan_deals(card_names: Optional[List[str]] = None, scan_date: Optional[str] = None) -> List[Dict[str, Any]]:
+    """
+    Get scan deals, optionally filtered by card names and/or scan date.
     
     Args:
         card_names: Optional list of card names to filter by. If None, returns all deals.
+        scan_date: Optional date string (YYYY-MM-DD) to filter by. If None, returns all dates.
+                   Use this to get only today's scans, or scans from a specific date.
     
     Returns:
         List of deal dictionaries in the same nested structure as save_scan_deals expects.
@@ -860,15 +1018,23 @@ def get_scan_deals(card_names: Optional[List[str]] = None) -> List[Dict[str, Any
         conn = get_db_connection()
         cursor = conn.cursor()
         
+        conditions = []
+        params = []
+        
         if card_names:
             # Filter by card names (case-insensitive)
             placeholders = ','.join('?' * len(card_names))
-            # Use LOWER for case-insensitive matching
             lower_names = [name.lower() for name in card_names]
-            cursor.execute(
-                f"SELECT * FROM market_scan_deal WHERE LOWER(card_name) IN ({placeholders}) ORDER BY id",
-                lower_names
-            )
+            conditions.append(f"LOWER(card_name) IN ({placeholders})")
+            params.extend(lower_names)
+        
+        if scan_date:
+            conditions.append("scan_date = ?")
+            params.append(scan_date)
+        
+        if conditions:
+            where_clause = " WHERE " + " AND ".join(conditions)
+            cursor.execute(f"SELECT * FROM market_scan_deal{where_clause} ORDER BY id", params)
         else:
             cursor.execute("SELECT * FROM market_scan_deal ORDER BY id")
         

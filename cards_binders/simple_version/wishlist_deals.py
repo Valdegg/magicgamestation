@@ -81,6 +81,8 @@ from mtg_arbitrage.config import get_config
 try:
     import database
     DATABASE_AVAILABLE = True
+    # Initialize database to ensure schema is up to date (including migrations)
+    database.init_db()
 except ImportError:
     DATABASE_AVAILABLE = False
     print("⚠️  Database module not available. Per-user wishlists will not work.")
@@ -730,9 +732,47 @@ def check_wishlist_deals(wishlist_file: str,
     
     deals = []
     
+    # Track if we've been rate limited to save partial results
+    rate_limited = False
+    
+    # Check which cards already have today's scan data (if using database)
+    already_scanned = set()
+    if source in ("db", "all") and DATABASE_AVAILABLE:
+        try:
+            already_scanned = database.get_cards_with_scan_date()
+            if already_scanned:
+                print(f"📊 Found {len(already_scanned)} cards already scanned today - will skip them")
+        except Exception as e:
+            print(f"⚠️  Could not check existing scan data: {e}")
+    
     for i, card in enumerate(cards, 1):
         card_name = card.get('name', 'Unknown')
         expansion = card.get('expansionName') or card.get('sets', ['Unknown'])[0] if card.get('sets') else 'Unknown'
+        
+        # Check if this card already has today's scan data
+        card_key = (card_name, expansion)
+        if card_key in already_scanned:
+            print(f"\n[{i}/{len(cards)}] {card_name} ({expansion}) - ⏭️  Already scanned today, skipping...")
+            # Still add to deals list with existing data (we'll load it from DB later if needed)
+            # For now, skip scraping but add placeholder
+            deals.append({
+                'card': {
+                    'name': card_name,
+                    'expansion': expansion,
+                    'card_id': card.get('idProduct'),
+                    'old_school_legal': card.get('old_school_legal', False),
+                    'premodern_legal': card.get('premodern_legal', False),
+                    'historical': {
+                        'trend': card.get('TREND', 0) if use_historical else 0,
+                        'avg30': card.get('AVG30', 0) if use_historical else 0,
+                        'avg7': card.get('AVG7', 0) if use_historical else 0
+                    }
+                },
+                'live_data': None,
+                'discounts': None,
+                'category': 'skipped'  # Mark as skipped
+            })
+            continue
         
         print(f"\n[{i}/{len(cards)}] {card_name} ({expansion})")
         
@@ -763,9 +803,23 @@ def check_wishlist_deals(wishlist_file: str,
         try:
             live_data = scrape_card_prices(card, scraper)
         except Exception as e:
+            error_msg = str(e)
             print(f"   ❌ Exception during scraping: {e}")
             import traceback
             traceback.print_exc()
+            
+            # Check if this is a rate limit exception
+            if 'RATE LIMITED' in error_msg.upper() or '429' in error_msg:
+                rate_limited = True
+                print(f"\n⚠️  Rate limiting detected! Saving partial results ({len(deals)} cards processed so far)...")
+                # Save partial results before stopping
+                try:
+                    partial_output = save_results(deals, OUTPUT_FILE, wishlist_file, source)
+                    print(f"💾 Partial results saved to: {partial_output}")
+                    print(f"⚠️  Script stopped due to rate limiting. {len(deals)}/{len(cards)} cards processed.")
+                except Exception as save_error:
+                    print(f"❌ Failed to save partial results: {save_error}")
+            
             live_data = None
         
         if not live_data:
@@ -849,6 +903,37 @@ def check_wishlist_deals(wishlist_file: str,
         }
         
         deals.append(deal)
+        
+        # Save incrementally to database (if using database source)
+        if source in ("db", "all") and DATABASE_AVAILABLE:
+            try:
+                success = database.save_single_scan_deal(deal)
+                if success:
+                    print(f"   💾 Saved to database")
+                else:
+                    print(f"   ⚠️  Failed to save to database")
+            except Exception as e:
+                print(f"   ⚠️  Error saving to database: {e}")
+        
+        # Save incremental JSON backup every 10 cards to prevent data loss
+        if i % 10 == 0 and i < len(cards):
+            try:
+                # Save incremental backup (with .partial suffix)
+                incremental_file = save_results(deals, None, wishlist_file, source)
+                if incremental_file and incremental_file.endswith('.json'):
+                    # Rename to .partial.json for incremental saves
+                    import os
+                    partial_file = incremental_file.replace('.json', '.partial.json')
+                    if os.path.exists(incremental_file):
+                        os.rename(incremental_file, partial_file)
+                        print(f"   💾 Incremental JSON backup: {partial_file} ({len(deals)} cards)")
+            except Exception as e:
+                print(f"   ⚠️  Could not save incremental backup: {e}")
+        
+        # Stop if rate limited
+        if rate_limited:
+            print(f"\n⚠️  Stopping scan due to rate limiting. Processed {len(deals)}/{len(cards)} cards.")
+            break
         
         # Delay between cards (except last one) - longer delays to avoid rate limiting
         if i < len(cards):
@@ -996,22 +1081,23 @@ def save_results(deals: List[Dict[str, Any]], output_file: Optional[str] = None,
         saved_to.append(f"JSON: {output_file}")
     
     # Save to database if source is "db" or "all"
+    # Note: We don't call save_scan_deals here anymore because we're saving incrementally
+    # during the scan. This function is only called at the end for final JSON save.
+    # If you want to ensure all deals are in DB, they should already be there from incremental saves.
     if source in ("db", "all"):
         if not DATABASE_AVAILABLE:
             print(f"⚠️  Database not available, skipping database save")
         else:
+            # Count how many deals were saved incrementally (they should already be in DB)
             try:
-                # Use the save_scan_deals function from database module
-                success = database.save_scan_deals(deals)
-                if success:
-                    print(f"💾 Results saved to database ({len(deals)} deals)")
-                    saved_to.append("Database")
-                else:
-                    print(f"⚠️  Failed to save results to database")
+                # datetime is already imported at module level
+                today = datetime.now().strftime('%Y-%m-%d')
+                existing_count = len(database.get_cards_with_scan_date(today))
+                if existing_count > 0:
+                    print(f"💾 Database already contains {existing_count} deals for today (saved incrementally)")
+                    saved_to.append(f"Database ({existing_count} deals)")
             except Exception as e:
-                print(f"⚠️  Error saving to database: {e}")
-                import traceback
-                traceback.print_exc()
+                print(f"⚠️  Could not verify database contents: {e}")
     
     print(f"\n💾 Saved to: {', '.join(saved_to)}")
     return output_file if output_file else "database"
@@ -1070,11 +1156,33 @@ def main():
         
     except KeyboardInterrupt:
         print("\n\n⚠️  Analysis interrupted by user (Ctrl+C)")
+        # Try to save partial results before exiting
+        if 'deals' in locals() and deals:
+            try:
+                print(f"\n💾 Attempting to save partial results ({len(deals)} cards)...")
+                partial_output = save_results(deals, OUTPUT_FILE, WISHLIST_FILE, source)
+                print(f"✅ Partial results saved to: {partial_output}")
+            except Exception as save_error:
+                print(f"⚠️  Could not save partial results: {save_error}")
         return []
     except Exception as e:
         print(f"\n\n❌ Error during analysis: {e}")
         import traceback
         traceback.print_exc()
+        # Try to save partial results if we have any
+        if 'deals' in locals() and deals:
+            try:
+                error_msg = str(e)
+                is_rate_limit = 'RATE LIMITED' in error_msg.upper() or '429' in error_msg
+                print(f"\n💾 Attempting to save partial results ({len(deals)} cards)...")
+                partial_output = save_results(deals, OUTPUT_FILE, WISHLIST_FILE, source)
+                if is_rate_limit:
+                    print(f"⚠️  Rate limiting detected. Partial results saved to: {partial_output}")
+                    print(f"   Processed {len(deals)} cards before rate limit.")
+                else:
+                    print(f"✅ Partial results saved to: {partial_output}")
+            except Exception as save_error:
+                print(f"⚠️  Could not save partial results: {save_error}")
         return []
     
     return deals
