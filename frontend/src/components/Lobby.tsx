@@ -322,11 +322,24 @@ const Lobby: React.FC<LobbyProps> = ({ onJoinGame }) => {
     }
   };
 
-  // Load username from localStorage on mount
+  // Load username from URL params (passed from Spellbook) or localStorage on mount
   useEffect(() => {
-    const savedName = localStorage.getItem('mtg_user_name');
-    if (savedName) {
-      setUserName(savedName);
+    // First check URL parameters (passed from Spellbook when logged in)
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlUserName = urlParams.get('user');
+    
+    if (urlUserName) {
+      setUserName(urlUserName);
+      // Also save to localStorage for future visits
+      localStorage.setItem('mtg_user_name', urlUserName);
+      // Clean up the URL (remove the parameter)
+      window.history.replaceState({}, '', window.location.pathname);
+    } else {
+      // Fall back to localStorage
+      const savedName = localStorage.getItem('mtg_user_name');
+      if (savedName) {
+        setUserName(savedName);
+      }
     }
   }, []);
 

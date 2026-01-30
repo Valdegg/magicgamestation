@@ -115,5 +115,22 @@
       "Tempest"
     ],
     "archived_at": "2026-01-14T18:55:50.141690"
+  },
+  {
+    "name": "Mox Jet",
+    "sets": [
+      "Unlimited Edition"
+    ],
+    "buy_price": 55,
+    "purchase_date": "2026-01-24",
+    "foil": false,
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "format_validity": "old_school_only",
+    "old_school_sets": [
+      "Unlimited Edition"
+    ],
+    "premodern_sets": [],
+    "archived_at": "2026-01-24T22:41:45.146620"
   }
 ]

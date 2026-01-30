@@ -1322,5 +1322,3359 @@
       "released": "1993-08",
       "type": "Core"
     }
+  ],
+  "imprison": [
+    {
+      "name": "Legends",
+      "code": "LEG",
+      "released": "1994-06",
+      "type": "Expansion"
+    }
+  ],
+  "counterspell": [
+    {
+      "name": "Marvel Universe",
+      "code": "MAR",
+      "released": "2025-09",
+      "type": "Masterpiece"
+    },
+    {
+      "name": "Through the Omenpaths Bonus Sheet",
+      "code": "OMB",
+      "released": "2025-09",
+      "type": "Masterpiece"
+    },
+    {
+      "name": "Final Fantasy: Through the Ages",
+      "code": "FCA",
+      "released": "2025-06",
+      "type": "Masterpiece"
+    },
+    {
+      "name": "Secret Lair Drop",
+      "code": "SLD",
+      "released": "2025-03",
+      "type": "Box"
+    },
+    {
+      "name": "URL/Convention Promos",
+      "code": "PURL",
+      "released": "2024-10",
+      "type": "Promo"
+    },
+    {
+      "name": "Duskmourn: House of Horror Commander",
+      "code": "DSC",
+      "released": "2024-09",
+      "type": "Commander"
+    },
+    {
+      "name": "Mystery Booster 2",
+      "code": "MB2",
+      "released": "2024-08",
+      "type": "Masters"
+    },
+    {
+      "name": "MagicFest 2024",
+      "code": "PF24",
+      "released": "2024-02",
+      "type": "Promo"
+    },
+    {
+      "name": "Commander Masters",
+      "code": "CMM",
+      "released": "2023-08",
+      "type": "Masters"
+    },
+    {
+      "name": "Dominaria Remastered",
+      "code": "DMR",
+      "released": "2023-01",
+      "type": "Masters"
+    },
+    {
+      "name": "Starter Commander Decks",
+      "code": "SCD",
+      "released": "2022-12",
+      "type": "Commander"
+    },
+    {
+      "name": "30th Anniversary Edition",
+      "code": "30A",
+      "released": "2022-11",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Game Night: Free-for-All",
+      "code": "GN3",
+      "released": "2022-10",
+      "type": "Box"
+    },
+    {
+      "name": "Magic Online Promos",
+      "code": "PRM",
+      "released": "2021-10",
+      "type": "Promo"
+    },
+    {
+      "name": "Modern Horizons 2",
+      "code": "MH2",
+      "released": "2021-06",
+      "type": "Draft Innovation"
+    },
+    {
+      "name": "Media and Collaboration Promos",
+      "code": "PMEI",
+      "released": "2021-04",
+      "type": "Promo"
+    },
+    {
+      "name": "Strixhaven Mystical Archive",
+      "code": "STA",
+      "released": "2021-04",
+      "type": "Masterpiece"
+    },
+    {
+      "name": "Commander Legends",
+      "code": "CMR",
+      "released": "2020-11",
+      "type": "Draft Innovation"
+    },
+    {
+      "name": "The List",
+      "code": "PLST",
+      "released": "2020-09",
+      "type": "Masters"
+    },
+    {
+      "name": "Signature Spellbook: Jace",
+      "code": "SS1",
+      "released": "2018-06",
+      "type": "Spellbook"
+    },
+    {
+      "name": "Masters 25",
+      "code": "A25",
+      "released": "2018-03",
+      "type": "Masters"
+    },
+    {
+      "name": "Amonkhet Invocations",
+      "code": "MP2",
+      "released": "2017-04",
+      "type": "Masterpiece"
+    },
+    {
+      "name": "Eternal Masters",
+      "code": "EMA",
+      "released": "2016-06",
+      "type": "Masters"
+    },
+    {
+      "name": "Tempest Remastered",
+      "code": "TPR",
+      "released": "2015-05",
+      "type": "Masters"
+    },
+    {
+      "name": "Duel Decks Anthology: Jace vs. Chandra",
+      "code": "JVC",
+      "released": "2014-12",
+      "type": "Duel Deck"
+    },
+    {
+      "name": "Vintage Masters",
+      "code": "VMA",
+      "released": "2014-06",
+      "type": "Masters"
+    },
+    {
+      "name": "Masters Edition IV",
+      "code": "ME4",
+      "released": "2011-01",
+      "type": "Masters"
+    },
+    {
+      "name": "Duel Decks: Jace vs. Chandra",
+      "code": "DD2",
+      "released": "2008-11",
+      "type": "Duel Deck"
+    },
+    {
+      "name": "Masters Edition II",
+      "code": "ME2",
+      "released": "2008-09",
+      "type": "Masters"
+    },
+    {
+      "name": "Friday Night Magic 2005",
+      "code": "F05",
+      "released": "2005-01",
+      "type": "Promo"
+    },
+    {
+      "name": "World Championship Decks 2002",
+      "code": "WC02",
+      "released": "2002-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "World Championship Decks 2001",
+      "code": "WC01",
+      "released": "2001-08",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Seventh Edition",
+      "code": "7ED",
+      "released": "2001-04",
+      "type": "Core"
+    },
+    {
+      "name": "Beatdown Box Set",
+      "code": "BTD",
+      "released": "2000-10",
+      "type": "Box"
+    },
+    {
+      "name": "World Championship Decks 2000",
+      "code": "WC00",
+      "released": "2000-08",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Judge Gift Cards 2000",
+      "code": "G00",
+      "released": "2000-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Battle Royale Box Set",
+      "code": "BRB",
+      "released": "1999-11",
+      "type": "Box"
+    },
+    {
+      "name": "Mercadian Masques",
+      "code": "MMQ",
+      "released": "1999-10",
+      "type": "Expansion"
+    },
+    {
+      "name": "Starter 1999",
+      "code": "S99",
+      "released": "1999-07",
+      "type": "Starter"
+    },
+    {
+      "name": "Classic Sixth Edition",
+      "code": "6ED",
+      "released": "1999-04",
+      "type": "Core"
+    },
+    {
+      "name": "World Championship Decks 1998",
+      "code": "WC98",
+      "released": "1998-08",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Tempest",
+      "code": "TMP",
+      "released": "1997-10",
+      "type": "Expansion"
+    },
+    {
+      "name": "World Championship Decks 1997",
+      "code": "WC97",
+      "released": "1997-08",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Fifth Edition",
+      "code": "5ED",
+      "released": "1997-03",
+      "type": "Core"
+    },
+    {
+      "name": "DCI Legend Membership",
+      "code": "PLGM",
+      "released": "1996-07",
+      "type": "Promo"
+    },
+    {
+      "name": "Pro Tour Collector Set",
+      "code": "PTC",
+      "released": "1996-05",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Ice Age",
+      "code": "ICE",
+      "released": "1995-06",
+      "type": "Expansion"
+    },
+    {
+      "name": "Fourth Edition",
+      "code": "4ED",
+      "released": "1995-04",
+      "type": "Core"
+    },
+    {
+      "name": "Fourth Edition Foreign Black Border",
+      "code": "4BB",
+      "released": "1995-04",
+      "type": "Core"
+    },
+    {
+      "name": "Summer Magic / Edgar",
+      "code": "SUM",
+      "released": "1994-06",
+      "type": "Core"
+    },
+    {
+      "name": "Revised Edition",
+      "code": "3ED",
+      "released": "1994-04",
+      "type": "Core"
+    },
+    {
+      "name": "Foreign Black Border",
+      "code": "FBB",
+      "released": "1994-04",
+      "type": "Core"
+    },
+    {
+      "name": "Unlimited Edition",
+      "code": "2ED",
+      "released": "1993-12",
+      "type": "Core"
+    },
+    {
+      "name": "Intl. Collectors' Edition",
+      "code": "CEI",
+      "released": "1993-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Collectors' Edition",
+      "code": "CED",
+      "released": "1993-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Limited Edition Beta",
+      "code": "LEB",
+      "released": "1993-10",
+      "type": "Core"
+    },
+    {
+      "name": "Limited Edition Alpha",
+      "code": "LEA",
+      "released": "1993-08",
+      "type": "Core"
+    }
+  ],
+  "citta d'ottone": [
+    {
+      "name": "Store Championships",
+      "code": "SCH",
+      "released": "2025-06",
+      "type": "Promo"
+    },
+    {
+      "name": "Mystery Booster 2",
+      "code": "MB2",
+      "released": "2024-08",
+      "type": "Masters"
+    },
+    {
+      "name": "Magic Online Promos",
+      "code": "PRM",
+      "released": "2022-10",
+      "type": "Promo"
+    },
+    {
+      "name": "Double Masters 2022",
+      "code": "2X2",
+      "released": "2022-07",
+      "type": "Masters"
+    },
+    {
+      "name": "Modern Event Deck 2014",
+      "code": "MD1",
+      "released": "2014-05",
+      "type": "Box"
+    },
+    {
+      "name": "Modern Masters",
+      "code": "MMA",
+      "released": "2013-06",
+      "type": "Masters"
+    },
+    {
+      "name": "Masters Edition IV",
+      "code": "ME4",
+      "released": "2011-01",
+      "type": "Masters"
+    },
+    {
+      "name": "World Championship Decks 2003",
+      "code": "WC03",
+      "released": "2003-08",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Eighth Edition",
+      "code": "8ED",
+      "released": "2003-07",
+      "type": "Core"
+    },
+    {
+      "name": "World Championship Decks 2002",
+      "code": "WC02",
+      "released": "2002-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "World Championship Decks 2001",
+      "code": "WC01",
+      "released": "2001-08",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Seventh Edition",
+      "code": "7ED",
+      "released": "2001-04",
+      "type": "Core"
+    },
+    {
+      "name": "Junior Super Series",
+      "code": "PSUS",
+      "released": "2001-01",
+      "type": "Promo"
+    },
+    {
+      "name": "World Championship Decks 2000",
+      "code": "WC00",
+      "released": "2000-08",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Classic Sixth Edition",
+      "code": "6ED",
+      "released": "1999-04",
+      "type": "Core"
+    },
+    {
+      "name": "World Championship Decks 1998",
+      "code": "WC98",
+      "released": "1998-08",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Oversized League Prizes",
+      "code": "OLEP",
+      "released": "1997-09",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "World Championship Decks 1997",
+      "code": "WC97",
+      "released": "1997-08",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Fifth Edition",
+      "code": "5ED",
+      "released": "1997-03",
+      "type": "Core"
+    },
+    {
+      "name": "Pro Tour Collector Set",
+      "code": "PTC",
+      "released": "1996-05",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Rinascimento",
+      "code": "RIN",
+      "released": "1995-08",
+      "type": "Masters"
+    },
+    {
+      "name": "Chronicles",
+      "code": "CHR",
+      "released": "1995-07",
+      "type": "Masters"
+    },
+    {
+      "name": "Chronicles Foreign Black Border",
+      "code": "BCHR",
+      "released": "1995-07",
+      "type": "Masters"
+    },
+    {
+      "name": "Arabian Nights",
+      "code": "ARN",
+      "released": "1993-12",
+      "type": "Expansion"
+    }
+  ],
+  "island": [
+    {
+      "name": "Teenage Mutant Ninja Turtles",
+      "code": "TMT",
+      "released": "2026-03",
+      "type": "Expansion"
+    },
+    {
+      "name": "Lorwyn Eclipsed",
+      "code": "ECL",
+      "released": "2026-01",
+      "type": "Expansion"
+    },
+    {
+      "name": "Final Fantasy Commander",
+      "code": "FIC",
+      "released": "2025-12",
+      "type": "Commander"
+    },
+    {
+      "name": "Secret Lair Drop",
+      "code": "SLD",
+      "released": "2025-12",
+      "type": "Box"
+    },
+    {
+      "name": "Avatar: The Last Airbender",
+      "code": "TLA",
+      "released": "2025-11",
+      "type": "Expansion"
+    },
+    {
+      "name": "Marvel's Spider-Man",
+      "code": "SPM",
+      "released": "2025-09",
+      "type": "Expansion"
+    },
+    {
+      "name": "Edge of Eternities",
+      "code": "EOE",
+      "released": "2025-08",
+      "type": "Expansion"
+    },
+    {
+      "name": "Final Fantasy",
+      "code": "FIN",
+      "released": "2025-06",
+      "type": "Expansion"
+    },
+    {
+      "name": "The List",
+      "code": "PLST",
+      "released": "2025-05",
+      "type": "Masters"
+    },
+    {
+      "name": "Tarkir: Dragonstorm",
+      "code": "TDM",
+      "released": "2025-04",
+      "type": "Expansion"
+    },
+    {
+      "name": "Aetherdrift",
+      "code": "DFT",
+      "released": "2025-02",
+      "type": "Expansion"
+    },
+    {
+      "name": "Secret Lair Promo",
+      "code": "SLP",
+      "released": "2025-02",
+      "type": "Promo"
+    },
+    {
+      "name": "Innistrad Remastered",
+      "code": "INR",
+      "released": "2025-01",
+      "type": "Masters"
+    },
+    {
+      "name": "Foundations",
+      "code": "FDN",
+      "released": "2024-11",
+      "type": "Core"
+    },
+    {
+      "name": "Magic Online Promos",
+      "code": "PRM",
+      "released": "2024-11",
+      "type": "Promo"
+    },
+    {
+      "name": "Foundations Jumpstart",
+      "code": "J25",
+      "released": "2024-11",
+      "type": "Draft Innovation"
+    },
+    {
+      "name": "Duskmourn: House of Horror",
+      "code": "DSK",
+      "released": "2024-09",
+      "type": "Expansion"
+    },
+    {
+      "name": "Bloomburrow",
+      "code": "BLB",
+      "released": "2024-08",
+      "type": "Expansion"
+    },
+    {
+      "name": "Assassin's Creed",
+      "code": "ACR",
+      "released": "2024-07",
+      "type": "Draft Innovation"
+    },
+    {
+      "name": "Modern Horizons 3",
+      "code": "MH3",
+      "released": "2024-06",
+      "type": "Draft Innovation"
+    },
+    {
+      "name": "Outlaws of Thunder Junction",
+      "code": "OTJ",
+      "released": "2024-04",
+      "type": "Expansion"
+    },
+    {
+      "name": "Fallout",
+      "code": "PIP",
+      "released": "2024-03",
+      "type": "Commander"
+    },
+    {
+      "name": "Ravnica: Clue Edition",
+      "code": "CLU",
+      "released": "2024-02",
+      "type": "Draft Innovation"
+    },
+    {
+      "name": "Murders at Karlov Manor",
+      "code": "MKM",
+      "released": "2024-02",
+      "type": "Expansion"
+    },
+    {
+      "name": "MKM Standard Showdown",
+      "code": "PSS4",
+      "released": "2024-02",
+      "type": "Promo"
+    },
+    {
+      "name": "The Lost Caverns of Ixalan",
+      "code": "LCI",
+      "released": "2023-11",
+      "type": "Expansion"
+    },
+    {
+      "name": "The Lord of the Rings: Tales of Middle-earth",
+      "code": "LTR",
+      "released": "2023-11",
+      "type": "Draft Innovation"
+    },
+    {
+      "name": "Jurassic World Collection",
+      "code": "REX",
+      "released": "2023-11",
+      "type": "Eternal"
+    },
+    {
+      "name": "Doctor Who",
+      "code": "WHO",
+      "released": "2023-10",
+      "type": "Commander"
+    },
+    {
+      "name": "Wilds of Eldraine",
+      "code": "WOE",
+      "released": "2023-09",
+      "type": "Expansion"
+    },
+    {
+      "name": "Commander Masters",
+      "code": "CMM",
+      "released": "2023-08",
+      "type": "Masters"
+    },
+    {
+      "name": "March of the Machine",
+      "code": "MOM",
+      "released": "2023-04",
+      "type": "Expansion"
+    },
+    {
+      "name": "Shadows over Innistrad Remastered",
+      "code": "SIR",
+      "released": "2023-03",
+      "type": "Masters"
+    },
+    {
+      "name": "Phyrexia: All Will Be One",
+      "code": "ONE",
+      "released": "2023-02",
+      "type": "Expansion"
+    },
+    {
+      "name": "Dominaria Remastered",
+      "code": "DMR",
+      "released": "2023-01",
+      "type": "Masters"
+    },
+    {
+      "name": "Judge Gift Cards 2023",
+      "code": "P23",
+      "released": "2023-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Starter Commander Decks",
+      "code": "SCD",
+      "released": "2022-12",
+      "type": "Commander"
+    },
+    {
+      "name": "Jumpstart 2022",
+      "code": "J22",
+      "released": "2022-12",
+      "type": "Draft Innovation"
+    },
+    {
+      "name": "The Brothers' War",
+      "code": "BRO",
+      "released": "2022-11",
+      "type": "Expansion"
+    },
+    {
+      "name": "The Brothers' War Commander",
+      "code": "BRC",
+      "released": "2022-11",
+      "type": "Commander"
+    },
+    {
+      "name": "30th Anniversary Edition",
+      "code": "30A",
+      "released": "2022-11",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Game Night: Free-for-All",
+      "code": "GN3",
+      "released": "2022-10",
+      "type": "Box"
+    },
+    {
+      "name": "Unfinity",
+      "code": "UNF",
+      "released": "2022-10",
+      "type": "Funny"
+    },
+    {
+      "name": "Warhammer 40,000 Commander",
+      "code": "40K",
+      "released": "2022-10",
+      "type": "Commander"
+    },
+    {
+      "name": "Dominaria United",
+      "code": "DMU",
+      "released": "2022-09",
+      "type": "Expansion"
+    },
+    {
+      "name": "Alchemy Horizons: Baldur's Gate",
+      "code": "HBG",
+      "released": "2022-07",
+      "type": "Alchemy"
+    },
+    {
+      "name": "Commander Legends: Battle for Baldur's Gate",
+      "code": "CLB",
+      "released": "2022-06",
+      "type": "Draft Innovation"
+    },
+    {
+      "name": "Streets of New Capenna",
+      "code": "SNC",
+      "released": "2022-04",
+      "type": "Expansion"
+    },
+    {
+      "name": "Kamigawa: Neon Dynasty",
+      "code": "NEO",
+      "released": "2022-02",
+      "type": "Expansion"
+    },
+    {
+      "name": "Innistrad: Crimson Vow",
+      "code": "VOW",
+      "released": "2021-11",
+      "type": "Expansion"
+    },
+    {
+      "name": "Innistrad: Midnight Hunt",
+      "code": "MID",
+      "released": "2021-09",
+      "type": "Expansion"
+    },
+    {
+      "name": "Adventures in the Forgotten Realms",
+      "code": "AFR",
+      "released": "2021-07",
+      "type": "Expansion"
+    },
+    {
+      "name": "Modern Horizons 2",
+      "code": "MH2",
+      "released": "2021-06",
+      "type": "Draft Innovation"
+    },
+    {
+      "name": "Strixhaven: School of Mages",
+      "code": "STX",
+      "released": "2021-04",
+      "type": "Expansion"
+    },
+    {
+      "name": "Kaldheim",
+      "code": "KHM",
+      "released": "2021-02",
+      "type": "Expansion"
+    },
+    {
+      "name": "Commander Legends",
+      "code": "CMR",
+      "released": "2020-11",
+      "type": "Draft Innovation"
+    },
+    {
+      "name": "MTG Arena Promos",
+      "code": "PANA",
+      "released": "2020-11",
+      "type": "Promo"
+    },
+    {
+      "name": "Kaladesh Remastered",
+      "code": "KLR",
+      "released": "2020-11",
+      "type": "Masters"
+    },
+    {
+      "name": "Zendikar Rising",
+      "code": "ZNR",
+      "released": "2020-09",
+      "type": "Expansion"
+    },
+    {
+      "name": "Amonkhet Remastered",
+      "code": "AKR",
+      "released": "2020-08",
+      "type": "Masters"
+    },
+    {
+      "name": "Arena Beginner Set",
+      "code": "ANB",
+      "released": "2020-08",
+      "type": "Starter"
+    },
+    {
+      "name": "Double Masters",
+      "code": "2XM",
+      "released": "2020-08",
+      "type": "Masters"
+    },
+    {
+      "name": "Jumpstart",
+      "code": "JMP",
+      "released": "2020-07",
+      "type": "Draft Innovation"
+    },
+    {
+      "name": "Core Set 2021",
+      "code": "M21",
+      "released": "2020-07",
+      "type": "Core"
+    },
+    {
+      "name": "Ikoria: Lair of Behemoths",
+      "code": "IKO",
+      "released": "2020-04",
+      "type": "Expansion"
+    },
+    {
+      "name": "Unsanctioned",
+      "code": "UND",
+      "released": "2020-02",
+      "type": "Funny"
+    },
+    {
+      "name": "Theros Beyond Death",
+      "code": "THB",
+      "released": "2020-01",
+      "type": "Expansion"
+    },
+    {
+      "name": "MagicFest 2020",
+      "code": "PF20",
+      "released": "2020-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Game Night 2019",
+      "code": "GN2",
+      "released": "2019-11",
+      "type": "Box"
+    },
+    {
+      "name": "Throne of Eldraine",
+      "code": "ELD",
+      "released": "2019-10",
+      "type": "Expansion"
+    },
+    {
+      "name": "Commander 2019",
+      "code": "C19",
+      "released": "2019-08",
+      "type": "Commander"
+    },
+    {
+      "name": "Core Set 2020",
+      "code": "M20",
+      "released": "2019-07",
+      "type": "Core"
+    },
+    {
+      "name": "M20 Promo Packs",
+      "code": "PPP1",
+      "released": "2019-07",
+      "type": "Promo"
+    },
+    {
+      "name": "War of the Spark",
+      "code": "WAR",
+      "released": "2019-05",
+      "type": "Expansion"
+    },
+    {
+      "name": "RNA Ravnica Weekend",
+      "code": "PRW2",
+      "released": "2019-02",
+      "type": "Promo"
+    },
+    {
+      "name": "RNA Guild Kit",
+      "code": "GK2",
+      "released": "2019-02",
+      "type": "Box"
+    },
+    {
+      "name": "Ravnica Allegiance",
+      "code": "RNA",
+      "released": "2019-01",
+      "type": "Expansion"
+    },
+    {
+      "name": "MagicFest 2019",
+      "code": "PF19",
+      "released": "2019-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Treasure Chest",
+      "code": "PZ2",
+      "released": "2018-12",
+      "type": "Treasure Chest"
+    },
+    {
+      "name": "Game Night",
+      "code": "GNT",
+      "released": "2018-11",
+      "type": "Box"
+    },
+    {
+      "name": "GRN Ravnica Weekend",
+      "code": "PRWK",
+      "released": "2018-11",
+      "type": "Promo"
+    },
+    {
+      "name": "GRN Guild Kit",
+      "code": "GK1",
+      "released": "2018-11",
+      "type": "Box"
+    },
+    {
+      "name": "Guilds of Ravnica",
+      "code": "GRN",
+      "released": "2018-10",
+      "type": "Expansion"
+    },
+    {
+      "name": "Commander 2018",
+      "code": "C18",
+      "released": "2018-08",
+      "type": "Commander"
+    },
+    {
+      "name": "Core Set 2019",
+      "code": "M19",
+      "released": "2018-07",
+      "type": "Core"
+    },
+    {
+      "name": "Arena New Player Experience",
+      "code": "ANA",
+      "released": "2018-07",
+      "type": "Starter"
+    },
+    {
+      "name": "M19 Standard Showdown",
+      "code": "PSS3",
+      "released": "2018-07",
+      "type": "Promo"
+    },
+    {
+      "name": "Arena New Player Experience Extras",
+      "code": "XANA",
+      "released": "2018-07",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Global Series Jiang Yanggu & Mu Yanling",
+      "code": "GS1",
+      "released": "2018-06",
+      "type": "Duel Deck"
+    },
+    {
+      "name": "Battlebond",
+      "code": "BBD",
+      "released": "2018-06",
+      "type": "Draft Innovation"
+    },
+    {
+      "name": "Commander Anthology Volume II",
+      "code": "CM2",
+      "released": "2018-06",
+      "type": "Commander"
+    },
+    {
+      "name": "Grand Prix Promos",
+      "code": "PGPX",
+      "released": "2018-06",
+      "type": "Promo"
+    },
+    {
+      "name": "Dominaria",
+      "code": "DOM",
+      "released": "2018-04",
+      "type": "Expansion"
+    },
+    {
+      "name": "Duel Decks: Elves vs. Inventors",
+      "code": "DDU",
+      "released": "2018-04",
+      "type": "Duel Deck"
+    },
+    {
+      "name": "Rivals of Ixalan",
+      "code": "RIX",
+      "released": "2018-01",
+      "type": "Expansion"
+    },
+    {
+      "name": "Unstable",
+      "code": "UST",
+      "released": "2017-12",
+      "type": "Funny"
+    },
+    {
+      "name": "Duel Decks: Merfolk vs. Goblins",
+      "code": "DDT",
+      "released": "2017-10",
+      "type": "Duel Deck"
+    },
+    {
+      "name": "2017 Gift Pack",
+      "code": "G17",
+      "released": "2017-10",
+      "type": "Box"
+    },
+    {
+      "name": "Ixalan",
+      "code": "XLN",
+      "released": "2017-09",
+      "type": "Expansion"
+    },
+    {
+      "name": "XLN Standard Showdown",
+      "code": "PSS2",
+      "released": "2017-09",
+      "type": "Promo"
+    },
+    {
+      "name": "Commander 2017",
+      "code": "C17",
+      "released": "2017-08",
+      "type": "Commander"
+    },
+    {
+      "name": "Hour of Devastation",
+      "code": "HOU",
+      "released": "2017-07",
+      "type": "Expansion"
+    },
+    {
+      "name": "Archenemy: Nicol Bolas",
+      "code": "E01",
+      "released": "2017-06",
+      "type": "Archenemy"
+    },
+    {
+      "name": "Commander Anthology",
+      "code": "CMA",
+      "released": "2017-06",
+      "type": "Commander"
+    },
+    {
+      "name": "Amonkhet",
+      "code": "AKH",
+      "released": "2017-04",
+      "type": "Expansion"
+    },
+    {
+      "name": "Duel Decks: Mind vs. Might",
+      "code": "DDS",
+      "released": "2017-03",
+      "type": "Duel Deck"
+    },
+    {
+      "name": "Planechase Anthology",
+      "code": "PCA",
+      "released": "2016-11",
+      "type": "Planechase"
+    },
+    {
+      "name": "Commander 2016",
+      "code": "C16",
+      "released": "2016-11",
+      "type": "Commander"
+    },
+    {
+      "name": "Kaladesh",
+      "code": "KLD",
+      "released": "2016-09",
+      "type": "Expansion"
+    },
+    {
+      "name": "Shadows over Innistrad",
+      "code": "SOI",
+      "released": "2016-04",
+      "type": "Expansion"
+    },
+    {
+      "name": "Duel Decks: Blessed vs. Cursed",
+      "code": "DDQ",
+      "released": "2016-02",
+      "type": "Duel Deck"
+    },
+    {
+      "name": "Commander 2015",
+      "code": "C15",
+      "released": "2015-11",
+      "type": "Commander"
+    },
+    {
+      "name": "Battle for Zendikar",
+      "code": "BFZ",
+      "released": "2015-10",
+      "type": "Expansion"
+    },
+    {
+      "name": "Magic Origins",
+      "code": "ORI",
+      "released": "2015-07",
+      "type": "Core"
+    },
+    {
+      "name": "Tempest Remastered",
+      "code": "TPR",
+      "released": "2015-05",
+      "type": "Masters"
+    },
+    {
+      "name": "Dragons of Tarkir",
+      "code": "DTK",
+      "released": "2015-03",
+      "type": "Expansion"
+    },
+    {
+      "name": "Duel Decks: Elspeth vs. Kiora",
+      "code": "DDO",
+      "released": "2015-02",
+      "type": "Duel Deck"
+    },
+    {
+      "name": "Fate Reforged",
+      "code": "FRF",
+      "released": "2015-01",
+      "type": "Expansion"
+    },
+    {
+      "name": "Duel Decks Anthology: Jace vs. Chandra",
+      "code": "JVC",
+      "released": "2014-12",
+      "type": "Duel Deck"
+    },
+    {
+      "name": "Commander 2014",
+      "code": "C14",
+      "released": "2014-11",
+      "type": "Commander"
+    },
+    {
+      "name": "Khans of Tarkir",
+      "code": "KTK",
+      "released": "2014-09",
+      "type": "Expansion"
+    },
+    {
+      "name": "Duel Decks: Speed vs. Cunning",
+      "code": "DDN",
+      "released": "2014-09",
+      "type": "Duel Deck"
+    },
+    {
+      "name": "Magic 2015",
+      "code": "M15",
+      "released": "2014-07",
+      "type": "Core"
+    },
+    {
+      "name": "Duel Decks: Jace vs. Vraska",
+      "code": "DDM",
+      "released": "2014-03",
+      "type": "Duel Deck"
+    },
+    {
+      "name": "Judge Gift Cards 2014",
+      "code": "J14",
+      "released": "2014-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Commander 2013",
+      "code": "C13",
+      "released": "2013-11",
+      "type": "Commander"
+    },
+    {
+      "name": "Theros",
+      "code": "THS",
+      "released": "2013-09",
+      "type": "Expansion"
+    },
+    {
+      "name": "Magic 2014",
+      "code": "M14",
+      "released": "2013-07",
+      "type": "Core"
+    },
+    {
+      "name": "Return to Ravnica",
+      "code": "RTR",
+      "released": "2012-10",
+      "type": "Expansion"
+    },
+    {
+      "name": "Duel Decks: Izzet vs. Golgari",
+      "code": "DDJ",
+      "released": "2012-09",
+      "type": "Duel Deck"
+    },
+    {
+      "name": "Magic 2013",
+      "code": "M13",
+      "released": "2012-07",
+      "type": "Core"
+    },
+    {
+      "name": "Planechase 2012",
+      "code": "PC2",
+      "released": "2012-06",
+      "type": "Planechase"
+    },
+    {
+      "name": "Avacyn Restored",
+      "code": "AVR",
+      "released": "2012-05",
+      "type": "Expansion"
+    },
+    {
+      "name": "Duel Decks: Venser vs. Koth",
+      "code": "DDI",
+      "released": "2012-03",
+      "type": "Duel Deck"
+    },
+    {
+      "name": "Innistrad",
+      "code": "ISD",
+      "released": "2011-09",
+      "type": "Expansion"
+    },
+    {
+      "name": "Duel Decks: Ajani vs. Nicol Bolas",
+      "code": "DDH",
+      "released": "2011-09",
+      "type": "Duel Deck"
+    },
+    {
+      "name": "Magic 2012",
+      "code": "M12",
+      "released": "2011-07",
+      "type": "Core"
+    },
+    {
+      "name": "Commander 2011",
+      "code": "CMD",
+      "released": "2011-06",
+      "type": "Commander"
+    },
+    {
+      "name": "Duel Decks: Mirrodin Pure vs. New Phyrexia",
+      "code": "TD2",
+      "released": "2011-05",
+      "type": "Duel Deck"
+    },
+    {
+      "name": "New Phyrexia",
+      "code": "NPH",
+      "released": "2011-05",
+      "type": "Expansion"
+    },
+    {
+      "name": "Mirrodin Besieged",
+      "code": "MBS",
+      "released": "2011-02",
+      "type": "Expansion"
+    },
+    {
+      "name": "Magic Premiere Shop 2011",
+      "code": "PMPS11",
+      "released": "2011-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Salvat 2011",
+      "code": "PS11",
+      "released": "2011-01",
+      "type": "Box"
+    },
+    {
+      "name": "Magic Online Theme Decks",
+      "code": "TD0",
+      "released": "2010-11",
+      "type": "Box"
+    },
+    {
+      "name": "Scars of Mirrodin",
+      "code": "SOM",
+      "released": "2010-10",
+      "type": "Expansion"
+    },
+    {
+      "name": "Duel Decks: Elspeth vs. Tezzeret",
+      "code": "DDF",
+      "released": "2010-09",
+      "type": "Duel Deck"
+    },
+    {
+      "name": "Magic 2011",
+      "code": "M11",
+      "released": "2010-07",
+      "type": "Core"
+    },
+    {
+      "name": "Archenemy",
+      "code": "ARC",
+      "released": "2010-06",
+      "type": "Archenemy"
+    },
+    {
+      "name": "Duels of the Planeswalkers",
+      "code": "DPA",
+      "released": "2010-06",
+      "type": "Box"
+    },
+    {
+      "name": "Rise of the Eldrazi",
+      "code": "ROE",
+      "released": "2010-04",
+      "type": "Expansion"
+    },
+    {
+      "name": "Duel Decks: Phyrexia vs. the Coalition",
+      "code": "DDE",
+      "released": "2010-03",
+      "type": "Duel Deck"
+    },
+    {
+      "name": "Magic Premiere Shop 2010",
+      "code": "PMPS10",
+      "released": "2010-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Premium Deck Series: Slivers",
+      "code": "H09",
+      "released": "2009-11",
+      "type": "Premium Deck"
+    },
+    {
+      "name": "Zendikar",
+      "code": "ZEN",
+      "released": "2009-10",
+      "type": "Expansion"
+    },
+    {
+      "name": "Masters Edition III",
+      "code": "ME3",
+      "released": "2009-09",
+      "type": "Masters"
+    },
+    {
+      "name": "Planechase",
+      "code": "HOP",
+      "released": "2009-09",
+      "type": "Planechase"
+    },
+    {
+      "name": "Magic 2010",
+      "code": "M10",
+      "released": "2009-07",
+      "type": "Core"
+    },
+    {
+      "name": "Magic Premiere Shop 2009",
+      "code": "PMPS09",
+      "released": "2009-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Duel Decks: Jace vs. Chandra",
+      "code": "DD2",
+      "released": "2008-11",
+      "type": "Duel Deck"
+    },
+    {
+      "name": "Shards of Alara",
+      "code": "ALA",
+      "released": "2008-10",
+      "type": "Expansion"
+    },
+    {
+      "name": "Shadowmoor",
+      "code": "SHM",
+      "released": "2008-05",
+      "type": "Expansion"
+    },
+    {
+      "name": "Magic Premiere Shop 2008",
+      "code": "PMPS08",
+      "released": "2008-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Lorwyn",
+      "code": "LRW",
+      "released": "2007-10",
+      "type": "Expansion"
+    },
+    {
+      "name": "Masters Edition",
+      "code": "ME1",
+      "released": "2007-09",
+      "type": "Masters"
+    },
+    {
+      "name": "Tenth Edition",
+      "code": "10E",
+      "released": "2007-07",
+      "type": "Core"
+    },
+    {
+      "name": "Magic Premiere Shop 2007",
+      "code": "PMPS07",
+      "released": "2007-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Time Spiral",
+      "code": "TSP",
+      "released": "2006-10",
+      "type": "Expansion"
+    },
+    {
+      "name": "Coldsnap Theme Decks",
+      "code": "CST",
+      "released": "2006-07",
+      "type": "Box"
+    },
+    {
+      "name": "Magic Premiere Shop 2006",
+      "code": "PMPS06",
+      "released": "2006-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Arena League 2006",
+      "code": "PAL06",
+      "released": "2006-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Ravnica: City of Guilds",
+      "code": "RAV",
+      "released": "2005-10",
+      "type": "Expansion"
+    },
+    {
+      "name": "Magic Premiere Shop 2005",
+      "code": "PMPS",
+      "released": "2005-10",
+      "type": "Promo"
+    },
+    {
+      "name": "Salvat 2005",
+      "code": "PSAL",
+      "released": "2005-08",
+      "type": "Box"
+    },
+    {
+      "name": "Ninth Edition",
+      "code": "9ED",
+      "released": "2005-07",
+      "type": "Core"
+    },
+    {
+      "name": "Arena League 2005",
+      "code": "PAL05",
+      "released": "2005-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Unhinged",
+      "code": "UNH",
+      "released": "2004-11",
+      "type": "Funny"
+    },
+    {
+      "name": "Champions of Kamigawa",
+      "code": "CHK",
+      "released": "2004-10",
+      "type": "Expansion"
+    },
+    {
+      "name": "World Championship Decks 2004",
+      "code": "WC04",
+      "released": "2004-09",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Arena League 2004",
+      "code": "PAL04",
+      "released": "2004-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Mirrodin",
+      "code": "MRD",
+      "released": "2003-10",
+      "type": "Expansion"
+    },
+    {
+      "name": "World Championship Decks 2003",
+      "code": "WC03",
+      "released": "2003-08",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Eighth Edition",
+      "code": "8ED",
+      "released": "2003-07",
+      "type": "Core"
+    },
+    {
+      "name": "Arena League 2003",
+      "code": "PAL03",
+      "released": "2003-01",
+      "type": "Promo"
+    },
+    {
+      "name": "World Championship Decks 2002",
+      "code": "WC02",
+      "released": "2002-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Onslaught",
+      "code": "ONS",
+      "released": "2002-10",
+      "type": "Expansion"
+    },
+    {
+      "name": "Arena League 2002",
+      "code": "PAL02",
+      "released": "2002-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Odyssey",
+      "code": "ODY",
+      "released": "2001-10",
+      "type": "Expansion"
+    },
+    {
+      "name": "World Championship Decks 2001",
+      "code": "WC01",
+      "released": "2001-08",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Seventh Edition",
+      "code": "7ED",
+      "released": "2001-04",
+      "type": "Core"
+    },
+    {
+      "name": "Arena League 2001",
+      "code": "PAL01",
+      "released": "2001-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Invasion",
+      "code": "INV",
+      "released": "2000-10",
+      "type": "Expansion"
+    },
+    {
+      "name": "Beatdown Box Set",
+      "code": "BTD",
+      "released": "2000-10",
+      "type": "Box"
+    },
+    {
+      "name": "World Championship Decks 2000",
+      "code": "WC00",
+      "released": "2000-08",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "European Land Program",
+      "code": "PELP",
+      "released": "2000-02",
+      "type": "Promo"
+    },
+    {
+      "name": "Arena League 2000",
+      "code": "PAL00",
+      "released": "2000-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Battle Royale Box Set",
+      "code": "BRB",
+      "released": "1999-11",
+      "type": "Box"
+    },
+    {
+      "name": "Mercadian Masques",
+      "code": "MMQ",
+      "released": "1999-10",
+      "type": "Expansion"
+    },
+    {
+      "name": "Starter 1999",
+      "code": "S99",
+      "released": "1999-07",
+      "type": "Starter"
+    },
+    {
+      "name": "Guru",
+      "code": "PGRU",
+      "released": "1999-07",
+      "type": "Promo"
+    },
+    {
+      "name": "Portal Three Kingdoms",
+      "code": "PTK",
+      "released": "1999-05",
+      "type": "Starter"
+    },
+    {
+      "name": "Classic Sixth Edition",
+      "code": "6ED",
+      "released": "1999-04",
+      "type": "Core"
+    },
+    {
+      "name": "Arena League 1999",
+      "code": "PAL99",
+      "released": "1999-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Urza's Saga",
+      "code": "USG",
+      "released": "1998-10",
+      "type": "Expansion"
+    },
+    {
+      "name": "Asia Pacific Land Program",
+      "code": "PALP",
+      "released": "1998-09",
+      "type": "Promo"
+    },
+    {
+      "name": "Unglued",
+      "code": "UGL",
+      "released": "1998-08",
+      "type": "Funny"
+    },
+    {
+      "name": "World Championship Decks 1998",
+      "code": "WC98",
+      "released": "1998-08",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Portal Second Age",
+      "code": "P02",
+      "released": "1998-06",
+      "type": "Starter"
+    },
+    {
+      "name": "Tempest",
+      "code": "TMP",
+      "released": "1997-10",
+      "type": "Expansion"
+    },
+    {
+      "name": "World Championship Decks 1997",
+      "code": "WC97",
+      "released": "1997-08",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Portal",
+      "code": "POR",
+      "released": "1997-05",
+      "type": "Starter"
+    },
+    {
+      "name": "Oversized League Prizes",
+      "code": "OLEP",
+      "released": "1997-05",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Fifth Edition",
+      "code": "5ED",
+      "released": "1997-03",
+      "type": "Core"
+    },
+    {
+      "name": "Introductory Two-Player Set",
+      "code": "ITP",
+      "released": "1996-12",
+      "type": "Starter"
+    },
+    {
+      "name": "Mirage",
+      "code": "MIR",
+      "released": "1996-10",
+      "type": "Expansion"
+    },
+    {
+      "name": "Arena League 1996",
+      "code": "PARL",
+      "released": "1996-08",
+      "type": "Promo"
+    },
+    {
+      "name": "Rivals Quick Start Set",
+      "code": "RQS",
+      "released": "1996-07",
+      "type": "Box"
+    },
+    {
+      "name": "Pro Tour Collector Set",
+      "code": "PTC",
+      "released": "1996-05",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Ice Age",
+      "code": "ICE",
+      "released": "1995-06",
+      "type": "Expansion"
+    },
+    {
+      "name": "Fourth Edition",
+      "code": "4ED",
+      "released": "1995-04",
+      "type": "Core"
+    },
+    {
+      "name": "Fourth Edition Foreign Black Border",
+      "code": "4BB",
+      "released": "1995-04",
+      "type": "Core"
+    },
+    {
+      "name": "Summer Magic / Edgar",
+      "code": "SUM",
+      "released": "1994-06",
+      "type": "Core"
+    },
+    {
+      "name": "Revised Edition",
+      "code": "3ED",
+      "released": "1994-04",
+      "type": "Core"
+    },
+    {
+      "name": "Foreign Black Border",
+      "code": "FBB",
+      "released": "1994-04",
+      "type": "Core"
+    },
+    {
+      "name": "Unlimited Edition",
+      "code": "2ED",
+      "released": "1993-12",
+      "type": "Core"
+    },
+    {
+      "name": "Intl. Collectors' Edition",
+      "code": "CEI",
+      "released": "1993-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Collectors' Edition",
+      "code": "CED",
+      "released": "1993-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Limited Edition Beta",
+      "code": "LEB",
+      "released": "1993-10",
+      "type": "Core"
+    },
+    {
+      "name": "Limited Edition Alpha",
+      "code": "LEA",
+      "released": "1993-08",
+      "type": "Core"
+    }
+  ],
+  "icy manipulator": [
+    {
+      "name": "Dominaria Remastered",
+      "code": "DMR",
+      "released": "2023-01",
+      "type": "Masters"
+    },
+    {
+      "name": "30th Anniversary Edition",
+      "code": "30A",
+      "released": "2022-11",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "The List",
+      "code": "PLST",
+      "released": "2019-11",
+      "type": "Masters"
+    },
+    {
+      "name": "Dominaria",
+      "code": "DOM",
+      "released": "2018-04",
+      "type": "Expansion"
+    },
+    {
+      "name": "Magic Online Promos",
+      "code": "PRM",
+      "released": "2014-10",
+      "type": "Promo"
+    },
+    {
+      "name": "Duel Decks: Ajani vs. Nicol Bolas",
+      "code": "DDH",
+      "released": "2011-09",
+      "type": "Duel Deck"
+    },
+    {
+      "name": "Masters Edition IV",
+      "code": "ME4",
+      "released": "2011-01",
+      "type": "Masters"
+    },
+    {
+      "name": "Tenth Edition",
+      "code": "10E",
+      "released": "2007-07",
+      "type": "Core"
+    },
+    {
+      "name": "Ninth Edition",
+      "code": "9ED",
+      "released": "2005-07",
+      "type": "Core"
+    },
+    {
+      "name": "Friday Night Magic 2005",
+      "code": "F05",
+      "released": "2005-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Mirrodin",
+      "code": "MRD",
+      "released": "2003-10",
+      "type": "Expansion"
+    },
+    {
+      "name": "Deckmasters",
+      "code": "DKM",
+      "released": "2001-12",
+      "type": "Box"
+    },
+    {
+      "name": "Oversized League Prizes",
+      "code": "OLEP",
+      "released": "1997-05",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Pro Tour Collector Set",
+      "code": "PTC",
+      "released": "1996-05",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Ice Age",
+      "code": "ICE",
+      "released": "1995-06",
+      "type": "Expansion"
+    },
+    {
+      "name": "Unlimited Edition",
+      "code": "2ED",
+      "released": "1993-12",
+      "type": "Core"
+    },
+    {
+      "name": "Intl. Collectors' Edition",
+      "code": "CEI",
+      "released": "1993-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Collectors' Edition",
+      "code": "CED",
+      "released": "1993-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Limited Edition Beta",
+      "code": "LEB",
+      "released": "1993-10",
+      "type": "Core"
+    },
+    {
+      "name": "Limited Edition Alpha",
+      "code": "LEA",
+      "released": "1993-08",
+      "type": "Core"
+    }
+  ],
+  "scrubland": [
+    {
+      "name": "Legacy Championship",
+      "code": "OLGC",
+      "released": "2022-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "30th Anniversary Edition",
+      "code": "30A",
+      "released": "2022-11",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Vintage Masters",
+      "code": "VMA",
+      "released": "2014-06",
+      "type": "Masters"
+    },
+    {
+      "name": "Magic Online Promos",
+      "code": "PRM",
+      "released": "2013-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Masters Edition IV",
+      "code": "ME4",
+      "released": "2011-01",
+      "type": "Masters"
+    },
+    {
+      "name": "Masters Edition III",
+      "code": "ME3",
+      "released": "2009-09",
+      "type": "Masters"
+    },
+    {
+      "name": "Summer Magic / Edgar",
+      "code": "SUM",
+      "released": "1994-06",
+      "type": "Core"
+    },
+    {
+      "name": "Revised Edition",
+      "code": "3ED",
+      "released": "1994-04",
+      "type": "Core"
+    },
+    {
+      "name": "Foreign Black Border",
+      "code": "FBB",
+      "released": "1994-04",
+      "type": "Core"
+    },
+    {
+      "name": "Unlimited Edition",
+      "code": "2ED",
+      "released": "1993-12",
+      "type": "Core"
+    },
+    {
+      "name": "Intl. Collectors' Edition",
+      "code": "CEI",
+      "released": "1993-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Collectors' Edition",
+      "code": "CED",
+      "released": "1993-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Limited Edition Beta",
+      "code": "LEB",
+      "released": "1993-10",
+      "type": "Core"
+    },
+    {
+      "name": "Limited Edition Alpha",
+      "code": "LEA",
+      "released": "1993-08",
+      "type": "Core"
+    }
+  ],
+  "triskelion": [
+    {
+      "name": "March of the Machine Commander",
+      "code": "MOC",
+      "released": "2023-04",
+      "type": "Commander"
+    },
+    {
+      "name": "Dominaria Remastered",
+      "code": "DMR",
+      "released": "2023-01",
+      "type": "Masters"
+    },
+    {
+      "name": "The List",
+      "code": "PLST",
+      "released": "2020-03",
+      "type": "Masters"
+    },
+    {
+      "name": "Duel Decks: Elspeth vs. Tezzeret",
+      "code": "DDF",
+      "released": "2010-09",
+      "type": "Duel Deck"
+    },
+    {
+      "name": "Magic 2011",
+      "code": "M11",
+      "released": "2010-07",
+      "type": "Core"
+    },
+    {
+      "name": "Mirrodin",
+      "code": "MRD",
+      "released": "2003-10",
+      "type": "Expansion"
+    },
+    {
+      "name": "Renaissance",
+      "code": "REN",
+      "released": "1995-08",
+      "type": "Masters"
+    },
+    {
+      "name": "Rinascimento",
+      "code": "RIN",
+      "released": "1995-08",
+      "type": "Masters"
+    },
+    {
+      "name": "Fourth Edition",
+      "code": "4ED",
+      "released": "1995-04",
+      "type": "Core"
+    },
+    {
+      "name": "Fourth Edition Foreign Black Border",
+      "code": "4BB",
+      "released": "1995-04",
+      "type": "Core"
+    },
+    {
+      "name": "Antiquities",
+      "code": "ATQ",
+      "released": "1994-03",
+      "type": "Expansion"
+    }
+  ],
+  "tundra": [
+    {
+      "name": "30th Anniversary Edition",
+      "code": "30A",
+      "released": "2022-11",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Legacy Championship",
+      "code": "OLGC",
+      "released": "2015-08",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Magic Online Promos",
+      "code": "PRM",
+      "released": "2014-10",
+      "type": "Promo"
+    },
+    {
+      "name": "Vintage Masters",
+      "code": "VMA",
+      "released": "2014-06",
+      "type": "Masters"
+    },
+    {
+      "name": "Masters Edition IV",
+      "code": "ME4",
+      "released": "2011-01",
+      "type": "Masters"
+    },
+    {
+      "name": "Masters Edition II",
+      "code": "ME2",
+      "released": "2008-09",
+      "type": "Masters"
+    },
+    {
+      "name": "Summer Magic / Edgar",
+      "code": "SUM",
+      "released": "1994-06",
+      "type": "Core"
+    },
+    {
+      "name": "Revised Edition",
+      "code": "3ED",
+      "released": "1994-04",
+      "type": "Core"
+    },
+    {
+      "name": "Foreign Black Border",
+      "code": "FBB",
+      "released": "1994-04",
+      "type": "Core"
+    },
+    {
+      "name": "Unlimited Edition",
+      "code": "2ED",
+      "released": "1993-12",
+      "type": "Core"
+    },
+    {
+      "name": "Intl. Collectors' Edition",
+      "code": "CEI",
+      "released": "1993-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Collectors' Edition",
+      "code": "CED",
+      "released": "1993-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Limited Edition Beta",
+      "code": "LEB",
+      "released": "1993-10",
+      "type": "Core"
+    },
+    {
+      "name": "Limited Edition Alpha",
+      "code": "LEA",
+      "released": "1993-08",
+      "type": "Core"
+    }
+  ],
+  "tropical island": [
+    {
+      "name": "30th Anniversary Edition",
+      "code": "30A",
+      "released": "2022-11",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Jumpstart: Historic Horizons",
+      "code": "J21",
+      "released": "2021-08",
+      "type": "Draft Innovation"
+    },
+    {
+      "name": "Legacy Championship",
+      "code": "OLGC",
+      "released": "2019-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Vintage Masters",
+      "code": "VMA",
+      "released": "2014-06",
+      "type": "Masters"
+    },
+    {
+      "name": "Magic Online Promos",
+      "code": "PRM",
+      "released": "2013-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Masters Edition IV",
+      "code": "ME4",
+      "released": "2011-01",
+      "type": "Masters"
+    },
+    {
+      "name": "Masters Edition III",
+      "code": "ME3",
+      "released": "2009-09",
+      "type": "Masters"
+    },
+    {
+      "name": "Summer Magic / Edgar",
+      "code": "SUM",
+      "released": "1994-06",
+      "type": "Core"
+    },
+    {
+      "name": "Revised Edition",
+      "code": "3ED",
+      "released": "1994-04",
+      "type": "Core"
+    },
+    {
+      "name": "Foreign Black Border",
+      "code": "FBB",
+      "released": "1994-04",
+      "type": "Core"
+    },
+    {
+      "name": "Unlimited Edition",
+      "code": "2ED",
+      "released": "1993-12",
+      "type": "Core"
+    },
+    {
+      "name": "Intl. Collectors' Edition",
+      "code": "CEI",
+      "released": "1993-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Collectors' Edition",
+      "code": "CED",
+      "released": "1993-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Limited Edition Beta",
+      "code": "LEB",
+      "released": "1993-10",
+      "type": "Core"
+    },
+    {
+      "name": "Limited Edition Alpha",
+      "code": "LEA",
+      "released": "1993-08",
+      "type": "Core"
+    }
+  ],
+  "efreet di serendib": [
+    {
+      "name": "Jumpstart",
+      "code": "JMP",
+      "released": "2020-07",
+      "type": "Draft Innovation"
+    },
+    {
+      "name": "The List",
+      "code": "PLST",
+      "released": "2019-11",
+      "type": "Masters"
+    },
+    {
+      "name": "Eternal Masters",
+      "code": "EMA",
+      "released": "2016-06",
+      "type": "Masters"
+    },
+    {
+      "name": "Magic Online Promos",
+      "code": "PRM",
+      "released": "2014-10",
+      "type": "Promo"
+    },
+    {
+      "name": "Vintage Masters",
+      "code": "VMA",
+      "released": "2014-06",
+      "type": "Masters"
+    },
+    {
+      "name": "From the Vault: Exiled",
+      "code": "V09",
+      "released": "2009-08",
+      "type": "From The Vault"
+    },
+    {
+      "name": "Masters Edition",
+      "code": "ME1",
+      "released": "2007-09",
+      "type": "Masters"
+    },
+    {
+      "name": "Summer Magic / Edgar",
+      "code": "SUM",
+      "released": "1994-06",
+      "type": "Core"
+    },
+    {
+      "name": "Revised Edition",
+      "code": "3ED",
+      "released": "1994-04",
+      "type": "Core"
+    },
+    {
+      "name": "Foreign Black Border",
+      "code": "FBB",
+      "released": "1994-04",
+      "type": "Core"
+    },
+    {
+      "name": "Arabian Nights",
+      "code": "ARN",
+      "released": "1993-12",
+      "type": "Expansion"
+    }
+  ],
+  "memory jar": [
+    {
+      "name": "Arena Anthology 3",
+      "code": "AA3",
+      "released": "2025-09",
+      "type": "Box"
+    },
+    {
+      "name": "Vintage Masters",
+      "code": "VMA",
+      "released": "2014-06",
+      "type": "Masters"
+    },
+    {
+      "name": "From the Vault: Relics",
+      "code": "V10",
+      "released": "2010-08",
+      "type": "From The Vault"
+    },
+    {
+      "name": "Urza's Legacy",
+      "code": "ULG",
+      "released": "1999-02",
+      "type": "Expansion"
+    }
+  ],
+  "psionic blast": [
+    {
+      "name": "30th Anniversary Edition",
+      "code": "30A",
+      "released": "2022-11",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Magic Online Promos",
+      "code": "PRM",
+      "released": "2010-11",
+      "type": "Promo"
+    },
+    {
+      "name": "Magic Player Rewards 2007",
+      "code": "P07",
+      "released": "2007-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Time Spiral Timeshifted",
+      "code": "TSB",
+      "released": "2006-10",
+      "type": "Expansion"
+    },
+    {
+      "name": "Unlimited Edition",
+      "code": "2ED",
+      "released": "1993-12",
+      "type": "Core"
+    },
+    {
+      "name": "Intl. Collectors' Edition",
+      "code": "CEI",
+      "released": "1993-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Collectors' Edition",
+      "code": "CED",
+      "released": "1993-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Limited Edition Beta",
+      "code": "LEB",
+      "released": "1993-10",
+      "type": "Core"
+    },
+    {
+      "name": "Limited Edition Alpha",
+      "code": "LEA",
+      "released": "1993-08",
+      "type": "Core"
+    }
+  ],
+  "sol ring": [
+    {
+      "name": "Secrets of Strixhaven Commander",
+      "code": "SOC",
+      "released": "2026-04",
+      "type": "Commander"
+    },
+    {
+      "name": "Lorwyn Eclipsed Commander",
+      "code": "ECC",
+      "released": "2026-01",
+      "type": "Commander"
+    },
+    {
+      "name": "Secret Lair Drop",
+      "code": "SLD",
+      "released": "2026-01",
+      "type": "Box"
+    },
+    {
+      "name": "Avatar: The Last Airbender Eternal",
+      "code": "TLE",
+      "released": "2025-11",
+      "type": "Eternal"
+    },
+    {
+      "name": "Secret Lair Countdown",
+      "code": "SLC",
+      "released": "2025-11",
+      "type": "Box"
+    },
+    {
+      "name": "Edge of Eternities Commander",
+      "code": "EOC",
+      "released": "2025-08",
+      "type": "Commander"
+    },
+    {
+      "name": "Final Fantasy Commander",
+      "code": "FIC",
+      "released": "2025-06",
+      "type": "Commander"
+    },
+    {
+      "name": "Tarkir: Dragonstorm Commander",
+      "code": "TDC",
+      "released": "2025-04",
+      "type": "Commander"
+    },
+    {
+      "name": "Aetherdrift Commander",
+      "code": "DRC",
+      "released": "2025-02",
+      "type": "Commander"
+    },
+    {
+      "name": "Foundations Promos",
+      "code": "PFDN",
+      "released": "2024-11",
+      "type": "Promo"
+    },
+    {
+      "name": "Foundations Commander",
+      "code": "FDC",
+      "released": "2024-11",
+      "type": "Commander"
+    },
+    {
+      "name": "Duskmourn: House of Horror Commander",
+      "code": "DSC",
+      "released": "2024-09",
+      "type": "Commander"
+    },
+    {
+      "name": "Bloomburrow Commander",
+      "code": "BLC",
+      "released": "2024-08",
+      "type": "Commander"
+    },
+    {
+      "name": "Mystery Booster 2",
+      "code": "MB2",
+      "released": "2024-08",
+      "type": "Masters"
+    },
+    {
+      "name": "Modern Horizons 3 Commander",
+      "code": "M3C",
+      "released": "2024-06",
+      "type": "Commander"
+    },
+    {
+      "name": "Outlaws of Thunder Junction Commander",
+      "code": "OTC",
+      "released": "2024-04",
+      "type": "Commander"
+    },
+    {
+      "name": "Fallout",
+      "code": "PIP",
+      "released": "2024-03",
+      "type": "Commander"
+    },
+    {
+      "name": "Murders at Karlov Manor Commander",
+      "code": "MKC",
+      "released": "2024-02",
+      "type": "Commander"
+    },
+    {
+      "name": "The Lost Caverns of Ixalan Commander",
+      "code": "LCC",
+      "released": "2023-11",
+      "type": "Commander"
+    },
+    {
+      "name": "Doctor Who",
+      "code": "WHO",
+      "released": "2023-10",
+      "type": "Commander"
+    },
+    {
+      "name": "Wilds of Eldraine Commander",
+      "code": "WOC",
+      "released": "2023-09",
+      "type": "Commander"
+    },
+    {
+      "name": "Commander Masters",
+      "code": "CMM",
+      "released": "2023-08",
+      "type": "Masters"
+    },
+    {
+      "name": "Tales of Middle-earth Commander",
+      "code": "LTC",
+      "released": "2023-06",
+      "type": "Commander"
+    },
+    {
+      "name": "March of the Machine Commander",
+      "code": "MOC",
+      "released": "2023-04",
+      "type": "Commander"
+    },
+    {
+      "name": "Phyrexia: All Will Be One Commander",
+      "code": "ONC",
+      "released": "2023-02",
+      "type": "Commander"
+    },
+    {
+      "name": "Starter Commander Decks",
+      "code": "SCD",
+      "released": "2022-12",
+      "type": "Commander"
+    },
+    {
+      "name": "The Brothers' War Commander",
+      "code": "BRC",
+      "released": "2022-11",
+      "type": "Commander"
+    },
+    {
+      "name": "30th Anniversary Edition",
+      "code": "30A",
+      "released": "2022-11",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Warhammer 40,000 Commander",
+      "code": "40K",
+      "released": "2022-10",
+      "type": "Commander"
+    },
+    {
+      "name": "Dominaria United Commander",
+      "code": "DMC",
+      "released": "2022-09",
+      "type": "Commander"
+    },
+    {
+      "name": "Love Your LGS 2022",
+      "code": "PLG22",
+      "released": "2022-07",
+      "type": "Promo"
+    },
+    {
+      "name": "Commander Legends: Battle for Baldur's Gate",
+      "code": "CLB",
+      "released": "2022-06",
+      "type": "Draft Innovation"
+    },
+    {
+      "name": "New Capenna Commander",
+      "code": "NCC",
+      "released": "2022-04",
+      "type": "Commander"
+    },
+    {
+      "name": "Neon Dynasty Commander",
+      "code": "NEC",
+      "released": "2022-02",
+      "type": "Commander"
+    },
+    {
+      "name": "Commander Collection: Black",
+      "code": "CC2",
+      "released": "2022-01",
+      "type": "Arsenal"
+    },
+    {
+      "name": "Crimson Vow Commander",
+      "code": "VOC",
+      "released": "2021-11",
+      "type": "Commander"
+    },
+    {
+      "name": "Midnight Hunt Commander",
+      "code": "MIC",
+      "released": "2021-09",
+      "type": "Commander"
+    },
+    {
+      "name": "Forgotten Realms Commander",
+      "code": "AFC",
+      "released": "2021-07",
+      "type": "Commander"
+    },
+    {
+      "name": "Commander 2021",
+      "code": "C21",
+      "released": "2021-04",
+      "type": "Commander"
+    },
+    {
+      "name": "Kaldheim Commander",
+      "code": "KHC",
+      "released": "2021-02",
+      "type": "Commander"
+    },
+    {
+      "name": "Commander Collection: Green",
+      "code": "CC1",
+      "released": "2020-12",
+      "type": "Arsenal"
+    },
+    {
+      "name": "Magic Online Promos",
+      "code": "PRM",
+      "released": "2020-12",
+      "type": "Promo"
+    },
+    {
+      "name": "Commander Legends",
+      "code": "CMR",
+      "released": "2020-11",
+      "type": "Draft Innovation"
+    },
+    {
+      "name": "Zendikar Rising Commander",
+      "code": "ZNC",
+      "released": "2020-09",
+      "type": "Commander"
+    },
+    {
+      "name": "The List",
+      "code": "PLST",
+      "released": "2020-09",
+      "type": "Masters"
+    },
+    {
+      "name": "Commander 2020",
+      "code": "C20",
+      "released": "2020-04",
+      "type": "Commander"
+    },
+    {
+      "name": "Commander 2019",
+      "code": "C19",
+      "released": "2019-08",
+      "type": "Commander"
+    },
+    {
+      "name": "MagicFest 2019",
+      "code": "PF19",
+      "released": "2019-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Commander 2018",
+      "code": "C18",
+      "released": "2018-08",
+      "type": "Commander"
+    },
+    {
+      "name": "Commander Anthology Volume II",
+      "code": "CM2",
+      "released": "2018-06",
+      "type": "Commander"
+    },
+    {
+      "name": "Commander 2017",
+      "code": "C17",
+      "released": "2017-08",
+      "type": "Commander"
+    },
+    {
+      "name": "Commander Anthology",
+      "code": "CMA",
+      "released": "2017-06",
+      "type": "Commander"
+    },
+    {
+      "name": "Commander 2016",
+      "code": "C16",
+      "released": "2016-11",
+      "type": "Commander"
+    },
+    {
+      "name": "Kaladesh Inventions",
+      "code": "MPS",
+      "released": "2016-09",
+      "type": "Masterpiece"
+    },
+    {
+      "name": "Commander 2015",
+      "code": "C15",
+      "released": "2015-11",
+      "type": "Commander"
+    },
+    {
+      "name": "Legendary Cube Prize Pack",
+      "code": "PZ1",
+      "released": "2015-11",
+      "type": "Treasure Chest"
+    },
+    {
+      "name": "Commander 2014",
+      "code": "C14",
+      "released": "2014-11",
+      "type": "Commander"
+    },
+    {
+      "name": "Vintage Masters",
+      "code": "VMA",
+      "released": "2014-06",
+      "type": "Masters"
+    },
+    {
+      "name": "Commander 2013",
+      "code": "C13",
+      "released": "2013-11",
+      "type": "Commander"
+    },
+    {
+      "name": "Commander 2011",
+      "code": "CMD",
+      "released": "2011-06",
+      "type": "Commander"
+    },
+    {
+      "name": "Masters Edition IV",
+      "code": "ME4",
+      "released": "2011-01",
+      "type": "Masters"
+    },
+    {
+      "name": "From the Vault: Relics",
+      "code": "V10",
+      "released": "2010-08",
+      "type": "From The Vault"
+    },
+    {
+      "name": "Judge Gift Cards 2005",
+      "code": "G05",
+      "released": "2005-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Summer Magic / Edgar",
+      "code": "SUM",
+      "released": "1994-06",
+      "type": "Core"
+    },
+    {
+      "name": "Revised Edition",
+      "code": "3ED",
+      "released": "1994-04",
+      "type": "Core"
+    },
+    {
+      "name": "Foreign Black Border",
+      "code": "FBB",
+      "released": "1994-04",
+      "type": "Core"
+    },
+    {
+      "name": "Unlimited Edition",
+      "code": "2ED",
+      "released": "1993-12",
+      "type": "Core"
+    },
+    {
+      "name": "Intl. Collectors' Edition",
+      "code": "CEI",
+      "released": "1993-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Collectors' Edition",
+      "code": "CED",
+      "released": "1993-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Limited Edition Beta",
+      "code": "LEB",
+      "released": "1993-10",
+      "type": "Core"
+    },
+    {
+      "name": "Limited Edition Alpha",
+      "code": "LEA",
+      "released": "1993-08",
+      "type": "Core"
+    }
+  ],
+  "ebon stronghold": [
+    {
+      "name": "Premium Deck Series: Graveborn",
+      "code": "PD3",
+      "released": "2011-11",
+      "type": "Premium Deck"
+    },
+    {
+      "name": "Masters Edition II",
+      "code": "ME2",
+      "released": "2008-09",
+      "type": "Masters"
+    },
+    {
+      "name": "Beatdown Box Set",
+      "code": "BTD",
+      "released": "2000-10",
+      "type": "Box"
+    },
+    {
+      "name": "Classic Sixth Edition",
+      "code": "6ED",
+      "released": "1999-04",
+      "type": "Core"
+    },
+    {
+      "name": "Fifth Edition",
+      "code": "5ED",
+      "released": "1997-03",
+      "type": "Core"
+    },
+    {
+      "name": "Pro Tour Collector Set",
+      "code": "PTC",
+      "released": "1996-05",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Fallen Empires",
+      "code": "FEM",
+      "released": "1994-11",
+      "type": "Expansion"
+    }
+  ],
+  "city of brass": [
+    {
+      "name": "Store Championships",
+      "code": "SCH",
+      "released": "2025-06",
+      "type": "Promo"
+    },
+    {
+      "name": "Mystery Booster 2",
+      "code": "MB2",
+      "released": "2024-08",
+      "type": "Masters"
+    },
+    {
+      "name": "Magic Online Promos",
+      "code": "PRM",
+      "released": "2022-10",
+      "type": "Promo"
+    },
+    {
+      "name": "Double Masters 2022",
+      "code": "2X2",
+      "released": "2022-07",
+      "type": "Masters"
+    },
+    {
+      "name": "Modern Event Deck 2014",
+      "code": "MD1",
+      "released": "2014-05",
+      "type": "Box"
+    },
+    {
+      "name": "Modern Masters",
+      "code": "MMA",
+      "released": "2013-06",
+      "type": "Masters"
+    },
+    {
+      "name": "Masters Edition IV",
+      "code": "ME4",
+      "released": "2011-01",
+      "type": "Masters"
+    },
+    {
+      "name": "World Championship Decks 2003",
+      "code": "WC03",
+      "released": "2003-08",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Eighth Edition",
+      "code": "8ED",
+      "released": "2003-07",
+      "type": "Core"
+    },
+    {
+      "name": "World Championship Decks 2002",
+      "code": "WC02",
+      "released": "2002-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "World Championship Decks 2001",
+      "code": "WC01",
+      "released": "2001-08",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Seventh Edition",
+      "code": "7ED",
+      "released": "2001-04",
+      "type": "Core"
+    },
+    {
+      "name": "Junior Super Series",
+      "code": "PSUS",
+      "released": "2001-01",
+      "type": "Promo"
+    },
+    {
+      "name": "World Championship Decks 2000",
+      "code": "WC00",
+      "released": "2000-08",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Classic Sixth Edition",
+      "code": "6ED",
+      "released": "1999-04",
+      "type": "Core"
+    },
+    {
+      "name": "World Championship Decks 1998",
+      "code": "WC98",
+      "released": "1998-08",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Oversized League Prizes",
+      "code": "OLEP",
+      "released": "1997-09",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "World Championship Decks 1997",
+      "code": "WC97",
+      "released": "1997-08",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Fifth Edition",
+      "code": "5ED",
+      "released": "1997-03",
+      "type": "Core"
+    },
+    {
+      "name": "Pro Tour Collector Set",
+      "code": "PTC",
+      "released": "1996-05",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Rinascimento",
+      "code": "RIN",
+      "released": "1995-08",
+      "type": "Masters"
+    },
+    {
+      "name": "Chronicles",
+      "code": "CHR",
+      "released": "1995-07",
+      "type": "Masters"
+    },
+    {
+      "name": "Chronicles Foreign Black Border",
+      "code": "BCHR",
+      "released": "1995-07",
+      "type": "Masters"
+    },
+    {
+      "name": "Arabian Nights",
+      "code": "ARN",
+      "released": "1993-12",
+      "type": "Expansion"
+    }
+  ],
+  "animate dead": [
+    {
+      "name": "Secret Lair Drop",
+      "code": "SLD",
+      "released": "2025-10",
+      "type": "Box"
+    },
+    {
+      "name": "Murders at Karlov Manor Commander",
+      "code": "MKC",
+      "released": "2024-02",
+      "type": "Commander"
+    },
+    {
+      "name": "30th Anniversary Edition",
+      "code": "30A",
+      "released": "2022-11",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Judge Gift Cards 2022",
+      "code": "P22",
+      "released": "2022-10",
+      "type": "Promo"
+    },
+    {
+      "name": "The List",
+      "code": "PLST",
+      "released": "2021-06",
+      "type": "Masters"
+    },
+    {
+      "name": "Eternal Masters",
+      "code": "EMA",
+      "released": "2016-06",
+      "type": "Masters"
+    },
+    {
+      "name": "Vintage Masters",
+      "code": "VMA",
+      "released": "2014-06",
+      "type": "Masters"
+    },
+    {
+      "name": "Premium Deck Series: Graveborn",
+      "code": "PD3",
+      "released": "2011-11",
+      "type": "Premium Deck"
+    },
+    {
+      "name": "Magic Online Theme Decks",
+      "code": "TD0",
+      "released": "2010-11",
+      "type": "Box"
+    },
+    {
+      "name": "Masters Edition",
+      "code": "ME1",
+      "released": "2007-09",
+      "type": "Masters"
+    },
+    {
+      "name": "Fifth Edition",
+      "code": "5ED",
+      "released": "1997-03",
+      "type": "Core"
+    },
+    {
+      "name": "Fourth Edition",
+      "code": "4ED",
+      "released": "1995-04",
+      "type": "Core"
+    },
+    {
+      "name": "Fourth Edition Foreign Black Border",
+      "code": "4BB",
+      "released": "1995-04",
+      "type": "Core"
+    },
+    {
+      "name": "Summer Magic / Edgar",
+      "code": "SUM",
+      "released": "1994-06",
+      "type": "Core"
+    },
+    {
+      "name": "Revised Edition",
+      "code": "3ED",
+      "released": "1994-04",
+      "type": "Core"
+    },
+    {
+      "name": "Foreign Black Border",
+      "code": "FBB",
+      "released": "1994-04",
+      "type": "Core"
+    },
+    {
+      "name": "Unlimited Edition",
+      "code": "2ED",
+      "released": "1993-12",
+      "type": "Core"
+    },
+    {
+      "name": "Intl. Collectors' Edition",
+      "code": "CEI",
+      "released": "1993-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Collectors' Edition",
+      "code": "CED",
+      "released": "1993-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Limited Edition Beta",
+      "code": "LEB",
+      "released": "1993-10",
+      "type": "Core"
+    },
+    {
+      "name": "Limited Edition Alpha",
+      "code": "LEA",
+      "released": "1993-08",
+      "type": "Core"
+    }
+  ],
+  "fork": [
+    {
+      "name": "30th Anniversary Edition",
+      "code": "30A",
+      "released": "2022-11",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Masters Edition IV",
+      "code": "ME4",
+      "released": "2011-01",
+      "type": "Masters"
+    },
+    {
+      "name": "Magic Online Promos",
+      "code": "PRM",
+      "released": "2010-11",
+      "type": "Promo"
+    },
+    {
+      "name": "Summer Magic / Edgar",
+      "code": "SUM",
+      "released": "1994-06",
+      "type": "Core"
+    },
+    {
+      "name": "Revised Edition",
+      "code": "3ED",
+      "released": "1994-04",
+      "type": "Core"
+    },
+    {
+      "name": "Foreign Black Border",
+      "code": "FBB",
+      "released": "1994-04",
+      "type": "Core"
+    },
+    {
+      "name": "Unlimited Edition",
+      "code": "2ED",
+      "released": "1993-12",
+      "type": "Core"
+    },
+    {
+      "name": "Intl. Collectors' Edition",
+      "code": "CEI",
+      "released": "1993-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Collectors' Edition",
+      "code": "CED",
+      "released": "1993-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Limited Edition Beta",
+      "code": "LEB",
+      "released": "1993-10",
+      "type": "Core"
+    },
+    {
+      "name": "Limited Edition Alpha",
+      "code": "LEA",
+      "released": "1993-08",
+      "type": "Core"
+    }
+  ],
+  "force of will": [
+    {
+      "name": "Legacy Championship",
+      "code": "OLGC",
+      "released": "2023-11",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Dominaria Remastered",
+      "code": "DMR",
+      "released": "2023-01",
+      "type": "Masters"
+    },
+    {
+      "name": "Double Masters",
+      "code": "2XM",
+      "released": "2020-08",
+      "type": "Masters"
+    },
+    {
+      "name": "Magic Online Promos",
+      "code": "PRM",
+      "released": "2020-08",
+      "type": "Promo"
+    },
+    {
+      "name": "Amonkhet Invocations",
+      "code": "MP2",
+      "released": "2017-04",
+      "type": "Masterpiece"
+    },
+    {
+      "name": "Eternal Masters",
+      "code": "EMA",
+      "released": "2016-06",
+      "type": "Masters"
+    },
+    {
+      "name": "Vintage Masters",
+      "code": "VMA",
+      "released": "2014-06",
+      "type": "Masters"
+    },
+    {
+      "name": "Judge Gift Cards 2014",
+      "code": "J14",
+      "released": "2014-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Masters Edition",
+      "code": "ME1",
+      "released": "2007-09",
+      "type": "Masters"
+    },
+    {
+      "name": "World Championship Decks 1997",
+      "code": "WC97",
+      "released": "1997-08",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Alliances",
+      "code": "ALL",
+      "released": "1996-06",
+      "type": "Expansion"
+    }
   ]
 }

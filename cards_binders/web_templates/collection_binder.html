@@ -2414,6 +2414,9 @@
             const sellPrice = document.getElementById('sellPrice').value.trim();
             const saleDate = document.getElementById('saleDate').value.trim();
             const notes = document.getElementById('notes').value.trim();
+            // Get market_price if the field exists (dynamically added)
+            const marketPriceField = document.querySelector('[name="market_price"]');
+            const marketPrice = marketPriceField ? marketPriceField.value.trim() : '';
             
             const data = {
                 name: name,
@@ -2428,6 +2431,7 @@
             if (sellPrice) data.sell_price = parseFloat(sellPrice);
             if (saleDate) data.sale_date = saleDate;
             if (notes) data.notes = notes;
+            if (marketPrice) data.market_price = parseFloat(marketPrice);
             
             try {
                 if (editingIndex !== null) {

@@ -1298,6 +1298,7 @@
         const CARDS_PER_SPREAD = 18;
         
         let allDeals = [];
+        let scanTimestamp = null; // Store scan timestamp from database
         let currentPage = 1; // This represents the "spread" (two pages)
         let groupBySeller = false;
         let sellerGroups = []; // Array of {seller: string, deals: []}
@@ -1458,6 +1459,9 @@
             
             let deals = data.deals || [];
             
+            // Store scan timestamp (from database or JSON file)
+            scanTimestamp = data.timestamp || null;
+            
             // Apply format filtering client-side (OR operation)
             if (oldSchoolFilter || premodernFilter) {
                 deals = deals.filter(deal => {
@@ -1472,7 +1476,11 @@
                 deals = [];
             }
             
-            allDeals = deals;
+            // Add timestamp to each deal if not already present
+            allDeals = deals.map(deal => ({
+                ...deal,
+                scan_date: deal.scanned_at || deal.scan_date || scanTimestamp || null
+            }));
             currentPage = 1;
             
             updateStats();
@@ -1740,6 +1748,7 @@
             const availableItems = deal.available_items_total;
             const historical = deal.historical || {};
             const avg30 = historical.avg30 || historical.AVG30 || null;
+            const scanDate = deal.scan_date || deal.scanned_at || null;
             
             const imageName = cardName.toLowerCase().replace(/[',]/g, '').replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, '');
             const expansionNormalized = expansion ? expansion.toLowerCase().replace(/[',]/g, '').replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, '') : null;
@@ -1773,7 +1782,23 @@
                 volumeHTML = `<div class="card-volume">📋 ${totalListings} listings</div>`;
             }
             
-            const cardId = `card-${cardName.replace(/[^a-zA-Z0-9]/g, '_')}-${Math.random().toString(36).substr(2, 9)}`;
+            // Format scan date for display
+            let scanDateHTML = '';
+            if (scanDate) {
+                try {
+                    // Parse timestamp (could be ISO string or date string)
+                    const date = new Date(scanDate);
+                    if (!isNaN(date.getTime())) {
+                        const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+                        scanDateHTML = `<div class="card-scan-date" style="font-size: 0.65em; color: rgba(212, 175, 55, 0.8); margin-top: 4px;">📅 ${formattedDate}</div>`;
+                    }
+                } catch (e) {
+                    // If parsing fails, try to display as-is
+                    scanDateHTML = `<div class="card-scan-date" style="font-size: 0.65em; color: rgba(212, 175, 55, 0.8); margin-top: 4px;">📅 ${scanDate}</div>`;
+                }
+            }
+            
+                        const cardId = `card-${cardName.replace(/[^a-zA-Z0-9]/g, '_')}-${Math.random().toString(36).substr(2, 9)}`;
             
             return `
                 <div class="card-pocket" id="${cardId}" data-card-name="${cardName.replace(/"/g, '&quot;')}" data-url="${escapedUrl}" title="${cardName} - Click to view on CardMarket">
@@ -1790,6 +1815,7 @@
                             </div>
                             ${avg30HTML}
                             ${volumeHTML}
+                            ${scanDateHTML}
                             <div class="card-seller">🏪 <a href="https://www.cardmarket.com/en/Magic/Users/${seller}" target="_blank" onclick="event.stopPropagation()">${seller}</a>${sellerCountry ? ` (${sellerCountry})` : ''}</div>
                             <span class="card-badge ${badgeClass}">${category}</span>
                         </div>

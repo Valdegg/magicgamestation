@@ -694,111 +694,218 @@ def append_deals_to_collection_file(deals_file: str, new_deals: List[Dict[str, A
 def load_latest_collection_scan_results() -> Dict[str, Dict[str, Any]]:
     """
     Load the most recent collection market scan results and create a lookup dictionary.
+    Compares database and JSON files, using whichever has more cards, or merging both.
     
     Returns:
-        Dictionary mapping (card_name, expansion) -> market data
-        Format: {(name_lower, expansion_lower): {'price': float, 'discount': float, 'category': str, ...}}
+        Dictionary mapping (card_name, expansion, language) -> market data
+        Format: {(name_lower, expansion_lower, language): {'price': float, 'discount': float, 'category': str, ...}}
     """
-    results_dir = 'results'
-    if not os.path.exists(results_dir):
-        print(f"⚠️  Market scan: results directory not found: {results_dir}", flush=True)
-        return {}
+    db_lookup = {}
+    json_lookup = {}
     
-    # Find all collection scan result files
-    json_files = glob.glob(os.path.join(results_dir, 'collection_deals_*.json'))
-    if not json_files:
-        print(f"⚠️  Market scan: No collection_deals_*.json files found in {results_dir}", flush=True)
-        return {}
-    
-    # Sort by modification time, newest first
-    json_files.sort(key=os.path.getmtime, reverse=True)
-    latest_file = json_files[0]
-    print(f"📊 Market scan: Loading latest scan results from {latest_file}", flush=True)
-    
+    # Try loading from database
     try:
-        with open(latest_file, 'r', encoding='utf-8') as f:
-            results = json.load(f)
+        print(f"📊 Market scan: Attempting to load from database...", flush=True)
         
-        print(f"📊 Market scan: File loaded, timestamp: {results.get('timestamp', 'unknown')}", flush=True)
+        # Get scan date with the most cards (prefer larger scans)
+        conn = database.get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute("""
+            SELECT scan_date, COUNT(*) as count 
+            FROM market_scan_deal 
+            GROUP BY scan_date 
+            ORDER BY count DESC, scan_date DESC 
+            LIMIT 1
+        """)
+        row = cursor.fetchone()
+        best_scan_date = row[0] if row and row[0] else None
+        scan_count = row[1] if row and row[1] else 0
+        conn.close()
         
-        # Normalize deal data (reuse logic from web_ui.py)
-        deals = []
-        if 'deals' in results or 'candidates' in results:
-            deal_list = results.get('deals', []) or results.get('candidates', [])
-            print(f"📊 Market scan: Found {len(deal_list)} deals in scan results", flush=True)
-            for deal in deal_list:
-                card = deal.get('card', {})
-                live_data = deal.get('live_data')
+        if best_scan_date and scan_count >= 50:
+            print(f"📊 Market scan: Found database scan data, scan date: {best_scan_date} ({scan_count} cards)", flush=True)
+            
+            db_deals = database.get_scan_deals(scan_date=best_scan_date)
+            print(f"📊 Market scan: Loaded {len(db_deals)} deals from {best_scan_date}", flush=True)
+            
+            if db_deals:
+                # Convert database format to normalized format
+                deals = []
+                for deal in db_deals:
+                    card = deal.get('card', {})
+                    live_data = deal.get('live_data', {})
+                    
+                    # Skip deals without live_data
+                    if not live_data or not live_data.get('cheapest_good_condition'):
+                        continue
+                    
+                    url = live_data.get('url', '')
+                    
+                    # Extract language from URL if present (language=1,2,3,4,5)
+                    language_code = None
+                    language_name = None
+                    if url and 'language=' in url:
+                        try:
+                            match = re.search(r'language=(\d+)', url)
+                            if match:
+                                language_code = int(match.group(1))
+                                # Map language code to language name (normalize English to None)
+                                language_map = {1: None, 2: 'French', 3: 'German', 4: 'Spanish', 5: 'Italian'}
+                                language_name = language_map.get(language_code, None)
+                        except Exception as e:
+                            pass
+                    
+                    normalized = {
+                        'card_name': card.get('name', ''),
+                        'expansion': card.get('expansion') or None,
+                        'price': live_data.get('cheapest_good_condition'),
+                        'discount': deal.get('discounts', {}).get('discount_vs_market'),
+                        'category': deal.get('category', 'unknown'),
+                        'url': url,
+                        'language': language_name,  # Store language extracted from URL (None for English/default)
+                        'language_code': language_code,  # Store language code for matching
+                        'timestamp': deal.get('scanned_at', '')
+                    }
+                    deals.append(normalized)
                 
-                # Skip deals without live_data (no_data category)
-                if live_data is None:
-                    continue
+                # Create lookup dictionary
+                for deal in deals:
+                    card_name = deal.get('card_name', '').lower()
+                    expansion = deal.get('expansion')
+                    expansion_normalized = normalize_expansion_for_lookup(expansion) if expansion else None
+                    language = deal.get('language')  # Can be None for English/default
+                    
+                    # Create key with language (None for English/default)
+                    key = (card_name, expansion_normalized, language)
+                    
+                    # Store all language variants - prefer non-None language if available, otherwise keep first
+                    if key not in db_lookup:
+                        db_lookup[key] = deal
+                    elif deal.get('price') and language:  # Prefer entries with explicit language
+                        db_lookup[key] = deal
                 
-                url = live_data.get('url', '')
-                
-                # Extract language from URL if present (language=1,2,3,4,5)
-                language_code = None
-                language_name = None
-                if url and 'language=' in url:
-                    try:
-                        import re
-                        match = re.search(r'language=(\d+)', url)
-                        if match:
-                            language_code = int(match.group(1))
-                            # Map language code to language name (normalize English to None)
-                            language_map = {1: None, 2: 'French', 3: 'German', 4: 'Spanish', 5: 'Italian'}
-                            language_name = language_map.get(language_code, None)
-                    except Exception as e:
-                        pass
-                
-                normalized = {
-                    'card_name': card.get('name', ''),
-                    'expansion': card.get('expansion') or card.get('expansionName') or None,
-                    'price': live_data.get('cheapest_good_condition'),
-                    'discount': deal.get('discounts', {}).get('discount_vs_market'),
-                    'category': deal.get('category', 'unknown'),
-                    'url': url,
-                    'language': language_name,  # Store language extracted from URL (None for English/default)
-                    'language_code': language_code,  # Store language code for matching
-                    'timestamp': results.get('timestamp', '')
-                }
-                deals.append(normalized)
+                print(f"✅ Market scan: Created {len(db_lookup)} entries from database", flush=True)
         else:
-            print(f"⚠️  Market scan: No 'deals' or 'candidates' key in results", flush=True)
-        
-        # Create lookup dictionary: (name_lower, expansion_lower, language) -> market_data
-        # Normalize expansion names to handle apostrophes (Urza's Legacy vs Urzas Legacy)
-        # Include language in key to handle multiple cards with same name/set but different languages
-        market_lookup = {}
-        for deal in deals:
-            card_name = deal.get('card_name', '').lower()
-            expansion = deal.get('expansion')
-            expansion_normalized = normalize_expansion_for_lookup(expansion) if expansion else None
-            language = deal.get('language')  # Can be None for English/default
+            print(f"⚠️  Market scan: Database scan has {scan_count} cards (< 50), will check JSON files", flush=True)
+    except Exception as e:
+        print(f"⚠️  Market scan: Error loading from database: {e}", flush=True)
+    
+    # Always try loading from JSON files to compare
+    print(f"📊 Market scan: Checking JSON files...", flush=True)
+    
+    results_dir = 'results'
+    if os.path.exists(results_dir):
+        # Find all collection scan result files
+        json_files = glob.glob(os.path.join(results_dir, 'collection_deals_*.json'))
+        if json_files:
+            # Sort by modification time, newest first
+            json_files.sort(key=os.path.getmtime, reverse=True)
+            latest_file = json_files[0]
+            print(f"📊 Market scan: Loading latest scan results from {latest_file}", flush=True)
             
-            # Create key with language (None for English/default)
-            key = (card_name, expansion_normalized, language)
-            
-            # Store all language variants - prefer non-None language if available, otherwise keep first
+            try:
+                with open(latest_file, 'r', encoding='utf-8') as f:
+                    results = json.load(f)
+                
+                print(f"📊 Market scan: File loaded, timestamp: {results.get('timestamp', 'unknown')}", flush=True)
+                
+                # Normalize deal data (reuse logic from web_ui.py)
+                deals = []
+                if 'deals' in results or 'candidates' in results:
+                    deal_list = results.get('deals', []) or results.get('candidates', [])
+                    print(f"📊 Market scan: Found {len(deal_list)} deals in JSON scan results", flush=True)
+                    for deal in deal_list:
+                        card = deal.get('card', {})
+                        live_data = deal.get('live_data')
+                        
+                        # Skip deals without live_data (no_data category)
+                        if live_data is None:
+                            continue
+                        
+                        url = live_data.get('url', '')
+                        
+                        # Extract language from URL if present (language=1,2,3,4,5)
+                        language_code = None
+                        language_name = None
+                        if url and 'language=' in url:
+                            try:
+                                match = re.search(r'language=(\d+)', url)
+                                if match:
+                                    language_code = int(match.group(1))
+                                    # Map language code to language name (normalize English to None)
+                                    language_map = {1: None, 2: 'French', 3: 'German', 4: 'Spanish', 5: 'Italian'}
+                                    language_name = language_map.get(language_code, None)
+                            except Exception as e:
+                                pass
+                        
+                        normalized = {
+                            'card_name': card.get('name', ''),
+                            'expansion': card.get('expansion') or card.get('expansionName') or None,
+                            'price': live_data.get('cheapest_good_condition'),
+                            'discount': deal.get('discounts', {}).get('discount_vs_market'),
+                            'category': deal.get('category', 'unknown'),
+                            'url': url,
+                            'language': language_name,  # Store language extracted from URL (None for English/default)
+                            'language_code': language_code,  # Store language code for matching
+                            'timestamp': results.get('timestamp', '')
+                        }
+                        deals.append(normalized)
+                
+                # Create lookup dictionary
+                for deal in deals:
+                    card_name = deal.get('card_name', '').lower()
+                    expansion = deal.get('expansion')
+                    expansion_normalized = normalize_expansion_for_lookup(expansion) if expansion else None
+                    language = deal.get('language')  # Can be None for English/default
+                    
+                    # Create key with language (None for English/default)
+                    key = (card_name, expansion_normalized, language)
+                    
+                    # Store all language variants - prefer non-None language if available, otherwise keep first
+                    if key not in json_lookup:
+                        json_lookup[key] = deal
+                    elif deal.get('price') and language:  # Prefer entries with explicit language
+                        json_lookup[key] = deal
+                
+                print(f"✅ Market scan: Created {len(json_lookup)} entries from JSON", flush=True)
+            except Exception as e:
+                print(f"⚠️  Market scan: Error loading JSON file: {e}", flush=True)
+        else:
+            print(f"⚠️  Market scan: No collection_deals_*.json files found in {results_dir}", flush=True)
+    else:
+        print(f"⚠️  Market scan: results directory not found: {results_dir}", flush=True)
+    
+    # Compare and choose best source, or merge
+    if len(json_lookup) > len(db_lookup):
+        print(f"📊 Market scan: JSON file has more cards ({len(json_lookup)} vs {len(db_lookup)}), using JSON", flush=True)
+        market_lookup = json_lookup
+    elif len(db_lookup) > 0:
+        print(f"📊 Market scan: Database has more cards ({len(db_lookup)} vs {len(json_lookup)}), using database", flush=True)
+        market_lookup = db_lookup.copy()
+        # Merge in any cards from JSON that aren't in database
+        merged_count = 0
+        for key, deal in json_lookup.items():
             if key not in market_lookup:
                 market_lookup[key] = deal
-            elif deal.get('price') and language:  # Prefer entries with explicit language
-                market_lookup[key] = deal
-        
-        print(f"✅ Market scan: Created lookup with {len(market_lookup)} entries", flush=True)
-        if len(market_lookup) > 0:
-            # Show first few examples
-            sample_keys = list(market_lookup.keys())[:3]
-            for key in sample_keys:
-                lang_part = f", '{key[2]}'" if len(key) > 2 and key[2] else ", 'English'"
-                print(f"   Example: ({key[0]}, '{key[1]}'{lang_part}) -> €{market_lookup[key].get('price', 'N/A')}", flush=True)
-        
-        return market_lookup
-    except Exception as e:
-        print(f"❌ Error loading collection scan results: {e}", flush=True)
-        import traceback
-        print(f"   Traceback: {traceback.format_exc()}", flush=True)
+                merged_count += 1
+        if merged_count > 0:
+            print(f"📊 Market scan: Merged {merged_count} additional cards from JSON into database results", flush=True)
+    elif len(json_lookup) > 0:
+        print(f"📊 Market scan: Using JSON file ({len(json_lookup)} cards)", flush=True)
+        market_lookup = json_lookup
+    else:
+        print(f"⚠️  Market scan: No market data found in database or JSON files", flush=True)
         return {}
+    
+    print(f"✅ Market scan: Final lookup has {len(market_lookup)} entries", flush=True)
+    if len(market_lookup) > 0:
+        # Show first few examples
+        sample_keys = list(market_lookup.keys())[:3]
+        for key in sample_keys:
+            lang_part = f", '{key[2]}'" if len(key) > 2 and key[2] else ", 'English'"
+            print(f"   Example: ({key[0]}, '{key[1]}'{lang_part}) -> €{market_lookup[key].get('price', 'N/A')}", flush=True)
+    
+    return market_lookup
 
 
 def expand_collection_to_cards(collection: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
@@ -1337,6 +1444,7 @@ async def collection_page():
                     if (insertPoint) {
                         const marketDiv = document.createElement('div');
                         marketDiv.className = 'card-market-value';
+                        marketDiv.setAttribute('data-market-link', 'true');
                         
                         const value = parseFloat(marketValue);
                         let marketText = `Market: €${value.toFixed(2)}`;
@@ -1374,15 +1482,94 @@ async def collection_page():
                             });
                         });
                         
-                        // Make it clickable if URL available
-                        if (marketUrl) {
+                        // Make it clickable - construct URL if not available
+                        let cardmarketUrl = marketUrl;
+                        
+                        // If no URL available, construct it from card data
+                        if (!cardmarketUrl) {
+                            const cardName = cardEl.dataset.cardName;
+                            const expansion = cardEl.querySelector('.card-expansion, [class*="expansion"]')?.textContent;
+                            const condition = cardEl.querySelector('.card-condition, [class*="condition"]')?.textContent;
+                            const language = cardEl.dataset.language;
+                            const foil = cardEl.dataset.foil === 'true';
+                            
+                            if (cardName && expansion) {
+                                // Format card name and expansion for URL (matches Python format_card_name_for_url)
+                                function formatForUrl(name, isExpansion = false) {
+                                    if (!name) return '';
+                                    // Remove accents (simplified - JavaScript doesn't have easy unicode normalization)
+                                    let formatted = name.replace(/[àáâãäå]/g, 'a').replace(/[èéêë]/g, 'e')
+                                        .replace(/[ìíîï]/g, 'i').replace(/[òóôõö]/g, 'o').replace(/[ùúûü]/g, 'u')
+                                        .replace(/[ýÿ]/g, 'y').replace(/[ñ]/g, 'n').replace(/[ç]/g, 'c');
+                                    
+                                    // Replace special characters
+                                    formatted = formatted.replace(/[,:()&!?/]/g, '');
+                                    formatted = formatted.replace(/'s /gi, ' s ').replace(/'S /g, ' s ');
+                                    
+                                    // Split into words and capitalize
+                                    const words = formatted.split(/\s+/).filter(w => w);
+                                    const titleWords = words.map(word => {
+                                        if (word.toLowerCase() === 's') return 's';
+                                        // Split on hyphens and capitalize each part
+                                        return word.split('-').map(part => 
+                                            part.charAt(0).toUpperCase() + part.slice(1).toLowerCase()
+                                        ).join('-');
+                                    });
+                                    
+                                    let result = titleWords.join('-');
+                                    result = result.replace(/'s/gi, 's').replace(/'/g, '');
+                                    
+                                    // Special case for expansions: "Urza-s-Saga" → "Urzas-Saga"
+                                    if (isExpansion) {
+                                        result = result.replace(/([A-Z][a-z]+)-([s])-([A-Z])/g, '$1$2-$3');
+                                    }
+                                    
+                                    return result;
+                                }
+                                
+                                // Map condition to Cardmarket code
+                                function getConditionCode(condition) {
+                                    if (!condition) return 3; // Default to Excellent
+                                    const cond = condition.toLowerCase();
+                                    if (cond.includes('mint') && !cond.includes('near')) return 1; // Mint
+                                    if (cond.includes('near mint') || cond.includes('nm')) return 2; // Near Mint
+                                    if (cond.includes('excellent') || cond.includes('ex')) return 3; // Excellent
+                                    if (cond.includes('good') || cond.includes('gd')) return 4; // Good
+                                    if (cond.includes('lightly played') || cond.includes('lp')) return 5; // Lightly Played
+                                    if (cond.includes('played') && !cond.includes('lightly') || cond.includes('pl')) return 6; // Played
+                                    if (cond.includes('poor') || cond.includes('po')) return 7; // Poor
+                                    return 3; // Default to Excellent
+                                }
+                                
+                                // Map language to Cardmarket code
+                                function getLanguageCode(language) {
+                                    if (!language || language.toLowerCase() === 'english') return 1;
+                                    const lang = language.toLowerCase();
+                                    if (lang === 'french') return 2;
+                                    if (lang === 'german') return 3;
+                                    if (lang === 'spanish') return 4;
+                                    if (lang === 'italian') return 5;
+                                    return 1; // Default to English
+                                }
+                                
+                                const cardNameFormatted = formatForUrl(cardName, false);
+                                const expansionFormatted = formatForUrl(expansion, true);
+                                const conditionCode = getConditionCode(condition);
+                                const languageCode = getLanguageCode(language);
+                                const foilParam = foil ? '&isFoil=Y' : '';
+                                
+                                cardmarketUrl = `https://www.cardmarket.com/en/Magic/Products/Singles/${expansionFormatted}/${cardNameFormatted}?minCondition=${conditionCode}&language=${languageCode}${foilParam}`;
+                            }
+                        }
+                        
+                        if (cardmarketUrl) {
                             marketDiv.style.cursor = 'pointer';
                             marketDiv.style.textDecoration = 'underline';
                             marketDiv.title += '\\n\\nClick to view on Cardmarket';
                             marketDiv.addEventListener('click', function(e) {
                                 e.stopPropagation();
-                                console.log('🔗 Opening Cardmarket URL:', marketUrl);
-                                window.open(marketUrl, '_blank');
+                                console.log('🔗 Opening Cardmarket URL:', cardmarketUrl);
+                                window.open(cardmarketUrl, '_blank');
                             });
                         }
                         
@@ -1507,6 +1694,7 @@ async def collection_page():
                         if (insertPoint) {
                             const marketDiv = document.createElement('div');
                             marketDiv.className = 'card-market-value';
+                            marketDiv.setAttribute('data-market-link', 'true');
                             
                             const marketValue = parseFloat(card.market_value);
                             let marketText = `Market: €${marketValue.toFixed(2)}`;
@@ -1546,15 +1734,86 @@ async def collection_page():
                                 });
                             });
                             
-                            // Make it clickable if URL available
-                            if (card.market_url) {
+                            // Make it clickable - construct URL if not available
+                            let cardmarketUrl = card.market_url;
+                            
+                            // If no URL available, construct it from card data
+                            if (!cardmarketUrl && card.name && card.expansion) {
+                                // Format card name and expansion for URL (matches Python format_card_name_for_url)
+                                function formatForUrl(name, isExpansion = false) {
+                                    if (!name) return '';
+                                    // Remove accents (simplified - JavaScript doesn't have easy unicode normalization)
+                                    let formatted = name.replace(/[àáâãäå]/g, 'a').replace(/[èéêë]/g, 'e')
+                                        .replace(/[ìíîï]/g, 'i').replace(/[òóôõö]/g, 'o').replace(/[ùúûü]/g, 'u')
+                                        .replace(/[ýÿ]/g, 'y').replace(/[ñ]/g, 'n').replace(/[ç]/g, 'c');
+                                    
+                                    // Replace special characters
+                                    formatted = formatted.replace(/[,:()&!?/]/g, '');
+                                    formatted = formatted.replace(/'s /gi, ' s ').replace(/'S /g, ' s ');
+                                    
+                                    // Split into words and capitalize
+                                    const words = formatted.split(/\s+/).filter(w => w);
+                                    const titleWords = words.map(word => {
+                                        if (word.toLowerCase() === 's') return 's';
+                                        // Split on hyphens and capitalize each part
+                                        return word.split('-').map(part => 
+                                            part.charAt(0).toUpperCase() + part.slice(1).toLowerCase()
+                                        ).join('-');
+                                    });
+                                    
+                                    let result = titleWords.join('-');
+                                    result = result.replace(/'s/gi, 's').replace(/'/g, '');
+                                    
+                                    // Special case for expansions: "Urza-s-Saga" → "Urzas-Saga"
+                                    if (isExpansion) {
+                                        result = result.replace(/([A-Z][a-z]+)-([s])-([A-Z])/g, '$1$2-$3');
+                                    }
+                                    
+                                    return result;
+                                }
+                                
+                                // Map condition to Cardmarket code
+                                function getConditionCode(condition) {
+                                    if (!condition) return 3; // Default to Excellent
+                                    const cond = condition.toLowerCase();
+                                    if (cond.includes('mint') && !cond.includes('near')) return 1; // Mint
+                                    if (cond.includes('near mint') || cond.includes('nm')) return 2; // Near Mint
+                                    if (cond.includes('excellent') || cond.includes('ex')) return 3; // Excellent
+                                    if (cond.includes('good') || cond.includes('gd')) return 4; // Good
+                                    if (cond.includes('lightly played') || cond.includes('lp')) return 5; // Lightly Played
+                                    if (cond.includes('played') && !cond.includes('lightly') || cond.includes('pl')) return 6; // Played
+                                    if (cond.includes('poor') || cond.includes('po')) return 7; // Poor
+                                    return 3; // Default to Excellent
+                                }
+                                
+                                // Map language to Cardmarket code
+                                function getLanguageCode(language) {
+                                    if (!language || language.toLowerCase() === 'english') return 1;
+                                    const lang = language.toLowerCase();
+                                    if (lang === 'french') return 2;
+                                    if (lang === 'german') return 3;
+                                    if (lang === 'spanish') return 4;
+                                    if (lang === 'italian') return 5;
+                                    return 1; // Default to English
+                                }
+                                
+                                const cardNameFormatted = formatForUrl(card.name, false);
+                                const expansionFormatted = formatForUrl(card.expansion, true);
+                                const conditionCode = getConditionCode(card.condition);
+                                const languageCode = getLanguageCode(card.language);
+                                const foilParam = card.foil ? '&isFoil=Y' : '';
+                                
+                                cardmarketUrl = `https://www.cardmarket.com/en/Magic/Products/Singles/${expansionFormatted}/${cardNameFormatted}?minCondition=${conditionCode}&language=${languageCode}${foilParam}`;
+                            }
+                            
+                            if (cardmarketUrl) {
                                 marketDiv.style.cursor = 'pointer';
                                 marketDiv.style.textDecoration = 'underline';
                                 marketDiv.title += '\\n\\nClick to view on Cardmarket';
                                 marketDiv.addEventListener('click', function(e) {
                                     e.stopPropagation();
-                                    console.log('🔗 Opening Cardmarket URL:', card.market_url);
-                                    window.open(card.market_url, '_blank');
+                                    console.log('🔗 Opening Cardmarket URL:', cardmarketUrl);
+                                    window.open(cardmarketUrl, '_blank');
                                 });
                             }
                             
@@ -3534,17 +3793,28 @@ async def collection_page():
             
             // Add header dropdown if it doesn't exist
             if (!headerExists) {
-                // Find stats container - try multiple selectors
-                let statsContainer = document.getElementById('archived-stats-container');
-                if (!statsContainer) {
-                    // Try to find other stats containers
-                    statsContainer = document.querySelector('.stats-container, .stats-section, [class*="stat"]');
+                // Find binder wrapper - this is where we want to insert the sort controls
+                let binderWrapper = document.getElementById('binderWrapper');
+                let insertTarget = null;
+                let insertBefore = false;
+                
+                if (binderWrapper && binderWrapper.parentElement) {
+                    // Insert right before the binder wrapper
+                    insertTarget = binderWrapper.parentElement;
+                    insertBefore = true;
+                } else {
+                    // Fallback: try to find container element
+                    const container = document.querySelector('.container');
+                    if (container) {
+                        insertTarget = container;
+                        insertBefore = false;
+                    }
                 }
                 
                 // Create sort container (compact, inline style)
                 const sortContainer = document.createElement('div');
                 sortContainer.id = 'collection-sort-container';
-                sortContainer.style.cssText = 'display: flex; align-items: center; gap: 12px; margin-left: auto; flex-wrap: wrap;';
+                sortContainer.style.cssText = 'display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: flex-end; margin: 15px 0; padding: 10px;';
                 
                 const { label, select } = createSortDropdown('collection-sort-dropdown', 'collection-sort-container');
                 const filterCheckbox = createFilterCheckbox('collection-filter-checkbox');
@@ -3558,42 +3828,30 @@ async def collection_page():
                 sortContainer.appendChild(oldSchoolCheckbox);
                 sortContainer.appendChild(premodernCheckbox);
                 
-                // Insert into stats container or create wrapper
-                if (statsContainer) {
-                    // Ensure stats container has flex layout to accommodate sort dropdown
-                    const currentStyle = statsContainer.style.cssText || '';
-                    if (!currentStyle.includes('display: flex')) {
-                        statsContainer.style.cssText = (currentStyle ? currentStyle + ' ' : '') + 'display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 15px;';
-                    } else if (!currentStyle.includes('align-items')) {
-                        statsContainer.style.cssText = currentStyle + ' align-items: center;';
-                    }
-                    
-                    // Make stats more compact if they exist
-                    const statCards = statsContainer.querySelectorAll('div[style*="background"]');
-                    statCards.forEach(card => {
-                        const currentCardStyle = card.style.cssText || '';
-                        // Reduce padding and font sizes if not already compact
-                        if (currentCardStyle.includes('padding: 20px') || currentCardStyle.includes('font-size: 2em')) {
-                            card.style.cssText = currentCardStyle
-                                .replace(/padding:\s*20px/g, 'padding: 12px 16px')
-                                .replace(/font-size:\s*2em/g, 'font-size: 1.5em')
-                                .replace(/min-width:\s*150px/g, 'min-width: 120px');
-                        }
-                    });
-                    
-                    // Add sort dropdown to stats container (only if not already added)
-                    if (!statsContainer.querySelector('#collection-sort-container')) {
-                        statsContainer.appendChild(sortContainer);
+                // Insert into target
+                if (insertTarget) {
+                    if (insertBefore && binderWrapper) {
+                        // Insert right before binder wrapper
+                        insertTarget.insertBefore(sortContainer, binderWrapper);
+                    } else {
+                        // Insert at the beginning of container
+                        insertTarget.insertBefore(sortContainer, insertTarget.firstChild);
                     }
                 } else {
-                    // If no stats container found, try to find main content and create a wrapper
+                    // Last resort: find main content
                     const mainContent = document.querySelector('main, .container, .content, body');
                     if (mainContent) {
-                        // Create a wrapper for stats and sort
-                        const wrapper = document.createElement('div');
-                        wrapper.style.cssText = 'display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 15px; margin: 15px 0;';
-                        wrapper.appendChild(sortContainer);
-                        mainContent.insertBefore(wrapper, mainContent.firstChild);
+                        // Try to find binder wrapper in main content
+                        const binder = mainContent.querySelector('#binderWrapper, .binder-wrapper');
+                        if (binder && binder.parentElement) {
+                            binder.parentElement.insertBefore(sortContainer, binder);
+                        } else {
+                            // Create a wrapper and insert at top
+                            const wrapper = document.createElement('div');
+                            wrapper.style.cssText = 'display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 15px; margin: 15px 0; padding: 10px;';
+                            wrapper.appendChild(sortContainer);
+                            mainContent.insertBefore(wrapper, mainContent.firstChild);
+                        }
                     }
                 }
             }

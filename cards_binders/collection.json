@@ -148,6 +148,23 @@
     "premodern_sets": []
   },
   {
+    "name": "Memory Jar",
+    "sets": [
+      "Urza's Legacy"
+    ],
+    "buy_price": 172.55,
+    "sell_price": 0,
+    "condition": "Excellent",
+    "foil": true,
+    "format_validity": "premodern_only",
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "old_school_sets": [],
+    "premodern_sets": [
+      "ulg"
+    ]
+  },
+  {
     "name": "Icy Manipulator",
     "sets": [
       "Unlimited Edition"
@@ -179,7 +196,11 @@
     "old_school_sets": [
       "2ed"
     ],
-    "premodern_sets": []
+    "premodern_sets": [],
+    "purchase_date": "2026-01-30",
+    "sale_date": "2026-01-30",
+    "source": "600",
+    "market_price": 600.0
   },
   {
     "name": "Hypnotic Specter",
@@ -307,7 +328,10 @@
       "2ed",
       "3ed"
     ],
-    "premodern_sets": []
+    "premodern_sets": [],
+    "purchase_date": "2026-01-30",
+    "sale_date": "2026-01-30",
+    "market_price": 220.0
   },
   {
     "name": "Citta d'Ottone",
@@ -487,7 +511,11 @@
       "3ed",
       "arn"
     ],
-    "premodern_sets": []
+    "premodern_sets": [],
+    "notes": "foreign black border",
+    "purchase_date": "2026-01-30",
+    "sale_date": "2026-01-30",
+    "market_price": 95.0
   },
   {
     "name": "Black Knight",
@@ -974,23 +1002,6 @@
       "mir",
       "tmp",
       "usg"
-    ]
-  },
-  {
-    "name": "Memory Jar",
-    "sets": [
-      "Urza's Legacy"
-    ],
-    "buy_price": 172.55,
-    "sell_price": 0,
-    "condition": "Excellent",
-    "foil": true,
-    "format_validity": "premodern_only",
-    "old_school_legal": false,
-    "premodern_legal": true,
-    "old_school_sets": [],
-    "premodern_sets": [
-      "ulg"
     ]
   },
   {
@@ -2257,21 +2268,5 @@
     "premodern_sets": [
       "Ice Age"
     ]
-  },
-  {
-    "name": "Mox Jet",
-    "sets": [
-      "Unlimited Edition"
-    ],
-    "buy_price": 55,
-    "purchase_date": "2026-01-24",
-    "foil": false,
-    "old_school_legal": true,
-    "premodern_legal": false,
-    "format_validity": "old_school_only",
-    "old_school_sets": [
-      "Unlimited Edition"
-    ],
-    "premodern_sets": []
   }
 ]

@@ -553,96 +553,103 @@ async def api_deals(
     user_id: Optional[int] = None  # Optional user ID to filter deals by user's wishlist
 ):
     """
-    Get deals from a specific result file or database, optionally filtered by source type.
+    Get deals from database or JSON files, optionally filtered by source type.
     
-    When user_id is provided:
-    - Tries to load deals from database first
-    - Filters deals to only show cards in that user's wishlist
-    
-    When user_id is not provided:
-    - Uses original behavior (load from JSON files)
+    Priority:
+    1. Always tries to load from database first (if available and has data)
+    2. If user_id is provided, filters database results to user's wishlist
+    3. Falls back to JSON files only if database is empty or unavailable
     """
     print(f"📊 API /deals: Called with file='{file}', source_type='{source_type}', user_id={user_id}", flush=True)
     
-    # If user_id is provided, try to load from database with user's wishlist filtering
-    user_card_names = None
-    if user_id is not None:
-        user_card_names = get_user_wishlist_card_names(user_id)
-        print(f"📊 API /deals: User {user_id} has {len(user_card_names)} cards in wishlist", flush=True)
-        
-        if user_card_names and DATABASE_AVAILABLE:
-            # Try to get deals from database first
-            db_metadata = database.get_scan_metadata()
-            if db_metadata.get('total_deals', 0) > 0:
-                print(f"📊 API /deals: Loading from database (last scan: {db_metadata.get('last_scan')}, total: {db_metadata.get('total_deals')})", flush=True)
+    # Always try to load from database first (even when logged out)
+    if DATABASE_AVAILABLE:
+        db_metadata = database.get_scan_metadata()
+        if db_metadata.get('total_deals', 0) > 0:
+            print(f"📊 API /deals: Loading from database (last scan: {db_metadata.get('last_scan')}, total: {db_metadata.get('total_deals')})", flush=True)
+            
+            # If user_id is provided, filter by user's wishlist
+            user_card_names = None
+            if user_id is not None:
+                user_card_names = get_user_wishlist_card_names(user_id)
+                print(f"📊 API /deals: User {user_id} has {len(user_card_names)} cards in wishlist, filtering database results", flush=True)
+            
+            # Load deals from database (optionally filtered by user's wishlist)
+            deals = get_deals_from_database(list(user_card_names) if user_card_names else None)
+            print(f"📊 API /deals: Got {len(deals)} deals from database", flush=True)
+            
+            if deals:
+                # Apply all the same filters as JSON-based flow
+                # Apply filters
+                if category:
+                    deals = [d for d in deals if d.get('category') == category]
                 
-                # Load deals from database, filtered by user's wishlist
-                deals = get_deals_from_database(list(user_card_names))
-                print(f"📊 API /deals: Got {len(deals)} deals from database matching user's wishlist", flush=True)
+                if min_discount is not None:
+                    deals = [d for d in deals if d.get('discount') and d.get('discount') >= min_discount]
                 
-                if deals:
-                    # Apply all the same filters as JSON-based flow
-                    # Apply filters
-                    if category:
-                        deals = [d for d in deals if d.get('category') == category]
-                    
-                    if min_discount is not None:
-                        deals = [d for d in deals if d.get('discount') and d.get('discount') >= min_discount]
-                    
-                    # Filter by sets (expansions)
-                    if sets:
-                        allowed_sets = [s.strip().lower() for s in sets.split(',') if s.strip()]
-                        if allowed_sets:
-                            deals = [d for d in deals if d.get('expansion') and str(d.get('expansion', '')).lower() in allowed_sets]
-                    
-                    # Filter by countries
-                    if countries:
-                        allowed_countries = [c.strip().lower() for c in countries.split(',') if c.strip()]
-                        if allowed_countries:
-                            deals = [d for d in deals if d.get('seller_country') and str(d.get('seller_country', '')).lower() in allowed_countries]
-                    
-                    # Filter by price range
-                    if price_min is not None:
-                        deals = [d for d in deals if d.get('price') and d.get('price') >= price_min]
-                    
-                    if price_max is not None:
-                        deals = [d for d in deals if d.get('price') and d.get('price') <= price_max]
-                    
-                    # Filter by minimum available items (liquidity)
-                    if min_available is not None:
-                        deals = [d for d in deals if d.get('available_items_total') is not None and d.get('available_items_total') >= min_available]
-                    
-                    # Apply sorting
-                    reverse = order == 'desc'
-                    
-                    if sort == 'discount':
-                        deals.sort(key=lambda x: x.get('discount') or -999, reverse=reverse)
-                    elif sort == 'discount_vs_avg30':
-                        def calc_discount_vs_avg30(deal):
-                            historical = deal.get('historical', {})
-                            avg30 = historical.get('avg30') or historical.get('AVG30') or 0
-                            price = deal.get('price')
-                            if avg30 and price and avg30 > 0:
-                                return ((avg30 - price) / avg30) * 100
-                            return -999
-                        deals.sort(key=calc_discount_vs_avg30, reverse=reverse)
-                    elif sort == 'price':
-                        deals.sort(key=lambda x: x.get('price') or 999999, reverse=reverse)
-                    elif sort == 'name':
-                        deals.sort(key=lambda x: x.get('card_name', '').lower(), reverse=reverse)
-                    elif sort == 'expansion':
-                        deals.sort(key=lambda x: x.get('expansion', '').lower(), reverse=reverse)
-                    
-                    # Return deals from database
-                    return JSONResponse(content={
-                        'deals': deals,
-                        'total': len(deals),
-                        'file': 'database',
-                        'timestamp': db_metadata.get('last_scan', ''),
-                        'source': 'database',
-                        'user_filtered': True,
-                        'user_wishlist_size': len(user_card_names)
-                    })
+                # Filter by sets (expansions)
+                if sets:
+                    allowed_sets = [s.strip().lower() for s in sets.split(',') if s.strip()]
+                    if allowed_sets:
+                        deals = [d for d in deals if d.get('expansion') and str(d.get('expansion', '')).lower() in allowed_sets]
+                
+                # Filter by countries
+                if countries:
+                    allowed_countries = [c.strip().lower() for c in countries.split(',') if c.strip()]
+                    if allowed_countries:
+                        deals = [d for d in deals if d.get('seller_country') and str(d.get('seller_country', '')).lower() in allowed_countries]
+                
+                # Filter by price range
+                if price_min is not None:
+                    deals = [d for d in deals if d.get('price') and d.get('price') >= price_min]
+                
+                if price_max is not None:
+                    deals = [d for d in deals if d.get('price') and d.get('price') <= price_max]
+                
+                # Filter by minimum available items (liquidity)
+                if min_available is not None:
+                    deals = [d for d in deals if d.get('available_items_total') is not None and d.get('available_items_total') >= min_available]
+                
+                # Apply sorting
+                reverse = order == 'desc'
+                
+                if sort == 'discount':
+                    deals.sort(key=lambda x: x.get('discount') or -999, reverse=reverse)
+                elif sort == 'discount_vs_avg30':
+                    def calc_discount_vs_avg30(deal):
+                        historical = deal.get('historical', {})
+                        avg30 = historical.get('avg30') or historical.get('AVG30') or 0
+                        price = deal.get('price')
+                        if avg30 and price and avg30 > 0:
+                            return ((avg30 - price) / avg30) * 100
+                        return -999
+                    deals.sort(key=calc_discount_vs_avg30, reverse=reverse)
+                elif sort == 'price':
+                    deals.sort(key=lambda x: x.get('price') or 999999, reverse=reverse)
+                elif sort == 'name':
+                    deals.sort(key=lambda x: x.get('card_name', '').lower(), reverse=reverse)
+                elif sort == 'expansion':
+                    deals.sort(key=lambda x: x.get('expansion', '').lower(), reverse=reverse)
+                
+                # Return deals from database
+                response_data = {
+                    'deals': deals,
+                    'total': len(deals),
+                    'file': 'database',
+                    'timestamp': db_metadata.get('last_scan', ''),
+                    'source': 'database',
+                }
+                if user_id is not None and user_card_names:
+                    response_data['user_filtered'] = True
+                    response_data['user_wishlist_size'] = len(user_card_names)
+                
+                return JSONResponse(content=response_data)
+            else:
+                print(f"⚠️  API /deals: Database has metadata but no deals returned, falling back to JSON files", flush=True)
+        else:
+            print(f"⚠️  API /deals: Database has no deals, falling back to JSON files", flush=True)
+    else:
+        print(f"⚠️  API /deals: Database not available, falling back to JSON files", flush=True)
     
     # If file is provided, check if it matches source_type and if it's the newest
     if file and source_type:
@@ -831,7 +838,41 @@ async def api_deals(
 
 @app.get("/api/filter-options")
 async def api_filter_options(file: Optional[str] = None):
-    """Get available filter options (sets, countries) from the newest file."""
+    """Get available filter options (sets, countries) from database or JSON files."""
+    # Try to load from database first
+    if DATABASE_AVAILABLE:
+        db_metadata = database.get_scan_metadata()
+        if db_metadata.get('total_deals', 0) > 0:
+            print(f"📊 API /filter-options: Loading from database (total: {db_metadata.get('total_deals')})", flush=True)
+            
+            # Load all deals from database
+            db_deals = get_deals_from_database()
+            
+            if db_deals:
+                # Extract unique sets and countries from database deals
+                sets = sorted(set(
+                    d.get('expansion', '') for d in db_deals 
+                    if d.get('expansion') and d.get('expansion') != 'Unknown' and d.get('expansion').strip()
+                ))
+                countries = sorted(set(
+                    d.get('seller_country', '') for d in db_deals 
+                    if d.get('seller_country') and d.get('seller_country') != 'Unknown' and d.get('seller_country').strip()
+                ))
+                
+                print(f"📊 API /filter-options: Found {len(sets)} sets and {len(countries)} countries in database", flush=True)
+                return JSONResponse(content={
+                    'sets': sets,
+                    'countries': countries,
+                    'source': 'database'
+                })
+            else:
+                print(f"⚠️  API /filter-options: Database has metadata but no deals, falling back to JSON", flush=True)
+        else:
+            print(f"⚠️  API /filter-options: Database has no deals, falling back to JSON", flush=True)
+    else:
+        print(f"⚠️  API /filter-options: Database not available, falling back to JSON", flush=True)
+    
+    # Fallback to JSON files
     if not file:
         files = get_all_results_files()
         if not files:
@@ -857,9 +898,11 @@ async def api_filter_options(file: Optional[str] = None):
         if d.get('seller_country') and d.get('seller_country') != 'Unknown' and d.get('seller_country').strip()
     ))
     
+    print(f"📊 API /filter-options: Found {len(sets)} sets and {len(countries)} countries in JSON file", flush=True)
     return JSONResponse(content={
         'sets': sets,
-        'countries': countries
+        'countries': countries,
+        'source': 'json'
     })
 
 
