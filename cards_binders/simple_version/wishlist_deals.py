@@ -737,10 +737,16 @@ def check_wishlist_deals(wishlist_file: str,
     
     # Check which cards already have today's scan data (if using database)
     already_scanned = set()
+    already_scanned_by_name = {}  # Map card_name -> set of expansions scanned today
     if source in ("db", "all") and DATABASE_AVAILABLE:
         try:
             already_scanned = database.get_cards_with_scan_date()
             if already_scanned:
+                # Build a lookup by card name only (for flexible matching)
+                for name, exp in already_scanned:
+                    if name not in already_scanned_by_name:
+                        already_scanned_by_name[name] = set()
+                    already_scanned_by_name[name].add(exp)
                 print(f"📊 Found {len(already_scanned)} cards already scanned today - will skip them")
         except Exception as e:
             print(f"⚠️  Could not check existing scan data: {e}")
@@ -750,9 +756,27 @@ def check_wishlist_deals(wishlist_file: str,
         expansion = card.get('expansionName') or card.get('sets', ['Unknown'])[0] if card.get('sets') else 'Unknown'
         
         # Check if this card already has today's scan data
+        # First check exact match, then check if card_name exists with any expansion
         card_key = (card_name, expansion)
+        card_already_scanned = False
+        
         if card_key in already_scanned:
-            print(f"\n[{i}/{len(cards)}] {card_name} ({expansion}) - ⏭️  Already scanned today, skipping...")
+            # Exact match found
+            card_already_scanned = True
+        elif card_name in already_scanned_by_name:
+            # Card name exists in database - check if expansion matches or is "Unknown"
+            # If we have "Unknown" but DB has real expansion, still skip (expansion will be updated)
+            # If DB has the card, we've already scanned it today regardless of expansion mismatch
+            card_already_scanned = True
+        
+        if card_already_scanned:
+            # Show which expansion was actually scanned if different
+            scanned_expansions = already_scanned_by_name.get(card_name, set())
+            if scanned_expansions and expansion not in scanned_expansions:
+                exp_list = ', '.join(sorted(scanned_expansions))
+                print(f"\n[{i}/{len(cards)}] {card_name} ({expansion}) - ⏭️  Already scanned today as ({exp_list}), skipping...")
+            else:
+                print(f"\n[{i}/{len(cards)}] {card_name} ({expansion}) - ⏭️  Already scanned today, skipping...")
             # Still add to deals list with existing data (we'll load it from DB later if needed)
             # For now, skip scraping but add placeholder
             deals.append({

@@ -1032,11 +1032,24 @@ def get_scan_deals(card_names: Optional[List[str]] = None, scan_date: Optional[s
             conditions.append("scan_date = ?")
             params.append(scan_date)
         
+        # Deduplicate: keep only the newest scan_date per unique
+        # (card_name, expansion, cheapest_condition, cheapest_seller).
+        dedup_subquery = """
+            SELECT id FROM (
+                SELECT id, ROW_NUMBER() OVER (
+                    PARTITION BY card_name, expansion, cheapest_condition, cheapest_seller
+                    ORDER BY scan_date DESC, id DESC
+                ) as rn
+                FROM market_scan_deal
+            ) WHERE rn = 1
+        """
+
         if conditions:
             where_clause = " WHERE " + " AND ".join(conditions)
+            where_clause += f" AND id IN ({dedup_subquery})"
             cursor.execute(f"SELECT * FROM market_scan_deal{where_clause} ORDER BY id", params)
         else:
-            cursor.execute("SELECT * FROM market_scan_deal ORDER BY id")
+            cursor.execute(f"SELECT * FROM market_scan_deal WHERE id IN ({dedup_subquery}) ORDER BY id")
         
         rows = cursor.fetchall()
         
