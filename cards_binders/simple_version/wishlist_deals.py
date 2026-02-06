@@ -961,7 +961,7 @@ def check_wishlist_deals(wishlist_file: str,
         
         # Delay between cards (except last one) - longer delays to avoid rate limiting
         if i < len(cards):
-            delay = random.uniform(15, 25)  # 15-25 seconds between cards to avoid rate limiting
+            delay = random.uniform(30, 50)  # 30-50 seconds between cards to avoid rate limiting (2x longer)
             print(f"   ⏳ Waiting {delay:.1f}s before next card...")
             time.sleep(delay)
     
