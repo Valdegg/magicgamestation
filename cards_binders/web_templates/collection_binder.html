@@ -1288,6 +1288,11 @@
                     <button type="button" class="btn-secondary" onclick="closeModal()">Cancel</button>
                     <button type="submit">Save Card</button>
                 </div>
+                <div id="cardmarketLinkContainer" style="display: none; margin-top: 12px; text-align: center;">
+                    <a id="cardmarketLink" href="#" target="_blank" style="color: #c9a84c; text-decoration: none; font-size: 14px; display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border: 1px solid rgba(201,168,76,0.2); border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(201,168,76,0.1)'" onmouseout="this.style.background='transparent'">
+                        View on Cardmarket &#8599;
+                    </a>
+                </div>
             </form>
         </div>
     </div>
@@ -2116,6 +2121,7 @@
             document.getElementById('cardSetsDropdown').classList.remove('show');
             document.getElementById('cardNameDropdown').classList.remove('show');
             document.getElementById('cardSetsInput').placeholder = 'Type to search sets...';
+            document.getElementById('cardmarketLinkContainer').style.display = 'none';
             document.getElementById('cardModal').style.display = 'block';
         }
 
@@ -2155,6 +2161,93 @@
                     setsInput.placeholder = `${cardPrintings.length} valid sets for this card...`;
                 }
             }
+
+            // Build Cardmarket link
+            updateCardmarketLink(item);
+        }
+
+        function updateCardmarketLink(item) {
+            const container = document.getElementById('cardmarketLinkContainer');
+            const link = document.getElementById('cardmarketLink');
+            const cardName = item.name;
+            const sets = item.sets || [];
+            const expansion = sets.length > 0 ? sets[0] : null;
+            const condition = item.condition;
+            const language = item.language;
+            const foil = item.foil;
+
+            if (!cardName || !expansion) {
+                container.style.display = 'none';
+                return;
+            }
+
+            // Map set names to Cardmarket URL slugs where they differ
+            const cardmarketSetNames = {
+                'Revised Edition': 'Revised',
+                'Unlimited Edition': 'Unlimited',
+                'Limited Edition Alpha': 'Alpha',
+                'Limited Edition Beta': 'Beta',
+                'Classic Sixth Edition': 'Classic-Sixth-Edition',
+                'Foreign White Bordered': 'Foreign-White-Bordered',
+                'Foreign Black Bordered': 'Foreign-Black-Bordered',
+                'Introductory Two-Player Set': 'Introductory-Two-Player-Set',
+            };
+            const mappedExpansion = cardmarketSetNames[expansion] || null;
+
+            function formatForUrl(name, isExpansion) {
+                if (!name) return '';
+                let formatted = name.replace(/[\u00e0-\u00e5]/g, 'a').replace(/[\u00e8-\u00eb]/g, 'e')
+                    .replace(/[\u00ec-\u00ef]/g, 'i').replace(/[\u00f2-\u00f6]/g, 'o').replace(/[\u00f9-\u00fc]/g, 'u')
+                    .replace(/[\u00fd\u00ff]/g, 'y').replace(/[\u00f1]/g, 'n').replace(/[\u00e7]/g, 'c');
+                formatted = formatted.replace(/[,:()&!?\/]/g, '');
+                formatted = formatted.replace(/'s /gi, ' s ').replace(/'S /g, ' s ');
+                const words = formatted.split(/\s+/).filter(w => w);
+                const titleWords = words.map(word => {
+                    if (word.toLowerCase() === 's') return 's';
+                    return word.split('-').map(part =>
+                        part.charAt(0).toUpperCase() + part.slice(1).toLowerCase()
+                    ).join('-');
+                });
+                let result = titleWords.join('-');
+                result = result.replace(/'s/gi, 's').replace(/'/g, '');
+                if (isExpansion) {
+                    result = result.replace(/([A-Z][a-z]+)-([s])-([A-Z])/g, '$1$2-$3');
+                }
+                return result;
+            }
+
+            function getConditionCode(cond) {
+                if (!cond) return 3;
+                const c = cond.toLowerCase();
+                if (c.includes('mint') && !c.includes('near')) return 1;
+                if (c.includes('near mint') || c.includes('nm')) return 2;
+                if (c.includes('excellent') || c.includes('ex')) return 3;
+                if (c.includes('good') || c.includes('gd')) return 4;
+                if (c.includes('light') && c.includes('played') || c.includes('lp')) return 5;
+                if (c.includes('played') && !c.includes('light') || c.includes('pl')) return 6;
+                if (c.includes('poor') || c.includes('po')) return 7;
+                return 3;
+            }
+
+            function getLanguageCode(lang) {
+                if (!lang || lang.toLowerCase() === 'english') return 1;
+                const l = lang.toLowerCase();
+                if (l === 'french') return 2;
+                if (l === 'german') return 3;
+                if (l === 'spanish') return 4;
+                if (l === 'italian') return 5;
+                return 1;
+            }
+
+            const cardFormatted = formatForUrl(cardName, false);
+            const expansionFormatted = mappedExpansion || formatForUrl(expansion, true);
+            const conditionCode = getConditionCode(condition);
+            const languageCode = getLanguageCode(language);
+            const foilParam = foil ? '&isFoil=Y' : '';
+
+            const url = 'https://www.cardmarket.com/en/Magic/Products/Singles/' + expansionFormatted + '/' + cardFormatted + '?minCondition=' + conditionCode + '&language=' + languageCode + foilParam;
+            link.href = url;
+            container.style.display = 'block';
         }
 
         function closeModal() {

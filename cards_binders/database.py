@@ -1001,7 +1001,7 @@ def get_cards_with_scan_date(scan_date: Optional[str] = None) -> set:
             conn.close()
 
 
-def get_scan_deals(card_names: Optional[List[str]] = None, scan_date: Optional[str] = None) -> List[Dict[str, Any]]:
+def get_scan_deals(card_names: Optional[List[str]] = None, scan_date: Optional[str] = None, max_age_days: Optional[int] = None) -> List[Dict[str, Any]]:
     """
     Get scan deals, optionally filtered by card names and/or scan date.
     
@@ -1009,6 +1009,8 @@ def get_scan_deals(card_names: Optional[List[str]] = None, scan_date: Optional[s
         card_names: Optional list of card names to filter by. If None, returns all deals.
         scan_date: Optional date string (YYYY-MM-DD) to filter by. If None, returns all dates.
                    Use this to get only today's scans, or scans from a specific date.
+        max_age_days: Optional maximum age in days. Deals with scan_date older than this
+                      many days ago are excluded. If None, no age limit is applied.
     
     Returns:
         List of deal dictionaries in the same nested structure as save_scan_deals expects.
@@ -1031,6 +1033,9 @@ def get_scan_deals(card_names: Optional[List[str]] = None, scan_date: Optional[s
         if scan_date:
             conditions.append("scan_date = ?")
             params.append(scan_date)
+        
+        if max_age_days is not None:
+            conditions.append(f"scan_date >= DATE('now', '-{int(max_age_days)} days')")
         
         # Deduplicate: keep only the newest scan_date per unique
         # (card_name, expansion, cheapest_condition, cheapest_seller).

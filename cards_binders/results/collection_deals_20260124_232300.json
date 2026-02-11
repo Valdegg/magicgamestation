@@ -8,12 +8,12 @@
     "use_historical_data": true
   },
   "summary": {
-    "total_deals": 110,
+    "total_deals": 125,
     "excellent": 75,
     "good": 19,
     "fair": 14,
     "expensive": 0,
-    "no_data": 1
+    "no_data": 16
   },
   "deals": [
     {
@@ -8510,6 +8510,262 @@
         "baseline_count": 4
       },
       "category": "excellent"
+    },
+    {
+      "card": {
+        "name": "Strip Mine",
+        "expansion": "Unknown",
+        "card_id": 6942,
+        "old_school_legal": true,
+        "premodern_legal": false,
+        "historical": {
+          "trend": 39.32,
+          "avg30": 51.1,
+          "avg7": 44.06
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Strip Mine",
+        "expansion": "Unknown",
+        "card_id": 6943,
+        "old_school_legal": true,
+        "premodern_legal": false,
+        "historical": {
+          "trend": 37.95,
+          "avg30": 41.79,
+          "avg7": 44.93
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Strip Mine",
+        "expansion": "Unknown",
+        "card_id": 6944,
+        "old_school_legal": true,
+        "premodern_legal": false,
+        "historical": {
+          "trend": 27.91,
+          "avg30": 25.95,
+          "avg7": 31.85
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Strip Mine",
+        "expansion": "Unknown",
+        "card_id": 6945,
+        "old_school_legal": true,
+        "premodern_legal": false,
+        "historical": {
+          "trend": 41.3,
+          "avg30": 58.78,
+          "avg7": 59.14
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Mana Drain",
+        "expansion": "Unknown",
+        "card_id": 7036,
+        "old_school_legal": true,
+        "premodern_legal": false,
+        "historical": {
+          "trend": 129.75,
+          "avg30": 141.85,
+          "avg7": 120.64
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Ancient Tomb",
+        "expansion": "Unknown",
+        "card_id": 9040,
+        "old_school_legal": false,
+        "premodern_legal": true,
+        "historical": {
+          "trend": 88.38,
+          "avg30": 86.25,
+          "avg7": 88.7
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Phyrexian Devourer",
+        "expansion": "Unknown",
+        "card_id": 8019,
+        "old_school_legal": false,
+        "premodern_legal": true,
+        "historical": {
+          "trend": 50.03,
+          "avg30": 43.2,
+          "avg7": 49.68
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Phyrexian Devourer",
+        "expansion": "Unknown",
+        "card_id": 8019,
+        "old_school_legal": false,
+        "premodern_legal": true,
+        "historical": {
+          "trend": 50.03,
+          "avg30": 43.2,
+          "avg7": 49.68
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Phyrexian Devourer",
+        "expansion": "Unknown",
+        "card_id": 8019,
+        "old_school_legal": false,
+        "premodern_legal": true,
+        "historical": {
+          "trend": 50.03,
+          "avg30": 43.2,
+          "avg7": 49.68
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Phyrexian Devourer",
+        "expansion": "Unknown",
+        "card_id": 8019,
+        "old_school_legal": false,
+        "premodern_legal": true,
+        "historical": {
+          "trend": 50.03,
+          "avg30": 43.2,
+          "avg7": 49.68
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Aluren",
+        "expansion": "Unknown",
+        "card_id": 8842,
+        "old_school_legal": false,
+        "premodern_legal": true,
+        "historical": {
+          "trend": 32.11,
+          "avg30": 31.52,
+          "avg7": 32.1
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Aluren",
+        "expansion": "Unknown",
+        "card_id": 8842,
+        "old_school_legal": false,
+        "premodern_legal": true,
+        "historical": {
+          "trend": 32.11,
+          "avg30": 31.52,
+          "avg7": 32.1
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Aluren",
+        "expansion": "Unknown",
+        "card_id": 8842,
+        "old_school_legal": false,
+        "premodern_legal": true,
+        "historical": {
+          "trend": 32.11,
+          "avg30": 31.52,
+          "avg7": 32.1
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Aluren",
+        "expansion": "Unknown",
+        "card_id": 8842,
+        "old_school_legal": false,
+        "premodern_legal": true,
+        "historical": {
+          "trend": 32.11,
+          "avg30": 31.52,
+          "avg7": 32.1
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
+    },
+    {
+      "card": {
+        "name": "Copy Artifact",
+        "expansion": "Unknown",
+        "card_id": 5581,
+        "old_school_legal": true,
+        "premodern_legal": false,
+        "historical": {
+          "trend": 53.72,
+          "avg30": 49.86,
+          "avg7": 47.4
+        }
+      },
+      "live_data": null,
+      "discounts": null,
+      "category": "no_data"
     }
-  ]
+  ],
+  "last_updated": "2026-02-09 18:12:13"
 }

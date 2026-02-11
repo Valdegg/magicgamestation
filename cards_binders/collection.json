@@ -69,7 +69,7 @@
       "Revised Edition"
     ],
     "buy_price": 2.98,
-    "sell_price": 0,
+    "sell_price": 7,
     "condition": "Near Mint",
     "format_validity": "both",
     "old_school_legal": true,
@@ -86,7 +86,9 @@
       "ice",
       "mmq",
       "tmp"
-    ]
+    ],
+    "purchase_date": "2026-02-09",
+    "sale_date": "2026-02-09"
   },
   {
     "name": "Counterspell",
@@ -162,7 +164,10 @@
     "old_school_sets": [],
     "premodern_sets": [
       "ulg"
-    ]
+    ],
+    "purchase_date": "2026-01-30",
+    "sale_date": "2026-01-30",
+    "market_price": 180.0
   },
   {
     "name": "Icy Manipulator",
@@ -340,7 +345,7 @@
       "Rinascimento"
     ],
     "buy_price": 69.7,
-    "sell_price": 0,
+    "sell_price": 85,
     "condition": "Excellent",
     "format_validity": "both",
     "old_school_legal": true,
@@ -353,7 +358,9 @@
       "6ed",
       "7ed",
       "chr"
-    ]
+    ],
+    "purchase_date": "2026-01-30",
+    "sale_date": "2026-01-30"
   },
   {
     "name": "Disenchant",
@@ -955,7 +962,10 @@
     ],
     "premodern_sets": [
       "4ed"
-    ]
+    ],
+    "purchase_date": "2026-01-30",
+    "sale_date": "2026-01-30",
+    "market_price": 135.0
   },
   {
     "name": "Pestilence",
@@ -1275,7 +1285,7 @@
       "Chronicles"
     ],
     "buy_price": 18.7,
-    "sell_price": 0,
+    "sell_price": 24,
     "condition": "Excellent",
     "format_validity": "both",
     "old_school_legal": true,
@@ -1288,7 +1298,9 @@
       "6ed",
       "7ed",
       "chr"
-    ]
+    ],
+    "purchase_date": "2026-01-30",
+    "sale_date": "2026-01-30"
   },
   {
     "name": "Mana Drain",
@@ -1304,7 +1316,10 @@
     "old_school_sets": [
       "leg"
     ],
-    "premodern_sets": []
+    "premodern_sets": [],
+    "purchase_date": "2026-01-30",
+    "sale_date": "2026-01-30",
+    "market_price": 155.0
   },
   {
     "name": "Mana Drain",
@@ -1320,7 +1335,10 @@
     "old_school_sets": [
       "leg"
     ],
-    "premodern_sets": []
+    "premodern_sets": [],
+    "purchase_date": "2026-01-30",
+    "sale_date": "2026-01-30",
+    "market_price": 155.0
   },
   {
     "name": "Swamp",
@@ -1481,7 +1499,7 @@
       "Tempest"
     ],
     "buy_price": 13.01,
-    "sell_price": 0,
+    "sell_price": 16,
     "condition": "Near Mint",
     "format_validity": "premodern_only",
     "old_school_legal": false,
@@ -1489,7 +1507,9 @@
     "old_school_sets": [],
     "premodern_sets": [
       "tmp"
-    ]
+    ],
+    "purchase_date": "2026-02-09",
+    "sale_date": "2026-02-09"
   },
   {
     "name": "Island",
@@ -1564,7 +1584,7 @@
       "Weatherlight"
     ],
     "buy_price": 5.48,
-    "sell_price": 0,
+    "sell_price": 6.9,
     "condition": "Excellent",
     "format_validity": "premodern_only",
     "old_school_legal": false,
@@ -1573,7 +1593,9 @@
     "premodern_sets": [
       "6ed",
       "wth"
-    ]
+    ],
+    "purchase_date": "2026-02-09",
+    "sale_date": "2026-02-09"
   },
   {
     "name": "Lake of the Dead",
@@ -1661,7 +1683,7 @@
       "Revised Edition"
     ],
     "buy_price": 39.92,
-    "sell_price": 0,
+    "sell_price": 47.5,
     "condition": "Near Mint",
     "format_validity": "old_school_only",
     "old_school_legal": true,
@@ -1670,7 +1692,9 @@
       "2ed",
       "3ed"
     ],
-    "premodern_sets": []
+    "premodern_sets": [],
+    "purchase_date": "2026-01-30",
+    "sale_date": "2026-01-30"
   },
   {
     "name": "Necropotence",
@@ -2079,7 +2103,9 @@
     "old_school_sets": [
       "Legends"
     ],
-    "premodern_sets": []
+    "premodern_sets": [],
+    "market_price": 155.0,
+    "sale_date": "2026-01-30"
   },
   {
     "name": "Mana Drain",
@@ -2096,7 +2122,9 @@
     "old_school_sets": [
       "Legends"
     ],
-    "premodern_sets": []
+    "premodern_sets": [],
+    "market_price": 155.0,
+    "sale_date": "2026-01-30"
   },
   {
     "name": "Time Spiral",
@@ -2268,5 +2296,241 @@
     "premodern_sets": [
       "Ice Age"
     ]
+  },
+  {
+    "name": "Strip Mine",
+    "sets": [
+      "Antiquities"
+    ],
+    "buy_price": 80,
+    "purchase_date": "2026-01-30",
+    "condition": "Near Mint",
+    "sell_price": 90,
+    "sale_date": "2026-01-30",
+    "foil": false,
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "format_validity": "old_school_only",
+    "old_school_sets": [
+      "Antiquities"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Mana Drain",
+    "sets": [
+      "Legends"
+    ],
+    "buy_price": 139,
+    "purchase_date": "2026-02-04",
+    "condition": "Excellent",
+    "source": "Ebay",
+    "market_price": 140,
+    "foil": false,
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "format_validity": "old_school_only",
+    "old_school_sets": [
+      "Legends"
+    ],
+    "premodern_sets": []
+  },
+  {
+    "name": "Ancient Tomb",
+    "sets": [
+      "Tempest"
+    ],
+    "buy_price": 74,
+    "purchase_date": "2026-02-04",
+    "condition": "Excellent",
+    "foil": false,
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "format_validity": "premodern_only",
+    "old_school_sets": [],
+    "premodern_sets": [
+      "Tempest"
+    ]
+  },
+  {
+    "name": "Phyrexian Devourer",
+    "sets": [
+      "Alliances"
+    ],
+    "buy_price": 50,
+    "purchase_date": "2026-02-04",
+    "condition": "Near Mint",
+    "foil": false,
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "format_validity": "premodern_only",
+    "old_school_sets": [],
+    "premodern_sets": [
+      "Alliances"
+    ]
+  },
+  {
+    "name": "Phyrexian Devourer",
+    "sets": [
+      "Alliances"
+    ],
+    "buy_price": 40,
+    "purchase_date": "2026-02-04",
+    "condition": "Excellent",
+    "foil": false,
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "format_validity": "premodern_only",
+    "old_school_sets": [],
+    "premodern_sets": [
+      "Alliances"
+    ]
+  },
+  {
+    "name": "Phyrexian Devourer",
+    "sets": [
+      "Alliances"
+    ],
+    "buy_price": 45,
+    "purchase_date": "2026-02-04",
+    "condition": "Excellent",
+    "foil": false,
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "format_validity": "premodern_only",
+    "old_school_sets": [],
+    "premodern_sets": [
+      "Alliances"
+    ]
+  },
+  {
+    "name": "Phyrexian Devourer",
+    "sets": [
+      "Alliances"
+    ],
+    "buy_price": 40,
+    "purchase_date": "2026-02-04",
+    "condition": "Good",
+    "source": "Cardmarket",
+    "foil": false,
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "format_validity": "premodern_only",
+    "old_school_sets": [],
+    "premodern_sets": [
+      "Alliances"
+    ]
+  },
+  {
+    "name": "Aluren",
+    "sets": [
+      "Tempest"
+    ],
+    "buy_price": 33,
+    "purchase_date": "2026-02-04",
+    "condition": "Near Mint",
+    "source": "Ebay",
+    "foil": false,
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "format_validity": "premodern_only",
+    "old_school_sets": [],
+    "premodern_sets": [
+      "Tempest"
+    ],
+    "sell_price": 35,
+    "sale_date": "2026-02-09"
+  },
+  {
+    "name": "Aluren",
+    "sets": [
+      "Tempest"
+    ],
+    "buy_price": 33,
+    "purchase_date": "2026-02-04",
+    "condition": "Near Mint",
+    "source": "Ebay",
+    "foil": false,
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "format_validity": "premodern_only",
+    "old_school_sets": [],
+    "premodern_sets": [
+      "Tempest"
+    ],
+    "sell_price": 35,
+    "sale_date": "2026-02-09"
+  },
+  {
+    "name": "Aluren",
+    "sets": [
+      "Tempest"
+    ],
+    "buy_price": 33,
+    "purchase_date": "2026-02-04",
+    "condition": "Near Mint",
+    "source": "Ebay",
+    "foil": false,
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "format_validity": "premodern_only",
+    "old_school_sets": [],
+    "premodern_sets": [
+      "Tempest"
+    ],
+    "sell_price": 35,
+    "sale_date": "2026-02-09"
+  },
+  {
+    "name": "Aluren",
+    "sets": [
+      "Tempest"
+    ],
+    "buy_price": 33,
+    "purchase_date": "2026-02-04",
+    "condition": "Near Mint",
+    "source": "Ebay",
+    "foil": false,
+    "old_school_legal": false,
+    "premodern_legal": true,
+    "format_validity": "premodern_only",
+    "old_school_sets": [],
+    "premodern_sets": [
+      "Tempest"
+    ],
+    "sell_price": 35,
+    "sale_date": "2026-02-09"
+  },
+  {
+    "name": "Lightning Bolt",
+    "sets": [
+      "Limited Edition Beta"
+    ],
+    "buy_price": 225,
+    "purchase_date": "2026-02-09",
+    "foil": false,
+    "old_school_legal": false,
+    "premodern_legal": false,
+    "format_validity": "neither",
+    "old_school_sets": [],
+    "premodern_sets": []
+  },
+  {
+    "name": "Copy Artifact",
+    "sets": [
+      "Revised Edition"
+    ],
+    "buy_price": 45,
+    "purchase_date": "2026-02-09",
+    "sell_price": 52.5,
+    "sale_date": "2026-02-09",
+    "foil": false,
+    "old_school_legal": true,
+    "premodern_legal": false,
+    "format_validity": "old_school_only",
+    "old_school_sets": [
+      "Revised Edition"
+    ],
+    "premodern_sets": []
   }
 ]

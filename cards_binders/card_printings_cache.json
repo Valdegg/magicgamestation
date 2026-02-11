@@ -4676,5 +4676,475 @@
       "released": "1996-06",
       "type": "Expansion"
     }
+  ],
+  "demonic tutor": [
+    {
+      "name": "Secret Lair Drop",
+      "code": "SLD",
+      "released": "2025-10",
+      "type": "Box"
+    },
+    {
+      "name": "Commander Masters",
+      "code": "CMM",
+      "released": "2023-08",
+      "type": "Masters"
+    },
+    {
+      "name": "30th Anniversary Edition",
+      "code": "30A",
+      "released": "2022-11",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "The List",
+      "code": "PLST",
+      "released": "2021-07",
+      "type": "Masters"
+    },
+    {
+      "name": "Strixhaven Mystical Archive",
+      "code": "STA",
+      "released": "2021-04",
+      "type": "Masterpiece"
+    },
+    {
+      "name": "Judge Gift Cards 2020",
+      "code": "J20",
+      "released": "2020-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Ultimate Masters",
+      "code": "UMA",
+      "released": "2018-12",
+      "type": "Masters"
+    },
+    {
+      "name": "Ultimate Box Topper",
+      "code": "PUMA",
+      "released": "2018-12",
+      "type": "Masterpiece"
+    },
+    {
+      "name": "Duel Decks Anthology: Divine vs. Demonic",
+      "code": "DVD",
+      "released": "2014-12",
+      "type": "Duel Deck"
+    },
+    {
+      "name": "Vintage Masters",
+      "code": "VMA",
+      "released": "2014-06",
+      "type": "Masters"
+    },
+    {
+      "name": "Magic Online Promos",
+      "code": "PRM",
+      "released": "2013-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Masters Edition IV",
+      "code": "ME4",
+      "released": "2011-01",
+      "type": "Masters"
+    },
+    {
+      "name": "Duel Decks: Divine vs. Demonic",
+      "code": "DDC",
+      "released": "2009-04",
+      "type": "Duel Deck"
+    },
+    {
+      "name": "Judge Gift Cards 2008",
+      "code": "G08",
+      "released": "2008-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Summer Magic / Edgar",
+      "code": "SUM",
+      "released": "1994-06",
+      "type": "Core"
+    },
+    {
+      "name": "Revised Edition",
+      "code": "3ED",
+      "released": "1994-04",
+      "type": "Core"
+    },
+    {
+      "name": "Foreign Black Border",
+      "code": "FBB",
+      "released": "1994-04",
+      "type": "Core"
+    },
+    {
+      "name": "Unlimited Edition",
+      "code": "2ED",
+      "released": "1993-12",
+      "type": "Core"
+    },
+    {
+      "name": "Intl. Collectors' Edition",
+      "code": "CEI",
+      "released": "1993-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Collectors' Edition",
+      "code": "CED",
+      "released": "1993-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Limited Edition Beta",
+      "code": "LEB",
+      "released": "1993-10",
+      "type": "Core"
+    },
+    {
+      "name": "Limited Edition Alpha",
+      "code": "LEA",
+      "released": "1993-08",
+      "type": "Core"
+    }
+  ],
+  "ancient tomb": [
+    {
+      "name": "Edge of Eternities: Stellar Sights",
+      "code": "EOS",
+      "released": "2025-08",
+      "type": "Masterpiece"
+    },
+    {
+      "name": "Tales of Middle-earth Commander",
+      "code": "LTC",
+      "released": "2023-06",
+      "type": "Commander"
+    },
+    {
+      "name": "The List",
+      "code": "PLST",
+      "released": "2021-09",
+      "type": "Masters"
+    },
+    {
+      "name": "Zendikar Rising Expeditions",
+      "code": "ZNE",
+      "released": "2020-09",
+      "type": "Masterpiece"
+    },
+    {
+      "name": "Ultimate Masters",
+      "code": "UMA",
+      "released": "2018-12",
+      "type": "Masters"
+    },
+    {
+      "name": "Ultimate Box Topper",
+      "code": "PUMA",
+      "released": "2018-12",
+      "type": "Masterpiece"
+    },
+    {
+      "name": "Zendikar Expeditions",
+      "code": "EXP",
+      "released": "2016-01",
+      "type": "Masterpiece"
+    },
+    {
+      "name": "Vintage Masters",
+      "code": "VMA",
+      "released": "2014-06",
+      "type": "Masters"
+    },
+    {
+      "name": "From the Vault: Realms",
+      "code": "V12",
+      "released": "2012-08",
+      "type": "From The Vault"
+    },
+    {
+      "name": "World Championship Decks 1999",
+      "code": "WC99",
+      "released": "1999-08",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Tempest",
+      "code": "TMP",
+      "released": "1997-10",
+      "type": "Expansion"
+    }
+  ],
+  "phyrexian devourer": [
+    {
+      "name": "Masters Edition II",
+      "code": "ME2",
+      "released": "2008-09",
+      "type": "Masters"
+    },
+    {
+      "name": "Alliances",
+      "code": "ALL",
+      "released": "1996-06",
+      "type": "Expansion"
+    }
+  ],
+  "aluren": [
+    {
+      "name": "Tempest Remastered",
+      "code": "TPR",
+      "released": "2015-05",
+      "type": "Masters"
+    },
+    {
+      "name": "Tempest",
+      "code": "TMP",
+      "released": "1997-10",
+      "type": "Expansion"
+    }
+  ],
+  "doomsday": [
+    {
+      "name": "Mystery Booster 2",
+      "code": "MB2",
+      "released": "2024-08",
+      "type": "Masters"
+    },
+    {
+      "name": "Secret Lair Drop",
+      "code": "SLD",
+      "released": "2022-11",
+      "type": "Box"
+    },
+    {
+      "name": "The List",
+      "code": "PLST",
+      "released": "2022-09",
+      "type": "Masters"
+    },
+    {
+      "name": "Masters 25",
+      "code": "A25",
+      "released": "2018-03",
+      "type": "Masters"
+    },
+    {
+      "name": "Amonkhet Invocations",
+      "code": "MP2",
+      "released": "2017-04",
+      "type": "Masterpiece"
+    },
+    {
+      "name": "Magic Online Promos",
+      "code": "PRM",
+      "released": "2016-09",
+      "type": "Promo"
+    },
+    {
+      "name": "Classic Sixth Edition",
+      "code": "6ED",
+      "released": "1999-04",
+      "type": "Core"
+    },
+    {
+      "name": "Weatherlight",
+      "code": "WTH",
+      "released": "1997-06",
+      "type": "Expansion"
+    }
+  ],
+  "reanimate": [
+    {
+      "name": "Marvel Universe",
+      "code": "MAR",
+      "released": "2025-09",
+      "type": "Masterpiece"
+    },
+    {
+      "name": "Through the Omenpaths Bonus Sheet",
+      "code": "OMB",
+      "released": "2025-09",
+      "type": "Masterpiece"
+    },
+    {
+      "name": "Final Fantasy Commander",
+      "code": "FIC",
+      "released": "2025-06",
+      "type": "Commander"
+    },
+    {
+      "name": "Duskmourn: House of Horror Commander",
+      "code": "DSC",
+      "released": "2024-09",
+      "type": "Commander"
+    },
+    {
+      "name": "The List",
+      "code": "PLST",
+      "released": "2024-08",
+      "type": "Masters"
+    },
+    {
+      "name": "Breaking News",
+      "code": "OTP",
+      "released": "2024-04",
+      "type": "Masterpiece"
+    },
+    {
+      "name": "Murders at Karlov Manor Commander",
+      "code": "MKC",
+      "released": "2024-02",
+      "type": "Commander"
+    },
+    {
+      "name": "Tales of Middle-earth Commander",
+      "code": "LTC",
+      "released": "2023-06",
+      "type": "Commander"
+    },
+    {
+      "name": "Commander Collection: Black",
+      "code": "CC2",
+      "released": "2022-01",
+      "type": "Arsenal"
+    },
+    {
+      "name": "Jumpstart",
+      "code": "JMP",
+      "released": "2020-07",
+      "type": "Draft Innovation"
+    },
+    {
+      "name": "Ultimate Masters",
+      "code": "UMA",
+      "released": "2018-12",
+      "type": "Masters"
+    },
+    {
+      "name": "Ultimate Box Topper",
+      "code": "PUMA",
+      "released": "2018-12",
+      "type": "Masterpiece"
+    },
+    {
+      "name": "Tempest Remastered",
+      "code": "TPR",
+      "released": "2015-05",
+      "type": "Masters"
+    },
+    {
+      "name": "Magic Online Promos",
+      "code": "PRM",
+      "released": "2014-10",
+      "type": "Promo"
+    },
+    {
+      "name": "Vintage Masters",
+      "code": "VMA",
+      "released": "2014-06",
+      "type": "Masters"
+    },
+    {
+      "name": "Premium Deck Series: Graveborn",
+      "code": "PD3",
+      "released": "2011-11",
+      "type": "Premium Deck"
+    },
+    {
+      "name": "Archenemy",
+      "code": "ARC",
+      "released": "2010-06",
+      "type": "Archenemy"
+    },
+    {
+      "name": "Friday Night Magic 2004",
+      "code": "F04",
+      "released": "2004-01",
+      "type": "Promo"
+    },
+    {
+      "name": "Battle Royale Box Set",
+      "code": "BRB",
+      "released": "1999-11",
+      "type": "Box"
+    },
+    {
+      "name": "Tempest",
+      "code": "TMP",
+      "released": "1997-10",
+      "type": "Expansion"
+    }
+  ],
+  "copy artifact": [
+    {
+      "name": "30th Anniversary Edition",
+      "code": "30A",
+      "released": "2022-11",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Magic Online Promos",
+      "code": "PRM",
+      "released": "2017-09",
+      "type": "Promo"
+    },
+    {
+      "name": "Masters Edition IV",
+      "code": "ME4",
+      "released": "2011-01",
+      "type": "Masters"
+    },
+    {
+      "name": "Summer Magic / Edgar",
+      "code": "SUM",
+      "released": "1994-06",
+      "type": "Core"
+    },
+    {
+      "name": "Revised Edition",
+      "code": "3ED",
+      "released": "1994-04",
+      "type": "Core"
+    },
+    {
+      "name": "Foreign Black Border",
+      "code": "FBB",
+      "released": "1994-04",
+      "type": "Core"
+    },
+    {
+      "name": "Unlimited Edition",
+      "code": "2ED",
+      "released": "1993-12",
+      "type": "Core"
+    },
+    {
+      "name": "Intl. Collectors' Edition",
+      "code": "CEI",
+      "released": "1993-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Collectors' Edition",
+      "code": "CED",
+      "released": "1993-12",
+      "type": "Memorabilia"
+    },
+    {
+      "name": "Limited Edition Beta",
+      "code": "LEB",
+      "released": "1993-10",
+      "type": "Core"
+    },
+    {
+      "name": "Limited Edition Alpha",
+      "code": "LEA",
+      "released": "1993-08",
+      "type": "Core"
+    }
   ]
 }

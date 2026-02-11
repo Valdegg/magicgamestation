@@ -401,7 +401,7 @@ def get_deals_from_database(card_names: Optional[List[str]] = None) -> List[Dict
         return []
     
     try:
-        deals = database.get_scan_deals(card_names)
+        deals = database.get_scan_deals(card_names, max_age_days=3)
         
         # Convert database format to normalized format for web_ui
         normalized_deals = []
