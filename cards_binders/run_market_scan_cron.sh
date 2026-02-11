@@ -53,7 +53,7 @@ fi
 # Step 2: Run the market scan
 cd "$SCRIPT_DIR"
 log "Running market scan (last run: $(date -r "$LOCK_FILE" 2>/dev/null || echo 'never'))"
-if ! "$SCAN_SCRIPT" --source all 25; then
+if ! "$SCAN_SCRIPT" --source all 50; then
     error "Market scan failed!"
     exit 1
 fi
